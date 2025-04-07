@@ -47,7 +47,6 @@ public class Data
     public DesignEnums.Chance chance;
 
 }
-
 public class DataLoader
 {
     public List<Data> ItemsList { get; private set; }
