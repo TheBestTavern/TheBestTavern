@@ -1,0 +1,932 @@
+{
+  "Items": [
+    {
+      "key": 1,
+      "name": "마늘",
+      "grade": 0,
+      "availableRegion": [
+        0
+      ],
+      "availableBiome": 0,
+      "foreignIngredients": 2,
+      "availableSeason": [
+        0,
+        1,
+        2
+      ],
+      "chance": 3
+    },
+    {
+      "key": 2,
+      "name": "고추",
+      "grade": 0,
+      "availableRegion": [
+        0
+      ],
+      "availableBiome": 0,
+      "foreignIngredients": 2,
+      "availableSeason": [
+        0,
+        1,
+        2
+      ],
+      "chance": 3
+    },
+    {
+      "key": 3,
+      "name": "당근",
+      "grade": 0,
+      "availableRegion": [
+        0
+      ],
+      "availableBiome": 0,
+      "foreignIngredients": 2,
+      "availableSeason": [
+        0,
+        1,
+        2
+      ],
+      "chance": 3
+    },
+    {
+      "key": 4,
+      "name": "대파",
+      "grade": 0,
+      "availableRegion": [
+        0
+      ],
+      "availableBiome": 0,
+      "foreignIngredients": 2,
+      "availableSeason": [
+        0,
+        1,
+        2
+      ],
+      "chance": 3
+    },
+    {
+      "key": 5,
+      "name": "상추",
+      "grade": 0,
+      "availableRegion": [
+        0
+      ],
+      "availableBiome": 0,
+      "foreignIngredients": 2,
+      "availableSeason": [
+        0,
+        1,
+        2
+      ],
+      "chance": 3
+    },
+    {
+      "key": 6,
+      "name": "깻잎",
+      "grade": 0,
+      "availableRegion": [
+        0
+      ],
+      "availableBiome": 0,
+      "foreignIngredients": 2,
+      "availableSeason": [
+        0,
+        1,
+        2
+      ],
+      "chance": 3
+    },
+    {
+      "key": 7,
+      "name": "더덕",
+      "grade": 1,
+      "availableRegion": [
+        1
+      ],
+      "availableBiome": 0,
+      "foreignIngredients": 2,
+      "availableSeason": [
+        0
+      ],
+      "chance": 1
+    },
+    {
+      "key": 8,
+      "name": "대두",
+      "grade": 0,
+      "availableRegion": [
+        1
+      ],
+      "availableBiome": 0,
+      "foreignIngredients": 2,
+      "availableSeason": [
+        1
+      ],
+      "chance": 2
+    },
+    {
+      "key": 9,
+      "name": "감자",
+      "grade": 0,
+      "availableRegion": [
+        1
+      ],
+      "availableBiome": 0,
+      "foreignIngredients": 2,
+      "availableSeason": [
+        3
+      ],
+      "chance": 2
+    },
+    {
+      "key": 10,
+      "name": "고사리",
+      "grade": 0,
+      "availableRegion": [
+        2,
+        12
+      ],
+      "availableBiome": 0,
+      "foreignIngredients": 2,
+      "availableSeason": [
+        0
+      ],
+      "chance": 2
+    },
+    {
+      "key": 11,
+      "name": "꿀",
+      "grade": 1,
+      "availableRegion": [
+        2,
+        12
+      ],
+      "availableBiome": 0,
+      "foreignIngredients": 2,
+      "availableSeason": [
+        0
+      ],
+      "chance": 1
+    },
+    {
+      "key": 12,
+      "name": "무",
+      "grade": 0,
+      "availableRegion": [
+        2,
+        12,
+        4
+      ],
+      "availableBiome": 0,
+      "foreignIngredients": 2,
+      "availableSeason": [
+        3
+      ],
+      "chance": 2
+    },
+    {
+      "key": 13,
+      "name": "연근",
+      "grade": 1,
+      "availableRegion": [
+        11
+      ],
+      "availableBiome": 0,
+      "foreignIngredients": 2,
+      "availableSeason": [
+        2
+      ],
+      "chance": 1
+    },
+    {
+      "key": 14,
+      "name": "조선 인삼",
+      "grade": 2,
+      "availableRegion": [
+        11
+      ],
+      "availableBiome": 0,
+      "foreignIngredients": 2,
+      "availableSeason": [
+        2
+      ],
+      "chance": 0
+    },
+    {
+      "key": 15,
+      "name": "고구마",
+      "grade": 0,
+      "availableRegion": [
+        11
+      ],
+      "availableBiome": 0,
+      "foreignIngredients": 2,
+      "availableSeason": [
+        3
+      ],
+      "chance": 2
+    },
+    {
+      "key": 16,
+      "name": "취나물",
+      "grade": 0,
+      "availableRegion": [
+        4
+      ],
+      "availableBiome": 0,
+      "foreignIngredients": 2,
+      "availableSeason": [
+        0
+      ],
+      "chance": 2
+    },
+    {
+      "key": 17,
+      "name": "두릅",
+      "grade": 1,
+      "availableRegion": [
+        4
+      ],
+      "availableBiome": 0,
+      "foreignIngredients": 2,
+      "availableSeason": [
+        0
+      ],
+      "chance": 1
+    },
+    {
+      "key": 18,
+      "name": "밤",
+      "grade": 0,
+      "availableRegion": [
+        4
+      ],
+      "availableBiome": 0,
+      "foreignIngredients": 2,
+      "availableSeason": [
+        2
+      ],
+      "chance": 2
+    },
+    {
+      "key": 19,
+      "name": "감",
+      "grade": 0,
+      "availableRegion": [
+        4
+      ],
+      "availableBiome": 0,
+      "foreignIngredients": 2,
+      "availableSeason": [
+        2
+      ],
+      "chance": 2
+    },
+    {
+      "key": 20,
+      "name": "배",
+      "grade": 0,
+      "availableRegion": [
+        4
+      ],
+      "availableBiome": 0,
+      "foreignIngredients": 2,
+      "availableSeason": [
+        2
+      ],
+      "chance": 2
+    },
+    {
+      "key": 21,
+      "name": "호두",
+      "grade": 1,
+      "availableRegion": [
+        4
+      ],
+      "availableBiome": 0,
+      "foreignIngredients": 2,
+      "availableSeason": [
+        2
+      ],
+      "chance": 1
+    },
+    {
+      "key": 22,
+      "name": "우엉",
+      "grade": 0,
+      "availableRegion": [
+        4
+      ],
+      "availableBiome": 0,
+      "foreignIngredients": 2,
+      "availableSeason": [
+        3
+      ],
+      "chance": 2
+    },
+    {
+      "key": 23,
+      "name": "도라지",
+      "grade": 1,
+      "availableRegion": [
+        6
+      ],
+      "availableBiome": 0,
+      "foreignIngredients": 2,
+      "availableSeason": [
+        1
+      ],
+      "chance": 1
+    },
+    {
+      "key": 24,
+      "name": "사과",
+      "grade": 0,
+      "availableRegion": [
+        6
+      ],
+      "availableBiome": 0,
+      "foreignIngredients": 2,
+      "availableSeason": [
+        2
+      ],
+      "chance": 2
+    },
+    {
+      "key": 25,
+      "name": "약주",
+      "grade": 2,
+      "availableRegion": [
+        6
+      ],
+      "availableBiome": 0,
+      "foreignIngredients": 2,
+      "availableSeason": [
+        3
+      ],
+      "chance": 0
+    },
+    {
+      "key": 26,
+      "name": "귀리",
+      "grade": 0,
+      "availableRegion": [
+        9
+      ],
+      "availableBiome": 0,
+      "foreignIngredients": 2,
+      "availableSeason": [
+        1
+      ],
+      "chance": 2
+    },
+    {
+      "key": 27,
+      "name": "표고버섯",
+      "grade": 1,
+      "availableRegion": [
+        9
+      ],
+      "availableBiome": 0,
+      "foreignIngredients": 2,
+      "availableSeason": [
+        2
+      ],
+      "chance": 1
+    },
+    {
+      "key": 28,
+      "name": "죽순",
+      "grade": 1,
+      "availableRegion": [
+        9
+      ],
+      "availableBiome": 0,
+      "foreignIngredients": 1,
+      "availableSeason": [
+        0
+      ],
+      "chance": 1
+    },
+    {
+      "key": 29,
+      "name": "두반장 원료",
+      "grade": 2,
+      "availableRegion": [
+        9
+      ],
+      "availableBiome": 0,
+      "foreignIngredients": 1,
+      "availableSeason": [
+        1
+      ],
+      "chance": 0
+    },
+    {
+      "key": 30,
+      "name": "화자오",
+      "grade": 2,
+      "availableRegion": [
+        9
+      ],
+      "availableBiome": 0,
+      "foreignIngredients": 1,
+      "availableSeason": [
+        1
+      ],
+      "chance": 0
+    },
+    {
+      "key": 31,
+      "name": "목이버섯",
+      "grade": 1,
+      "availableRegion": [
+        9
+      ],
+      "availableBiome": 0,
+      "foreignIngredients": 1,
+      "availableSeason": [
+        2
+      ],
+      "chance": 1
+    },
+    {
+      "key": 32,
+      "name": "정어리",
+      "grade": 0,
+      "availableRegion": [
+        0
+      ],
+      "availableBiome": 1,
+      "foreignIngredients": 2,
+      "availableSeason": [
+        0,
+        1,
+        2
+      ],
+      "chance": 3
+    },
+    {
+      "key": 33,
+      "name": "멸치",
+      "grade": 0,
+      "availableRegion": [
+        0
+      ],
+      "availableBiome": 1,
+      "foreignIngredients": 2,
+      "availableSeason": [
+        0,
+        1,
+        2
+      ],
+      "chance": 3
+    },
+    {
+      "key": 34,
+      "name": "바지락",
+      "grade": 0,
+      "availableRegion": [
+        0
+      ],
+      "availableBiome": 1,
+      "foreignIngredients": 2,
+      "availableSeason": [
+        0,
+        1,
+        2
+      ],
+      "chance": 3
+    },
+    {
+      "key": 35,
+      "name": "홍합",
+      "grade": 0,
+      "availableRegion": [
+        0
+      ],
+      "availableBiome": 1,
+      "foreignIngredients": 2,
+      "availableSeason": [
+        0,
+        1,
+        2
+      ],
+      "chance": 3
+    },
+    {
+      "key": 36,
+      "name": "고등어",
+      "grade": 0,
+      "availableRegion": [
+        1
+      ],
+      "availableBiome": 1,
+      "foreignIngredients": 2,
+      "availableSeason": [
+        2
+      ],
+      "chance": 2
+    },
+    {
+      "key": 37,
+      "name": "명태",
+      "grade": 0,
+      "availableRegion": [
+        1
+      ],
+      "availableBiome": 1,
+      "foreignIngredients": 2,
+      "availableSeason": [
+        3
+      ],
+      "chance": 2
+    },
+    {
+      "key": 38,
+      "name": "김",
+      "grade": 0,
+      "availableRegion": [
+        1,
+        3
+      ],
+      "availableBiome": 1,
+      "foreignIngredients": 2,
+      "availableSeason": [
+        3
+      ],
+      "chance": 2
+    },
+    {
+      "key": 39,
+      "name": "참 돔",
+      "grade": 2,
+      "availableRegion": [
+        2
+      ],
+      "availableBiome": 1,
+      "foreignIngredients": 2,
+      "availableSeason": [
+        1
+      ],
+      "chance": 0
+    },
+    {
+      "key": 40,
+      "name": "굴",
+      "grade": 0,
+      "availableRegion": [
+        2,
+        3
+      ],
+      "availableBiome": 1,
+      "foreignIngredients": 2,
+      "availableSeason": [
+        3
+      ],
+      "chance": 2
+    },
+    {
+      "key": 41,
+      "name": "해삼",
+      "grade": 1,
+      "availableRegion": [
+        2,
+        5
+      ],
+      "availableBiome": 1,
+      "foreignIngredients": 2,
+      "availableSeason": [
+        3
+      ],
+      "chance": 1
+    },
+    {
+      "key": 42,
+      "name": "숭어",
+      "grade": 0,
+      "availableRegion": [
+        11,
+        5
+      ],
+      "availableBiome": 1,
+      "foreignIngredients": 2,
+      "availableSeason": [
+        0
+      ],
+      "chance": 2
+    },
+    {
+      "key": 43,
+      "name": "삼치",
+      "grade": 0,
+      "availableRegion": [
+        11
+      ],
+      "availableBiome": 1,
+      "foreignIngredients": 2,
+      "availableSeason": [
+        0
+      ],
+      "chance": 2
+    },
+    {
+      "key": 44,
+      "name": "갈치",
+      "grade": 0,
+      "availableRegion": [
+        11,
+        3
+      ],
+      "availableBiome": 1,
+      "foreignIngredients": 2,
+      "availableSeason": [
+        2
+      ],
+      "chance": 2
+    },
+    {
+      "key": 45,
+      "name": "미역",
+      "grade": 1,
+      "availableRegion": [
+        6
+      ],
+      "availableBiome": 1,
+      "foreignIngredients": 2,
+      "availableSeason": [
+        0
+      ],
+      "chance": 1
+    },
+    {
+      "key": 46,
+      "name": "전복",
+      "grade": 1,
+      "availableRegion": [
+        6,
+        3
+      ],
+      "availableBiome": 1,
+      "foreignIngredients": 2,
+      "availableSeason": [
+        1
+      ],
+      "chance": 1
+    },
+    {
+      "key": 47,
+      "name": "대구",
+      "grade": 0,
+      "availableRegion": [
+        4,
+        3
+      ],
+      "availableBiome": 1,
+      "foreignIngredients": 2,
+      "availableSeason": [
+        3
+      ],
+      "chance": 2
+    },
+    {
+      "key": 48,
+      "name": "꽃게",
+      "grade": 0,
+      "availableRegion": [
+        9
+      ],
+      "availableBiome": 1,
+      "foreignIngredients": 2,
+      "availableSeason": [
+        0
+      ],
+      "chance": 2
+    },
+    {
+      "key": 49,
+      "name": "오징어",
+      "grade": 0,
+      "availableRegion": [
+        9
+      ],
+      "availableBiome": 1,
+      "foreignIngredients": 2,
+      "availableSeason": [
+        2
+      ],
+      "chance": 2
+    },
+    {
+      "key": 50,
+      "name": "다시마",
+      "grade": 0,
+      "availableRegion": [
+        9
+      ],
+      "availableBiome": 1,
+      "foreignIngredients": 2,
+      "availableSeason": [
+        3
+      ],
+      "chance": 2
+    },
+    {
+      "key": 51,
+      "name": "털게",
+      "grade": 2,
+      "availableRegion": [
+        9
+      ],
+      "availableBiome": 1,
+      "foreignIngredients": 2,
+      "availableSeason": [
+        3
+      ],
+      "chance": 0
+    },
+    {
+      "key": 52,
+      "name": "새우",
+      "grade": 0,
+      "availableRegion": [
+        3
+      ],
+      "availableBiome": 1,
+      "foreignIngredients": 2,
+      "availableSeason": [
+        1
+      ],
+      "chance": 2
+    },
+    {
+      "key": 53,
+      "name": "대하",
+      "grade": 2,
+      "availableRegion": [
+        3
+      ],
+      "availableBiome": 1,
+      "foreignIngredients": 2,
+      "availableSeason": [
+        1
+      ],
+      "chance": 0
+    },
+    {
+      "key": 54,
+      "name": "석화",
+      "grade": 2,
+      "availableRegion": [
+        3
+      ],
+      "availableBiome": 1,
+      "foreignIngredients": 2,
+      "availableSeason": [
+        3
+      ],
+      "chance": 0
+    },
+    {
+      "key": 55,
+      "name": "대합",
+      "grade": 1,
+      "availableRegion": [
+        5
+      ],
+      "availableBiome": 1,
+      "foreignIngredients": 2,
+      "availableSeason": [
+        1
+      ],
+      "chance": 1
+    },
+    {
+      "key": 56,
+      "name": "쥐치",
+      "grade": 1,
+      "availableRegion": [
+        5
+      ],
+      "availableBiome": 1,
+      "foreignIngredients": 2,
+      "availableSeason": [
+        1
+      ],
+      "chance": 1
+    },
+    {
+      "key": 57,
+      "name": "톳",
+      "grade": 0,
+      "availableRegion": [
+        5
+      ],
+      "availableBiome": 1,
+      "foreignIngredients": 2,
+      "availableSeason": [
+        3
+      ],
+      "chance": 2
+    },
+    {
+      "key": 58,
+      "name": "방어",
+      "grade": 2,
+      "availableRegion": [
+        5
+      ],
+      "availableBiome": 1,
+      "foreignIngredients": 2,
+      "availableSeason": [
+        3
+      ],
+      "chance": 0
+    },
+    {
+      "key": 59,
+      "name": "시소잎",
+      "grade": 1,
+      "availableRegion": [
+        5
+      ],
+      "availableBiome": 1,
+      "foreignIngredients": 0,
+      "availableSeason": [
+        0,
+        1
+      ],
+      "chance": 1
+    },
+    {
+      "key": 60,
+      "name": "이리코",
+      "grade": 1,
+      "availableRegion": [
+        5
+      ],
+      "availableBiome": 1,
+      "foreignIngredients": 0,
+      "availableSeason": [
+        2
+      ],
+      "chance": 1
+    },
+    {
+      "key": 61,
+      "name": "미소된장",
+      "grade": 1,
+      "availableRegion": [
+        5
+      ],
+      "availableBiome": 1,
+      "foreignIngredients": 0,
+      "availableSeason": [
+        3
+      ],
+      "chance": 1
+    },
+    {
+      "key": 62,
+      "name": "유자",
+      "grade": 2,
+      "availableRegion": [
+        5
+      ],
+      "availableBiome": 1,
+      "foreignIngredients": 0,
+      "availableSeason": [
+        0
+      ],
+      "chance": 0
+    },
+    {
+      "key": 63,
+      "name": "와사비 뿌리",
+      "grade": 2,
+      "availableRegion": [
+        5
+      ],
+      "availableBiome": 1,
+      "foreignIngredients": 0,
+      "availableSeason": [
+        3
+      ],
+      "chance": 0
+    },
+    {
+      "key": 64,
+      "name": "가쓰오부시",
+      "grade": 2,
+      "availableRegion": [
+        5
+      ],
+      "availableBiome": 1,
+      "foreignIngredients": 0,
+      "availableSeason": [
+        3
+      ],
+      "chance": 0
+    }
+  ]
+}
