@@ -6,14 +6,15 @@ using UnityEngine.UI;
 public class BasePopUp : MonoBehaviour
 {
     [SerializeField] private Button closeButton;
+    public UIType uIType;
 
-    private void Awake()
+    public virtual void Awake()
     {
         closeButton.onClick.AddListener(OnClickCloseButton);
     }
 
-    void OnClickCloseButton()
+    public virtual void OnClickCloseButton()
     {
-        gameObject.SetActive(false);
+        UIManager.Instance.HidePopUp(uIType);
     }
 }

@@ -6,6 +6,7 @@ using static UnityEngine.InputSystem.InputAction;
 
 public class PlayerInput : MonoBehaviour
 {
+    // ESC
     public void OnPause(InputAction.CallbackContext context)
     {
         if(context.phase == InputActionPhase.Performed)
@@ -14,6 +15,7 @@ public class PlayerInput : MonoBehaviour
         }
     }
 
+    // TAB
     public void OnMenu(InputAction.CallbackContext context)
     {
         if (context.phase == InputActionPhase.Performed)

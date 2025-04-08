@@ -12,8 +12,8 @@ public enum UIType
 
 public class UIManager : MonoSingleton<UIManager>
 {
-    public MainUI mainUI;
-    public OptionPopUp optionPopUp;
+    public MainSceneUI mainUI;
+    public SettingPopUp settingPopUp;
     public MenuPopUp menuPopUp;
 
     public void ShowPopUp(UIType type)
@@ -21,12 +21,12 @@ public class UIManager : MonoSingleton<UIManager>
         switch (type)
         {
             case UIType.Setting:
-                if (optionPopUp == null)
+                if (settingPopUp == null)
                 {
-                    GameObject go = Instantiate(LoadPopUpResource("OptionPopUpPrefab"));
-                    optionPopUp = go.GetComponentInChildren<OptionPopUp>();
+                    GameObject go = Instantiate(LoadPopUpResource("SettingPopUpPrefab"));
+                    settingPopUp = go.GetComponentInChildren<SettingPopUp>();
                 }
-                optionPopUp.gameObject.SetActive(true);
+                settingPopUp.gameObject.SetActive(true);
                 Time.timeScale = 0;
                 break;
             case UIType.Menu:
@@ -45,7 +45,7 @@ public class UIManager : MonoSingleton<UIManager>
         switch (type)
         {
             case UIType.Setting:
-                optionPopUp.gameObject.SetActive(false);
+                settingPopUp.gameObject.SetActive(false);
                 Time.timeScale = 1;
                 break;
             case UIType.Menu:

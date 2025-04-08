@@ -12,8 +12,9 @@ GameObject:
   - component: {fileID: 1572548885070729624}
   - component: {fileID: 1595057888120513882}
   - component: {fileID: 4777527903268779664}
+  - component: {fileID: 5394552706906754372}
   m_Layer: 5
-  m_Name: OptionPopUpPrefab
+  m_Name: SettingPopUpPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -102,6 +103,19 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &5394552706906754372
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3309733205007815042}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d4cf3c1a1b6be846bb5c5c3fe91b921, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  closeButton: {fileID: 6450187425006643512}
 --- !u!1 &3411798860091646504
 GameObject:
   m_ObjectHideFlags: 0
@@ -232,9 +246,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9040035599985246195}
-  - component: {fileID: 4908878557154189397}
   m_Layer: 5
-  m_Name: Option
+  m_Name: Setting
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -261,19 +274,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &4908878557154189397
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5349449667758316873}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6d4cf3c1a1b6be846bb5c5c3fe91b921, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  closeButton: {fileID: 6450187425006643512}
 --- !u!1 &5501821807168677207
 GameObject:
   m_ObjectHideFlags: 0
@@ -286,7 +286,7 @@ GameObject:
   - component: {fileID: 4122245507562869214}
   - component: {fileID: 7700760720803098049}
   m_Layer: 5
-  m_Name: OptionBackGround
+  m_Name: SettingBackGround
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
