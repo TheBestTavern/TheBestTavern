@@ -15,7 +15,6 @@ public class SceneLoader : MonoSingleton<SceneLoader>
 
     public async UniTask LoadSceneAsync(string sceneName)
     {
-        // 로딩 화면 띄우기
         await ShowLoadingScene();
 
         AsyncOperation op = SceneManager.LoadSceneAsync(sceneName);

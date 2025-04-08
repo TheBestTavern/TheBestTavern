@@ -16,12 +16,12 @@ public class MainUI : MonoBehaviour
 
     void OnClickCookingButton()
     {
-        _ = SceneLoader.Instace.LoadSceneAsync("CookingSceneDev");
+        _ = SceneLoader.Instance.LoadSceneAsync("CookingSceneDev");
     }
 
     void OnGatheringSceneButton()
     {
-        _ = SceneLoader.Instace.LoadSceneAsync("GatheringSceneDev");
+        _ = SceneLoader.Instance.LoadSceneAsync("GatheringSceneDev");
     }
 
 }
