@@ -44,5 +44,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7abd956fb99a0f4a890c82bbaa7e755, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isDontDestroyOnLoad: 0
+  isDontDestroyOnLoad: 1
   loadingUIPrefab: {fileID: 9122210735470884584, guid: 6d70c596434d0074f9c4173dbcd7b922, type: 3}
