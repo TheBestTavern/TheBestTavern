@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -16,7 +16,7 @@ public class MonoSingleton<T> : MonoBehaviour where T : MonoBehaviour
             {
                 string name = typeof(T).Name;
                 _instance = new GameObject(name).AddComponent<T>();
-                Debug.Log("싱글톤 생성");
+                Debug.Log($"{name} 싱글톤 오브젝트 생성");
             }
             return _instance;
         }

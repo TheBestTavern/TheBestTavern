@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DataManager : MonoSingleton<DataManager>
 {
-    [field: SerializeField] public DataLoader DataLoader {  get; private set; }
+    [field: SerializeField] public Data_IngredientsLoader DataLoader {  get; private set; }
 
     protected override void Awake()
     {
@@ -14,6 +14,6 @@ public class DataManager : MonoSingleton<DataManager>
 
     public void Init()
     {
-        DataLoader = new DataLoader();
+        DataLoader = new Data_IngredientsLoader();
     }
 }

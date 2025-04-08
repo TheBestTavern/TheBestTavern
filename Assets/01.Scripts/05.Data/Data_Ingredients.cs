@@ -4,7 +4,7 @@ using System.IO;
 using UnityEngine;
 
 [Serializable]
-public class Data
+public class Data_Ingredients
 {
     /// <summary>
     /// 고유번호
@@ -47,17 +47,17 @@ public class Data
     public DesignEnums.Chance chance;
 
 }
-public class DataLoader
+public class Data_IngredientsLoader
 {
-    public List<Data> ItemsList { get; private set; }
-    public Dictionary<int, Data> ItemsDict { get; private set; }
+    public List<Data_Ingredients> ItemsList { get; private set; }
+    public Dictionary<int, Data_Ingredients> ItemsDict { get; private set; }
 
-    public DataLoader(string path = "JSON/Data")
+    public Data_IngredientsLoader(string path = "JSON/Data_Ingredients")
     {
         string jsonData;
         jsonData = Resources.Load<TextAsset>(path).text;
         ItemsList = JsonUtility.FromJson<Wrapper>(jsonData).Items;
-        ItemsDict = new Dictionary<int, Data>();
+        ItemsDict = new Dictionary<int, Data_Ingredients>();
         foreach (var item in ItemsList)
         {
             ItemsDict.Add(item.key, item);
@@ -67,10 +67,10 @@ public class DataLoader
     [Serializable]
     private class Wrapper
     {
-        public List<Data> Items;
+        public List<Data_Ingredients> Items;
     }
 
-    public Data GetByKey(int key)
+    public Data_Ingredients GetByKey(int key)
     {
         if (ItemsDict.ContainsKey(key))
         {
@@ -78,7 +78,7 @@ public class DataLoader
         }
         return null;
     }
-    public Data GetByIndex(int index)
+    public Data_Ingredients GetByIndex(int index)
     {
         if (index >= 0 && index < ItemsList.Count)
         {

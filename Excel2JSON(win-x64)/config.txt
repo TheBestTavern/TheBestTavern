@@ -7,7 +7,7 @@ jsonOutputDirectory=json_output # JSON 파일 출력 디렉토리 경로
 useAbsolutePath = false # 절대 경로를 사용할지 여부 (true: 절대 경로, false: 실행 파일 기준 상대 경로)
 
 # 다중 시트 설정
-allowMultipleSheets=false # 다중 시트를 허용할지 여부 (true/false)
+allowMultipleSheets=true # 다중 시트를 허용할지 여부 (true/false)
 
 # Resources 사용 설정
 useResources=true # Resources 폴더 사용 여부 (true/false)
