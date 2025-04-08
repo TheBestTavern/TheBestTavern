@@ -1,64 +1,44 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public enum UIType
+public enum PopUpType
 {
     Setting,
     Menu,
+    SelectMap,
 }
 
 
 public class UIManager : MonoSingleton<UIManager>
 {
-    public MainSceneUI mainUI;
-    public SettingPopUp settingPopUp;
-    public MenuPopUp menuPopUp;
+    private Dictionary<PopUpType, BasePopUp> popUps = new Dictionary<PopUpType, BasePopUp>();
 
-    public void ShowPopUp(UIType type)
+    public void ShowPopUp(PopUpType type)
     {
-        switch (type)
+        if (!popUps.TryGetValue(type, out var popUp))
         {
-            case UIType.Setting:
-                if (settingPopUp == null)
-                {
-                    GameObject go = Instantiate(LoadPopUpResource("SettingPopUpPrefab"));
-                    settingPopUp = go.GetComponentInChildren<SettingPopUp>();
-                }
-                settingPopUp.gameObject.SetActive(true);
-                Time.timeScale = 0;
-                break;
-            case UIType.Menu:
-                if (menuPopUp == null)
-                {
-                    GameObject go = Instantiate(LoadPopUpResource("MenuPopUpPrefab"));
-                    menuPopUp = go.GetComponentInChildren<MenuPopUp>();
-                }
-                menuPopUp.gameObject.SetActive(true);
-                break;
+            GameObject go = Instantiate(LoadPopUpResource(type.ToString()));
+            popUp = go.GetComponentInChildren<BasePopUp>();
+            popUps.Add(type, popUp);
         }
+
+        popUp.gameObject.SetActive(true);
     }
 
-    public void HidePopUp(UIType type)
+    public void HidePopUp(PopUpType type)
     {
-        switch (type)
+        if (popUps.TryGetValue(type, out var popUp))
         {
-            case UIType.Setting:
-                settingPopUp.gameObject.SetActive(false);
-                Time.timeScale = 1;
-                break;
-            case UIType.Menu:
-                menuPopUp.gameObject.SetActive(false);
-                break;
+            popUp.gameObject.SetActive(false);
         }
     }
 
     private GameObject LoadPopUpResource(string resourceName)
     {
-        GameObject resource = Resources.Load<GameObject>($"UI/PopUp/{resourceName}");
-        if (resource == null)
-            Debug.LogError($"UI Resource '{resourceName}' not found in path ");
+        GameObject resource = Resources.Load<GameObject>($"UI/PopUp/{resourceName}PopUpPrefab");
         return resource;
     }
 }

@@ -11,7 +11,7 @@ public class PlayerInput : MonoBehaviour
     {
         if(context.phase == InputActionPhase.Performed)
         {
-            UIManager.Instance.ShowPopUp(UIType.Setting);
+            UIManager.Instance.ShowPopUp(PopUpType.Setting);
         }
     }
 
@@ -20,7 +20,7 @@ public class PlayerInput : MonoBehaviour
     {
         if (context.phase == InputActionPhase.Performed)
         {
-            UIManager.Instance.ShowPopUp(UIType.Menu);
+            UIManager.Instance.ShowPopUp(PopUpType.Menu);
         }
     }
 }

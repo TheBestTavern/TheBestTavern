@@ -773,7 +773,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2755912758425508122}
-  - component: {fileID: 7533749149718366868}
+  - component: {fileID: 4966715432608277266}
   m_Layer: 5
   m_Name: MainUI
   m_TagString: Untagged
@@ -781,6 +781,20 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &4966715432608277266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4966715432608277265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cb1d83063114d8429aedec1c4f33d37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cookingSceneButton: {fileID: 7210337987937047673}
+  gatheringSceneButton: {fileID: 3876897182951601153}
 --- !u!1 &5077271910953052244
 GameObject:
   m_ObjectHideFlags: 0
@@ -1055,20 +1069,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &7533749149718366868
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4966715432608277265}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59cda16c3a23af04bbb5cdda75b2481e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cookingSceneButton: {fileID: 7210337987937047673}
-  gatheringSceneButton: {fileID: 3876897182951601153}
 --- !u!222 &8286140193803804860
 CanvasRenderer:
   m_ObjectHideFlags: 0
