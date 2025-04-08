@@ -11,7 +11,7 @@ public class MainUI : MonoBehaviour
     private void Awake()
     {
         cookingSceneButton.onClick.AddListener(OnClickCookingButton);
-        gatheringSceneButton.onClick.AddListener(OnGatheringSceneButton);
+        gatheringSceneButton.onClick.AddListener(OnClickGatheringSceneButton);
     }
 
     void OnClickCookingButton()
@@ -19,7 +19,7 @@ public class MainUI : MonoBehaviour
         _ = SceneLoader.Instance.LoadSceneAsync("CookingSceneDev");
     }
 
-    void OnGatheringSceneButton()
+    void OnClickGatheringSceneButton()
     {
         _ = SceneLoader.Instance.LoadSceneAsync("GatheringSceneDev");
     }
