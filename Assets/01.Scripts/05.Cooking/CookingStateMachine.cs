@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class CookingStateMachine : ICookingState
+public class CookingStateMachine 
 {
     protected ICookingState currentState;
 
@@ -12,15 +12,6 @@ public abstract class CookingStateMachine : ICookingState
         currentState = state;
         currentState?.Enter();
     }
-
-    public void Enter()
-    {
-    }
-
-    public void Exit()
-    {
-    }
-
 
     public void Update()
     {
