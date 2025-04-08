@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,7 +8,7 @@ public class MonoSingleton<T> : MonoBehaviour where T : MonoBehaviour
 
     [SerializeField] bool isDontDestroyOnLoad = false;
 
-    public static T Instace
+    public static T Instance
     {
         get
         {
