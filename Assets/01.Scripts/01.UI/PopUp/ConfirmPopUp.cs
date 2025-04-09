@@ -1,22 +1,36 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class ConfirmPopUp : BasePopUp
 {
-    [SerializeField] private Button yesButton;
-    public Action conFirmAction;
+    [SerializeField] private Button confirmButton;
+    [SerializeField] private TextMeshProUGUI confirmText;
+    public Action confirmAction;
 
     public override void Awake()
     {
         base.Awake();
-        yesButton.onClick.AddListener(OnClickYesButton);
+        confirmButton.onClick.AddListener(OnClickConfirmButton);
     }
 
-    void OnClickYesButton()
+    void OnClickConfirmButton()
     {
-        conFirmAction?.Invoke();
+        confirmAction?.Invoke();
+    }
+
+    public void SetConfirm(string text, Action action)
+    {
+        confirmText.text = text;
+        confirmAction = action;
+    }
+
+    public override void OnClose()
+    {
+        base.OnClose();
+        gameObject.SetActive(false);
     }
 }

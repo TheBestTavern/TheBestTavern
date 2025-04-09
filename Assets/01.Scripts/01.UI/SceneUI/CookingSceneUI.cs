@@ -14,6 +14,12 @@ public class CookingSceneUI : MonoBehaviour
 
     void OnClickMainSceneButton()
     {
-        _ = SceneLoader.Instance.LoadSceneAsync("MainSceneDev");
+        UIManager.Instance.ShowPopUp(PopUpType.Confirm);
+        UIManager.Instance.confirmPopUp.SetConfirm("마당으로 이동하시겠습니까?", ConfirmFunc);
+    }
+
+    async void ConfirmFunc()
+    {
+        await SceneLoader.Instance.LoadSceneAsync("MainSceneDev");
     }
 }
