@@ -22,7 +22,7 @@ public class UIManager : MonoSingleton<UIManager>
 
     public void ShowPopUp(PopUpType type)
     {
-        if (!popUps.TryGetValue(type, out var popUp))
+        if (!popUps.TryGetValue(type, out BasePopUp popUp))
         {
             GameObject go = Instantiate(LoadPopUpResource(type.ToString()));
             popUp = go.GetComponentInChildren<BasePopUp>();
@@ -33,15 +33,14 @@ public class UIManager : MonoSingleton<UIManager>
         {
             confirmPopUp = popUp.GetComponent<ConfirmPopUp>();
         }
-
         popUp.OnOpen();
     }
 
     public void HidePopUp(PopUpType type)
     {
-        if (popUps.TryGetValue(type, out var popUp))
+        if (popUps.TryGetValue(type, out BasePopUp popUp))
         {
-            popUp.OnClose();           
+            popUp.OnClose();
         }
     }
 

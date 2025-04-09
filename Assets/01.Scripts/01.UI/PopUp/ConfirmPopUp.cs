@@ -22,8 +22,15 @@ public class ConfirmPopUp : BasePopUp
         confirmAction?.Invoke();
     }
 
-    public void SetConfirmText(string text)
+    public void SetConfirm(string text, Action action)
     {
         confirmText.text = text;
+        confirmAction = action;
+    }
+
+    public override void OnClose()
+    {
+        base.OnClose();
+        gameObject.SetActive(false);
     }
 }

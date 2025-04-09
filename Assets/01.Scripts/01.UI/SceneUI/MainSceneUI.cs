@@ -10,7 +10,18 @@ public class MainSceneUI : MonoBehaviour
 
     private void Awake()
     {
-        cookingSceneButton.onClick.AddListener(async ()=> await SceneLoader.Instance.LoadSceneAsync("CookingSceneDev"));
+        cookingSceneButton.onClick.AddListener(OnClickCookingSceneButton);
         gatheringSceneButton.onClick.AddListener(() => UIManager.Instance.ShowPopUp(PopUpType.SelectMap));
     }
+
+    void OnClickCookingSceneButton()
+    {
+        UIManager.Instance.ShowPopUp(PopUpType.Confirm);
+        UIManager.Instance.confirmPopUp.SetConfirm("부엌으로 이동하시겠습니까?", ConfirmFunc);
+    }
+
+    async void ConfirmFunc()
+    {
+        await SceneLoader.Instance.LoadSceneAsync("CookingSceneDev");
+    } 
 }
