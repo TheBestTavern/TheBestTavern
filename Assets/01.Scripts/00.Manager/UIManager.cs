@@ -28,6 +28,12 @@ public class UIManager : MonoSingleton<UIManager>
             popUp = go.GetComponentInChildren<BasePopUp>();
             popUps.Add(type, popUp);
         }
+
+        if (type == PopUpType.Confirm)
+        {
+            confirmPopUp = popUp.GetComponent<ConfirmPopUp>();
+        }
+
         popUp.OnOpen();
     }
 

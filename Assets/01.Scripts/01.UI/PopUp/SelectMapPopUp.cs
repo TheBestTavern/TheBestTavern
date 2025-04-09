@@ -30,8 +30,15 @@ public class SelectMapPopUp : BasePopUp
         selectForestOcean.SetActive(false);
     }
 
-    async void OnClickGatheringSceneButton()
+    void OnClickGatheringSceneButton()
     {
-        await SceneLoader.Instance.LoadSceneAsync("GatheringSceneDev");
+        UIManager.Instance.ShowPopUp(PopUpType.Confirm);
+        UIManager.Instance.confirmPopUp.SetConfirmText("정말 이동하시겠습니까?");
+        UIManager.Instance.confirmPopUp.confirmAction += ConfirmFunc;
     }
+
+    async void ConfirmFunc()
+    {       
+        await SceneLoader.Instance.LoadSceneAsync("GatheringSceneDev");
+    } 
 }
