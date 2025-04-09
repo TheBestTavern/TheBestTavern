@@ -9,12 +9,16 @@ public enum PopUpType
     Setting,
     Menu,
     SelectMap,
+    Quest,
+    Confirm,
 }
 
 
 public class UIManager : MonoSingleton<UIManager>
 {
     private Dictionary<PopUpType, BasePopUp> popUps = new Dictionary<PopUpType, BasePopUp>();
+
+    public ConfirmPopUp confirmPopUp;
 
     public void ShowPopUp(PopUpType type)
     {
