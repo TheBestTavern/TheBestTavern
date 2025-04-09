@@ -11,7 +11,12 @@ public class MainSceneUI : MonoBehaviour
     private void Awake()
     {
         cookingSceneButton.onClick.AddListener(OnClickCookingSceneButton);
-        gatheringSceneButton.onClick.AddListener(() => UIManager.Instance.ShowPopUp(PopUpType.SelectMap));
+        gatheringSceneButton.onClick.AddListener(OnClickGatheringSceneButton);
+    }
+
+    void OnClickGatheringSceneButton()
+    {
+        UIManager.Instance.ShowPopUp(PopUpType.SelectMap);
     }
 
     void OnClickCookingSceneButton()

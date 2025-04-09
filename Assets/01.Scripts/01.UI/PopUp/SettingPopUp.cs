@@ -32,6 +32,6 @@ public class SettingPopUp : BasePopUp
     public override void OnClose()
     {
         base.OnClose();
-        transform.GetChild(0).GetComponent<CanvasGroup>().DOFade(0f, 1f).OnComplete(()=>gameObject.SetActive(false));
+        transform.GetChild(0).GetComponent<CanvasGroup>().DOFade(0f, 1f).OnComplete(() => gameObject.SetActive(false));
     }
 }
