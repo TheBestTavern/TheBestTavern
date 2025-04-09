@@ -147,7 +147,7 @@ GameObject:
   - component: {fileID: 8381554983229045593}
   - component: {fileID: 8746893100206001058}
   m_Layer: 5
-  m_Name: Close
+  m_Name: CloseBtn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1601,7 +1601,7 @@ GameObject:
   - component: {fileID: 7998642198397059062}
   - component: {fileID: 705482447908029789}
   m_Layer: 5
-  m_Name: LetterPnamel
+  m_Name: LetterPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2284,7 +2284,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8029618199534890419}
-  - component: {fileID: 7870800364020390496}
+  - component: {fileID: 2117544549808248646}
   m_Layer: 5
   m_Name: QuestLetter
   m_TagString: Untagged
@@ -2312,7 +2312,7 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &7870800364020390496
+--- !u!114 &2117544549808248646
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2321,16 +2321,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 8238736593639728110}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9dbfa28f2d946a4cb62533606968d7b, type: 3}
+  m_Script: {fileID: 11500000, guid: 30d351ee189066b45abe2522786aced5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  btnClose: {fileID: 8746893100206001058}
   btn7: {fileID: 3102686158441738932}
   btn11: {fileID: 6407235463313090056}
   btn14: {fileID: 2428154041364527172}
-  Yes: {fileID: 1396402313009473923}
-  No: {fileID: 6384901132966348564}
+  btnYes: {fileID: 1396402313009473923}
+  btnNo: {fileID: 6384901132966348564}
   title: {fileID: 3422886041762318963}
-  text: {fileID: 4256432430520435823}
+  bodyText: {fileID: 4256432430520435823}
   from: {fileID: 3212800417496971252}
 --- !u!1 &8828091033167974012
 GameObject:
