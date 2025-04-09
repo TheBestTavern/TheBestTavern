@@ -13,6 +13,7 @@ public class SceneLoader : MonoSingleton<SceneLoader>
     [SerializeField] GameObject loadingUIPrefab;
     LoadingUI loadingUI;
 
+
     public async UniTask LoadSceneAsync(string sceneName)
     {
         await ShowLoadingScene();
@@ -40,7 +41,7 @@ public class SceneLoader : MonoSingleton<SceneLoader>
     }
     async Task ShowLoadingScene()
     {
-        loadingUI = Instantiate(loadingUIPrefab).GetComponent<LoadingUI>();
+        loadingUI = Instantiate(Resources.Load<GameObject>("UI/LoadingUIPrefab")).GetComponent<LoadingUI>();
         DontDestroyOnLoad(loadingUI.gameObject);
         await loadingUI.FadeIn();
     }
