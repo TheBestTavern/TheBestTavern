@@ -15,15 +15,10 @@ public class TimerController : MonoBehaviour
         timerUI.SetDay(timerModel.GetFormatDay());
     }
 
-    void Start()
-    {
-        timerModel.timeChangeAction += ChangeTimeUI;
-        timerModel.dayChangeAction += ChangeDayUI;
-    }
-
     public void TimeChange(int minute)
     {
         timerModel.TimeChange(minute);
+        ChangeTimeUI();
     }
 
 
@@ -36,6 +31,7 @@ public class TimerController : MonoBehaviour
     public void DayChange(int day)
     {
         timerModel.DayChange(day);
+        ChangeDayUI();
     }
 
     private void ChangeDayUI()

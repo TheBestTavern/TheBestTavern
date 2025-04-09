@@ -583,7 +583,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "1000\uB144 12\uC6D4 24\uC77C"
+  m_text: "1234\uB144 11\uC6D4 28\uC77C"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1d344be8c80e99a4ba2908ceccb706e3, type: 2}
   m_sharedMaterial: {fileID: 1974840492626225644, guid: 1d344be8c80e99a4ba2908ceccb706e3, type: 2}

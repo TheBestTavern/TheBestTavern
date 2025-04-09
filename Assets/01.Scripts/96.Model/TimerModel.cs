@@ -6,9 +6,6 @@ using UnityEngine;
 
 public class TimerModel : MonoBehaviour
 {
-    public Action timeChangeAction;
-    public Action dayChangeAction;
-
     public int year;
     public int month;
     public int day;
@@ -29,8 +26,6 @@ public class TimerModel : MonoBehaviour
                 DayChange(1);
             }
         }
-
-        timeChangeAction?.Invoke();
     }
 
     public void DayChange(int day)
@@ -48,8 +43,6 @@ public class TimerModel : MonoBehaviour
             month -= 12;
             year += 1;
         }
-
-        dayChangeAction?.Invoke();
     }
 
     int GetLastDay(int month)
