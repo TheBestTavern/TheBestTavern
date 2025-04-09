@@ -17,7 +17,7 @@ public class StoneThrowMinigame : MonoBehaviour
     public Transform throwPoint;
     public float minThrowForce = 5f;
     public float maxThrowForce = 20f;
-    public Vector3 throwDirection = new Vector3(0, 1, 0);
+    public Vector3 throwDirection = new Vector3(0, 1, 1);
 
     private void Update()
     {
@@ -55,8 +55,11 @@ public class StoneThrowMinigame : MonoBehaviour
         GameObject stone = Instantiate(stonePrefab, throwPoint.position, Quaternion.identity);
         Rigidbody rb = stone.GetComponent<Rigidbody>();
 
-        // 던지는 방향: 살짝 위쪽
-        Vector3 direction = throwDirection.normalized;
+        // 카메라 앞 방향 + 위쪽을 더해서 포물선 궤도 만들기
+        Vector3 forward = Camera.main.transform.forward;
+        Vector3 upward = Vector3.up * 0.5f; // 위로 조금 더 힘을 줘서 포물선 궤도
+        Vector3 direction = (forward + upward).normalized;
+
         rb.AddForce(direction * throwForce, ForceMode.Impulse);
 
         Debug.Log($"돌 던지기! 파워: {powerPercent * 100f:F1}% 힘: {throwForce:F1}");
