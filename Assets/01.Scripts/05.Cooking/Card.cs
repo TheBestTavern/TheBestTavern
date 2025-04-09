@@ -18,7 +18,7 @@ public class Card : MonoBehaviour
 
     public Button clickedCard;
 
-    //public Animator animator;
+    public Animator animator;
 
     public CookingGrillMiniGame grillMiniGame;
 
@@ -32,7 +32,10 @@ public class Card : MonoBehaviour
             ToggleCard();
         });
     }
-    
+    private void Start()
+    {
+        animator = GetComponent<Animator>();
+    }
     public void Setting(int index)
     {
         idx = index;
@@ -41,6 +44,7 @@ public class Card : MonoBehaviour
 
     public void ToggleCard()
     {
+        animator.SetTrigger("Flip");
         bool isFront = front.activeSelf; // 현재 앞면이 보이고 있는지
 
         front.SetActive(!isFront); // 현재 뒷면이면 앞면 활성화
