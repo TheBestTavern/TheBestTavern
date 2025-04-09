@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -52,5 +53,17 @@ public class MenuPopUp : BasePopUp
         {
             content.Value.SetActive(content.Key == type);
         }
+    }
+
+    public override void OnOpen()
+    {
+        base.OnOpen();
+        transform.GetChild(0).GetComponent<RectTransform>().DOAnchorPosY(320, 1f).SetEase(Ease.OutCubic);
+    }
+
+    public override void OnClose()
+    {
+        base.OnClose();
+        transform.GetChild(0).GetComponent<RectTransform>().DOAnchorPosY(1640, 1f).OnComplete(()=> gameObject.SetActive(false));
     }
 }

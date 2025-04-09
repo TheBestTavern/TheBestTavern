@@ -28,15 +28,14 @@ public class UIManager : MonoSingleton<UIManager>
             popUp = go.GetComponentInChildren<BasePopUp>();
             popUps.Add(type, popUp);
         }
-
-        popUp.gameObject.SetActive(true);
+        popUp.OnOpen();
     }
 
     public void HidePopUp(PopUpType type)
     {
         if (popUps.TryGetValue(type, out var popUp))
         {
-            popUp.gameObject.SetActive(false);
+            popUp.OnClose();           
         }
     }
 
