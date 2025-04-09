@@ -1,0 +1,26 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.InputSystem;
+using static UnityEngine.InputSystem.InputAction;
+
+public class PlayerInput : MonoBehaviour
+{
+    // ESC
+    public void OnPause(InputAction.CallbackContext context)
+    {
+        if(context.phase == InputActionPhase.Performed)
+        {
+            UIManager.Instance.ShowPopUp(PopUpType.Setting);
+        }
+    }
+
+    // TAB
+    public void OnMenu(InputAction.CallbackContext context)
+    {
+        if (context.phase == InputActionPhase.Performed)
+        {
+            UIManager.Instance.ShowPopUp(PopUpType.Menu);
+        }
+    }
+}
