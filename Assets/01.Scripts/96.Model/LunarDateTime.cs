@@ -1,6 +1,13 @@
 using System;
 using System.Data;
 
+
+/// <summary>
+/// 음력 표기 구조체. 
+/// 특징: 윤월이 포함되어있습니다.
+/// 기능1: AddDays(): 지정한 일수 이후의 음력 날짜 반환. 
+/// 기능2: ToString(): 날짜 string형으로 표기
+/// </summary>
 public struct LunarDateTime
 {
     public int year;
@@ -41,7 +48,7 @@ public struct LunarDateTime
 
     public LunarDateTime AddDays(int days)
     {
-        //윤년이고 윤월을 지났으면, month ++
+        //윤년이고 윤월을 지났으면, month++
         if (isLeapYear)
         {
             if (Extensions.lunarCalendar.GetLeapMonth(year) <= month)

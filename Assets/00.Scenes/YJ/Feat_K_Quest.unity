@@ -987,7 +987,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PrintButton: {fileID: 506173687}
-  Add10Button: {fileID: 1709167233}
+  PassDaysButton: {fileID: 1709167233}
   dateView: {fileID: 379480307}
   days: 1
 --- !u!4 &749096480

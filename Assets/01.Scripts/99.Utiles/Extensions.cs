@@ -8,6 +8,9 @@ public static class Extensions
 {
     public  static readonly KoreanLunisolarCalendar lunarCalendar = new KoreanLunisolarCalendar();
 
+    /// <summary>
+    /// DateTime(양력 구조체)를 LunarDateTime(음력 구조체)로 변환합니다.
+    /// </summary>
     public static LunarDateTime ToLunarConvertor(this DateTime dateTime)
     {
         int year = lunarCalendar.GetYear(dateTime);

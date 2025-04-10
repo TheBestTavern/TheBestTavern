@@ -6,7 +6,7 @@ using TMPro;
 public class TestCalendar : MonoBehaviour
 {
     public Button PrintButton;
-    public Button Add10Button;
+    public Button PassDaysButton;
     public TextMeshProUGUI dateView;
 
     public int days = 1;
@@ -18,11 +18,11 @@ public class TestCalendar : MonoBehaviour
     private void Start()
     {
         PrintButton.onClick.AddListener(PrintDate);
-        Add10Button.onClick.AddListener(() => AddDays(days));
+        PassDaysButton.onClick.AddListener(() => AddDays(days));
 
-        //Sundate = new(2019, 12, 25);
-        //lunarDate = Sundate.ToLunarConvertor();
-        lunarDate = new LunarDateTime(2020, 4, 30, false);
+        Sundate = new(2020, 5, 30);
+        lunarDate = Sundate.ToLunarConvertor();
+        //lunarDate = new LunarDateTime(2020, 4, 25, true);
         CheckYear(2020);
 
         DateTime TestDate = new DateTime(2020, 10, 25);
