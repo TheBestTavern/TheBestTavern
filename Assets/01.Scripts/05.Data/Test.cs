@@ -15,6 +15,6 @@ public class Test : MonoBehaviour
 
     private void GetRandomData(int num)
     {
-        Debug.Log( DataManager.Instace.DataLoader_CookingSteps.ItemsList[num].name);
+        Debug.Log( DataManager.Instance.DataLoader_CookingSteps.ItemsList[num].name);
     }
 }

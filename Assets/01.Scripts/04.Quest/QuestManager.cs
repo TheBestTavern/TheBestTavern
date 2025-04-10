@@ -22,12 +22,12 @@ public class QuestData
     public void Init()
     {
         Debug.Log("퀘스트 인스턴스 생성");
-        foreach (Data_Quest item in DataManager.Instace.DataLoader_Quest.ItemsList)
+        foreach (Data_Quest item in DataManager.Instance.DataLoader_Quest.ItemsList)
         {
             AllQuests.Add(new Quest(item));
         }
 
-        QuestManager.Instace.OnNewDayStarted += HandleNewDay;
+        QuestManager.Instance.OnNewDayStarted += HandleNewDay;
     }
 
     // 매일 QuestData가 할일

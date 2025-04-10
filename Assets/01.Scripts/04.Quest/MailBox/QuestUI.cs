@@ -60,7 +60,7 @@ public class QuestUI : MonoBehaviour
             Debug.Log("가능 퀘스트 리스트를 통해 슬롯 생성");
             QuestSlot pref;
             int i = 1;
-            foreach (var quest in QuestManager.Instace.questData.TodayAvailableQuest)
+            foreach (var quest in QuestManager.Instance.questData.TodayAvailableQuest)
             {
 
                 pref = Instantiate(questSlotPref, slotPrt);

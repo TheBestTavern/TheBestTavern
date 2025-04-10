@@ -62,7 +62,7 @@ public class Quest
 
         //NPC 호감도 체크.
         // 1.타겟 npc(origin.givingNPC), 2.npc목록에서 조회, 3.퀘스트의 조건 호감도와 비교
-        if (NPCManager.Instace.NPCData.AllNPC[origin.givingNPC].favorability >= origin.conditionFavorability)
+        if (NPCManager.Instance.NPCData.AllNPC[origin.givingNPC].favorability >= origin.conditionFavorability)
         {
             return true;
         }

@@ -43,7 +43,7 @@ public class QuestSlot : MonoBehaviour
 
         // 현재 퀘스트에 맞게 슬롯 정보 갱신(추후 구현)
         slotQuest = quest;
-        npcName.text = NPCManager.Instace.NPCData.AllNPC[quest.origin.givingNPC].origin.name;
+        npcName.text = NPCManager.Instance.NPCData.AllNPC[quest.origin.givingNPC].origin.name;
         questName.text = quest.origin.name;
         Debug.Log($"{index}번 슬롯 정보 입력완료");
 
