@@ -9,9 +9,9 @@ public enum PopUpType
     Setting,
     Menu,
     SelectMap,
-    Quest,
     Confirm,
     MiniGame,
+    MailBox,
 }
 
 
