@@ -6,21 +6,21 @@ using UnityEngine;
 
 public class TimerModel : MonoBehaviour
 {
-    public DateTime dateTime;
+    public LunarDateTime dateTime;
 
     private void Awake()
     {
-        dateTime = new DateTime(1234, 11, 28);
+        dateTime = new LunarDateTime(1234, 11, 28, true);
     }
 
-    public void DayChange(float day)
+    public void DayChange(int day)
     {
         dateTime = dateTime.AddDays(day);
     }
 
     public string GetFormatDay()
     {
-        string formatDay = dateTime.ToString("yyyy년 MM월 dd일");
+        string formatDay = dateTime.ToString(true);
         return formatDay;
     }
 }

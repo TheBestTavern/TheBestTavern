@@ -14,7 +14,7 @@ public class TimerController : MonoBehaviour
         timerUI.SetDay(timerModel.GetFormatDay());
     }
 
-    public void DayChange(float day)
+    public void DayChange(int day)
     {
         timerModel.DayChange(day);
         ChangeDayUI();

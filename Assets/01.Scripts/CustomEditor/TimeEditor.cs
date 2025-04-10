@@ -6,7 +6,7 @@ using UnityEngine;
 public class TimeEditor : MonoBehaviour
 {
     public TimerController timerController;
-    public float day;
+    public int day;
 
     public void AdvanceDay()
     {
