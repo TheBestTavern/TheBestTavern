@@ -8,7 +8,7 @@ public class MonoSingleton<T> : MonoBehaviour where T : MonoBehaviour
 
     [SerializeField] protected bool isDontDestroyOnLoad = false;
 
-    public static T Instace
+    public static T Instance
     {
         get
         {
