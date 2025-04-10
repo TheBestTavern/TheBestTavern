@@ -183,14 +183,14 @@ public class CookingGrillMiniGame : MonoBehaviour, ICookingMiniGameHandler
 
             // 1. 고정, 선택 불가
             firstCard.clickedCard.interactable = false;
-            firstCard.transform.GetChild(0).GetComponent<Image>().enabled = false;
-            firstCard.transform.GetChild(0).GetChild(0).gameObject.SetActive(false);
-            firstCard.transform.GetChild(1).GetComponent<Image>().enabled = false;
+            //firstCard.transform.GetChild(0).GetComponent<Image>().enabled = false;
+            //firstCard.transform.GetChild(0).GetChild(0).gameObject.SetActive(false);
+            //firstCard.transform.GetChild(1).GetComponent<Image>().enabled = false;
 
             secondCard.clickedCard.interactable = false;
-            secondCard.transform.GetChild(0).GetComponent<Image>().enabled = false;
-            secondCard.transform.GetChild(0).GetChild(0).gameObject.SetActive(false);
-            secondCard.transform.GetChild(1).GetComponent<Image>().enabled = false;
+            //secondCard.transform.GetChild(0).GetComponent<Image>().enabled = false;
+            //secondCard.transform.GetChild(0).GetChild(0).gameObject.SetActive(false);
+            //secondCard.transform.GetChild(1).GetComponent<Image>().enabled = false;
 
             // 2. 고기가 익어가는 연출 필요 
 
