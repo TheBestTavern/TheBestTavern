@@ -9,8 +9,8 @@ public enum PopUpType
     Setting,
     Menu,
     SelectMap,
-    Quest,
-    Confirm,
+    MailBox,
+    Confirm
 }
 
 
