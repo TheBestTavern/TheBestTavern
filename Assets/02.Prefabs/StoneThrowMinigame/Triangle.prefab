@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2519202971795517613}
   - component: {fileID: 7191629653052773314}
-  - component: {fileID: 8813914053540581738}
   - component: {fileID: 7183886703649630307}
   - component: {fileID: 3138655853095046834}
+  - component: {fileID: 1502226386240636184}
   m_Layer: 0
   m_Name: Triangle
   m_TagString: Untagged
@@ -87,21 +87,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &8813914053540581738
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4758447653488146172}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 633886e6dc037ba4db4db3b98df62ca7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  activeTime: 5
-  searchInterval: 0.5
-  attractRadius: 10
 --- !u!61 &7183886703649630307
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -174,3 +159,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1502226386240636184
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4758447653488146172}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0a3c1deaf57c6c46990a848150ec93e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baitType: Carrot
+  effectRadius: 5
+  lifetime: 5

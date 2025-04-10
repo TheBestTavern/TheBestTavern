@@ -14,55 +14,66 @@ public class Animal : MonoBehaviour
 {
     public string animalName;
     public AnimalSizeType sizeType;
+    public string[] favoriteBaits;
 
-    public bool isStunned = false;
-    public bool isCaptured = false;
+    private bool canBeCaptured = false;
 
-    // 좋아하는 미끼 (중형만 설정)
-    public string favoriteBait;
-
-    public void TryCapture(string baitUsed, bool usedRock)
+    public void ReactToBait(string baitType, Vector3 baitPosition)
     {
+        bool likesBait = System.Array.Exists(favoriteBaits, bait => bait == baitType);
+
         switch (sizeType)
         {
             case AnimalSizeType.Small:
-                // 무조건 포획 가능
-                Capture();
+                canBeCaptured = true;
                 break;
 
             case AnimalSizeType.Medium:
-                // 좋아하는 미끼 또는 기절 상태면 포획 가능
-                if ((baitUsed == favoriteBait) || usedRock || isStunned)
+                if (likesBait)
                 {
-                    Capture();
-                }
-                else
-                {
-                    Debug.Log("포획 실패: 중형 동물은 좋아하는 미끼가 필요하거나 기절시켜야 합니다.");
+                    canBeCaptured = true;
+                    // bait 위치로 이동하는 연출
+                    MoveToBait(baitPosition);
                 }
                 break;
 
             case AnimalSizeType.Large:
-                // 포획 불가능
-                Debug.Log("대형 동물은 포획이 불가능합니다. 도망가기를 사용하세요.");
+                if (likesBait)
+                {
+                    Invoke(nameof(Flee), 3f); // 3초 후 도망
+                }
                 break;
         }
     }
 
-    public void Stun()
+    void MoveToBait(Vector3 baitPos)
     {
-        if (sizeType == AnimalSizeType.Medium)
-        {
-            isStunned = true;
-            Debug.Log($"{animalName}이(가) 기절했습니다!");
-        }
+        // 간단한 이동 처리
+        transform.LookAt(baitPos);
+        transform.position = Vector3.MoveTowards(transform.position, baitPos, 2f * Time.deltaTime);
     }
 
-    void Capture()
+    void Flee()
     {
-        isCaptured = true;
-        Debug.Log($"{animalName}이(가) 포획되었습니다!");
-        // 이후에 포획 성공 UI나 애니메이션 등을 호출할 수 있어요.
+        Debug.Log(animalName + "이(가) 도망쳤습니다!");
         Destroy(gameObject);
+    }
+
+    public bool CanBeCaptured()
+    {
+        return canBeCaptured;
+    }
+
+    public void TryCapture()
+    {
+        if (canBeCaptured)
+        {
+            Debug.Log(animalName + " 포획 성공!");
+            Destroy(gameObject);
+        }
+        else
+        {
+            Debug.Log(animalName + "은(는) 아직 포획할 수 없습니다.");
+        }
     }
 }

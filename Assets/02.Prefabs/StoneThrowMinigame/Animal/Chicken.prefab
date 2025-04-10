@@ -13,8 +13,9 @@ GameObject:
   - component: {fileID: 1726748834280357523}
   - component: {fileID: 1131309394735763721}
   - component: {fileID: 3331156974029630444}
+  - component: {fileID: 8009877950116821618}
   m_Layer: 0
-  m_Name: Rabbit
+  m_Name: Chicken
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -111,11 +112,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e8210a96e8227845b30ff05e242a06a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animalName: Rabbit
+  animalName: Chicken
   sizeType: 0
-  isStunned: 0
-  isCaptured: 0
-  favoriteBait: 
+  favoriteBaits:
+  - Carrot
 --- !u!50 &3331156974029630444
 Rigidbody2D:
   serializedVersion: 4
@@ -143,3 +143,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &8009877950116821618
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4016735987611543773}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e8210a96e8227845b30ff05e242a06a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animalName: 
+  sizeType: 0
+  favoriteBaits: []
