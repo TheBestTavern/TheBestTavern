@@ -1,0 +1,68 @@
+2025-04-07 오후 5:57:30: Error processing sheet Ingredients in file D:\Unity NBC\Camp Project\Week6_Unity_Final\TheBestTavern\Excel2JSON(win-x64)\excel_files\Ingredients.xlsx: The first column must be 'key'.
+   at ExcelToJsonWizard.Program.GenerateClassAndJsonFromExcel(String excelPath, String loaderDir, String jsonDir, String logFilePath, Boolean allowMultipleSheets, Boolean useResources, String resourcesInternalPath)
+2025-04-07 오후 5:58:13: Error processing sheet Ingredients in file D:\Unity NBC\Camp Project\Week6_Unity_Final\TheBestTavern\Excel2JSON(win-x64)\excel_files\Ingredients.xlsx: The first column must be 'key'.
+   at ExcelToJsonWizard.Program.GenerateClassAndJsonFromExcel(String excelPath, String loaderDir, String jsonDir, String logFilePath, Boolean allowMultipleSheets, Boolean useResources, String resourcesInternalPath)
+2025-04-07 오후 5:58:54: Error converting value '' for variable 'foreignIngredients' in sheet 'Ingredients' of file 'D:\Unity NBC\Camp Project\Week6_Unity_Final\TheBestTavern\Excel2JSON(win-x64)\excel_files\Ingredients.xlsx': Empty values are not supported for list types. Variable 'foreignIngredients' in sheet 'Ingredients' of file 'D:\Unity NBC\Camp Project\Week6_Unity_Final\TheBestTavern\Excel2JSON(win-x64)\excel_files\Ingredients.xlsx' contains an empty value.
+   at ExcelToJsonWizard.Program.ConvertToType(String value, String type, String variableName, String logFilePath, String excelPath, String sheetName)
+2025-04-07 오후 5:58:54: Error processing sheet Ingredients in file D:\Unity NBC\Camp Project\Week6_Unity_Final\TheBestTavern\Excel2JSON(win-x64)\excel_files\Ingredients.xlsx: Empty values are not supported for list types. Variable 'foreignIngredients' in sheet 'Ingredients' of file 'D:\Unity NBC\Camp Project\Week6_Unity_Final\TheBestTavern\Excel2JSON(win-x64)\excel_files\Ingredients.xlsx' contains an empty value.
+   at ExcelToJsonWizard.Program.ConvertToType(String value, String type, String variableName, String logFilePath, String excelPath, String sheetName)
+   at ExcelToJsonWizard.Program.GenerateClassAndJsonFromExcel(String excelPath, String loaderDir, String jsonDir, String logFilePath, Boolean allowMultipleSheets, Boolean useResources, String resourcesInternalPath)
+2025-04-07 오후 6:01:12: Error processing sheet Ingredients in file D:\Unity NBC\Camp Project\Week6_Unity_Final\TheBestTavern\Excel2JSON(win-x64)\excel_files\Ingredients.xlsx: Specified argument was out of the range of valid values. (Parameter 'index')
+   at System.Linq.ThrowHelper.ThrowArgumentOutOfRangeException(ExceptionArgument argument)
+   at System.Linq.Enumerable.ElementAt[TSource](IEnumerable`1 source, Int32 index)
+   at ExcelToJsonWizard.Program.GenerateClassAndJsonFromExcel(String excelPath, String loaderDir, String jsonDir, String logFilePath, Boolean allowMultipleSheets, Boolean useResources, String resourcesInternalPath)
+2025-04-07 오후 6:07:16: Error converting value '' for variable '' in sheet 'Ingredients' of file 'D:\Unity NBC\Camp Project\Week6_Unity_Final\TheBestTavern\Excel2JSON(win-x64)\excel_files\Ingredients.xlsx': Unsupported data type: 
+   at ExcelToJsonWizard.Program.ConvertToType(String value, String type, String variableName, String logFilePath, String excelPath, String sheetName)
+2025-04-07 오후 6:07:16: Error processing sheet Ingredients in file D:\Unity NBC\Camp Project\Week6_Unity_Final\TheBestTavern\Excel2JSON(win-x64)\excel_files\Ingredients.xlsx: Unsupported data type: 
+   at ExcelToJsonWizard.Program.ConvertToType(String value, String type, String variableName, String logFilePath, String excelPath, String sheetName)
+   at ExcelToJsonWizard.Program.GenerateClassAndJsonFromExcel(String excelPath, String loaderDir, String jsonDir, String logFilePath, Boolean allowMultipleSheets, Boolean useResources, String resourcesInternalPath)
+2025-04-07 오후 7:14:31: Error converting value '' for variable '' in sheet 'Ingredients' of file 'D:\Unity NBC\Camp Project\Week6_Unity_Final\TheBestTavern\Excel2JSON(win-x64)\excel_files\Ingredients.xlsx': Unsupported data type: 
+   at ExcelToJsonWizard.Program.ConvertToType(String value, String type, String variableName, String logFilePath, String excelPath, String sheetName)
+2025-04-07 오후 7:14:31: Error processing sheet Ingredients in file D:\Unity NBC\Camp Project\Week6_Unity_Final\TheBestTavern\Excel2JSON(win-x64)\excel_files\Ingredients.xlsx: Unsupported data type: 
+   at ExcelToJsonWizard.Program.ConvertToType(String value, String type, String variableName, String logFilePath, String excelPath, String sheetName)
+   at ExcelToJsonWizard.Program.GenerateClassAndJsonFromExcel(String excelPath, String loaderDir, String jsonDir, String logFilePath, Boolean allowMultipleSheets, Boolean useResources, String resourcesInternalPath)
+2025-04-07 오후 7:15:33: Error converting value '' for variable '' in sheet 'Ingredients' of file 'D:\Unity NBC\Camp Project\Week6_Unity_Final\TheBestTavern\Excel2JSON(win-x64)\excel_files\Ingredients.xlsx': Unsupported data type: 
+   at ExcelToJsonWizard.Program.ConvertToType(String value, String type, String variableName, String logFilePath, String excelPath, String sheetName)
+2025-04-07 오후 7:15:33: Error processing sheet Ingredients in file D:\Unity NBC\Camp Project\Week6_Unity_Final\TheBestTavern\Excel2JSON(win-x64)\excel_files\Ingredients.xlsx: Unsupported data type: 
+   at ExcelToJsonWizard.Program.ConvertToType(String value, String type, String variableName, String logFilePath, String excelPath, String sheetName)
+   at ExcelToJsonWizard.Program.GenerateClassAndJsonFromExcel(String excelPath, String loaderDir, String jsonDir, String logFilePath, Boolean allowMultipleSheets, Boolean useResources, String resourcesInternalPath)
+2025-04-07 오후 7:16:07: Error converting value '' for variable '' in sheet 'Ingredients' of file 'D:\Unity NBC\Camp Project\Week6_Unity_Final\TheBestTavern\Excel2JSON(win-x64)\excel_files\Ingredients.xlsx': Unsupported data type: 
+   at ExcelToJsonWizard.Program.ConvertToType(String value, String type, String variableName, String logFilePath, String excelPath, String sheetName)
+2025-04-07 오후 7:16:07: Error processing sheet Ingredients in file D:\Unity NBC\Camp Project\Week6_Unity_Final\TheBestTavern\Excel2JSON(win-x64)\excel_files\Ingredients.xlsx: Unsupported data type: 
+   at ExcelToJsonWizard.Program.ConvertToType(String value, String type, String variableName, String logFilePath, String excelPath, String sheetName)
+   at ExcelToJsonWizard.Program.GenerateClassAndJsonFromExcel(String excelPath, String loaderDir, String jsonDir, String logFilePath, Boolean allowMultipleSheets, Boolean useResources, String resourcesInternalPath)
+2025-04-07 오후 7:17:31: Error converting value '' for variable '' in sheet 'Ingredients' of file 'D:\Unity NBC\Camp Project\Week6_Unity_Final\TheBestTavern\Excel2JSON(win-x64)\excel_files\Ingredients.xlsx': Unsupported data type: 
+   at ExcelToJsonWizard.Program.ConvertToType(String value, String type, String variableName, String logFilePath, String excelPath, String sheetName)
+2025-04-07 오후 7:17:31: Error processing sheet Ingredients in file D:\Unity NBC\Camp Project\Week6_Unity_Final\TheBestTavern\Excel2JSON(win-x64)\excel_files\Ingredients.xlsx: Unsupported data type: 
+   at ExcelToJsonWizard.Program.ConvertToType(String value, String type, String variableName, String logFilePath, String excelPath, String sheetName)
+   at ExcelToJsonWizard.Program.GenerateClassAndJsonFromExcel(String excelPath, String loaderDir, String jsonDir, String logFilePath, Boolean allowMultipleSheets, Boolean useResources, String resourcesInternalPath)
+2025-04-07 오후 7:17:51: Error converting value '' for variable '' in sheet 'Ingredients' of file 'D:\Unity NBC\Camp Project\Week6_Unity_Final\TheBestTavern\Excel2JSON(win-x64)\excel_files\Ingredients.xlsx': Unsupported data type: 
+   at ExcelToJsonWizard.Program.ConvertToType(String value, String type, String variableName, String logFilePath, String excelPath, String sheetName)
+2025-04-07 오후 7:17:51: Error processing sheet Ingredients in file D:\Unity NBC\Camp Project\Week6_Unity_Final\TheBestTavern\Excel2JSON(win-x64)\excel_files\Ingredients.xlsx: Unsupported data type: 
+   at ExcelToJsonWizard.Program.ConvertToType(String value, String type, String variableName, String logFilePath, String excelPath, String sheetName)
+   at ExcelToJsonWizard.Program.GenerateClassAndJsonFromExcel(String excelPath, String loaderDir, String jsonDir, String logFilePath, Boolean allowMultipleSheets, Boolean useResources, String resourcesInternalPath)
+2025-04-07 오후 7:19:58: Error converting value '' for variable '' in sheet 'Ingredients' of file 'D:\Unity NBC\Camp Project\Week6_Unity_Final\TheBestTavern\Excel2JSON(win-x64)\excel_files\Ingredients.xlsx': Unsupported data type: 
+   at ExcelToJsonWizard.Program.ConvertToType(String value, String type, String variableName, String logFilePath, String excelPath, String sheetName)
+2025-04-07 오후 7:19:58: Error processing sheet Ingredients in file D:\Unity NBC\Camp Project\Week6_Unity_Final\TheBestTavern\Excel2JSON(win-x64)\excel_files\Ingredients.xlsx: Unsupported data type: 
+   at ExcelToJsonWizard.Program.ConvertToType(String value, String type, String variableName, String logFilePath, String excelPath, String sheetName)
+   at ExcelToJsonWizard.Program.GenerateClassAndJsonFromExcel(String excelPath, String loaderDir, String jsonDir, String logFilePath, Boolean allowMultipleSheets, Boolean useResources, String resourcesInternalPath)
+2025-04-07 오후 7:20:19: Error converting value '' for variable '' in sheet 'Ingredients' of file 'D:\Unity NBC\Camp Project\Week6_Unity_Final\TheBestTavern\Excel2JSON(win-x64)\excel_files\Ingredients.xlsx': Unsupported data type: 
+   at ExcelToJsonWizard.Program.ConvertToType(String value, String type, String variableName, String logFilePath, String excelPath, String sheetName)
+2025-04-07 오후 7:20:19: Error processing sheet Ingredients in file D:\Unity NBC\Camp Project\Week6_Unity_Final\TheBestTavern\Excel2JSON(win-x64)\excel_files\Ingredients.xlsx: Unsupported data type: 
+   at ExcelToJsonWizard.Program.ConvertToType(String value, String type, String variableName, String logFilePath, String excelPath, String sheetName)
+   at ExcelToJsonWizard.Program.GenerateClassAndJsonFromExcel(String excelPath, String loaderDir, String jsonDir, String logFilePath, Boolean allowMultipleSheets, Boolean useResources, String resourcesInternalPath)
+2025-04-07 오후 7:21:39: Error converting value '' for variable '' in sheet 'Ingredients' of file 'D:\Unity NBC\Camp Project\Week6_Unity_Final\TheBestTavern\Excel2JSON(win-x64)\excel_files\Ingredients.xlsx': Unsupported data type: 
+   at ExcelToJsonWizard.Program.ConvertToType(String value, String type, String variableName, String logFilePath, String excelPath, String sheetName)
+2025-04-07 오후 7:21:39: Error processing sheet Ingredients in file D:\Unity NBC\Camp Project\Week6_Unity_Final\TheBestTavern\Excel2JSON(win-x64)\excel_files\Ingredients.xlsx: Unsupported data type: 
+   at ExcelToJsonWizard.Program.ConvertToType(String value, String type, String variableName, String logFilePath, String excelPath, String sheetName)
+   at ExcelToJsonWizard.Program.GenerateClassAndJsonFromExcel(String excelPath, String loaderDir, String jsonDir, String logFilePath, Boolean allowMultipleSheets, Boolean useResources, String resourcesInternalPath)
+2025-04-07 오후 7:23:04: Error converting value '' for variable '' in sheet 'Ingredients' of file 'D:\Unity NBC\Camp Project\Week6_Unity_Final\TheBestTavern\Excel2JSON(win-x64)\excel_files\Example_Without_Enum.xlsx': Unsupported data type: 
+   at ExcelToJsonWizard.Program.ConvertToType(String value, String type, String variableName, String logFilePath, String excelPath, String sheetName)
+2025-04-07 오후 7:23:04: Error processing sheet Ingredients in file D:\Unity NBC\Camp Project\Week6_Unity_Final\TheBestTavern\Excel2JSON(win-x64)\excel_files\Example_Without_Enum.xlsx: Unsupported data type: 
+   at ExcelToJsonWizard.Program.ConvertToType(String value, String type, String variableName, String logFilePath, String excelPath, String sheetName)
+   at ExcelToJsonWizard.Program.GenerateClassAndJsonFromExcel(String excelPath, String loaderDir, String jsonDir, String logFilePath, Boolean allowMultipleSheets, Boolean useResources, String resourcesInternalPath)
+2025-04-07 오후 7:26:42: Error converting value '' for variable 'grade' in sheet 'Sheet1' of file 'D:\Unity NBC\Camp Project\Week6_Unity_Final\TheBestTavern\Excel2JSON(win-x64)\excel_files\Ingredients.xlsx': Empty values are not supported for Enum types. Variable 'grade' in sheet 'Sheet1' of file 'D:\Unity NBC\Camp Project\Week6_Unity_Final\TheBestTavern\Excel2JSON(win-x64)\excel_files\Ingredients.xlsx' contains an empty value.
+   at ExcelToJsonWizard.Program.ConvertToType(String value, String type, String variableName, String logFilePath, String excelPath, String sheetName)
+2025-04-07 오후 7:26:42: Error processing sheet Sheet1 in file D:\Unity NBC\Camp Project\Week6_Unity_Final\TheBestTavern\Excel2JSON(win-x64)\excel_files\Ingredients.xlsx: Empty values are not supported for Enum types. Variable 'grade' in sheet 'Sheet1' of file 'D:\Unity NBC\Camp Project\Week6_Unity_Final\TheBestTavern\Excel2JSON(win-x64)\excel_files\Ingredients.xlsx' contains an empty value.
+   at ExcelToJsonWizard.Program.ConvertToType(String value, String type, String variableName, String logFilePath, String excelPath, String sheetName)
+   at ExcelToJsonWizard.Program.GenerateClassAndJsonFromExcel(String excelPath, String loaderDir, String jsonDir, String logFilePath, Boolean allowMultipleSheets, Boolean useResources, String resourcesInternalPath)
