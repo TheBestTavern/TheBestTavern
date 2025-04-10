@@ -4,60 +4,60 @@ using System.IO;
 using UnityEngine;
 
 [Serializable]
-public class Data_Ingredients
+public class Data_Quest
 {
     /// <summary>
-    /// 고유번호
+    /// 퀘스트 ID (INT)
     /// </summary>
     public int key;
 
     /// <summary>
-    /// 재료명
+    /// 퀘스트 이름 (VARCHAR 100)
     /// </summary>
     public string name;
 
     /// <summary>
-    /// 등급
+    /// NPC ID (INT)
     /// </summary>
-    public DesignEnums.Grade grade;
+    public int givingNPC;
 
     /// <summary>
-    /// 채집 가능 지역
+    /// 보상 재료 ID
     /// </summary>
-    public List<DesignEnums.Region> availableRegion;
+    public int compensationID;
 
     /// <summary>
-    /// 채집 영역
+    /// 요리 속성
     /// </summary>
-    public DesignEnums.Biome availableBiome;
+    public string dishDesc;
 
     /// <summary>
-    /// 해외 식자재
+    /// 요구 조건 설명
     /// </summary>
-    public DesignEnums.Foreign foreignIngredients;
+    public string description;
 
     /// <summary>
-    /// 채집 가능 계절
+    /// 조건 타겟 npc
     /// </summary>
-    public List<DesignEnums.Season> availableSeason;
+    public int conditionNPC;
 
     /// <summary>
-    /// 채집 확률
+    /// 조건 호감도
     /// </summary>
-    public DesignEnums.Chance chance;
+    public float conditionFavorability;
 
 }
-public class Data_IngredientsLoader
+public class Data_QuestLoader
 {
-    public List<Data_Ingredients> ItemsList { get; private set; }
-    public Dictionary<int, Data_Ingredients> ItemsDict { get; private set; }
+    public List<Data_Quest> ItemsList { get; private set; }
+    public Dictionary<int, Data_Quest> ItemsDict { get; private set; }
 
-    public Data_IngredientsLoader(string path = "JSON/Data_Ingredients")
+    public Data_QuestLoader(string path = "JSON/Data_Quest")
     {
         string jsonData;
         jsonData = Resources.Load<TextAsset>(path).text;
         ItemsList = JsonUtility.FromJson<Wrapper>(jsonData).Items;
-        ItemsDict = new Dictionary<int, Data_Ingredients>();
+        ItemsDict = new Dictionary<int, Data_Quest>();
         foreach (var item in ItemsList)
         {
             ItemsDict.Add(item.key, item);
@@ -67,10 +67,10 @@ public class Data_IngredientsLoader
     [Serializable]
     private class Wrapper
     {
-        public List<Data_Ingredients> Items;
+        public List<Data_Quest> Items;
     }
 
-    public Data_Ingredients GetByKey(int key)
+    public Data_Quest GetByKey(int key)
     {
         if (ItemsDict.ContainsKey(key))
         {
@@ -78,7 +78,7 @@ public class Data_IngredientsLoader
         }
         return null;
     }
-    public Data_Ingredients GetByIndex(int index)
+    public Data_Quest GetByIndex(int index)
     {
         if (index >= 0 && index < ItemsList.Count)
         {

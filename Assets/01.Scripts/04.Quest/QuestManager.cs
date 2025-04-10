@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class QuestData
@@ -20,28 +21,28 @@ public class QuestData
 
     public void Init()
     {
-        //퀘스트 인스턴스 생성
         Debug.Log("퀘스트 인스턴스 생성");
-        AllQuests = new()
+        foreach (Data_Quest item in DataManager.Instace.DataLoader_Quest.ItemsList)
         {
-            new Quest(1, "1번퀘", "흥부가 배가 고파", "흥부"),
-            new Quest(2, "2번퀘", "놀부가 심술이 나", "놀부"),
-            new Quest(3, "3번퀘", "심청이가 집을 나가", "심봉"),
-            new Quest(4, "4번퀘", "산신령이 갑자기", "산신령"),
-            new Quest(5, "5번퀘", "호랑이가 하늘에서", "호랑이"),
-            new Quest(6, "6번퀘", "까치가 박씨를", "까치"),
-            new Quest(7, "7번퀘", "그물타고 영차", "그물"),
-            new Quest(8, "8번퀘", "거미가 수십마리가", "거미")
-        };
+            AllQuests.Add(new Quest(item));
+        }
 
         QuestManager.Instace.OnNewDayStarted += HandleNewDay;
     }
 
+    // 매일 QuestData가 할일
     public void HandleNewDay()
     {
+        // 2.가능한 퀘스트 리스트 받아오기
         Debug.Log("매일 가능한 퀘스트 리스트 받아옴");
-        // 1.가능한 퀘스트 리스트 받아오기
-        TodayAvailableQuest = QuestManager.Instace.questData.AllQuests;
+        TodayAvailableQuest = new();
+        foreach (Quest item in AllQuests)
+        {
+            if (item.CheckAvailable(DateTime.Now)) // 날짜 임시로 아무거나 넣어놓음.
+            {
+                TodayAvailableQuest.Add(item);
+            }
+        }
     }
 
     public void AcceptQuest(Quest quest)
@@ -68,9 +69,10 @@ public class QuestManager : MonoSingleton<QuestManager>
 
     private void Start()
     {
+        isDontDestroyOnLoad = true;
         questData = new QuestData();
         questData.Init();
-        TriggerNewDay();
+        TriggerNewDay();  // 테스트용
      }
 
 

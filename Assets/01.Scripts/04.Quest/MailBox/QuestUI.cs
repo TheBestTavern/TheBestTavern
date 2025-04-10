@@ -66,7 +66,7 @@ public class QuestUI : MonoBehaviour
                 pref = Instantiate(questSlotPref, slotPrt);
                 pref.Init(this);
                 pref.SetSlot(quest, i);
-                Debug.Log($"{quest.Title} 퀘스트 슬롯 생성 완료");
+                Debug.Log($"{quest.origin.name} 퀘스트 슬롯 생성 완료");
                 i++;
             }
 

@@ -37,9 +37,9 @@ public class QuestLetter : MonoBehaviour
     public void EveryInit(Quest quest)
     {
         // 문구 초기화
-        title.text = quest.Title;
-        bodyText.text = quest.BodyText;
-        from.text = quest.NPCname;
+        title.text = quest.origin.name;
+        bodyText.text = quest.origin.description;
+        from.text = NPCManager.Instace.NPCData.AllNPC[quest.origin.givingNPC].origin.name;
     }
 
     // 수락 버튼 메서드
