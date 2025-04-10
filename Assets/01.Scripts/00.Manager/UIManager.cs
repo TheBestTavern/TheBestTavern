@@ -11,6 +11,7 @@ public enum PopUpType
     SelectMap,
     Quest,
     Confirm,
+    MiniGame,
 }
 
 
