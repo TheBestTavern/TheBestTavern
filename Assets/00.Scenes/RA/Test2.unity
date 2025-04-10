@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 509755933}
   m_Layer: 0
   m_Name: Collider
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -284,7 +284,7 @@ GameObject:
   - component: {fileID: 1291844937}
   m_Layer: 0
   m_Name: Square
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -733,7 +733,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2082845132}
   - component: {fileID: 2082845131}
-  - component: {fileID: 2082845133}
   - component: {fileID: 2082845134}
   m_Layer: 0
   m_Name: Manager
@@ -754,11 +753,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18583c32b70b9fc468195b36b327e3fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  throwObjectPrefab: {fileID: 4758447653488146172, guid: e2c071f7a869d3d4db19c00fb2b01c0a, type: 3}
+  baitPrefabs: []
   throwPoint: {fileID: 924487715}
   lineRenderer: {fileID: 1884203288}
-  maxPower: 30
-  throwAngle: 50
+  maxPower: 25
+  throwAngle: 60
   previewLength: 0.2
   previewResolution: 30
 --- !u!4 &2082845132
@@ -776,18 +775,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2082845133
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2082845130}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea4af12d28de85d44b61db89216085cf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &2082845134
 MonoBehaviour:
   m_ObjectHideFlags: 0

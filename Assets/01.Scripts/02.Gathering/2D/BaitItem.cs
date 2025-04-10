@@ -8,8 +8,7 @@ public class BaitItem : MonoBehaviour
 
     private void Start()
     {
-        // 동물 근처에 던졌다고 가정할 때, 근처 동물에게 알림
-        Collider[] hitAnimals = Physics.OverlapSphere(transform.position, 5f); // 범위 탐색
+        Collider[] hitAnimals = Physics.OverlapSphere(transform.position, 5f);
 
         foreach (var hit in hitAnimals)
         {

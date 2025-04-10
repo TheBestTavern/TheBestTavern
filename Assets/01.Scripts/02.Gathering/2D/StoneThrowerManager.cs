@@ -9,9 +9,9 @@ public class StoneThrowerManager : MonoBehaviour
     public LineRenderer lineRenderer;
 
     public float maxPower = 10f;
-    public float throwAngle = 120f; // 👈 고정된 각도
-    public float previewLength = 1f; // 선의 곡선 시뮬레이션 길이
-    public int previewResolution = 30; // 선의 포인트 수
+    public float throwAngle = 120f; 
+    public float previewLength = 1f; 
+    public int previewResolution = 30; 
 
     float holdTime;
     float maxHoldTime = 2f;
@@ -30,7 +30,7 @@ public class StoneThrowerManager : MonoBehaviour
 
             float power = (holdTime / maxHoldTime) * maxPower;
 
-            ShowTrajectory(power); // 미리보기
+            ShowTrajectory(power); 
         }
 
         if (Input.GetMouseButtonUp(0))

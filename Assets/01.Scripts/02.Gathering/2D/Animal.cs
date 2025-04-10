@@ -15,8 +15,8 @@ public class Animal : MonoBehaviour
     public AnimalSizeType sizeType;
     public string[] favoriteBaits;
 
-    private float baseCaptureChance = 0.2f; // 기본 확률 (20%)
-    private float captureChance = 0f; // 실시간 계산된 포획 확률
+    private float baseCaptureChance = 0.2f; 
+    private float captureChance = 0f;
     private bool canBeCaptured = false;
 
     public void ReactToBait(string baitType, Vector3 baitPosition)
@@ -40,8 +40,7 @@ public class Animal : MonoBehaviour
             case AnimalSizeType.Large:
                 if (likesBait)
                 {
-                    Debug.Log($"{animalName}은(는) 미끼를 좋아하지만 의심이 많습니다. 도망 준비 중...");
-                    Invoke(nameof(Flee), 3f); // 3초 후 도망
+                    Invoke(nameof(Flee), 3f); 
                 }
                 break;
         }
@@ -57,8 +56,8 @@ public class Animal : MonoBehaviour
         }
 
         float distance = Vector3.Distance(transform.position, baitPosition);
-        float bonus = Mathf.Clamp01(1f - distance / 5f); // 최대 거리 5 기준
-        float bonusChance = bonus * 0.5f; // 최대 50% 보너스
+        float bonus = Mathf.Clamp01(1f - distance / 5f); 
+        float bonusChance = bonus * 0.5f; 
 
         captureChance = baseCaptureChance + bonusChance;
         canBeCaptured = true;
@@ -94,11 +93,11 @@ public class Animal : MonoBehaviour
         float roll = Random.value;
         bool success = roll < captureChance;
 
-        Debug.Log($"[동물: {animalName}] 포획 시도! 확률: {captureChance * 100:F1}% → 랜덤값: {roll:F2} → {(success ? "성공!" : "실패")}");
+        Debug.Log($"[동물: {animalName}] 포획 시도! 확률: {captureChance * 100:F1}% → 랜덤값: {roll:F2} → {(success ? "성공" : "실패")}");
 
         if (success)
         {
-            Debug.Log($"{animalName} 포획 성공!");
+            Debug.Log($"{animalName} 포획 성공");
             Destroy(gameObject);
         }
     }

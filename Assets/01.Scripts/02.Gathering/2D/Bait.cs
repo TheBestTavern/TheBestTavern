@@ -15,7 +15,6 @@ public class Bait : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
 
-        // 물리 소재 설정 (미끄러짐 방지)
         PhysicsMaterial2D noSlide = new PhysicsMaterial2D("NoSlide");
         noSlide.friction = 1f;
         noSlide.bounciness = 0f;
@@ -23,7 +22,6 @@ public class Bait : MonoBehaviour
         BoxCollider2D col = GetComponent<BoxCollider2D>();
         col.sharedMaterial = noSlide;
 
-        // 공중에서 느리게 떨어지도록 설정
         rb.drag = 0f;
         rb.angularDrag = 0.05f;
         rb.gravityScale = 1f;

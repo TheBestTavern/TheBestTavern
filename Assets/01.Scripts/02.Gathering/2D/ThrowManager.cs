@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ThrowManager : MonoBehaviour
 {
-    public List<GameObject> baitPrefabs; // baitPrefabs[0] = Normal, [1] = Rare 등
+    public List<GameObject> baitPrefabs; 
     public Transform throwPoint;
     public LineRenderer lineRenderer;
 
@@ -16,11 +16,10 @@ public class ThrowManager : MonoBehaviour
     float holdTime;
     float maxHoldTime = 2f;
 
-    int currentBaitIndex = 0; // 선택된 미끼 종류
+    int currentBaitIndex = 0; 
 
     void Update()
     {
-        // 마우스 클릭으로 던지기
         if (Input.GetMouseButtonDown(0))
         {
             holdTime = 0f;
@@ -44,7 +43,6 @@ public class ThrowManager : MonoBehaviour
             HidePreview();
         }
 
-        // 숫자키로 미끼 선택
         if (Input.GetKeyDown(KeyCode.Alpha1)) currentBaitIndex = 0;
         if (Input.GetKeyDown(KeyCode.Alpha2)) currentBaitIndex = 1;
         if (Input.GetKeyDown(KeyCode.Alpha3)) currentBaitIndex = 2;
