@@ -4,20 +4,23 @@ using UnityEngine;
 
 public class ThrowManager : MonoBehaviour
 {
-    public GameObject throwObjectPrefab;
+    public List<GameObject> baitPrefabs; // baitPrefabs[0] = Normal, [1] = Rare 등
     public Transform throwPoint;
     public LineRenderer lineRenderer;
 
     public float maxPower = 10f;
-    public float throwAngle = 120f; // 👈 고정된 각도
-    public float previewLength = 1f; // 선의 곡선 시뮬레이션 길이
-    public int previewResolution = 30; // 선의 포인트 수
+    public float throwAngle = 120f;
+    public float previewLength = 1f;
+    public int previewResolution = 30;
 
     float holdTime;
     float maxHoldTime = 2f;
 
+    int currentBaitIndex = 0; // 선택된 미끼 종류
+
     void Update()
     {
+        // 마우스 클릭으로 던지기
         if (Input.GetMouseButtonDown(0))
         {
             holdTime = 0f;
@@ -30,7 +33,7 @@ public class ThrowManager : MonoBehaviour
 
             float power = (holdTime / maxHoldTime) * maxPower;
 
-            ShowTrajectory(power); // 미리보기
+            ShowTrajectory(power);
         }
 
         if (Input.GetMouseButtonUp(0))
@@ -40,11 +43,18 @@ public class ThrowManager : MonoBehaviour
             Throw(power);
             HidePreview();
         }
+
+        // 숫자키로 미끼 선택
+        if (Input.GetKeyDown(KeyCode.Alpha1)) currentBaitIndex = 0;
+        if (Input.GetKeyDown(KeyCode.Alpha2)) currentBaitIndex = 1;
+        if (Input.GetKeyDown(KeyCode.Alpha3)) currentBaitIndex = 2;
+        if (Input.GetKeyDown(KeyCode.Alpha4)) currentBaitIndex = 3;
     }
 
     void Throw(float power)
     {
-        GameObject obj = Instantiate(throwObjectPrefab, throwPoint.position, Quaternion.identity);
+        GameObject prefab = baitPrefabs[currentBaitIndex];
+        GameObject obj = Instantiate(prefab, throwPoint.position, Quaternion.identity);
         Rigidbody2D rb = obj.GetComponent<Rigidbody2D>();
 
         float rad = throwAngle * Mathf.Deg2Rad;
