@@ -22,7 +22,7 @@ public class Card : MonoBehaviour
 
     public CookingGrillMiniGame grillMiniGame;
 
- 
+    bool isFront = true;
 
     private void Awake()
     {
@@ -45,10 +45,10 @@ public class Card : MonoBehaviour
     public void ToggleCard()
     {
         animator.SetTrigger("Flip");
-        bool isFront = front.activeSelf; // 현재 앞면이 보이고 있는지
+        //isFront = front.activeSelf; // 현재 앞면이 보이고 있는지
 
-        front.SetActive(!isFront); // 현재 뒷면이면 앞면 활성화
-        back.SetActive(isFront); // 현재 앞면이면 뒷면 활성화
+        // front.SetActive(!isFront); // 현재 뒷면이면 앞면 활성화
+        // back.SetActive(isFront); // 현재 앞면이면 뒷면 활성화
 
         grillMiniGame.OpenCard(this);
     }
@@ -58,4 +58,10 @@ public class Card : MonoBehaviour
         return firstCard.idx == secondCard.idx;
     }
 
+    public void SetFlipCardActive()
+    {
+        isFront = !isFront;
+        front.SetActive(isFront);
+        back.SetActive(!isFront);
+    }
 }

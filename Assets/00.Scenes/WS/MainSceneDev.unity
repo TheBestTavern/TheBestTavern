@@ -407,8 +407,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timerController: {fileID: 1971538188}
-  minute: 0
-  day: 0
+  day: 5
 --- !u!4 &780640371
 Transform:
   m_ObjectHideFlags: 0
@@ -717,7 +716,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '12 : 00'
+  m_text: '00 : 00'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1d344be8c80e99a4ba2908ceccb706e3, type: 2}
   m_sharedMaterial: {fileID: 1974840492626225644, guid: 1d344be8c80e99a4ba2908ceccb706e3, type: 2}
@@ -780,7 +779,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -190.15234, y: 15.472656, z: 85.16797, w: -35.117188}
+  m_margin: {x: -265.56543, y: 15.472656, z: 33.515137, w: -35.117188}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -1057,11 +1056,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a685aadf8d7d746a3922b45a5b1e8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  year: 1452
-  month: 2
-  day: 23
-  hour: 10
-  minute: 0
 --- !u!224 &626988804974200135
 RectTransform:
   m_ObjectHideFlags: 0
