@@ -6,43 +6,76 @@ public class ThrowManager : MonoBehaviour
 {
     public GameObject throwObjectPrefab;
     public Transform throwPoint;
+    public LineRenderer lineRenderer;
+
     public float maxPower = 10f;
-    public float minAngle = -45f;
-    public float maxAngle = 45f;
+    public float throwAngle = 120f; // 👈 고정된 각도
+    public float previewLength = 1f; // 선의 곡선 시뮬레이션 길이
+    public int previewResolution = 30; // 선의 포인트 수
 
     float holdTime;
     float maxHoldTime = 2f;
-    float currentDirection = 0f; // -1 ~ 1
 
     void Update()
     {
-        // 방향 조절 (좌우 화살표 등으로 조절)
-        currentDirection = Mathf.Sin(Time.time * 2f); // 좌우 왕복
-
-        if (Input.GetMouseButtonDown(0)) holdTime = 0f;
+        if (Input.GetMouseButtonDown(0))
+        {
+            holdTime = 0f;
+        }
 
         if (Input.GetMouseButton(0))
         {
             holdTime += Time.deltaTime;
             holdTime = Mathf.Clamp(holdTime, 0f, maxHoldTime);
+
+            float power = (holdTime / maxHoldTime) * maxPower;
+
+            ShowTrajectory(power); // 미리보기
         }
 
         if (Input.GetMouseButtonUp(0))
         {
             float power = (holdTime / maxHoldTime) * maxPower;
-            float angle = Mathf.Lerp(minAngle, maxAngle, (currentDirection + 1f) / 2f);
 
-            Throw(power, angle);
+            Throw(power);
+            HidePreview();
         }
     }
 
-    void Throw(float power, float angle)
+    void Throw(float power)
     {
         GameObject obj = Instantiate(throwObjectPrefab, throwPoint.position, Quaternion.identity);
-        Rigidbody rb = obj.GetComponent<Rigidbody>();
+        Rigidbody2D rb = obj.GetComponent<Rigidbody2D>();
 
-        // angle: y축 기준 회전 → 방향 벡터 계산
-        Vector3 dir = Quaternion.Euler(0f, angle, 0f) * Vector3.forward + Vector3.up;
-        rb.AddForce(dir.normalized * power, ForceMode.Impulse);
+        float rad = throwAngle * Mathf.Deg2Rad;
+        Vector2 dir = new Vector2(Mathf.Cos(rad), Mathf.Sin(rad));
+
+        rb.AddForce(dir.normalized * power, ForceMode2D.Impulse);
+    }
+
+    void ShowTrajectory(float power)
+    {
+        Vector3[] points = new Vector3[previewResolution];
+        float rad = throwAngle * Mathf.Deg2Rad;
+        Vector2 dir = new Vector2(Mathf.Cos(rad), Mathf.Sin(rad)).normalized;
+
+        Vector3 startPos = throwPoint.position;
+        Vector2 velocity = dir * power;
+
+        for (int i = 0; i < previewResolution; i++)
+        {
+            float t = i * previewLength / previewResolution;
+            Vector2 pos = (Vector2)startPos + velocity * t + 0.5f * Physics2D.gravity * t * t;
+            points[i] = pos;
+        }
+
+        lineRenderer.positionCount = previewResolution;
+        lineRenderer.SetPositions(points);
+        lineRenderer.enabled = true;
+    }
+
+    void HidePreview()
+    {
+        lineRenderer.enabled = false;
     }
 }
