@@ -1,72 +1,57 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
 
 public class Animal : MonoBehaviour
 {
-    [Header("미끼 관련")]
-    [SerializeField] private List<BaitType> favoriteBaits;
-    [SerializeField] private float catchSuccessRate = 0.3f; // 포획 확률
-    [SerializeField] private float catchDistance = 1.5f; // 포획 시도 거리
+    public float moveSpeed = 2f;
+    public float detectRange = 15f;
+    public float stopDistance = 0.3f;
 
-    private NavMeshAgent agent;
     private Transform baitTarget;
-    private bool isApproaching = false;
-    private bool hasReacted = false;
+    private bool isMovingToBait = false;
 
-    private void Start()
+    void Update()
     {
-        agent = GetComponent<NavMeshAgent>();
-    }
-
-    private void Update()
-    {
-        if (isApproaching && baitTarget != null)
+        if (baitTarget != null && isMovingToBait)
         {
             float distance = Vector3.Distance(transform.position, baitTarget.position);
-            if (distance <= catchDistance)
+            if (distance > stopDistance)
             {
-                isApproaching = false;
-                agent.isStopped = true;
-                TryCatch();
+                Vector3 dir = (baitTarget.position - transform.position).normalized;
+                transform.position += dir * moveSpeed * Time.deltaTime;
+            }
+            else
+            {
+                isMovingToBait = false;
+                Debug.Log("미끼 도착!");
             }
         }
     }
 
-    public void ReactToBait(BaitType baitType, Transform baitTransform)
+    public void SetBait(Transform bait)
     {
-        if (hasReacted) return;
+        Debug.Log("SetBait called");
 
-        if (favoriteBaits.Contains(baitType))
+        if (baitTarget == null)
         {
-            Debug.Log($"{gameObject.name}는 {baitType} 미끼를 좋아해서 다가간다!");
-            baitTarget = baitTransform;
-            isApproaching = true;
-            hasReacted = true;
+            float distance = Vector3.Distance(transform.position, bait.position);
+            Debug.Log("Distance to bait: " + distance);
 
-            agent.SetDestination(baitTransform.position);
+            if (distance <= detectRange)
+            {
+                Debug.Log("Animal started moving toward bait.");
+                baitTarget = bait;
+                isMovingToBait = true;
+            }
+            else
+            {
+                Debug.Log("Bait is out of range.");
+            }
         }
         else
         {
-            Debug.Log($"{gameObject.name}는 {baitType} 미끼에 관심 없음.");
-        }
-    }
-
-    private void TryCatch()
-    {
-        float roll = Random.Range(0f, 1f);
-        Debug.Log($"{gameObject.name} 포획 시도! 확률: {catchSuccessRate * 100}% -> 주사위: {roll}");
-
-        if (roll <= catchSuccessRate)
-        {
-            Debug.Log($"{gameObject.name} 포획 성공!");
-            gameObject.SetActive(false); // 포획 성공 시 제거
-        }
-        else
-        {
-            Debug.Log($"{gameObject.name} 포획 실패...");
-            // 실패 시 도망가기 같은 연출 가능
+            Debug.Log("Already has a bait target.");
         }
     }
 }
