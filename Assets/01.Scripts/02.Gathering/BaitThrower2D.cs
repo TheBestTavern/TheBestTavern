@@ -84,7 +84,7 @@ public class BaitThrower2D : MonoBehaviour
         // 🔁 화살표 회전 - -45도(왼쪽) ~ +45도(오른쪽)
         if (directionArrow != null)
         {
-            float angle = Mathf.Lerp(-45f, 45f, (currentDirection + 1f) / 2f);
+            float angle = Mathf.Lerp(45f, -45f, (currentDirection + 1f) / 2f);
             directionArrow.localRotation = Quaternion.Euler(45f, 0f, angle);
         }
     }
@@ -96,10 +96,10 @@ public class BaitThrower2D : MonoBehaviour
 
         float finalForce = Mathf.Lerp(minForce, maxForce, currentForce);
 
-        // 방향 계산: 로컬 right 방향 (화면에서 보이는 좌우 기준)
-        Vector3 direction = directionArrow.rotation * Vector3.right;
+        // 👉 회전된 방향 벡터 (XZ 평면 기준)
+        float angle = Mathf.Lerp(-45f, 45f, (currentDirection + 1f) / 2f);
+        Vector3 direction = Quaternion.Euler(-10f, angle, 0f) * Vector3.forward;
 
-        rb.useGravity = true; // 또는 false, 원하는 느낌에 따라 조절
         rb.AddForce(direction * finalForce, ForceMode.Impulse);
 
         Debug.DrawRay(throwPoint.position, direction * 3f, Color.red, 2f);

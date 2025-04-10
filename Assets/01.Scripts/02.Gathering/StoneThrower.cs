@@ -22,13 +22,13 @@ public class StoneThrower : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetMouseButtonDown(0))
         {
             isCharging = true;
             chargeTime = 0f;
         }
 
-        if (isCharging && Input.GetKey(KeyCode.Space))
+        if (isCharging && Input.GetMouseButton(0))
         {
             chargeTime += Time.deltaTime;
             chargeTime = Mathf.Clamp(chargeTime, 0f, maxChargeTime);
@@ -40,7 +40,7 @@ public class StoneThrower : MonoBehaviour
             }
         }
 
-        if (isCharging && Input.GetKeyUp(KeyCode.Space))
+        if (isCharging && Input.GetMouseButtonUp(0))
         {
             ThrowStone();
             isCharging = false;
@@ -62,7 +62,7 @@ public class StoneThrower : MonoBehaviour
         Rigidbody rb = stone.GetComponent<Rigidbody>();
 
         // 카메라는 정면을 보므로 "앞으로"는 Z축 (+Z)
-        Vector3 throwDirection = new Vector3(0f, 1f, 1f).normalized;
+        Vector3 throwDirection = new Vector3(0f, 0.2f, 1f).normalized;
         rb.AddForce(throwDirection * throwForce, ForceMode.Impulse);
 
         Destroy(stone, 3f); // 5초 후 파괴
