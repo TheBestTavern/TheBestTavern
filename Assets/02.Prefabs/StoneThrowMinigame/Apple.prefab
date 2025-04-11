@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3138655853095046834}
   - component: {fileID: 1502226386240636184}
   m_Layer: 0
-  m_Name: Triangle
+  m_Name: Apple
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

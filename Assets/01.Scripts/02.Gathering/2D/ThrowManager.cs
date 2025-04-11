@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ThrowManager : MonoBehaviour
 {
-    public List<GameObject> baitPrefabs; 
+    public List<GameObject> baitPrefabs;
     public Transform throwPoint;
     public LineRenderer lineRenderer;
 
@@ -16,10 +16,21 @@ public class ThrowManager : MonoBehaviour
     float holdTime;
     float maxHoldTime = 2f;
 
-    int currentBaitIndex = 0; 
+    int currentBaitIndex = -1; // -1이면 아직 아무것도 선택 안 한 상태
+    bool isBaitReady = false;  // 버튼으로 준비되었는지 확인
+    bool readyNextFrame = false;
 
     void Update()
     {
+        if (readyNextFrame)
+        {
+            isBaitReady = true;
+            readyNextFrame = false;
+            return;
+        }
+
+        if (!isBaitReady) return;
+
         if (Input.GetMouseButtonDown(0))
         {
             holdTime = 0f;
@@ -31,33 +42,30 @@ public class ThrowManager : MonoBehaviour
             holdTime = Mathf.Clamp(holdTime, 0f, maxHoldTime);
 
             float power = (holdTime / maxHoldTime) * maxPower;
-
             ShowTrajectory(power);
         }
 
         if (Input.GetMouseButtonUp(0))
         {
             float power = (holdTime / maxHoldTime) * maxPower;
-
             Throw(power);
             HidePreview();
-        }
 
-        if (Input.GetKeyDown(KeyCode.Alpha1)) currentBaitIndex = 0;
-        if (Input.GetKeyDown(KeyCode.Alpha2)) currentBaitIndex = 1;
-        if (Input.GetKeyDown(KeyCode.Alpha3)) currentBaitIndex = 2;
-        if (Input.GetKeyDown(KeyCode.Alpha4)) currentBaitIndex = 3;
+            isBaitReady = false;
+            currentBaitIndex = -1;
+        }
     }
 
     void Throw(float power)
     {
+        if (currentBaitIndex < 0 || currentBaitIndex >= baitPrefabs.Count) return;
+
         GameObject prefab = baitPrefabs[currentBaitIndex];
         GameObject obj = Instantiate(prefab, throwPoint.position, Quaternion.identity);
         Rigidbody2D rb = obj.GetComponent<Rigidbody2D>();
 
         float rad = throwAngle * Mathf.Deg2Rad;
         Vector2 dir = new Vector2(Mathf.Cos(rad), Mathf.Sin(rad));
-
         rb.AddForce(dir.normalized * power, ForceMode2D.Impulse);
     }
 
@@ -85,5 +93,13 @@ public class ThrowManager : MonoBehaviour
     void HidePreview()
     {
         lineRenderer.enabled = false;
+    }
+
+    // 버튼에서 호출
+    public void SetBaitIndex(int index)
+    {
+        currentBaitIndex = index;
+        readyNextFrame = true;
+        Debug.Log("미끼 장전 완료: " + index);
     }
 }
