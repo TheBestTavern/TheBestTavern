@@ -4,45 +4,50 @@ using System.IO;
 using UnityEngine;
 
 [Serializable]
-public class Data_Foods
+public class Data_Sheet6
 {
     /// <summary>
-    /// 고유번호
+    /// 레시피ID (INT)
     /// </summary>
     public int key;
 
     /// <summary>
-    /// 음식명
+    /// 레시피명 (VARCHAR(50)
     /// </summary>
     public string name;
 
     /// <summary>
-    /// 음식군
+    /// 결과 요리 음식군 번호
     /// </summary>
-    public int foodCategory;
+    public int resultCategory;
 
     /// <summary>
-    /// 등급
+    /// 재료가 될 음식군 번호 
     /// </summary>
-    public string grade;
+    public List<int> ingredients;
 
     /// <summary>
-    /// 습득처
+    /// 도구
     /// </summary>
-    public string getRoute;
+    public int usingTool;
+
+    /// <summary>
+    /// 요리 속성
+    /// </summary>
+    public string cookingProperty;
 
 }
-public class Data_FoodsLoader
+public class Data_Sheet6Loader
 {
-    public List<Data_Foods> ItemsList { get; private set; }
-    public Dictionary<int, Data_Foods> ItemsDict { get; private set; }
+    public List<Data_Sheet6> ItemsList { get; private set; }
+    public Dictionary<int, Data_Sheet6> ItemsDict { get; private set; }
 
-    public Data_FoodsLoader(string path = "JSON/Data_Foods")
+    public Data_Sheet6Loader(string path = "JSON/Data_Sheet6")
     {
         string jsonData;
         jsonData = Resources.Load<TextAsset>(path).text;
         ItemsList = JsonUtility.FromJson<Wrapper>(jsonData).Items;
-        ItemsDict = new Dictionary<int, Data_Foods>();
+        ItemsDict = new Dictionary<int, Data_Sheet6>();
         foreach (var item in ItemsList)
         {
             ItemsDict.Add(item.key, item);
@@ -52,10 +57,10 @@ public class Data_FoodsLoader
     [Serializable]
     private class Wrapper
     {
-        public List<Data_Foods> Items;
+        public List<Data_Sheet6> Items;
     }
 
-    public Data_Foods GetByKey(int key)
+    public Data_Sheet6 GetByKey(int key)
     {
         if (ItemsDict.ContainsKey(key))
         {
@@ -63,7 +68,7 @@ public class Data_FoodsLoader
         }
         return null;
     }
-    public Data_Foods GetByIndex(int index)
+    public Data_Sheet6 GetByIndex(int index)
     {
         if (index >= 0 && index < ItemsList.Count)
         {

@@ -10,7 +10,8 @@ public enum PopUpType
     Menu,
     SelectMap,
     MailBox,
-    Confirm
+    Confirm,
+    QuestLetter
 }
 
 
@@ -20,7 +21,12 @@ public class UIManager : MonoSingleton<UIManager>
 
     public ConfirmPopUp confirmPopUp;
 
-    public void ShowPopUp(PopUpType type)
+    public override void Init()
+    {
+        base.Init();
+    }
+
+    public BasePopUp ShowPopUp(PopUpType type)
     {
         if (!popUps.TryGetValue(type, out BasePopUp popUp))
         {
@@ -34,6 +40,7 @@ public class UIManager : MonoSingleton<UIManager>
             confirmPopUp = popUp.GetComponent<ConfirmPopUp>();
         }
         popUp.OnOpen();
+        return popUp;
     }
 
     public void HidePopUp(PopUpType type)

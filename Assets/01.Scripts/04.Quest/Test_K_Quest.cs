@@ -10,7 +10,7 @@ public class Test_K_Quest : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        btn.onClick.AddListener(() => MailBoxUI.SetActive(true));
+        btn.onClick.AddListener(() => UIManager.Instance.ShowPopUp(PopUpType.MailBox));
     }
 
     // Update is called once per frame

@@ -4,7 +4,7 @@ using System.IO;
 using UnityEngine;
 
 [Serializable]
-public class Data_Quest
+public class Data_Sheet9
 {
     /// <summary>
     /// 퀘스트 ID (INT)
@@ -29,7 +29,7 @@ public class Data_Quest
     /// <summary>
     /// 요리 속성
     /// </summary>
-    public string dishDesc;
+    public string dishProperty;
 
     /// <summary>
     /// 요구 조건 설명
@@ -47,17 +47,17 @@ public class Data_Quest
     public float conditionFavorability;
 
 }
-public class Data_QuestLoader
+public class Data_Sheet9Loader
 {
-    public List<Data_Quest> ItemsList { get; private set; }
-    public Dictionary<int, Data_Quest> ItemsDict { get; private set; }
+    public List<Data_Sheet9> ItemsList { get; private set; }
+    public Dictionary<int, Data_Sheet9> ItemsDict { get; private set; }
 
-    public Data_QuestLoader(string path = "JSON/Data_Quest")
+    public Data_Sheet9Loader(string path = "JSON/Data_Sheet9")
     {
         string jsonData;
         jsonData = Resources.Load<TextAsset>(path).text;
         ItemsList = JsonUtility.FromJson<Wrapper>(jsonData).Items;
-        ItemsDict = new Dictionary<int, Data_Quest>();
+        ItemsDict = new Dictionary<int, Data_Sheet9>();
         foreach (var item in ItemsList)
         {
             ItemsDict.Add(item.key, item);
@@ -67,10 +67,10 @@ public class Data_QuestLoader
     [Serializable]
     private class Wrapper
     {
-        public List<Data_Quest> Items;
+        public List<Data_Sheet9> Items;
     }
 
-    public Data_Quest GetByKey(int key)
+    public Data_Sheet9 GetByKey(int key)
     {
         if (ItemsDict.ContainsKey(key))
         {
@@ -78,7 +78,7 @@ public class Data_QuestLoader
         }
         return null;
     }
-    public Data_Quest GetByIndex(int index)
+    public Data_Sheet9 GetByIndex(int index)
     {
         if (index >= 0 && index < ItemsList.Count)
         {

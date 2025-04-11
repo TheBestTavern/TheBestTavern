@@ -2,7 +2,7 @@
   "Items": [
     {
       "key": 1,
-      "chance": 0,
+      "season": 0,
       "availableFood": [
         101045,
         101060,
@@ -29,7 +29,7 @@
     },
     {
       "key": 2,
-      "chance": 1,
+      "season": 1,
       "availableFood": [
         101045,
         101060,
@@ -56,7 +56,7 @@
     },
     {
       "key": 3,
-      "chance": 2,
+      "season": 2,
       "availableFood": [
         101045,
         101060,
@@ -79,12 +79,14 @@
         101024,
         101027,
         101031,
-        101036
+        101036,
+        101042,
+        101048
       ]
     },
     {
       "key": 4,
-      "chance": 3,
+      "season": 3,
       "availableFood": [
         101045,
         101060,

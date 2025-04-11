@@ -13,11 +13,10 @@ public class QuestSlot : MonoBehaviour
     [SerializeField] Button openLetterBtn;
 
     Quest slotQuest; // 이 슬롯이 표시할 퀘스트
-    QuestUI questUI; // 부모 퀘스트 UI
+    QuestContent questContent; // 부모 퀘스트 UI
 
     int index;
 
-    QuestLetter currentLetter;
 
     bool isReady;
 
@@ -27,11 +26,11 @@ public class QuestSlot : MonoBehaviour
         openLetterBtn.onClick.AddListener(() => OpenLetter());
     }
 
-    public void Init(QuestUI questUI)
+    public void Init(QuestContent questContent)
     {
         if (!isReady)
         {
-            this.questUI = questUI;
+            this.questContent = questContent;
             isReady = true;
         }
     }
@@ -56,17 +55,7 @@ public class QuestSlot : MonoBehaviour
 
     private void OpenLetter() // 나중에 풀링으로 관리해보기
     {
-        // 1. 이미 열린 편지는 파괴
-        if(currentLetter != null)
-        {
-            Destroy(currentLetter.gameObject);
-            currentLetter = null;
-            Debug.Log($"{index}번 슬롯 열린 편지 파괴");
-
-        }
-
-        // 2. 편지 프리팹 생성
-        currentLetter = questUI.OpenLetter(slotQuest);
+        questContent.OpenLetter(slotQuest);
         Debug.Log($"{index}번 편지 열람");
     }
 }

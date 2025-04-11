@@ -4,35 +4,45 @@ using System.IO;
 using UnityEngine;
 
 [Serializable]
-public class Data_CookingSteps
+public class Data_Sheet1
 {
     /// <summary>
-    /// 조리 방식 (INT)
+    /// 고유번호
     /// </summary>
     public int key;
 
     /// <summary>
-    /// 이름 ( VACHAR 50)
+    /// 음식명
     /// </summary>
     public string name;
 
     /// <summary>
-    /// 도구명 (VACHAR 20)
+    /// 음식군
     /// </summary>
-    public DesignEnums.CookingTool tool;
+    public int FoodCategory;
+
+    /// <summary>
+    /// 등급
+    /// </summary>
+    public DesignEnums.Grade grade;
+
+    /// <summary>
+    /// 습득처
+    /// </summary>
+    public List<DesignEnums.Route> getRoute;
 
 }
-public class Data_CookingStepsLoader
+public class Data_Sheet1Loader
 {
-    public List<Data_CookingSteps> ItemsList { get; private set; }
-    public Dictionary<int, Data_CookingSteps> ItemsDict { get; private set; }
+    public List<Data_Sheet1> ItemsList { get; private set; }
+    public Dictionary<int, Data_Sheet1> ItemsDict { get; private set; }
 
-    public Data_CookingStepsLoader(string path = "JSON/Data_CookingSteps")
+    public Data_Sheet1Loader(string path = "JSON/Data_Sheet1")
     {
         string jsonData;
         jsonData = Resources.Load<TextAsset>(path).text;
         ItemsList = JsonUtility.FromJson<Wrapper>(jsonData).Items;
-        ItemsDict = new Dictionary<int, Data_CookingSteps>();
+        ItemsDict = new Dictionary<int, Data_Sheet1>();
         foreach (var item in ItemsList)
         {
             ItemsDict.Add(item.key, item);
@@ -42,10 +52,10 @@ public class Data_CookingStepsLoader
     [Serializable]
     private class Wrapper
     {
-        public List<Data_CookingSteps> Items;
+        public List<Data_Sheet1> Items;
     }
 
-    public Data_CookingSteps GetByKey(int key)
+    public Data_Sheet1 GetByKey(int key)
     {
         if (ItemsDict.ContainsKey(key))
         {
@@ -53,7 +63,7 @@ public class Data_CookingStepsLoader
         }
         return null;
     }
-    public Data_CookingSteps GetByIndex(int index)
+    public Data_Sheet1 GetByIndex(int index)
     {
         if (index >= 0 && index < ItemsList.Count)
         {

@@ -4,35 +4,35 @@ using System.IO;
 using UnityEngine;
 
 [Serializable]
-public class Data_Gathering_Chance
+public class Data_Sheet7
 {
     /// <summary>
-    /// 고유번호
+    /// 조리 방식 (INT)
     /// </summary>
     public int key;
 
     /// <summary>
-    /// 채집 확률
+    /// 이름 ( VACHAR 50)
     /// </summary>
-    public DesignEnums.Chance chance;
+    public string name;
 
     /// <summary>
-    /// 얻을 수 있는 아이템 ID
+    /// 도구명 (VACHAR 20)
     /// </summary>
-    public List<int> availableFood;
+    public DesignEnums.CookingTool tool;
 
 }
-public class Data_Gathering_ChanceLoader
+public class Data_Sheet7Loader
 {
-    public List<Data_Gathering_Chance> ItemsList { get; private set; }
-    public Dictionary<int, Data_Gathering_Chance> ItemsDict { get; private set; }
+    public List<Data_Sheet7> ItemsList { get; private set; }
+    public Dictionary<int, Data_Sheet7> ItemsDict { get; private set; }
 
-    public Data_Gathering_ChanceLoader(string path = "JSON/Data_Gathering_Chance")
+    public Data_Sheet7Loader(string path = "JSON/Data_Sheet7")
     {
         string jsonData;
         jsonData = Resources.Load<TextAsset>(path).text;
         ItemsList = JsonUtility.FromJson<Wrapper>(jsonData).Items;
-        ItemsDict = new Dictionary<int, Data_Gathering_Chance>();
+        ItemsDict = new Dictionary<int, Data_Sheet7>();
         foreach (var item in ItemsList)
         {
             ItemsDict.Add(item.key, item);
@@ -42,10 +42,10 @@ public class Data_Gathering_ChanceLoader
     [Serializable]
     private class Wrapper
     {
-        public List<Data_Gathering_Chance> Items;
+        public List<Data_Sheet7> Items;
     }
 
-    public Data_Gathering_Chance GetByKey(int key)
+    public Data_Sheet7 GetByKey(int key)
     {
         if (ItemsDict.ContainsKey(key))
         {
@@ -53,7 +53,7 @@ public class Data_Gathering_ChanceLoader
         }
         return null;
     }
-    public Data_Gathering_Chance GetByIndex(int index)
+    public Data_Sheet7 GetByIndex(int index)
     {
         if (index >= 0 && index < ItemsList.Count)
         {

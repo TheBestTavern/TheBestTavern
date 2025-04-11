@@ -17,12 +17,6 @@ public class Quest
     public bool RecycleDatePass { get; private set; } = false; // 재활용 주기 지났는지
     int RecycleDays = 5; // 재활용에 필요한 일수
 
-    //public int Id { get; private set; } // key로 대체
-    //public string Title{ get; private set; }// name로 대체
-    //public string BodyText { get; private set; }// description로 대체
-    //public string NPCname { get; private set; } // givingNPC로 대체
-
-
     public Quest(Data_Quest data_Quest)
     {
         this.origin = data_Quest;

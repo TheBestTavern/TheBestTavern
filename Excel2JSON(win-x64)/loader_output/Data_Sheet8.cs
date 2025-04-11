@@ -4,7 +4,7 @@ using System.IO;
 using UnityEngine;
 
 [Serializable]
-public class Data_NPC
+public class Data_Sheet8
 {
     /// <summary>
     /// NPC ID (INT)
@@ -39,7 +39,7 @@ public class Data_NPC
     /// <summary>
     /// 비고
     /// </summary>
-    public string speech;
+    public string speechWay;
 
     /// <summary>
     /// 부여 퀘스트
@@ -47,17 +47,17 @@ public class Data_NPC
     public List<int> givingQuest;
 
 }
-public class Data_NPCLoader
+public class Data_Sheet8Loader
 {
-    public List<Data_NPC> ItemsList { get; private set; }
-    public Dictionary<int, Data_NPC> ItemsDict { get; private set; }
+    public List<Data_Sheet8> ItemsList { get; private set; }
+    public Dictionary<int, Data_Sheet8> ItemsDict { get; private set; }
 
-    public Data_NPCLoader(string path = "JSON/Data_NPC")
+    public Data_Sheet8Loader(string path = "JSON/Data_Sheet8")
     {
         string jsonData;
         jsonData = Resources.Load<TextAsset>(path).text;
         ItemsList = JsonUtility.FromJson<Wrapper>(jsonData).Items;
-        ItemsDict = new Dictionary<int, Data_NPC>();
+        ItemsDict = new Dictionary<int, Data_Sheet8>();
         foreach (var item in ItemsList)
         {
             ItemsDict.Add(item.key, item);
@@ -67,10 +67,10 @@ public class Data_NPCLoader
     [Serializable]
     private class Wrapper
     {
-        public List<Data_NPC> Items;
+        public List<Data_Sheet8> Items;
     }
 
-    public Data_NPC GetByKey(int key)
+    public Data_Sheet8 GetByKey(int key)
     {
         if (ItemsDict.ContainsKey(key))
         {
@@ -78,7 +78,7 @@ public class Data_NPCLoader
         }
         return null;
     }
-    public Data_NPC GetByIndex(int index)
+    public Data_Sheet8 GetByIndex(int index)
     {
         if (index >= 0 && index < ItemsList.Count)
         {
