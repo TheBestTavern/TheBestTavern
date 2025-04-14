@@ -8,9 +8,9 @@ public class ThrowManager : MonoBehaviour
     public Transform throwPoint;
     public LineRenderer lineRenderer;
 
-    public float maxPower = 10f;
-    public float throwAngle = 120f;
-    public float previewLength = 1f;
+    public float maxPower = 25f;
+    public float throwAngle = 60f;
+    public float previewLength = 0.2f;
     public int previewResolution = 30;
 
     float holdTime;
