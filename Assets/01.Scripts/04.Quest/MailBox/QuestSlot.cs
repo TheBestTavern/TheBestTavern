@@ -53,9 +53,9 @@ public class QuestSlot : MonoBehaviour
 
     }
 
-    private void OpenLetter() // 나중에 풀링으로 관리해보기
+    private void OpenLetter() 
     {
-        questContent.OpenLetter(slotQuest);
+        questContent.OpenLetter(slotQuest, this);
         Debug.Log($"{index}번 편지 열람");
     }
 }

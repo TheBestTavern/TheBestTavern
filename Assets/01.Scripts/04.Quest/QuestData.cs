@@ -30,7 +30,7 @@ public class QuestData
         TodayAvailableQuest = new();
         foreach (Quest item in AllQuests)
         {
-            if (item.CheckAvailable(new LunarDateTime())) // 날짜 임시로 아무거나 넣어놓음.
+            if (item.CheckAvailable(TimerManager.Instance.GetToday())) // 날짜 임시로 아무거나 넣어놓음.
             {
                 TodayAvailableQuest.Add(item);
             }

@@ -14,7 +14,7 @@ public class Quest
 
 
     public LunarDateTime? RecycleDate { get; private set; } // 다시 퀘스트가 출몰할 날
-    public bool RecycleDatePass { get; private set; } = false; // 재활용 주기 지났는지
+    public bool RecycleDatePass { get; private set; } = true; // 재활용 주기 지났는지
     int RecycleDays = 5; // 재활용에 필요한 일수. 임시로 5일로 지정
 
     public Quest(Data_Quest data_Quest)

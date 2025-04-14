@@ -210,6 +210,7 @@ GameObject:
   - component: {fileID: 6131582204731088312}
   - component: {fileID: 4815908055208361994}
   - component: {fileID: 3374298658948154687}
+  - component: {fileID: 449067489609045040}
   m_Layer: 5
   m_Name: MailBoxPopUpPrefab
   m_TagString: Untagged
@@ -300,6 +301,26 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &449067489609045040
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2433192166113468059}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4840da606cf38da40a444893c25c3a6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  closeButton: {fileID: 3508457439720243101}
+  popUpType: 5
+  contentBtn:
+  - {fileID: 8675232928608997641}
+  - {fileID: 8680029744712239377}
+  mailBoxContentsList:
+  - {fileID: 7801415728958107926}
+  - {fileID: 513700390820681335}
 --- !u!1 &2612205232976821980
 GameObject:
   m_ObjectHideFlags: 0
@@ -333,7 +354,7 @@ RectTransform:
   m_Father: {fileID: 4191192613285173175}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -561,7 +582,6 @@ MonoBehaviour:
   ContentType: 0
   questSlotPref: {fileID: 1527215487051462018, guid: faf31b9833bb0e24198f754709bb7be7, type: 3}
   slotPrt: {fileID: 6398062835742475104}
-  letterPref: {fileID: 8780934722442036590, guid: eb3c22114f8081d43995100ad83a16cf, type: 3}
   currentLetter: {fileID: 0}
 --- !u!1 &4779645416019778765
 GameObject:
@@ -738,7 +758,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &6607243009500946033
 RectTransform:
   m_ObjectHideFlags: 0
@@ -857,7 +877,6 @@ GameObject:
   - component: {fileID: 2740985539734667600}
   - component: {fileID: 2813786731769941906}
   - component: {fileID: 3838426624933890004}
-  - component: {fileID: 8104739721396434455}
   m_Layer: 5
   m_Name: Panel
   m_TagString: Untagged
@@ -928,26 +947,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &8104739721396434455
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5387281641309569566}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4840da606cf38da40a444893c25c3a6a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  closeButton: {fileID: 3508457439720243101}
-  popUpType: 3
-  contentBtn:
-  - {fileID: 8675232928608997641}
-  - {fileID: 8680029744712239377}
-  mailBoxContentsList:
-  - {fileID: 7801415728958107926}
-  - {fileID: 513700390820681335}
 --- !u!1 &5563165581586147940
 GameObject:
   m_ObjectHideFlags: 0

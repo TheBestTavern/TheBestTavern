@@ -8,10 +8,12 @@ public class QuestLetter : BasePopUp
 {
     private int days;
     private Quest quest;
+    private QuestSlot questSlot;
 
     [SerializeField] Button btn7;
     [SerializeField] Button btn11;
     [SerializeField] Button btn14;
+    bool isSetDays;
 
     [SerializeField] Button btnYes;
     [SerializeField] Button btnNo;
@@ -26,30 +28,47 @@ public class QuestLetter : BasePopUp
     public void FirstInit(Quest quest)
     {
         // 같은 기능의 버튼 초기화
-        btn7.onClick.AddListener(() => days = 7);
-        btn11.onClick.AddListener(() => days = 11);
-        btn14.onClick.AddListener(() => days = 14);
+        btn7.onClick.AddListener(() => OnClickDays(7));
+        btn11.onClick.AddListener(() => OnClickDays(11));
+        btn14.onClick.AddListener(() => OnClickDays(14));
         btnYes.onClick.AddListener(() => AcceptQuest());
         btnNo.onClick.AddListener(() => RejectQuest());
         IsReady = true;
     }
 
     // 편지 열때마다 필요한 초기화.
-    public void EveryInit(Quest quest)
+    public void EveryInit(Quest quest, QuestSlot questSlot)
     {
         // 문구 초기화
         this.quest = quest;
+        this.questSlot = questSlot;
+        isSetDays = false;
+        days = 0;
         title.text = quest.origin.name;
         bodyText.text = quest.origin.description;
         from.text = NPCManager.Instance.NPCData.AllNPC[quest.origin.givingNPC].origin.name;
     }
 
+    private void OnClickDays(int day)
+    {
+        days = day;
+        isSetDays = true;
+    }
+
     // 수락 버튼 메서드
     private void AcceptQuest()
     {
-        //미구현
-        Debug.Log($"{days}일 뒤로 퀘스트 수락");
-        QuestManager.Instance.AcceptQuest(quest, days);
+        if (isSetDays)
+        {
+            Debug.Log($"{days}일 뒤로 퀘스트 수락");
+            QuestManager.Instance.AcceptQuest(quest, days, questSlot);
+        }
+        else
+        {
+            Debug.Log($"일수가 선택안됨");
+            UIManager.Instance.ShowPopUp(PopUpType.Alarm);
+            UIManager.Instance.alarmPopUp.SetAlarm("일수를 먼저 선택해주세요.");
+        }
     }
 
     // 거절 버튼 메서드 ( 필요할지 의문 )

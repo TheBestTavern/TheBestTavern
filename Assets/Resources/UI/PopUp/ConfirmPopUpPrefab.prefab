@@ -191,7 +191,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   closeButton: {fileID: 3524760748519846103}
-  popUpType: 4
+  popUpType: 3
   confirmButton: {fileID: 6849592107754325485}
   confirmText: {fileID: 8425639978223289734}
 --- !u!1 &3196335260730562180

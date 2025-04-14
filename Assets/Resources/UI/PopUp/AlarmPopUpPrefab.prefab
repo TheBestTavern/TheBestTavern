@@ -582,5 +582,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   closeButton: {fileID: 8593432820279118996}
-  popUpType: 5
+  popUpType: 6
   bodyText: {fileID: 2893319118047143362}

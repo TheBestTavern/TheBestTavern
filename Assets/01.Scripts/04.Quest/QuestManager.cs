@@ -23,19 +23,36 @@ public class QuestManager : MonoSingleton<QuestManager>
     }
 
 
-    // 퀘스트 수령
-    public void AcceptQuest(Quest quest, int days)
+    // 퀘스트 수령 조건 판단
+    public void AcceptQuest(Quest quest, int days, QuestSlot questSlot)
     {
-        if (AcceptedQuests.Count <= 5)
+        if (AcceptedQuests.Count < 5 && !quest.IsAccepted)
         {
             questData.AcceptQuest(quest); // 리스트에 넣기
-            quest.AcceptQuest(new LunarDateTime(), days); // 퀘스트 수락 상태로 전환 및 트리거
+            quest.AcceptQuest(TimerManager.Instance.GetToday(), days); // 퀘스트 수락 상태로 전환 및 트리거
+
+            //오늘의 퀘스트 리스트에서 삭제
+            TodayAvailableQuest.Remove(quest);
+
+            //퀘스트 슬롯 리스트에서 삭제, 슬롯 파괴
+            MailBoxPopUp temp = UIManager.Instance.popUps[PopUpType.MailBox] as MailBoxPopUp;
+            QuestContent temp2 = temp.contentsDic[MailBoxContentType.Quest] as QuestContent;
+            temp2.RemoveQuestSlot(questSlot);
+
+            //편지 닫기
+            UIManager.Instance.HidePopUp(PopUpType.QuestLetter);
         }
-        else
+        else if(AcceptedQuests.Count >= 5)
         {
             Debug.Log("퀘스트 갯수 제한(5개) 초과");
             UIManager.Instance.ShowPopUp(PopUpType.Alarm);
-            UIManager.Instance.alarmPopUp.SetAlarm("퀘스트 갯수 제한 초과");
+            UIManager.Instance.alarmPopUp.SetAlarm("퀘스트 갯수 제한을 초과했습니다.");
+        }
+        else
+        {
+            Debug.Log("이미 수락한 퀘스트임");
+            UIManager.Instance.ShowPopUp(PopUpType.Alarm);
+            UIManager.Instance.alarmPopUp.SetAlarm("이미 수락한 퀘스트입니다.");
         }
     }
 
@@ -43,13 +60,13 @@ public class QuestManager : MonoSingleton<QuestManager>
     public void CompleteQuest(Quest quest)
     {
         questData.CompleteQuest(quest);
-        quest.CompleteQuest(new LunarDateTime()); // 아무 날짜나 임시로 지정 => 오늘 날짜로 변경
+        quest.CompleteQuest(TimerManager.Instance.GetToday()); // 아무 날짜나 임시로 지정 => 오늘 날짜로 변경
     }
 
     public void AbortQuest(Quest quest)
     {
         questData.RemoveQuest(quest);
-        quest.AbortQuest(new LunarDateTime()); // 아무 날짜나 임시로 지정 => 오늘 날짜로 변경
+        quest.AbortQuest(TimerManager.Instance.GetToday()); // 아무 날짜나 임시로 지정 => 오늘 날짜로 변경
     }
 
     // 하루가 갱신될때마다 실행될 이벤트 실행 메서드.

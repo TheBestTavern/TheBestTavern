@@ -19,7 +19,7 @@ public enum PopUpType
 
 public class UIManager : MonoSingleton<UIManager>
 {
-    private Dictionary<PopUpType, BasePopUp> popUps = new Dictionary<PopUpType, BasePopUp>();
+    public Dictionary<PopUpType, BasePopUp> popUps = new Dictionary<PopUpType, BasePopUp>();
 
     public ConfirmPopUp confirmPopUp;
     public AlarmPopUp alarmPopUp;
@@ -41,6 +41,10 @@ public class UIManager : MonoSingleton<UIManager>
         if (type == PopUpType.Confirm)
         {
             confirmPopUp = popUp.GetComponent<ConfirmPopUp>();
+        }
+        else if (type == PopUpType.Alarm)
+        {
+            alarmPopUp = popUp.GetComponent<AlarmPopUp>();
         }
         popUp.OnOpen();
         return popUp;

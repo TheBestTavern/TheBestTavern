@@ -20,7 +20,7 @@ public class MailBoxPopUp : BasePopUp
     [SerializeField] List<Button> contentBtn;
     Dictionary<MailBoxContentType, Button> contentsBtnDic = new();
     [SerializeField] List<MailBoxContent> mailBoxContentsList;
-    Dictionary<MailBoxContentType, MailBoxContent> contentsDic = new();
+    public Dictionary<MailBoxContentType, MailBoxContent> contentsDic = new();
 
     public override void Awake()
     {
