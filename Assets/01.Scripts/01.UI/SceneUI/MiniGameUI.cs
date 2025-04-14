@@ -6,7 +6,6 @@ using UnityEngine.UI;
 
 public class MiniGameUI : MonoBehaviour
 {
-    [SerializeField] private GameObject miniGame;
     [SerializeField] private Button closeButton;
 
     private void Awake()
@@ -16,12 +15,12 @@ public class MiniGameUI : MonoBehaviour
 
     public void OnMiniGameUI()
     {
-        miniGame.SetActive(true);
+        gameObject.SetActive(true);
     }
 
     private void OnClickCloseButton()
     {
-        MiniGameManager.Instance.CloseMiniGame();
-        miniGame.SetActive(false);
+        CookingMiniGameManager.Instance.CloseMiniGame();
+        gameObject.SetActive(false);
     }
 }
