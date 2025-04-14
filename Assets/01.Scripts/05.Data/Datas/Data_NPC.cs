@@ -39,7 +39,7 @@ public class Data_NPC
     /// <summary>
     /// 비고
     /// </summary>
-    public string speech;
+    public string speechWay;
 
     /// <summary>
     /// 부여 퀘스트

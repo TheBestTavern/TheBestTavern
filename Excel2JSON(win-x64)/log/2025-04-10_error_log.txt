@@ -1,4 +1,0 @@
-2025-04-10 오전 9:28:42: Error processing sheet Foods in file D:\Unity NBC\Camp Project\Week6_Unity_Final\TheBestTavern\Excel2JSON(win-x64)\excel_files\Book 2.xlsx: Specified argument was out of the range of valid values. (Parameter 'index')
-   at System.Linq.ThrowHelper.ThrowArgumentOutOfRangeException(ExceptionArgument argument)
-   at System.Linq.Enumerable.ElementAt[TSource](IEnumerable`1 source, Int32 index)
-   at ExcelToJsonWizard.Program.GenerateClassAndJsonFromExcel(String excelPath, String loaderDir, String jsonDir, String logFilePath, Boolean allowMultipleSheets, Boolean useResources, String resourcesInternalPath)

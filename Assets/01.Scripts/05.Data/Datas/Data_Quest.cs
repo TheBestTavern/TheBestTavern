@@ -29,7 +29,7 @@ public class Data_Quest
     /// <summary>
     /// 요리 속성
     /// </summary>
-    public string dishDesc;
+    public string dishProperty;
 
     /// <summary>
     /// 요구 조건 설명
