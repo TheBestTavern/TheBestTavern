@@ -20,14 +20,26 @@ public class Note : MonoBehaviour
 
     public Coroutine noteCoroutine;
 
+    [SerializeField] private GameObject noteImage;
+    public GameObject NoteImage => noteImage;
+    public void Show() => noteImage.SetActive(true);
+    public void Hide() => noteImage.SetActive(false);
 
+    //[SerializeField] private Animator animator;
+
+    private void Start()
+    {
+        //animator = GetComponentInChildren<Animator>();
+    }
     public void Init(Vector3 start, Vector3 end, float travelTime)
     {
+        
         startPos = start;
         endPos = end;
         noteSpawnTime = Time.time;
         noteJudgeTime = Time.time + travelTime;
         noteMissTime = noteJudgeTime + 0.5f;
+        
     }
 
     private void Update()
@@ -35,4 +47,11 @@ public class Note : MonoBehaviour
         float progress = Mathf.InverseLerp(noteSpawnTime, noteJudgeTime, Time.time);
         transform.localPosition = Vector3.Lerp(startPos, endPos, progress);
     }
+
+    //public void NoteHitEffect()
+    //{
+    //    animator.SetTrigger("NoteHit");
+    //    Debug.Log("애니메이션출력");
+    //}
+
 }

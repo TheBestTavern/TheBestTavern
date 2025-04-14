@@ -4,6 +4,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
+
 /// <summary>
 /// 절구 미니게임 - 리듬게임형
 /// (반복적으로 내려오는 리듬에 맞춰 정확한 타이밍 클릭)
@@ -16,7 +17,7 @@ public class CookingGrindMiniGame : MonoBehaviour,ICookingMiniGameHandler
 
     public Image timerImage;
 
-    public float noteTravelTime = 1f; // 노트가 도착까지 걸리는 시간 
+    public float noteTravelTime = 0.5f; // 노트가 도착까지 걸리는 시간 
 
     private float noteRespwanTime = 2f; // 2초마다 노트 생성
 
@@ -35,6 +36,10 @@ public class CookingGrindMiniGame : MonoBehaviour,ICookingMiniGameHandler
 
     public List<Note> notePool = new();
 
+    // 이펙트
+    [SerializeField] private Animator animator;
+    [SerializeField] private Effect effect;
+
     public void StartGame()
     {
     }
@@ -45,7 +50,7 @@ public class CookingGrindMiniGame : MonoBehaviour,ICookingMiniGameHandler
     void Start()
     {
         // 처음에 바로 spawn note
-        GetNotePool();
+        SpawnNote();
     }
     /// <summary>
     /// 테스트용 업데이트
@@ -60,7 +65,17 @@ public class CookingGrindMiniGame : MonoBehaviour,ICookingMiniGameHandler
         // 노트 총 7회 , 2초 간격으로 내려옴
         if (noteElapsedTime >= noteRespwanTime)
         {
-            GetNotePool();
+            Note note = GetNotePool();
+            
+            if(note != null) 
+            {
+                note.Init(noteAppear.localPosition, judgeButton.transform.localPosition, noteTravelTime);
+                note.Show();
+            }
+            else 
+            { 
+                SpawnNote(); 
+            }
 
             noteElapsedTime = 0f;
         }
@@ -71,36 +86,59 @@ public class CookingGrindMiniGame : MonoBehaviour,ICookingMiniGameHandler
             float inputTiming = Time.time;
             //bool isHit = false; // 노트가 판정처리 되었는지 확인
 
-            List<Note> activeNotes = notePool.Where(x => x.gameObject.activeInHierarchy).ToList();
+            List<Note> activeNotes = notePool.Where(x => x.NoteImage.activeInHierarchy).ToList();
 
             foreach (var activeNote in activeNotes)
             {
                 float diff = Mathf.Abs(activeNote.noteJudgeTime - inputTiming);
 
-                
                 if (diff <= 0.15f)
                 {
-                    activeNote.gameObject.SetActive(false);
+                    activeNote.Hide();
+                   // activeNote.gameObject.SetActive(false);
                     Debug.Log($"Perfect {diff}");
+                    // note hit 애니메이션
+                    NoteHitEffect();
+                    
+
+                    // 판정 텍스트 이미지 애니메이션
+                    //effect.JudgeEffect(0);
                     break;
                 }
                 if (diff <= 0.3f)
                 {
-                    activeNote.gameObject.SetActive(false);
+                    activeNote.Hide();
+
+                    // activeNote.gameObject.SetActive(false);
                     Debug.Log($"Good {diff}");
+
+                    // note hit 애니메이션
+                    NoteHitEffect();
+
+                    // 판정 텍스트 이미지 애니메이션
+                    //effect.JudgeEffect(1);
+
                     break;
                 }
                 if (diff <= 0.5f)
                 {
-                    activeNote.gameObject.SetActive(false);
+                    activeNote.Hide();
+                   // activeNote.gameObject.SetActive(false);
                     Debug.Log($"Bad {diff}");
-                   
+
+                    // 판정 텍스트 이미지 애니메이션
+                    //effect.JudgeEffect(2);
+
                     break;
                 }
                 if (diff <= 0.6f)
                 {
                     Debug.Log("Miss");
-                    StartCoroutine(delay(activeNote.gameObject, 0.2f)); 
+                    StartCoroutine(Delay(activeNote.gameObject, 0.2f));
+
+                    // 판정 텍스트 이미지 애니메이션
+                    //effect.JudgeEffect(3);
+
                     break;
                 }
             }
@@ -115,12 +153,12 @@ public class CookingGrindMiniGame : MonoBehaviour,ICookingMiniGameHandler
         // 노트 판정 시각 + 0.5f 까지 입력 없으면 무조건 Miss
         foreach (var note in notePool)
         {
-            if (!note.gameObject.activeInHierarchy) continue;
+            if (!note.NoteImage.activeInHierarchy) continue;
 
             if(Time.time > note.noteMissTime)
             {
                 Debug.Log("Miss");
-                note.gameObject.SetActive(false);
+                note.Hide();
             }
         }
  
@@ -163,10 +201,10 @@ public class CookingGrindMiniGame : MonoBehaviour,ICookingMiniGameHandler
         }
     }
     
-    private IEnumerator delay(GameObject note, float delay)
+    private IEnumerator Delay(GameObject note, float delay)
     {
         yield return new WaitForSeconds(delay);
-        note.gameObject.SetActive(false);
+        note.SetActive(false);
     }
 
 
@@ -204,21 +242,21 @@ public class CookingGrindMiniGame : MonoBehaviour,ICookingMiniGameHandler
 
     private Note GetNotePool()
     {
-        foreach(var exitNote in notePool)
-        {
-            if (!exitNote.gameObject.activeInHierarchy)
-            {
-                exitNote.Init(noteAppear.localPosition, judgeButton.transform.localPosition, noteTravelTime);
-                exitNote.gameObject.SetActive(true);
-                return exitNote;
-            }
-        }
+        return notePool.FirstOrDefault(x => !x.NoteImage.activeSelf);
+    }
 
+    private Note SpawnNote()
+    {
         Note note = Instantiate(notePrefab, noteAppear.position, Quaternion.identity, parentTransform).GetComponent<Note>();
         note.Init(noteAppear.localPosition, judgeButton.transform.localPosition, noteTravelTime);
 
         notePool.Add(note); // notePool에 생성된 노트를 추가
 
         return note;
+    }
+
+    private void NoteHitEffect()
+    {
+        animator.SetTrigger("NoteHit");
     }
 }
