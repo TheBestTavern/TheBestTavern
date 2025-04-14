@@ -9,8 +9,8 @@ public enum PopUpType
     Setting,
     Menu,
     SelectMap,
-    Quest,
-    Confirm,
+    MailBox,
+    Confirm
 }
 
 
@@ -22,21 +22,25 @@ public class UIManager : MonoSingleton<UIManager>
 
     public void ShowPopUp(PopUpType type)
     {
-        if (!popUps.TryGetValue(type, out var popUp))
+        if (!popUps.TryGetValue(type, out BasePopUp popUp))
         {
             GameObject go = Instantiate(LoadPopUpResource(type.ToString()));
             popUp = go.GetComponentInChildren<BasePopUp>();
             popUps.Add(type, popUp);
         }
 
-        popUp.gameObject.SetActive(true);
+        if (type == PopUpType.Confirm)
+        {
+            confirmPopUp = popUp.GetComponent<ConfirmPopUp>();
+        }
+        popUp.OnOpen();
     }
 
     public void HidePopUp(PopUpType type)
     {
-        if (popUps.TryGetValue(type, out var popUp))
+        if (popUps.TryGetValue(type, out BasePopUp popUp))
         {
-            popUp.gameObject.SetActive(false);
+            popUp.OnClose();
         }
     }
 

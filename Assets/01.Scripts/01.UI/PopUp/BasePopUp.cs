@@ -17,4 +17,14 @@ public class BasePopUp : MonoBehaviour
     {
         UIManager.Instance.HidePopUp(popUpType);
     }
+
+    public virtual void OnOpen()
+    {
+        gameObject.SetActive(true);
+    }
+
+    public virtual void OnClose()
+    {
+
+    }
 }

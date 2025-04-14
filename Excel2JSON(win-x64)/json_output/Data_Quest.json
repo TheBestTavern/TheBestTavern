@@ -1,0 +1,124 @@
+{
+  "Items": [
+    {
+      "key": 701,
+      "name": "아픈 자식의 보양식",
+      "givingNPC": 601,
+      "compensationID": 104,
+      "dishDesc": "따뜻한 국물",
+      "description": "보양식 등급 이상 요리 제출",
+      "conditionNPC": 0,
+      "conditionFavorability": 0
+    },
+    {
+      "key": 702,
+      "name": "놀부의 까다로운 식사",
+      "givingNPC": 602,
+      "compensationID": 101,
+      "dishDesc": "귀한 재료",
+      "description": "희귀 등급 이상 요리 제출",
+      "conditionNPC": 601,
+      "conditionFavorability": 60
+    },
+    {
+      "key": 703,
+      "name": "콩쥐의 위로 음식",
+      "givingNPC": 603,
+      "compensationID": 103,
+      "dishDesc": "진한 국물 요리",
+      "description": "국물 요리 제출",
+      "conditionNPC": 0,
+      "conditionFavorability": 0
+    },
+    {
+      "key": 704,
+      "name": "팥쥐의 복잡한 주문",
+      "givingNPC": 604,
+      "compensationID": 108,
+      "dishDesc": "복잡한 조리",
+      "description": "3재료 이상 조합 요리",
+      "conditionNPC": 603,
+      "conditionFavorability": 70
+    },
+    {
+      "key": 705,
+      "name": "하늘을 닮은 맛",
+      "givingNPC": 605,
+      "compensationID": 109,
+      "dishDesc": "달콤한 디저트",
+      "description": "디저트류 요리 제출",
+      "conditionNPC": 0,
+      "conditionFavorability": 0
+    },
+    {
+      "key": 706,
+      "name": "기묘한 재료를 찾아서",
+      "givingNPC": 606,
+      "compensationID": 102,
+      "dishDesc": "향신료 조합",
+      "description": "특수 향신료 사용 요리",
+      "conditionNPC": 605,
+      "conditionFavorability": 70
+    },
+    {
+      "key": 707,
+      "name": "엄마의 맛이 그리운 날",
+      "givingNPC": 607,
+      "compensationID": 107,
+      "dishDesc": "추억 음식",
+      "description": "부들버고 무난한 요리",
+      "conditionNPC": 0,
+      "conditionFavorability": 0
+    },
+    {
+      "key": 708,
+      "name": "허기진 남매의 한 끼",
+      "givingNPC": 608,
+      "compensationID": 106,
+      "dishDesc": "간단한 요리",
+      "description": "2재료 이하 요리",
+      "conditionNPC": 607,
+      "conditionFavorability": 70
+    },
+    {
+      "key": 709,
+      "name": "호랑이의 야성적인 식사",
+      "givingNPC": 609,
+      "compensationID": 102,
+      "dishDesc": "육류 ",
+      "description": "육류 포함 요리",
+      "conditionNPC": 608,
+      "conditionFavorability": 60
+    },
+    {
+      "key": 710,
+      "name": "재빠른 토끼를 위한 식사",
+      "givingNPC": 610,
+      "compensationID": 106,
+      "dishDesc": "채소 요리",
+      "description": "채소만 사용된 요리",
+      "conditionNPC": 609,
+      "conditionFavorability": 70
+    },
+    {
+      "key": 711,
+      "name": "천천히 끓인 정성",
+      "givingNPC": 611,
+      "compensationID": 105,
+      "dishDesc": "숙성 국물",
+      "description": "가마솥 조리 방식 요리",
+      "conditionNPC": 610,
+      "conditionFavorability": 60
+    },
+    {
+      "key": 712,
+      "name": "정통 조선의 맛",
+      "givingNPC": 612,
+      "compensationID": 109,
+      "dishDesc": "전통 요리",
+      "description": "전통 종류의 요리",
+      "conditionNPC": 602,
+      "conditionFavorability": 60
+    }
+  ]
+}
