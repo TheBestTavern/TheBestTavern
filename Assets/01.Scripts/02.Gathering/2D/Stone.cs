@@ -15,7 +15,7 @@ public class Stone : MonoBehaviour
             Animal animal = other.GetComponent<Animal>();
             if (animal != null)
             {
-                animal.GetHitByRock();  // Animal이 기절하는 함수
+                animal.OnHitByRock();  // Animal이 기절하는 함수
                 Debug.Log("동물 기절 처리 완료!");
             }
             else
