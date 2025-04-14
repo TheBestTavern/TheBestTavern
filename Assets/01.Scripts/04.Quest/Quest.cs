@@ -9,20 +9,20 @@ public class Quest
     public bool IsCompletedOnce { get; private set; } = false; // 한번이라도 클리어 된 적 있는지.
 
     public bool IsAccepted { get; private set; } = false; // 퀘스트 수락 여부
-    public DateTime AcceptedDate { get; private set; } // 퀘스트 수락일
-    public DateTime TriggerDate { get; private set; } // npc가 찾아올 날
+    public LunarDateTime? AcceptedDate { get; private set; } // 퀘스트 수락일
+    public LunarDateTime? TriggerDate { get; private set; } // npc가 찾아올 날
 
 
-    public DateTime RecycleDate { get; private set; } // 다시 퀘스트가 출몰할 날
+    public LunarDateTime? RecycleDate { get; private set; } // 다시 퀘스트가 출몰할 날
     public bool RecycleDatePass { get; private set; } = false; // 재활용 주기 지났는지
-    int RecycleDays = 5; // 재활용에 필요한 일수
+    int RecycleDays = 5; // 재활용에 필요한 일수. 임시로 5일로 지정
 
     public Quest(Data_Quest data_Quest)
     {
         this.origin = data_Quest;
     }
 
-    public void AcceptQuest(DateTime todayDateTime, int afterDays)
+    public void AcceptQuest(LunarDateTime todayDateTime, int afterDays)
     {
         IsAccepted = true;
         AcceptedDate = todayDateTime;
@@ -30,18 +30,26 @@ public class Quest
         RecycleDatePass = false;
     }
 
-    public void CompleteQuest(DateTime todayDateTime)
+    public void CompleteQuest(LunarDateTime todayDateTime)
     {
-        IsCompletedOnce = true;
+        if(!IsCompletedOnce) IsCompletedOnce = true;
         IsAccepted = false;
-        AcceptedDate = new DateTime();
-        TriggerDate = new DateTime();
+        AcceptedDate = null;
+        TriggerDate = null;
+        RecycleDate = todayDateTime.AddDays(RecycleDays); // 퀘스트 완료 시 다음 재출현일자 미리 지정.
+    }
+
+    public void AbortQuest(LunarDateTime todayDateTime)
+    {
+        IsAccepted = false;
+        AcceptedDate = null;
+        TriggerDate = null;
         RecycleDate = todayDateTime.AddDays(RecycleDays); // 퀘스트 완료 시 다음 재출현일자 미리 지정.
     }
 
     // 매일 퀘스트 출현 가능한지 체크.
     // 퀘스트 부여 가능(완료 날짜로부터 지났는지, 타겟 npc의 호감도 조건 이상이어야함) // npc가 다른 퀘스트를 주고 있지 않은지는 조건으로 쓸지 말지 고민중. 조건으로 쓰면 로직이 좀 복잡해짐
-    public bool CheckAvailable(DateTime todayDateTime)
+    public bool CheckAvailable(LunarDateTime todayDateTime)
     {
         // 받고 있는 퀘스트인지 체크
         if (IsAccepted)
@@ -67,12 +75,12 @@ public class Quest
         }
     }
 
-    private bool CheckRecycleDate(DateTime todayDateTime)
+    private bool CheckRecycleDate(LunarDateTime todayDateTime)
     {
         if (todayDateTime >= RecycleDate)
         {
             RecycleDatePass = true;
-            RecycleDate = new DateTime();
+            RecycleDate = null;
             return true;
         }
         else

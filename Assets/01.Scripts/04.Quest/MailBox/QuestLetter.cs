@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class QuestLetter : BasePopUp
 {
     private int days;
+    private Quest quest;
 
     [SerializeField] Button btn7;
     [SerializeField] Button btn11;
@@ -37,6 +38,7 @@ public class QuestLetter : BasePopUp
     public void EveryInit(Quest quest)
     {
         // 문구 초기화
+        this.quest = quest;
         title.text = quest.origin.name;
         bodyText.text = quest.origin.description;
         from.text = NPCManager.Instance.NPCData.AllNPC[quest.origin.givingNPC].origin.name;
@@ -47,9 +49,10 @@ public class QuestLetter : BasePopUp
     {
         //미구현
         Debug.Log($"{days}일 뒤로 퀘스트 수락");
+        QuestManager.Instance.AcceptQuest(quest, days);
     }
 
-    // 거절 버튼 메서드
+    // 거절 버튼 메서드 ( 필요할지 의문 )
     private void RejectQuest()
     {
         //미구현, 퀘스트 거절 시 퀘스트 목록에서 지우고 한동안 퀘스트 안뜨게 하는 방식 생각해봄.

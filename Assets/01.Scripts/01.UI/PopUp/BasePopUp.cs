@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class BasePopUp : MonoBehaviour
 {
-    [SerializeField] private Button closeButton;
+    [SerializeField] protected Button closeButton;
     public PopUpType popUpType;
 
     public virtual void Awake()

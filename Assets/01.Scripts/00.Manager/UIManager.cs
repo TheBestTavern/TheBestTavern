@@ -11,6 +11,7 @@ public enum PopUpType
     SelectMap,
     MailBox,
     Confirm,
+    Alarm,
     QuestLetter
 }
 
@@ -20,6 +21,7 @@ public class UIManager : MonoSingleton<UIManager>
     private Dictionary<PopUpType, BasePopUp> popUps = new Dictionary<PopUpType, BasePopUp>();
 
     public ConfirmPopUp confirmPopUp;
+    public AlarmPopUp alarmPopUp;
 
     public override void Init()
     {

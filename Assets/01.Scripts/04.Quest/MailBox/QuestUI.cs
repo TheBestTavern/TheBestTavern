@@ -6,49 +6,6 @@ using static DesignEnums;
 
 public class QuestUI : MonoBehaviour
 {
-    public int GetRandomItemID()
-    {
-
-        Dictionary<DesignEnums.Chance, List<int>> dict = new();
-        foreach (var i in DataManager.Instance.DataLoader_Gathering_Chance.ItemsList)
-        {
-            dict.Add(i.chance, i.availableFood);
-        }
-
-        float correction = 1 / (0.1f * dict[Chance.veryLow].Count + 0.2f * dict[Chance.low].Count + 0.3f * dict[Chance.medium].Count + 0.4f * dict[Chance.high].Count);
-
-        float highGroupProb = 40 * correction * dict[Chance.high].Count;
-        float mediumGroupProb = 30 * correction * dict[Chance.medium].Count;
-        float lowGroupProb = 20 * correction * dict[Chance.low].Count;
-        float veryLowGroupProb = 10 * correction * dict[Chance.veryLow].Count;
-        // 윗 부분은 초기 한번만 실행.
-
-        float rand = Random.Range(0, 100);
-        int randItemID;
-
-        if (rand < highGroupProb)
-        {
-            List<int> temp = dict[Chance.high];
-            randItemID = temp[Random.Range(0, temp.Count)];
-        }
-        else if (rand < highGroupProb + mediumGroupProb)
-        {
-            List<int> temp = dict[Chance.medium];
-            randItemID = temp[Random.Range(0, temp.Count)];
-        }
-        else if (rand < highGroupProb + mediumGroupProb + lowGroupProb)
-        {
-            List<int> temp = dict[Chance.low];
-            randItemID = temp[Random.Range(0, temp.Count)];
-        }
-        else // 합이 100이 되도록.
-        {
-            List<int> temp = dict[Chance.veryLow];
-            randItemID = temp[Random.Range(0, temp.Count)];
-        }
-
-        return randItemID;
-    }
     //[SerializeField] QuestSlot questSlotPref;
     //[SerializeField] Transform slotPrt;
 
