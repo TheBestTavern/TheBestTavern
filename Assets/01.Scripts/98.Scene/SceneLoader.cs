@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Reflection.Emit;
 using System.Threading.Tasks;
 using Cysharp.Threading.Tasks;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
+using UnityEngine.ResourceManagement.ResourceProviders;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.UIElements;
@@ -13,39 +16,48 @@ public class SceneLoader : MonoSingleton<SceneLoader>
     [SerializeField] GameObject loadingUIPrefab;
     LoadingUI loadingUI;
 
+    SceneInstance miniGameInstance;
+
+    bool isInitializeAsync = false;
 
     public async UniTask LoadSceneAsync(string sceneName)
     {
-        await ShowLoadingScene();
+        if (!isInitializeAsync)
+            await Addressables.InitializeAsync().ToUniTask();
 
-        AsyncOperation op = SceneManager.LoadSceneAsync(sceneName);
-        op.allowSceneActivation = false;
+        await ShowLoadingUI();
 
-        while (op.progress < 0.9f)
+        var loadScene = Addressables.LoadSceneAsync(sceneName);
+
+        while (!loadScene.IsDone)
         {
-            loadingUI.SetProgress(op.progress);
+            loadingUI.SetProgress(loadScene.PercentComplete);
             await UniTask.Yield();
         }
 
-        op.allowSceneActivation = true;
+        await loadScene.ToUniTask();
 
-        float timer = 0f;
-        while (timer < 1f)
-        {
-            timer += Time.deltaTime;
-            loadingUI.SetProgress(Mathf.Lerp(0.9f, 1f, timer));
-            await UniTask.Yield();
-        }
-
-        await HideLoadingScene();      
+        await HideLoadingUI();
     }
-    async Task ShowLoadingScene()
+
+    public async UniTask LoadSceneAsyncMiniGame(string labelName)
+    {
+        miniGameInstance = await Addressables.LoadSceneAsync($"Assets/00.Scenes/SY/{labelName}.unity", LoadSceneMode.Additive);
+    }
+
+    public async UniTask UnLoadSceneAsyncMiniGame()
+    {
+        await Addressables.UnloadSceneAsync(miniGameInstance);
+    }
+
+    async Task ShowLoadingUI()
     {
         loadingUI = Instantiate(Resources.Load<GameObject>("UI/LoadingUIPrefab")).GetComponent<LoadingUI>();
         DontDestroyOnLoad(loadingUI.gameObject);
         await loadingUI.FadeIn();
     }
-    async Task HideLoadingScene()
+
+    async Task HideLoadingUI()
     {
         await loadingUI.FadeOut();
         Destroy(loadingUI.gameObject);

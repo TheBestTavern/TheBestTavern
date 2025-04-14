@@ -4,5 +4,8 @@ using UnityEngine;
 
 public class MenuRelationUI : BaseMenuContentUI
 {
-
+    public override void CreateContent()
+    {
+        base.CreateContent();
+    }
 }

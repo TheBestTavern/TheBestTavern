@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: MiniGameScene
+  m_EditorClassIdentifier: 
+  m_GroupName: MiniGameScene
+  m_Data:
+    m_SerializedData: []
+  m_GUID: c3f494c16557d594cb251a411faddc9f
+  m_SerializeEntries:
+  - m_GUID: d22a648f56c95ef499e2fb44ad14f9d1
+    m_Address: Assets/00.Scenes/SY/Cooking_Grill_Test.unity
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - GrillScene
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: eee4fe1f026b2bd44a65ffeae5675b60
+    m_Address: Assets/00.Scenes/SY/Cooking_Grind_Test.unity
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - GrindScene
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 3f946b317ceaa2747b411cad54511d5f, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: fbfb67118b071e74682d89281e5d6ce9, type: 2}
+    - {fileID: 11400000, guid: 8b65f88e12989ca4b8712ba405020d9f, type: 2}
