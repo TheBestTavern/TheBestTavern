@@ -9,6 +9,7 @@ public class MainSceneUI : MonoBehaviour
     [SerializeField] private Button cookingSceneButton;
     [SerializeField] private Button gatheringSceneButton;
     [SerializeField] private Button mailBoxButton;
+    [SerializeField] private Button BedButton;
 
     private void Awake()
     {

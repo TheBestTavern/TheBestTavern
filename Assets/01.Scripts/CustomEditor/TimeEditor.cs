@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class TimeEditor : MonoBehaviour
 {
-    public TimerController timerController;
+    public TimerManager timerController;
     public int day;
 
     public void AdvanceDay()
