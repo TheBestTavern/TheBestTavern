@@ -10,7 +10,7 @@ public class TimerModel : MonoBehaviour
 
     private void Awake()
     {
-        dateTime = new LunarDateTime(1234, 11, 28, true);
+        dateTime = new LunarDateTime(1234, 11, 26, false);
     }
 
     public void DayChange(int day)

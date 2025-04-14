@@ -12,7 +12,6 @@ public enum PopUpType
     Confirm,
     MiniGame,
     MailBox,
-    Confirm,
     Alarm,
     QuestLetter
 }

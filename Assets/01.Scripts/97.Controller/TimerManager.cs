@@ -3,8 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class TimerController : MonoBehaviour
+public class TimerManager : MonoSingleton<TimerManager>
 {
     public TimerUI timerUI;
     public TimerModel timerModel;
@@ -12,6 +13,7 @@ public class TimerController : MonoBehaviour
     private void Start()
     {
         timerUI.SetDay(timerModel.GetFormatDay());
+        isDontDestroyOnLoad = true;
     }
 
     public void DayChange(int day)
@@ -20,9 +22,21 @@ public class TimerController : MonoBehaviour
         ChangeDayUI();
     }
 
+    public void OneDayPass()
+    {
+        DayChange(1);
+        GameManager.Instance.OnNewDayAction();
+    }
+
     private void ChangeDayUI()
     {
         string day = timerModel.GetFormatDay();
         timerUI.SetDay(day);
     }
+
+    public LunarDateTime GetToday()
+    {
+        return timerModel.dateTime;
+    }
+
 }

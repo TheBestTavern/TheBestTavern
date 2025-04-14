@@ -18,7 +18,14 @@ public struct LunarDateTime
     bool isLeapMonth;
     string leapString;
 
-    public LunarDateTime(int year, int month, int day, bool isLeapMonth)
+    /// <summary>
+    /// 윤월 여부는 웬만하면 false(기본값)유지 해주세요. 데이터로 갖고 있는 윤년/윤월 정보와 다를 시 버그 발생.
+    /// </summary>
+    /// <param name="year"></param>
+    /// <param name="month"></param>
+    /// <param name="day"></param>
+    /// <param name="isLeapMonth"></param>
+    public LunarDateTime(int year, int month, int day, bool isLeapMonth = false)
     {
         this.year = year;
         this.month = month;
