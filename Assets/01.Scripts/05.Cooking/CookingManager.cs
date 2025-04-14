@@ -1,13 +1,35 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 /// <summary>
-/// ¿ä¸® ¹Ì´Ï°ÔÀÓ °ü¸® (½ÃÀÛ, Á¾·á) 
+/// ìš”ë¦¬ ë¯¸ë‹ˆê²Œìž„ ê´€ë¦¬ (ì‹œìž‘, ì¢…ë£Œ) 
 /// </summary>
 public class CookingManager : MonoSingleton<CookingManager>
 {
-    // °ÔÀÓ ½ÃÀÛ
+    ICookingState cookingState;
+    public CookingMiniGameController controller;
+    ICookingMiniGameHandler currentMiniGame;
 
-    // °ÔÀÓ Á¾·á
+
+    // ê²Œìž„ ì‹œìž‘
+
+    private void Start()
+    {
+       // string currentSceneName = SceneManager.GetActiveScene().name;
+
+
+       // currentMiniGame = controller.Init();
+        currentMiniGame.StartGame();
+    }
+
+
+    private void Update()
+    {
+        currentMiniGame.UpdateGame();
+    }
+
+    // ê²Œìž„ ì¢…ë£Œ
 }
