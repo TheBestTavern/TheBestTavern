@@ -8,11 +8,13 @@ public class CookingSceneUI : MonoBehaviour
 {
     [SerializeField] private Button mainSceneButton;
     [SerializeField] private Button grillMiniGameButton;
+    [SerializeField] private Button grindMiniGameButton;
 
     private void Awake()
     {
         mainSceneButton.onClick.AddListener(OnClickMainSceneButton);
-        grillMiniGameButton.onClick.AddListener(OnClickGrillMiniGame);
+        grillMiniGameButton.onClick.AddListener(OnClickGrillMiniGameButton);
+        grindMiniGameButton.onClick.AddListener(OnClickGrindMiniGameButton);
     }
 
     void OnClickMainSceneButton()
@@ -21,9 +23,14 @@ public class CookingSceneUI : MonoBehaviour
         UIManager.Instance.confirmPopUp.SetConfirm("마당으로 이동하시겠습니까?", ConfirmFunc);
     }
 
-    void OnClickGrillMiniGame()
+    void OnClickGrillMiniGameButton()
     {
-        MiniGameManager.Instance.ShowMiniGame("Cooking_Grill_Test");
+        CookingMiniGameManager.Instance.ShowMiniGame("Cooking_Grill_Test");
+    }
+
+    void OnClickGrindMiniGameButton()
+    {
+        CookingMiniGameManager.Instance.ShowMiniGame("Cooking_Grind_Test");
     }
 
     async void ConfirmFunc()
