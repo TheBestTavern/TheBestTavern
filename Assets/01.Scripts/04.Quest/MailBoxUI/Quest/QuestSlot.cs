@@ -13,7 +13,7 @@ public class QuestSlot : MonoBehaviour
     [SerializeField] Button openLetterBtn;
 
     Quest slotQuest; // 이 슬롯이 표시할 퀘스트
-    QuestContent questContent; // 부모 퀘스트 UI
+    MailBoxContentQuest questContent; // 부모 퀘스트 UI
 
     int index;
 
@@ -26,7 +26,7 @@ public class QuestSlot : MonoBehaviour
         openLetterBtn.onClick.AddListener(() => OpenLetter());
     }
 
-    public void Init(QuestContent questContent)
+    public void Init(MailBoxContentQuest questContent)
     {
         if (!isReady)
         {

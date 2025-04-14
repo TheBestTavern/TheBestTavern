@@ -8,6 +8,10 @@ public class BasePopUp : MonoBehaviour
     [SerializeField] protected Button closeButton;
     public PopUpType popUpType;
 
+    public virtual void Init()
+    {
+    }
+
     public virtual void Awake()
     {
         closeButton.onClick.AddListener(OnClickCloseButton);

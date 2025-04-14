@@ -25,7 +25,7 @@ public class TimerManager : MonoSingleton<TimerManager>
     public void OneDayPass()
     {
         DayChange(1);
-        GameManager.Instance.OnNewDayAction();
+        GameManager.Instance.TriggerNewDayAction();
     }
 
     private void ChangeDayUI()

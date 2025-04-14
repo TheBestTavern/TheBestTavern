@@ -19,7 +19,7 @@ public enum PopUpType
 
 public class UIManager : MonoSingleton<UIManager>
 {
-    public Dictionary<PopUpType, BasePopUp> popUps = new Dictionary<PopUpType, BasePopUp>();
+    private Dictionary<PopUpType, BasePopUp> popUps = new Dictionary<PopUpType, BasePopUp>();
 
     public ConfirmPopUp confirmPopUp;
     public AlarmPopUp alarmPopUp;
@@ -35,6 +35,7 @@ public class UIManager : MonoSingleton<UIManager>
         {
             GameObject go = Instantiate(LoadPopUpResource(type.ToString()));
             popUp = go.GetComponentInChildren<BasePopUp>();
+            popUp.Init();
             popUps.Add(type, popUp);
         }
 

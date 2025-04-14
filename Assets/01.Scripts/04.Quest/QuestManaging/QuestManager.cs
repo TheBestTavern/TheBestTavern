@@ -7,7 +7,9 @@ using UnityEngine;
 public class QuestManager : MonoSingleton<QuestManager>
 {
     public QuestData questData;
-    public Action OnNewDayStarted;
+    [HideInInspector] public MailBoxContentQuest mailBoxContentQuest;
+    [HideInInspector] public MailBoxContentResult mailBoxContentCompensation;
+    public Action onNewDayAction;
 
     public List<Quest> AllQuests => questData.AllQuests;
     public List<Quest> AcceptedQuests => questData.AcceptedQuests;
@@ -19,7 +21,7 @@ public class QuestManager : MonoSingleton<QuestManager>
         isDontDestroyOnLoad = true;
         questData = new QuestData();
         questData.Init();
-        TriggerNewDay();  // 테스트용
+        GameManager.Instance.onNewDayAction = TriggerNewDay; 
     }
 
 
@@ -35,9 +37,7 @@ public class QuestManager : MonoSingleton<QuestManager>
             TodayAvailableQuest.Remove(quest);
 
             //퀘스트 슬롯 리스트에서 삭제, 슬롯 파괴
-            MailBoxPopUp temp = UIManager.Instance.popUps[PopUpType.MailBox] as MailBoxPopUp;
-            QuestContent temp2 = temp.contentsDic[MailBoxContentType.Quest] as QuestContent;
-            temp2.RemoveQuestSlot(questSlot);
+            mailBoxContentQuest.RemoveQuestSlot(questSlot);
 
             //편지 닫기
             UIManager.Instance.HidePopUp(PopUpType.QuestLetter);
@@ -72,6 +72,7 @@ public class QuestManager : MonoSingleton<QuestManager>
     // 하루가 갱신될때마다 실행될 이벤트 실행 메서드.
     public void TriggerNewDay()
     {
-        OnNewDayStarted?.Invoke();
+        onNewDayAction?.Invoke();
+        Debug.Log("퀘스트 파트 뉴데이 이벤트 실행");
     }
 }

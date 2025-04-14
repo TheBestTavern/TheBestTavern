@@ -6,25 +6,20 @@ using Unity.VisualScripting;
 /// <summary>
 /// 음력 표기 구조체. 
 /// 특징: 윤월이 포함되어있습니다.
-/// 기능1: AddDays(): 지정한 일수 이후의 음력 날짜 반환. 
-/// 기능2: ToString(): 날짜 string형으로 표기
+/// 기능1: AddDays():일수 추가하여 반환, CompareTo():차이 반환,  ToString(), ToDateTime:양력으로 변환, 대소비교
 /// </summary>
 public struct LunarDateTime
 {
-    public int year;
-    public int month;
-    public int day;
-    bool isLeapYear;
-    bool isLeapMonth;
-    string leapString;
+    public int year { get; private set; }
+    public int month { get; private set; }
+    public int day { get; private set; }
+    public bool isLeapYear { get; private set; }
+    public bool isLeapMonth { get; private set; }
+    private readonly string leapString;
 
     /// <summary>
     /// 윤월 여부는 웬만하면 false(기본값)유지 해주세요. 데이터로 갖고 있는 윤년/윤월 정보와 다를 시 버그 발생.
     /// </summary>
-    /// <param name="year"></param>
-    /// <param name="month"></param>
-    /// <param name="day"></param>
-    /// <param name="isLeapMonth"></param>
     public LunarDateTime(int year, int month, int day, bool isLeapMonth = false)
     {
         this.year = year;

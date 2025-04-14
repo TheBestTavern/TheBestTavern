@@ -319,7 +319,7 @@ MonoBehaviour:
   - {fileID: 8675232928608997641}
   - {fileID: 8680029744712239377}
   mailBoxContentsList:
-  - {fileID: 7801415728958107926}
+  - {fileID: 6209239568230007323}
   - {fileID: 513700390820681335}
 --- !u!1 &2612205232976821980
 GameObject:
@@ -526,8 +526,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2069244644661353700}
-  - component: {fileID: 3677671268897683676}
-  - component: {fileID: 7801415728958107926}
+  - component: {fileID: 6209239568230007323}
   m_Layer: 5
   m_Name: Quest
   m_TagString: Untagged
@@ -555,7 +554,7 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &3677671268897683676
+--- !u!114 &6209239568230007323
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -564,19 +563,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3007439641814115110}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6d52012e084bb394d9eb96c6ece29d9b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &7801415728958107926
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3007439641814115110}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 39d990f7fa3db724a9129ff7550c9a6f, type: 3}
+  m_Script: {fileID: 11500000, guid: 4c3aa47777bc544468b39c090416584f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   ContentType: 0

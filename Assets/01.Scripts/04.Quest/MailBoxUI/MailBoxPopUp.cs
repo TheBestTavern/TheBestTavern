@@ -9,7 +9,7 @@ using static UnityEngine.RuleTile.TilingRuleOutput;
 public enum MailBoxContentType
 {
     Quest,
-    Compensation
+    Result
 }
 
 public class MailBoxPopUp : BasePopUp 
@@ -19,12 +19,12 @@ public class MailBoxPopUp : BasePopUp
     MailBoxContentType currentMailBoxContent;
     [SerializeField] List<Button> contentBtn;
     Dictionary<MailBoxContentType, Button> contentsBtnDic = new();
-    [SerializeField] List<MailBoxContent> mailBoxContentsList;
-    public Dictionary<MailBoxContentType, MailBoxContent> contentsDic = new();
+    [SerializeField] List<MailBoxContentBase> mailBoxContentsList;
+    public Dictionary<MailBoxContentType, MailBoxContentBase> contentsDic = new();
 
-    public override void Awake()
+    public override void Init()
     {
-        base.Awake();
+        base.Init();
         popUpType = PopUpType.MailBox;
 
         for(int i  = 0; i < mailBoxContentsList.Count; i++)
@@ -33,6 +33,9 @@ public class MailBoxPopUp : BasePopUp
             contentsDic.Add(temp, mailBoxContentsList[i]);
             contentsBtnDic.Add(temp, contentBtn[i]);
         }
+
+        QuestManager.Instance.mailBoxContentQuest = contentsDic[MailBoxContentType.Quest] as MailBoxContentQuest;
+        QuestManager.Instance.mailBoxContentCompensation = contentsDic[MailBoxContentType.Compensation] as MailBoxContentResult;
 
         foreach(var btnPair in contentsBtnDic)
         {

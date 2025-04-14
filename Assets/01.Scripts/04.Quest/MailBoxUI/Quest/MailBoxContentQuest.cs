@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class QuestContent : MailBoxContent
+public class MailBoxContentQuest : MailBoxContentBase
 {
     [SerializeField] QuestSlot questSlotPref;
     [SerializeField] Transform slotPrt;
@@ -16,8 +16,6 @@ public class QuestContent : MailBoxContent
 
     private void OnEnable()
     {
-        Debug.Log("활성화");
-
         if (!isReady)
         {
             // 0. 전날 있던 퀘스트 리스트 삭제. 나중에 풀링으로 바꾸기.

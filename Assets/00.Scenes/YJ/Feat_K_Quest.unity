@@ -1300,7 +1300,7 @@ GameObject:
   - component: {fileID: 745923679}
   - component: {fileID: 745923678}
   m_Layer: 5
-  m_Name: Canvas (1)
+  m_Name: Test)AcceptedQuestList
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1849,7 +1849,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1583848261}
-  - component: {fileID: 1583848260}
+  - component: {fileID: 1583848262}
   m_Layer: 0
   m_Name: QuestManager
   m_TagString: Untagged
@@ -1857,19 +1857,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1583848260
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1583848259}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c3b8638413e6cbb43bab37da78df2555, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isDontDestroyOnLoad: 1
 --- !u!4 &1583848261
 Transform:
   m_ObjectHideFlags: 0
@@ -1885,6 +1872,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1583848262
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1583848259}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b68ebff6c0429464180b08db4ff10ea9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isDontDestroyOnLoad: 0
+  mailBoxContentQuest: {fileID: 0}
+  mailBoxContentCompensation: {fileID: 0}
 --- !u!1 &1676086142
 GameObject:
   m_ObjectHideFlags: 0

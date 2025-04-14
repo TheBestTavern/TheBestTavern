@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 [Serializable]
-public abstract class MailBoxContent : MonoBehaviour
+public abstract class MailBoxContentBase : MonoBehaviour
 {
     public MailBoxContentType ContentType;
 
