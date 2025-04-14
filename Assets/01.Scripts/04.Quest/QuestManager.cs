@@ -4,68 +4,15 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class QuestData
-{
-    //private List<Quest> _acceptedQuests = new();
-    //private List<Quest> _completedQuests = new();
-    //private List<Quest> _allQuests = new();
-
-    //public IReadOnlyList<Quest> acceptedQuestsList => _acceptedQuests;
-    //public IReadOnlyList<Quest> completedQuestsList => _completedQuests;
-    //public IReadOnlyList<Quest> allQuests => _allQuests;
-
-    public List<Quest> AcceptedQuests { get; private set; } = new();
-    public List<Quest> CompletedQuests { get; private set; } = new();
-    public List<Quest> AllQuests { get; private set; } = new();
-    public List<Quest> TodayAvailableQuest { get; private set; } = new();
-
-    public void Init()
-    {
-        Debug.Log("퀘스트 인스턴스 생성");
-        foreach (Data_Quest item in DataManager.Instance.DataLoader_Quest.ItemsList)
-        {
-            AllQuests.Add(new Quest(item));
-        }
-
-        QuestManager.Instance.OnNewDayStarted += HandleNewDay;
-    }
-
-    // 매일 QuestData가 할일
-    public void HandleNewDay()
-    {
-        // 2.가능한 퀘스트 리스트 받아오기
-        Debug.Log("매일 가능한 퀘스트 리스트 받아옴");
-        TodayAvailableQuest = new();
-        foreach (Quest item in AllQuests)
-        {
-            if (item.CheckAvailable(DateTime.Now)) // 날짜 임시로 아무거나 넣어놓음.
-            {
-                TodayAvailableQuest.Add(item);
-            }
-        }
-    }
-
-    public void AcceptQuest(Quest quest)
-    {
-        AcceptedQuests.Add(quest);
-    }
-
-    public void RemoveQuest(Quest quest)
-    {
-        AcceptedQuests.Remove(quest);
-    }
-
-    public void CompleteQuest(Quest quest)
-    {
-        AcceptedQuests.Remove(quest);
-        CompletedQuests.Add(quest);
-    }
-}
-
 public class QuestManager : MonoSingleton<QuestManager>
 {
     public QuestData questData;
     public Action OnNewDayStarted;
+
+    public List<Quest> AllQuests => questData.AllQuests;
+    public List<Quest> AcceptedQuests => questData.AcceptedQuests;
+    public List<Quest> CompletedQuests => questData.CompletedQuests;
+    public List<Quest> TodayAvailableQuest => questData.TodayAvailableQuest;
 
     private void Start()
     {
@@ -73,19 +20,36 @@ public class QuestManager : MonoSingleton<QuestManager>
         questData = new QuestData();
         questData.Init();
         TriggerNewDay();  // 테스트용
-     }
+    }
 
 
     // 퀘스트 수령
-    public void AcceptQuest(Quest quest)
+    public void AcceptQuest(Quest quest, int days)
     {
-        questData.AcceptQuest(quest);
+        if (AcceptedQuests.Count <= 5)
+        {
+            questData.AcceptQuest(quest); // 리스트에 넣기
+            quest.AcceptQuest(new LunarDateTime(), days); // 퀘스트 수락 상태로 전환 및 트리거
+        }
+        else
+        {
+            Debug.Log("퀘스트 갯수 제한(5개) 초과");
+            UIManager.Instance.ShowPopUp(PopUpType.Alarm);
+            UIManager.Instance.alarmPopUp.SetAlarm("퀘스트 갯수 제한 초과");
+        }
     }
 
     // 퀘스트 완료
     public void CompleteQuest(Quest quest)
     {
         questData.CompleteQuest(quest);
+        quest.CompleteQuest(new LunarDateTime()); // 아무 날짜나 임시로 지정 => 오늘 날짜로 변경
+    }
+
+    public void AbortQuest(Quest quest)
+    {
+        questData.RemoveQuest(quest);
+        quest.AbortQuest(new LunarDateTime()); // 아무 날짜나 임시로 지정 => 오늘 날짜로 변경
     }
 
     // 하루가 갱신될때마다 실행될 이벤트 실행 메서드.
