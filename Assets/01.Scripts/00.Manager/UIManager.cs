@@ -9,8 +9,9 @@ public enum PopUpType
     Setting,
     Menu,
     SelectMap,
+    Confirm,
+    MiniGame,
     MailBox,
-    Confirm
 }
 
 
