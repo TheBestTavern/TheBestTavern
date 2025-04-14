@@ -7,7 +7,7 @@
       "personality": "온화하고 가난함",
       "taste": "따뜻한 국물, 보양식",
       "favorability ": 30,
-      "speech": "말투가 정중하고 서민적",
+      "speechWay": "말투가 정중하고 서민적",
       "givingQuest": [
         701
       ]
@@ -19,7 +19,7 @@
       "personality": "욕심 많고 까칠함",
       "taste": "귀한재료, 최고급 요리",
       "favorability ": 10,
-      "speech": "콧대 높고 까탈스러움",
+      "speechWay": "콧대 높고 까탈스러움",
       "givingQuest": [
         702
       ]
@@ -31,7 +31,7 @@
       "personality": "성실하고 따뜻함",
       "taste": "진한 국물 요리",
       "favorability ": 40,
-      "speech": "말투가 부드럽고 다정함",
+      "speechWay": "말투가 부드럽고 다정함",
       "givingQuest": [
         703
       ]
@@ -43,7 +43,7 @@
       "personality": "질투심 많고 까다로움",
       "taste": "복잡한 조리법 요리",
       "favorability ": 20,
-      "speech": "뾰족한 말투, 불만 많음",
+      "speechWay": "뾰족한 말투, 불만 많음",
       "givingQuest": [
         704
       ]
@@ -55,7 +55,7 @@
       "personality": "조용하고 신비로움",
       "taste": "달콤한 디저트",
       "favorability ": 40,
-      "speech": "말수 적고 어조가 부드러움",
+      "speechWay": "말수 적고 어조가 부드러움",
       "givingQuest": [
         705
       ]
@@ -67,79 +67,55 @@
       "personality": "장난기 많고 식탐 있음",
       "taste": "특이한 향신료 조합",
       "favorability ": 35,
-      "speech": "투박하고 재미있는 말투",
+      "speechWay": "투박하고 재미있는 말투",
       "givingQuest": [
         706
       ]
     },
     {
       "key": 607,
-      "name": "장화홍련 자매",
-      "story": "장화홍련전",
-      "personality": "조용하고 감성적",
-      "taste": "추억음식, no 자극",
-      "favorability ": 45,
-      "speech": "조용히 이야기하고 상냥함",
-      "givingQuest": [
-        707
-      ]
-    },
-    {
-      "key": 608,
-      "name": "해님달님 남매",
-      "story": "해님달님",
-      "personality": "용감하고 씩씩함",
-      "taste": "간단한 요리",
-      "favorability ": 30,
-      "speech": "활달하고 발랄한 말투",
-      "givingQuest": [
-        708
-      ]
-    },
-    {
-      "key": 609,
       "name": "호랑이",
       "story": "다수 설화",
       "personality": "거칠지만 유쾌함",
       "taste": "육류",
       "favorability ": 20,
-      "speech": "어눌한 말투와 호탕한 웃음",
+      "speechWay": "어눌한 말투와 호탕한 웃음",
       "givingQuest": [
         709
       ]
     },
     {
-      "key": 610,
+      "key": 608,
       "name": "토끼",
       "story": "토생전",
       "personality": "영리하고 재빠름",
       "taste": "채식",
       "favorability ": 35,
-      "speech": "말장난을 자주 섞음",
+      "speechWay": "말장난을 자주 섞음",
       "givingQuest": [
         710
       ]
     },
     {
-      "key": 611,
+      "key": 609,
       "name": "거북이",
       "story": "토생전",
       "personality": "인내심 강하고 느긋함",
       "taste": "숙성된 전통 탕류",
       "favorability ": 25,
-      "speech": "말이 느리고 점잖음",
+      "speechWay": "말이 느리고 점잖음",
       "givingQuest": [
         711
       ]
     },
     {
-      "key": 612,
+      "key": 610,
       "name": "허생",
       "story": "허생전",
       "personality": "논리적이고 냉철함",
       "taste": "고전적 조선 요리",
-      "favorability ": 50,
-      "speech": "문어체 말투 사용",
+      "favorability ": 30,
+      "speechWay": "문어체 말투 사용",
       "givingQuest": [
         712
       ]
