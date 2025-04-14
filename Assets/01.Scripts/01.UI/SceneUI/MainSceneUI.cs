@@ -8,11 +8,13 @@ public class MainSceneUI : MonoBehaviour
 {
     [SerializeField] private Button cookingSceneButton;
     [SerializeField] private Button gatheringSceneButton;
+    [SerializeField] private Button mailBoxButton;
 
     private void Awake()
     {
         cookingSceneButton.onClick.AddListener(OnClickCookingSceneButton);
         gatheringSceneButton.onClick.AddListener(OnClickGatheringSceneButton);
+        mailBoxButton.onClick.AddListener(OnClickMailBoxButton);
     }
 
     void OnClickGatheringSceneButton()
@@ -24,6 +26,11 @@ public class MainSceneUI : MonoBehaviour
     {
         UIManager.Instance.ShowPopUp(PopUpType.Confirm);
         UIManager.Instance.confirmPopUp.SetConfirm("부엌으로 이동하시겠습니까?", ConfirmFunc);
+    }
+
+    void OnClickMailBoxButton()
+    {
+        //UIManager.Instance.ShowPopUp(PopUpType.MailBox);
     }
 
     async void ConfirmFunc()
