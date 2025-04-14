@@ -9,13 +9,14 @@ public class MainSceneUI : MonoBehaviour
     [SerializeField] private Button cookingSceneButton;
     [SerializeField] private Button gatheringSceneButton;
     [SerializeField] private Button mailBoxButton;
-    [SerializeField] private Button BedButton;
+    [SerializeField] private Button bedButton;
 
     private void Awake()
     {
         cookingSceneButton.onClick.AddListener(OnClickCookingSceneButton);
         gatheringSceneButton.onClick.AddListener(OnClickGatheringSceneButton);
         mailBoxButton.onClick.AddListener(OnClickMailBoxButton);
+        bedButton.onClick.AddListener(OnClickBedButton);
     }
 
     void OnClickGatheringSceneButton()
@@ -32,6 +33,10 @@ public class MainSceneUI : MonoBehaviour
     void OnClickMailBoxButton()
     {
         //UIManager.Instance.ShowPopUp(PopUpType.MailBox);
+    }
+    void OnClickBedButton()
+    {
+        TimerManager.Instance.OneDayPass();
     }
 
     async void ConfirmFunc()

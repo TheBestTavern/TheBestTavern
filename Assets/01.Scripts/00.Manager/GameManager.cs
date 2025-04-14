@@ -9,6 +9,6 @@ public class GameManager : MonoSingleton<GameManager>
 
     public void OnNewDayAction()
     {
-        newDayAction.Invoke();
+        newDayAction?.Invoke();
     }
 }
