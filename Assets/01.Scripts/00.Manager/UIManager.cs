@@ -13,7 +13,8 @@ public enum PopUpType
     MiniGame,
     MailBox,
     Alarm,
-    QuestLetter
+    QuestLetter,
+    ResultLetter
 }
 
 

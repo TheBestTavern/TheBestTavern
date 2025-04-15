@@ -13,24 +13,24 @@ public class ResultSlot : MonoBehaviour
     [SerializeField] Button openLetterBtn;
 
     Quest slotQuest; // 이 슬롯이 표시할 퀘스트
-    MailBoxContentQuest questContent; // 부모 퀘스트 UI
+    MailBoxContentResult resultContent; // 부모 퀘스트 UI
 
     int index;
 
 
     bool isReady;
 
-    private void Start() // 테스트용. SetSlot과 충돌. 나중에 지워야함.
-    {
-        openLetterBtn.onClick.RemoveAllListeners();
-        openLetterBtn.onClick.AddListener(() => OpenLetter());
-    }
+    //private void Start() // 테스트용. SetSlot과 충돌. 나중에 지워야함.
+    //{
+    //    openLetterBtn.onClick.RemoveAllListeners();
+    //    openLetterBtn.onClick.AddListener(() => OpenLetter());
+    //}
 
-    public void Init(MailBoxContentQuest questContent)
+    public void Init(MailBoxContentResult resultContent)
     {
         if (!isReady)
         {
-            this.questContent = questContent;
+            this.resultContent = resultContent;
             isReady = true;
         }
     }
@@ -55,7 +55,7 @@ public class ResultSlot : MonoBehaviour
 
     private void OpenLetter()
     {
-        questContent.OpenLetter(slotQuest, this);
+        resultContent.OpenLetter(slotQuest, this);
         Debug.Log($"{index}번 편지 열람");
     }
 }

@@ -20,11 +20,11 @@ public class QuestSlot : MonoBehaviour
 
     bool isReady;
 
-    private void Start() // 테스트용. SetSlot과 충돌. 나중에 지워야함.
-    {
-        openLetterBtn.onClick.RemoveAllListeners();
-        openLetterBtn.onClick.AddListener(() => OpenLetter());
-    }
+    //private void Start() // 테스트용. SetSlot과 충돌. 나중에 지워야함.
+    //{
+    //    openLetterBtn.onClick.RemoveAllListeners();
+    //    openLetterBtn.onClick.AddListener(() => OpenLetter());
+    //}
 
     public void Init(MailBoxContentQuest questContent)
     {

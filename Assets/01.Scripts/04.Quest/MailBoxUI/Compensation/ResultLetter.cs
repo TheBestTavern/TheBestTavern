@@ -22,18 +22,20 @@ public class ResultLetter : BasePopUp
     [SerializeField] TextMeshProUGUI bodyText;
     [SerializeField] TextMeshProUGUI from;
 
-    public bool IsReady { get; private set; }
+    bool isReady;
 
     // 편지 생성시 한번 초기화
     public void FirstInit(Quest quest)
     {
+        if (isReady) return;
+
         // 같은 기능의 버튼 초기화
         btn7.onClick.AddListener(() => OnClickDays(7));
         btn11.onClick.AddListener(() => OnClickDays(11));
         btn14.onClick.AddListener(() => OnClickDays(14));
         btnYes.onClick.AddListener(() => AcceptQuest());
         btnNo.onClick.AddListener(() => RejectQuest());
-        IsReady = true;
+        isReady = true;
     }
 
     // 편지 열때마다 필요한 초기화.
