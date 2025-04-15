@@ -1,11 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
 using Cysharp.Threading.Tasks.Triggers;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
 public class CookingMiniGameManager : MonoSingleton<CookingMiniGameManager>
 {

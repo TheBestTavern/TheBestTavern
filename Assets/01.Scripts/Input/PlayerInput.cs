@@ -4,22 +4,27 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using static UnityEngine.InputSystem.InputAction;
 
+/// <summary>
+/// 플레이어 입력 관리 클래스
+/// </summary>
 public class PlayerInput : MonoBehaviour
 {
-    // ESC
+    // ESC를 눌렀을 때
     public async void OnPause(InputAction.CallbackContext context)
     {
         if(context.phase == InputActionPhase.Performed)
         {
+            // 게임 일시 정지 및 설정 팝업 불러오기 함수
             await UIManager.Instance.ShowPopUp(PopUpType.Setting);
         }
     }
 
-    // TAB
+    // TAB을 눌렀을 때
     public async void OnMenu(InputAction.CallbackContext context)
     {
         if (context.phase == InputActionPhase.Performed)
         {
+            // 메뉴 팝업 불러오기
             await UIManager.Instance.ShowPopUp(PopUpType.Menu);
         }
     }
