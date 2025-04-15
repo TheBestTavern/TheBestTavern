@@ -45,10 +45,10 @@ public class QuestContent : MailBoxContent
         }
     }
 
-    public void OpenLetter(Quest quest)
+    public async void OpenLetter(Quest quest)
     {
         //1. 편지 띄우기
-        currentLetter = UIManager.Instance.ShowPopUp(PopUpType.QuestLetter) as QuestLetter;
+        currentLetter = await UIManager.Instance.ShowPopUp(PopUpType.QuestLetter) as QuestLetter;
         if(currentLetter == null)
         {
             Debug.LogError("편지가 null입니다.");

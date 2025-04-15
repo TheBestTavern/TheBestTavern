@@ -18,9 +18,9 @@ public class CookingSceneUI : MonoBehaviour
         grindMiniGameButton.onClick.AddListener(OnClickGrindMiniGameButton);
     }
 
-    void OnClickMainSceneButton()
+    async void OnClickMainSceneButton()
     {
-        UIManager.Instance.ShowPopUp(PopUpType.Confirm);
+        await UIManager.Instance.ShowPopUp(PopUpType.Confirm);
         UIManager.Instance.confirmPopUp.SetConfirm("마당으로 이동하시겠습니까?", ConfirmFunc);
     }
 

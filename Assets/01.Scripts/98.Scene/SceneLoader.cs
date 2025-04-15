@@ -27,7 +27,7 @@ public class SceneLoader : MonoSingleton<SceneLoader>
 
         await ShowLoadingUI();
 
-        var loadScene = Addressables.LoadSceneAsync(sceneName);
+        var loadScene = Addressables.LoadSceneAsync($"{sceneName}.unity");
 
         while (!loadScene.IsDone)
         {
@@ -40,9 +40,9 @@ public class SceneLoader : MonoSingleton<SceneLoader>
         await HideLoadingUI();
     }
 
-    public async UniTask LoadSceneAsyncMiniGame(string labelName)
+    public async UniTask LoadSceneAsyncMiniGame(string miniGameSceneName)
     {
-        miniGameInstance = await Addressables.LoadSceneAsync($"Assets/00.Scenes/SY/{labelName}.unity", LoadSceneMode.Additive);
+        miniGameInstance = await Addressables.LoadSceneAsync($"{miniGameSceneName}.unity", LoadSceneMode.Additive);
     }
 
     public async UniTask UnLoadSceneAsyncMiniGame()
@@ -52,7 +52,8 @@ public class SceneLoader : MonoSingleton<SceneLoader>
 
     async Task ShowLoadingUI()
     {
-        loadingUI = Instantiate(Resources.Load<GameObject>("UI/LoadingUIPrefab")).GetComponent<LoadingUI>();
+        //loadingUI = Instantiate(Resources.Load<GameObject>("UI/LoadingUIPrefab")).GetComponent<LoadingUI>();
+        loadingUI = Instantiate(await AddressablesLoader.Instance.AddressablesLoadAsync("LoadingUIPrefab.prefab")).GetComponent<LoadingUI>();
         DontDestroyOnLoad(loadingUI.gameObject);
         await loadingUI.FadeIn();
     }

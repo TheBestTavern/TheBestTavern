@@ -10,28 +10,34 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
-  m_Name: MiniGameScene
+  m_Name: BasicScene
   m_EditorClassIdentifier: 
-  m_GroupName: MiniGameScene
+  m_GroupName: BasicScene
   m_Data:
     m_SerializedData: []
-  m_GUID: c3f494c16557d594cb251a411faddc9f
+  m_GUID: 95ab6bfcde0e27c4aba73c04e12e09fd
   m_SerializeEntries:
-  - m_GUID: eee4fe1f026b2bd44a65ffeae5675b60
-    m_Address: Cooking_Grind_Test.unity
+  - m_GUID: ea6b089072695f64eafa81c899f00eda
+    m_Address: CookingSceneDev.unity
     m_ReadOnly: 0
     m_SerializedLabels:
-    - GrindScene
+    - BasicScene
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: d22a648f56c95ef499e2fb44ad14f9d1
-    m_Address: Cooking_Grill_Test.unity
+  - m_GUID: 108b0eaf738eee148a34181e05b62730
+    m_Address: GatheringSceneDev.unity
     m_ReadOnly: 0
     m_SerializedLabels:
-    - GrillScene
+    - BasicScene
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1c110343623460045971cc33cd6e8db7
+    m_Address: MainSceneDev.unity
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - BasicScene
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 3f946b317ceaa2747b411cad54511d5f, type: 2}
   m_SchemaSet:
     m_Schemas:
-    - {fileID: 11400000, guid: fbfb67118b071e74682d89281e5d6ce9, type: 2}
-    - {fileID: 11400000, guid: 8b65f88e12989ca4b8712ba405020d9f, type: 2}
+    - {fileID: 11400000, guid: dc3b09f9322ab574eb3dbe736d133a5b, type: 2}
+    - {fileID: 11400000, guid: b8a5d53ec8811974689f780deb27e4ff, type: 2}

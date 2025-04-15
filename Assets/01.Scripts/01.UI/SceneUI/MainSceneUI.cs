@@ -19,14 +19,14 @@ public class MainSceneUI : MonoBehaviour
         bedButton.onClick.AddListener(OnClickBedButton);
     }
 
-    void OnClickGatheringSceneButton()
+    async void OnClickGatheringSceneButton()
     {
-        UIManager.Instance.ShowPopUp(PopUpType.SelectMap);
+        await UIManager.Instance.ShowPopUp(PopUpType.SelectMap);
     }
 
-    void OnClickCookingSceneButton()
+    async void OnClickCookingSceneButton()
     {
-        UIManager.Instance.ShowPopUp(PopUpType.Confirm);
+        await UIManager.Instance.ShowPopUp(PopUpType.Confirm);
         UIManager.Instance.confirmPopUp.SetConfirm("부엌으로 이동하시겠습니까?", ConfirmFunc);
     }
 
@@ -42,5 +42,5 @@ public class MainSceneUI : MonoBehaviour
     async void ConfirmFunc()
     {
         await SceneLoader.Instance.LoadSceneAsync("CookingSceneDev");
-    } 
+    }
 }

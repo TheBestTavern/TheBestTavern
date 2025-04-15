@@ -1,8 +1,13 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Net;
+using System.Threading.Tasks;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
+using UnityEngine.ResourceManagement.AsyncOperations;
+using UnityEngine.ResourceManagement.ResourceLocations;
 
 public enum PopUpType
 {
@@ -13,9 +18,8 @@ public enum PopUpType
     MiniGame,
     MailBox,
     Alarm,
-    QuestLetter
+    QuestLetter,
 }
-
 
 public class UIManager : MonoSingleton<UIManager>
 {
@@ -23,27 +27,31 @@ public class UIManager : MonoSingleton<UIManager>
 
     public ConfirmPopUp confirmPopUp;
     public AlarmPopUp alarmPopUp;
-
+    
     public override void Init()
     {
         base.Init();
     }
 
-    public BasePopUp ShowPopUp(PopUpType type)
+    public async Task<BasePopUp> ShowPopUp(PopUpType popUpType)
     {
-        if (!popUps.TryGetValue(type, out BasePopUp popUp))
+        if (!popUps.TryGetValue(popUpType, out BasePopUp basePopUp))
         {
-            GameObject go = Instantiate(LoadPopUpResource(type.ToString()));
-            popUp = go.GetComponentInChildren<BasePopUp>();
-            popUps.Add(type, popUp);
+            GameObject go = await AddressablesLoader.Instance.AddressablesLoadAsync($"{popUpType.ToString()}PopUpPrefab.prefab");
+            go = Instantiate(go);
+            basePopUp = go.GetComponentInChildren<BasePopUp>();
+            popUps.Add(popUpType, basePopUp);
         }
 
-        if (type == PopUpType.Confirm)
+
+        if (popUpType == PopUpType.Confirm)
         {
-            confirmPopUp = popUp.GetComponent<ConfirmPopUp>();
+            confirmPopUp = basePopUp.GetComponent<ConfirmPopUp>();
         }
-        popUp.OnOpen();
-        return popUp;
+
+        basePopUp.OnOpen();
+
+        return basePopUp;
     }
 
     public void HidePopUp(PopUpType type)
@@ -52,11 +60,5 @@ public class UIManager : MonoSingleton<UIManager>
         {
             popUp.OnClose();
         }
-    }
-
-    private GameObject LoadPopUpResource(string resourceName)
-    {
-        GameObject resource = Resources.Load<GameObject>($"UI/PopUp/{resourceName}PopUpPrefab");
-        return resource;
     }
 }

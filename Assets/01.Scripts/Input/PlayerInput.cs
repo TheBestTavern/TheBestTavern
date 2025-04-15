@@ -7,20 +7,20 @@ using static UnityEngine.InputSystem.InputAction;
 public class PlayerInput : MonoBehaviour
 {
     // ESC
-    public void OnPause(InputAction.CallbackContext context)
+    public async void OnPause(InputAction.CallbackContext context)
     {
         if(context.phase == InputActionPhase.Performed)
         {
-            UIManager.Instance.ShowPopUp(PopUpType.Setting);
+            await UIManager.Instance.ShowPopUp(PopUpType.Setting);
         }
     }
 
     // TAB
-    public void OnMenu(InputAction.CallbackContext context)
+    public async void OnMenu(InputAction.CallbackContext context)
     {
         if (context.phase == InputActionPhase.Performed)
         {
-            UIManager.Instance.ShowPopUp(PopUpType.Menu);
+            await UIManager.Instance.ShowPopUp(PopUpType.Menu);
         }
     }
 }

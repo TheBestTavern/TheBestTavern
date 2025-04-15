@@ -14,14 +14,14 @@ public class GatheringSceneUI : MonoBehaviour
         mainSceneButton.onClick.AddListener(OnClickMainSceneButton);
     }
 
-    void OnClickMapButton()
+    async void OnClickMapButton()
     {
-        UIManager.Instance.ShowPopUp(PopUpType.SelectMap);
+        await UIManager.Instance.ShowPopUp(PopUpType.SelectMap);
     }
 
-    void OnClickMainSceneButton()
+    async void OnClickMainSceneButton()
     {
-        UIManager.Instance.ShowPopUp(PopUpType.Confirm);
+        await UIManager.Instance.ShowPopUp(PopUpType.Confirm);
         UIManager.Instance.confirmPopUp.SetConfirm("주막으로 돌아가시겠습니까?", ConfirmFunc);
     }
 
