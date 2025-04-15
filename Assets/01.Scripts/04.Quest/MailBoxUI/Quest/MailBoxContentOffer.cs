@@ -26,7 +26,7 @@ public class MailBoxContentOffer : MailBoxContentBase
     public override void OpenLetter(Quest quest, QuestBaseSlot slot)
     {
         //1. 편지 띄우기
-        currentLetter = UIManager.Instance.ShowPopUp(PopUpType.QuestLetter) as QuestBaseLetter;
+        currentLetter = UIManager.Instance.ShowPopUp(PopUpType.OfferLetter) as QuestBaseLetter;
 
         base.OpenLetter(quest, slot);
     }

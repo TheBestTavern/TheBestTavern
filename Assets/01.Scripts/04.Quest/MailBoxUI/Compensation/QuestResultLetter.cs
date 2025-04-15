@@ -9,10 +9,7 @@ using UnityEngine.UI;
 public class QuestResultLetter : QuestBaseLetter
 {
     bool isSuccessful;
-
-    /// <summary>
-    /// 편지 초기화
-    /// </summary>
+    TextMeshProUGUI yesBtnText;
 
     // 편지 생성시 한번 초기화
     public override void FirstInit(Quest quest, Action<QuestBaseSlot> action)
@@ -23,6 +20,7 @@ public class QuestResultLetter : QuestBaseLetter
 
         //  버튼 초기화
         buttons[0].onClick.AddListener(() => OnOKButton());
+        yesBtnText = buttons[0].GetComponentInChildren<TextMeshProUGUI>();
         IsReady = true;
     }
 
@@ -43,10 +41,12 @@ public class QuestResultLetter : QuestBaseLetter
         if (isSuccessful)
         {
             bodyText.text = quest.origin.description; // 성공 편지 내용으로 교체 해야함
+            yesBtnText.text = "수령";
         }
         else
         {
             bodyText.text = quest.origin.description; // 실패 편지 내용으로 교체 해야함.
+            yesBtnText.text = "확인";
         }
     }
 

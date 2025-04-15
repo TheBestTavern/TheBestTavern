@@ -58,7 +58,7 @@ public class QuestOfferLetter : QuestBaseLetter
         if (isSetDays)
         {
             Debug.Log($"{days}일 뒤로 퀘스트 수락 시도");
-            if (QuestManager.Instance.AcceptQuest(quest, days))
+            if (QuestManager.Instance.TryAcceptQuest(quest, days))
             {
                 return true;
             }

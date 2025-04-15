@@ -13,7 +13,7 @@ public class QuestManager : MonoSingleton<QuestManager>
 
     public List<Quest> AllQuests => questData.AllQuests;
     public List<Quest> AcceptedQuests => questData.AcceptedQuests;
-    public List<Quest> CompletedQuests => questData.CompletedQuests;
+    public List<Quest> OnceCompletedQuests => questData.OnceCompletedQuests;
     public List<Quest> TodayAvailableQuest => questData.TodayAvailableQuest;
 
     private void Start()
@@ -21,12 +21,12 @@ public class QuestManager : MonoSingleton<QuestManager>
         isDontDestroyOnLoad = true;
         questData = new QuestData();
         questData.Init();
-        GameManager.Instance.onNewDayAction = TriggerNewDay; 
+        GameManager.Instance.onNewDayAction = TriggerNewDay;
     }
 
 
     // 퀘스트 수령 조건 판단
-    public bool AcceptQuest(Quest quest, int days)
+    public bool TryAcceptQuest(Quest quest, int days)
     {
         if (AcceptedQuests.Count < 5 && !quest.IsAccepted)
         {
@@ -41,7 +41,7 @@ public class QuestManager : MonoSingleton<QuestManager>
 
             return true;
         }
-        else if(AcceptedQuests.Count >= 5)
+        else if (AcceptedQuests.Count >= 5)
         {
             Debug.Log("퀘스트 갯수 제한(5개) 초과");
             UIManager.Instance.ShowPopUp(PopUpType.Alarm);
@@ -58,10 +58,19 @@ public class QuestManager : MonoSingleton<QuestManager>
     }
 
     // 퀘스트 완료
-    public void CompleteQuest(Quest quest)
+    public bool TryCompleteQuest(Quest quest)
     {
-        questData.CompleteQuest(quest);
-        quest.CompleteQuest(TimerManager.Instance.GetToday()); // 아무 날짜나 임시로 지정 => 오늘 날짜로 변경
+        if (true) // 퀘스트 성공 여부 검사
+        {
+            // 퀘스트 성공
+            questData.CompleteQuest(quest);
+            return true;
+        }
+        else
+        {
+            // 퀘스트 실패
+            return false;
+        }
     }
 
     public void AbortQuest(Quest quest)

@@ -9,6 +9,7 @@ public class MailBoxContentResult : MailBoxContentBase // 제네릭으로 할 �
 
         base.OnEnable();
         MakeSlot(QuestManager.Instance.questData.JustCompleteQuests);
+        QuestManager.Instance.questData.JustCompleteQuests.Clear();
     }
 
     public override void OpenLetter(Quest quest, QuestBaseSlot slot)

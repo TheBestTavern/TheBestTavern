@@ -6,13 +6,23 @@ public abstract class MailBoxContentBase : MonoBehaviour
 {
     public MailBoxContentType ContentType;
 
-    [SerializeField] protected QuestBaseSlot baseQuestSlotPref;
+    [SerializeField] protected QuestBaseSlot slotPref;
     [SerializeField] protected Transform slotPrt;
     protected List<QuestBaseSlot> slots = new();
 
     protected QuestBaseLetter currentLetter;
 
     protected bool isReady;
+
+    private void Awake()
+    {
+        QuestManager.Instance.onNewDayAction = HandleNewDay;
+    }
+
+    public void HandleNewDay()
+    {
+        isReady = false;
+    }
 
     protected virtual void OnEnable()
     {
@@ -27,7 +37,7 @@ public abstract class MailBoxContentBase : MonoBehaviour
         int i = 1;
         foreach (var quest in quests)
         {
-            pref = Instantiate(baseQuestSlotPref, slotPrt);
+            pref = Instantiate(slotPref, slotPrt);
             pref.Init(this);
             pref.SetSlot(quest, i);
             slots.Add(pref);
