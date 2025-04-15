@@ -8,7 +8,7 @@ using static UnityEngine.RuleTile.TilingRuleOutput;
 
 public enum MailBoxContentType
 {
-    Quest,
+    Offer,
     Result
 }
 
@@ -34,8 +34,8 @@ public class MailBoxPopUp : BasePopUp
             contentsBtnDic.Add(temp, contentBtn[i]);
         }
 
-        QuestManager.Instance.mailBoxContentQuest = contentsDic[MailBoxContentType.Quest] as MailBoxContentQuest;
-        QuestManager.Instance.mailBoxContentCompensation = contentsDic[MailBoxContentType.Compensation] as MailBoxContentResult;
+        QuestManager.Instance.mailBoxContentQuest = contentsDic[MailBoxContentType.Offer] as MailBoxContentOffer;
+        QuestManager.Instance.mailBoxContentCompensation = contentsDic[MailBoxContentType.Result] as MailBoxContentResult;
 
         foreach(var btnPair in contentsBtnDic)
         {

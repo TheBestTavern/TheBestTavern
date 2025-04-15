@@ -11,7 +11,7 @@ public class MenuCompletedQuestUI : BaseMenuContentUI
 
         for (int i = 0; i < QuestManager.Instance.questData.CompletedQuests.Count; i++)
         {
-            QuestSlot questSlot = Instantiate(contentPrefab, contentParent).GetComponent<QuestSlot>();
+            QuestOfferSlot questSlot = Instantiate(contentPrefab, contentParent).GetComponent<QuestOfferSlot>();
             questSlot.SetSlot(QuestManager.Instance.questData.CompletedQuests[i], i);
         }
     }

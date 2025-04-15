@@ -7,7 +7,7 @@ using UnityEngine;
 public class QuestManager : MonoSingleton<QuestManager>
 {
     public QuestData questData;
-    [HideInInspector] public MailBoxContentQuest mailBoxContentQuest;
+    [HideInInspector] public MailBoxContentOffer mailBoxContentQuest;
     [HideInInspector] public MailBoxContentResult mailBoxContentCompensation;
     public Action onNewDayAction;
 
@@ -26,7 +26,7 @@ public class QuestManager : MonoSingleton<QuestManager>
 
 
     // 퀘스트 수령 조건 판단
-    public void AcceptQuest(Quest quest, int days, QuestSlot questSlot)
+    public bool AcceptQuest(Quest quest, int days)
     {
         if (AcceptedQuests.Count < 5 && !quest.IsAccepted)
         {
@@ -37,22 +37,23 @@ public class QuestManager : MonoSingleton<QuestManager>
             TodayAvailableQuest.Remove(quest);
 
             //퀘스트 슬롯 리스트에서 삭제, 슬롯 파괴
-            mailBoxContentQuest.RemoveQuestSlot(questSlot);
+            //mailBoxContentQuest.RemoveQuestSlot(questSlot);
 
-            //편지 닫기
-            UIManager.Instance.HidePopUp(PopUpType.QuestLetter);
+            return true;
         }
         else if(AcceptedQuests.Count >= 5)
         {
             Debug.Log("퀘스트 갯수 제한(5개) 초과");
             UIManager.Instance.ShowPopUp(PopUpType.Alarm);
             UIManager.Instance.alarmPopUp.SetAlarm("퀘스트 갯수 제한을 초과했습니다.");
+            return false;
         }
         else
         {
             Debug.Log("이미 수락한 퀘스트임");
             UIManager.Instance.ShowPopUp(PopUpType.Alarm);
             UIManager.Instance.alarmPopUp.SetAlarm("이미 수락한 퀘스트입니다.");
+            return false;
         }
     }
 

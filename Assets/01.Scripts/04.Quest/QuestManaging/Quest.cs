@@ -12,7 +12,7 @@ public class Quest
     public LunarDateTime? AcceptedDate { get; private set; } // 퀘스트 수락일
     public LunarDateTime? TriggerDate { get; private set; } // npc가 찾아올 날
 
-
+    public bool? IsSuccessful { get; private set; } // 퀘스트 성공 여부
     public LunarDateTime? RecycleDate { get; private set; } // 다시 퀘스트가 출몰할 날
     public bool RecycleDatePass { get; private set; } = true; // 재활용 주기 지났는지
     int RecycleDays = 5; // 재활용에 필요한 일수. 임시로 5일로 지정
@@ -28,18 +28,29 @@ public class Quest
         AcceptedDate = todayDateTime;
         TriggerDate = todayDateTime.AddDays(afterDays);
         RecycleDatePass = false;
+        IsSuccessful = null;
     }
 
-    public void CompleteQuest(LunarDateTime todayDateTime)
+    public void CompleteQuest(LunarDateTime todayDateTime) // 퀘스트 성공
     {
         if(!IsCompletedOnce) IsCompletedOnce = true;
         IsAccepted = false;
         AcceptedDate = null;
         TriggerDate = null;
         RecycleDate = todayDateTime.AddDays(RecycleDays); // 퀘스트 완료 시 다음 재출현일자 미리 지정.
+        IsSuccessful = true;
     }
 
-    public void AbortQuest(LunarDateTime todayDateTime)
+    public void FailQuest(LunarDateTime todayDateTime) // 퀘스트 실패
+    {
+        IsAccepted = false;
+        AcceptedDate = null;
+        TriggerDate = null;
+        RecycleDate = todayDateTime.AddDays(RecycleDays); // 퀘스트 완료 시 다음 재출현일자 미리 지정.
+        IsSuccessful = false;
+    }
+
+    public void AbortQuest(LunarDateTime todayDateTime) // 퀘스트 중도 포기
     {
         IsAccepted = false;
         AcceptedDate = null;
