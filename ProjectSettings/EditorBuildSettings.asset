@@ -5,16 +5,14 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/00.Scenes/WS/MainSceneDev.unity
     guid: 1c110343623460045971cc33cd6e8db7
-  - enabled: 1
+  - enabled: 0
     path: Assets/00.Scenes/WS/GatheringSceneDev.unity
     guid: 108b0eaf738eee148a34181e05b62730
-  - enabled: 1
+  - enabled: 0
     path: Assets/00.Scenes/WS/CookingSceneDev.unity
     guid: ea6b089072695f64eafa81c899f00eda
-  - enabled: 1
-    path: Assets/00.Scenes/SY/Cooking_Grill_Test.unity
-    guid: d22a648f56c95ef499e2fb44ad14f9d1
-  m_configObjects: {}
+  m_configObjects:
+    com.unity.addressableassets: {fileID: 11400000, guid: 5fbee0bab30c55e4888246aae74209f4, type: 2}

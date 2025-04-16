@@ -20,9 +20,9 @@ public class TestCalendar : MonoBehaviour
         PrintButton.onClick.AddListener(PrintDate);
         PassDaysButton.onClick.AddListener(() => AddDays(days));
 
-        Sundate = new(2020, 5, 30);
-        lunarDate = Sundate.ToLunarConvertor();
-        //lunarDate = new LunarDateTime(2020, 4, 25, true);
+        //Sundate = new(2020, 5, 30);
+        //lunarDate = Sundate.ToLunarConvertor();
+        lunarDate = new LunarDateTime(2020, 4, 25, false);
         CheckYear(2020);
 
         DateTime TestDate = new DateTime(2020, 10, 25);
@@ -52,7 +52,7 @@ public class TestCalendar : MonoBehaviour
     }
 
     public void AddDays(int i)
-    {
+    {   
         lunarDate = lunarDate.AddDays(i);
         Debug.Log(lunarDate.ToString());
     }

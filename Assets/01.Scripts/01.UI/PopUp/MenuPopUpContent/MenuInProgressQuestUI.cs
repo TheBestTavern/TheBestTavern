@@ -11,7 +11,7 @@ public class MenuInProgressQuestUI : BaseMenuContentUI
 
         for (int i = 0; i < QuestManager.Instance.questData.AcceptedQuests.Count; i++)
         {
-            QuestSlot questSlot = Instantiate(contentPrefab, contentParent).GetComponent<QuestSlot>();
+            QuestOfferSlot questSlot = Instantiate(contentPrefab, contentParent).GetComponent<QuestOfferSlot>();
             questSlot.SetSlot(QuestManager.Instance.questData.AcceptedQuests[i], i);
         }
     }
