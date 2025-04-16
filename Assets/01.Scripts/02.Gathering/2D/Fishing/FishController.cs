@@ -24,11 +24,11 @@ public class FishController : MonoBehaviour
         transform.Translate(direction * moveSpeed * Time.deltaTime);
 
         // 화면 끝을 넘지 않도록 처리 (물고기가 화면 밖으로 나가지 않도록)
-        if (transform.position.x < -5f || transform.position.x > 5f)
+        if (transform.position.x < -5.5f || transform.position.x > 5.5f)
         {
             direction.x *= -1;
         }
-        if (transform.position.y < -5f || transform.position.y > 5f)
+        if (transform.position.y < -3.4f || transform.position.y > 5f)
         {
             direction.y *= -1;
         }
@@ -64,7 +64,7 @@ public class FishController : MonoBehaviour
     private void AdjustFishSize()
     {
         // y값이 클수록 작아지고, 작을수록 커지게 설정
-        float scale = Mathf.Lerp(2f, 0.5f, Mathf.InverseLerp(-5f, 5f, transform.position.y)); // y값에 따른 크기 변화
+        float scale = Mathf.Lerp(1f, 0.5f, Mathf.InverseLerp(-5f, 5f, transform.position.y)); // y값에 따른 크기 변화
         transform.localScale = new Vector3(scale, scale, 1f); // x, y 방향으로 크기 조정
     }
 }
