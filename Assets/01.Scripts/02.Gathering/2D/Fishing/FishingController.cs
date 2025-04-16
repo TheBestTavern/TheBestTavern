@@ -1,44 +1,81 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class FishingController : MonoBehaviour
 {
     public GameObject fishingUI;
-    public TensionMiniGame tensionMiniGame;
+    public GameObject fishPrefab;
+    public Transform fishSpawnArea;
+    public Transform catchZone;
+    public TensionGauge tensionGauge;
 
-    public FishData[] possibleFishes;
+    private GameObject currentFish;
+    private bool fishingInProgress = false;
 
-    private void Update()
+    private void Start()
     {
-        if (Input.GetKeyDown(KeyCode.F))
+        fishingUI.SetActive(false);
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.F) && !fishingInProgress)
         {
-            StartFishing();
+            fishingUI.SetActive(true);
+            StartCoroutine(StartFishing());
         }
-    }
 
-    void StartFishing()
-    {
-        fishingUI.SetActive(true);
-    }
+        if (fishingInProgress && currentFish != null)
+        {
+            var fishController = currentFish.GetComponent<FishController>();
 
-    IEnumerator HandleBite()
-    {
-        yield return new WaitForSeconds(Random.Range(1f, 3f)); // 입질 시간 랜덤
-
-        FishData selectedFish = possibleFishes[Random.Range(0, possibleFishes.Length)];
-        tensionMiniGame.StartMiniGame(selectedFish, (bool success) => {
-            if (success)
+            if (Input.GetKey(KeyCode.Space))
             {
-                Debug.Log($"잡은 물고기: {selectedFish.fishName}!");
-                // 물고기 획득 처리
+                fishController.PullToward(catchZone.position);
+                tensionGauge.IncreaseGauge();
             }
             else
             {
-                Debug.Log("물고기 도망감!");
+                tensionGauge.DecreaseGauge();
             }
 
-            fishingUI.SetActive(false);
-        });
+            if (tensionGauge.IsOverloaded())
+            {
+                Debug.Log("게이지 과부하! 실패!");
+                StopFishing(false);
+            }
+            else if (fishController.IsCaught(catchZone.position))
+            {
+                Debug.Log("물고기 잡았다!");
+                StopFishing(true);
+            }
+        }
+    }
+
+    IEnumerator StartFishing()
+    {
+        fishingInProgress = true;
+        fishingUI.SetActive(true);
+
+        yield return new WaitForSeconds(Random.Range(1f, 3f)); // 입질 기다림
+
+        // 물고기 생성 위치: 수직으로 약간 랜덤하게 설정
+        Vector3 spawnPos = fishSpawnArea.position;
+        spawnPos.y += Random.Range(-2f, 2f);
+
+        currentFish = Instantiate(fishPrefab, spawnPos, Quaternion.identity);
+        tensionGauge.ResetGauge(); // 새 시도니까 초기화
+    }
+
+    void StopFishing(bool success)
+    {
+        if (currentFish != null)
+            Destroy(currentFish);
+
+        tensionGauge.ResetGauge();
+        fishingUI.SetActive(false);
+        fishingInProgress = false;
     }
 }
