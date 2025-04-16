@@ -20,15 +20,12 @@ public class DataManager : MonoSingleton<DataManager>
     public Data_NPCLoader DataLoader_NPC { get; private set; } // NPC 정보 (부여 아이템, 이름, 초기 호감도 등)
     public Data_QuestLoader DataLoader_Quest { get; private set; } // 퀘스트 정보 (퀘스트 등장 조건, 부여 npc 등)
 
-    protected override void Awake()
-    {
-        base.Awake();
-        Init();
-    }
-
     // 데이터 로더 인스턴스 생성.
-    public void Init()
+    public override void Init()
     {
+        if(_isInitialized) return;
+        base.Init();
+
         DataLoader_CookingSteps = new();
         DataLoader_Foods = new();
         //DataLoader_Gathering_Biome = new();

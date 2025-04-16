@@ -12,6 +12,7 @@ public class QuestData
     public List<Quest> TodayAvailableQuest { get; private set; } = new(); // 오늘의 퀘스트
     public List<Quest> JustCompleteQuests { get; private set; } = new(); // 오늘 클리어한 퀘스트 (내일 보상 편지 생성에 사용)
 
+    public Action<Quest> onTriggerNPC;
     public void Init()
     {
         Debug.Log("퀘스트 인스턴스 생성");
@@ -37,6 +38,7 @@ public class QuestData
             {
                 //당일
                 // NPC 소환.
+                onTriggerNPC?.Invoke(AcceptedQuests[i]);
                 Debug.Log($"{AcceptedQuests[i].origin.name}퀘스트의 NPC 소환");
             }
             else

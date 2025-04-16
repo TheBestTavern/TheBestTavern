@@ -30,33 +30,35 @@ public class QuestManager : MonoSingleton<QuestManager>
     // 퀘스트 수령 조건 판단
     public bool TryAcceptQuest(Quest quest, int days)
     {
-        if (AcceptedQuests.Count < 5 && !quest.IsAccepted)
-        {
-            questData.AcceptQuest(quest); // 리스트에 넣기
-            quest.AcceptQuest(TimerManager.Instance.GetToday(), days); // 퀘스트 수락 상태로 전환 및 트리거
-
-            //오늘의 퀘스트 리스트에서 삭제
-            TodayAvailableQuest.Remove(quest);
-
-            //퀘스트 슬롯 리스트에서 삭제, 슬롯 파괴
-            //mailBoxContentQuest.RemoveQuestSlot(questSlot);
-
-            return true;
-        }
-        else if (AcceptedQuests.Count >= 5)
+        if (AcceptedQuests.Count >= 5)
         {
             Debug.Log("퀘스트 갯수 제한(5개) 초과");
             UIManager.Instance.ShowPopUp(PopUpType.Alarm);
             UIManager.Instance.alarmPopUp.SetAlarm("퀘스트 갯수 제한을 초과했습니다.");
             return false;
         }
-        else
+        else if (quest.IsAccepted)
         {
             Debug.Log("이미 수락한 퀘스트임");
             UIManager.Instance.ShowPopUp(PopUpType.Alarm);
             UIManager.Instance.alarmPopUp.SetAlarm("이미 수락한 퀘스트입니다.");
             return false;
         }
+        else if (NPCManager.Instance.AllNPC[quest.origin.givingNPC].isGivingQuest)
+        {
+            Debug.Log("이미 퀘스트를 준 npc입니다.");
+            UIManager.Instance.ShowPopUp(PopUpType.Alarm);
+            UIManager.Instance.alarmPopUp.SetAlarm("이미 퀘스트를 준 npc입니다.");
+            return false;
+        }
+
+
+        questData.AcceptQuest(quest); // 리스트에 넣기
+        quest.AcceptQuest(TimerManager.Instance.GetToday(), days); // 퀘스트 수락 상태로 전환 및 트리거
+        NPCManager.Instance.AllNPC[quest.origin.givingNPC].GiveQuest(); // npc 퀘스트 준 상태로 전환
+        TodayAvailableQuest.Remove(quest); //오늘의 퀘스트 리스트에서 삭제
+        return true;
+
     }
 
     // 퀘스트 완료

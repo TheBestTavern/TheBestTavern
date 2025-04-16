@@ -7,6 +7,8 @@ public class NPCManager : MonoSingleton<NPCManager>
 {
     public NPCData NPCData;
     public Action onNewDayStarted;
+    public Dictionary<int, NPC> AllNPC => NPCData.AllNPC;
+
 
     public override void Init()
     {
