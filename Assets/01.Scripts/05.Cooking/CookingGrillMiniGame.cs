@@ -16,11 +16,9 @@ public enum GrillResultGrade
 /// <summary>
 /// 카드 숫자 맞추기 게임
 /// </summary>
-public class CookingGrillMiniGame : MonoBehaviour, ICookingMiniGameHandler
+public class CookingGrillMiniGame : CookingMiniGameBase
 {
-    [SerializeField] private float timer = 15f; // 게임 제한시간 (15초 고정)
-    [SerializeField] private float elapsedTimer = 0f; // 게임 누적시간 (0초부터 시작)
-
+    
     public TextMeshProUGUI timerText;
 
     public List<Card> cards;
@@ -33,56 +31,9 @@ public class CookingGrillMiniGame : MonoBehaviour, ICookingMiniGameHandler
     public int matchCount = 0;
 
     public bool isFlipLocked; // 한번에 카드 두개만 열 수 있게 & 2초간 카드 뒤집기 불가 
-    bool isGameOver = false;
+   
 
     private Coroutine coroutine;
-
-    //테스트용 start함수
-    void Start()
-    {
-        isFlipLocked = true;
-        // 카드 배열 4x4 세팅
-
-        int[] arr = { 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8 };
-        arr = arr.OrderBy(x => Random.value).ToArray();
-
-        for (int i = 0; i < cards.Count; i++)
-        {
-            cards[i].Setting(arr[i]);
-        }
-
-        // 2초 동안 모든 카드 앞면 공개
-        if (coroutine != null)
-        {
-            StopCoroutine(coroutine);
-        }
-
-        coroutine = StartCoroutine(ShowAllCard());
-    }
-
-    // 실제 start 함수
-    public void StartGame()
-    {
-        
-        // 카드 배열 4x4 세팅
-
-        int[] arr = { 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8 };
-        arr = arr.OrderBy(x => Random.value).ToArray();
-
-        for (int i = 0; i < cards.Count; i++)
-        {
-            cards[i].Setting(arr[i]);
-        }
-
-        // 2초 동안 모든 카드 앞면 공개
-        if (coroutine != null)
-        {
-            StopCoroutine(coroutine);
-        }
-        
-        coroutine = StartCoroutine(ShowAllCard());
-    }
-
 
     private IEnumerator ShowAllCard()
     {
@@ -105,53 +56,9 @@ public class CookingGrillMiniGame : MonoBehaviour, ICookingMiniGameHandler
         coroutine = null;
     }
 
-    //테스트용 Update함수
-    void Update()
+    private void Awake()
     {
-        if (isGameOver) return;
-
-        if (elapsedTimer >= 2) 
-        { 
-            timer -= Time.deltaTime;
-        }
-        timerText.text = timer.ToString("N2");
-
-        elapsedTimer += Time.deltaTime;
-
-        if (timer <= 0f)
-        {
-            timerText.text = "Time Over";
-            StopGame();
-            isGameOver = true;
-        }
-    }
-
-    //실제 업데이트함수
-    public void UpdateGame()
-    {
-        // 타이머 업데이트
-        if (elapsedTimer >= 2) { timer -= Time.deltaTime; }
-        timerText.text = timer.ToString("N2");
-
-        elapsedTimer += Time.deltaTime;
-
-        if (timer <= 0f)
-        {
-            timerText.text = "Time Over";
-            StopGame();
-        }
-
-
-        // 마우스로 한 번에 두장씩 클릭
-
-
-        // 짝이 맞으면(같은 숫자이면)
-
-        // 해당 카드 두장 고정
-
-        // 틀리면 부드럽게 다시 닫힘
-
-        // 익어가는 효과 연출
+        CookingMiniGameManager.Instance.GetCurrentMiniGame(this);
     }
 
     public void OpenCard(Card selectedCard)
@@ -251,7 +158,57 @@ public class CookingGrillMiniGame : MonoBehaviour, ICookingMiniGameHandler
        // UI 팝업 필요
     }
 
-    public void StopGame()
+
+
+    protected override void UpdateGamePlay()
+    {
+
+        timerText.text = timer.ToString("N2");
+
+        elapsedTimer += Time.deltaTime;
+
+        if (timer <= 0f)
+        {
+            timerText.text = "Time Over";
+            StopGame();
+            isGameOver = true;
+        }
+        // 마우스로 한 번에 두장씩 클릭
+
+
+        // 짝이 맞으면(같은 숫자이면)
+
+        // 해당 카드 두장 고정
+
+        // 틀리면 부드럽게 다시 닫힘
+
+        // 익어가는 효과 연출
+    }
+
+
+    public override void StartGame()
+    {
+        isFlipLocked = true;
+        // 카드 배열 4x4 세팅
+
+        int[] arr = { 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8 };
+        arr = arr.OrderBy(x => Random.value).ToArray();
+
+        for (int i = 0; i < cards.Count; i++)
+        {
+            cards[i].Setting(arr[i]);
+        }
+
+        // 2초 동안 모든 카드 앞면 공개
+        if (coroutine != null)
+        {
+            StopCoroutine(coroutine);
+        }
+
+        coroutine = StartCoroutine(ShowAllCard());
+    }
+
+    public override void StopGame()
     {
         isFlipLocked = true;
 
@@ -265,4 +222,6 @@ public class CookingGrillMiniGame : MonoBehaviour, ICookingMiniGameHandler
 
         // 2. 실패 : 타는 냄새 이펙트
     }
+
+
 }

@@ -3,18 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class CookingMillMiniGame : MonoBehaviour,ICookingMiniGameHandler
+public class CookingMillMiniGame : CookingMiniGameBase
 {
-    float timer = 15; // 15초
-    float elapsedTimer; // 누적 시간
+   
     
     // 기준
     public float direction; // 시계 or 반시계
     public bool isClockWise; // 시계방향인지 아닌지
     public float angle; 
     public float speed;
-
-    bool isGameOver = false;
+    public float judgeTime; // 목표 속도를 유지한 시간
 
     Vector2 curPos; // 현재 마우스 위치
     Vector2 previousPos;
@@ -35,81 +33,25 @@ public class CookingMillMiniGame : MonoBehaviour,ICookingMiniGameHandler
         return Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
     }
 
+    private void Awake()
+    {
+        CookingMiniGameManager.Instance.GetCurrentMiniGame(this);
+    }
+
     #region 리팩토링 이후 사용
-    public void StartGame()
+    public override void StartGame()
     {
     }
 
-    public void StopGame()
+    public override void StopGame()
     {
 
     }
 
-    public void UpdateGame()
-    {
-    }
+ 
 #endregion
 
-    // 테스트용 생명주기함수
-
-    void Start()
-    {
-
-    }
-
-    void Update()
-    {
-
-        if (isGameOver) return; 
-
-        timer -= Time.deltaTime;
-
-        curPos = Input.mousePosition; // 현 마우스의 위치
-        Vector2 centerPos = RectTransformUtility.WorldToScreenPoint(null, centerTransform.position); // 맷돌 정가운데 (중심점)
-
-        // 현재 마우스와 중심 사이의 각도를 구한다
-        curAngle = CurAngleFromCenter(curPos, centerPos);
-
-        // 1. 프레임마다의 각도의 차이를 구한다
-        float deltaAngle = Mathf.DeltaAngle(curAngle, previousAngle);
-
-        // 2. 마우스 회전방향 
-        // (현재 프레임 - 이전 프레임)의 최단각도가 플러스면 시계, 마이너스면 반시계 방향
-        if(deltaAngle > 0) { isClockWise = true; }
-
-        // 3. (현재 프레임 - 이전 프레임)의 각도를 계속해서 큐에 넣어준다
-        angleQueue.Enqueue((deltaAngle, Time.time));
-
-        // * 0.75초마다 계산하기 위해, 큐에 있는 가장 오래된 데이터의 시간값이 0.75초를 넘으면 제거한다
-        if (angleQueue.Peek().time > 0.75f)
-        {
-            angleQueue.Dequeue();
-        }
-
-        // 4. 누적된 회전 각도는 큐에 존재하는 데이터들의 절댓값의 합
-        float totalAngle = angleQueue.Sum(x => Mathf.Abs(x.deltaAngle));
-
-        // 5. 그것을 0.75초로 나누어주면 마우스의 평균 속도  
-        float mouseSpeed = totalAngle / 0.75f;
-
-        // 6. mouseSpeed (180f~250f) 사이를 유지한 시간도 구해야 판정 기준에 쓸 수 있음
-        if (mouseSpeed >= 180f && mouseSpeed <= 250f) 
-        {
-            elapsedTimer += Time.deltaTime;
-        }
-
-        // 7.. 모든 처리 이후 초기화
-        previousAngle = curAngle;
-
-        if (timer <= 0f)
-        {
-            isGameOver = true;
-            // 8. 마우스속도와 유지시간을 판정 함수로 넘김
-            Judge(mouseSpeed, elapsedTimer);
-            Time.timeScale = 0f;
-        }
-    }
-
+ 
     /// <summary>
     /// 게임종료 후 등급 판정 
     /// (mouseSpeed를 180f~250f 사이로 유지한 시간을 기준으로 함)
@@ -119,7 +61,7 @@ public class CookingMillMiniGame : MonoBehaviour,ICookingMiniGameHandler
     void Judge(float speed, float time)
     {
         Debug.Log($"{time}");
-        // 12초이상 : 상 (perfect)
+        
         if (time >= 12f) 
         {
             Debug.Log("Perfect");
@@ -139,11 +81,61 @@ public class CookingMillMiniGame : MonoBehaviour,ICookingMiniGameHandler
             Debug.Log("Fail");
         }
 
-            // 8~11초 : 중 (Good)
+        // 12초이상 : 상 (perfect)
 
-            // 5~7초 : 하 (Bad)
+        // 8~11초 : 중 (Good)
 
-            // 5초 미만 || 반대방향 지속 입력 : 실패 (Miss)
+        // 5~7초 : 하 (Bad)
 
+        // 5초 미만 || 반대방향 지속 입력 : 실패 (Miss)
+
+    }
+
+    protected override void UpdateGamePlay()
+    {
+        curPos = Input.mousePosition; // 현 마우스의 위치
+        Vector2 centerPos = RectTransformUtility.WorldToScreenPoint(null, centerTransform.position); // 맷돌 정가운데 (중심점)
+
+        // 현재 마우스와 중심 사이의 각도를 구한다
+        curAngle = CurAngleFromCenter(curPos, centerPos);
+
+        // 1. 프레임마다의 각도의 차이를 구한다
+        float deltaAngle = Mathf.DeltaAngle(curAngle, previousAngle);
+
+        // 2. 마우스 회전방향 
+        // (현재 프레임 - 이전 프레임)의 최단각도가 플러스면 시계, 마이너스면 반시계 방향
+        if (deltaAngle > 0) { isClockWise = true; }
+
+        // 3. (현재 프레임 - 이전 프레임)의 각도를 계속해서 큐에 넣어준다
+        angleQueue.Enqueue((deltaAngle, Time.time));
+
+        // * 0.75초마다 계산하기 위해, 큐에 있는 가장 오래된 데이터의 시간값이 0.75초를 넘으면 제거한다
+        if (angleQueue.Peek().time > 0.75f)
+        {
+            angleQueue.Dequeue();
+        }
+
+        // 4. 누적된 회전 각도는 큐에 존재하는 데이터들의 절댓값의 합
+        float totalAngle = angleQueue.Sum(x => Mathf.Abs(x.deltaAngle));
+
+        // 5. 그것을 0.75초로 나누어주면 마우스의 평균 속도  
+        float mouseSpeed = totalAngle / 0.75f;
+
+        // 6. mouseSpeed (180f~250f) 사이를 유지한 시간도 구해야 판정 기준에 쓸 수 있음
+        if (mouseSpeed >= 180f && mouseSpeed <= 250f)
+        {
+            judgeTime += Time.deltaTime;
+        }
+
+        // 7.. 모든 처리 이후 초기화
+        previousAngle = curAngle;
+
+        if (timer <= 0f)
+        {
+            isGameOver = true;
+            // 8. 마우스속도와 유지시간을 판정 함수로 넘김
+            Judge(mouseSpeed, judgeTime);
+            Time.timeScale = 0f;
+        }
     }
 }

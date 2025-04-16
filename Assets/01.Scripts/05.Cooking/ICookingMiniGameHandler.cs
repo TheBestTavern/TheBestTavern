@@ -7,7 +7,6 @@ using UnityEngine;
 public interface ICookingMiniGameHandler 
 {
     void StartGame(); // 초기화
-    void UpdateGame();  // 게임 중 로직
 
     //bool isGameOver(); // 게임 오버 판단 
     void StopGame(); // 게임 종료

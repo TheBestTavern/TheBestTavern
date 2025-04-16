@@ -8,28 +8,22 @@ using UnityEngine;
 public class CookingReadyState : ICookingState
 {
     private CookingStateMachine stateMachine;
-    private CookingMiniGameController controller;
 
-    public CookingReadyState(CookingStateMachine stateMachine, CookingMiniGameController controller)
+    public CookingReadyState(CookingStateMachine stateMachine)
     {
         this.stateMachine = stateMachine;
-        this.controller = controller;
     }
 
     public void Enter()
     {
-        controller.handler.StartGame();
 
     }
 
     public void Update()
     {
-        controller.handler.UpdateGame();
     }
     public void Exit()
     {
-        controller.handler.StopGame();
 
-        // UI 비활성화?
     }
 }

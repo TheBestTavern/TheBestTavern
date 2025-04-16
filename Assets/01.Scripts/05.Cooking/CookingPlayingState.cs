@@ -17,27 +17,22 @@ public enum MiniGameType
 public class CookingPlayingState : ICookingState
 {
     private CookingStateMachine stateMachine;
-    private CookingMiniGameController controller;
-    public CookingPlayingState(CookingStateMachine stateMachine, CookingMiniGameController controller)
+    public CookingPlayingState(CookingStateMachine stateMachine)
     {
         this.stateMachine = stateMachine;
-        this.controller = controller;
     }
 
     public void Enter()
     {
-        controller.handler.StartGame();
         // 애니메이션 시작
     }
 
     public void Update()
     {
-        controller.handler.UpdateGame();
 
-        stateMachine.ChangeState(new CookingEndState(stateMachine, controller));
+        stateMachine.ChangeState(new CookingEndState(stateMachine));
     }
     public void Exit()
     {
-        controller.handler.StopGame();
     }
 }

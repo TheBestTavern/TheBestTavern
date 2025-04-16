@@ -183,11 +183,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe99225b306825e4fb2c520a07a69c2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timer: 15
   noteElapsedTime: 0
   timerImage: {fileID: 410085571}
-  noteTravelTime: 2
-  isGameOver: 0
   notePrefab: {fileID: 1520797657532468901, guid: cb426d8526bbd3949b6542c9aeded0df, type: 3}
   noteAppear: {fileID: 27854590}
   noteDisappear: {fileID: 1483208211}
@@ -470,7 +467,7 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
-  m_FillAmount: 0.249
+  m_FillAmount: 0
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
