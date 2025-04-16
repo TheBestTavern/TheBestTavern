@@ -1706,7 +1706,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b68ebff6c0429464180b08db4ff10ea9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isDontDestroyOnLoad: 0
+  isDontDestroyOnLoad: 1
   mailBoxContentQuest: {fileID: 0}
   mailBoxContentCompensation: {fileID: 0}
 --- !u!1 &1676086142
@@ -1841,6 +1841,7 @@ GameObject:
   - component: {fileID: 1712717342}
   - component: {fileID: 1712717341}
   - component: {fileID: 1712717340}
+  - component: {fileID: 1712717344}
   m_Layer: 5
   m_Name: Canvas(NPC)
   m_TagString: Untagged
@@ -1931,6 +1932,21 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1712717344
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1712717339}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0828bbd78c4cbf4284f35eea9402c86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  npcNumber: 5
+  npcSlotPref: {fileID: 2619584101343915627, guid: 890ae91ec387e85418823b7809e3f6da, type: 3}
+  slotsPrt: {fileID: 2049585629}
 --- !u!1 &1811460222
 GameObject:
   m_ObjectHideFlags: 0
@@ -2231,7 +2247,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2049585629}
   - component: {fileID: 2049585630}
-  - component: {fileID: 2049585631}
   m_Layer: 5
   m_Name: NPCArea
   m_TagString: Untagged
@@ -2284,19 +2299,6 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
---- !u!114 &2049585631
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2049585628}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0828bbd78c4cbf4284f35eea9402c86, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  npcNumber: 0
 --- !u!1 &2077560249
 GameObject:
   m_ObjectHideFlags: 0
@@ -2486,8 +2488,8 @@ SceneRoots:
   - {fileID: 1583848261}
   - {fileID: 1058648511}
   - {fileID: 230152672}
+  - {fileID: 2077560251}
   - {fileID: 749096480}
   - {fileID: 5683554}
   - {fileID: 745923681}
-  - {fileID: 2077560251}
   - {fileID: 1712717343}

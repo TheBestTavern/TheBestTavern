@@ -44,7 +44,7 @@ public class QuestData
             else
             {
                 //지남
-                // 퀘스트 실패 처리.
+                // to do - 퀘스트 실패 처리.
                 Debug.Log("기한 초과로 인한 퀘스트 실패");
             }
         }
