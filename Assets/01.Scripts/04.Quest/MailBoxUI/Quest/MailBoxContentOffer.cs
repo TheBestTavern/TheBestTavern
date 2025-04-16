@@ -23,10 +23,10 @@ public class MailBoxContentOffer : MailBoxContentBase
         base.MakeSlot(quests);
     }
 
-    public override void OpenLetter(Quest quest, QuestBaseSlot slot)
+    public async override void OpenLetter(Quest quest, QuestBaseSlot slot)
     {
         //1. 편지 띄우기
-        currentLetter = UIManager.Instance.ShowPopUp(PopUpType.OfferLetter) as QuestBaseLetter;
+        currentLetter = await UIManager.Instance.ShowPopUp(PopUpType.OfferLetter) as QuestBaseLetter;
 
         base.OpenLetter(quest, slot);
     }

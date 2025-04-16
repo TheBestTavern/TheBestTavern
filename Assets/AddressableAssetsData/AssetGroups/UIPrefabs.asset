@@ -17,12 +17,6 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: 98f6f0aca78a6574e8760d35ac1c12e3
   m_SerializeEntries:
-  - m_GUID: 6461062d90c4ede47b683c5b700ec45a
-    m_Address: MailBoxPopUpPrefab.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - UIPrefabs
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 31627c82daf3e434c83cf19cd1a8be0a
     m_Address: SelectMapPopUpPrefab.prefab
     m_ReadOnly: 0
@@ -61,6 +55,24 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5f0d57244117c044b82023f9085b259b
     m_Address: SettingPopUpPrefab.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - UIPrefabs
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: faaf8447d09a1ba4eaecacfb347d0aa9
+    m_Address: OfferLetterPopUpPrefab.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - UIPrefabs
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3b7daf95012ffed4cb8c4cb87e5b7f96
+    m_Address: ResultLetterPopUpPrefab.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - UIPrefabs
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 21f1b6d8b126a014d9ca008f3e248b4c
+    m_Address: MailBoxPopUpPrefab.prefab
     m_ReadOnly: 0
     m_SerializedLabels:
     - UIPrefabs
