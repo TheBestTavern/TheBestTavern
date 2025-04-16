@@ -2,17 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MenuInventoryUI : MonoBehaviour
+/// <summary>
+/// TAB 메뉴 인벤토리 클래스 
+/// </summary>
+public class MenuInventoryUI : BaseMenuContentUI
 {
-    // Start is called before the first frame update
-    void Start()
+    /// <summary>
+    /// TAB 메뉴 인벤토리 목록 생성 함수
+    /// </summary>
+    public override void CreateContent()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        // To Do - 인벤토리 목록 생성
     }
 }

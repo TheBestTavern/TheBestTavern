@@ -3,16 +3,15 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
+/// <summary>
+/// 날짜 UI
+/// </summary>
 public class TimerUI : MonoBehaviour
 {
+    // 날짜 텍스트 
     [SerializeField] private TextMeshProUGUI dayText;
-    [SerializeField] private TextMeshProUGUI timeText;
 
-    public void SetTime(string time)
-    {
-        timeText.text = time;
-    }
-
+    // 날짜 설정 함수 
     public void SetDay(string day)
     {
         dayText.text = day;

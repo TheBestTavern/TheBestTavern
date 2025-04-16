@@ -2,11 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MonoSingleton<T> : MonoBehaviour where T : MonoBehaviour
+public class Mono<T> : MonoBehaviour
 {
+    protected static bool _isInitialized = false;
+
+    /// <summary>
+    ///if (_isInitialized) return; base.Init(); 을 반드시 최상단에서 실행해야합니다.
+    /// </summary>
+    public virtual void Init()
+    {
+        _isInitialized = true;
+    }
+}
+
+public class MonoSingleton<T> : Mono<T> where T : Mono<T>
+{
+    //private static T _instance;
     private static T _instance;
 
-    [SerializeField] bool isDontDestroyOnLoad = false;
+    [SerializeField] protected bool isDontDestroyOnLoad = false;
 
     public static T Instance
     {
@@ -16,7 +30,12 @@ public class MonoSingleton<T> : MonoBehaviour where T : MonoBehaviour
             {
                 string name = typeof(T).Name;
                 _instance = new GameObject(name).AddComponent<T>();
-                Debug.Log("싱글톤 생성");
+                Debug.Log($"{name} 싱글톤 오브젝트 생성");
+            }
+
+            if (!_isInitialized)
+            {
+                _instance.Init();
             }
             return _instance;
         }
@@ -24,7 +43,7 @@ public class MonoSingleton<T> : MonoBehaviour where T : MonoBehaviour
 
     protected virtual void Awake()
     {
-        if(_instance != null && _instance != this)
+        if (_instance != null && _instance != this)
         {
             Debug.Log("중복 생성된 싱글톤 객체 삭제");
             Destroy(this);
@@ -40,11 +59,13 @@ public class MonoSingleton<T> : MonoBehaviour where T : MonoBehaviour
         }
     }
 
+
+
     protected virtual void OnDestroy()
     {
-        if(_instance != null)
+        if (_instance != null)
         {
-            _instance = null;   
+            _instance = null;
         }
     }
 }

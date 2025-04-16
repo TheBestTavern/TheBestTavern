@@ -1,0 +1,124 @@
+{
+  "Items": [
+    {
+      "key": 800001,
+      "name": "흥부",
+      "story": "흥부와 놀부",
+      "personality": "온화하고 가난함",
+      "taste": "따뜻한 국물, 보양식",
+      "favorability ": 30,
+      "speechWay": "말투가 정중하고 서민적",
+      "givingQuest": [
+        900001
+      ]
+    },
+    {
+      "key": 800002,
+      "name": "놀부",
+      "story": "흥부와 놀부",
+      "personality": "욕심 많고 까칠함",
+      "taste": "귀한재료, 최고급 요리",
+      "favorability ": 10,
+      "speechWay": "콧대 높고 까탈스러움",
+      "givingQuest": [
+        900002
+      ]
+    },
+    {
+      "key": 800003,
+      "name": "콩쥐",
+      "story": "콩쥐 팥쥐",
+      "personality": "성실하고 따뜻함",
+      "taste": "진한 국물 요리",
+      "favorability ": 40,
+      "speechWay": "말투가 부드럽고 다정함",
+      "givingQuest": [
+        900003
+      ]
+    },
+    {
+      "key": 800004,
+      "name": "팥쥐",
+      "story": "콩쥐 팥쥐",
+      "personality": "질투심 많고 까다로움",
+      "taste": "복잡한 조리법 요리",
+      "favorability ": 20,
+      "speechWay": "뾰족한 말투, 불만 많음",
+      "givingQuest": [
+        900004
+      ]
+    },
+    {
+      "key": 800005,
+      "name": "선녀",
+      "story": "선녀와 나무꾼",
+      "personality": "조용하고 신비로움",
+      "taste": "달콤한 디저트",
+      "favorability ": 40,
+      "speechWay": "말수 적고 어조가 부드러움",
+      "givingQuest": [
+        900005
+      ]
+    },
+    {
+      "key": 800006,
+      "name": "호랑이",
+      "story": "다수 설화",
+      "personality": "거칠지만 유쾌함",
+      "taste": "육류",
+      "favorability ": 20,
+      "speechWay": "어눌한 말투와 호탕한 웃음",
+      "givingQuest": [
+        900007
+      ]
+    },
+    {
+      "key": 800007,
+      "name": "도깨비",
+      "story": "도깨비 이야기",
+      "personality": "장난기 많고 식탐 있음",
+      "taste": "특이한 향신료 조합",
+      "favorability ": 35,
+      "speechWay": "투박하고 재미있는 말투",
+      "givingQuest": [
+        900006
+      ]
+    },
+    {
+      "key": 800008,
+      "name": "토끼",
+      "story": "토생전",
+      "personality": "영리하고 재빠름",
+      "taste": "채식",
+      "favorability ": 35,
+      "speechWay": "말장난을 자주 섞음",
+      "givingQuest": [
+        900008
+      ]
+    },
+    {
+      "key": 800009,
+      "name": "거북이",
+      "story": "토생전",
+      "personality": "인내심 강하고 느긋함",
+      "taste": "숙성된 전통 탕류",
+      "favorability ": 25,
+      "speechWay": "말이 느리고 점잖음",
+      "givingQuest": [
+        900009
+      ]
+    },
+    {
+      "key": 800010,
+      "name": "허생",
+      "story": "허생전",
+      "personality": "논리적이고 냉철함",
+      "taste": "고전적 조선 요리",
+      "favorability ": 30,
+      "speechWay": "문어체 말투 사용",
+      "givingQuest": [
+        900010
+      ]
+    }
+  ]
+}
