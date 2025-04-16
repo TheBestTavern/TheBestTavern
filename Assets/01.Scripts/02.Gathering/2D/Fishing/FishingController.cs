@@ -43,12 +43,12 @@ public class FishingController : MonoBehaviour
 
             if (tensionGauge.IsOverloaded())
             {
-                Debug.Log("게이지 과부하! 실패!");
+                Debug.Log("게이지 과부하 실패");
                 StopFishing(false);
             }
             else if (fishController.IsCaught(catchZone.position))
             {
-                Debug.Log("물고기 잡았다!");
+                Debug.Log("물고기 성공");
                 StopFishing(true);
             }
         }
@@ -59,14 +59,13 @@ public class FishingController : MonoBehaviour
         fishingInProgress = true;
         fishingUI.SetActive(true);
 
-        yield return new WaitForSeconds(Random.Range(1f, 3f)); // 입질 기다림
+        yield return new WaitForSeconds(Random.Range(1f, 3f)); 
 
-        // 물고기 생성 위치: 수직으로 약간 랜덤하게 설정
         Vector3 spawnPos = fishSpawnArea.position;
         spawnPos.y += Random.Range(-2f, 2f);
 
         currentFish = Instantiate(fishPrefab, spawnPos, Quaternion.identity);
-        tensionGauge.ResetGauge(); // 새 시도니까 초기화
+        tensionGauge.ResetGauge();
     }
 
     void StopFishing(bool success)

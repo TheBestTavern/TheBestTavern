@@ -39,7 +39,7 @@ public class Bait : MonoBehaviour
 
     void Land()
     {
-        Debug.Log("미끼가 착지함!");
+        Debug.Log("미끼 착지");
         hasLanded = true;
 
         rb.velocity = Vector2.zero;
@@ -53,7 +53,7 @@ public class Bait : MonoBehaviour
 
     void NotifyAnimals()
     {
-        Debug.Log("미끼가 착지하여 동물에게 반응을 알림 시작");
+        Debug.Log("미끼가 착지하여 동물에게 반응");
 
         Collider2D[] hitColliders = Physics2D.OverlapCircleAll(transform.position, effectRadius);
         foreach (var hit in hitColliders)

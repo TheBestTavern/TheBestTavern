@@ -96,8 +96,7 @@ public class CaptureManager : MonoBehaviour
     void EscapeFromAnimal()
     {
         Debug.Log("Escaped from large animal.");
-        // 씬 전환 또는 선택 화면 복귀 기능 호출
-        // 예: SceneManager.LoadScene("GatheringScene");
+        // 씬 전환 및 화면 복귀 호출
     }
 
     void OnDrawGizmosSelected()

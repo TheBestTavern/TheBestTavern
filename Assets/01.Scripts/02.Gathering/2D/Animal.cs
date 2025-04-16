@@ -42,7 +42,7 @@ public class Animal : MonoBehaviour
         switch (animalSizeType)
         {
             case AnimalSizeType.Small:
-                Debug.Log($"{gameObject.name} (Small)이(가) {baitType} 미끼 없이 즉시 반응하여 캡처 가능합니다! 돌을 던지세요.");
+                Debug.Log($"{gameObject.name} (Small)이(가) {baitType} 미끼 없이 돌을 던지세요");
                 SetCaptureChanceInstant(baitType, baitPosition, true);
                 break;
 
@@ -50,7 +50,7 @@ public class Animal : MonoBehaviour
                 if (likesBait)
                 {
                     SetCaptureChanceInstant(baitType, baitPosition, true);
-                    Debug.Log($"{gameObject.name} (Medium)이(가) 좋아하는 {baitType} 미끼를 발견하고 이동 중! 이제 돌을 던져서 캡처하세요.");
+                    Debug.Log($"{gameObject.name} (Medium)이(가) 좋아하는 {baitType} 미끼를 발견 이제 돌을 던져서 포획");
                     if (checkProximityCoroutine != null) StopCoroutine(checkProximityCoroutine);
 
                     GameObject foundBait = GameObject.Find(baitType);
@@ -61,19 +61,19 @@ public class Animal : MonoBehaviour
                 }
                 else
                 {
-                    Debug.Log($"{gameObject.name} (Medium)은 {baitType} 미끼를 좋아하지 않아서 반응하지 않음.");
+                    Debug.Log($"{gameObject.name} (Medium)은 {baitType} 미끼를 좋아하지 않아서 반응하지 않음");
                 }
                 break;
 
             case AnimalSizeType.Large:
                 if (likesBait)
                 {
-                    Debug.Log($"{gameObject.name} (Large)은 {baitType} 미끼를 싫어해서 3초 뒤 도망감! 이제 미끼를 던지고 도망가세요.");
+                    Debug.Log($"{gameObject.name} (Large)은 {baitType} 도망가세요.");
                     Invoke(nameof(Flee), 3f);
                 }
                 else
                 {
-                    Debug.Log($"{gameObject.name} (Large)은 {baitType} 미끼를 무시하고 도망가지 않음.");
+                    Debug.Log($"{gameObject.name} (Large)은 {baitType} 미끼를 무시하고 도망가지 않음");
                 }
                 break;
         }
@@ -139,7 +139,6 @@ public class Animal : MonoBehaviour
     {
         if (isFleeing)
         {
-            Debug.Log($"{animalName}은 이미 도망 중이므로 돌에 반응하지 않음.");
             return;
         }
 
@@ -156,19 +155,18 @@ public class Animal : MonoBehaviour
             case AnimalSizeType.Medium:
                 if (canBeCaptured)
                 {
-                    Debug.Log($"{animalName} (Medium)이(가) 돌에 맞고 캡처 가능합니다!");
+                    Debug.Log($"{animalName} (Medium)이(가) 돌에 맞고 포획 가능");
                     isStunned = true;
-                    IsStunned = true; // Update the public property as well
-                                      // 돌에 맞아서 포획 가능하게
+                    IsStunned = true; 
                 }
                 else
                 {
-                    Debug.Log($"{animalName} (Medium)은 아직 미끼 반응 상태가 아님.");
+                    Debug.Log($"{animalName} (Medium)은 아직 미끼 반응 상태 아님.");
                 }
                 break;
 
             case AnimalSizeType.Large:
-                Debug.Log($"{animalName} (Large)은 돌에 맞았지만 반응 없음.");
+                Debug.Log($"{animalName} (Large)은 돌에 맞았지만 반응 없음");
                 break;
         }
     }
@@ -178,7 +176,7 @@ public class Animal : MonoBehaviour
         yield return new WaitForSeconds(stunDuration);
 
         isStunned = false;
-        IsStunned = false; // Ensure that the public property reflects the stun change as well
+        IsStunned = false; 
         canBeCaptured = false;
 
         Debug.Log($"{animalName}의 기절 상태가 종료되었습니다.");
@@ -186,10 +184,9 @@ public class Animal : MonoBehaviour
 
     public bool TryCapture()
     {
-        Debug.Log($"{animalName} IsStunned: {IsStunned}"); // Debug log
+        Debug.Log($"{animalName} IsStunned: {IsStunned}"); 
         if (!CanBeCaptured()) return false;
 
-        // 포획 성공 처리
         Destroy(gameObject);
         return true;
     }
@@ -198,7 +195,6 @@ public class Animal : MonoBehaviour
     {
         isFleeing = true;
         Debug.Log($"{animalName}이(가) 도망쳤습니다!");
-        // 여기에 애니메이션, 이동, 제거 등 처리 가능
         Destroy(gameObject, 1f);
     }
 

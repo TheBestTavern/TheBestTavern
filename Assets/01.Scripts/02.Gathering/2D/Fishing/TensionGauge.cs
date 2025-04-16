@@ -8,7 +8,7 @@ public class TensionGauge : MonoBehaviour
     [Header("게이지 설정")]
     public float currentValue = 0f;
     public float maxValue = 1f;
-    public float gaugeSpeed = 0.5f; // 게이지 속도
+    public float gaugeSpeed = 0.5f;
     public float overloadTimeThreshold = 1.5f;
     public Image gaugeBar;
 
@@ -16,7 +16,7 @@ public class TensionGauge : MonoBehaviour
 
     void Update()
     {
-        UpdateGaugeUI(); // UI 반영
+        UpdateGaugeUI();
     }
 
     public void IncreaseGauge()
