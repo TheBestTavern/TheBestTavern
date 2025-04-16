@@ -5,6 +5,10 @@ using UnityEngine;
 public class Mono<T> : MonoBehaviour
 {
     protected static bool _isInitialized = false;
+
+    /// <summary>
+    ///if (_isInitialized) return; base.Init(); 을 반드시 최상단에서 실행해야합니다.
+    /// </summary>
     public virtual void Init()
     {
         _isInitialized = true;

@@ -8,11 +8,14 @@ public class NPCManager : MonoSingleton<NPCManager>
     public NPCData NPCData;
     public Action onNewDayStarted;
 
-    private void Start()
+    public override void Init()
     {
+        if(_isInitialized) return;
+        base.Init();
+
         NPCData = new NPCData();
         NPCData.Init();
-        GameManager.Instance.onNewDayAction = TriggerNewDay;
+        GameManager.Instance.onNewDayAction += TriggerNewDay;
     }
 
     // 하루가 갱신될때마다 실행될 이벤트 실행 메서드.
