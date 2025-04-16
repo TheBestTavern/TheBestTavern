@@ -20,6 +20,14 @@ public class MenuCompletedQuestUI : BaseMenuContentUI
         for (int i = 0; i < QuestManager.Instance.questData.CompletedQuests.Count; i++)
         {
             // To Do - 완료된 퀘스트 생성
+            if (QuestManager.Instance.questData.OnceCompletedQuests == null)
+                return;
+
+            for (int i = 0; i < QuestManager.Instance.questData.OnceCompletedQuests.Count; i++)
+            {
+                QuestOfferSlot questSlot = Instantiate(contentPrefab, contentParent).GetComponent<QuestOfferSlot>();
+                questSlot.SetSlot(QuestManager.Instance.questData.OnceCompletedQuests[i], i);
+            }
         }
     }
 }

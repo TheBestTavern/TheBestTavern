@@ -37,9 +37,8 @@ public class TimerManager : MonoSingleton<TimerManager>
     public void OneDayPass()
     {
         DayChange(1);
-
         // 매일 날짜가 변할때마다 필요한 액션 
-        GameManager.Instance.OnNewDayAction();
+        GameManager.Instance.TriggerNewDayAction();
     }
 
     // 날짜 UI 변경 함수 

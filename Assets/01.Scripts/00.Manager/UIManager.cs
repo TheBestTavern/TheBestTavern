@@ -14,7 +14,8 @@ public enum PopUpType
     MiniGame,
     MailBox,
     Alarm,
-    QuestLetter,
+    OfferLetter,
+    ResultLetter
 }
 
 public class UIManager : MonoSingleton<UIManager>
@@ -56,6 +57,10 @@ public class UIManager : MonoSingleton<UIManager>
         {
             // ConfirmPopUp 클래스 캐싱
             confirmPopUp = basePopUp.GetComponent<ConfirmPopUp>();
+        }
+        else if (popUpType == PopUpType.Alarm)
+        {
+            alarmPopUp = basePopUp.GetComponent<AlarmPopUp>();
         }
 
         // 각 팝업들이 열릴 때 필요한 함수 실행

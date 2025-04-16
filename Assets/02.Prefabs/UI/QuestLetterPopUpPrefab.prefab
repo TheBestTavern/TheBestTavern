@@ -2149,7 +2149,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   closeButton: {fileID: 1408138573363093146}
-  popUpType: 5
+  popUpType: 7
   btn7: {fileID: 6435497974185860118}
   btn11: {fileID: 3324561787143019390}
   btn14: {fileID: 2312628848087200473}

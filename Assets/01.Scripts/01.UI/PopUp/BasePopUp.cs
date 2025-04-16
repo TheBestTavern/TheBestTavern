@@ -14,6 +14,10 @@ public class BasePopUp : MonoBehaviour
     // 팝업 타입 
     public PopUpType popUpType;
 
+    public virtual void Init()
+    {
+    }
+
     public virtual void Awake()
     {
         // 닫기 버튼 이벤트 리스너 추가

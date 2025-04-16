@@ -5,10 +5,10 @@ using UnityEngine;
 
 public class GameManager : MonoSingleton<GameManager>
 {
-    public Action newDayAction;
+    public Action onNewDayAction;
 
-    public void OnNewDayAction()
+    public void TriggerNewDayAction()
     {
-        newDayAction?.Invoke();
+        onNewDayAction?.Invoke();
     }
 }
