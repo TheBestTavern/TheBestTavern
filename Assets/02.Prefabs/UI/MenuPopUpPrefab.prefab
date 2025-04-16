@@ -2710,7 +2710,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 2200}
+  m_AnchoredPosition: {x: 0, y: 1640}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &5309955938874718411
@@ -4658,14 +4658,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   closeButton: {fileID: 5585859271247861627}
   popUpType: 1
-  inventoryButtons: {fileID: 3548321237705354215}
-  inventory: {fileID: 3475352175682851869}
-  questButtons: {fileID: 3426211947259310584}
-  quest: {fileID: 2204957788182285641}
-  relationButtons: {fileID: 8353692591305502097}
-  relation: {fileID: 5309955938874718411}
-  recipeButtons: {fileID: 5684245710999777790}
-  recipe: {fileID: 505012766339430255}
+  inventoryButton: {fileID: 3548321237705354215}
+  inventoryGameObject: {fileID: 3475352175682851869}
+  questButton: {fileID: 3426211947259310584}
+  questGameObject: {fileID: 2204957788182285641}
+  relationButton: {fileID: 8353692591305502097}
+  relationGameObject: {fileID: 5309955938874718411}
+  recipeButton: {fileID: 5684245710999777790}
+  recipeGameObject: {fileID: 505012766339430255}
 --- !u!1 &8881127076013007335
 GameObject:
   m_ObjectHideFlags: 0

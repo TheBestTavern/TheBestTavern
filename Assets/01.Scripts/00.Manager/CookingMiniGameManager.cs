@@ -1,23 +1,21 @@
-using System.Collections;
-using System.Collections.Generic;
+using Cysharp.Threading.Tasks;
+using Cysharp.Threading.Tasks.Triggers;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
 public class CookingMiniGameManager : MonoSingleton<CookingMiniGameManager>
 {
     [SerializeField] private MiniGameUI miniGameUI;
-    private string miniGameName;
 
-    public void ShowMiniGame(string sceneName)
+    async public void ShowMiniGame(string miniGameSceneName)
     {
         miniGameUI.OnMiniGameUI();
-        miniGameName = sceneName;
-        SceneManager.LoadSceneAsync(miniGameName, LoadSceneMode.Additive);
+        await SceneLoader.Instance.LoadSceneAsyncMiniGame(miniGameSceneName);
     }
 
-    public void CloseMiniGame()
+    async public void CloseMiniGame()
     {
-        SceneManager.UnloadSceneAsync(miniGameName);
+        await SceneLoader.Instance.UnLoadSceneAsyncMiniGame();
     }
 }
