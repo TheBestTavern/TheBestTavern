@@ -47,7 +47,8 @@ public class UIManager : MonoSingleton<UIManager>
 
             // BasePopUp 클래스 불러오기 - 
             basePopUp = popUpGameObject.GetComponentInChildren<BasePopUp>();
-            
+            basePopUp.Init();
+
             // 한번 불러온 팝업 딕셔너리에 넣어주기
             popUps.Add(popUpType, basePopUp);
         }

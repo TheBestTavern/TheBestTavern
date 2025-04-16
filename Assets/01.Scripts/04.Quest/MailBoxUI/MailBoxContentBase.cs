@@ -16,7 +16,7 @@ public abstract class MailBoxContentBase : MonoBehaviour
 
     private void Awake()
     {
-        QuestManager.Instance.onNewDayAction = HandleNewDay;
+        QuestManager.Instance.onNewDayAction += HandleNewDay;
     }
 
     public void HandleNewDay()
