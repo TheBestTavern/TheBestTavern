@@ -132,11 +132,5 @@ public class CookingCuttingMiniGame : CookingMiniGameBase
 
         // 타이밍 바가 생성된 직후 3초동안 버튼을 클릭하지 않았을 때 자동으로 Miss 판정되고, 타이밍바 비활성화 or 삭제
 
-
-        // 제한 시간 초과하면 미니게임 종료
-        if (timer <= 0f)
-        {
-            StopGame();
-        }
     }
 }

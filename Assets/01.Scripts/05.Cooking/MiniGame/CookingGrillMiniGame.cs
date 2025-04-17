@@ -162,27 +162,13 @@ public class CookingGrillMiniGame : CookingMiniGameBase
 
     protected override void UpdateGamePlay()
     {
-
+        // 나중에 UI.cs로 옮길 예정
         timerText.text = timer.ToString("N2");
-
-        elapsedTimer += Time.deltaTime;
 
         if (timer <= 0f)
         {
-            timerText.text = "Time Over";
-            StopGame();
-            isGameOver = true;
+            timerText.text = "Time Over"; 
         }
-        // 마우스로 한 번에 두장씩 클릭
-
-
-        // 짝이 맞으면(같은 숫자이면)
-
-        // 해당 카드 두장 고정
-
-        // 틀리면 부드럽게 다시 닫힘
-
-        // 익어가는 효과 연출
     }
 
 
@@ -211,8 +197,6 @@ public class CookingGrillMiniGame : CookingMiniGameBase
     public override void StopGame()
     {
         isFlipLocked = true;
-
-        Time.timeScale = 0f;
 
         JudgeGrade();
 

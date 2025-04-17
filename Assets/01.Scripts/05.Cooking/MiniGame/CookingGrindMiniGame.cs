@@ -202,12 +202,6 @@ public class CookingGrindMiniGame : CookingMiniGameBase
             }
         }
 
-        // 15초 종료
-        if (timer <= 0f)
-        {
-            StopGame();
-        }
-    
     }
 
     public override void StartGame()
@@ -217,8 +211,7 @@ public class CookingGrindMiniGame : CookingMiniGameBase
 
     public override void StopGame()
     {
-        isGameOver = true;
-        Time.timeScale = 0f;
+        
     }
 
 

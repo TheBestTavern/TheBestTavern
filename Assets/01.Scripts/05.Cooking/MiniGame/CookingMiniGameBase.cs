@@ -14,7 +14,7 @@ public abstract class CookingMiniGameBase : MonoBehaviour, ICookingMiniGameHandl
     protected virtual void Update()
     {
         if (isGameOver) return;
-        // 타이머 업데이트 액션
+        
         elapsedTimer += Time.deltaTime;
 
         if (elapsedTimer >= 2f)
@@ -24,7 +24,14 @@ public abstract class CookingMiniGameBase : MonoBehaviour, ICookingMiniGameHandl
             // 게임 로직 구현부 실행
             UpdateGamePlay();
         }
-       
+        
+        if(timer <= 0f)
+        {
+            isGameOver = true;
+            StopGame();
+            Time.timeScale = 0f;
+        }
+
         // FSM 상태 전환 실행 (구현시 이곳에서 실행)
     }
     
