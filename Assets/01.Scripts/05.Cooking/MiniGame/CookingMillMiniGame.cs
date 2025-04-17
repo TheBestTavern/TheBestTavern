@@ -41,6 +41,10 @@ public class CookingMillMiniGame : CookingMiniGameBase
     #region 리팩토링 이후 사용
     public override void StartGame()
     {
+        isGameOver = false;
+        elapsedTimer = 0f;
+        playTime = 0f;
+        timer = 15f;
     }
 
     public override void StopGame()
