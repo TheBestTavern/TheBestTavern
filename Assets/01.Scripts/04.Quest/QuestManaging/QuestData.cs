@@ -43,7 +43,7 @@ public class QuestData
                 onTriggerNPC?.Invoke(AcceptedQuests[i]);
                 Debug.Log($"{AcceptedQuests[i].origin.name}퀘스트의 NPC 소환");
 
-                if (i-1 == AcceptedQuests.Count)
+                if (i+1 == AcceptedQuests.Count)
                 {
                     onSpawnNPC?.Invoke();
                 }
