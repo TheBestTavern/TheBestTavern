@@ -132,10 +132,8 @@ public class CookingMillMiniGame : CookingMiniGameBase
 
         if (timer <= 0f)
         {
-            isGameOver = true;
             // 8. 마우스속도와 유지시간을 판정 함수로 넘김
-            Judge(mouseSpeed, judgeTime);
-            Time.timeScale = 0f;
+            Judge(mouseSpeed, judgeTime); 
         }
     }
 }

@@ -25,7 +25,7 @@ public class MiniGameUI : MonoBehaviour
     }
 
     // 미니게임 닫기 버튼 함수 
-    private void OnClickCloseButton()
+    public void OnClickCloseButton()
     {
         // 미니게임 닫기 
         CookingMiniGameManager.Instance.CloseMiniGame();

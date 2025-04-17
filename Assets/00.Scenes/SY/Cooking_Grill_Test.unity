@@ -1619,8 +1619,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3737d0e69523604b9ce061ccde16a49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timer: 15
-  elapsedTimer: 0
   timerText: {fileID: 1507723043}
   cards:
   - {fileID: 1797398147}

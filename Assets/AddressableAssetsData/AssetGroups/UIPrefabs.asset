@@ -77,6 +77,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - UIPrefabs
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0ee02fc131980fa47a5b36f144db25d8
+    m_Address: CookingResultPopUpPrefab.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - UIPrefabs
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 3f946b317ceaa2747b411cad54511d5f, type: 2}
   m_SchemaSet:

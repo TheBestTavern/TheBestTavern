@@ -15,7 +15,8 @@ public enum PopUpType
     MailBox,
     Alarm,
     OfferLetter,
-    ResultLetter
+    ResultLetter,
+    CookingResult
 }
 
 public class UIManager : MonoSingleton<UIManager>
