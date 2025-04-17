@@ -21,6 +21,7 @@ public class GatheringProps : MonoBehaviour
     public void OnClickAnim()
     {
         gameObject.transform.DOShakeScale(1f, 1f);
+        Debug.Log("클릭");
     }
 
     public void ExitMouseAnim()

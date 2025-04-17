@@ -64,6 +64,5 @@ public class PlayerInput : MonoBehaviour
             // 현재 오브젝트 갱신
             currentHovered = hovered;
         }
-
     }
 }
