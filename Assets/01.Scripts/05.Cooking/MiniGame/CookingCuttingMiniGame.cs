@@ -7,6 +7,7 @@ using UnityEngine.UI;
 /// <summary>
 /// 도마게임 로직 구현부
 /// : 타이밍 퍼즐 (리듬 입력형)
+/// ** 구현하다 중단되었습니다!!
 /// </summary>
 public class CookingCuttingMiniGame : CookingMiniGameBase
 {
@@ -35,7 +36,12 @@ public class CookingCuttingMiniGame : CookingMiniGameBase
 
     public override void StartGame()
     {
-        
+        isGameOver = false;
+        elapsedTimer = 0f;
+        playTime = 0f;
+        timer = 15f;
+
+
         // 첫 타이밍 바 프리팹 생성 및 초기화
         SpawnTimingBar();
 

@@ -8,7 +8,8 @@ using UnityEngine;
 public abstract class CookingMiniGameBase : MonoBehaviour, ICookingMiniGameHandler
 {
     protected float timer = 15f;
-    protected float elapsedTimer = 0f;
+    protected float playTime = 0f; // 미니게임 플레이 타임
+    protected float elapsedTimer = 0f; // 이 씬에서의 경과시간
     protected bool isGameOver = false;
 
     protected virtual void Update()
@@ -20,6 +21,10 @@ public abstract class CookingMiniGameBase : MonoBehaviour, ICookingMiniGameHandl
         if (elapsedTimer >= 2f)
         {
             timer -= Time.deltaTime;
+            playTime += Time.deltaTime;
+
+            // 타이머 이미지 업데이트
+            CookingMiniGameManager.Instance.miniGameUI.UpdateTimer(playTime);
 
             // 게임 로직 구현부 실행
             UpdateGamePlay();
