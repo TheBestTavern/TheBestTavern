@@ -24,6 +24,6 @@ public class NPCSlot : MonoBehaviour
 
     private void OnClickBtn()
     {
-        npcArea.EnterQuestSubmissionMode(quest);
+        npcArea.EnterQuestSubmissionMode(quest, this);
     }
 }

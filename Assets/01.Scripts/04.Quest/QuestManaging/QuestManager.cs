@@ -62,9 +62,9 @@ public class QuestManager : MonoSingleton<QuestManager>
     }
 
     // 퀘스트 완료
-    public bool TryCompleteQuest(Quest quest)
+    public bool TryCompleteQuest(Quest quest, Item item)
     {
-        if (true) // 퀘스트 성공 여부 검사
+        if (CheckSuccessQuest(quest, item))
         {
             // 퀘스트 성공
             questData.CompleteQuest(quest);
@@ -75,6 +75,11 @@ public class QuestManager : MonoSingleton<QuestManager>
             // 퀘스트 실패
             return false;
         }
+    }
+
+    public bool CheckSuccessQuest(Quest quest, Item item)
+    {
+        return true; //// todo - 퀘스트 성공 여부 검사
     }
 
     public void AbortQuest(Quest quest)
