@@ -29,6 +29,11 @@ MonoBehaviour:
     m_SerializedLabels:
     - GrillScene
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c9645c990650cca4ea36cf798de87482
+    m_Address: Forest_Animal.unity
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 3f946b317ceaa2747b411cad54511d5f, type: 2}
   m_SchemaSet:
