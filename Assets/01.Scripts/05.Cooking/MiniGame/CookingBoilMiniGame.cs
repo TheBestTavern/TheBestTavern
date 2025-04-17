@@ -2,19 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CookingBoilMiniGame :ICookingMiniGameHandler
+public class CookingBoilMiniGame : CookingMiniGameBase
 {
-    public void StartGame()
+    private void Awake()
+    {
+        CookingMiniGameManager.Instance.GetCurrentMiniGame(this);
+    }
+
+    public override void StartGame()
     {
     }
 
-    public void StopGame()
+    public override void StopGame()
     {
     }
 
-    public void UpdateGame()
+    protected override void UpdateGamePlay()
     {
     }
-
-    
 }
