@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class CookingMiniGameManager : MonoSingleton<CookingMiniGameManager>
 {
-    [SerializeField] private MiniGameUI miniGameUI;
+     public MiniGameUI miniGameUI;
 
     private ICookingMiniGameHandler currentGame;
 

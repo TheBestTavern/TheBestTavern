@@ -29,6 +29,7 @@ public abstract class CookingMiniGameBase : MonoBehaviour, ICookingMiniGameHandl
         {
             isGameOver = true;
             StopGame();
+            UIManager.Instance.ShowPopUp(PopUpType.CookingResult);
             Time.timeScale = 0f;
         }
 
