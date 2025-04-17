@@ -28,9 +28,14 @@ public class MonoSingleton<T> : Mono<T> where T : Mono<T>
         {
             if (_instance == null)
             {
-                string name = typeof(T).Name;
-                _instance = new GameObject(name).AddComponent<T>();
-                Debug.Log($"{name} 싱글톤 오브젝트 생성");
+                _instance = FindObjectOfType<T>();
+
+                if (_instance == null)
+                {
+                    string name = typeof(T).Name;
+                    _instance = new GameObject(name).AddComponent<T>();
+                    Debug.Log($"{name} 싱글톤 오브젝트 생성");
+                }
             }
 
             if (!_isInitialized)
@@ -66,6 +71,7 @@ public class MonoSingleton<T> : Mono<T> where T : Mono<T>
         if (_instance != null)
         {
             _instance = null;
+            _isInitialized = false;
         }
     }
 }

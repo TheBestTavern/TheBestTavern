@@ -10,7 +10,5 @@ public class QuestOfferSlot : QuestBaseSlot
         base.SetSlot(quest, indexNum);
 
         questName.text = quest.origin.name;
-
-        Debug.Log($"{index}번 슬롯 준비 구독완료");
     }
 }

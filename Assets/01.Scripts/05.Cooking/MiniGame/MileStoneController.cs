@@ -9,9 +9,9 @@ public class MileStoneController : MonoBehaviour
     [SerializeField] private Transform topStone;
     [SerializeField] private Transform handle; // 손잡이
 
-    public float rotationSpeed = 150f;
+    public float rotationSpeed = 140f;
 
-    private bool isDragging = false;
+    public bool isDragging = false;
     private Vector2 lastMousePos;
 
     void Update()

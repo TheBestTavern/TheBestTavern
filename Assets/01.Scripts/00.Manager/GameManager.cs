@@ -9,6 +9,7 @@ public class GameManager : MonoSingleton<GameManager>
 
     private void Start()
     {
+        DataManager.Instance.Init();
         QuestManager.Instance.Init();
         NPCManager.Instance.Init(); 
 
