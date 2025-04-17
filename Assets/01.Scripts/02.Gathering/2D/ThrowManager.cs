@@ -16,8 +16,8 @@ public class ThrowManager : MonoBehaviour
     float holdTime;
     float maxHoldTime = 2f;
 
-    int currentBaitIndex = -1; // -1이면 아직 아무것도 선택 안 한 상태
-    bool isBaitReady = false;  // 버튼으로 준비되었는지 확인
+    int currentBaitIndex = -1; 
+    bool isBaitReady = false; 
     bool readyNextFrame = false;
 
     void Update()
