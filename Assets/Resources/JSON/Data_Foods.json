@@ -1,0 +1,3442 @@
+{
+  "Items": [
+    {
+      "key": 101001,
+      "name": "마늘",
+      "FoodCategory": 1,
+      "grade": 2,
+      "getRoute": [
+        0
+      ]
+    },
+    {
+      "key": 101002,
+      "name": "고추",
+      "FoodCategory": 2,
+      "grade": 2,
+      "getRoute": [
+        0
+      ]
+    },
+    {
+      "key": 101003,
+      "name": "당근",
+      "FoodCategory": 3,
+      "grade": 2,
+      "getRoute": [
+        0
+      ]
+    },
+    {
+      "key": 101004,
+      "name": "대파",
+      "FoodCategory": 4,
+      "grade": 2,
+      "getRoute": [
+        0
+      ]
+    },
+    {
+      "key": 101005,
+      "name": "상추",
+      "FoodCategory": 5,
+      "grade": 2,
+      "getRoute": [
+        0
+      ]
+    },
+    {
+      "key": 101006,
+      "name": "깻잎",
+      "FoodCategory": 6,
+      "grade": 2,
+      "getRoute": [
+        0
+      ]
+    },
+    {
+      "key": 101007,
+      "name": "더덕",
+      "FoodCategory": 7,
+      "grade": 2,
+      "getRoute": [
+        0
+      ]
+    },
+    {
+      "key": 101008,
+      "name": "대두",
+      "FoodCategory": 8,
+      "grade": 2,
+      "getRoute": [
+        0
+      ]
+    },
+    {
+      "key": 101009,
+      "name": "감자",
+      "FoodCategory": 9,
+      "grade": 2,
+      "getRoute": [
+        0
+      ]
+    },
+    {
+      "key": 101010,
+      "name": "고사리",
+      "FoodCategory": 10,
+      "grade": 2,
+      "getRoute": [
+        0
+      ]
+    },
+    {
+      "key": 101011,
+      "name": "꿀",
+      "FoodCategory": 11,
+      "grade": 2,
+      "getRoute": [
+        0
+      ]
+    },
+    {
+      "key": 101012,
+      "name": "무",
+      "FoodCategory": 12,
+      "grade": 2,
+      "getRoute": [
+        0
+      ]
+    },
+    {
+      "key": 101013,
+      "name": "연근",
+      "FoodCategory": 13,
+      "grade": 2,
+      "getRoute": [
+        0
+      ]
+    },
+    {
+      "key": 101014,
+      "name": "조선 인삼",
+      "FoodCategory": 14,
+      "grade": 2,
+      "getRoute": [
+        0
+      ]
+    },
+    {
+      "key": 101015,
+      "name": "고구마",
+      "FoodCategory": 15,
+      "grade": 2,
+      "getRoute": [
+        0
+      ]
+    },
+    {
+      "key": 101016,
+      "name": "쑥",
+      "FoodCategory": 16,
+      "grade": 2,
+      "getRoute": [
+        0
+      ]
+    },
+    {
+      "key": 101017,
+      "name": "두릅",
+      "FoodCategory": 17,
+      "grade": 2,
+      "getRoute": [
+        0
+      ]
+    },
+    {
+      "key": 101018,
+      "name": "밤",
+      "FoodCategory": 18,
+      "grade": 2,
+      "getRoute": [
+        0
+      ]
+    },
+    {
+      "key": 101019,
+      "name": "감",
+      "FoodCategory": 19,
+      "grade": 2,
+      "getRoute": [
+        0
+      ]
+    },
+    {
+      "key": 101020,
+      "name": "배",
+      "FoodCategory": 20,
+      "grade": 2,
+      "getRoute": [
+        0
+      ]
+    },
+    {
+      "key": 101021,
+      "name": "호두",
+      "FoodCategory": 21,
+      "grade": 2,
+      "getRoute": [
+        0
+      ]
+    },
+    {
+      "key": 101022,
+      "name": "우엉",
+      "FoodCategory": 22,
+      "grade": 2,
+      "getRoute": [
+        0
+      ]
+    },
+    {
+      "key": 101023,
+      "name": "도라지",
+      "FoodCategory": 23,
+      "grade": 2,
+      "getRoute": [
+        0
+      ]
+    },
+    {
+      "key": 101024,
+      "name": "사과",
+      "FoodCategory": 24,
+      "grade": 2,
+      "getRoute": [
+        0
+      ]
+    },
+    {
+      "key": 101025,
+      "name": "약주",
+      "FoodCategory": 25,
+      "grade": 2,
+      "getRoute": [
+        0
+      ]
+    },
+    {
+      "key": 101026,
+      "name": "귀리",
+      "FoodCategory": 26,
+      "grade": 2,
+      "getRoute": [
+        0
+      ]
+    },
+    {
+      "key": 101027,
+      "name": "표고버섯",
+      "FoodCategory": 27,
+      "grade": 2,
+      "getRoute": [
+        0
+      ]
+    },
+    {
+      "key": 101028,
+      "name": "죽순",
+      "FoodCategory": 28,
+      "grade": 2,
+      "getRoute": [
+        0
+      ]
+    },
+    {
+      "key": 101029,
+      "name": "두반장 원료",
+      "FoodCategory": 29,
+      "grade": 2,
+      "getRoute": [
+        0
+      ]
+    },
+    {
+      "key": 101030,
+      "name": "화자오",
+      "FoodCategory": 30,
+      "grade": 2,
+      "getRoute": [
+        0
+      ]
+    },
+    {
+      "key": 101031,
+      "name": "목이버섯",
+      "FoodCategory": 31,
+      "grade": 2,
+      "getRoute": [
+        0
+      ]
+    },
+    {
+      "key": 101032,
+      "name": "정어리",
+      "FoodCategory": 32,
+      "grade": 2,
+      "getRoute": [
+        0
+      ]
+    },
+    {
+      "key": 101033,
+      "name": "멸치",
+      "FoodCategory": 33,
+      "grade": 2,
+      "getRoute": [
+        0
+      ]
+    },
+    {
+      "key": 101034,
+      "name": "바지락",
+      "FoodCategory": 34,
+      "grade": 2,
+      "getRoute": [
+        0
+      ]
+    },
+    {
+      "key": 101035,
+      "name": "홍합",
+      "FoodCategory": 35,
+      "grade": 2,
+      "getRoute": [
+        0
+      ]
+    },
+    {
+      "key": 101036,
+      "name": "고등어",
+      "FoodCategory": 36,
+      "grade": 2,
+      "getRoute": [
+        0
+      ]
+    },
+    {
+      "key": 101037,
+      "name": "생태",
+      "FoodCategory": 37,
+      "grade": 2,
+      "getRoute": [
+        0
+      ]
+    },
+    {
+      "key": 101038,
+      "name": "김",
+      "FoodCategory": 38,
+      "grade": 2,
+      "getRoute": [
+        0
+      ]
+    },
+    {
+      "key": 101039,
+      "name": "참 돔",
+      "FoodCategory": 39,
+      "grade": 2,
+      "getRoute": [
+        0
+      ]
+    },
+    {
+      "key": 101040,
+      "name": "굴",
+      "FoodCategory": 40,
+      "grade": 2,
+      "getRoute": [
+        0
+      ]
+    },
+    {
+      "key": 101041,
+      "name": "해삼",
+      "FoodCategory": 41,
+      "grade": 2,
+      "getRoute": [
+        0
+      ]
+    },
+    {
+      "key": 101042,
+      "name": "갈치",
+      "FoodCategory": 42,
+      "grade": 2,
+      "getRoute": [
+        0
+      ]
+    },
+    {
+      "key": 101043,
+      "name": "미역",
+      "FoodCategory": 43,
+      "grade": 2,
+      "getRoute": [
+        0
+      ]
+    },
+    {
+      "key": 101044,
+      "name": "전복",
+      "FoodCategory": 44,
+      "grade": 2,
+      "getRoute": [
+        0
+      ]
+    },
+    {
+      "key": 101045,
+      "name": "문어",
+      "FoodCategory": 45,
+      "grade": 2,
+      "getRoute": [
+        0
+      ]
+    },
+    {
+      "key": 101046,
+      "name": "병어",
+      "FoodCategory": 46,
+      "grade": 2,
+      "getRoute": [
+        0
+      ]
+    },
+    {
+      "key": 101047,
+      "name": "꽃게",
+      "FoodCategory": 47,
+      "grade": 2,
+      "getRoute": [
+        0
+      ]
+    },
+    {
+      "key": 101048,
+      "name": "오징어",
+      "FoodCategory": 48,
+      "grade": 2,
+      "getRoute": [
+        0
+      ]
+    },
+    {
+      "key": 101049,
+      "name": "다시마",
+      "FoodCategory": 49,
+      "grade": 2,
+      "getRoute": [
+        0
+      ]
+    },
+    {
+      "key": 101050,
+      "name": "대게",
+      "FoodCategory": 50,
+      "grade": 2,
+      "getRoute": [
+        0
+      ]
+    },
+    {
+      "key": 101051,
+      "name": "킹크랩",
+      "FoodCategory": 51,
+      "grade": 2,
+      "getRoute": [
+        0
+      ]
+    },
+    {
+      "key": 101052,
+      "name": "새우",
+      "FoodCategory": 52,
+      "grade": 2,
+      "getRoute": [
+        0
+      ]
+    },
+    {
+      "key": 101053,
+      "name": "대하",
+      "FoodCategory": 53,
+      "grade": 2,
+      "getRoute": [
+        0
+      ]
+    },
+    {
+      "key": 101054,
+      "name": "석화",
+      "FoodCategory": 54,
+      "grade": 2,
+      "getRoute": [
+        0
+      ]
+    },
+    {
+      "key": 101055,
+      "name": "톳",
+      "FoodCategory": 55,
+      "grade": 2,
+      "getRoute": [
+        0
+      ]
+    },
+    {
+      "key": 101056,
+      "name": "방어",
+      "FoodCategory": 56,
+      "grade": 2,
+      "getRoute": [
+        0
+      ]
+    },
+    {
+      "key": 101057,
+      "name": "유자",
+      "FoodCategory": 57,
+      "grade": 2,
+      "getRoute": [
+        0
+      ]
+    },
+    {
+      "key": 101058,
+      "name": "와사비 뿌리",
+      "FoodCategory": 58,
+      "grade": 2,
+      "getRoute": [
+        0
+      ]
+    },
+    {
+      "key": 101059,
+      "name": "가쓰오부시",
+      "FoodCategory": 59,
+      "grade": 2,
+      "getRoute": [
+        0
+      ]
+    },
+    {
+      "key": 101060,
+      "name": "식수",
+      "FoodCategory": 60,
+      "grade": 2,
+      "getRoute": [
+        0
+      ]
+    },
+    {
+      "key": 102001,
+      "name": "망가진 편 마늘",
+      "FoodCategory": 100,
+      "grade": 0,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102002,
+      "name": "평범한 편 마늘",
+      "FoodCategory": 100,
+      "grade": 1,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102003,
+      "name": "완벽한 편 마늘",
+      "FoodCategory": 100,
+      "grade": 2,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102004,
+      "name": "망가진 다진 마늘",
+      "FoodCategory": 101,
+      "grade": 0,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102005,
+      "name": "평범한 다진 마늘",
+      "FoodCategory": 101,
+      "grade": 1,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102006,
+      "name": "완벽한 다진 마늘",
+      "FoodCategory": 101,
+      "grade": 2,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102007,
+      "name": "망가진 편 고추",
+      "FoodCategory": 102,
+      "grade": 0,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102008,
+      "name": "평범한 편 고추",
+      "FoodCategory": 102,
+      "grade": 1,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102009,
+      "name": "완벽한 편 고추",
+      "FoodCategory": 102,
+      "grade": 2,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102010,
+      "name": "망가진 다진 고추",
+      "FoodCategory": 103,
+      "grade": 0,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102011,
+      "name": "평범한 다진 고추",
+      "FoodCategory": 103,
+      "grade": 1,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102012,
+      "name": "완벽한 다진 고추",
+      "FoodCategory": 103,
+      "grade": 2,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102013,
+      "name": "망가진 당근 채",
+      "FoodCategory": 104,
+      "grade": 0,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102014,
+      "name": "평범한 당근 채",
+      "FoodCategory": 104,
+      "grade": 1,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102015,
+      "name": "완벽한 당근 채",
+      "FoodCategory": 104,
+      "grade": 2,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102016,
+      "name": "망가진 당근 즙",
+      "FoodCategory": 105,
+      "grade": 0,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102017,
+      "name": "평범한 당근 즙",
+      "FoodCategory": 105,
+      "grade": 1,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102018,
+      "name": "완벽한 당근 즙",
+      "FoodCategory": 105,
+      "grade": 2,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102019,
+      "name": "망가진 파채",
+      "FoodCategory": 106,
+      "grade": 0,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102020,
+      "name": "평범한 파채",
+      "FoodCategory": 106,
+      "grade": 1,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102021,
+      "name": "완벽한 파채",
+      "FoodCategory": 106,
+      "grade": 2,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102022,
+      "name": "망가진 껍질 벗긴 더덕",
+      "FoodCategory": 107,
+      "grade": 0,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102023,
+      "name": "평범한 껍질 벗긴 더덕",
+      "FoodCategory": 107,
+      "grade": 1,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102024,
+      "name": "완벽한 껍질 벗긴 더덕",
+      "FoodCategory": 107,
+      "grade": 2,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102025,
+      "name": "망가진 넓게 펴진 더덕",
+      "FoodCategory": 108,
+      "grade": 0,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102026,
+      "name": "평범한 넓게 펴진 더덕",
+      "FoodCategory": 108,
+      "grade": 1,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102027,
+      "name": "완벽한 넓게 펴진 더덕",
+      "FoodCategory": 108,
+      "grade": 2,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102028,
+      "name": "망가진 구운 더덕",
+      "FoodCategory": 109,
+      "grade": 0,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102029,
+      "name": "평범한 구운 더덕",
+      "FoodCategory": 109,
+      "grade": 1,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102030,
+      "name": "완벽한 구운 더덕",
+      "FoodCategory": 109,
+      "grade": 2,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102031,
+      "name": "망가진 콩물",
+      "FoodCategory": 110,
+      "grade": 0,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102032,
+      "name": "평범한 콩물",
+      "FoodCategory": 110,
+      "grade": 1,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102033,
+      "name": "완벽한 콩물",
+      "FoodCategory": 110,
+      "grade": 2,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102034,
+      "name": "망가진 두부",
+      "FoodCategory": 111,
+      "grade": 0,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102035,
+      "name": "평범한 두부",
+      "FoodCategory": 111,
+      "grade": 1,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102036,
+      "name": "완벽한 두부",
+      "FoodCategory": 111,
+      "grade": 2,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102037,
+      "name": "망가진 썰린 두부",
+      "FoodCategory": 112,
+      "grade": 0,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102038,
+      "name": "평범한 썰린 두부",
+      "FoodCategory": 112,
+      "grade": 1,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102039,
+      "name": "완벽한 썰린 두부",
+      "FoodCategory": 112,
+      "grade": 2,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102040,
+      "name": "망가진 토막 난 감자",
+      "FoodCategory": 113,
+      "grade": 0,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102041,
+      "name": "평범한 토막 난 감자",
+      "FoodCategory": 113,
+      "grade": 1,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102042,
+      "name": "완벽한 토막 난 감자",
+      "FoodCategory": 113,
+      "grade": 2,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102043,
+      "name": "망가진 구운 감자",
+      "FoodCategory": 114,
+      "grade": 0,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102044,
+      "name": "평범한 구운 감자",
+      "FoodCategory": 114,
+      "grade": 1,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102045,
+      "name": "완벽한 구운 감자",
+      "FoodCategory": 114,
+      "grade": 2,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102046,
+      "name": "망가진 삶은 감자",
+      "FoodCategory": 115,
+      "grade": 0,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102047,
+      "name": "평범한 삶은 감자",
+      "FoodCategory": 115,
+      "grade": 1,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102048,
+      "name": "완벽한 삶은 감자",
+      "FoodCategory": 115,
+      "grade": 2,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102049,
+      "name": "망가진 으깬 감자",
+      "FoodCategory": 116,
+      "grade": 0,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102050,
+      "name": "평범한 으깬 감자",
+      "FoodCategory": 116,
+      "grade": 1,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102051,
+      "name": "완벽한 으깬 감자",
+      "FoodCategory": 116,
+      "grade": 2,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102052,
+      "name": "망가진 삶은 고사리",
+      "FoodCategory": 117,
+      "grade": 0,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102053,
+      "name": "평범한 삶은 고사리",
+      "FoodCategory": 117,
+      "grade": 1,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102054,
+      "name": "완벽한 삶은 고사리",
+      "FoodCategory": 117,
+      "grade": 2,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102055,
+      "name": "망가진 토막 난 무",
+      "FoodCategory": 118,
+      "grade": 0,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102056,
+      "name": "평범한 토막 난 무",
+      "FoodCategory": 118,
+      "grade": 1,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102057,
+      "name": "완벽한 토막 난 무",
+      "FoodCategory": 118,
+      "grade": 2,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102058,
+      "name": "망가진 삶은 무",
+      "FoodCategory": 119,
+      "grade": 0,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102059,
+      "name": "평범한 삶은 무",
+      "FoodCategory": 119,
+      "grade": 1,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102060,
+      "name": "완벽한 삶은 무",
+      "FoodCategory": 119,
+      "grade": 2,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102061,
+      "name": "망가진 무 즙",
+      "FoodCategory": 120,
+      "grade": 0,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102062,
+      "name": "평범한 무 즙",
+      "FoodCategory": 120,
+      "grade": 1,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102063,
+      "name": "완벽한 무 즙",
+      "FoodCategory": 120,
+      "grade": 2,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102064,
+      "name": "망가진 토막 난 연근",
+      "FoodCategory": 121,
+      "grade": 0,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102065,
+      "name": "평범한 토막 난 연근",
+      "FoodCategory": 121,
+      "grade": 1,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102066,
+      "name": "완벽한 토막 난 연근",
+      "FoodCategory": 121,
+      "grade": 2,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102067,
+      "name": "망가진 인삼 즙",
+      "FoodCategory": 122,
+      "grade": 0,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102068,
+      "name": "평범한 인삼 즙",
+      "FoodCategory": 122,
+      "grade": 1,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102069,
+      "name": "완벽한 인삼 즙",
+      "FoodCategory": 122,
+      "grade": 2,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102070,
+      "name": "망가진 토막 난 고구마",
+      "FoodCategory": 123,
+      "grade": 0,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102071,
+      "name": "평범한 토막 난 고구마",
+      "FoodCategory": 123,
+      "grade": 1,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102072,
+      "name": "완벽한 토막 난 고구마",
+      "FoodCategory": 123,
+      "grade": 2,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102073,
+      "name": "망가진 구운 고구마",
+      "FoodCategory": 124,
+      "grade": 0,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102074,
+      "name": "평범한 구운 고구마",
+      "FoodCategory": 124,
+      "grade": 1,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102075,
+      "name": "완벽한 구운 고구마",
+      "FoodCategory": 124,
+      "grade": 2,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102076,
+      "name": "망가진 삶은 고구마",
+      "FoodCategory": 125,
+      "grade": 0,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102077,
+      "name": "평범한 삶은 고구마",
+      "FoodCategory": 125,
+      "grade": 1,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102078,
+      "name": "완벽한 삶은 고구마",
+      "FoodCategory": 125,
+      "grade": 2,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102079,
+      "name": "망가진 으깬 고구마",
+      "FoodCategory": 126,
+      "grade": 0,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102080,
+      "name": "평범한 으깬 고구마",
+      "FoodCategory": 126,
+      "grade": 1,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102081,
+      "name": "완벽한 으깬 고구마",
+      "FoodCategory": 126,
+      "grade": 2,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102082,
+      "name": "망가진 데친 두릅",
+      "FoodCategory": 127,
+      "grade": 0,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102083,
+      "name": "평범한 데친 두릅",
+      "FoodCategory": 127,
+      "grade": 1,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102084,
+      "name": "완벽한 데친 두릅",
+      "FoodCategory": 127,
+      "grade": 2,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102085,
+      "name": "망가진 쪄진 밤",
+      "FoodCategory": 128,
+      "grade": 0,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102086,
+      "name": "평범한 쪄진 밤",
+      "FoodCategory": 128,
+      "grade": 1,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102087,
+      "name": "완벽한 쪄진 밤",
+      "FoodCategory": 128,
+      "grade": 2,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102088,
+      "name": "망가진 으깬 밤",
+      "FoodCategory": 129,
+      "grade": 0,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102089,
+      "name": "평범한 으깬 밤",
+      "FoodCategory": 129,
+      "grade": 1,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102090,
+      "name": "완벽한 으깬 밤",
+      "FoodCategory": 129,
+      "grade": 2,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102091,
+      "name": "망가진 토막 난 감",
+      "FoodCategory": 130,
+      "grade": 0,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102092,
+      "name": "평범한 토막 난 감",
+      "FoodCategory": 130,
+      "grade": 1,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102093,
+      "name": "완벽한 토막 난 감",
+      "FoodCategory": 130,
+      "grade": 2,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102094,
+      "name": "망가진 감 즙",
+      "FoodCategory": 131,
+      "grade": 0,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102095,
+      "name": "평범함 감 즙",
+      "FoodCategory": 131,
+      "grade": 1,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102096,
+      "name": "완벽한 감 즙",
+      "FoodCategory": 131,
+      "grade": 2,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102097,
+      "name": "망가진 토막 난 배",
+      "FoodCategory": 132,
+      "grade": 0,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102098,
+      "name": "평범한 토막 난 배",
+      "FoodCategory": 132,
+      "grade": 1,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102099,
+      "name": "완벽한 토막 난 배",
+      "FoodCategory": 132,
+      "grade": 2,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102100,
+      "name": "망가진 배 즙",
+      "FoodCategory": 133,
+      "grade": 0,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102101,
+      "name": "평범한 배 즙",
+      "FoodCategory": 133,
+      "grade": 1,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102102,
+      "name": "완벽한 배 즙",
+      "FoodCategory": 133,
+      "grade": 2,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102103,
+      "name": "망가진 호두 알맹이",
+      "FoodCategory": 134,
+      "grade": 0,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102104,
+      "name": "평범한 호두 알맹이",
+      "FoodCategory": 134,
+      "grade": 1,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102105,
+      "name": "완벽한 호두 알맹이",
+      "FoodCategory": 134,
+      "grade": 2,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102106,
+      "name": "망가진 토막 난 호두",
+      "FoodCategory": 135,
+      "grade": 0,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102107,
+      "name": "평범한 토막 난 호두",
+      "FoodCategory": 135,
+      "grade": 1,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102108,
+      "name": "완벽한 토막 난 호두",
+      "FoodCategory": 135,
+      "grade": 2,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102109,
+      "name": "망가진 껍질 벗긴 우엉",
+      "FoodCategory": 136,
+      "grade": 0,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102110,
+      "name": "평범한 껍질 벗긴 우엉",
+      "FoodCategory": 136,
+      "grade": 1,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102111,
+      "name": "완벽한 껍질 벗긴 우엉",
+      "FoodCategory": 136,
+      "grade": 2,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102112,
+      "name": "망가진 껍질 벗긴 도라지",
+      "FoodCategory": 137,
+      "grade": 0,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102113,
+      "name": "평범한 껍질 벗긴 도라지",
+      "FoodCategory": 137,
+      "grade": 1,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102114,
+      "name": "완벽한 껍질 벗긴 도라지",
+      "FoodCategory": 137,
+      "grade": 2,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102115,
+      "name": "망가진 토막 난 사과",
+      "FoodCategory": 138,
+      "grade": 0,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102116,
+      "name": "평범한 토막 난 사과",
+      "FoodCategory": 138,
+      "grade": 1,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102117,
+      "name": "완벽한 토막 난 사과",
+      "FoodCategory": 138,
+      "grade": 2,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102118,
+      "name": "망가진 사과 즙",
+      "FoodCategory": 139,
+      "grade": 0,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102119,
+      "name": "평범한 사과 즙",
+      "FoodCategory": 139,
+      "grade": 1,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102120,
+      "name": "완벽한 사과 즙",
+      "FoodCategory": 139,
+      "grade": 2,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102121,
+      "name": "망가진 토막 난 표고 버섯",
+      "FoodCategory": 140,
+      "grade": 0,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102122,
+      "name": "평범한 토막 난 표고 버섯",
+      "FoodCategory": 140,
+      "grade": 1,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102123,
+      "name": "완벽한 토막 난 표고 버섯",
+      "FoodCategory": 140,
+      "grade": 2,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102124,
+      "name": "망가진 잘게 썰린 표고 버섯",
+      "FoodCategory": 141,
+      "grade": 0,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102125,
+      "name": "평범한 잘게 썰린 표고 버섯",
+      "FoodCategory": 141,
+      "grade": 1,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102126,
+      "name": "완벽한 잘게 썰린 표고 버섯",
+      "FoodCategory": 141,
+      "grade": 2,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102127,
+      "name": "망가진 삶은 죽순",
+      "FoodCategory": 142,
+      "grade": 0,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102128,
+      "name": "평범한 삶은 죽순",
+      "FoodCategory": 142,
+      "grade": 1,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102129,
+      "name": "완벽한 삶은 죽순",
+      "FoodCategory": 142,
+      "grade": 2,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102130,
+      "name": "망가진 손질 된 정어리",
+      "FoodCategory": 143,
+      "grade": 0,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102131,
+      "name": "평범한 손질 된 정어리",
+      "FoodCategory": 143,
+      "grade": 1,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102132,
+      "name": "완벽한 손질 된 정어리",
+      "FoodCategory": 143,
+      "grade": 2,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102133,
+      "name": "망가진 회로 손질 된 정어리",
+      "FoodCategory": 144,
+      "grade": 0,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102134,
+      "name": "평범한 회로 손질 된 정어리",
+      "FoodCategory": 144,
+      "grade": 1,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102135,
+      "name": "완벽한 회로 손질 된 정어리",
+      "FoodCategory": 144,
+      "grade": 2,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102136,
+      "name": "망가진 구운 정어리",
+      "FoodCategory": 145,
+      "grade": 0,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102137,
+      "name": "평범한 구운 정어리",
+      "FoodCategory": 145,
+      "grade": 1,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102138,
+      "name": "완벽한 구운 정어리",
+      "FoodCategory": 145,
+      "grade": 2,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102139,
+      "name": "망가진 손질 된 멸치",
+      "FoodCategory": 146,
+      "grade": 0,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102140,
+      "name": "평범한 손질 된 멸치",
+      "FoodCategory": 146,
+      "grade": 1,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102141,
+      "name": "완벽한 손질 된 멸치",
+      "FoodCategory": 146,
+      "grade": 2,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102142,
+      "name": "망가진 구운 멸치",
+      "FoodCategory": 147,
+      "grade": 0,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102143,
+      "name": "평범한 구운 멸치",
+      "FoodCategory": 147,
+      "grade": 1,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102144,
+      "name": "완벽한 구운 멸치",
+      "FoodCategory": 147,
+      "grade": 2,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102145,
+      "name": "망가진 삶은 바지락",
+      "FoodCategory": 148,
+      "grade": 0,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102146,
+      "name": "평범한 삶은 바지락",
+      "FoodCategory": 148,
+      "grade": 1,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102147,
+      "name": "완벽한 삶은 바지락",
+      "FoodCategory": 148,
+      "grade": 2,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102148,
+      "name": "망가진 삶은 홍합",
+      "FoodCategory": 149,
+      "grade": 0,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102149,
+      "name": "평범한 삶은 홍합",
+      "FoodCategory": 149,
+      "grade": 1,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102150,
+      "name": "완벽한 삶은 홍합",
+      "FoodCategory": 149,
+      "grade": 2,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102151,
+      "name": "망가진 손질 된 고등어",
+      "FoodCategory": 150,
+      "grade": 0,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102152,
+      "name": "평범한 손질 된 고등어",
+      "FoodCategory": 150,
+      "grade": 1,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102153,
+      "name": "완벽한 손질 된 고등어",
+      "FoodCategory": 150,
+      "grade": 2,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102154,
+      "name": "망가진 회로 손질 된 고등어",
+      "FoodCategory": 151,
+      "grade": 0,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102155,
+      "name": "평범한 회로 손질 된 고등어",
+      "FoodCategory": 151,
+      "grade": 1,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102156,
+      "name": "완벽한 회로 손질 된 고등어",
+      "FoodCategory": 151,
+      "grade": 2,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102157,
+      "name": "망가진 구운 고등어",
+      "FoodCategory": 152,
+      "grade": 0,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102158,
+      "name": "평범한 구운 고등어",
+      "FoodCategory": 152,
+      "grade": 1,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102159,
+      "name": "완벽한 구운 고등어",
+      "FoodCategory": 152,
+      "grade": 2,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102160,
+      "name": "망가진 손질 된 생태",
+      "FoodCategory": 153,
+      "grade": 0,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102161,
+      "name": "평범한 손질 된 생태",
+      "FoodCategory": 153,
+      "grade": 1,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102162,
+      "name": "완벽한 손질 된 생태",
+      "FoodCategory": 153,
+      "grade": 2,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102163,
+      "name": "망가진 손질 된 참돔",
+      "FoodCategory": 154,
+      "grade": 0,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102164,
+      "name": "평범한 손질 된 참돔",
+      "FoodCategory": 154,
+      "grade": 1,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102165,
+      "name": "완벽한 손질 된 참돔",
+      "FoodCategory": 154,
+      "grade": 2,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102166,
+      "name": "망가진 회로 손질 된 참돔",
+      "FoodCategory": 155,
+      "grade": 0,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102167,
+      "name": "평범한 회로 손질 된 참돔",
+      "FoodCategory": 155,
+      "grade": 1,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102168,
+      "name": "완벽한 회로 손질 된 참돔",
+      "FoodCategory": 155,
+      "grade": 2,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102169,
+      "name": "망가진 쪄진 굴",
+      "FoodCategory": 156,
+      "grade": 0,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102170,
+      "name": "평범한 쪄진 굴",
+      "FoodCategory": 156,
+      "grade": 1,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102171,
+      "name": "완벽한 쪄진 굴",
+      "FoodCategory": 156,
+      "grade": 2,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102172,
+      "name": "망가진 회로 손질 된 해삼",
+      "FoodCategory": 157,
+      "grade": 0,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102173,
+      "name": "평범한 회로 손질 된 해삼",
+      "FoodCategory": 157,
+      "grade": 1,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102174,
+      "name": "완벽한 회로 손질 된 해삼",
+      "FoodCategory": 157,
+      "grade": 2,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102175,
+      "name": "망가진 손질 된 갈치",
+      "FoodCategory": 158,
+      "grade": 0,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102176,
+      "name": "평범한 손질 된 갈치",
+      "FoodCategory": 158,
+      "grade": 1,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102177,
+      "name": "완벽한 손질 된 갈치",
+      "FoodCategory": 158,
+      "grade": 2,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102178,
+      "name": "망가진 뼈가 발린 갈치",
+      "FoodCategory": 159,
+      "grade": 0,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102179,
+      "name": "평범한 뼈가 발린 갈치",
+      "FoodCategory": 159,
+      "grade": 1,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102180,
+      "name": "완벽한 뼈가 발린 갈치",
+      "FoodCategory": 159,
+      "grade": 2,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102181,
+      "name": "망가진 구운 갈치",
+      "FoodCategory": 160,
+      "grade": 0,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102182,
+      "name": "평범한 구운 갈치",
+      "FoodCategory": 160,
+      "grade": 1,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102183,
+      "name": "완벽한 구운 갈치",
+      "FoodCategory": 160,
+      "grade": 2,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102184,
+      "name": "망가진 손질 된 전복",
+      "FoodCategory": 161,
+      "grade": 0,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102185,
+      "name": "평범한 손질 된 전복",
+      "FoodCategory": 161,
+      "grade": 1,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102186,
+      "name": "완벽한 손질 된 전복",
+      "FoodCategory": 161,
+      "grade": 2,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102187,
+      "name": "망가진 전복 내장",
+      "FoodCategory": 162,
+      "grade": 0,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102188,
+      "name": "평범한 전복 내장",
+      "FoodCategory": 162,
+      "grade": 1,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102189,
+      "name": "완벽한 전복 내장",
+      "FoodCategory": 162,
+      "grade": 2,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102190,
+      "name": "망가진 회로 손질 된 전복",
+      "FoodCategory": 163,
+      "grade": 0,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102191,
+      "name": "평범한 회뢰 손질 된 전복",
+      "FoodCategory": 163,
+      "grade": 1,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102192,
+      "name": "완벽한 회로 손질 된 전복",
+      "FoodCategory": 163,
+      "grade": 2,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102193,
+      "name": "망가진 쪄진 전복",
+      "FoodCategory": 164,
+      "grade": 0,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102194,
+      "name": "평범한 쪄진 전복",
+      "FoodCategory": 164,
+      "grade": 1,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102195,
+      "name": "완벽한 쪄진 전복",
+      "FoodCategory": 164,
+      "grade": 2,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102196,
+      "name": "망가진 구운 전복",
+      "FoodCategory": 165,
+      "grade": 0,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102197,
+      "name": "평범한 구운 전복",
+      "FoodCategory": 165,
+      "grade": 1,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102198,
+      "name": "완벽한 구운 전복",
+      "FoodCategory": 165,
+      "grade": 2,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102199,
+      "name": "망가진 손질 된 문어",
+      "FoodCategory": 166,
+      "grade": 0,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102200,
+      "name": "평범한 손질 된 문어",
+      "FoodCategory": 166,
+      "grade": 1,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102201,
+      "name": "완벽한 손질 된 문어",
+      "FoodCategory": 166,
+      "grade": 2,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102202,
+      "name": "망가진 토막 난 문어",
+      "FoodCategory": 167,
+      "grade": 0,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102203,
+      "name": "평범한 토막 난 문어",
+      "FoodCategory": 167,
+      "grade": 1,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102204,
+      "name": "완벽한 토막 난 문어",
+      "FoodCategory": 167,
+      "grade": 2,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102205,
+      "name": "망가진 쪄진 문어",
+      "FoodCategory": 168,
+      "grade": 0,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102206,
+      "name": "평범한 쪄진 문어",
+      "FoodCategory": 168,
+      "grade": 1,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102207,
+      "name": "완벽한 쪄진 문어",
+      "FoodCategory": 168,
+      "grade": 2,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102208,
+      "name": "망가진 손질 된 병어",
+      "FoodCategory": 169,
+      "grade": 0,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102209,
+      "name": "평범한 손질 된 병어",
+      "FoodCategory": 169,
+      "grade": 1,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102210,
+      "name": "완벽한 손질 된 병어",
+      "FoodCategory": 169,
+      "grade": 2,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102211,
+      "name": "망가진 쪄진 병어",
+      "FoodCategory": 170,
+      "grade": 0,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102212,
+      "name": "평범한 쪄진 병어",
+      "FoodCategory": 170,
+      "grade": 1,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102213,
+      "name": "완벽한 쪄진 병어",
+      "FoodCategory": 170,
+      "grade": 2,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102214,
+      "name": "망가진 구워진 병어",
+      "FoodCategory": 171,
+      "grade": 0,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102215,
+      "name": "평범한 구워진 병어",
+      "FoodCategory": 171,
+      "grade": 1,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102216,
+      "name": "완벽한 구워진 병어",
+      "FoodCategory": 171,
+      "grade": 2,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102217,
+      "name": "망가진 손질 된 꽃게",
+      "FoodCategory": 172,
+      "grade": 0,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102218,
+      "name": "평범한 손질 된 꽃게",
+      "FoodCategory": 172,
+      "grade": 1,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102219,
+      "name": "완벽한 손질 된 꽃게",
+      "FoodCategory": 172,
+      "grade": 2,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102220,
+      "name": "망가진 토막 난 꽃게",
+      "FoodCategory": 173,
+      "grade": 0,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102221,
+      "name": "평범한 토막 난 꽃게",
+      "FoodCategory": 173,
+      "grade": 1,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102222,
+      "name": "완벽한 토막 난 꽃게",
+      "FoodCategory": 173,
+      "grade": 2,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102223,
+      "name": "망가진 쪄진 꽃게",
+      "FoodCategory": 174,
+      "grade": 0,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102224,
+      "name": "평범한 쪄진 꽃게",
+      "FoodCategory": 174,
+      "grade": 1,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102225,
+      "name": "완벽한 쪄진 꽃게",
+      "FoodCategory": 174,
+      "grade": 2,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102226,
+      "name": "망가진 살이 발라진 꽃게",
+      "FoodCategory": 175,
+      "grade": 0,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102227,
+      "name": "평범한 살이 발라진 꽃게",
+      "FoodCategory": 175,
+      "grade": 1,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102228,
+      "name": "완벽한 살이 발라진 꽃게 ",
+      "FoodCategory": 175,
+      "grade": 2,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102229,
+      "name": "망가진 손질 된 오징어",
+      "FoodCategory": 176,
+      "grade": 0,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102230,
+      "name": "평범한 손질 된 오징어",
+      "FoodCategory": 176,
+      "grade": 1,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102231,
+      "name": "완벽한 손질 된 오징어",
+      "FoodCategory": 176,
+      "grade": 2,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102232,
+      "name": "망가진 토막 난 오징어 ",
+      "FoodCategory": 177,
+      "grade": 0,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102233,
+      "name": "평범한 토막 난 오징어",
+      "FoodCategory": 177,
+      "grade": 1,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102234,
+      "name": "완벽한 토막 난 오징어",
+      "FoodCategory": 177,
+      "grade": 2,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102235,
+      "name": "망가진 쪄진 오징어",
+      "FoodCategory": 178,
+      "grade": 0,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102236,
+      "name": "평범한 쪄진 오징어",
+      "FoodCategory": 178,
+      "grade": 1,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102237,
+      "name": "완벽한 쪄진 오징어",
+      "FoodCategory": 178,
+      "grade": 2,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102238,
+      "name": "망가진 손질 된 대게",
+      "FoodCategory": 179,
+      "grade": 0,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102239,
+      "name": "평범한 손질 된 대게",
+      "FoodCategory": 179,
+      "grade": 1,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102240,
+      "name": "완벽한 손질 된 대게",
+      "FoodCategory": 179,
+      "grade": 2,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102241,
+      "name": "망가진 회로 손질 된 대게",
+      "FoodCategory": 180,
+      "grade": 0,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102242,
+      "name": "평범한 회로 손질 된 대게",
+      "FoodCategory": 180,
+      "grade": 1,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102243,
+      "name": "완벽한 회로 손질 된 대게",
+      "FoodCategory": 180,
+      "grade": 2,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102244,
+      "name": "망가진 쪄진 대게",
+      "FoodCategory": 181,
+      "grade": 0,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102245,
+      "name": "평범한 쪄진 대게",
+      "FoodCategory": 181,
+      "grade": 1,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102246,
+      "name": "완벽한 쪄진 대게",
+      "FoodCategory": 181,
+      "grade": 2,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102247,
+      "name": "망가진 살이 발라진 대게",
+      "FoodCategory": 182,
+      "grade": 0,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102248,
+      "name": "평범한 살이 발라진 대게",
+      "FoodCategory": 182,
+      "grade": 1,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102249,
+      "name": "완벽한 살이 발라진 대게",
+      "FoodCategory": 182,
+      "grade": 2,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102250,
+      "name": "망가진 쪄진 새우",
+      "FoodCategory": 183,
+      "grade": 0,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102251,
+      "name": "평범한 쪄진 새우",
+      "FoodCategory": 183,
+      "grade": 1,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102252,
+      "name": "완벽한 쪄진 새우",
+      "FoodCategory": 183,
+      "grade": 2,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102253,
+      "name": "망가진 구운 새우",
+      "FoodCategory": 184,
+      "grade": 0,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102254,
+      "name": "평범한 구운 새우",
+      "FoodCategory": 184,
+      "grade": 1,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102255,
+      "name": "완벽한 구운 새우",
+      "FoodCategory": 184,
+      "grade": 2,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102256,
+      "name": "망가진 쪄진 대하",
+      "FoodCategory": 185,
+      "grade": 0,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102257,
+      "name": "평범한 쪄진 대하",
+      "FoodCategory": 185,
+      "grade": 1,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102258,
+      "name": "완벽한 쪄진 대하",
+      "FoodCategory": 185,
+      "grade": 2,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102259,
+      "name": "망가진 구운 대하",
+      "FoodCategory": 186,
+      "grade": 0,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102260,
+      "name": "평범한 구운 대하",
+      "FoodCategory": 186,
+      "grade": 1,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102261,
+      "name": "완벽한 구운 대하",
+      "FoodCategory": 186,
+      "grade": 2,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102262,
+      "name": "망가진 쪄진 석화",
+      "FoodCategory": 187,
+      "grade": 0,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102263,
+      "name": "평범한 쪄진 석화",
+      "FoodCategory": 187,
+      "grade": 1,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102264,
+      "name": "완벽한 쪄진 석화",
+      "FoodCategory": 187,
+      "grade": 2,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102265,
+      "name": "망가진 손질 된 방어",
+      "FoodCategory": 188,
+      "grade": 0,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102266,
+      "name": "평범한 손질 된 방어",
+      "FoodCategory": 188,
+      "grade": 1,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102267,
+      "name": "완벽한 손질 된 방어",
+      "FoodCategory": 188,
+      "grade": 2,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102268,
+      "name": "망가진 회로 손질 된 방어",
+      "FoodCategory": 189,
+      "grade": 0,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102269,
+      "name": "평범한 회로 손질 된 방어",
+      "FoodCategory": 189,
+      "grade": 1,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102270,
+      "name": "완벽한 회로 손질 된 방어",
+      "FoodCategory": 189,
+      "grade": 2,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102271,
+      "name": "망가진 토막 난 유자",
+      "FoodCategory": 190,
+      "grade": 0,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102272,
+      "name": "평범한 토막 난 유자",
+      "FoodCategory": 190,
+      "grade": 1,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102273,
+      "name": "완벽한 토막 난 유자",
+      "FoodCategory": 190,
+      "grade": 2,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102274,
+      "name": "망가진 유자 즙",
+      "FoodCategory": 191,
+      "grade": 0,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102275,
+      "name": "평범한 유자 즙",
+      "FoodCategory": 191,
+      "grade": 1,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102276,
+      "name": "완벽한 유자 즙",
+      "FoodCategory": 191,
+      "grade": 2,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102277,
+      "name": "망가진 손질 된 와사비 뿌리",
+      "FoodCategory": 192,
+      "grade": 0,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102278,
+      "name": "평범한 손질 된 와사비 뿌리",
+      "FoodCategory": 192,
+      "grade": 1,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102279,
+      "name": "완벽한 손질 된 와사비 뿌리",
+      "FoodCategory": 192,
+      "grade": 2,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102280,
+      "name": "망가진 생와사비",
+      "FoodCategory": 193,
+      "grade": 0,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102281,
+      "name": "평범한 생와사비",
+      "FoodCategory": 193,
+      "grade": 1,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102282,
+      "name": "완벽한 생와사비",
+      "FoodCategory": 193,
+      "grade": 2,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102283,
+      "name": "망가진 쌈장",
+      "FoodCategory": 194,
+      "grade": 0,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102284,
+      "name": "평범한 쌈장",
+      "FoodCategory": 194,
+      "grade": 1,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102285,
+      "name": "완벽한 쌈장",
+      "FoodCategory": 194,
+      "grade": 2,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102286,
+      "name": "망가진 삶은 소면",
+      "FoodCategory": 195,
+      "grade": 0,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102287,
+      "name": "평범한 삶은 소면",
+      "FoodCategory": 195,
+      "grade": 1,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102288,
+      "name": "완벽한 삶은 소면",
+      "FoodCategory": 195,
+      "grade": 2,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102289,
+      "name": "망가진 밀가루 반죽",
+      "FoodCategory": 196,
+      "grade": 0,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102290,
+      "name": "평범한 밀가루 반죽",
+      "FoodCategory": 196,
+      "grade": 1,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102291,
+      "name": "완벽한 밀가루 반죽",
+      "FoodCategory": 196,
+      "grade": 2,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102292,
+      "name": "망가진 뜨거운 식용유",
+      "FoodCategory": 197,
+      "grade": 0,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102293,
+      "name": "평범한 뜨거운 식용유",
+      "FoodCategory": 197,
+      "grade": 1,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 102294,
+      "name": "완벽한 뜨거운 식용유",
+      "FoodCategory": 197,
+      "grade": 2,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 103001,
+      "name": "고추장",
+      "FoodCategory": 401,
+      "grade": 2,
+      "getRoute": [
+        1
+      ]
+    },
+    {
+      "key": 103002,
+      "name": "간장",
+      "FoodCategory": 402,
+      "grade": 2,
+      "getRoute": [
+        1
+      ]
+    },
+    {
+      "key": 103003,
+      "name": "된장",
+      "FoodCategory": 403,
+      "grade": 2,
+      "getRoute": [
+        1
+      ]
+    },
+    {
+      "key": 103004,
+      "name": "식용유",
+      "FoodCategory": 404,
+      "grade": 2,
+      "getRoute": [
+        1
+      ]
+    },
+    {
+      "key": 103005,
+      "name": "소면",
+      "FoodCategory": 405,
+      "grade": 2,
+      "getRoute": [
+        1
+      ]
+    },
+    {
+      "key": 103006,
+      "name": "밀가루",
+      "FoodCategory": 406,
+      "grade": 2,
+      "getRoute": [
+        1
+      ]
+    },
+    {
+      "key": 103007,
+      "name": "버터",
+      "FoodCategory": 407,
+      "grade": 2,
+      "getRoute": [
+        1
+      ]
+    },
+    {
+      "key": 104001,
+      "name": "평범한 고구마 맛탕",
+      "FoodCategory": 501,
+      "grade": 0,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 104002,
+      "name": "맛있는 고구마 맛탕",
+      "FoodCategory": 501,
+      "grade": 1,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 104003,
+      "name": "전설의 고구마 맛탕",
+      "FoodCategory": 501,
+      "grade": 2,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 104004,
+      "name": "평범한 멸치 볶음",
+      "FoodCategory": 502,
+      "grade": 0,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 104005,
+      "name": "맛있는 멸치 볶음",
+      "FoodCategory": 502,
+      "grade": 1,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 104006,
+      "name": "전설의 멸치 볶음",
+      "FoodCategory": 502,
+      "grade": 2,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 104007,
+      "name": "평범한 견과류 멸치 볶음",
+      "FoodCategory": 503,
+      "grade": 0,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 104008,
+      "name": "맛있는 견과류 멸치 볶음",
+      "FoodCategory": 503,
+      "grade": 1,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 104009,
+      "name": "전설의 견과류 멸치 볶음",
+      "FoodCategory": 503,
+      "grade": 2,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 104010,
+      "name": "평범한 버터 감자",
+      "FoodCategory": 504,
+      "grade": 0,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 104011,
+      "name": "맛있는 버터 감자",
+      "FoodCategory": 504,
+      "grade": 1,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 104012,
+      "name": "전설의 버터 감자",
+      "FoodCategory": 504,
+      "grade": 2,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 104013,
+      "name": "평범한 허니 버터 감자 ",
+      "FoodCategory": 505,
+      "grade": 0,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 104014,
+      "name": "맛있는 허니 버터 감자 ",
+      "FoodCategory": 505,
+      "grade": 1,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 104015,
+      "name": "전설의 허니 버터 감자",
+      "FoodCategory": 505,
+      "grade": 2,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 104016,
+      "name": "평범한 정어리 회",
+      "FoodCategory": 506,
+      "grade": 0,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 104017,
+      "name": "맛있는 정어리 회",
+      "FoodCategory": 506,
+      "grade": 1,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 104018,
+      "name": "전설의 정어리 회",
+      "FoodCategory": 506,
+      "grade": 2,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 104019,
+      "name": "평범한 정어리 구이",
+      "FoodCategory": 507,
+      "grade": 0,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 104020,
+      "name": "맛있는 정어리  구이",
+      "FoodCategory": 507,
+      "grade": 1,
+      "getRoute": [
+        2
+      ]
+    },
+    {
+      "key": 104021,
+      "name": "전설의 정어리 구이",
+      "FoodCategory": 507,
+      "grade": 2,
+      "getRoute": [
+        2
+      ]
+    }
+  ]
+}
