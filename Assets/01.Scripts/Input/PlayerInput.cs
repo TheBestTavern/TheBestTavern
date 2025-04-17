@@ -12,7 +12,7 @@ public class PlayerInput : MonoBehaviour
     // ESC를 눌렀을 때
     public async void OnPause(InputAction.CallbackContext context)
     {
-        if(context.phase == InputActionPhase.Performed)
+        if (context.phase == InputActionPhase.Performed)
         {
             // 게임 일시 정지 및 설정 팝업 불러오기 함수
             await UIManager.Instance.ShowPopUp(PopUpType.Setting);
