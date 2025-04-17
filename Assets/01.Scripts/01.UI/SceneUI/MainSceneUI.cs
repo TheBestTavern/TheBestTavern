@@ -48,9 +48,9 @@ public class MainSceneUI : MonoBehaviour
     }
 
     // 퀘스트 보기 버튼 함수 
-    void OnClickMailBoxButton()
+    async void OnClickMailBoxButton()
     {
-        //UIManager.Instance.ShowPopUp(PopUpType.MailBox);
+        await UIManager.Instance.ShowPopUp(PopUpType.MailBox);
     }
 
     // 하루 보내기 버튼 함수 
