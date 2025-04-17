@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,6 +14,14 @@ public class GatheringSceneUI : MonoBehaviour
     // 메인 씬으로 돌아가기 버튼 
     [SerializeField] private Button mainSceneButton;
 
+    // 카메라 컨트롤 버튼
+    [SerializeField] private Button leftButton;
+    [SerializeField] private Button rightButton;
+    [SerializeField] private Button upButton;
+    [SerializeField] private Button downButton;
+
+    [SerializeField] private Transform mainCameraPostion;
+
     private void Awake()
     {
         // 맵 선택 버튼 클릭 이벤트 리스너 추가 
@@ -20,6 +29,11 @@ public class GatheringSceneUI : MonoBehaviour
 
         // 메인 씬으로 돌아가기 버튼 클릭 이벤트 리스너 추가
         mainSceneButton.onClick.AddListener(OnClickMainSceneButton);
+
+        leftButton.onClick.AddListener(OnClickLeftButton);
+        rightButton.onClick.AddListener(OnClickRightButton);
+        upButton.onClick.AddListener(OnClickUpButton);
+        downButton.onClick.AddListener(OnClickDownButton);
     }
 
     // 맵 선택 버튼 함수 
@@ -43,5 +57,26 @@ public class GatheringSceneUI : MonoBehaviour
     {
         // 메인씬 불러오기 
         await SceneLoader.Instance.LoadSceneAsync("MainSceneDev");
+    }
+
+    void OnClickLeftButton()
+    {
+        if (mainCameraPostion.position.x > -2.8f)
+            mainCameraPostion.DOMoveX(mainCameraPostion.position.x - 5f, 1f);
+    }
+    void OnClickRightButton()
+    {
+        if (mainCameraPostion.position.x < 7.2f)
+            mainCameraPostion.DOMoveX(mainCameraPostion.position.x + 5f, 1f);
+    }
+    void OnClickUpButton()
+    {
+        if (mainCameraPostion.position.y < 3.27f)
+            mainCameraPostion.DOMoveY(mainCameraPostion.position.y + 5f, 1f);
+    }
+    void OnClickDownButton()
+    {
+        if (mainCameraPostion.position.y > -3.1f)
+            mainCameraPostion.DOMoveY(mainCameraPostion.position.y - 5f, 1f);
     }
 }
