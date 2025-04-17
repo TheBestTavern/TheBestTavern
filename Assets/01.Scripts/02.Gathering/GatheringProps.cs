@@ -6,26 +6,18 @@ using UnityEngine;
 
 public class GatheringProps : MonoBehaviour
 {
-    Animator animator;
-
-    private void Update()
-    {
-        
-    }
-
-    public void OnMouseAnim()
+    private void OnMouseEnter()
     {
         gameObject.transform.DOScale(1.1f, 0.5f);
     }
 
-    public void OnClickAnim()
-    {
-        gameObject.transform.DOShakeScale(1f, 1f);
-        Debug.Log("클릭");
-    }
-
-    public void ExitMouseAnim()
+    private void OnMouseExit()
     {
         gameObject.transform.DOScale(1, 0.5f);
+    }
+
+    private void OnMouseDown()
+    {
+        gameObject.transform.DOShakeScale(1f, 1f);
     }
 }
