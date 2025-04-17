@@ -7,6 +7,14 @@ public class GameManager : MonoSingleton<GameManager>
 {
     public Action onNewDayAction;
 
+    private void Start()
+    {
+        QuestManager.Instance.Init();
+        NPCManager.Instance.Init(); 
+
+        TriggerNewDayAction();
+    }
+
     public void TriggerNewDayAction()
     {
         onNewDayAction?.Invoke();

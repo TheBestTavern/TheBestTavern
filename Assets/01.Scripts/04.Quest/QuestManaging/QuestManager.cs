@@ -16,14 +16,16 @@ public class QuestManager : MonoSingleton<QuestManager>
     public List<Quest> OnceCompletedQuests => questData.OnceCompletedQuests;
     public List<Quest> TodayAvailableQuest => questData.TodayAvailableQuest;
 
-    private void Start()
+    public override void Init()
     {
+        if (_isInitialized) return;
+        base.Init();
+
         isDontDestroyOnLoad = true;
         questData = new QuestData();
         questData.Init();
-        GameManager.Instance.onNewDayAction = TriggerNewDay;
+        GameManager.Instance.onNewDayAction += TriggerNewDay;
     }
-
 
     // 퀘스트 수령 조건 판단
     public bool TryAcceptQuest(Quest quest, int days)

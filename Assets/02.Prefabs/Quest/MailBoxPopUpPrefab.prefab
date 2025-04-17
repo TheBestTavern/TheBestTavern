@@ -222,7 +222,7 @@ GameObject:
   - component: {fileID: 2919091650032037256}
   - component: {fileID: 6126463198700486841}
   m_Layer: 5
-  m_Name: QuestBtn (Btn)
+  m_Name: OfferBtn (Btn)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -671,7 +671,7 @@ GameObject:
   - component: {fileID: 5020593578782830567}
   - component: {fileID: 6229037671281758993}
   m_Layer: 5
-  m_Name: CompensationBtn (Btn)
+  m_Name: ResultBtn (Btn)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
