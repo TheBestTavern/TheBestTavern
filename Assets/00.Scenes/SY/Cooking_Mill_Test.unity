@@ -629,7 +629,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   topStone: {fileID: 1751798095}
   handle: {fileID: 1409030672}
-  rotationSpeed: 20
+  rotationSpeed: 100
 --- !u!1001 &1410088346
 PrefabInstance:
   m_ObjectHideFlags: 0

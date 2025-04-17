@@ -16,8 +16,9 @@ public class GatheringProps : MonoBehaviour
         gameObject.transform.DOScale(1, 0.5f);
     }
 
-    private void OnMouseDown()
+    async private void OnMouseDown()
     {
-        gameObject.transform.DOShakeScale(1f, 1f);
+        gameObject.transform.DOShakeScale(1f, 0.1f);
+        await SceneLoader.Instance.LoadSceneAsyncMiniGame("Forest_Animal");
     }
 }
