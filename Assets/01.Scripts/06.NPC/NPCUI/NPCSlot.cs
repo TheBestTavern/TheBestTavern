@@ -3,14 +3,16 @@ using UnityEngine.UI;
 
 public class NPCSlot : MonoBehaviour
 {
+    public int index; // 0부터 시작
     NPCArea npcArea;
     Quest quest;
     [SerializeField] Transform messagePivot;
     [SerializeField] Image image;
     [SerializeField] Button btn;
 
-    public void Init()
+    public void Init(int index)
     {
+        this.index = index;
         btn.onClick.AddListener(OnClickBtn);
         transform.gameObject.SetActive(false);
     }

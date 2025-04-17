@@ -798,6 +798,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 415656495}
+  - component: {fileID: 415656496}
   m_Layer: 5
   m_Name: SubmissionMode
   m_TagString: Untagged
@@ -825,6 +826,22 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &415656496
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 415656494}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8591363ff7623bf44ba50ea5bd773db3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  duration: 0.3
+  submitBtn: {fileID: 0}
+  NPCPos: {fileID: 0}
+  BG: {fileID: 0}
 --- !u!1 &461308952
 GameObject:
   m_ObjectHideFlags: 0
@@ -2059,6 +2076,7 @@ MonoBehaviour:
   npcNumber: 5
   npcSlotPref: {fileID: 2619584101343915627, guid: 890ae91ec387e85418823b7809e3f6da, type: 3}
   slotsPrt: {fileID: 2049585629}
+  submissionMode: {fileID: 0}
 --- !u!1 &1811460222
 GameObject:
   m_ObjectHideFlags: 0
@@ -2392,7 +2410,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2049585628}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 30649d3a9faa99c48a7b1166b86bf2a0, type: 3}
   m_Name: 
