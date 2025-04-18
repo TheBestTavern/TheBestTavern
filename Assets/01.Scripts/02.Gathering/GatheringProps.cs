@@ -8,7 +8,7 @@ public class GatheringProps : MonoBehaviour
 {
     private void OnMouseEnter()
     {
-        gameObject.transform.DOScale(1.1f, 0.5f);
+        gameObject.transform.DOScale(1.05f, 0.5f);
     }
 
     private void OnMouseExit()

@@ -61,22 +61,22 @@ public class GatheringSceneUI : MonoBehaviour
 
     void OnClickLeftButton()
     {
-        if (mainCameraPostion.position.x > -2.8f)
-            mainCameraPostion.DOMoveX(mainCameraPostion.position.x - 5f, 1f);
+        if (mainCameraPostion.position.x > -2.38f)
+            mainCameraPostion.DOMoveX(mainCameraPostion.position.x - 4.79f, 1f);
     }
     void OnClickRightButton()
     {
-        if (mainCameraPostion.position.x < 7.2f)
-            mainCameraPostion.DOMoveX(mainCameraPostion.position.x + 5f, 1f);
+        if (mainCameraPostion.position.x < 7.19f)
+            mainCameraPostion.DOMoveX(mainCameraPostion.position.x + 4.79f, 1f);
     }
     void OnClickUpButton()
     {
-        if (mainCameraPostion.position.y < 3.27f)
-            mainCameraPostion.DOMoveY(mainCameraPostion.position.y + 5f, 1f);
+        if (mainCameraPostion.position.y < 3.24f)
+            mainCameraPostion.DOMoveY(mainCameraPostion.position.y + 3.49f, 1f);
     }
     void OnClickDownButton()
     {
-        if (mainCameraPostion.position.y > -3.1f)
-            mainCameraPostion.DOMoveY(mainCameraPostion.position.y - 5f, 1f);
+        if (mainCameraPostion.position.y > -3.74f)
+            mainCameraPostion.DOMoveY(mainCameraPostion.position.y - 3.49f, 1f);
     }
 }
