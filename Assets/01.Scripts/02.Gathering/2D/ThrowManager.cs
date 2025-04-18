@@ -20,6 +20,13 @@ public class ThrowManager : MonoBehaviour
     bool isBaitReady = false; 
     bool readyNextFrame = false;
 
+    private void Start()
+    {
+        Vector3 bottomLeft = Camera.main.ViewportToWorldPoint(new Vector3(0f, 0f, Camera.main.nearClipPlane + 5f));
+        bottomLeft.z = 0f;
+        throwPoint.position = bottomLeft;
+    }
+
     void Update()
     {
         if (readyNextFrame)
@@ -61,7 +68,11 @@ public class ThrowManager : MonoBehaviour
         if (currentBaitIndex < 0 || currentBaitIndex >= baitPrefabs.Count) return;
 
         GameObject prefab = baitPrefabs[currentBaitIndex];
+
+        
+
         GameObject obj = Instantiate(prefab, throwPoint.position, Quaternion.identity);
+
         Rigidbody2D rb = obj.GetComponent<Rigidbody2D>();
 
         float rad = throwAngle * Mathf.Deg2Rad;
