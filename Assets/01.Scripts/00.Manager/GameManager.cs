@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class GameManager : MonoSingleton<GameManager>
 {
-    public Action onEndDayAction;
+    //public Action onEndDayAction;
     public Action onNewDayAction;
 
     private void Start()
@@ -17,6 +17,6 @@ public class GameManager : MonoSingleton<GameManager>
         TriggerNewDayAction();
     }
 
-    public void TriggerEndDayAction () => onEndDayAction?.Invoke(); 
+    //public void TriggerEndDayAction () => onEndDayAction?.Invoke(); 
     public void TriggerNewDayAction() => onNewDayAction?.Invoke();
 }

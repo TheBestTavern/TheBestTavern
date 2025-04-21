@@ -24,60 +24,81 @@ public class QuestData
             quest = new Quest(item);
             AllQuests.Add(quest.origin.key, quest);
         }
-
-        QuestManager.Instance.onNewDayAction += HandleNewDay;
+        QuestOnNewDay questOnNewDay = new QuestOnNewDay(this);
+        DayManager.Instance.AddCommand(questOnNewDay);
     }
 
     // 매일 QuestData가 할일
-    public void HandleNewDay()
+    public class QuestOnNewDay : IDayCommand
     {
-        //1.진행중 퀘스트 상태 확인(당일 - NPC방문, 아직 - 무, 지남 - 퀘스트 실패 처리) 
-        for (int i = 0; i < AcceptedQuests.Count; i++)
+        QuestData questData;
+        public QuestOnNewDay(QuestData questData)
         {
-            Quest tempQuest = Data.GetQuest(AcceptedQuests[i]);
-            if (tempQuest.TriggerDate > TimerManager.Instance.GetToday())
-            {
-                //아직
-            }
-            else if (tempQuest.TriggerDate == TimerManager.Instance.GetToday())
-            {
-                //당일
-                // NPC 소환.
-                onTriggerNPC?.Invoke(AcceptedQuests[i]);
-                Debug.Log($"{tempQuest.origin.name}퀘스트의 NPC 소환");
+            this.questData = questData;
+        }
 
-                if (i + 1 == AcceptedQuests.Count)
+        public int Prior => 100;
+
+        public void Execute()
+        {
+            CheckAcceptedQuests();
+            TakeTodayAvailableQuest();
+        }
+
+        public void CheckAcceptedQuests()
+        {
+            //진행중 퀘스트 상태 확인(당일 - NPC방문, 아직 - 무, 지남 - 퀘스트 실패 처리) 
+            for (int i = 0; i < questData.AcceptedQuests.Count; i++)
+            {
+                Quest tempQuest = Data.GetQuest(questData.AcceptedQuests[i]);
+                if (tempQuest.TriggerDate > TimerManager.Instance.GetToday())
                 {
-                    onSpawnNPC?.Invoke();
+                    //아직
                 }
+                else if (tempQuest.TriggerDate == TimerManager.Instance.GetToday())
+                {
+                    //당일
+                    // NPC 소환.
+                    questData.onTriggerNPC?.Invoke(questData.AcceptedQuests[i]);
+                    Debug.Log($"{tempQuest.origin.name}퀘스트의 NPC 소환");
+
+                    if (i + 1 == questData.AcceptedQuests.Count)
+                    {
+                        questData.onSpawnNPC?.Invoke();
+                    }
+                }
+                else
+                {
+                    //지남
+                    // to do - 퀘스트 실패 처리.
+                    Debug.Log("기한 초과로 인한 퀘스트 실패");
+                }
+            }
+        }
+
+        public void TakeTodayAvailableQuest()
+        {
+            //가능한 퀘스트 리스트 받아오기
+            Debug.Log("매일 가능한 퀘스트 리스트 받아옴");
+            if (questData.TodayAvailableQuest == null)
+            {
+                questData.TodayAvailableQuest = new();
             }
             else
             {
-                //지남
-                // to do - 퀘스트 실패 처리.
-                Debug.Log("기한 초과로 인한 퀘스트 실패");
+                questData.TodayAvailableQuest.Clear();
             }
-        }
 
-        //2.가능한 퀘스트 리스트 받아오기
-        Debug.Log("매일 가능한 퀘스트 리스트 받아옴");
-        if (TodayAvailableQuest == null)
-        {
-            TodayAvailableQuest = new();
-        }
-        else
-        {
-            TodayAvailableQuest.Clear();
-        }
-
-        foreach (var item in AllQuests)
-        {
-            if (item.Value.CheckAvailable()) 
+            foreach (var item in questData.AllQuests)
             {
-                TodayAvailableQuest.Add(item.Key);
+                if (item.Value.CheckAvailable())
+                {
+                    questData.TodayAvailableQuest.Add(item.Key);
+                }
             }
         }
     }
+
 
     public void AcceptQuest(int questID)
     {

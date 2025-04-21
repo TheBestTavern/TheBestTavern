@@ -14,15 +14,15 @@ public abstract class MailBoxContentBase : MonoBehaviour
 
     protected bool isReady;
 
-    private void Awake()
-    {
-        QuestManager.Instance.onNewDayAction += HandleNewDay;
-    }
+    //private void Awake()
+    //{
+    //    QuestManager.Instance.onNewDayAction += HandleNewDay;
+    //}
 
-    public void HandleNewDay()
-    {
-        isReady = false;
-    }
+    //public void HandleNewDay()
+    //{
+    //    isReady = false;
+    //}
 
     protected virtual void OnEnable()
     {

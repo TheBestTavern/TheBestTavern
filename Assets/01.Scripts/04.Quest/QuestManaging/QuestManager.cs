@@ -10,7 +10,6 @@ public class QuestManager : MonoSingleton<QuestManager>
     public QuestData questData;
     [HideInInspector] public MailBoxContentOffer mailBoxContentQuest;
     [HideInInspector] public MailBoxContentResult mailBoxContentCompensation;
-    public Action onEndDayAction;
     public Action onNewDayAction;
 
     public Dictionary<int, Quest> AllQuests => questData.AllQuests;
@@ -30,7 +29,6 @@ public class QuestManager : MonoSingleton<QuestManager>
         isDontDestroyOnLoad = true;
         questData = new QuestData();
         questData.Init();
-        GameManager.Instance.onNewDayAction += TriggerNewDay;
     }
 
     // 퀘스트 수령 조건 판단
@@ -96,6 +94,5 @@ public class QuestManager : MonoSingleton<QuestManager>
     }
 
     // 하루가 갱신될때마다 실행될 이벤트 실행 메서드.
-    public void TriggerEndDay() => onEndDayAction?.Invoke();
     public void TriggerNewDay() => onNewDayAction?.Invoke();
 }
