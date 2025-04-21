@@ -5,9 +5,42 @@ using UnityEngine;
 
 public static class Data // 간단 key 검색 클래스
 {
-    public static Quest GetQuest(int id) => QuestManager.Instance.AllQuests[id];
-    public static Item GetItems(int id) => ItemManager.Instance.AllItems[id];
-    public static NPC GetNPC(int id) => NPCManager.Instance.AllNPC[id];
+    public static Quest GetQuest(int id)
+    {
+        if (QuestManager.Instance.AllQuests.TryGetValue(id, out Quest quest))
+        {
+            return quest;
+        }
+        else
+        {
+            Debug.LogWarning("없는 퀘스트 id입니다");
+            return null;
+        }
+    }
+    public static Item GetItems(int id)
+    {
+        if (ItemManager.Instance.AllItems.TryGetValue(id, out Item item))
+        {
+            return item;
+        }
+        else
+        {
+            Debug.LogWarning("없는 아이템 id입니다");
+            return null;
+        }
+    }
+    public static NPC GetNPC(int id)
+    {
+        if (NPCManager.Instance.AllNPC.TryGetValue(id, out NPC npc))
+        {
+            return npc;
+        }
+        else
+        {
+            Debug.LogWarning("없는 엔피씨 id입니다");
+            return null;
+        }
+    }
     //public void GetCookingSteps()
     //public void GetReciepes()
 }
@@ -30,7 +63,7 @@ public class DataManager : MonoSingleton<DataManager>
     // 데이터 로더 인스턴스 생성.
     public override void Init()
     {
-        if(_isInitialized) return;
+        if (_isInitialized) return;
         base.Init();
 
         DataLoader_CookingSteps = new();
