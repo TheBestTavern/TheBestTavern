@@ -49,8 +49,9 @@ public class NPCArea : MonoBehaviour
         Debug.Log($"npc슬롯 {npcNumber}개 생성 완료");
     }
 
-    private void ShowNPC(Quest quest)
+    private void ShowNPC(int key)
     {
+        Quest quest = Data.GetQuest(key);
         NPCSlot slot = slotPool.Dequeue();
         slot.gameObject.SetActive(true);
         slot.SetSlot(quest, this);

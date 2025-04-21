@@ -86,21 +86,20 @@ public class SubmissionMode : MonoBehaviour
         submissionSlot = item;
     }
 
-    Queue<(Quest quest, Item itemForSubmission)> questCheckQueue;
 
-    public void Submit(Item itemForSubmission) // 제출 버튼에 구독
+    public async void Submit(Item itemForSubmission) // 제출 버튼에 구독
     {
         if (submissionSlot == null)
         {
-            UIManager.Instance.ShowPopUp(PopUpType.Alarm);
+            await UIManager.Instance.ShowPopUp(PopUpType.Alarm);
             UIManager.Instance.alarmPopUp.SetAlarm("제출할 아이템을 먼저 선택하세요.");
         }
         else
         {
             // todo - 퀘스트 제출 후처리 ( 성공 실패 대기열 등록, 아이템 감소 ) 성공 실패 체크와 효과는 다음날 나타남.
 
-            //1. 성공 실패 대기열 등록 => todo - 퀘스트에서 해당 대기열 확인하고 반영하는 로직 추가 필요.
-            questCheckQueue.Enqueue((quest, itemForSubmission));
+            //1. 성공 실패 체크 대기열 등록 (대기열 체크는 endDay 단계에서 확인)
+            QuestManager.Instance.questCheckQueue.Enqueue((quest.origin.key, itemForSubmission.origin.key));
 
             //2. 아이템 감소
         }

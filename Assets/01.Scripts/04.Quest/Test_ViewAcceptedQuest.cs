@@ -17,7 +17,7 @@ public class Test_ViewAcceptedQuest : MonoBehaviour
 
     void OnClickReview()
     {
-        foreach(var i in isViewingSlots)
+        foreach (var i in isViewingSlots)
         {
             Destroy(i.gameObject);
         }
@@ -27,7 +27,7 @@ public class Test_ViewAcceptedQuest : MonoBehaviour
         TextMeshProUGUI TMP;
         for (int i = 0; i < QuestManager.Instance.AcceptedQuests.Count; i++)
         {
-            quest = QuestManager.Instance.AcceptedQuests[i];
+            quest = Data.GetQuest(QuestManager.Instance.AcceptedQuests[i]);
             TMP = Instantiate(testQuestSlotPref, testQuestTrs, true);
             isViewingSlots.Add(TMP);
 

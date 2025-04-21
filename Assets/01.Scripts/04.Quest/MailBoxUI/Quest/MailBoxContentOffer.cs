@@ -12,7 +12,7 @@ public class MailBoxContentOffer : MailBoxContentBase
         MakeSlot(QuestManager.Instance.questData.TodayAvailableQuest);
     }
 
-    public override void MakeSlot(List<Quest> quests)
+    public override void MakeSlot(List<int> quests)
     {
         foreach (var slot in slots)
         {

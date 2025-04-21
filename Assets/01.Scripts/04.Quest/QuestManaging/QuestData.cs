@@ -6,21 +6,23 @@ using UnityEngine;
 
 public class QuestData
 {
-    public List<Quest> AcceptedQuests { get; private set; } = new(); // 진행중인 퀘스트
-    public List<Quest> OnceCompletedQuests { get; private set; } = new(); // 한번이라도 클리어해본 퀘스트
-    public List<Quest> AllQuests { get; private set; } = new(); // 모든 퀘스트
-    public List<Quest> TodayAvailableQuest { get; private set; } = new(); // 오늘의 퀘스트
-    public List<Quest> JustCompleteQuests { get; private set; } = new(); // 오늘 클리어한 퀘스트 (내일 보상 편지 생성에 사용)
+    public Dictionary<int, Quest> AllQuests { get; private set; } = new(); // 모든 퀘스트
+    public List<int> AcceptedQuests { get; private set; } = new(); // 진행중인 퀘스트
+    public List<int> OnceCompletedQuests { get; private set; } = new(); // 한번이라도 클리어해본 퀘스트
+    public List<int> JustCompleteQuests { get; private set; } = new(); // 오늘 클리어한 퀘스트 (내일 보상 편지 생성에 사용)
+    public List<int> TodayAvailableQuest { get; private set; } = new(); // 오늘의 퀘스트
 
-    public Action<Quest> onTriggerNPC;
+    public Action<int> onTriggerNPC;
     public Action onSpawnNPC;
 
     public void Init()
     {
         Debug.Log("퀘스트 인스턴스 생성");
+        Quest quest;
         foreach (Data_Quest item in DataManager.Instance.DataLoader_Quest.ItemsList)
         {
-            AllQuests.Add(new Quest(item));
+            quest = new Quest(item);
+            AllQuests.Add(quest.origin.key, quest);
         }
 
         QuestManager.Instance.onNewDayAction += HandleNewDay;
@@ -32,18 +34,19 @@ public class QuestData
         //1.진행중 퀘스트 상태 확인(당일 - NPC방문, 아직 - 무, 지남 - 퀘스트 실패 처리) 
         for (int i = 0; i < AcceptedQuests.Count; i++)
         {
-            if (AcceptedQuests[i].TriggerDate > TimerManager.Instance.GetToday())
+            Quest tempQuest = Data.GetQuest(AcceptedQuests[i]);
+            if (tempQuest.TriggerDate > TimerManager.Instance.GetToday())
             {
                 //아직
             }
-            else if (AcceptedQuests[i].TriggerDate == TimerManager.Instance.GetToday())
+            else if (tempQuest.TriggerDate == TimerManager.Instance.GetToday())
             {
                 //당일
                 // NPC 소환.
                 onTriggerNPC?.Invoke(AcceptedQuests[i]);
-                Debug.Log($"{AcceptedQuests[i].origin.name}퀘스트의 NPC 소환");
+                Debug.Log($"{tempQuest.origin.name}퀘스트의 NPC 소환");
 
-                if (i+1 == AcceptedQuests.Count)
+                if (i + 1 == AcceptedQuests.Count)
                 {
                     onSpawnNPC?.Invoke();
                 }
@@ -58,31 +61,39 @@ public class QuestData
 
         //2.가능한 퀘스트 리스트 받아오기
         Debug.Log("매일 가능한 퀘스트 리스트 받아옴");
-        TodayAvailableQuest = new();
-        foreach (Quest item in AllQuests)
+        if (TodayAvailableQuest == null)
         {
-            if (item.CheckAvailable(TimerManager.Instance.GetToday())) // 날짜 임시로 아무거나 넣어놓음.
+            TodayAvailableQuest = new();
+        }
+        else
+        {
+            TodayAvailableQuest.Clear();
+        }
+
+        foreach (var item in AllQuests)
+        {
+            if (item.Value.CheckAvailable()) 
             {
-                TodayAvailableQuest.Add(item);
+                TodayAvailableQuest.Add(item.Key);
             }
         }
     }
 
-    public void AcceptQuest(Quest quest)
+    public void AcceptQuest(int questID)
     {
-        AcceptedQuests.Add(quest);
+        AcceptedQuests.Add(questID);
     }
 
-    public void RemoveQuest(Quest quest)
+    public void RemoveQuest(int questID)
     {
-        AcceptedQuests.Remove(quest);
+        AcceptedQuests.Remove(questID);
     }
 
-    public void CompleteQuest(Quest quest)
+    public void CompleteQuest(int questID)
     {
-        AcceptedQuests.Remove(quest);
-        quest.CompleteQuest(TimerManager.Instance.GetToday()); // 아무 날짜나 임시로 지정 => 오늘 날짜로 변경
-        OnceCompletedQuests.Add(quest);
-        JustCompleteQuests.Add(quest);
+        AcceptedQuests.Remove(questID);
+        Data.GetQuest(questID).CompleteQuest(TimerManager.Instance.GetToday()); // 아무 날짜나 임시로 지정 => 오늘 날짜로 변경
+        OnceCompletedQuests.Add(questID);
+        JustCompleteQuests.Add(questID);
     }
 }

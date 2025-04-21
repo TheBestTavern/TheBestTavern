@@ -36,6 +36,7 @@ public class TimerManager : MonoSingleton<TimerManager>
     // 하루 보내기 함수 
     public void OneDayPass()
     {
+        GameManager.Instance.TriggerEndDayAction();
         DayChange(1);
         // 매일 날짜가 변할때마다 필요한 액션 
         GameManager.Instance.TriggerNewDayAction();

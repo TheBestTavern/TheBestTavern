@@ -28,18 +28,18 @@ public abstract class MailBoxContentBase : MonoBehaviour
     {
     }
 
-    public virtual void MakeSlot(List<Quest> quests)
+    public virtual void MakeSlot(List<int> quests)
     {
         if (isReady) return;
 
         // 1. slot 생성(퀘스트 리스트로 slot생성) (나중에 슬롯을 pool로 관리하면 좋을듯)
         QuestBaseSlot pref;
         int i = 1;
-        foreach (var quest in quests)
+        foreach (var questID in quests)
         {
             pref = Instantiate(slotPref, slotPrt);
             pref.Init(this);
-            pref.SetSlot(quest, i);
+            pref.SetSlot(questID, i);
             slots.Add(pref);
             i++;
         }

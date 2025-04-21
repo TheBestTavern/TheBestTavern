@@ -41,7 +41,8 @@ public class UIManager : MonoSingleton<UIManager>
         if (!popUps.TryGetValue(popUpType, out BasePopUp basePopUp))
         {
             // Addressables로 해당 팝업 프리펩 불러오기 
-            GameObject popUpGameObject = await AddressablesLoader.Instance.AddressablesLoadAsync($"{popUpType.ToString()}PopUpPrefab.prefab");
+            GameObject popUpGameObject = 
+                await AddressablesLoader.Instance.AddressablesLoadAsync($"{popUpType.ToString()}PopUpPrefab.prefab");
             
             // 불러온 팝업 인스턴스화
             popUpGameObject = Instantiate(popUpGameObject);

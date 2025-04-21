@@ -6,15 +6,15 @@ using UnityEngine.UI;
 
 public class QuestResultSlot : QuestBaseSlot
 {
-    public override void SetSlot(Quest quest, int indexNum)
+    public override void SetSlot(int questID, int indexNum)
     {
-        base.SetSlot(quest, indexNum);
+        base.SetSlot(questID, indexNum);
 
-        questName.text = quest.origin.name; // 나중에 퀘스트 이름 대신 실패 대사 넣기.
+        questName.text = slotQuest.origin.name; // 나중에 퀘스트 이름 대신 실패 대사 넣기.
 
-        if (quest.IsSuccessful.HasValue)
+        if (slotQuest.IsSuccessful.HasValue)
         {
-            isSuccessful = (bool)quest.IsSuccessful;
+            isSuccessful = (bool)slotQuest.IsSuccessful;
             //icon.sprite = isSuccessful? 성공이미지 : 실패이미지 ;
         }
         else

@@ -28,14 +28,14 @@ public abstract class QuestBaseSlot : MonoBehaviour
         }
     }
 
-    public virtual void SetSlot(Quest quest, int indexNum)
+    public virtual void SetSlot(int questID, int indexNum)
     {
         // 슬롯 번호 메기기
         index = indexNum;
 
         // 현재 퀘스트에 맞게 슬롯 정보 갱신(추후 구현)
-        slotQuest = quest;
-        npcName.text = NPCManager.Instance.NPCData.AllNPC[quest.origin.givingNPC].origin.name;
+        slotQuest = Data.GetQuest(questID);
+        npcName.text = NPCManager.Instance.NPCData.AllNPC[slotQuest.origin.givingNPC].origin.name;
 
         // 버튼에 메서드 구독
         openLetterBtn.onClick.RemoveAllListeners();
