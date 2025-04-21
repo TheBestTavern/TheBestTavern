@@ -571,8 +571,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e277f19b13049e4dbf45a6b8c5b2c4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timerController: {fileID: 741333041}
-  day: 0
 --- !u!4 &296207949
 Transform:
   m_ObjectHideFlags: 0
@@ -1356,6 +1354,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isDontDestroyOnLoad: 0
   miniGameUI: {fileID: 405680330}
+  cookingSceneUI: {fileID: 5683411941286174027}
+  mainCamera: {fileID: 1603349608}
 --- !u!1 &1603349608
 GameObject:
   m_ObjectHideFlags: 0
