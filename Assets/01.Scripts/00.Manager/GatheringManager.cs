@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting.Antlr3.Runtime.Tree;
 using UnityEngine;
 
-public class GatheringManager : MonoBehaviour
+public class GatheringManager : MonoSingleton<GatheringManager>
 {
     [SerializeField] private Color gizmoColor = new Color(1, 0, 0, .3f);
     [SerializeField] List<Rect> spawnAreas;
+
+    [SerializeField] LayerMask gatheringPropsLayerMask;
 
     [SerializeField] GameObject[] trees;
     [SerializeField] Transform treeParent;
@@ -16,11 +19,13 @@ public class GatheringManager : MonoBehaviour
     [SerializeField] GameObject[] bushs;
     [SerializeField] Transform bushParent;
 
+    [SerializeField] GameObject[] exProps;
+    [SerializeField] Transform exPropsParent;
 
     [SerializeField] GameObject[] fields;
     [SerializeField] Transform fieldParent;
 
-    private void Awake()
+    private void Start()
     {
         CreateMapProps();
     }
@@ -58,33 +63,99 @@ public class GatheringManager : MonoBehaviour
             else
             {
                 // 나무
-                int randTreeCount = Random.Range(3, 5);
-                for (int i = 0; i < randTreeCount; i++)
-                {
-                    float x = Random.Range(area.x, area.x + area.width);
-                    float y = Random.Range(area.y, area.y + area.height);
-                    int randTreeIdx = Random.Range(0, trees.Length);
-                    Instantiate(trees[randTreeIdx], new Vector3(x, y, 0), Quaternion.identity, treeParent);
-                }
+                CreateGatheringProps(area, trees, treeParent, 3, 5);
+
                 // 돌
-                int randRockCount = Random.Range(3,5);
-                for (int i = 0; i < randRockCount; i++)
-                {
-                    float x = Random.Range(area.x, area.x + area.width);
-                    float y = Random.Range(area.y, area.y + area.height);
-                    int randTreeIdx = Random.Range(0, rocks.Length);
-                    Instantiate(rocks[randTreeIdx], new Vector3(x, y, 0), Quaternion.identity, rockParent);
-                }
+                CreateEXProps(area, rocks, rockParent, 3, 5);
+
                 // 풀 
-                int randBushCount = Random.Range(3, 5);
-                for (int i = 0; i < randBushCount; i++)
+                CreateGatheringProps(area, bushs, bushParent, 3, 5);
+
+                // 기타 
+                CreateEXProps(area, exProps, exPropsParent, 3, 5);
+            }
+        }
+    }
+
+    void CreateGatheringProps(Rect area, GameObject[] prefabArr, Transform parent, int minCount, int maxCount)
+    {
+        int randCount = Random.Range(minCount, maxCount);
+
+        for (int i = 0; i < randCount; i++)
+        {
+            GameObject placed = null;
+            int tryLimit = 20;
+            int tryCount = 0;
+
+            while (placed == null && tryCount < tryLimit)
+            {
+                tryCount++;
+                float x = Random.Range(area.x, area.x + area.width);
+                float y = Random.Range(area.y, area.y + area.height);
+                int randPropsIdx = Random.Range(0, prefabArr.Length);
+                GameObject prefab = prefabArr[randPropsIdx];
+
+                if (TryPlaceWithoutOverlap(prefab, new Vector2(x, y), gatheringPropsLayerMask, parent, out placed))
                 {
-                    float x = Random.Range(area.x, area.x + area.width);
-                    float y = Random.Range(area.y, area.y + area.height);
-                    int randBushIdx = Random.Range(0, bushs.Length);
-                    Instantiate(bushs[randBushIdx], new Vector3(x, y, 0), Quaternion.identity, bushParent);
+                    SetSortingLayer(placed);
                 }
             }
         }
     }
+
+    void CreateEXProps(Rect area, GameObject[] prefabArr, Transform parent, int minCount, int maxCount)
+    {
+        int randCount = Random.Range(minCount, maxCount);
+        for (int i = 0; i < randCount; i++)
+        {
+            float x = Random.Range(area.x, area.x + area.width);
+            float y = Random.Range(area.y, area.y + area.height);
+            int randIdx = Random.Range(0, prefabArr.Length);
+            SetSortingLayer(Instantiate(prefabArr[randIdx], new Vector3(x, y, 0), Quaternion.identity, parent));
+        }
+    }
+
+    void SetSortingLayer(GameObject obj)
+    {
+        SpriteRenderer sr = obj.GetComponent<SpriteRenderer>();
+        if (sr != null)
+        {
+            sr.sortingOrder = -(int)(obj.transform.position.y * 100);
+        }
+    }
+
+    bool TryPlaceWithoutOverlap(GameObject prefab, Vector2 position, LayerMask checkMask, Transform parent, out GameObject result)
+    {
+        result = Instantiate(prefab, position, Quaternion.identity, parent);
+        PolygonCollider2D poly = result.GetComponent<PolygonCollider2D>();
+
+        if (poly == null)
+        {
+            Debug.LogWarning($"[{prefab.name}] 에 PolygonCollider2D가 없습니다.");
+            return true;
+        }
+
+        ContactFilter2D filter = new ContactFilter2D();
+        filter.SetLayerMask(checkMask);
+        filter.useTriggers = true;
+
+        List<Collider2D> hits = new();
+        int count = poly.OverlapCollider(filter, hits);
+
+        if (count > 0)
+        {
+            Object.Destroy(result);
+            result = null;
+            return false;
+        }
+
+        return true;
+    }
+
+    public async void OnMiniGame()
+    {
+        await SceneLoader.Instance.LoadSceneAsyncMiniGame("Forest_Animal");
+        //To Do - 미니게임 열릴때 해줘야하는 것들 (기존 씬에 있는 것들 안보이게 하기)
+    }
 }
+

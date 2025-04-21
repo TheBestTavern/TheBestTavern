@@ -6,46 +6,46 @@ using UnityEngine;
 
 public class GatheringProps : MonoBehaviour
 {
-    bool isClicked = false;
+    protected bool isClicked = false;
 
     private void OnMouseEnter()
     {
         if (!isClicked)
-            gameObject.transform.DOScale(1.05f, 0.5f);
+        {
+            OnMouseFunc();
+        }
     }
 
     private void OnMouseExit()
     {
         if (!isClicked)
-            gameObject.transform.DOScale(1, 0.5f);
+        {
+            OffMouseFunc(); 
+        }
     }
 
     private void OnMouseDown()
     {
         if (!isClicked)
         {
-            gameObject.transform.DOShakeScale(1f, 0.1f);
-            int randint = Random.Range(0, 10);
-            if (randint == 0)
-            {
-                OnMiniGame();
-            }
-            else
-            {
-                GetItem();
-            }
-            gameObject.transform.DOScale(1, 0.5f);
+            OnClickedFunc();
             isClicked = true;
         }
     }
 
-    public void GetItem()
+    protected virtual void OnMouseFunc()
     {
-        Debug.Log("아이템 획득");
+
     }
 
-    async void OnMiniGame()
+    protected virtual void OffMouseFunc()
     {
-        await SceneLoader.Instance.LoadSceneAsyncMiniGame("Forest_Animal");
+
     }
+
+    protected virtual void OnClickedFunc()
+    {
+        Debug.Log($"{gameObject.name} 클릭");
+    }
+
 }
