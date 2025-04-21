@@ -31087,7 +31087,7 @@ MonoBehaviour:
   rightButton: {fileID: 260953147}
   upButton: {fileID: 1454054827}
   downButton: {fileID: 673005668}
-  mainCameraPostion: {fileID: 716705926}
+  mainCameraTransform: {fileID: 716705926}
 --- !u!224 &8427973276096639582
 RectTransform:
   m_ObjectHideFlags: 0

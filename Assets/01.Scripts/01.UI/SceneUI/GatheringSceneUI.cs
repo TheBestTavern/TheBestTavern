@@ -11,6 +11,7 @@ public class GatheringSceneUI : MonoBehaviour
 {
     // 맵 선택 버튼
     [SerializeField] private Button mapButton;
+
     // 메인 씬으로 돌아가기 버튼 
     [SerializeField] private Button mainSceneButton;
 
@@ -20,7 +21,8 @@ public class GatheringSceneUI : MonoBehaviour
     [SerializeField] private Button upButton;
     [SerializeField] private Button downButton;
 
-    [SerializeField] private Transform mainCameraPostion;
+    [SerializeField] private Transform mainCameraTransform;
+    private bool isCameraMoving = false;
 
     private void Awake()
     {
@@ -61,22 +63,60 @@ public class GatheringSceneUI : MonoBehaviour
 
     void OnClickLeftButton()
     {
-        if (mainCameraPostion.position.x > -2.38f)
-            mainCameraPostion.DOMoveX(mainCameraPostion.position.x - 4.79f, 1f);
+        if (isCameraMoving)
+            return;
+
+        Vector3 pos = mainCameraTransform.position + Vector3.left * 4.79f;
+
+        if (pos.x < -2.39f)
+            return;
+
+        MoveCamera(pos);
     }
     void OnClickRightButton()
     {
-        if (mainCameraPostion.position.x < 7.19f)
-            mainCameraPostion.DOMoveX(mainCameraPostion.position.x + 4.79f, 1f);
+        if (isCameraMoving)
+            return;
+
+        Vector3 pos = mainCameraTransform.position + Vector3.right * 4.79f;
+
+        if (pos.x > 7.2f)
+            return;
+
+        MoveCamera(pos);
+
     }
     void OnClickUpButton()
     {
-        if (mainCameraPostion.position.y < 3.24f)
-            mainCameraPostion.DOMoveY(mainCameraPostion.position.y + 3.49f, 1f);
+        if (isCameraMoving)
+            return;
+
+        Vector3 pos = mainCameraTransform.position + Vector3.up * 3.49f;
+
+        if (pos.y > 3.25f) return;
+
+        MoveCamera(pos);
+
     }
     void OnClickDownButton()
     {
-        if (mainCameraPostion.position.y > -3.74f)
-            mainCameraPostion.DOMoveY(mainCameraPostion.position.y - 3.49f, 1f);
+        if (isCameraMoving)
+            return;
+
+        Vector3 pos = mainCameraTransform.position + Vector3.down * 3.49f;
+
+        if (pos.y < -3.75f) return;
+
+        MoveCamera(pos);
+    }
+
+    void MoveCamera(Vector3 newPos)
+    {
+        isCameraMoving = true;
+
+        mainCameraTransform.DOMove(newPos, 1f).OnComplete(() =>
+        {
+            isCameraMoving = false;
+        });
     }
 }
