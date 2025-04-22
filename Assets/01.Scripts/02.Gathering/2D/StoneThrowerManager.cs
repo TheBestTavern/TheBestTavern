@@ -22,7 +22,7 @@ public class StoneThrowerManager : MonoBehaviour
 
     private void Start()
     {
-        Vector3 bottomLeft = Camera.main.ViewportToWorldPoint(new Vector3(0f, 0f, Camera.main.nearClipPlane + 5f));
+        Vector3 bottomLeft = Camera.main.ViewportToWorldPoint(new Vector3(-0.1f, 0.1f, Camera.main.nearClipPlane + 5f));
         bottomLeft.z = 0f;
         throwPoint.position = bottomLeft;
     }

@@ -6,7 +6,7 @@ public class Bait : MonoBehaviour
 {
     public string baitType;
     public float effectRadius = 5f;
-    public float lifetime = 5f;
+    public float lifetime = 2f;
 
     private bool hasLanded = false;
     private Rigidbody2D rb;

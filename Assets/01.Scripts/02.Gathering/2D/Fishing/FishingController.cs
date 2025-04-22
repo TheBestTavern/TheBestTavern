@@ -10,6 +10,7 @@ public class FishingController : MonoBehaviour
     public Transform fishSpawnArea;
     public Transform catchZone;
     public TensionGauge tensionGauge;
+    public FishingLineController fishLineController;
 
     private GameObject currentFish;
     private bool fishingInProgress = false;
@@ -65,6 +66,7 @@ public class FishingController : MonoBehaviour
         spawnPos.y += Random.Range(-2f, 2f);
 
         currentFish = Instantiate(fishPrefab, spawnPos, Quaternion.identity);
+        fishLineController.lineEndTarget = currentFish.transform;
         tensionGauge.ResetGauge();
     }
 

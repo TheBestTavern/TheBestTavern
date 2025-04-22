@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Stone : MonoBehaviour
 {
+    private float lifeTime = 2f;
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         Debug.Log("Trigger 충돌 감지됨: " + other.name);
@@ -25,5 +27,10 @@ public class Stone : MonoBehaviour
 
             Destroy(gameObject);  // 돌 제거
         }
+    }
+
+    private void Update()
+    {
+        Destroy(gameObject, lifeTime);
     }
 }
