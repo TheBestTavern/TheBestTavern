@@ -24,7 +24,7 @@ public abstract class CookingMiniGameBase : MonoBehaviour, ICookingMiniGameHandl
             playTime += Time.deltaTime;
 
             // 타이머 이미지 업데이트
-            CookingMiniGameManager.Instance.miniGameUI.UpdateTimer(playTime);
+            //CookingMiniGameManager.Instance.miniGameUI.UpdateTimer(playTime);
 
             // 게임 로직 구현부 실행
             UpdateGamePlay();
