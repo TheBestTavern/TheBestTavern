@@ -1,9 +1,16 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using DG.Tweening;
 using Unity.VisualScripting;
 using UnityEngine;
+
+public enum AreaState
+{ 
+    normal,
+    submission
+}
 
 public class NPCArea : MonoBehaviour
 {
@@ -16,12 +23,18 @@ public class NPCArea : MonoBehaviour
     private Dictionary<int, NPCSlot> activeSlots = new();
 
     [SerializeField] SubmissionMode submissionMode;
+    List<float> targetPositions = new();
 
     private void Awake()
     {
         Init();
         QuestManager.Instance.questData.onTriggerNPC += ShowNPC;
-        QuestManager.Instance.questData.onSpawnNPC += PlaceNPCs;
+        QuestManager.Instance.questData.onSpawnNPC += PlaceNPCsInside;
+    }
+
+    public void OnHandleFinishDay() // 하루 마치면 초기화해야할 사항들. 이벤트로 상위 매니저에서 실행할 예정.
+    {
+        activeSlots.Clear();
     }
 
     public void Init() // 실행 어디서?
@@ -41,6 +54,7 @@ public class NPCArea : MonoBehaviour
         NPCSlot slot = slotPool.Dequeue();
         slot.gameObject.SetActive(true);
         slot.SetSlot(quest, this);
+
         activeSlots.Add(slot.index, slot);
     }
 
@@ -48,6 +62,7 @@ public class NPCArea : MonoBehaviour
     {
         slotPool.Enqueue(activeSlots[index]);
         activeSlots.Remove(index);
+        activeSlots[index].gameObject.SetActive(false);
     }
 
     public void EnterQuestSubmissionMode(Quest quest, NPCSlot npcSlot)
@@ -56,21 +71,43 @@ public class NPCArea : MonoBehaviour
         submissionMode.OnEnter(quest, npcSlot, this);
     }
 
-    public void ExitQuestSubmissionMode()
-    {
-        StartMove(AllocateInternalPos());
-    }
-
     /*  
      *  NPCSlot 정렬 로직   
      */
 
-    private void PlaceNPCs()
+    public void PlaceNPCsInside()
     {
         StartMove(AllocateInternalPos());
     }
 
-    public  List<float> AllocateExternalPos(int clickedSlotIndex) // 화면 바깥의 위치 지정(클릭된 슬롯 중심으로 가까운 바깥으로 나가도록)
+    public void PlaceNPCsOutside(int index)
+    {
+        StartMove(AllocateExternalPos(index));
+    }
+
+    private void StartMove(List<float> targetPositions)
+    {
+        foreach(var pair in activeSlots)
+        {
+            activeSlots[pair.Key].transform.DOMoveX(targetPositions[pair.Key], duration);
+        }
+    }
+    private List<float> AllocateInternalPos() // 화면 내부에 위치 지정
+    {
+        float width = Screen.width;
+        int count = activeSlots.Count();
+        float gap = width / count;
+        float center = width / 2;
+
+        targetPositions.Clear();
+        for (int i = 0; i < count; i++)
+        {
+            targetPositions.Add(center - ((count - 1f) / 2f - i) * gap);
+        }
+        return targetPositions;
+    }
+
+    private List<float> AllocateExternalPos(int clickedSlotIndex) // 화면 바깥에 위치 지정(클릭된 슬롯 중심으로 가까운 바깥으로 나가도록)
     {
         float width = Screen.width;
         int count = activeSlots.Count();
@@ -87,28 +124,7 @@ public class NPCArea : MonoBehaviour
         return targetPositions;
     }
 
-    private List<float> AllocateInternalPos() // 화면 내부의 위치 지정
-    {
-        float width = Screen.width;
-        int count = activeSlots.Count();
-        float gap = width / count;
-        float center = width / 2;
 
-        List<float> targetPositions = new();
-        for (int i = 0; i < count; i++)
-        {
-            targetPositions.Add(center - (((count - 1) / 2) + i) * gap);
-        }
-        return targetPositions;
-    }
-
-    private void StartMove(List<float> targetPositions)
-    {
-        for (int i = 0; i < targetPositions.Count; i++)
-        {
-            activeSlots[i].transform.DOLocalMoveX(targetPositions[i], duration);
-        }
-    }
 
     //[SerializeField] Transform left;
     //[SerializeField] Transform right;

@@ -14,7 +14,6 @@ public class CookingGrindMiniGame : CookingMiniGameBase
 
     [SerializeField] private double noteElapsedTime = 0d; // 노트 생성 후 누적 시간
 
-    public Image timerImage;
 
     private float noteTravelTime = 1.5f; // 노트가 도착까지 걸리는 시간 
 
@@ -99,8 +98,6 @@ public class CookingGrindMiniGame : CookingMiniGameBase
     protected override void UpdateGamePlay()
     {
         noteElapsedTime += Time.deltaTime;
-
-        timerImage.fillAmount = (float)Time.time / 15f;
 
         // 노트 총 7회 , 2초 간격으로 내려옴
         if (noteElapsedTime >= noteRespwanTime)
@@ -207,6 +204,10 @@ public class CookingGrindMiniGame : CookingMiniGameBase
     public override void StartGame()
     {
         //SpawnNote();
+        isGameOver = false;
+        elapsedTimer = 0f;
+        playTime = 0f;
+        timer = 15f;
     }
 
     public override void StopGame()

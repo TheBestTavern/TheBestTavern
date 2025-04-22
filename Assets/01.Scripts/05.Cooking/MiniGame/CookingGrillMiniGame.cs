@@ -174,6 +174,11 @@ public class CookingGrillMiniGame : CookingMiniGameBase
 
     public override void StartGame()
     {
+        isGameOver = false;
+        elapsedTimer = 0f;
+        playTime = 0f;
+        timer = 15f;
+
         isFlipLocked = true;
         // 카드 배열 4x4 세팅
 
