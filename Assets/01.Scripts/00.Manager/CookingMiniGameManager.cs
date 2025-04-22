@@ -7,13 +7,16 @@ using UnityEngine.SceneManagement;
 
 public class CookingMiniGameManager : MonoSingleton<CookingMiniGameManager>
 {
-     public MiniGameUI miniGameUI;
+    public MiniGameUI miniGameUI;
+    public CookingSceneUI cookingSceneUI;
+    public GameObject mainCamera;
 
     private ICookingMiniGameHandler currentGame;
 
     async public void ShowMiniGame(string miniGameSceneName)
     {
-        miniGameUI.OnMiniGameUI();
+        miniGameUI.ResetTimer();
+        SettingMiniGame(false);
         await SceneLoader.Instance.LoadSceneAsyncMiniGame(miniGameSceneName);
     }
 
@@ -25,6 +28,14 @@ public class CookingMiniGameManager : MonoSingleton<CookingMiniGameManager>
 
     async public void CloseMiniGame()
     {
-        await SceneLoader.Instance.UnLoadSceneAsyncMiniGame();
+         await SceneLoader.Instance.UnLoadSceneAsyncMiniGame();
+        SettingMiniGame(true);
+    }
+
+    void SettingMiniGame(bool active)
+    {
+        miniGameUI.gameObject.SetActive(!active);
+        cookingSceneUI.gameObject.SetActive(active);
+        mainCamera.SetActive(active);
     }
 }

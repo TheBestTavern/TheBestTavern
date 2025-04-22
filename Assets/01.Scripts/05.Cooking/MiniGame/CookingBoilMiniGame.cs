@@ -11,6 +11,10 @@ public class CookingBoilMiniGame : CookingMiniGameBase
 
     public override void StartGame()
     {
+        isGameOver = false;
+        elapsedTimer = 0f;
+        playTime = 0f;
+        timer = 15f;
     }
 
     public override void StopGame()
