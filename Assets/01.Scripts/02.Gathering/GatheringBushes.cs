@@ -33,7 +33,7 @@ public class GatheringBushes : GatheringProps
         int randInt = Random.Range(0, 10);
         if (randInt == 0)
         {
-            GatheringManager.Instance.OnMiniGame();
+            ForestGatheringManager.Instance.OnMiniGame();
         }
         else
         {

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting.Antlr3.Runtime.Tree;
 using UnityEngine;
 
-public class GatheringManager : MonoSingleton<GatheringManager>
+public class ForestGatheringManager : MonoSingleton<ForestGatheringManager>
 {
     [SerializeField] private Color gizmoColor = new Color(1, 0, 0, .3f);
     [SerializeField] List<Rect> spawnAreas;
@@ -25,9 +25,14 @@ public class GatheringManager : MonoSingleton<GatheringManager>
     [SerializeField] GameObject[] fields;
     [SerializeField] Transform fieldParent;
 
+    DesignEnums.Region region;
+    DesignEnums.Season season;
+    public List<Data_Gathering> data_Gatherings;
+
     private void Start()
     {
         CreateMapProps();
+        SetItem();
     }
 
     public void OnDrawGizmosSelected()
@@ -44,6 +49,13 @@ public class GatheringManager : MonoSingleton<GatheringManager>
 
             Gizmos.DrawCube(center, size);
         }
+    }
+
+    public void SetItem()
+    {
+        region = SceneParameter.Get<DesignEnums.Region>("Region");
+        season = SceneParameter.Get<DesignEnums.Season>("Season");
+        data_Gatherings = DataManager.Instance.DataLoader_Gathering.GetByRegionSeason(region, season, DesignEnums.Biome.forest);
     }
 
     public void CreateMapProps()
