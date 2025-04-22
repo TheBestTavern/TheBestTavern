@@ -8,7 +8,7 @@ public class FishingLineController : MonoBehaviour
     public Transform lineEndTarget;   // 낚싯줄 끝점
     private LineRenderer lineRenderer;
 
-    public float shakeIntensity = 0.1f;
+    public float shakeIntensity = 0.5f;
     public TensionGauge tensionGauge;
 
     void Start()
