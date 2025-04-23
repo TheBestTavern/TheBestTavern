@@ -7,10 +7,16 @@ using UnityEngine;
 /// </summary>
 public abstract class CookingMiniGameBase : MonoBehaviour, ICookingMiniGameHandler
 {
-    protected float timer = 15f;
+    CookingMiniGameSO data;
+    protected float timer;
     protected float playTime = 0f; // 미니게임 플레이 타임
     protected float elapsedTimer = 0f; // 이 씬에서의 경과시간
     protected bool isGameOver = false;
+
+    private void Awake()
+    {
+        //timer = data.timer;
+    }
 
     protected virtual void Update()
     {

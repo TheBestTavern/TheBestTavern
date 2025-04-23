@@ -4,7 +4,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// 요리 미니게임 관련 데이터 (SO)
+/// 요리 미니게임 관련 데이터
+/// (타이밍, 바 속도, 판정 범위 등의 게임 규칙)
 /// </summary>
 [CreateAssetMenu(fileName = "Cooking", menuName = "MiniGame")]
 public class CookingMiniGameSO : ScriptableObject
@@ -25,9 +26,9 @@ public class CookingMiniGameSO : ScriptableObject
 [Serializable]
 public class CookingCutData 
 {
-    
+
     // 미니게임 시간
-    //[field: SerializeField][field: Range(0f, 15f)] public float GameTime { get; private set; } = 15f
+    [field: SerializeField][field: Range(0f, 15f)] public float Timer { get; private set; } = 15f;
 }
 
 /// <summary>
@@ -37,7 +38,7 @@ public class CookingCutData
 public class CookingRoastData 
 {
     // 미니게임 시간
-    //[field: SerializeField][field: Range(0f, 15f)] public float GameTime { get; private set; } = 15f
+    [field: SerializeField][field: Range(0f, 15f)] public float Timer { get; private set; } = 15f;
 }
 
 /// <summary>
@@ -47,7 +48,7 @@ public class CookingRoastData
 public class CookingBoilData 
 {
     // 미니게임 시간
-    //[field: SerializeField][field: Range(0f, 15f)] public float GameTime { get; private set; } = 15f
+    [field: SerializeField][field: Range(0f, 15f)] public float Timer { get; private set; } = 15f;
 }
 
 /// <summary>
@@ -57,7 +58,7 @@ public class CookingBoilData
 public class CookingMillData 
 {
     // 미니게임 시간
-    //[field: SerializeField][field: Range(0f, 15f)] public float GameTime { get; private set; } = 15f
+    [field: SerializeField][field: Range(0f, 15f)] public float Timer { get; private set; } = 15f;
 }
 
 /// <summary>
@@ -67,9 +68,9 @@ public class CookingMillData
 public class CookingGrindData 
 {
     // 노트속도
-    // [field: SerializeField][field: Range(0f, 2f)] public float NoteSpeed { get; private set; }
+    [field: SerializeField][field: Range(0f, 2f)] public float NoteSpeed { get; private set; }
 
     // 미니게임 시간
-    //[field: SerializeField][field: Range(0f, 15f)] public float GameTime { get; private set; } = 15f
+    [field: SerializeField][field: Range(0f, 15f)] public float Timer { get; private set; } = 15f;
 }
 
