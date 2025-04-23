@@ -35,6 +35,11 @@ public class CookingGrillMiniGame : CookingMiniGameBase
 
     private Coroutine coroutine;
 
+    protected override float GetTimer()
+    {
+        return data.GrillTimer;
+    }
+
     private IEnumerator ShowAllCard()
     {
         foreach (var card in cards) 

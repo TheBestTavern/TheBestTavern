@@ -10,14 +10,32 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Cooking", menuName = "MiniGame")]
 public class CookingMiniGameSO : ScriptableObject
 {
-    [field: SerializeField] public CookingCutData cutData { get; private set; }
-    [field: SerializeField] public CookingRoastData roastData { get; private set; }
+    [field:Header("CutData")]
+    //[field: SerializeField] public CookingCutData cutData { get; private set; }
+    [field: SerializeField] public float CutTimer { get; private set; } = 15f;
 
-    [field: SerializeField] public CookingBoilData boilData { get; private set; }
 
-    [field: SerializeField] public CookingMillData millData { get; private set; }
+    [field: Header("GrillData")]
+    //[field: SerializeField] public CookingGrillData grillData { get; private set; }
+    [field: SerializeField] public float GrillTimer { get; private set; } = 15f;
 
-    [field: SerializeField] public CookingGrindData grindData { get; private set; }
+
+    [field: Header("BoilData")]
+    //[field: SerializeField] public CookingBoilData boilData { get; private set; }
+    [field: SerializeField] public float BoilTimer { get; private set; } = 15f;
+
+
+    [field: Header("MillData")]
+    //[field: SerializeField] public CookingMillData millData { get; private set; }
+    [field: SerializeField] public float MillTimer { get; private set; } = 15f;
+
+
+    [field: Header("GrindData")]
+    //[field: SerializeField] public CookingGrindData grindData { get; private set; }
+    [field: SerializeField] public float GrindTimer { get; private set; } = 15f;
+   
+    // 노트속도
+    [field: SerializeField][field: Range(0f, 2f)] public float NoteSpeed { get; private set; }
 
 }
 /// <summary>
@@ -26,19 +44,16 @@ public class CookingMiniGameSO : ScriptableObject
 [Serializable]
 public class CookingCutData 
 {
-
-    // 미니게임 시간
-    [field: SerializeField][field: Range(0f, 15f)] public float Timer { get; private set; } = 15f;
+    
 }
 
 /// <summary>
 /// 가마솥 굽기 미니게임 관련 데이터
 /// </summary>
 [Serializable]
-public class CookingRoastData 
+public class CookingGrillData 
 {
-    // 미니게임 시간
-    [field: SerializeField][field: Range(0f, 15f)] public float Timer { get; private set; } = 15f;
+    
 }
 
 /// <summary>
@@ -47,8 +62,7 @@ public class CookingRoastData
 [Serializable]
 public class CookingBoilData 
 {
-    // 미니게임 시간
-    [field: SerializeField][field: Range(0f, 15f)] public float Timer { get; private set; } = 15f;
+
 }
 
 /// <summary>
@@ -57,8 +71,7 @@ public class CookingBoilData
 [Serializable]
 public class CookingMillData 
 {
-    // 미니게임 시간
-    [field: SerializeField][field: Range(0f, 15f)] public float Timer { get; private set; } = 15f;
+
 }
 
 /// <summary>
@@ -67,10 +80,6 @@ public class CookingMillData
 [Serializable]
 public class CookingGrindData 
 {
-    // 노트속도
-    [field: SerializeField][field: Range(0f, 2f)] public float NoteSpeed { get; private set; }
 
-    // 미니게임 시간
-    [field: SerializeField][field: Range(0f, 15f)] public float Timer { get; private set; } = 15f;
 }
 

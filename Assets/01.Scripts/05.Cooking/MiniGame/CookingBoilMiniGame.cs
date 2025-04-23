@@ -25,6 +25,10 @@ public class CookingBoilMiniGame : CookingMiniGameBase
     float spawnMaxTime = 2f; // 이 안에 클릭하지 않으면 사라짐
     bool isClicked = false;
 
+    protected override float GetTimer()
+    {
+        return data.BoilTimer;
+    }
 
     private void Awake()
     {
