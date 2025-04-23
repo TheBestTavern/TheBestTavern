@@ -12,8 +12,10 @@ public class SubmissionMode : MonoBehaviour
     [Range(0f, 5f), SerializeField] float duration = 0.3f;
     [SerializeField] Button submitBtn;
     [SerializeField] CanvasGroup submissionPanel;
+    private Vector3 submissionPanelOriginalPos;
     [SerializeField] Transform NPCPivot;
     [SerializeField] Image BG;
+    private Color BGColor;
     Item submissionSlot;
     bool isReady;
 
@@ -21,34 +23,38 @@ public class SubmissionMode : MonoBehaviour
     Sequence showSeq;
     Sequence hideSeq;
 
-    [SerializeField]  Button devBtn; // 테스트용
+    [SerializeField] Button devBtn; // 테스트용
 
     private void Init(NPCArea area)
     {
         submitBtn.onClick.AddListener(() => Submit(submissionSlot));
         this.area = area;
+        submissionPanelOriginalPos = submissionPanel.transform.position;
+        BGColor = BG.color;
 
         showSeq = DOTween.Sequence();
         showSeq.Pause();
-        showSeq.AppendCallback(() => 
+        showSeq.SetAutoKill(false);
+        showSeq.AppendCallback(() =>
         {
-            submissionPanel.gameObject.SetActive(true); 
-            submissionPanel.transform.position -= new Vector3(-10, -10, 0); 
+            submissionPanel.gameObject.SetActive(true);
         }); // 람다는 변수 자체가 캡쳐되어 실행 시점에 평가됨
-        showSeq.Join(BG.DOFade(0.2f, duration).SetEase(Ease.OutQuad));
-        showSeq.Join(submissionPanel.DOFade(1, duration));
-        showSeq.Join(submissionPanel.transform.DOMove(
-            new Vector2(submissionPanel.transform.position.x + 10, submissionPanel.transform.position.y + 10), duration)); // 해당 vector 값은 seq 생성 시점에서 복사되어 고정됨.
+
+        showSeq.Join(BG.DOFade(0.2f, duration).From(0).SetEase(Ease.OutQuad));
+        showSeq.Join(submissionPanel.DOFade(1, duration).From(0));
+        showSeq.Join(submissionPanel.transform.DOMove(submissionPanelOriginalPos, duration).From(submissionPanelOriginalPos - (Vector3.one * 10))); // 해당 vector 값은 seq 생성 시점에서 복사되어 고정됨.
 
         hideSeq = DOTween.Sequence();
         hideSeq.Pause();
-        hideSeq.Join(BG.DOFade(0, duration).SetEase(Ease.OutQuad));
-        hideSeq.Join(submissionPanel.DOFade(0, duration));
-        hideSeq.Join(submissionPanel.transform.DOMove(
-                new Vector2(submissionPanel.transform.position.x - 10, submissionPanel.transform.position.y - 10), duration
-                ).OnComplete(() =>
+        hideSeq.SetAutoKill(false);
+        hideSeq.AppendCallback(() =>
+        {
+            submissionPanel.gameObject.SetActive(true);
+        });
+        hideSeq.Join(BG.DOFade(0, duration).From(0.2f).SetEase(Ease.OutQuad));
+        hideSeq.Join(submissionPanel.DOFade(0, duration).From(1));
+        hideSeq.Join(submissionPanel.transform.DOMove(submissionPanelOriginalPos - (Vector3.one * 10), duration).From(submissionPanelOriginalPos).OnComplete(() =>
                 {
-                    submissionPanel.transform.position -= new Vector3(10, 10, 0);
                     submissionPanel.gameObject.SetActive(false);
                 }));
 
@@ -66,7 +72,7 @@ public class SubmissionMode : MonoBehaviour
         this.quest = quest;
 
         // 제출 UI 나타남
-        
+
         PlayeSeq(showSeq);
 
         this.npcSlot.transform.SetParent(transform, true);
@@ -119,10 +125,17 @@ public class SubmissionMode : MonoBehaviour
 
     private void PlayeSeq(Sequence sequence) // 제출 판넬, 인벤토리 나타남.
     {
-        currentSeq?.Kill();
-
+        currentSeq?.Pause();
         currentSeq = sequence;
-        currentSeq.Play();
+
+        if (sequence.IsPlaying() || sequence.IsComplete())
+        {
+            currentSeq.Restart();
+        }
+        else
+        {
+            currentSeq.Play();
+        }
     }
 
     private void DevBtn()  // 테스트용
