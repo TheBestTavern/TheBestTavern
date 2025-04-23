@@ -50,18 +50,11 @@ public class Quest
         IsSuccessful = false;
     }
 
-    public void AbortQuest(LunarDateTime todayDateTime) // 퀘스트 중도 포기
-    {
-        IsAccepted = false;
-        AcceptedDate = null;
-        TriggerDate = null;
-        RecycleDate = todayDateTime.AddDays(RecycleDays); // 퀘스트 완료 시 다음 재출현일자 미리 지정.
-    }
-
     // 매일 퀘스트 출현 가능한지 체크.
     // 퀘스트 부여 가능(완료 날짜로부터 지났는지, 타겟 npc의 호감도 조건 이상이어야함) // npc가 다른 퀘스트를 주고 있지 않은지는 조건으로 쓸지 말지 고민중. 조건으로 쓰면 로직이 좀 복잡해짐
-    public bool CheckAvailable(LunarDateTime todayDateTime)
+    public bool CheckAvailable()
     {
+        LunarDateTime today = TimerManager.Instance.GetToday();
         // 받고 있는 퀘스트인지 체크
         if (IsAccepted)
         {
@@ -69,7 +62,7 @@ public class Quest
         }
 
         // 재활용 주기 지난지 체크
-        if (!RecycleDatePass && !CheckRecycleDate(todayDateTime))
+        if (!RecycleDatePass && !CheckRecycleDate(today))
         {
             return false;
         }

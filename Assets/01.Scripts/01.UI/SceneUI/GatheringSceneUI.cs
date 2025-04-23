@@ -18,8 +18,6 @@ public class GatheringSceneUI : MonoBehaviour
     // 카메라 컨트롤 버튼
     [SerializeField] private Button leftButton;
     [SerializeField] private Button rightButton;
-    [SerializeField] private Button upButton;
-    [SerializeField] private Button downButton;
 
     [SerializeField] private Transform mainCameraTransform;
     private bool isCameraMoving = false;
@@ -34,8 +32,6 @@ public class GatheringSceneUI : MonoBehaviour
 
         leftButton.onClick.AddListener(OnClickLeftButton);
         rightButton.onClick.AddListener(OnClickRightButton);
-        upButton.onClick.AddListener(OnClickUpButton);
-        downButton.onClick.AddListener(OnClickDownButton);
     }
 
     // 맵 선택 버튼 함수 
@@ -66,9 +62,9 @@ public class GatheringSceneUI : MonoBehaviour
         if (isCameraMoving)
             return;
 
-        Vector3 pos = mainCameraTransform.position + Vector3.left * 4.79f;
+        Vector3 pos = mainCameraTransform.position + Vector3.left * 14.12f;
 
-        if (pos.x < -2.39f)
+        if (pos.x < -14.13f)
             return;
 
         MoveCamera(pos);
@@ -78,38 +74,14 @@ public class GatheringSceneUI : MonoBehaviour
         if (isCameraMoving)
             return;
 
-        Vector3 pos = mainCameraTransform.position + Vector3.right * 4.79f;
+        Vector3 pos = mainCameraTransform.position + Vector3.right * 14.12f;
 
-        if (pos.x > 7.2f)
+        if (pos.x > 14.13f)
             return;
 
         MoveCamera(pos);
 
     }
-    void OnClickUpButton()
-    {
-        if (isCameraMoving)
-            return;
-
-        Vector3 pos = mainCameraTransform.position + Vector3.up * 3.49f;
-
-        if (pos.y > 3.25f) return;
-
-        MoveCamera(pos);
-
-    }
-    void OnClickDownButton()
-    {
-        if (isCameraMoving)
-            return;
-
-        Vector3 pos = mainCameraTransform.position + Vector3.down * 3.49f;
-
-        if (pos.y < -3.75f) return;
-
-        MoveCamera(pos);
-    }
-
     void MoveCamera(Vector3 newPos)
     {
         isCameraMoving = true;

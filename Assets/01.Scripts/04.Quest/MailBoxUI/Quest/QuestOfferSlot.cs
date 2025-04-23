@@ -5,10 +5,10 @@ using UnityEngine.UI;
 
 public class QuestOfferSlot : QuestBaseSlot
 {
-    public override void SetSlot(Quest quest, int indexNum)
+    public override void SetSlot(int questID, int indexNum)
     {
-        base.SetSlot(quest, indexNum);
+        base.SetSlot(questID, indexNum);
 
-        questName.text = quest.origin.name;
+        questName.text = slotQuest.origin.name;
     }
 }

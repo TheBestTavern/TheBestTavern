@@ -12,12 +12,5 @@ public class NPCData
         {
             AllNPC.Add(item.key, new NPC(item));
         }
-
-        NPCManager.Instance.onNewDayStarted += HandleNewDay;
-    }
-
-    // 매일 NPCData가 할일
-    public void HandleNewDay()
-    {
     }
 }

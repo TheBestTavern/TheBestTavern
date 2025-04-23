@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -43,34 +44,29 @@ public class QuestOfferLetter : QuestBaseLetter
     }
 
     // 수락 버튼 메서드
-    protected override void OnOKButton()
+    protected async override void OnOKButton()
     {
         base.OnOKButton();
-        if (AcceptQuest())
+        if (await AcceptQuest())
         {
             TriggerOnCompleteLetter(); // 편지 읽고 퀘스트수락/보상수령 시 슬롯 파괴 이벤트 실행
             OnClickCloseButton(); //  퀘스트수락/보상수령 시 편지 닫기
         }
     }
 
-    private bool AcceptQuest()
+    private async Task<bool> AcceptQuest()
     {
         if (isSetDays)
         {
+            //bool success = await QuestManager.Instance.TryAcceptQuest(quest, days); // 함수를 결국 전부 async로 바꿔야하는건가?
             Debug.Log($"{days}일 뒤로 퀘스트 수락 시도");
-            if (QuestManager.Instance.TryAcceptQuest(quest, days))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return await QuestManager.Instance.TryAcceptQuest(quest.origin.key, days);
+
         }
         else
         {
             Debug.Log($"일수가 선택안됨");
-            UIManager.Instance.ShowPopUp(PopUpType.Alarm);
+            await UIManager.Instance.ShowPopUp(PopUpType.Alarm);
             UIManager.Instance.alarmPopUp.SetAlarm("일수를 먼저 선택해주세요.");
             return false;
         }
