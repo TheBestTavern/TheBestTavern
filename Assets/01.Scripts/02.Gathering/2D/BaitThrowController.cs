@@ -1,24 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
-public class StoneThrowerManager : MonoBehaviour
+public class BaitThrowController : MonoBehaviour
 {
-    public GameObject throwObjectPrefab;
+    public List<GameObject> baitPrefabs;
     public Transform throwPoint;
     public LineRenderer lineRenderer;
 
-    public float maxPower = 20f;
-    public float throwAngle = 45f;
+    public float maxPower = 25f;
+    public float throwAngle = 60f;
     public float previewLength = 0.2f;
     public int previewResolution = 30;
 
-    float currentPower = 0f;  
-    bool isIncreasing = true;  
+    float holdTime;
+    float maxHoldTime = 2f;
 
-    // UI Elements
-    public Image powerUI;
+    int currentBaitIndex = -1; 
+    bool isBaitReady = false; 
+    bool readyNextFrame = false;
 
     private void Start()
     {
@@ -29,49 +29,54 @@ public class StoneThrowerManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKey(KeyCode.Space))
+        if (readyNextFrame)
         {
-            if (isIncreasing)
-            {
-                currentPower += Time.deltaTime * maxPower;
-                if (currentPower >= maxPower)
-                {
-                    currentPower = maxPower; 
-                    isIncreasing = false;  
-                }
-            }
-            else
-            {
-                currentPower -= Time.deltaTime * maxPower;
-                if (currentPower <= 0f)
-                {
-                    currentPower = 0f;  
-                    isIncreasing = true;  
-                }
-            }
-
-            ShowTrajectory(currentPower);
-
-            UpdatePowerUI(currentPower);
+            isBaitReady = true;
+            readyNextFrame = false;
+            return;
         }
 
-        if (Input.GetKeyUp(KeyCode.Space))
+        if (!isBaitReady) return;
+
+        if (Input.GetMouseButtonDown(0))
         {
-            Throw(currentPower);  
-            HidePreview();  
-            currentPower = 0f; 
-            UpdatePowerUI(currentPower);  
+            holdTime = 0f;
+        }
+
+        if (Input.GetMouseButton(0))
+        {
+            holdTime += Time.deltaTime;
+            holdTime = Mathf.Clamp(holdTime, 0f, maxHoldTime);
+
+            float power = (holdTime / maxHoldTime) * maxPower;
+            ShowTrajectory(power);
+        }
+
+        if (Input.GetMouseButtonUp(0))
+        {
+            float power = (holdTime / maxHoldTime) * maxPower;
+            Throw(power);
+            HidePreview();
+
+            isBaitReady = false;
+            currentBaitIndex = -1;
         }
     }
 
     void Throw(float power)
     {
-        GameObject obj = Instantiate(throwObjectPrefab, throwPoint.position, Quaternion.identity);
+        if (currentBaitIndex < 0 || currentBaitIndex >= baitPrefabs.Count) return;
+
+        GameObject prefab = baitPrefabs[currentBaitIndex];
+
+        
+
+        GameObject obj = Instantiate(prefab, throwPoint.position, Quaternion.identity);
+
         Rigidbody2D rb = obj.GetComponent<Rigidbody2D>();
 
         float rad = throwAngle * Mathf.Deg2Rad;
         Vector2 dir = new Vector2(Mathf.Cos(rad), Mathf.Sin(rad));
-
         rb.AddForce(dir.normalized * power, ForceMode2D.Impulse);
     }
 
@@ -101,12 +106,11 @@ public class StoneThrowerManager : MonoBehaviour
         lineRenderer.enabled = false;
     }
 
-    // Update the UI to show the power
-    void UpdatePowerUI(float power)
+    // 버튼에서 호출
+    public void SetBaitIndex(int index)
     {
-        if (powerUI != null)
-        {
-            powerUI.fillAmount = power / maxPower;  
-        }
+        currentBaitIndex = index;
+        readyNextFrame = true;
+        Debug.Log("미끼 장전 완료: " + index);
     }
 }

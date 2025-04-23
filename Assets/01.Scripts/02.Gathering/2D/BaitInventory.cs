@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class BaitInventory : MonoBehaviour
 {
-    public ThrowManager throwManager;
+    public BaitThrowController throwManager;
 
     public void SelectBait(int index)
     {

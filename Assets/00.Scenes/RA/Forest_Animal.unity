@@ -836,6 +836,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0450e14f825df2488a2e92a190f961d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isDontDestroyOnLoad: 0
   captureButton: {fileID: 434955176}
   escapeButton: {fileID: 1292417099}
   captureRadius: 5
