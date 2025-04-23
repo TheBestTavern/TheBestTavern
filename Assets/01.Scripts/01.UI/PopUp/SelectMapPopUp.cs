@@ -89,7 +89,7 @@ public class SelectMapPopUp : BasePopUp
     {
         // 채집 씬으로 이동 
         SceneParameter.Set("Region", region);
-        SceneParameter.Set("Season", DesignEnums.Season.spring);
+        SceneParameter.Set("Season", DesignEnums.Season.winter);
         await SceneLoader.Instance.LoadSceneAsync("GatheringSceneDev");
     }
 
