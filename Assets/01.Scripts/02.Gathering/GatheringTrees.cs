@@ -5,25 +5,6 @@ using UnityEngine;
 
 public class GatheringTrees : GatheringProps
 {
-    [SerializeField] private SpriteRenderer spriteRenderer;
-
-    private void Awake()
-    {
-        spriteRenderer = transform.GetComponent<SpriteRenderer>();
-    }
-
-    protected override void OnMouseFunc()
-    {
-        base.OnMouseFunc();
-        gameObject.transform.DOScale(1.05f, 0.5f);
-    }
-
-    protected override void OffMouseFunc()
-    {
-        base.OffMouseFunc();
-        gameObject.transform.DOScale(1, 0.5f);
-    }
-
     protected override void OnClickedFunc()
     {
         base.OnClickedFunc();
