@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class MailBoxContentOffer : MailBoxContentBase
 {
-    protected override void OnEnable()
+    public override void Init()
     {
-        if (isReady) return;
+        base.Init();
 
-        base.OnEnable();
-        MakeSlot(QuestManager.Instance.questData.TodayAvailableQuest);
+        OnNewDay command = new(this);
+        DayManager.Instance.AddCommand(command);
     }
 
-    public override void MakeSlot(List<Quest> quests)
+    public override void MakeSlot(List<int> quests)
     {
         foreach (var slot in slots)
         {
@@ -21,6 +21,8 @@ public class MailBoxContentOffer : MailBoxContentBase
         slots.Clear();
 
         base.MakeSlot(quests);
+        Debug.Log("의뢰 수주창 슬롯 생성");
+
     }
 
     public async override void OpenLetter(Quest quest, QuestBaseSlot slot)
@@ -29,5 +31,21 @@ public class MailBoxContentOffer : MailBoxContentBase
         currentLetter = await UIManager.Instance.ShowPopUp(PopUpType.OfferLetter) as QuestBaseLetter;
 
         base.OpenLetter(quest, slot);
+    }
+
+    public class OnNewDay : IDayCommand
+    {
+        MailBoxContentOffer prt;
+        public OnNewDay(MailBoxContentOffer mailBoxContentOffer)
+        {
+            this.prt = mailBoxContentOffer;
+        }
+
+        public int Priority => 2000;
+
+        public void Execute()
+        {
+            prt.MakeSlot(QuestManager.Instance.questData.TodayAvailableQuest);
+        }
     }
 }

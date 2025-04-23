@@ -1,20 +1,22 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using Unity.VisualScripting;
 using UnityEngine;
 
 public class QuestManager : MonoSingleton<QuestManager>
 {
     public QuestData questData;
-    [HideInInspector] public MailBoxContentOffer mailBoxContentQuest;
-    [HideInInspector] public MailBoxContentResult mailBoxContentCompensation;
-    public Action onNewDayAction;
 
-    public List<Quest> AllQuests => questData.AllQuests;
-    public List<Quest> AcceptedQuests => questData.AcceptedQuests;
-    public List<Quest> OnceCompletedQuests => questData.OnceCompletedQuests;
-    public List<Quest> TodayAvailableQuest => questData.TodayAvailableQuest;
+    public Dictionary<int, Quest> AllQuests => questData.AllQuests;
+    public List<int> AcceptedQuests => questData.AcceptedQuests;
+    public Dictionary<int, SuccessDegree> OnceCompletedQuests => questData.OnceCompletedQuests;
+    public List<int> JustCompleteQuests => questData.JustCompleteQuests;
+    public List<int> TodayAvailableQuest => questData.TodayAvailableQuest;
+
+    public Queue<(int questID, int itemID)> QuestCheckQueue => questData.QuestCheckQueue;
+
 
     public override void Init()
     {
@@ -24,74 +26,100 @@ public class QuestManager : MonoSingleton<QuestManager>
         isDontDestroyOnLoad = true;
         questData = new QuestData();
         questData.Init();
-        GameManager.Instance.onNewDayAction += TriggerNewDay;
+
+        // 커맨드 등록
+        OnNewDay command = new(this);
+        DayManager.Instance.AddCommand(command);
     }
 
     // 퀘스트 수령 조건 판단
-    public bool TryAcceptQuest(Quest quest, int days)
+    public async Task<bool> TryAcceptQuest(int questID, int days)
     {
+        Quest tempQuest = Data.GetQuest(questID);
         if (AcceptedQuests.Count >= 5)
         {
             Debug.Log("퀘스트 갯수 제한(5개) 초과");
-            UIManager.Instance.ShowPopUp(PopUpType.Alarm);
+            await UIManager.Instance.ShowPopUp(PopUpType.Alarm);
             UIManager.Instance.alarmPopUp.SetAlarm("퀘스트 갯수 제한을 초과했습니다.");
             return false;
         }
-        else if (quest.IsAccepted)
+        else if (tempQuest.IsAccepted)
         {
             Debug.Log("이미 수락한 퀘스트임");
-            UIManager.Instance.ShowPopUp(PopUpType.Alarm);
+            await UIManager.Instance.ShowPopUp(PopUpType.Alarm);
             UIManager.Instance.alarmPopUp.SetAlarm("이미 수락한 퀘스트입니다.");
             return false;
         }
-        else if (NPCManager.Instance.AllNPC[quest.origin.givingNPC].isGivingQuest)
+        else if (NPCManager.Instance.AllNPC[tempQuest.origin.givingNPC].isGivingQuest)
         {
             Debug.Log("이미 퀘스트를 준 npc입니다.");
-            UIManager.Instance.ShowPopUp(PopUpType.Alarm);
+            await UIManager.Instance.ShowPopUp(PopUpType.Alarm);
             UIManager.Instance.alarmPopUp.SetAlarm("이미 퀘스트를 준 npc입니다.");
             return false;
         }
 
 
-        questData.AcceptQuest(quest); // 리스트에 넣기
-        quest.AcceptQuest(TimerManager.Instance.GetToday(), days); // 퀘스트 수락 상태로 전환 및 트리거
-        NPCManager.Instance.AllNPC[quest.origin.givingNPC].GiveQuest(); // npc 퀘스트 준 상태로 전환
-        TodayAvailableQuest.Remove(quest); //오늘의 퀘스트 리스트에서 삭제
+        questData.AcceptQuest(questID); // 리스트에 넣기
+        tempQuest.AcceptQuest(TimerManager.Instance.GetToday(), days); // 퀘스트 수락 상태로 전환 및 트리거
+        NPCManager.Instance.AllNPC[tempQuest.origin.givingNPC].GiveQuest(); // npc 퀘스트 준 상태로 전환
+        TodayAvailableQuest.Remove(questID); //오늘의 퀘스트 리스트에서 삭제
         return true;
 
     }
 
-    // 퀘스트 완료
-    public bool TryCompleteQuest(Quest quest, Item item)
+    public class OnNewDay : IDayCommand
     {
-        if (CheckSuccessQuest(quest, item))
+        QuestManager QM;
+
+        public OnNewDay(QuestManager questManager)
         {
-            // 퀘스트 성공
-            questData.CompleteQuest(quest);
-            return true;
+            this.QM = questManager;
         }
-        else
+
+        public int Priority => 200;
+
+        public void Execute()
         {
-            // 퀘스트 실패
-            return false;
+            CheckQuestCheckQueue();
         }
-    }
 
-    public bool CheckSuccessQuest(Quest quest, Item item)
-    {
-        return true; //// todo - 퀘스트 성공 여부 검사
-    }
+        void CheckQuestCheckQueue()
+        {
+            while (QM.QuestCheckQueue.Count > 0)
+            {
+                var pair = QM.QuestCheckQueue.Dequeue();
+                var quest = Data.GetQuest(pair.questID);
 
-    public void AbortQuest(Quest quest)
-    {
-        questData.RemoveQuest(quest);
-        quest.AbortQuest(TimerManager.Instance.GetToday()); // 아무 날짜나 임시로 지정 => 오늘 날짜로 변경
-    }
+                // 데이터 테이블에 아직 들여오지 않은 변수.
+                //if (quest.origin.goodFood.Contains(pair.itemID))
+                //{
+                //    Debug.Log("대성공");
+                //    QM.questData.CompleteQuest(pair.questID, SuccessDegree.good);
+                //}
+                //else if (quest.origin.sosoFood.Contains(pair.itemID))
+                //{
+                //    Debug.Log("중성공");
+                //    QM.questData.CompleteQuest(pair.questID, SuccessDegree.soso);
+                //}
+                //else if (quest.origin.badFood.Contains(pair.itemID))
+                //{
+                //    Debug.Log("소성공");
+                //    QM.questData.CompleteQuest(pair.questID, SuccessDegree.bad);
+                //}
+                //else
+                //{
+                //    Debug.Log("실패");
+                //    QM.questData.FailQuest(pair.questID);
+                //}
 
-    // 하루가 갱신될때마다 실행될 이벤트 실행 메서드.
-    public void TriggerNewDay()
-    {
-        onNewDayAction?.Invoke();
-        Debug.Log("퀘스트 파트 뉴데이 이벤트 실행");
+                /*  테스트용 */
+                Debug.Log("Dev-퀘스트 중성공");
+                QM.questData.CompleteQuest(pair.questID, SuccessDegree.soso);
+                /*  테스트용 */
+
+            }
+            Debug.Log("퀘스트 대기열 체크");
+
+        }
     }
 }

@@ -17,12 +17,5 @@ public class NPCManager : MonoSingleton<NPCManager>
 
         NPCData = new NPCData();
         NPCData.Init();
-        GameManager.Instance.onNewDayAction += TriggerNewDay;
-    }
-
-    // 하루가 갱신될때마다 실행될 이벤트 실행 메서드.
-    public void TriggerNewDay()
-    {
-        onNewDayStarted?.Invoke();
     }
 }
