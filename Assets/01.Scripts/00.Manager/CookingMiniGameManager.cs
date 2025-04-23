@@ -15,9 +15,9 @@ public class CookingMiniGameManager : MonoSingleton<CookingMiniGameManager>
 
     async public void ShowMiniGame(string miniGameSceneName)
     {
+        await SceneLoader.Instance.LoadSceneAsyncMiniGame(miniGameSceneName);
         miniGameUI.ResetTimer();
         SettingMiniGame(false);
-        await SceneLoader.Instance.LoadSceneAsyncMiniGame(miniGameSceneName);
     }
 
     public void GetCurrentMiniGame(ICookingMiniGameHandler game)
