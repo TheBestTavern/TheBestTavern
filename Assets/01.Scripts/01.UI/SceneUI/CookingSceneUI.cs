@@ -19,6 +19,9 @@ public class CookingSceneUI : MonoBehaviour
     // 절구 미니게임 시작 버튼
     [SerializeField] private Button grindMiniGameButton;
 
+    // 맷돌 미니게임 시작 버튼
+    [SerializeField] private Button millMiniGameButton;
+
     private void Awake()
     {
         // 메인 씬으로 돌아가기 버튼 이벤트 리스너 추가
@@ -27,6 +30,8 @@ public class CookingSceneUI : MonoBehaviour
         grillMiniGameButton.onClick.AddListener(OnClickGrillMiniGameButton);
         // 절구 미니게임 시작 버튼 이벤트 리스너 추가
         grindMiniGameButton.onClick.AddListener(OnClickGrindMiniGameButton);
+        // 맷돌 미니게임 시작 버튼 이벤트 리스너 추가 
+        millMiniGameButton.onClick.AddListener(OnClickMillMiniGameButton);
     }
 
     // 메인 씬으로 돌아가기 버튼 함수
@@ -50,6 +55,13 @@ public class CookingSceneUI : MonoBehaviour
     {
         // 절구 미니게임 씬 불러오기
         CookingMiniGameManager.Instance.ShowMiniGame("Cooking_Grind_Test");
+    }
+
+    // 맷돌 미니게임 시작 버튼 함수
+    void OnClickMillMiniGameButton()
+    {
+        // 맷돌 미니게임 씬 불러오기 
+        CookingMiniGameManager.Instance.ShowMiniGame("Cooking_Mill_Test");
     }
 
     // 확인 팝업 함수

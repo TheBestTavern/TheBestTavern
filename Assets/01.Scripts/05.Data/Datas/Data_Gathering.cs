@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using UnityEngine;
+using static DesignEnums;
 
 [Serializable]
 public class Data_Gathering
@@ -75,5 +77,13 @@ public class Data_GatheringLoader
             return ItemsList[index];
         }
         return null;
+    }
+
+    public List<Data_Gathering> GetByRegionSeason(DesignEnums.Region region, DesignEnums.Season season, DesignEnums.Biome biome)
+    {
+        return ItemsList.Where(item =>
+        item.condition_region == region &&
+        item.condition_season == season &&
+        item.condition_biome == biome).ToList();
     }
 }

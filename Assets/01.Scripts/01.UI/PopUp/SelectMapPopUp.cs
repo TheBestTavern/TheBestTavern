@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
@@ -12,13 +13,16 @@ public class SelectMapPopUp : BasePopUp
     // 숲이나 바다 선택하는 게임 오브젝트 
     [SerializeField] private GameObject selectForestOcean;
 
-    // 임시 선택 버튼 
-    [SerializeField] private Button selectButton;
-    // 임시 선택 취소 버튼 
+    // 지역 선택 버튼 
+    [SerializeField] private Button[] selectRegionButton;
+    // 지역 선택 취소 버튼 
     [SerializeField] private Button selectCloseButton;
 
     // 채집 씬 이동 버튼 
-    [SerializeField] private Button gatheringSceneButton;
+    [SerializeField] private Button seaButton;
+    [SerializeField] private Button forestButton;
+
+    DesignEnums.Region region;
 
     public override void Awake()
     {
@@ -26,41 +30,66 @@ public class SelectMapPopUp : BasePopUp
 
         // 팝업 타입 맵 선택 팝업으로 설정 
         popUpType = PopUpType.SelectMap;
-
-        // 임시 선택 버튼 클릭 이벤트 리스너 추가 
-        selectButton.onClick.AddListener(OnClickSelectButton);
-        // 임시 선택 취소 버튼 클릭 이벤트 리스너 추가 
+        
+        // 지역 선택 취소 버튼 클릭 이벤트 리스너 추가 
         selectCloseButton.onClick.AddListener(OnClickSelectCloseButton);
 
-        // 채집 씬 이동 버튼 클릭 이벤트 리스너 추가
-        gatheringSceneButton.onClick.AddListener(OnClickGatheringSceneButton);
+        // 산 바다 선택 버튼 클릭 이벤트 리스너 추가
+        seaButton.onClick.AddListener(OnClickSeaButton);
+        forestButton.onClick.AddListener(OnClickforestButton);
+
+        // 지역 선택 버튼 클릭 이벤트 리스너 추가
+        for(int i = 0; i < selectRegionButton.Length; i++)
+        {
+            int index = i;
+            selectRegionButton[index].onClick.AddListener(() => OnClickSelectRegionButton(selectRegionButton[index].name));
+        }
     }
 
-    // 임시 선택 버튼 클릭 함수 
-    void OnClickSelectButton()
+    // 지역 선택 버튼 클릭 함수 
+    void OnClickSelectRegionButton(string regionName)
     {
         selectForestOcean.SetActive(true);
+        region = (DesignEnums.Region)Enum.Parse(typeof(DesignEnums.Region), regionName);
+        Debug.Log(region.ToString());
     }
 
-    // 임시 선택 취소 버튼 클릭 함수
+    // 지역 선택 취소 버튼 클릭 함수
     void OnClickSelectCloseButton()
     {
         selectForestOcean.SetActive(false);
     }
 
-    // 채집 씬 이동 버튼 함수
-    async void OnClickGatheringSceneButton()
+    // 산 바다 선택 버튼 함수
+    async void OnClickSeaButton()
     {
         // 확인 팝업 불러오기
         await UIManager.Instance.ShowPopUp(PopUpType.Confirm);
         // 확인 팝업 설정
-        UIManager.Instance.confirmPopUp.SetConfirm("정말 이동하시겠습니까?", ConfirmFunc);
+        UIManager.Instance.confirmPopUp.SetConfirm("정말 이동하시겠습니까?", ConfirmMoveSeaFunc);
+    }
+
+    async void OnClickforestButton()
+    {
+        // 확인 팝업 불러오기
+        await UIManager.Instance.ShowPopUp(PopUpType.Confirm);
+        // 확인 팝업 설정
+        UIManager.Instance.confirmPopUp.SetConfirm("정말 이동하시겠습니까?", ConfirmMoveForestFunc);
     }
 
     // 확인 팝업 함수 
-    async void ConfirmFunc()
+    async void ConfirmMoveSeaFunc()
     {       
         // 채집 씬으로 이동 
+        await SceneLoader.Instance.LoadSceneAsync("GatheringSceneDev");
+    }
+
+    // 확인 팝업 함수 
+    async void ConfirmMoveForestFunc()
+    {
+        // 채집 씬으로 이동 
+        SceneParameter.Set("Region", region);
+        SceneParameter.Set("Season", DesignEnums.Season.spring);
         await SceneLoader.Instance.LoadSceneAsync("GatheringSceneDev");
     }
 
