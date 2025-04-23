@@ -15,11 +15,20 @@ public class TimerManager : MonoSingleton<TimerManager>
     // 날짜 모델
     public TimerModel timerModel;
 
+    public override void Init()
+    {
+        if (_isInitialized) return;
+        base.Init();
+
+        OnNewDay command = new(this);
+        DayManager.Instance.AddCommand(command);
+    }
+
     private void Start()
     {
         // 날짜 UI 초기화 
         timerUI.SetDay(timerModel.GetFormatDay());
-        
+
         // 파괴 금지
         isDontDestroyOnLoad = true;
     }
@@ -36,12 +45,9 @@ public class TimerManager : MonoSingleton<TimerManager>
     // 하루 보내기 함수 
     public void OneDayPass()
     {
-        GameManager.Instance.TriggerEndDayAction();
-
         DayChange(1);
+        Debug.Log("1일 경과");
 
-        // 매일 날짜가 변할때마다 필요한 액션 
-        GameManager.Instance.TriggerNewDayAction();
     }
 
     // 날짜 UI 변경 함수 
@@ -60,4 +66,20 @@ public class TimerManager : MonoSingleton<TimerManager>
         return timerModel.dateTime;
     }
 
+    public class OnNewDay : IDayCommand
+    {
+        TimerManager prt;
+
+        public OnNewDay(TimerManager timerManager)
+        {
+            this.prt = timerManager;
+        }
+
+        public int Priority => 1000;
+
+        public void Execute()
+        {
+            prt.OneDayPass();
+        }
+    }
 }

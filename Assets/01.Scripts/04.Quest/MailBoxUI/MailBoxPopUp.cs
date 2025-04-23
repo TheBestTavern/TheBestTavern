@@ -29,13 +29,11 @@ public class MailBoxPopUp : BasePopUp
 
         for(int i  = 0; i < mailBoxContentsList.Count; i++)
         {
+            mailBoxContentsList[i].Init();
             MailBoxContentType temp = mailBoxContentsList[i].ContentType;
             contentsDic.Add(temp, mailBoxContentsList[i]);
             contentsBtnDic.Add(temp, contentBtn[i]);
         }
-
-        QuestManager.Instance.mailBoxContentQuest = contentsDic[MailBoxContentType.Offer] as MailBoxContentOffer;
-        QuestManager.Instance.mailBoxContentCompensation = contentsDic[MailBoxContentType.Result] as MailBoxContentResult;
 
         foreach(var btnPair in contentsBtnDic)
         {

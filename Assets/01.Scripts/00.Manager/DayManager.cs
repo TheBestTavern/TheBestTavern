@@ -3,7 +3,7 @@ using Unity.IO.LowLevel.Unsafe;
 
 public interface IDayCommand
 {
-    public int Prior {get;}
+    public int Priority {get;}
     public void Execute();
 }
 
@@ -22,7 +22,7 @@ public class DayManager : MonoSingleton<DayManager>
     {
         if(!isReady)
         {
-            commands.Sort((a,b) => a.Prior.CompareTo(b.Prior)); // 퀵정렬 내부에 비교로직을 매개변수로 대입
+            commands.Sort((a,b) => a.Priority.CompareTo(b.Priority)); // 퀵정렬 내부에 비교로직을 매개변수로 대입
             isReady = true;
         }
 
@@ -32,3 +32,4 @@ public class DayManager : MonoSingleton<DayManager>
         }
     }
 }
+

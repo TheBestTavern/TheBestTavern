@@ -12,25 +12,19 @@ public abstract class MailBoxContentBase : MonoBehaviour
 
     protected QuestBaseLetter currentLetter;
 
-    protected bool isReady;
+    //protected bool isReady;
 
-    //private void Awake()
-    //{
-    //    QuestManager.Instance.onNewDayAction += HandleNewDay;
-    //}
-
-    //public void HandleNewDay()
-    //{
-    //    isReady = false;
-    //}
-
-    protected virtual void OnEnable()
+    public virtual void Init()
     {
     }
 
+    //protected virtual void OnEnable()
+    //{
+    //}
+
     public virtual void MakeSlot(List<int> quests)
     {
-        if (isReady) return;
+        //if (isReady) return;
 
         // 1. slot 생성(퀘스트 리스트로 slot생성) (나중에 슬롯을 pool로 관리하면 좋을듯)
         QuestBaseSlot pref;
@@ -45,7 +39,7 @@ public abstract class MailBoxContentBase : MonoBehaviour
         }
 
         // 2. isReady true로 바꾸기.
-        isReady = true;
+        //isReady = true;
     }
 
 

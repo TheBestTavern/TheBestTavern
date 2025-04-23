@@ -7,7 +7,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 
 public enum AreaState
-{ 
+{
     normal,
     submission
 }
@@ -15,12 +15,12 @@ public enum AreaState
 public class NPCArea : MonoBehaviour
 {
     [Range(0f, 5f), SerializeField] float duration = 0.3f;
-    [SerializeField] int npcNumber = 5;
+    [SerializeField] int npcNumber = 5; // 한번에 화면에 나타날 npc 숫자
     [SerializeField] NPCSlot npcSlotPref;
     [SerializeField] Transform slotsPrt;
 
-    private Queue<NPCSlot> slotPool = new();
-    private Dictionary<int, NPCSlot> activeSlots = new();
+    private Dictionary<int, NPCSlot> slotPool = new();
+    private Dictionary<int, NPCSlot> activeSlots = new(); // <슬롯 인덱스, npcSlot객체>
 
     [SerializeField] SubmissionMode submissionMode;
     List<float> targetPositions = new();
@@ -44,26 +44,41 @@ public class NPCArea : MonoBehaviour
         {
             NPCSlot slot = Instantiate(npcSlotPref, slotsPrt);
             slot.Init(i);
-            slotPool.Enqueue(slot);
+            slotPool.Add(i,slot);
         }
         Debug.Log($"npc슬롯 {npcNumber}개 생성 완료");
+
+        OnNewDay command = new(this);
+        DayManager.Instance.AddCommand(command);
     }
 
-    private void ShowNPC(int key)
+    private void ShowNPC(List<int> keys)
     {
-        Quest quest = Data.GetQuest(key);
-        NPCSlot slot = slotPool.Dequeue();
-        slot.gameObject.SetActive(true);
-        slot.SetSlot(quest, this);
+        foreach (int key in keys)
+        {
+            int i = 0;
+            NPCSlot slot;
+            while (true)
+            {
+                if (slotPool.TryGetValue(i, out NPCSlot value))
+                {
+                    slot = value;
+                    slotPool.Remove(i);
+                    break;
+                }
+            }
+            slot.gameObject.SetActive(true);
+            slot.SetSlot(key, this);
 
-        activeSlots.Add(slot.index, slot);
+            activeSlots.Add(slot.index, slot);
+        }
     }
 
     public void HideNPC(int index)
     {
-        slotPool.Enqueue(activeSlots[index]);
-        activeSlots.Remove(index);
+        slotPool[index] = activeSlots[index];
         activeSlots[index].gameObject.SetActive(false);
+        activeSlots.Remove(index);
     }
 
     public void EnterQuestSubmissionMode(Quest quest, NPCSlot npcSlot)
@@ -88,9 +103,11 @@ public class NPCArea : MonoBehaviour
 
     private void StartMove(List<float> targetPositions)
     {
-        foreach(var pair in activeSlots)
+        int i = 0;
+        foreach (var pair in activeSlots)
         {
-            activeSlots[pair.Key].transform.DOMoveX(targetPositions[pair.Key], duration);
+            activeSlots[pair.Key].transform.DOMoveX(targetPositions[i], duration);
+            i++;
         }
     }
     private List<float> AllocateInternalPos() // 화면 내부에 위치 지정
@@ -127,23 +144,29 @@ public class NPCArea : MonoBehaviour
 
 
 
-    //[SerializeField] Transform left;
-    //[SerializeField] Transform right;
+    public class OnNewDay : IDayCommand
+    {
+        public NPCArea area;
+        public OnNewDay(NPCArea nPCArea)
+        {
+            this.area = nPCArea;
+        }
 
-    //private List<Vector2> AllocateExternalPos(int clickedSlotIndex) // 화면 바깥의 위치 지정(클릭된 슬롯 중심으로 가까운 바깥으로 나가도록)
-    //{
-    //    float width = Screen.width;
-    //    int count = activeSlots.Count();
-    //    for (int i = 0; i < clickedSlotIndex; i++)
-    //    {
-    //        activeSlots[i].transform.SetParent(left, true);
-    //    }
-    //    for (int i = clickedSlotIndex + 1; i < count; i++)
-    //    {
-    //        activeSlots[i].transform.SetParent(right, true);
-    //    }
+        public int Priority => 500;
 
-    //    left.DOLocalMoveX(left.position.x- width, duration);
-    //    right.DOLocalMoveX(left.position.x+width, duration);
-    //}
+        public void Execute()
+        {
+            HideNPCs();
+        }
+
+        public void HideNPCs()
+        {
+            foreach (var pair in area.activeSlots)
+            {
+                area.HideNPC(pair.Key);
+            }
+            Debug.Log("NPC Area 비우기");
+
+        }
+    }
 }

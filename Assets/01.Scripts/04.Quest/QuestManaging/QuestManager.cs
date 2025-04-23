@@ -8,17 +8,14 @@ using UnityEngine;
 public class QuestManager : MonoSingleton<QuestManager>
 {
     public QuestData questData;
-    [HideInInspector] public MailBoxContentOffer mailBoxContentQuest;
-    [HideInInspector] public MailBoxContentResult mailBoxContentCompensation;
-    public Action onNewDayAction;
 
     public Dictionary<int, Quest> AllQuests => questData.AllQuests;
     public List<int> AcceptedQuests => questData.AcceptedQuests;
-    public List<int> OnceCompletedQuests => questData.OnceCompletedQuests;
+    public Dictionary<int, SuccessDegree> OnceCompletedQuests => questData.OnceCompletedQuests;
     public List<int> JustCompleteQuests => questData.JustCompleteQuests;
     public List<int> TodayAvailableQuest => questData.TodayAvailableQuest;
 
-    public Queue<(int questID, int itemID)> questCheckQueue;
+    public Queue<(int questID, int itemID)> QuestCheckQueue => questData.QuestCheckQueue;
 
 
     public override void Init()
@@ -29,6 +26,10 @@ public class QuestManager : MonoSingleton<QuestManager>
         isDontDestroyOnLoad = true;
         questData = new QuestData();
         questData.Init();
+
+        // 커맨드 등록
+        OnNewDay command = new(this);
+        DayManager.Instance.AddCommand(command);
     }
 
     // 퀘스트 수령 조건 판단
@@ -66,33 +67,59 @@ public class QuestManager : MonoSingleton<QuestManager>
 
     }
 
-    // 퀘스트 완료
-    public bool TryCompleteQuest(int questID, Item item)
+    public class OnNewDay : IDayCommand
     {
-        if (CheckSuccessQuest(questID, item))
+        QuestManager QM;
+
+        public OnNewDay(QuestManager questManager)
         {
-            // 퀘스트 성공
-            questData.CompleteQuest(questID);
-            return true;
+            this.QM = questManager;
         }
-        else
+
+        public int Priority => 200;
+
+        public void Execute()
         {
-            // 퀘스트 실패
-            return false;
+            CheckQuestCheckQueue();
+        }
+
+        void CheckQuestCheckQueue()
+        {
+            while (QM.QuestCheckQueue.Count > 0)
+            {
+                var pair = QM.QuestCheckQueue.Dequeue();
+                var quest = Data.GetQuest(pair.questID);
+
+                // 데이터 테이블에 아직 들여오지 않은 변수.
+                //if (quest.origin.goodFood.Contains(pair.itemID))
+                //{
+                //    Debug.Log("대성공");
+                //    QM.questData.CompleteQuest(pair.questID, SuccessDegree.good);
+                //}
+                //else if (quest.origin.sosoFood.Contains(pair.itemID))
+                //{
+                //    Debug.Log("중성공");
+                //    QM.questData.CompleteQuest(pair.questID, SuccessDegree.soso);
+                //}
+                //else if (quest.origin.badFood.Contains(pair.itemID))
+                //{
+                //    Debug.Log("소성공");
+                //    QM.questData.CompleteQuest(pair.questID, SuccessDegree.bad);
+                //}
+                //else
+                //{
+                //    Debug.Log("실패");
+                //    QM.questData.FailQuest(pair.questID);
+                //}
+
+                /*  테스트용 */
+                Debug.Log("Dev-퀘스트 중성공");
+                QM.questData.CompleteQuest(pair.questID, SuccessDegree.soso);
+                /*  테스트용 */
+
+            }
+            Debug.Log("퀘스트 대기열 체크");
+
         }
     }
-
-    public bool CheckSuccessQuest(int questID, Item item)
-    {
-        return true; //// todo - 퀘스트 성공 여부 검사
-    }
-
-    public void AbortQuest(int questID)
-    {
-        questData.RemoveQuest(questID);
-        Data.GetQuest(questID).AbortQuest(TimerManager.Instance.GetToday()); // 아무 날짜나 임시로 지정 => 오늘 날짜로 변경
-    }
-
-    // 하루가 갱신될때마다 실행될 이벤트 실행 메서드.
-    public void TriggerNewDay() => onNewDayAction?.Invoke();
 }

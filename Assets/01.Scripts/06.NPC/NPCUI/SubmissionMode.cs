@@ -21,6 +21,7 @@ public class SubmissionMode : MonoBehaviour
     Sequence showSeq;
     Sequence hideSeq;
 
+    [SerializeField]  Button devBtn; // 테스트용
 
     private void Init(NPCArea area)
     {
@@ -29,7 +30,11 @@ public class SubmissionMode : MonoBehaviour
 
         showSeq = DOTween.Sequence();
         showSeq.Pause();
-        showSeq.AppendCallback(() => submissionPanel.transform.position -= new Vector3(-10, -10, 0)); // 람다는 변수가 캡쳐되어 실행 시점에 평가됨
+        showSeq.AppendCallback(() => 
+        {
+            submissionPanel.gameObject.SetActive(true); 
+            submissionPanel.transform.position -= new Vector3(-10, -10, 0); 
+        }); // 람다는 변수 자체가 캡쳐되어 실행 시점에 평가됨
         showSeq.Join(BG.DOFade(0.2f, duration).SetEase(Ease.OutQuad));
         showSeq.Join(submissionPanel.DOFade(1, duration));
         showSeq.Join(submissionPanel.transform.DOMove(
@@ -38,12 +43,18 @@ public class SubmissionMode : MonoBehaviour
         hideSeq = DOTween.Sequence();
         hideSeq.Pause();
         hideSeq.Join(BG.DOFade(0, duration).SetEase(Ease.OutQuad));
-        hideSeq.Join(submissionPanel.DOFade(1, duration));
+        hideSeq.Join(submissionPanel.DOFade(0, duration));
         hideSeq.Join(submissionPanel.transform.DOMove(
                 new Vector2(submissionPanel.transform.position.x - 10, submissionPanel.transform.position.y - 10), duration
-                ).OnComplete(() => submissionPanel.transform.position -= new Vector3(10, 10, 0)));
+                ).OnComplete(() =>
+                {
+                    submissionPanel.transform.position -= new Vector3(10, 10, 0);
+                    submissionPanel.gameObject.SetActive(false);
+                }));
 
         isReady = true;
+
+        devBtn.onClick.AddListener(DevBtn); // 테스트용
     }
 
     public void OnEnter(Quest quest, NPCSlot npcSlot, NPCArea area)
@@ -55,7 +66,7 @@ public class SubmissionMode : MonoBehaviour
         this.quest = quest;
 
         // 제출 UI 나타남
-        submissionPanel.gameObject.SetActive(true);
+        
         PlayeSeq(showSeq);
 
         this.npcSlot.transform.SetParent(transform, true);
@@ -63,14 +74,14 @@ public class SubmissionMode : MonoBehaviour
         MoveNPC(npcSlot); // // 선택된 NPC 정렬
     }
 
-    private void OnExit() // 실행 위치 아직 미정.
+    private void OnExit()
     {
+        npcSlot.OnExit();
+
+        gameObject.SetActive(false);
+
         // npcSlot pool로 복귀, npcSlots에서 삭제
         area.HideNPC(npcSlot.index);
-
-        // 제출 UI 사라짐
-        submissionPanel.gameObject.SetActive(false);
-        PlayeSeq(hideSeq);
 
         //남은 npcSlot 화면에 재정렬
         area.PlaceNPCsInside();
@@ -99,10 +110,11 @@ public class SubmissionMode : MonoBehaviour
             // todo - 퀘스트 제출 후처리 ( 성공 실패 대기열 등록, 아이템 감소 ) 성공 실패 체크와 효과는 다음날 나타남.
 
             //1. 성공 실패 체크 대기열 등록 (대기열 체크는 endDay 단계에서 확인)
-            QuestManager.Instance.questCheckQueue.Enqueue((quest.origin.key, itemForSubmission.origin.key));
+            QuestManager.Instance.QuestCheckQueue.Enqueue((quest.origin.key, itemForSubmission.origin.key));
 
             //2. 아이템 감소
         }
+        StartCoroutine(AfterSubmit());
     }
 
     private void PlayeSeq(Sequence sequence) // 제출 판넬, 인벤토리 나타남.
@@ -113,21 +125,21 @@ public class SubmissionMode : MonoBehaviour
         currentSeq.Play();
     }
 
-    //private void SetSubmitUI(bool OnOff) // 제출 판넬, 인벤토리 나타남.
-    //{
-    //    if (OnOff)
-    //    {
-    //        currentSeq?.Kill();
+    private void DevBtn()  // 테스트용
+    {
+        Debug.Log("dev-넘기기");
+        QuestManager.Instance.QuestCheckQueue.Enqueue((quest.origin.key, 888888));
+        StartCoroutine(AfterSubmit());
+    }
 
-    //        currentSeq = showSeq;
-    //        currentSeq.Play();
-    //    }
-    //    else
-    //    {
-    //        currentSeq?.Kill();
+    IEnumerator AfterSubmit()
+    {
+        //메세지 표시, 제출 UI 사라짐
+        npcSlot.ShowMessage();
 
-    //        currentSeq = hideSeq;
-    //        currentSeq.Play();
-    //    }
-    //}
+        PlayeSeq(hideSeq);
+        yield return new WaitForSeconds(1);
+        npcSlot.OnExit();
+        OnExit();
+    }
 }

@@ -5,18 +5,17 @@ using UnityEngine;
 
 public class GameManager : MonoSingleton<GameManager>
 {
-    //public Action onEndDayAction;
-    public Action onNewDayAction;
 
-    private void Start()
+    private async void Start()
     {
         DataManager.Instance.Init();
         QuestManager.Instance.Init();
-        NPCManager.Instance.Init(); 
+        NPCManager.Instance.Init();
+        TimerManager.Instance.Init();
 
-        TriggerNewDayAction();
+        BasePopUp temp = await UIManager.Instance.ShowPopUp(PopUpType.MailBox);
+        temp.OnClickCloseButton();
+
+        DayManager.Instance.ExecuteCommands(); 
     }
-
-    //public void TriggerEndDayAction () => onEndDayAction?.Invoke(); 
-    public void TriggerNewDayAction() => onNewDayAction?.Invoke();
 }
