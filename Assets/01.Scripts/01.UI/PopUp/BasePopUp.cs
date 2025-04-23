@@ -6,7 +6,7 @@ using UnityEngine.UI;
 /// <summary>
 /// 베이스 팝업 클래스
 /// </summary>
-public class BasePopUp : MonoBehaviour
+public class BasePopUp : DraggableMonoBehaviour
 {
     // 닫기 버튼 
     [SerializeField] protected Button closeButton;
