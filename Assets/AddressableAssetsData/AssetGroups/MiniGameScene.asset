@@ -34,6 +34,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2999a1ef1de4c6d42898466a6157c369
+    m_Address: Cooking_Mill_Test.unity
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 3f946b317ceaa2747b411cad54511d5f, type: 2}
   m_SchemaSet:
