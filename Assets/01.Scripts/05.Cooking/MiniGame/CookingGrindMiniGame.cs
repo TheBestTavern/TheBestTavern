@@ -39,6 +39,7 @@ public class CookingGrindMiniGame : CookingMiniGameBase
     {
         return data.GrindTimer;
     }
+
     private void Awake()
     {
         CookingMiniGameManager.Instance.GetCurrentMiniGame(this);
