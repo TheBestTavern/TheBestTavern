@@ -55,7 +55,7 @@ public class QuestData
         Data.GetQuest(questID).CompleteQuest(TimerManager.Instance.GetToday());
         JustCompleteQuests.Add(questID);
 
-        if (!OnceCompletedQuests.TryGetValue(questID, out var prev) || prev < successDegree )
+        if (!OnceCompletedQuests.TryGetValue(questID, out var prev) || prev < successDegree)
         {
             OnceCompletedQuests[questID] = successDegree;
             // 읽기작업: 없는 키값에 접근할 경우, KeyNotFoundException 오류가 발생 dic[index];
@@ -83,11 +83,11 @@ public class QuestData
         public void CheckAcceptedQuests()
         {
             //진행중 퀘스트 상태 확인(당일 - NPC방문, 아직 - 무, 지남 - 퀘스트 실패 처리) 
+            List<int> spawnNPCs = new();
             for (int i = 0; i < prt.AcceptedQuests.Count; i++)
             {
                 int key = prt.AcceptedQuests[i];
                 Quest tempQuest = Data.GetQuest(key);
-                List<int> spawnNPCs = new();
                 if (tempQuest.TriggerDate > TimerManager.Instance.GetToday())
                 {
                     //아직
@@ -107,12 +107,13 @@ public class QuestData
                     Debug.Log("기한 초과로 인한 퀘스트 실패");
                 }
 
-                // 소환할 npc 있다면, 
-                if(spawnNPCs.Count > 0)
-                {
-                    prt.onTriggerNPC?.Invoke(spawnNPCs);
-                    prt.onSpawnNPC?.Invoke();
-                }
+            }
+            // 소환할 npc 있다면, 
+            if (spawnNPCs.Count > 0)
+            {
+                prt.onTriggerNPC?.Invoke(spawnNPCs);
+                prt.onSpawnNPC?.Invoke();
+                spawnNPCs.Clear();
             }
             Debug.Log("진행중 퀘스트 체크");
 

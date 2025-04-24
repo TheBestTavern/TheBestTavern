@@ -43,8 +43,8 @@ public class NPCArea : MonoBehaviour
         for (int i = 0; i < npcNumber; i++)
         {
             NPCSlot slot = Instantiate(npcSlotPref, slotsPrt);
-            slot.Init(i);
-            slotPool.Add(i,slot);
+            slot.Init(i, this);
+            slotPool.Add(i, slot);
         }
         Debug.Log($"npc슬롯 {npcNumber}개 생성 완료");
 
@@ -54,23 +54,30 @@ public class NPCArea : MonoBehaviour
 
     private void ShowNPC(List<int> keys)
     {
+        int i = 0;
         foreach (int key in keys)
         {
-            int i = 0;
-            NPCSlot slot;
-            while (true)
+            //NPCSlot slot;
+            for (; i < npcNumber; i++)
             {
                 if (slotPool.TryGetValue(i, out NPCSlot value))
                 {
-                    slot = value;
+                    //slot = value;
+                    //slotPool.Remove(i);
+                    //activeSlots.Add(slot.index, slot);
+
+                    //slot.gameObject.SetActive(true);
+                    //slot.SetSlot(key);
+
                     slotPool.Remove(i);
+                    activeSlots.Add(value.index, value);
+
+                    value.gameObject.SetActive(true);
+                    value.SetSlot(key);
                     break;
                 }
             }
-            slot.gameObject.SetActive(true);
-            slot.SetSlot(key, this);
 
-            activeSlots.Add(slot.index, slot);
         }
     }
 
