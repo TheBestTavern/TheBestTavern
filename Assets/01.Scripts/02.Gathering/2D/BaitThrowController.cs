@@ -22,7 +22,7 @@ public class BaitThrowController : MonoBehaviour
 
     private void Start()
     {
-        Vector3 bottomLeft = Camera.main.ViewportToWorldPoint(new Vector3(-0.1f, 0.1f, Camera.main.nearClipPlane + 5f));
+        Vector3 bottomLeft = Camera.main.ViewportToWorldPoint(new Vector3(-1.5f, -1f, Camera.main.nearClipPlane + 5f));
         bottomLeft.z = 0f;
         throwPoint.position = bottomLeft;
     }

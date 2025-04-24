@@ -228,7 +228,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f01e366d282f4e24e97944d13ae6d2ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  throwManager: {fileID: 2082845131}
+  baitThrowController: {fileID: 2082845136}
 --- !u!4 &92560256
 Transform:
   m_ObjectHideFlags: 0
@@ -1853,7 +1853,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 40
+  field of view: 20
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -1880,7 +1880,7 @@ Transform:
   m_GameObject: {fileID: 1902673382}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.49, y: 1, z: -10}
+  m_LocalPosition: {x: -14.12, y: 1, z: -28}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2029,9 +2029,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2082845132}
-  - component: {fileID: 2082845131}
   - component: {fileID: 2082845134}
   - component: {fileID: 2082845135}
+  - component: {fileID: 2082845136}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -2039,27 +2039,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &2082845131
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2082845130}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18583c32b70b9fc468195b36b327e3fe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  baitPrefabs:
-  - {fileID: 4758447653488146172, guid: e2c071f7a869d3d4db19c00fb2b01c0a, type: 3}
-  - {fileID: 4758447653488146172, guid: 3f1d54a33be4efb458512010980cc9f5, type: 3}
-  throwPoint: {fileID: 924487715}
-  lineRenderer: {fileID: 1884203288}
-  maxPower: 25
-  throwAngle: 60
-  previewLength: 0.2
-  previewResolution: 30
 --- !u!4 &2082845132
 Transform:
   m_ObjectHideFlags: 0
@@ -2113,11 +2092,32 @@ MonoBehaviour:
   throwObjectPrefab: {fileID: 8638823288672040158, guid: 2e53ff6696cac5446bb83cf99afb6aef, type: 3}
   throwPoint: {fileID: 924487715}
   lineRenderer: {fileID: 1884203288}
-  maxPower: 20
-  throwAngle: 45
+  maxPower: 13
+  throwAngle: 30
   previewLength: 0.2
   previewResolution: 30
   powerUI: {fileID: 1143445456}
+--- !u!114 &2082845136
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2082845130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df7de86ae5825144a99162195c83ebef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baitPrefabs:
+  - {fileID: 4758447653488146172, guid: e2c071f7a869d3d4db19c00fb2b01c0a, type: 3}
+  - {fileID: 4758447653488146172, guid: 3f1d54a33be4efb458512010980cc9f5, type: 3}
+  throwPoint: {fileID: 924487715}
+  lineRenderer: {fileID: 1884203288}
+  maxPower: 13
+  throwAngle: 45
+  previewLength: 0.2
+  previewResolution: 30
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

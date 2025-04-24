@@ -31,18 +31,18 @@ public class AnimalSpawnManager : MonoBehaviour
 
             case AnimalSizeType.Medium:
                 animalToSpawn = mediumAnimals[Random.Range(0, mediumAnimals.Count)];
-                animalToSpawn.transform.localScale = new Vector3(0.4f, 0.4f, 1f);
+                animalToSpawn.transform.localScale = new Vector3(0.6f, 0.6f, 1f);
                 break;
 
             case AnimalSizeType.Large:
                 animalToSpawn = largeAnimals[Random.Range(0, largeAnimals.Count)];
-                animalToSpawn.transform.localScale = new Vector3(0.4f, 0.4f, 1f);
+                animalToSpawn.transform.localScale = new Vector3(1f, 1f, 1f);
                 break;
         }
 
         if (animalToSpawn != null)
         {
-            Vector3 spawnPosition = Camera.main.ViewportToWorldPoint(new Vector3(1f, 1f, Camera.main.nearClipPlane + 5f));
+            Vector3 spawnPosition = Camera.main.ViewportToWorldPoint(new Vector3(2f, -1f, Camera.main.nearClipPlane + 5f));
             spawnPosition.z = 0; 
 
             Instantiate(animalToSpawn, spawnPosition, Quaternion.identity);
@@ -50,7 +50,7 @@ public class AnimalSpawnManager : MonoBehaviour
 
         if (ground != null)
         {
-            Vector3 offset = new Vector3(2f, 1f, 0f);
+            Vector3 offset = new Vector3(2f, -4f, 0f);
             Vector3 groundSpawn = Camera.main.transform.position + offset;
             groundSpawn.z = 0f;
             spawnPoint.position = groundSpawn;

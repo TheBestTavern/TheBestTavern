@@ -5,11 +5,11 @@ using UnityEngine;
 
 public class BaitInventory : MonoBehaviour
 {
-    public BaitThrowController throwManager;
+    public BaitThrowController baitThrowController;
 
     public void SelectBait(int index)
     {
-        throwManager.SetBaitIndex(index);
+        baitThrowController.SetBaitIndex(index);
     }
 
 }
