@@ -7,7 +7,6 @@ public class GatheringBushes : GatheringProps
 {
     protected override void OnClickedFunc()
     {
-        base.OnClickedFunc();
         transform.DOShakeRotation(1f,10f);
         OffMouseFunc();
         spriteRenderer.DOColor(new Color(0.5f, 0.5f, 0.5f), 0.5f);
@@ -18,7 +17,7 @@ public class GatheringBushes : GatheringProps
         }
         else
         {
-            Debug.Log("수풀에서 아이템 획득");
+            base.OnClickedFunc();
         }
     }    
 }
