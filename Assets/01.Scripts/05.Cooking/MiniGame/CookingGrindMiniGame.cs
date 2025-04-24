@@ -35,6 +35,10 @@ public class CookingGrindMiniGame : CookingMiniGameBase
     [SerializeField] private Animator animator;
     [SerializeField] private Effect effect;
 
+    protected override float GetTimer()
+    {
+        return data.GrindTimer;
+    }
 
     private void Awake()
     {

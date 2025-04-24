@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -34,6 +35,13 @@ public class CookingGrillMiniGame : CookingMiniGameBase
    
 
     private Coroutine coroutine;
+
+    public Action OnMatch;
+
+    protected override float GetTimer()
+    {
+        return data.GrillTimer;
+    }
 
     private IEnumerator ShowAllCard()
     {
@@ -85,6 +93,7 @@ public class CookingGrillMiniGame : CookingMiniGameBase
         if (firstCard.idx == secondCard.idx)
         {
             // 매치
+            OnMatch?.Invoke();
 
             matchCount++; // 맞춘 횟수 +1
 
@@ -183,7 +192,7 @@ public class CookingGrillMiniGame : CookingMiniGameBase
         // 카드 배열 4x4 세팅
 
         int[] arr = { 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8 };
-        arr = arr.OrderBy(x => Random.value).ToArray();
+        arr = arr.OrderBy(x => UnityEngine.Random.value).ToArray();
 
         for (int i = 0; i < cards.Count; i++)
         {

@@ -29,6 +29,11 @@ public class CookingCuttingMiniGame : CookingMiniGameBase
     public GameObject barPrefab; // 타이밍바 프리팹
     public GameObject myBar; // 플레이어가 클릭했을 때 타이밍바의 위치
 
+    protected override float GetTimer()
+    {
+        return data.CutTimer;
+    }
+
     private void Awake()
     {
         CookingMiniGameManager.Instance.GetCurrentMiniGame(this);
