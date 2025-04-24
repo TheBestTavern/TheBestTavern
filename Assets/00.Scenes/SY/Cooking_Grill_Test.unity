@@ -1134,7 +1134,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5e2b1a429443fc4986f7bf34ceaaab6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <data>k__BackingField: {fileID: 11400000, guid: f6a8c5dd76913144e9bd8bf777b6bc54, type: 2}
+  <Data>k__BackingField: {fileID: 11400000, guid: f6a8c5dd76913144e9bd8bf777b6bc54, type: 2}
+  sweetPotatoPrefab: {fileID: 5979068305810167843, guid: 1ec00bb58fd59744f82c5ef5828aeaca, type: 3}
 --- !u!4 &451252366
 Transform:
   m_ObjectHideFlags: 0
@@ -9048,7 +9049,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!108 &2019807683
 Light:
   m_ObjectHideFlags: 0
@@ -9399,63 +9400,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54ab2e9c78658104b88c93da61d83cfc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1001 &1018304198741650641
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 706571099086808359, guid: e3e85278008c2f148bba5b405c528753, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -1.067
-      objectReference: {fileID: 0}
-    - target: {fileID: 706571099086808359, guid: e3e85278008c2f148bba5b405c528753, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.579
-      objectReference: {fileID: 0}
-    - target: {fileID: 706571099086808359, guid: e3e85278008c2f148bba5b405c528753, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 706571099086808359, guid: e3e85278008c2f148bba5b405c528753, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 706571099086808359, guid: e3e85278008c2f148bba5b405c528753, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 706571099086808359, guid: e3e85278008c2f148bba5b405c528753, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 706571099086808359, guid: e3e85278008c2f148bba5b405c528753, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 706571099086808359, guid: e3e85278008c2f148bba5b405c528753, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 706571099086808359, guid: e3e85278008c2f148bba5b405c528753, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 706571099086808359, guid: e3e85278008c2f148bba5b405c528753, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8732304425803997744, guid: e3e85278008c2f148bba5b405c528753, type: 3}
-      propertyPath: m_Name
-      value: SweetPotato
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: e3e85278008c2f148bba5b405c528753, type: 3}
 --- !u!1001 &2213460142741200749
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9584,6 +9528,5 @@ SceneRoots:
   - {fileID: 8901790407349565908}
   - {fileID: 2213460142741200749}
   - {fileID: 1671001055}
-  - {fileID: 1018304198741650641}
   - {fileID: 635843565}
   - {fileID: 451252366}

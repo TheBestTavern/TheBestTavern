@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,24 +8,36 @@ using UnityEngine;
 /// </summary>
 public class CookingEffectController : MonoBehaviour
 {
-    [field:SerializeField] public CookingEffectSO data { get; private set; }
+    [field:SerializeField] public CookingEffectSO Data { get; private set; }
 
+    // 테스트용
+    [SerializeField] private GameObject sweetPotatoPrefab;
 
+    private void Awake()
+    {
+        // 테스트용
+        sweetPotatoPrefab = Instantiate(sweetPotatoPrefab);
+        Color initialColor = new Color32(255, 243, 183, 255);
+        var renderer = sweetPotatoPrefab.GetComponentInChildren<MeshRenderer>();
+
+        renderer.sharedMaterial.color = initialColor;
+
+    }
     public void PlayBlackSmoke()
     {
-        if (data.BlackSmoke != null)
+        if (Data.BlackSmoke != null)
         {
-            var blackSmoke = Instantiate(data.BlackSmoke);
+            var blackSmoke = Instantiate(Data.BlackSmoke);
             blackSmoke.Play();
         }
     }
 
     public void PlayYellowSmoke()
     {
-        if (data.YellowSmoke != null)
+        if (Data.YellowSmoke != null)
         {
           
-            var yellowSmoke = Instantiate(data.YellowSmoke);
+            var yellowSmoke = Instantiate(Data.YellowSmoke);
             yellowSmoke.Play();
         }
     }
@@ -33,12 +46,13 @@ public class CookingEffectController : MonoBehaviour
     {
         //색이 진해지는 연출
 
-        var sweetPotato = Instantiate(data.SweetPotato);
-        var renderer = sweetPotato.GetComponent<MeshRenderer>();
+        var renderer = sweetPotatoPrefab.GetComponentInChildren<MeshRenderer>();
 
-        Color cookedColor = new Color32(255, 205, 0, 255);
-
+        
         if (renderer != null)
-        { renderer.material.color = Color.Lerp(renderer.material.color, cookedColor, matchCount / 7); }
+        {
+            Color cookedColor = new Color32(255, 205, 0, 255);
+            renderer.sharedMaterial.color = Color.Lerp(renderer.sharedMaterial.color, cookedColor, (float)matchCount / 7);
+        }
     }
 }

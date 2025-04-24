@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <YellowSmoke>k__BackingField: {fileID: 1744940568350722984, guid: 2d2bf91022d8e724797736d321fc0bc7, type: 3}
   <BlackSmoke>k__BackingField: {fileID: 4634246227964670014, guid: 2f63c33d64b2b824794b380eb26a9cee, type: 3}
+  <SweetPotato>k__BackingField: {fileID: 8732304425803997744, guid: e3e85278008c2f148bba5b405c528753, type: 3}
   animationData:
     perfectParameterName: Perfect
     goodParameterName: Good
