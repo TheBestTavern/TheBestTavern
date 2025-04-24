@@ -13,7 +13,8 @@ public class CookingEffectSO : ScriptableObject
     [field: SerializeField] public ParticleSystem BlackSmoke { get; private set; }
 
 
-    [field: Header("ColorChange")]
+    [field: Header("Cooked")]
+    [field: SerializeField] public GameObject SweetPotato { get; private set; }
 
     [field: Header("Camera")]
 
