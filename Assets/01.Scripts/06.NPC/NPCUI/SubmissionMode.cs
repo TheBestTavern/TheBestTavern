@@ -42,7 +42,7 @@ public class SubmissionMode : MonoBehaviour
 
         showSeq.Join(BG.DOFade(0.2f, duration).From(0).SetEase(Ease.OutQuad));
         showSeq.Join(submissionPanel.DOFade(1, duration).From(0));
-        showSeq.Join(submissionPanel.transform.DOMove(submissionPanelOriginalPos, duration).From(submissionPanelOriginalPos - (Vector3.one * 10))); // 해당 vector 값은 seq 생성 시점에서 복사되어 고정됨.
+        showSeq.Join(submissionPanel.transform.DOMove(submissionPanelOriginalPos, duration).From(submissionPanelOriginalPos - new Vector3(10, 10, 0))); // 해당 vector 값은 seq 생성 시점에서 복사되어 고정됨.
 
         hideSeq = DOTween.Sequence();
         hideSeq.Pause();
@@ -53,7 +53,7 @@ public class SubmissionMode : MonoBehaviour
         });
         hideSeq.Join(BG.DOFade(0, duration).From(0.2f).SetEase(Ease.OutQuad));
         hideSeq.Join(submissionPanel.DOFade(0, duration).From(1));
-        hideSeq.Join(submissionPanel.transform.DOMove(submissionPanelOriginalPos - (Vector3.one * 10), duration).From(submissionPanelOriginalPos).OnComplete(() =>
+        hideSeq.Join(submissionPanel.transform.DOMove(submissionPanelOriginalPos - new Vector3(10, 10, 0), duration).From(submissionPanelOriginalPos).OnComplete(() =>
                 {
                     submissionPanel.gameObject.SetActive(false);
                 }));

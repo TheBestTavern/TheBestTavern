@@ -161,9 +161,9 @@ public class NPCArea : MonoBehaviour
 
         public void HideNPCs()
         {
-            foreach (var pair in area.activeSlots)
+            foreach (var key in area.activeSlots.Keys.ToList())
             {
-                area.HideNPC(pair.Key);
+                area.HideNPC(key);
             }
             Debug.Log("NPC Area 비우기");
 

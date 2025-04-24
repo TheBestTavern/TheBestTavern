@@ -17,19 +17,24 @@ public class Data_Foods
     public string name;
 
     /// <summary>
-    /// 음식군
-    /// </summary>
-    public int FoodCategory;
-
-    /// <summary>
     /// 등급
     /// </summary>
-    public DesignEnums.Grade grade;
+    public DesignEnums.GradeType grade;
 
     /// <summary>
     /// 습득처
     /// </summary>
-    public List<DesignEnums.Route> getRoute;
+    public List<DesignEnums.RouteType> getRoute;
+
+    /// <summary>
+    /// 아이템 종류
+    /// </summary>
+    public DesignEnums.ItemType itemCategory;
+
+    /// <summary>
+    /// 영어 이름
+    /// </summary>
+    public string englishName;
 
 }
 public class Data_FoodsLoader

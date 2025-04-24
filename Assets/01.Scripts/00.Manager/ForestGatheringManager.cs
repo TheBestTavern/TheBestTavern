@@ -25,8 +25,8 @@ public class ForestGatheringManager : MonoSingleton<ForestGatheringManager>
     [SerializeField] GameObject[] fields;
     [SerializeField] Transform fieldParent;
 
-    DesignEnums.Region region;
-    DesignEnums.Season season;
+    DesignEnums.RegionType region;
+    DesignEnums.SeasonType season;
     public List<Data_Gathering> data_Gatherings;
 
     private void Start()
@@ -53,9 +53,9 @@ public class ForestGatheringManager : MonoSingleton<ForestGatheringManager>
 
     public void SetItem()
     {
-        region = SceneParameter.Get<DesignEnums.Region>("Region");
-        season = SceneParameter.Get<DesignEnums.Season>("Season");
-        data_Gatherings = DataManager.Instance.DataLoader_Gathering.GetByRegionSeason(region, season, DesignEnums.Biome.forest);
+        region = SceneParameter.Get<DesignEnums.RegionType>("Region");
+        season = SceneParameter.Get<DesignEnums.SeasonType>("Season");
+        //data_Gatherings = DataManager.Instance.DataLoader_Gathering.GetByRegionSeason(region, season, DesignEnums.BiomeType.forest);
     }
 
     public void CreateMapProps()
