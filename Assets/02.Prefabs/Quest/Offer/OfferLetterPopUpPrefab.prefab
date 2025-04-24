@@ -662,6 +662,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30d351ee189066b45abe2522786aced5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  draggableObjectTrs: {fileID: 6282824886588779002}
+  draggable: 1
   closeButton: {fileID: 7861455794426915387}
   popUpType: 7
   buttons:

@@ -1,6 +1,49 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditorInternal.Profiling.Memory.Experimental;
 using UnityEngine;
+
+public static class Data // 간단 key 검색 클래스
+{
+    public static Quest GetQuest(int id)
+    {
+        if (QuestManager.Instance.AllQuests.TryGetValue(id, out Quest quest))
+        {
+            return quest;
+        }
+        else
+        {
+            Debug.LogWarning("없는 퀘스트 id입니다");
+            return null;
+        }
+    }
+    public static Item GetItems(int id)
+    {
+        if (ItemManager.Instance.AllItems.TryGetValue(id, out Item item))
+        {
+            return item;
+        }
+        else
+        {
+            Debug.LogWarning("없는 아이템 id입니다");
+            return null;
+        }
+    }
+    public static NPC GetNPC(int id)
+    {
+        if (NPCManager.Instance.AllNPC.TryGetValue(id, out NPC npc))
+        {
+            return npc;
+        }
+        else
+        {
+            Debug.LogWarning("없는 엔피씨 id입니다");
+            return null;
+        }
+    }
+    //public void GetCookingSteps()
+    //public void GetReciepes()
+}
 
 /// <summary>
 /// - 임시 데이터(최종 아님) 
@@ -15,11 +58,12 @@ public class DataManager : MonoSingleton<DataManager>
     public Data_GatheringLoader DataLoader_Gathering { get; private set; } // 계절별 채집할 수 있는 아이템 정보
     public Data_NPCLoader DataLoader_NPC { get; private set; } // NPC 정보 (부여 아이템, 이름, 초기 호감도 등)
     public Data_QuestLoader DataLoader_Quest { get; private set; } // 퀘스트 정보 (퀘스트 등장 조건, 부여 npc 등)
+    public Data_RecipesLoader Dataloader_Recipes { get; private set; } // 퀘스트 정보 (퀘스트 등장 조건, 부여 npc 등)
 
     // 데이터 로더 인스턴스 생성.
     public override void Init()
     {
-        if(_isInitialized) return;
+        if (_isInitialized) return;
         base.Init();
 
         DataLoader_CookingSteps = new();
@@ -27,5 +71,6 @@ public class DataManager : MonoSingleton<DataManager>
         DataLoader_Gathering = new();
         DataLoader_NPC = new();
         DataLoader_Quest = new();
+        Dataloader_Recipes = new();
     }
 }
