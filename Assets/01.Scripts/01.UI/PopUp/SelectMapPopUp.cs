@@ -81,7 +81,7 @@ public class SelectMapPopUp : BasePopUp
     async void ConfirmMoveSeaFunc()
     {       
         // 채집 씬으로 이동 
-        await SceneLoader.Instance.LoadSceneAsync("GatheringSceneDev");
+        await SceneLoader.Instance.LoadSceneAsync("GatheringSceneDev1");
     }
 
     // 확인 팝업 함수 
@@ -89,8 +89,8 @@ public class SelectMapPopUp : BasePopUp
     {
         // 채집 씬으로 이동 
         SceneParameter.Set("Region", region);
-        SceneParameter.Set("Season", DesignEnums.SeasonType.spring);
-        await SceneLoader.Instance.LoadSceneAsync("GatheringSceneDev");
+        SceneParameter.Set("Season", DesignEnums.Season.winter);
+        await SceneLoader.Instance.LoadSceneAsync("GatheringSceneDev1");
     }
 
     // 팝업 열때 필요한 함수

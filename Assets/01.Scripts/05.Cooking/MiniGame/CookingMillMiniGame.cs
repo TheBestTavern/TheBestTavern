@@ -32,6 +32,10 @@ public class CookingMillMiniGame : CookingMiniGameBase
         Vector2 dir = pos - center; // 센터->pos 방향
         return Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
     }
+    protected override float GetTimer()
+    {
+        return data.MillTimer;
+    }
 
     private void Awake()
     {
@@ -145,4 +149,5 @@ public class CookingMillMiniGame : CookingMiniGameBase
             Debug.Log($"{mouseSpeed}");
        }
     }
+
 }

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting.Antlr3.Runtime.Tree;
 using UnityEngine;
+using static DesignEnums;
 
 public class ForestGatheringManager : MonoSingleton<ForestGatheringManager>
 {
@@ -27,147 +28,81 @@ public class ForestGatheringManager : MonoSingleton<ForestGatheringManager>
 
     DesignEnums.RegionType region;
     DesignEnums.SeasonType season;
+
     public List<Data_Gathering> data_Gatherings;
+    Dictionary<DesignEnums.Chance, List<int>> itemDict;
+
+    float correction;
+    float highGroupProb;
+    float mediumGroupProb;
+    float lowGroupProb;
+    float veryLowGroupProb;
+
+    public GatheringMapController mapController;
+
+    public GatheringInventoryUI gatheringInventoryUI;
 
     private void Start()
     {
-        CreateMapProps();
+        mapController.CreateMapProps();
         SetItem();
-    }
-
-    public void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.red;
-
-        if (spawnAreas == null) return;
-
-        Gizmos.color = gizmoColor;
-        foreach (var area in spawnAreas)
-        {
-            Vector3 center = new Vector3(area.x + area.width / 2, area.y + area.height / 2);
-            Vector3 size = new Vector3(area.width, area.height);
-
-            Gizmos.DrawCube(center, size);
-        }
     }
 
     public void SetItem()
     {
-        region = SceneParameter.Get<DesignEnums.RegionType>("Region");
-        season = SceneParameter.Get<DesignEnums.SeasonType>("Season");
-        //data_Gatherings = DataManager.Instance.DataLoader_Gathering.GetByRegionSeason(region, season, DesignEnums.BiomeType.forest);
-    }
+        region = SceneParameter.Get<DesignEnums.Region>("Region");
+        season = SceneParameter.Get<DesignEnums.Season>("Season");
+        data_Gatherings = DataManager.Instance.DataLoader_Gathering.GetByRegionSeason(region, season, DesignEnums.Biome.forest);
+        itemDict = new();
 
-    public void CreateMapProps()
-    {
-        foreach (var area in spawnAreas)
+        // JSON 툴로 들여온 데이터 클래스를 활용
+        foreach (var i in data_Gatherings)
         {
-            int randProps = Random.Range(0, 4);
-            // 밭
-            if (randProps == 0)
-            {
-                float x = area.x + area.width / 2;
-                float y = area.y + area.height / 2;
-                int fieldIdx = Random.Range(0, fields.Length);
-                Instantiate(fields[fieldIdx], new Vector3(x, y, 0), Quaternion.identity, fieldParent);
-            }
-            // 기타 오브젝트
-            else
-            {
-                // 나무
-                CreateGatheringProps(area, trees, treeParent, 3, 5);
-
-                // 돌
-                CreateEXProps(area, rocks, rockParent, 3, 5);
-
-                // 풀 
-                CreateGatheringProps(area, bushs, bushParent, 3, 5);
-
-                // 기타 
-                CreateEXProps(area, exProps, exPropsParent, 3, 5);
-            }
-        }
-    }
-
-    void CreateGatheringProps(Rect area, GameObject[] prefabArr, Transform parent, int minCount, int maxCount)
-    {
-        int randCount = Random.Range(minCount, maxCount);
-
-        for (int i = 0; i < randCount; i++)
-        {
-            GameObject placed = null;
-            int tryLimit = 20;
-            int tryCount = 0;
-
-            while (placed == null && tryCount < tryLimit)
-            {
-                tryCount++;
-                float x = Random.Range(area.x, area.x + area.width);
-                float y = Random.Range(area.y, area.y + area.height);
-                int randPropsIdx = Random.Range(0, prefabArr.Length);
-                GameObject prefab = prefabArr[randPropsIdx];
-
-                if (TryPlaceWithoutOverlap(prefab, new Vector2(x, y), gatheringPropsLayerMask, parent, out placed))
-                {
-                    SetSortingLayer(placed);
-                }
-            }
-        }
-    }
-
-    void CreateEXProps(Rect area, GameObject[] prefabArr, Transform parent, int minCount, int maxCount)
-    {
-        int randCount = Random.Range(minCount, maxCount);
-        for (int i = 0; i < randCount; i++)
-        {
-            float x = Random.Range(area.x, area.x + area.width);
-            float y = Random.Range(area.y, area.y + area.height);
-            int randIdx = Random.Range(0, prefabArr.Length);
-            SetSortingLayer(Instantiate(prefabArr[randIdx], new Vector3(x, y, 0), Quaternion.identity, parent));
-        }
-    }
-
-    void SetSortingLayer(GameObject obj)
-    {
-        SpriteRenderer sr = obj.GetComponent<SpriteRenderer>();
-        if (sr != null)
-        {
-            sr.sortingOrder = -(int)(obj.transform.position.y * 100);
-        }
-    }
-
-    bool TryPlaceWithoutOverlap(GameObject prefab, Vector2 position, LayerMask checkMask, Transform parent, out GameObject result)
-    {
-        result = Instantiate(prefab, position, Quaternion.identity, parent);
-        PolygonCollider2D poly = result.GetComponent<PolygonCollider2D>();
-
-        if (poly == null)
-        {
-            Debug.LogWarning($"[{prefab.name}] 에 PolygonCollider2D가 없습니다.");
-            return true;
+            itemDict.Add(i.condition_chance, i.availableFood);
         }
 
-        ContactFilter2D filter = new ContactFilter2D();
-        filter.SetLayerMask(checkMask);
-        filter.useTriggers = true;
-
-        List<Collider2D> hits = new();
-        int count = poly.OverlapCollider(filter, hits);
-
-        if (count > 0)
-        {
-            Object.Destroy(result);
-            result = null;
-            return false;
-        }
-
-        return true;
+        // 보정값 계산 및 확률군 별 확률 구하기
+        correction = 1 / (0.1f * itemDict[Chance.veryLow].Count + 0.2f * itemDict[Chance.low].Count + 0.3f * itemDict[Chance.medium].Count + 0.4f * itemDict[Chance.high].Count);
+        highGroupProb = 40 * correction * itemDict[Chance.high].Count;
+        mediumGroupProb = 30 * correction * itemDict[Chance.medium].Count;
+        lowGroupProb = 20 * correction * itemDict[Chance.low].Count;
+        veryLowGroupProb = 10 * correction * itemDict[Chance.veryLow].Count;
     }
 
     public async void OnMiniGame()
     {
         await SceneLoader.Instance.LoadSceneAsyncMiniGame("Forest_Animal");
         //To Do - 미니게임 열릴때 해줘야하는 것들 (기존 씬에 있는 것들 안보이게 하기)
+    }
+
+    public int GetRandomItemID()
+    {
+        // 랜덤으로 확률군 선정 후 ID 뽑기
+        float rand = Random.Range(0, 100);
+        int randItemID;
+
+        if (rand < highGroupProb)
+        {
+            List<int> temp = itemDict[Chance.high];
+            randItemID = temp[Random.Range(0, temp.Count)];
+        }
+        else if (rand < highGroupProb + mediumGroupProb)
+        {
+            List<int> temp = itemDict[Chance.medium];
+            randItemID = temp[Random.Range(0, temp.Count)];
+        }
+        else if (rand < highGroupProb + mediumGroupProb + lowGroupProb)
+        {
+            List<int> temp = itemDict[Chance.low];
+            randItemID = temp[Random.Range(0, temp.Count)];
+        }
+        else // 합이 100이 되도록.
+        {
+            List<int> temp = itemDict[Chance.veryLow];
+            randItemID = temp[Random.Range(0, temp.Count)];
+        }
+
+        return randItemID;
     }
 }
 
