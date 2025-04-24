@@ -25,6 +25,7 @@ public class ForestGatheringManager : MonoSingleton<ForestGatheringManager>
     {
         mapController.CreateMapProps();
         SetItem();
+        GetGatheringInventoryHistory();
     }
 
     public void SetItem()
@@ -82,6 +83,28 @@ public class ForestGatheringManager : MonoSingleton<ForestGatheringManager>
         }
 
         return randItemID;
+    }
+
+    public async void MoveMainScene()
+    {
+        await UIManager.Instance.ShowPopUp(PopUpType.Confirm);
+        UIManager.Instance.confirmPopUp.SetConfirm("더 이상 물건을 담을 수 없어 집으로 이동합니다.", ConfirmFunc);
+    }
+
+    private async void ConfirmFunc()
+    {
+        SceneParameter.Set("GatheringInventory", gatheringInventoryUI.GetSlot());
+        await SceneLoader.Instance.LoadSceneAsync("GatheringSceneDev1");
+    }
+
+    private void GetGatheringInventoryHistory()
+    {
+        GatheringInventorySlot[] slots = SceneParameter.Get<GatheringInventorySlot[]>("GatheringInventory");
+
+        if (slots != null)
+        {
+            gatheringInventoryUI.SetSlotsHistory(slots);
+        }
     }
 }
 

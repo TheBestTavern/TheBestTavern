@@ -31,5 +31,16 @@ public class GatheringInventoryUI : MonoBehaviour
             }
         }
 
+        ForestGatheringManager.Instance.MoveMainScene();
+    }
+
+    public GatheringInventorySlot[] GetSlot()
+    {
+        return slots;
+    }
+
+    public void SetSlotsHistory(GatheringInventorySlot[] slotHis)
+    {
+        slots = slotHis;
     }
 }

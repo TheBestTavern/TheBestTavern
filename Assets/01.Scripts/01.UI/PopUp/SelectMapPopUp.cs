@@ -60,7 +60,7 @@ public class SelectMapPopUp : BasePopUp
         selectForestOcean.SetActive(false);
     }
 
-    // 산 바다 선택 버튼 함수
+    // 바다 선택 버튼 함수
     async void OnClickSeaButton()
     {
         // 확인 팝업 불러오기
@@ -69,6 +69,7 @@ public class SelectMapPopUp : BasePopUp
         UIManager.Instance.confirmPopUp.SetConfirm("정말 이동하시겠습니까?", ConfirmMoveSeaFunc);
     }
 
+    // 산 선택 버튼 함수
     async void OnClickforestButton()
     {
         // 확인 팝업 불러오기
