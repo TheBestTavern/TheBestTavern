@@ -9,7 +9,7 @@ public class ForestGatheringManager : MonoSingleton<ForestGatheringManager>
     DesignEnums.Region region;
     DesignEnums.Season season;
     public List<Data_Gathering> data_Gatherings;
-    Dictionary<DesignEnums.Chance, List<int>> dict;
+    Dictionary<DesignEnums.Chance, List<int>> itemDict;
 
     float correction;
     float highGroupProb;
@@ -18,6 +18,8 @@ public class ForestGatheringManager : MonoSingleton<ForestGatheringManager>
     float veryLowGroupProb;
 
     public GatheringMapController mapController;
+
+    public GatheringInventoryUI gatheringInventoryUI;
 
     private void Start()
     {
@@ -30,20 +32,20 @@ public class ForestGatheringManager : MonoSingleton<ForestGatheringManager>
         region = SceneParameter.Get<DesignEnums.Region>("Region");
         season = SceneParameter.Get<DesignEnums.Season>("Season");
         data_Gatherings = DataManager.Instance.DataLoader_Gathering.GetByRegionSeason(region, season, DesignEnums.Biome.forest);
-        dict = new();
+        itemDict = new();
 
         // JSON 툴로 들여온 데이터 클래스를 활용
         foreach (var i in data_Gatherings)
         {
-            dict.Add(i.condition_chance, i.availableFood);
+            itemDict.Add(i.condition_chance, i.availableFood);
         }
 
         // 보정값 계산 및 확률군 별 확률 구하기
-        correction = 1 / (0.1f * dict[Chance.veryLow].Count + 0.2f * dict[Chance.low].Count + 0.3f * dict[Chance.medium].Count + 0.4f * dict[Chance.high].Count);
-        highGroupProb = 40 * correction * dict[Chance.high].Count;
-        mediumGroupProb = 30 * correction * dict[Chance.medium].Count;
-        lowGroupProb = 20 * correction * dict[Chance.low].Count;
-        veryLowGroupProb = 10 * correction * dict[Chance.veryLow].Count;
+        correction = 1 / (0.1f * itemDict[Chance.veryLow].Count + 0.2f * itemDict[Chance.low].Count + 0.3f * itemDict[Chance.medium].Count + 0.4f * itemDict[Chance.high].Count);
+        highGroupProb = 40 * correction * itemDict[Chance.high].Count;
+        mediumGroupProb = 30 * correction * itemDict[Chance.medium].Count;
+        lowGroupProb = 20 * correction * itemDict[Chance.low].Count;
+        veryLowGroupProb = 10 * correction * itemDict[Chance.veryLow].Count;
     }
 
     public async void OnMiniGame()
@@ -60,22 +62,22 @@ public class ForestGatheringManager : MonoSingleton<ForestGatheringManager>
 
         if (rand < highGroupProb)
         {
-            List<int> temp = dict[Chance.high];
+            List<int> temp = itemDict[Chance.high];
             randItemID = temp[Random.Range(0, temp.Count)];
         }
         else if (rand < highGroupProb + mediumGroupProb)
         {
-            List<int> temp = dict[Chance.medium];
+            List<int> temp = itemDict[Chance.medium];
             randItemID = temp[Random.Range(0, temp.Count)];
         }
         else if (rand < highGroupProb + mediumGroupProb + lowGroupProb)
         {
-            List<int> temp = dict[Chance.low];
+            List<int> temp = itemDict[Chance.low];
             randItemID = temp[Random.Range(0, temp.Count)];
         }
         else // 합이 100이 되도록.
         {
-            List<int> temp = dict[Chance.veryLow];
+            List<int> temp = itemDict[Chance.veryLow];
             randItemID = temp[Random.Range(0, temp.Count)];
         }
 
