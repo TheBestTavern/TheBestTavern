@@ -35,9 +35,14 @@ public abstract class InventoryView : MonoBehaviour
 
     }
 
-    public virtual void 아이템띄우기()  // [컨트롤러]의 아이템 띄우기 호출
+    public virtual void 아이템띄우기(Dictionary<int, ItemStack> dict)  // 전체 아이템 띄우기
     {
-        controller.아이템띄우기();
+
+    }
+
+    public void 특정아이템정보갱신(int id)  // 특정 ID의 정보만 갱신
+    { 
+    
     }
 
     public virtual void 아이템이동() { } // a슬롯의 정보를 b슬롯으로 이동

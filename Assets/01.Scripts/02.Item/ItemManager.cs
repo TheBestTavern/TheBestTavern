@@ -16,5 +16,4 @@ public class ItemManager : MonoSingleton<ItemManager>
     {
         IDs.Push(id);
     }
-
 }

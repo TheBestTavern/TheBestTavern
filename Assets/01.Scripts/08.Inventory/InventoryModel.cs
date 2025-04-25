@@ -1,28 +1,34 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.PlayerSettings;
 
 public class InventoryModel
 {
-    Dictionary<int, List<ItemStack>> stacks = new();  // <Data_Foods.key, 아이템스택>
+    public Dictionary<int, List<int>> foodType2IDs = new();  // <Data_Foods.key, ID리스트>
+    public Dictionary<int, ItemStack> ID2stack = new(); // <ID, 아이템 스택>
     int SlotMaxCount { get; set; } // 슬롯 최대 갯수
     int PerStackMaxCount { get; set; } // 스택 당 아이템 갯수
 
-    public void Init(int slotMaxCount, int perStackMaxCount)
+    public Action<int> OnChanged;
+
+    public void Init(int slotMaxCount, int perStackMaxCount, Action<int> OnModelChanged)
     {
         SlotMaxCount = slotMaxCount;
         PerStackMaxCount = perStackMaxCount;
+        OnChanged = OnModelChanged;
     }
 
     public bool 아이템검사후추가(Data_Foods data_Foods, int amount)
     {
         // 1. 여유 공간 확인
         int space = 0;
-        if (stacks.ContainsKey(data_Foods.key))
+        if (foodType2IDs.ContainsKey(data_Foods.key))
         {
-            foreach (var itemStack in stacks[data_Foods.key])
+            foreach (var id in foodType2IDs[data_Foods.key])
             {
-                space += itemStack.GetSpace(PerStackMaxCount);
+                space += ID2stack[id].GetSpace(PerStackMaxCount);
             }
         }
 
@@ -40,22 +46,23 @@ public class InventoryModel
     {
         int remain = amount;
 
-        if (!stacks.ContainsKey(data_Foods.key))
+        if (!foodType2IDs.ContainsKey(data_Foods.key))
         {
-            stacks.Add(data_Foods.key, new List<ItemStack>());
+            foodType2IDs.Add(data_Foods.key, new List<int>());
         }
-        List<ItemStack> itemStackList = stacks[data_Foods.key];
+        List<int> IDList = foodType2IDs[data_Foods.key];
 
-        foreach (ItemStack itemStack in itemStackList)
+        foreach (int id in IDList)
         {
-            remain = itemStack.Add(amount, PerStackMaxCount);
+            remain = ID2stack[id].Add(amount, PerStackMaxCount);
         }
 
         while (remain > 0)
         {
-            var temp = new ItemStack(data_Foods, 0);
+            //var temp = new ItemStack(data_Foods, 0, 아이템삭제);
+            var temp = ItemStackManager.Instance.InstantiateItem(data_Foods, 0, 아이템삭제, TriggerOnChange);
             remain = temp.Add(remain, PerStackMaxCount);
-            itemStackList.Add(temp);
+            IDList.Add(temp.ID);
         }
     }
 
@@ -63,11 +70,11 @@ public class InventoryModel
     {
         // 1. 감소할만큼의 아이템이 있는지.
         int count = 0;
-        if (stacks.ContainsKey(data_Foods.key))
+        if (foodType2IDs.ContainsKey(data_Foods.key))
         {
-            foreach (var itemStack in stacks[data_Foods.key])
+            foreach (int id in foodType2IDs[data_Foods.key])
             {
-                count += itemStack.Count;
+                count += ID2stack[id].Count;
             }
         }
 
@@ -75,9 +82,9 @@ public class InventoryModel
 
         // 2. 감소시키기
         int remain = amount;
-        foreach (var itemStack in stacks[data_Foods.key])
+        foreach (int id in foodType2IDs[data_Foods.key])
         {
-            remain = itemStack.Subtract(remain);
+            remain = ID2stack[id].Subtract(remain);
             if (remain <= 0) break;
         }
         return true;
@@ -86,7 +93,7 @@ public class InventoryModel
     public int 여분의공간반환()
     {
         int stackCount = 0;
-        foreach (var pair in stacks)
+        foreach (var pair in foodType2IDs)
         {
             stackCount += pair.Value.Count;
         }
@@ -96,16 +103,16 @@ public class InventoryModel
 
     public void 아이템정렬_합치기()
     {
-        foreach (var pair in stacks)
+        foreach (var pair in foodType2IDs)
         {
             int toMergeCount = 0;
-            foreach (ItemStack itemStack in pair.Value)
+            foreach (int id in pair.Value)
             {
                 if (pair.Value.Count < 2) continue;
-                if (itemStack.Count != PerStackMaxCount)
+                if (ID2stack[id].Count != PerStackMaxCount)
                 {
-                    toMergeCount += itemStack.Count;
-                    아이템그냥삭제(itemStack);
+                    toMergeCount += ID2stack[id].Count;
+                    ID2stack[id].TriggerOnDestroy();
                 }
             }
 
@@ -116,43 +123,100 @@ public class InventoryModel
         }
     }
 
-
-    private void 아이템그냥삭제(ItemStack itemStack)
+    private void 아이템삭제(int id)
     {
-        stacks[itemStack.Origin.key].Remove(itemStack);
+        ItemStack itemStack = ID2stack[id];
+
+        ID2stack.Remove(id);
+        foodType2IDs[itemStack.Origin.key].Remove(id);
+        if (foodType2IDs[itemStack.Origin.key].Count == 0) foodType2IDs.Remove(itemStack.Origin.key);
     }
 
-    public class ItemStack // 풀로 관리하기
+    public void TriggerOnChange(int id)
     {
-        public Data_Foods Origin { get; set; }
-        public int Count { get; private set; }
+        OnChanged?.Invoke(id);
+    }
+}
 
-        public ItemStack(Data_Foods data_Foods, int amount)
+public class ItemStack // 풀로 관리하기
+{
+    public Data_Foods Origin { get; set; }
+    public int Count { get; private set; }
+    public int ID { get; private set; }
+
+    public Action<int> OnZero;
+    public Action<int> OnChanged;
+
+    public ItemStack(Data_Foods data_Foods, int amount, int id, Action<int> recoverID, Action<int> removeFromModel, Action<int> change)
+    {
+        Origin = data_Foods;
+        Count = amount;
+        ID = id;
+        OnZero = removeFromModel;
+        OnZero += recoverID;
+        OnChanged = change;
+    }
+
+    public int Add(int amount, int maxCount)
+    {
+        int space = maxCount - Count;
+        int toAdd = Mathf.Min(space, amount);
+        Count += toAdd;
+        TriggerOnChange();
+        return amount - toAdd; // 남은 갯수.
+    }
+
+    public int Subtract(int amount)
+    {
+        int toSubtract = Mathf.Min(amount, Count);
+        Count -= toSubtract;
+        TriggerOnChange();
+        if (Count == 0) TriggerOnDestroy();
+        return amount - toSubtract;
+    }
+
+    public int GetSpace(int maxCount)
+    {
+        return maxCount - Count;
+    }
+
+    public void TriggerOnDestroy()
+    {
+        OnZero?.Invoke(ID);
+    }
+
+    public void TriggerOnChange()
+    {
+        OnChanged?.Invoke(ID);
+    }
+}
+
+public class ItemStackManager : MonoSingleton<ItemStackManager>
+{
+    public Stack<int> IDs { get; private set; } = new();
+
+    private int idRangeMin = 1100000;
+    private int idRangeMax = 1200000;
+
+    public override void Init()
+    {
+        if (_isInitialized) return;
+        base.Init();
+
+        for (int i = idRangeMin; i < idRangeMax; i++)
         {
-            Origin = data_Foods;
-            Count = amount;
+            IDs.Push(i);
         }
+    }
 
-        public int Add(int amount, int maxCount)
-        {
-            int space = maxCount - Count;
-            int toAdd = Mathf.Min(space, amount);
-            Count += toAdd;
-            return amount - toAdd; // 남은 갯수.
-        }
+    public ItemStack InstantiateItem(Data_Foods data_Foods, int amount, Action<int> removeFromModel, Action<int> onChangeCount)
+    {
+        ItemStack item = new(data_Foods, amount, IDs.Pop(), ReCoverID, removeFromModel, onChangeCount);
+        return item;
+    }
 
-        public int Subtract(int amount)
-        {
-            int toSubtract = Mathf.Min(amount, Count);
-            Count -= toSubtract;
-            return amount - toSubtract;
-        }
-
-        public int GetSpace(int maxCount)
-        {
-            return maxCount - Count;
-        }
-
-
+    public void ReCoverID(int id)
+    {
+        IDs.Push(id);
     }
 }

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,10 +12,11 @@ public abstract class InventoryController : MonoBehaviour
     [SerializeField] int slotMaxCount;
     [SerializeField] int perStackMaxCount;
 
+
     public virtual void Init() // 모델, 뷰 생성.
     {
         this.model = new InventoryModel();
-        model.Init(slotMaxCount, perStackMaxCount);
+        model.Init(slotMaxCount, perStackMaxCount, 특정아이템정보변경);
         DontDestroyOnLoad(gameObject);
         On씬이동();
     }
@@ -24,14 +26,22 @@ public abstract class InventoryController : MonoBehaviour
         views = FindObjectsOfType<InventoryView>().ToList();
     }
 
-    public virtual void 아이템획득(Data_Foods data_Foods, int amount)
+    public virtual bool 아이템획득(Data_Foods data_Foods, int amount)
     {
-        model.아이템검사후추가(data_Foods, amount);
+        if (!model.아이템검사후추가(data_Foods, amount))
+        {
+            return false;
+        }
+        return true;
     }
 
-    public virtual void 아이템잃음(Data_Foods data_Foods, int amount)
+    public virtual bool 아이템잃음(Data_Foods data_Foods, int amount)
     {
-        model.아이템감소(data_Foods, amount);
+        if (!model.아이템감소(data_Foods, amount))
+        {
+            return false;
+        }
+        return true;
     }
 
     public void 아이템정렬_합치기()
@@ -39,8 +49,16 @@ public abstract class InventoryController : MonoBehaviour
         model.아이템정렬_합치기();
     }
 
-    public virtual void 아이템띄우기()
+    public Dictionary<int, ItemStack> 모델정보반환()
     {
-        model.
+        return model.ID2stack;
+    }
+
+    public void 특정아이템정보변경(int id)
+    {
+        foreach(var view in views)
+        {
+            view.특정아이템정보갱신(id);
+        }
     }
 }
