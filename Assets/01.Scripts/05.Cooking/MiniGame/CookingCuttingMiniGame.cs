@@ -7,7 +7,6 @@ using UnityEngine.UI;
 /// <summary>
 /// 도마게임 로직 구현부
 /// : 타이밍 퍼즐 (리듬 입력형)
-/// ** 구현하다 중단되었습니다!!
 /// </summary>
 public class CookingCuttingMiniGame : CookingMiniGameBase
 {
