@@ -60,7 +60,7 @@ public class CaptureManager : MonoSingleton<CaptureManager>
 
             case AnimalSizeType.Medium:
                 // 돌로 데미지 입힌 후, 조건 만족 시 포획 가능
-                captureButton.gameObject.SetActive(animalInRange.IsHurt && animalInRange.BaitEffectApplied);
+                captureButton.gameObject.SetActive(animalInRange.IsStunned && animalInRange.BaitEffectApplied);
                 escapeButton.gameObject.SetActive(false);
                 break;
 

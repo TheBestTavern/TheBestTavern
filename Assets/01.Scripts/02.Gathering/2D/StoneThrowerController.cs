@@ -51,7 +51,6 @@ public class StoneThrowerController : MonoBehaviour
             }
 
             ShowTrajectory(currentPower);
-
             UpdatePowerUI(currentPower);
         }
 

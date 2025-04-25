@@ -33,6 +33,8 @@ public class Animal : MonoBehaviour
     private float stunDuration = 3f;
     private Coroutine stunCoroutine;
 
+    private bool hasReactedToBait = false;
+
     private bool isFleeing = false;
 
     public void ReactToBait(string baitType, Vector3 baitPosition)
