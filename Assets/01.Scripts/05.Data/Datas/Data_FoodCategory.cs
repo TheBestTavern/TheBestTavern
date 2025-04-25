@@ -1,54 +1,58 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using UnityEngine;
 
 [Serializable]
-public class Data_Gathering
+public class Data_FoodCategory
 {
     /// <summary>
-    /// 고유번호
+    /// 음식군
     /// </summary>
     public int key;
 
     /// <summary>
-    /// 지역
+    /// 전설음식명
     /// </summary>
-    public DesignEnums.RegionType condition_region;
+    public string goodFoodName;
 
     /// <summary>
-    /// 생태
+    /// 평범음식명
     /// </summary>
-    public DesignEnums.BiomeType condition_biome;
+    public string sosoFoodName;
 
     /// <summary>
-    /// 계절
+    /// 망가진음식명
     /// </summary>
-    public DesignEnums.SeasonType condition_season;
+    public string badFoodName;
 
     /// <summary>
-    /// 확률
+    /// 전설음식id
     /// </summary>
-    public DesignEnums.ChanceType condition_chance;
+    public int goodFoodID;
 
     /// <summary>
-    /// 얻을수있는아이템ID
+    /// 평범음식id
     /// </summary>
-    public List<int> availableFood;
+    public int sosoFoodID;
+
+    /// <summary>
+    /// 망가진음식id
+    /// </summary>
+    public int badFoodID;
 
 }
-public class Data_GatheringLoader
+public class Data_FoodCategoryLoader
 {
-    public List<Data_Gathering> ItemsList { get; private set; }
-    public Dictionary<int, Data_Gathering> ItemsDict { get; private set; }
+    public List<Data_FoodCategory> ItemsList { get; private set; }
+    public Dictionary<int, Data_FoodCategory> ItemsDict { get; private set; }
 
-    public Data_GatheringLoader(string path = "JSON/Data_Gathering")
+    public Data_FoodCategoryLoader(string path = "JSON/Data_FoodCategory")
     {
         string jsonData;
         jsonData = Resources.Load<TextAsset>(path).text;
         ItemsList = JsonUtility.FromJson<Wrapper>(jsonData).Items;
-        ItemsDict = new Dictionary<int, Data_Gathering>();
+        ItemsDict = new Dictionary<int, Data_FoodCategory>();
         foreach (var item in ItemsList)
         {
             ItemsDict.Add(item.key, item);
@@ -58,10 +62,10 @@ public class Data_GatheringLoader
     [Serializable]
     private class Wrapper
     {
-        public List<Data_Gathering> Items;
+        public List<Data_FoodCategory> Items;
     }
 
-    public Data_Gathering GetByKey(int key)
+    public Data_FoodCategory GetByKey(int key)
     {
         if (ItemsDict.ContainsKey(key))
         {
@@ -69,7 +73,7 @@ public class Data_GatheringLoader
         }
         return null;
     }
-    public Data_Gathering GetByIndex(int index)
+    public Data_FoodCategory GetByIndex(int index)
     {
         if (index >= 0 && index < ItemsList.Count)
         {

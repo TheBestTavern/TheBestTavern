@@ -22,9 +22,9 @@ public class MailBoxPopUp : BasePopUp
     [SerializeField] List<MailBoxContentBase> mailBoxContentsList;
     public Dictionary<MailBoxContentType, MailBoxContentBase> contentsDic = new();
 
-    public override void Init()
+    public override void Init(int id, IPopupManager manager)
     {
-        base.Init();
+        base.Init(id, manager);
         popUpType = PopUpType.MailBox;
 
         for(int i  = 0; i < mailBoxContentsList.Count; i++)

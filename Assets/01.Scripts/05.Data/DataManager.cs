@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEditorInternal.Profiling.Memory.Experimental;
 using UnityEngine;
 
@@ -41,8 +42,14 @@ public static class Data // 간단 key 검색 클래스
             return null;
         }
     }
-    //public void GetCookingSteps()
-    //public void GetReciepes()
+
+    public static List<Data_Gathering> GetByRegionSeasonBiome(DesignEnums.RegionType region, DesignEnums.SeasonType season, DesignEnums.BiomeType biome)
+    {
+        return DataManager.Instance.DataLoader_Gathering.ItemsList.Where(item =>
+        item.condition_region == region &&
+        item.condition_season == season &&
+        item.condition_biome == biome).ToList();
+    }
 }
 
 /// <summary>

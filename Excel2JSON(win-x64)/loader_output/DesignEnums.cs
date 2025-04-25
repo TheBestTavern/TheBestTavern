@@ -2,13 +2,13 @@ using System;
 
 public static class DesignEnums
 {
-    public enum Grade
+    public enum GradeType
     {
         common = 0,
         rare = 1,
         legendary = 2,
     }
-    public enum Region
+    public enum RegionType
     {
         gangwon = 0,
         hwanghae = 1,
@@ -24,38 +24,38 @@ public static class DesignEnums
         southPyongan = 11,
         northPyongan = 12,
     }
-    public enum Biome
+    public enum BiomeType
     {
         forest = 0,
         sea = 1,
     }
-    public enum Foreign
+    public enum ForeignType
     {
         japan = 0,
         china = 1,
         none = 2,
     }
-    public enum Season
+    public enum SeasonType
     {
         spring = 0,
         summer = 1,
         fall = 2,
         winter = 3,
     }
-    public enum Chance
+    public enum ChanceType
     {
         veryLow = 0,
         low = 1,
         medium = 2,
         high = 3,
     }
-    public enum Route
+    public enum RouteType
     {
         gather = 0,
         NPC = 1,
         cook = 2,
     }
-    public enum CookingTool
+    public enum CookingToolType
     {
         doma = 0,
         julgu = 1,
@@ -64,5 +64,10 @@ public static class DesignEnums
         sotdduggung = 4,
         mixingbowl = 5,
         dish = 6,
+    }
+    public enum ItemType
+    {
+        ingredient = 0,
+        dish = 1,
     }
 }

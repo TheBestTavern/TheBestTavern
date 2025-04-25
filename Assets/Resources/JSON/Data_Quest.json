@@ -8,7 +8,19 @@
       "dishProperty": "따뜻한 국물",
       "description": "보양식 등급 이상 요리 제출",
       "conditionNPC": 0,
-      "conditionFavorability": 0
+      "conditionFavorability": 0,
+      "letterOffer": "며칠째 아이가 기운 없이 누워만 있습니다.\n약도 써보고 탕도 끓여봤지만, 아이의 얼굴은 좀처럼 밝아지질 않네요.\n예전 어머님께서 정성껏 끓여주시던 따뜻한 국물… 그 속 깊은 맛이 아이의 속을 달래주곤 했는데요.\n혹시 정성과 영양이 가득 담긴 보양식 하나 부탁드릴 수 있을까요?",
+      "letterSuccess": "900001 성공편지 내용",
+      "letterFail": "900001 실패편지 내용",
+      "goodFood": [
+        101015
+      ],
+      "sosoFood": [
+        101015
+      ],
+      "notBadFood": [
+        101015
+      ]
     },
     {
       "key": 900002,
@@ -18,7 +30,19 @@
       "dishProperty": "귀한 재료",
       "description": "희귀 등급 이상 요리 제출",
       "conditionNPC": 800001,
-      "conditionFavorability": 60
+      "conditionFavorability": 60,
+      "letterOffer": "요즘 들어 입맛이 까다로워져서 말이야.\n보통 음식으로는 도무지 만족을 못 하겠더군.\n남들이 귀하다 하는 재료 몇 가지쯤은 들어가야지, 그래야 이 놀부님이 관심을 가지지 않겠어?\n맛도 향도 격이 다른 요리, 한 번 기대해보겠네.",
+      "letterSuccess": "900002 성공편지 내용",
+      "letterFail": "900002 실패편지 내용",
+      "goodFood": [
+        101015
+      ],
+      "sosoFood": [
+        101015
+      ],
+      "notBadFood": [
+        101015
+      ]
     },
     {
       "key": 900003,
@@ -28,7 +52,19 @@
       "dishProperty": "진한 국물 요리",
       "description": "국물 요리 제출",
       "conditionNPC": 0,
-      "conditionFavorability": 0
+      "conditionFavorability": 0,
+      "letterOffer": "마음이 조금 지쳐있어요. 요즘 들어 부쩍 몸도 무겁고, 이유 없이 눈물이 날 때가 많네요.\n이럴 땐 어릴 적 어머니께서 끓여주시던 진한 국물이 생각나곤 해요.\n국물이 속으로 스며들듯 마음까지 따뜻해졌었죠.\n혹시, 그 시절의 온기를 담은 요리를 만들어주실 수 있으신가요?",
+      "letterSuccess": "900003 성공편지 내용",
+      "letterFail": "900003 실패편지 내용",
+      "goodFood": [
+        101015
+      ],
+      "sosoFood": [
+        101015
+      ],
+      "notBadFood": [
+        101015
+      ]
     },
     {
       "key": 900004,
@@ -38,7 +74,19 @@
       "dishProperty": "복잡한 조리",
       "description": "3재료 이상 조합 요리",
       "conditionNPC": 800002,
-      "conditionFavorability": 70
+      "conditionFavorability": 70,
+      "letterOffer": "뿡",
+      "letterSuccess": "900004 성공편지 내용",
+      "letterFail": "900004 실패편지 내용",
+      "goodFood": [
+        101015
+      ],
+      "sosoFood": [
+        101015
+      ],
+      "notBadFood": [
+        101015
+      ]
     },
     {
       "key": 900005,
@@ -48,7 +96,19 @@
       "dishProperty": "달콤한 디저트",
       "description": "디저트류 요리 제출",
       "conditionNPC": 0,
-      "conditionFavorability": 0
+      "conditionFavorability": 0,
+      "letterOffer": "하늘을 나는 꿈을 꿨어요.\n구름 위를 걷는 듯한 가벼움과, 은은하게 퍼지는 달콤함…\n현실에서는 도무지 맛볼 수 없는, 그런 몽롱한 느낌이었죠.\n혹시 하늘을 담은 듯한 디저트가 있다면, 그 기억을 다시 떠올릴 수 있을 것 같아요.",
+      "letterSuccess": "900005 성공편지 내용",
+      "letterFail": "900005 실패편지 내용",
+      "goodFood": [
+        101015
+      ],
+      "sosoFood": [
+        101015
+      ],
+      "notBadFood": [
+        101015
+      ]
     },
     {
       "key": 900006,
@@ -58,7 +118,19 @@
       "dishProperty": "육류 ",
       "description": "육류 포함 요리",
       "conditionNPC": 800005,
-      "conditionFavorability": 60
+      "conditionFavorability": 60,
+      "letterOffer": "뿡뿡",
+      "letterSuccess": "900006 성공편지 내용",
+      "letterFail": "900006 실패편지 내용",
+      "goodFood": [
+        101015
+      ],
+      "sosoFood": [
+        101015
+      ],
+      "notBadFood": [
+        101015
+      ]
     },
     {
       "key": 900007,
@@ -68,7 +140,19 @@
       "dishProperty": "향신료 조합",
       "description": "특수 향신료 사용 요리",
       "conditionNPC": 800005,
-      "conditionFavorability": 70
+      "conditionFavorability": 70,
+      "letterOffer": "뿡뿡뿡",
+      "letterSuccess": "900007 성공편지 내용",
+      "letterFail": "900007 실패편지 내용",
+      "goodFood": [
+        101015
+      ],
+      "sosoFood": [
+        101015
+      ],
+      "notBadFood": [
+        101015
+      ]
     },
     {
       "key": 900008,
@@ -78,7 +162,19 @@
       "dishProperty": "채소 요리",
       "description": "채소만 사용된 요리",
       "conditionNPC": 800007,
-      "conditionFavorability": 70
+      "conditionFavorability": 70,
+      "letterOffer": "난 느릿느릿한 건 못 참아! 먹고 바로 뛰어야 해!\n그래서 속을 무겁게 하는 음식은 딱 질색이야.\n신선한 채소, 아삭하고 가벼운 그런 식사가 필요해.\n어때? 내 스피드를 따라올 수 있는 요리, 가능하지?",
+      "letterSuccess": "900008 성공편지 내용",
+      "letterFail": "900008 실패편지 내용",
+      "goodFood": [
+        101015
+      ],
+      "sosoFood": [
+        101015
+      ],
+      "notBadFood": [
+        101015
+      ]
     },
     {
       "key": 900009,
@@ -88,7 +184,19 @@
       "dishProperty": "숙성 국물",
       "description": "가마솥 조리 방식 요리",
       "conditionNPC": 800008,
-      "conditionFavorability": 60
+      "conditionFavorability": 60,
+      "letterOffer": "뿡뿡뿡뿡",
+      "letterSuccess": "900009 성공편지 내용",
+      "letterFail": "900009 실패편지 내용",
+      "goodFood": [
+        101015
+      ],
+      "sosoFood": [
+        101015
+      ],
+      "notBadFood": [
+        101015
+      ]
     },
     {
       "key": 900010,
@@ -98,7 +206,19 @@
       "dishProperty": "전통 요리",
       "description": "전통 종류의 요리",
       "conditionNPC": 800010,
-      "conditionFavorability": 60
+      "conditionFavorability": 60,
+      "letterOffer": "요즘은 새로운 것들만 넘쳐나는 세상이지만,\n문득 아주 오래전, 조선의 식탁이 그리워졌어요.\n간결하지만 깊고, 절제된 향 속에 담긴 정성… 그런 정통 조선의 맛.\n혹시 그 시절의 정신이 담긴 요리를 만들어주실 수 있을까요?",
+      "letterSuccess": "900010 성공편지 내용",
+      "letterFail": "900010 실패편지 내용",
+      "goodFood": [
+        101015
+      ],
+      "sosoFood": [
+        101015
+      ],
+      "notBadFood": [
+        101015
+      ]
     }
   ]
 }

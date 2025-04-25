@@ -46,6 +46,36 @@ public class Data_Quest
     /// </summary>
     public float conditionFavorability;
 
+    /// <summary>
+    /// 의뢰편지 내용
+    /// </summary>
+    public string letterOffer;
+
+    /// <summary>
+    /// 성공편지
+    /// </summary>
+    public string letterSuccess;
+
+    /// <summary>
+    /// 실패편지
+    /// </summary>
+    public string letterFail;
+
+    /// <summary>
+    /// 만족도 대 요리
+    /// </summary>
+    public List<int> goodFood;
+
+    /// <summary>
+    /// 만족도 중 요리
+    /// </summary>
+    public List<int> sosoFood;
+
+    /// <summary>
+    /// 만족도 하 요리
+    /// </summary>
+    public List<int> notBadFood;
+
 }
 public class Data_QuestLoader
 {
