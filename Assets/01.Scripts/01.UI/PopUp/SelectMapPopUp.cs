@@ -22,7 +22,7 @@ public class SelectMapPopUp : BasePopUp
     [SerializeField] private Button seaButton;
     [SerializeField] private Button forestButton;
 
-    DesignEnums.Region region;
+    DesignEnums.RegionType region;
 
     public override void Awake()
     {
@@ -50,7 +50,7 @@ public class SelectMapPopUp : BasePopUp
     void OnClickSelectRegionButton(string regionName)
     {
         selectForestOcean.SetActive(true);
-        region = (DesignEnums.Region)Enum.Parse(typeof(DesignEnums.Region), regionName);
+        region = (DesignEnums.RegionType)Enum.Parse(typeof(DesignEnums.RegionType), regionName);
         Debug.Log(region.ToString());
     }
 
@@ -90,7 +90,7 @@ public class SelectMapPopUp : BasePopUp
     {
         // 채집 씬으로 이동 
         SceneParameter.Set("Region", region);
-        SceneParameter.Set("Season", DesignEnums.Season.winter);
+        SceneParameter.Set("Season", DesignEnums.SeasonType.winter);
         await SceneLoader.Instance.LoadSceneAsync("GatheringSceneDev1");
     }
 

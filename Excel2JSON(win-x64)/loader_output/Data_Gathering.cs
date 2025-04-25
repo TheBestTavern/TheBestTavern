@@ -14,22 +14,22 @@ public class Data_Gathering
     /// <summary>
     /// 지역
     /// </summary>
-    public DesignEnums.Region condition_region;
+    public DesignEnums.RegionType condition_region;
 
     /// <summary>
     /// 생태
     /// </summary>
-    public DesignEnums.Biome condition_biome;
+    public DesignEnums.BiomeType condition_biome;
 
     /// <summary>
     /// 계절
     /// </summary>
-    public DesignEnums.Season condition_season;
+    public DesignEnums.SeasonType condition_season;
 
     /// <summary>
     /// 확률
     /// </summary>
-    public DesignEnums.Chance condition_chance;
+    public DesignEnums.ChanceType condition_chance;
 
     /// <summary>
     /// 얻을수있는아이템ID

@@ -6,10 +6,31 @@ using static DesignEnums;
 
 public class ForestGatheringManager : MonoSingleton<ForestGatheringManager>
 {
-    DesignEnums.Region region;
-    DesignEnums.Season season;
+    [SerializeField] private Color gizmoColor = new Color(1, 0, 0, .3f);
+    [SerializeField] List<Rect> spawnAreas;
+
+    [SerializeField] LayerMask gatheringPropsLayerMask;
+
+    [SerializeField] GameObject[] trees;
+    [SerializeField] Transform treeParent;
+
+    [SerializeField] GameObject[] rocks;
+    [SerializeField] Transform rockParent;
+
+    [SerializeField] GameObject[] bushs;
+    [SerializeField] Transform bushParent;
+
+    [SerializeField] GameObject[] exProps;
+    [SerializeField] Transform exPropsParent;
+
+    [SerializeField] GameObject[] fields;
+    [SerializeField] Transform fieldParent;
+
+    DesignEnums.RegionType region;
+    DesignEnums.SeasonType season;
+
     public List<Data_Gathering> data_Gatherings;
-    Dictionary<DesignEnums.Chance, List<int>> itemDict;
+    Dictionary<DesignEnums.ChanceType, List<int>> itemDict;
 
     float correction;
     float highGroupProb;
@@ -25,14 +46,14 @@ public class ForestGatheringManager : MonoSingleton<ForestGatheringManager>
     {
         mapController.CreateMapProps();
         SetItem();
-        GetGatheringInventoryHistory();
     }
 
     public void SetItem()
     {
-        region = SceneParameter.Get<DesignEnums.Region>("Region");
-        season = SceneParameter.Get<DesignEnums.Season>("Season");
-        data_Gatherings = DataManager.Instance.DataLoader_Gathering.GetByRegionSeason(region, season, DesignEnums.Biome.forest);
+        region = SceneParameter.Get<DesignEnums.RegionType>("Region");
+        season = SceneParameter.Get<DesignEnums.SeasonType>("Season");
+        data_Gatherings = Data.GetByRegionSeasonBiome(region, season, DesignEnums.BiomeType.forest);
+
         itemDict = new();
 
         // JSON 툴로 들여온 데이터 클래스를 활용
@@ -42,11 +63,11 @@ public class ForestGatheringManager : MonoSingleton<ForestGatheringManager>
         }
 
         // 보정값 계산 및 확률군 별 확률 구하기
-        correction = 1 / (0.1f * itemDict[Chance.veryLow].Count + 0.2f * itemDict[Chance.low].Count + 0.3f * itemDict[Chance.medium].Count + 0.4f * itemDict[Chance.high].Count);
-        highGroupProb = 40 * correction * itemDict[Chance.high].Count;
-        mediumGroupProb = 30 * correction * itemDict[Chance.medium].Count;
-        lowGroupProb = 20 * correction * itemDict[Chance.low].Count;
-        veryLowGroupProb = 10 * correction * itemDict[Chance.veryLow].Count;
+        correction = 1 / (0.1f * itemDict[ChanceType.veryLow].Count + 0.2f * itemDict[ChanceType.low].Count + 0.3f * itemDict[ChanceType.medium].Count + 0.4f * itemDict[ChanceType.high].Count);
+        highGroupProb = 40 * correction * itemDict[ChanceType.high].Count;
+        mediumGroupProb = 30 * correction * itemDict[ChanceType.medium].Count;
+        lowGroupProb = 20 * correction * itemDict[ChanceType.low].Count;
+        veryLowGroupProb = 10 * correction * itemDict[ChanceType.veryLow].Count;
     }
 
     public async void OnMiniGame()
@@ -63,48 +84,26 @@ public class ForestGatheringManager : MonoSingleton<ForestGatheringManager>
 
         if (rand < highGroupProb)
         {
-            List<int> temp = itemDict[Chance.high];
+            List<int> temp = itemDict[ChanceType.high];
             randItemID = temp[Random.Range(0, temp.Count)];
         }
         else if (rand < highGroupProb + mediumGroupProb)
         {
-            List<int> temp = itemDict[Chance.medium];
+            List<int> temp = itemDict[ChanceType.medium];
             randItemID = temp[Random.Range(0, temp.Count)];
         }
         else if (rand < highGroupProb + mediumGroupProb + lowGroupProb)
         {
-            List<int> temp = itemDict[Chance.low];
+            List<int> temp = itemDict[ChanceType.low];
             randItemID = temp[Random.Range(0, temp.Count)];
         }
         else // 합이 100이 되도록.
         {
-            List<int> temp = itemDict[Chance.veryLow];
+            List<int> temp = itemDict[ChanceType.veryLow];
             randItemID = temp[Random.Range(0, temp.Count)];
         }
 
         return randItemID;
-    }
-
-    public async void MoveMainScene()
-    {
-        await UIManager.Instance.ShowPopUp(PopUpType.Confirm);
-        UIManager.Instance.confirmPopUp.SetConfirm("더 이상 물건을 담을 수 없어 집으로 이동합니다.", ConfirmFunc);
-    }
-
-    private async void ConfirmFunc()
-    {
-        SceneParameter.Set("GatheringInventory", gatheringInventoryUI.GetSlot());
-        await SceneLoader.Instance.LoadSceneAsync("GatheringSceneDev1");
-    }
-
-    private void GetGatheringInventoryHistory()
-    {
-        GatheringInventorySlot[] slots = SceneParameter.Get<GatheringInventorySlot[]>("GatheringInventory");
-
-        if (slots != null)
-        {
-            gatheringInventoryUI.SetSlotsHistory(slots);
-        }
     }
 }
 

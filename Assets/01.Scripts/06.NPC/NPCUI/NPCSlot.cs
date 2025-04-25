@@ -14,19 +14,19 @@ public class NPCSlot : MonoBehaviour
     [SerializeField] Button btn;
     [SerializeField] TextMeshProUGUI TmpMessage;
 
-    public void Init(int index)
+    public void Init(int index, NPCArea npcArea)
     {
         this.index = index;
+        this.npcArea = npcArea;
         btn.onClick.AddListener(OnClickBtn);
         transform.gameObject.SetActive(false);
         messagePivot.gameObject.SetActive(false);
     }
 
-    public void SetSlot(int questID, NPCArea npcArea)
+    public void SetSlot(int questID)
     {
         this.quest = Data.GetQuest(questID);
         image.sprite = Resources.Load<Sprite>("NPC/" + NPCManager.Instance.AllNPC[quest.origin.givingNPC].origin.name);
-        this.npcArea = npcArea;
     }
 
     private void OnClickBtn()

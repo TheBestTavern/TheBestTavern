@@ -19,7 +19,7 @@ public class Data_CookingSteps
     /// <summary>
     /// 도구명 (VACHAR 20)
     /// </summary>
-    public DesignEnums.CookingTool tool;
+    public DesignEnums.CookingToolType tool;
 
 }
 public class Data_CookingStepsLoader
