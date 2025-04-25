@@ -19,7 +19,15 @@ public enum PopUpType
     CookingResult
 }
 
-public class UIManager : MonoSingleton<UIManager>
+public interface IPopupManager
+{
+    public void PopupOpen(int id);
+    public void PopupClose(int id);
+    public void RecoverID(int id);
+    public int GetNextSortingOrder();
+}
+
+public class UIManager : MonoSingleton<UIManager>, IPopupManager
 {
     // 이미 불러왔던 팝업 목록 - 이미 불러왔다면 다시 안불러올 수 있도록 사용하는 용도 
     private Dictionary<PopUpType, BasePopUp> popUps = new Dictionary<PopUpType, BasePopUp>();
@@ -28,10 +36,25 @@ public class UIManager : MonoSingleton<UIManager>
     public ConfirmPopUp confirmPopUp;
 
     public AlarmPopUp alarmPopUp;
-    
+
+    int sortingOrderIndex;
+    public Stack<int> PopupIDs = new();
+    public List<int> UsingPopups = new();
+
+
+
     public override void Init()
     {
         base.Init();
+        GetReadyIDs(PopupIDs, 1000, 9999);
+    }
+
+    void GetReadyIDs(Stack<int> IDs, int from, int to)
+    {
+        while (to >= from)
+        {
+            IDs.Push(to--);
+        }
     }
 
     // 팝업 보여주기 함수 
@@ -41,15 +64,15 @@ public class UIManager : MonoSingleton<UIManager>
         if (!popUps.TryGetValue(popUpType, out BasePopUp basePopUp))
         {
             // Addressables로 해당 팝업 프리펩 불러오기 
-            GameObject popUpGameObject = 
+            GameObject popUpGameObject =
                 await AddressablesLoader.Instance.AddressablesLoadAsync($"{popUpType.ToString()}PopUpPrefab.prefab");
-            
+
             // 불러온 팝업 인스턴스화
             popUpGameObject = Instantiate(popUpGameObject);
 
             // BasePopUp 클래스 불러오기 - 
             basePopUp = popUpGameObject.GetComponentInChildren<BasePopUp>();
-            basePopUp.Init();
+            basePopUp.Init(PopupIDs.Pop(), this);
 
             // 한번 불러온 팝업 딕셔너리에 넣어주기
             popUps.Add(popUpType, basePopUp);
@@ -70,5 +93,29 @@ public class UIManager : MonoSingleton<UIManager>
         basePopUp.OnOpen();
 
         return basePopUp;
+    }
+
+    public void PopupOpen(int id)
+    {
+        UsingPopups.Add(id);
+    }
+
+    public void PopupClose(int id)
+    {
+        UsingPopups.Remove(id);
+        if (UsingPopups.Count == 0)
+        {
+            sortingOrderIndex = 0;
+        }
+    }
+
+    public void RecoverID(int id)
+    {
+        PopupIDs.Push(id);
+    }
+
+    public int GetNextSortingOrder()
+    {
+        return sortingOrderIndex++;
     }
 }

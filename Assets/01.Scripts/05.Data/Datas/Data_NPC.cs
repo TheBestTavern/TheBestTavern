@@ -46,6 +46,11 @@ public class Data_NPC
     /// </summary>
     public List<int> givingQuest;
 
+    /// <summary>
+    /// 물건 받을 시 멘트
+    /// </summary>
+    public string thanksMent;
+
 }
 public class Data_NPCLoader
 {

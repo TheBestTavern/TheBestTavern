@@ -58,5 +58,8 @@ public class GatheringProps : MonoBehaviour
         Debug.Log($"{gameObject.name} 클릭");
         int itemId = ForestGatheringManager.Instance.GetRandomItemID();
         Debug.Log(itemId);
+
+        var item = DataManager.Instance.DataLoader_Foods.GetByKey(itemId);
+        ForestGatheringManager.Instance.gatheringInventoryUI.SetSlot(item);
     }
 }

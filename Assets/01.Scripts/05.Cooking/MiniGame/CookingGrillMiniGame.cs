@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -34,6 +35,12 @@ public class CookingGrillMiniGame : CookingMiniGameBase
    
 
     private Coroutine coroutine;
+
+
+    protected override float GetTimer()
+    {
+        return data.GrillTimer;
+    }
 
     private IEnumerator ShowAllCard()
     {
@@ -85,8 +92,8 @@ public class CookingGrillMiniGame : CookingMiniGameBase
         if (firstCard.idx == secondCard.idx)
         {
             // 매치
-
             matchCount++; // 맞춘 횟수 +1
+            effectController.CookingGrillEffect(matchCount);
 
             // 1. 고정, 선택 불가
             firstCard.clickedCard.interactable = false;
@@ -154,11 +161,7 @@ public class CookingGrillMiniGame : CookingMiniGameBase
 
        Debug.Log("실패");
        return GrillResultGrade.failed;
-
-       // UI 팝업 필요
     }
-
-
 
     protected override void UpdateGamePlay()
     {
@@ -183,7 +186,7 @@ public class CookingGrillMiniGame : CookingMiniGameBase
         // 카드 배열 4x4 세팅
 
         int[] arr = { 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8 };
-        arr = arr.OrderBy(x => Random.value).ToArray();
+        arr = arr.OrderBy(x => UnityEngine.Random.value).ToArray();
 
         for (int i = 0; i < cards.Count; i++)
         {
@@ -203,14 +206,25 @@ public class CookingGrillMiniGame : CookingMiniGameBase
     {
         isFlipLocked = true;
 
-        JudgeGrade();
-
-        // 게임 종료 시 맞춘 쌍 수에 따라 요리 연출 분기
-
-        // 1. 성공 : 황금 연기 이펙트
-
-        // 2. 실패 : 타는 냄새 이펙트
+        var grade = JudgeGrade();
+        PlayEffect(grade);
     }
 
-
+    // 게임 종료 시 맞춘 쌍 수에 따라 요리 연출 분기
+    // 1. 성공 : 황금 연기 이펙트
+    // 2. 실패 : 타는 냄새 이펙트
+    private void PlayEffect(GrillResultGrade grade)
+    {
+        switch (grade)
+        {
+            case GrillResultGrade.legendary:
+            case GrillResultGrade.common:
+            case GrillResultGrade.rare:
+                effectController.PlayYellowSmoke();
+                break;
+            case GrillResultGrade.failed:
+                effectController.PlayBlackSmoke();
+                break;
+        }
+    }
 }

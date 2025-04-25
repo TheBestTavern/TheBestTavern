@@ -1,4 +1,5 @@
 
+using Cinemachine;
 using Cysharp.Threading.Tasks;
 using Cysharp.Threading.Tasks.Triggers;
 using UnityEngine;
@@ -9,7 +10,6 @@ public class CookingMiniGameManager : MonoSingleton<CookingMiniGameManager>
 {
     public MiniGameUI miniGameUI;
     public CookingSceneUI cookingSceneUI;
-    public GameObject mainCamera;
 
     private ICookingMiniGameHandler currentGame;
 
@@ -17,7 +17,7 @@ public class CookingMiniGameManager : MonoSingleton<CookingMiniGameManager>
     {
         await SceneLoader.Instance.LoadSceneAsyncMiniGame(miniGameSceneName);
         miniGameUI.ResetTimer();
-        SettingMiniGame(false);
+        SettingMiniGame(true);
     }
 
     public void GetCurrentMiniGame(ICookingMiniGameHandler game)
@@ -28,14 +28,12 @@ public class CookingMiniGameManager : MonoSingleton<CookingMiniGameManager>
 
     async public void CloseMiniGame()
     {
-         await SceneLoader.Instance.UnLoadSceneAsyncMiniGame();
-        SettingMiniGame(true);
+        await SceneLoader.Instance.UnLoadSceneAsyncMiniGame();
+        SettingMiniGame(false);
     }
 
     void SettingMiniGame(bool active)
     {
-        miniGameUI.gameObject.SetActive(!active);
-        cookingSceneUI.gameObject.SetActive(active);
-        mainCamera.SetActive(active);
+        miniGameUI.gameObject.SetActive(active);
     }
 }
