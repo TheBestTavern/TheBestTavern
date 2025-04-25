@@ -42,7 +42,7 @@ public class AnimalSpawnManager : MonoBehaviour
 
         if (animalToSpawn != null)
         {
-            Vector3 spawnPosition = Camera.main.ViewportToWorldPoint(new Vector3(2f, -1f, Camera.main.nearClipPlane + 5f));
+            Vector3 spawnPosition = Camera.main.ViewportToWorldPoint(new Vector3(1.5f, 1.5f, Camera.main.nearClipPlane + 5f));
             spawnPosition.z = 0; 
 
             Instantiate(animalToSpawn, spawnPosition, Quaternion.identity);
@@ -50,7 +50,7 @@ public class AnimalSpawnManager : MonoBehaviour
 
         if (ground != null)
         {
-            Vector3 offset = new Vector3(2f, -4f, 0f);
+            Vector3 offset = new Vector3(1.5f, 1.2f, 0f);
             Vector3 groundSpawn = Camera.main.transform.position + offset;
             groundSpawn.z = 0f;
             spawnPoint.position = groundSpawn;

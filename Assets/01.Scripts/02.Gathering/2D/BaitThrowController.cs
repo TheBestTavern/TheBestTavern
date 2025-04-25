@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BaitThrowController : MonoBehaviour
 {
@@ -8,21 +9,23 @@ public class BaitThrowController : MonoBehaviour
     public Transform throwPoint;
     public LineRenderer lineRenderer;
 
-    public float maxPower = 25f;
-    public float throwAngle = 60f;
+    [SerializeField] private float maxPower;
+    [SerializeField] private float throwAngle;
     public float previewLength = 0.2f;
     public int previewResolution = 30;
 
-    float holdTime;
-    float maxHoldTime = 2f;
+
+    float currentPower = 0f;
+    bool isIncreasing = true;
 
     int currentBaitIndex = -1; 
     bool isBaitReady = false; 
     bool readyNextFrame = false;
+    public Image powerUI;
 
     private void Start()
     {
-        Vector3 bottomLeft = Camera.main.ViewportToWorldPoint(new Vector3(-1.5f, -1f, Camera.main.nearClipPlane + 5f));
+        Vector3 bottomLeft = Camera.main.ViewportToWorldPoint(new Vector3(-0.9f, -0.9f, Camera.main.nearClipPlane + 5f));
         bottomLeft.z = 0f;
         throwPoint.position = bottomLeft;
     }
@@ -38,25 +41,39 @@ public class BaitThrowController : MonoBehaviour
 
         if (!isBaitReady) return;
 
-        if (Input.GetMouseButtonDown(0))
-        {
-            holdTime = 0f;
-        }
 
         if (Input.GetMouseButton(0))
         {
-            holdTime += Time.deltaTime;
-            holdTime = Mathf.Clamp(holdTime, 0f, maxHoldTime);
 
-            float power = (holdTime / maxHoldTime) * maxPower;
-            ShowTrajectory(power);
+            if (isIncreasing)
+            {
+                currentPower += Time.deltaTime * maxPower;
+                if (currentPower >= maxPower)
+                {
+                    currentPower = maxPower;
+                    isIncreasing = false;
+                }
+            }
+            else
+            {
+                currentPower -= Time.deltaTime * maxPower;
+                if (currentPower <= 0f)
+                {
+                    currentPower = 0f;
+                    isIncreasing = true;
+                }
+            }
+
+            ShowTrajectory(currentPower);
+            UpdatePowerUI(currentPower);
         }
 
         if (Input.GetMouseButtonUp(0))
         {
-            float power = (holdTime / maxHoldTime) * maxPower;
-            Throw(power);
+            Throw(currentPower);
             HidePreview();
+            currentPower = 0f;
+            UpdatePowerUI(currentPower); 
 
             isBaitReady = false;
             currentBaitIndex = -1;
@@ -112,5 +129,13 @@ public class BaitThrowController : MonoBehaviour
         currentBaitIndex = index;
         readyNextFrame = true;
         Debug.Log("미끼 장전 완료: " + index);
+    }
+
+    void UpdatePowerUI(float power)
+    {
+        if (powerUI != null)
+        {
+            powerUI.fillAmount = power / maxPower;
+        }
     }
 }

@@ -3,7 +3,7 @@ guid: 7e7c11856e9c48b41b160efc63d53c2b
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -20,11 +20,12 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
+    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
-  ignoreMasterTextureLimit: 0
+  ignoreMipmapLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -47,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 0
   alphaUsage: 1
@@ -63,6 +64,8 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -74,6 +77,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -86,6 +90,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -98,6 +103,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -110,6 +116,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
@@ -1029,52 +1036,51 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      grass to sand_38: 1059803377
-      grass to sand_27: 1340240795
-      grass to sand_20: -1259305693
-      grass to sand_3: 1852465930
+      grass to sand_0: 183304849
       grass to sand_1: -129565224
-      grass to sand_16: -535885943
-      grass to sand_32: -432026347
-      grass to sand_5: -762879930
-      grass to sand_14: 591301499
-      grass to sand_34: -32525005
-      grass to sand_7: -621068921
-      grass to sand_37: -1019155766
-      grass to sand_24: 130694089
-      grass to sand_13: 1360078707
-      grass to sand_12: -632053542
-      grass to sand_33: 739794451
-      grass to sand_36: -1474132848
-      grass to sand_21: 512590459
-      grass to sand_6: -1705194432
-      grass to sand_26: -882424473
-      grass to sand_23: 1324007426
       grass to sand_10: 1570732876
+      grass to sand_11: -1431102245
+      grass to sand_12: -632053542
+      grass to sand_13: 1360078707
+      grass to sand_14: 591301499
+      grass to sand_15: -287820704
+      grass to sand_16: -535885943
+      grass to sand_17: -822592184
       grass to sand_18: 1905706219
       grass to sand_19: -816456562
-      grass to sand_29: 545072860
-      grass to sand_30: -527902828
-      grass to sand_41: 1127388642
-      grass to sand_25: 1353842070
-      grass to sand_4: 553178481
-      grass to sand_9: -759815482
-      grass to sand_28: -1187860830
-      grass to sand_11: -1431102245
-      grass to sand_0: 183304849
-      grass to sand_40: 618798430
-      grass to sand_31: 1363964320
-      grass to sand_17: -822592184
-      grass to sand_35: 1308001699
-      grass to sand_15: -287820704
-      grass to sand_22: 259277803
-      grass to sand_39: 562685944
-      grass to sand_8: -1291771073
       grass to sand_2: -1982917427
+      grass to sand_20: -1259305693
+      grass to sand_21: 512590459
+      grass to sand_22: 259277803
+      grass to sand_23: 1324007426
+      grass to sand_24: 130694089
+      grass to sand_25: 1353842070
+      grass to sand_26: -882424473
+      grass to sand_27: 1340240795
+      grass to sand_28: -1187860830
+      grass to sand_29: 545072860
+      grass to sand_3: 1852465930
+      grass to sand_30: -527902828
+      grass to sand_31: 1363964320
+      grass to sand_32: -432026347
+      grass to sand_33: 739794451
+      grass to sand_34: -32525005
+      grass to sand_35: 1308001699
+      grass to sand_36: -1474132848
+      grass to sand_37: -1019155766
+      grass to sand_38: 1059803377
+      grass to sand_39: 562685944
+      grass to sand_4: 553178481
+      grass to sand_40: 618798430
+      grass to sand_41: 1127388642
       grass to sand_42: -319001351
-  spritePackingTag: 
+      grass to sand_5: -762879930
+      grass to sand_6: -1705194432
+      grass to sand_7: -621068921
+      grass to sand_8: -1291771073
+      grass to sand_9: -759815482
+  mipmapLimitGroupName: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 
