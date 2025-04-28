@@ -36,7 +36,6 @@ public class CookingGrillMiniGame : CookingMiniGameBase
 
     private Coroutine coroutine;
 
-    public Action OnMatch;
 
     protected override float GetTimer()
     {
@@ -93,9 +92,8 @@ public class CookingGrillMiniGame : CookingMiniGameBase
         if (firstCard.idx == secondCard.idx)
         {
             // 매치
-            OnMatch?.Invoke();
-
             matchCount++; // 맞춘 횟수 +1
+            effectController.CookingGrillEffect(matchCount);
 
             // 1. 고정, 선택 불가
             firstCard.clickedCard.interactable = false;
@@ -163,11 +161,7 @@ public class CookingGrillMiniGame : CookingMiniGameBase
 
        Debug.Log("실패");
        return GrillResultGrade.failed;
-
-       // UI 팝업 필요
     }
-
-
 
     protected override void UpdateGamePlay()
     {
@@ -212,14 +206,25 @@ public class CookingGrillMiniGame : CookingMiniGameBase
     {
         isFlipLocked = true;
 
-        JudgeGrade();
-
-        // 게임 종료 시 맞춘 쌍 수에 따라 요리 연출 분기
-
-        // 1. 성공 : 황금 연기 이펙트
-
-        // 2. 실패 : 타는 냄새 이펙트
+        var grade = JudgeGrade();
+        PlayEffect(grade);
     }
 
-
+    // 게임 종료 시 맞춘 쌍 수에 따라 요리 연출 분기
+    // 1. 성공 : 황금 연기 이펙트
+    // 2. 실패 : 타는 냄새 이펙트
+    private void PlayEffect(GrillResultGrade grade)
+    {
+        switch (grade)
+        {
+            case GrillResultGrade.legendary:
+            case GrillResultGrade.common:
+            case GrillResultGrade.rare:
+                effectController.PlayYellowSmoke();
+                break;
+            case GrillResultGrade.failed:
+                effectController.PlayBlackSmoke();
+                break;
+        }
+    }
 }

@@ -8,6 +8,7 @@ using UnityEngine;
 public abstract class CookingMiniGameBase : MonoBehaviour, ICookingMiniGameHandler
 {
     [SerializeField] protected CookingMiniGameSO data;
+    [SerializeField] protected CookingEffectController effectController;
 
     protected float timer;
 
@@ -46,7 +47,7 @@ public abstract class CookingMiniGameBase : MonoBehaviour, ICookingMiniGameHandl
             isGameOver = true;
             StopGame();
             UIManager.Instance.ShowPopUp(PopUpType.CookingResult);
-            Time.timeScale = 0f;
+            //Time.timeScale = 0f;
         }
 
         // FSM 상태 전환 실행 (구현시 이곳에서 실행)

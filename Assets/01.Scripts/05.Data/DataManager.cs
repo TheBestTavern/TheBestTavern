@@ -18,18 +18,24 @@ public static class Data // 간단 key 검색 클래스
             return null;
         }
     }
-    public static Item GetItems(int id)
+    //public static Item GetItem(int id)
+    //{
+    //    if (ItemManager.Instance.AllItems.TryGetValue(id, out Item item))
+    //    {
+    //        return item;
+    //    }
+    //    else
+    //    {
+    //        Debug.LogWarning("없는 아이템 id입니다");
+    //        return null;
+    //    }
+    //}
+
+    public static Data_Foods GetRawItem(int key)
     {
-        if (ItemManager.Instance.AllItems.TryGetValue(id, out Item item))
-        {
-            return item;
-        }
-        else
-        {
-            Debug.LogWarning("없는 아이템 id입니다");
-            return null;
-        }
+        return DataManager.Instance.DataLoader_Foods.GetByKey(key);
     }
+
     public static NPC GetNPC(int id)
     {
         if (NPCManager.Instance.AllNPC.TryGetValue(id, out NPC npc))
