@@ -623,7 +623,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 594324b24efe615419cada571eff9097, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  draggableObjectTrs: {fileID: 6607435259683682824}
+  draggable: 0
   closeButton: {fileID: 7532414593101267258}
+  canvas: {fileID: 0}
   popUpType: 9
   successText: {fileID: 6705211295722216043}
   failText: {fileID: 8002306758438322540}
