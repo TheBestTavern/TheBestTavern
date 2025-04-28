@@ -116,4 +116,9 @@ public class InventorySlot : MonoBehaviour, IDragHandler, IDropHandler, IPointer
         IsTargeting = false;
         image.color = Color.white;
     }
+
+    public ItemStack GetSlotItem()
+    {
+        return item;
+    }
 }
