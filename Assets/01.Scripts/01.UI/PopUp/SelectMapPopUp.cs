@@ -78,20 +78,20 @@ public class SelectMapPopUp : BasePopUp
         UIManager.Instance.confirmPopUp.SetConfirm("정말 이동하시겠습니까?", ConfirmMoveForestFunc);
     }
 
-    // 확인 팝업 함수 
+    // 바다 이동 확인 팝업 함수 
     async void ConfirmMoveSeaFunc()
     {       
         // 채집 씬으로 이동 
-        await SceneLoader.Instance.LoadSceneAsync("GatheringSceneDev1");
+        await SceneLoader.Instance.LoadSceneAsync("SeaGatheringSceneDev");
     }
 
-    // 확인 팝업 함수 
+    // 산 이동 확인 팝업 함수 
     async void ConfirmMoveForestFunc()
     {
         // 채집 씬으로 이동 
         SceneParameter.Set("Region", region);
         SceneParameter.Set("Season", DesignEnums.SeasonType.winter);
-        await SceneLoader.Instance.LoadSceneAsync("GatheringSceneDev");
+        await SceneLoader.Instance.LoadSceneAsync("ForestGatheringSceneDev");
     }
 
     // 팝업 열때 필요한 함수
