@@ -1,12 +1,12 @@
+using System.Collections;
 using System.Collections.Generic;
-using Cysharp.Threading.Tasks;
-using UnityEngine.InputSystem;
-using static UnityEngine.Rendering.DebugUI;
 
-public class BiDictionary<K, V>
+public class BiDictionary<K, V> : IEnumerable<KeyValuePair<K, V>>
 {
     Dictionary<K, V> forward = new();
     Dictionary<V, K> reverse = new();
+
+    public int Count => forward.Count;
 
     public void Add(K key, V value)
     {
@@ -38,6 +38,22 @@ public class BiDictionary<K, V>
         return reverse.ContainsKey(value);
     }
 
+    public void Clear()
+    {
+        forward.Clear();
+        reverse.Clear();
+    }
+
     public V GetByKey(K key) => forward[key];
     public K GetByValue(V value) => reverse[value];
+
+    public IEnumerator<KeyValuePair<K, V>> GetEnumerator()
+    {
+        return forward.GetEnumerator();
+    }
+
+    IEnumerator IEnumerable.GetEnumerator()
+    {
+        return GetEnumerator();
+    }
 }

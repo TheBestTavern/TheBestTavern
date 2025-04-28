@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class InventoryController : MonoBehaviour
+public class InventoryController
 {
     InvenType invenType;
 
@@ -28,7 +28,7 @@ public class InventoryController : MonoBehaviour
 
     public virtual void On씬이동() // view 찾아서 연결. 씬이동할때마다 실행? 안해도 view에서 자체적으로 연결을 걸듯. 
     {
-        var allViews = FindObjectsOfType<InventoryView>();
+        var allViews = InventoryManager.Instance.FindInventoryView();
         foreach (var view in allViews)
         {
             if (view.invenType == invenType)
@@ -36,9 +36,13 @@ public class InventoryController : MonoBehaviour
                 if (views.Contains(view)) continue;
 
                 view.초기화ByController(this);
-                views.Add(view);
             }
         }
+    }
+
+    public void AddView(InventoryView view)
+    {
+        views.Add(view);
     }
 
     public virtual bool 아이템획득(Data_Foods data_Foods, int amount)

@@ -3618,27 +3618,27 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "gogumamattang"
     },
     {
-      "key": 104002,
-      "name": "맛있는 고구마 맛탕",
-      "grade": 1,
-      "getRoute": [
-        2
-      ],
-      "itemCategory": 1,
-      "englishName": "none"
+        "key": 104002,
+        "name": "맛있는 고구마 맛탕",
+        "grade": 1,
+        "getRoute": [
+            2
+        ],
+        "itemCategory": 1,
+        "englishName": "gogumamattang"
     },
     {
-      "key": 104003,
-      "name": "전설의 고구마 맛탕",
-      "grade": 2,
-      "getRoute": [
-        2
-      ],
-      "itemCategory": 1,
-      "englishName": "none"
+        "key": 104003,
+        "name": "전설의 고구마 맛탕",
+        "grade": 2,
+        "getRoute": [
+            2
+        ],
+        "itemCategory": 1,
+        "englishName": "gogumamattang"
     },
     {
       "key": 104004,

@@ -1,6 +1,5 @@
 using System;
 using TMPro;
-using UnityEditorInternal.Profiling.Memory.Experimental;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -16,9 +15,13 @@ public class InventorySlot : MonoBehaviour, IDragHandler, IDropHandler, IPointer
     int count;
     [SerializeField] Image image;
     [SerializeField] TextMeshProUGUI CountTMP;
-    Action<int> OnZero;
+    public bool IsTargeting { get; private set; }
 
-    public void 초기화(int index, InventoryView view, Action<int> removeItem) // UI와 연결, index 부여받기.
+    Action<int> OnZero;
+    Action<int> OnClick;
+    Action<int> OnClickAgain;
+
+    public void 초기화(int index, InventoryView view, Action<int> removeItem, Action<int> clickSlot, Action<int> clickSlotAgain) // UI와 연결, index 부여받기.
     {
         this.index = index;
         this.view = view;
@@ -32,6 +35,8 @@ public class InventorySlot : MonoBehaviour, IDragHandler, IDropHandler, IPointer
         CountTMP.text = "";
 
         OnZero = removeItem;
+        OnClick = clickSlot;
+        OnClickAgain = clickSlotAgain;
     }
 
     public void 슬롯세팅(int id)  // 아이템 ( Item주입, 이미지, 수량, bool hasItem 변동 )
@@ -69,6 +74,9 @@ public class InventorySlot : MonoBehaviour, IDragHandler, IDropHandler, IPointer
         OnZero?.Invoke(index);
     }
 
+    private void TriggerClickAction() => OnClick?.Invoke(index);
+    private void TriggerClickAgainAction() => OnClickAgain?.Invoke(index);
+
     public void OnDrag(PointerEventData eventData) // 아이템 이미지만 마우스 따라서 이동
     {
     }
@@ -77,11 +85,35 @@ public class InventorySlot : MonoBehaviour, IDragHandler, IDropHandler, IPointer
     }
     public void OnPointerClick(PointerEventData eventData) // 좌클릭 우클릭 구분하여, view 타게팅 또는 상세보기 호출함. 
     {
+        if (HasItem)
+        {
+            if (!IsTargeting)
+            {
+                TriggerClickAction();
+                EnterTargetingState();
+            }
+            else
+            {
+                TriggerClickAgainAction();
+                ExitTargetingState();
+            }
+        }
     }
     public void OnPointerEnter(PointerEventData eventData) // [view] 아이템툴팁표시
     {
     }
     public void OnPointerExit(PointerEventData eventData) // [view] 아이템툴팁표시 취소
     {
+    }
+
+    private void EnterTargetingState()
+    {
+        IsTargeting = true;
+        image.color = new Color(0.7f, 0.7f, 0.7f, 0.7f);
+    }
+    public void ExitTargetingState()
+    {
+        IsTargeting = false;
+        image.color = Color.white;
     }
 }

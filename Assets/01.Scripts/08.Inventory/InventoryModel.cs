@@ -69,9 +69,9 @@ public class InventoryModel
     {
         // 1. 감소할만큼의 아이템이 있는지.
         int count = 0;
-        if (foodKey2IDs.ContainsKey(data_Foods.key))
+        if (foodKey2IDs.TryGetValue(data_Foods.key, out List<int> IDs))
         {
-            foreach (int id in foodKey2IDs[data_Foods.key])
+            foreach (int id in IDs)
             {
                 count += ID2ItemStack[id].Count;
             }
@@ -81,7 +81,7 @@ public class InventoryModel
 
         // 2. 감소시키기
         int remain = amount;
-        foreach (int id in foodKey2IDs[data_Foods.key])
+        foreach (int id in IDs)
         {
             remain = ID2ItemStack[id].Subtract(remain);
             if (remain <= 0) break;

@@ -12,7 +12,7 @@ public class InventoryManager : MonoSingleton<InventoryManager>
 {
     public override void Init()
     {
-        if(_isInitialized) return;
+        if (_isInitialized) return;
         base.Init();
 
         isDontDestroyOnLoad = true;
@@ -25,4 +25,11 @@ public class InventoryManager : MonoSingleton<InventoryManager>
         controller.Init(invenType, slotCount, maxStackSize);
         Invens.Add(InvenType.Player, controller);
     }
+
+    public InventoryView[] FindInventoryView()
+    {
+        return FindObjectsOfType<InventoryView>();
+    }
+
+
 }
