@@ -23,7 +23,7 @@ public class InventoryManager : MonoSingleton<InventoryManager>
     {
         InventoryController controller = new();
         controller.Init(invenType, slotCount, maxStackSize);
-        Invens.Add(InvenType.Player, controller);
+        Invens.Add(invenType, controller);
     }
 
     public InventoryView[] FindInventoryView()

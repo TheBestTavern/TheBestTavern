@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: df3706f85ef30f441b7f6013e45f2951
+guid: 0bd85af1856510949bd4a45381046d15
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -136,13 +136,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Mill_0
+      name: BoilButton2_0
       rect:
         serializedVersion: 2
-        x: 125
-        y: 175
-        width: 821
-        height: 683
+        x: 97
+        y: 355
+        width: 842
+        height: 452
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -150,8 +150,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c50b27d9f572ab04485a24c768111210
-      internalID: -723490511
+      spriteID: c6510b244ab7b9e438a6cd4a196e11e3
+      internalID: 760149806
       vertices: []
       indices: 
       edges: []
@@ -159,7 +159,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: a316c45b0dcba2d4f91b66dfa61b345c
     internalID: 0
     vertices: []
     indices: 
@@ -167,7 +167,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Mill_0: -723490511
+      BoilButton2_0: 760149806
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
