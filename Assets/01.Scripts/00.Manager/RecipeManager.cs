@@ -33,13 +33,14 @@ public class RecipeManager : MonoSingleton<RecipeManager>
     public Data_Recipes GetResipe(List<int> ingredients, DesignEnums.CookingToolType tool)
     {
         // 재료와 tool의 조합이 레시피대로인지 확인
-        foreach (var recipe in loader.ItemsList) 
-        {
-            if((DesignEnums.CookingToolType)recipe.usingTool != tool) 
-            {
 
-            }
-        }
+        //doma = 0,
+        //julgu = 1,
+        //matdol = 2,
+        //gamasot = 3,
+        //sotdduggung = 4,
+        //mixingbowl = 5,
+        //dish = 6,
 
             return null;
     }
