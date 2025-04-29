@@ -38,7 +38,7 @@ public class CookingMiniGameManager : MonoSingleton<CookingMiniGameManager>
         miniGameUI.gameObject.SetActive(active);
     }
 
-    public void SetMiniGameItem(ItemStack item)
+    public void SetMiniGameItem(ItemStack item = null)
     {
         this.item = item;
     }
