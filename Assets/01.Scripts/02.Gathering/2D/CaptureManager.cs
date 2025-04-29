@@ -104,4 +104,10 @@ public class CaptureManager : MonoSingleton<CaptureManager>
         Gizmos.color = Color.green;
         Gizmos.DrawWireSphere(transform.position, captureRadius);
     }
+
+    public void ForceCheckAnimal(Animal animal)
+    {
+        animalInRange = animal;
+        UpdateButtonVisibility();
+    }
 }

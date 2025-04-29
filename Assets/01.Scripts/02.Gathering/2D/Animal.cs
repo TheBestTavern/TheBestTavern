@@ -29,59 +29,98 @@ public class Animal : MonoBehaviour
 
     private Coroutine checkProximityCoroutine;
 
-    private bool isStunned = false;
     private float stunDuration = 3f;
     private Coroutine stunCoroutine;
 
     private bool hasReactedToBait = false;
-
     private bool isFleeing = false;
 
     public void ReactToBait(string baitType, Vector3 baitPosition)
     {
+        if (hasReactedToBait) return; // 한 번만 반응
+        hasReactedToBait = true;
+
         bool likesBait = System.Array.Exists(favoriteBaits, bait => bait == baitType);
 
         switch (animalSizeType)
         {
             case AnimalSizeType.Small:
-                Debug.Log($"{gameObject.name} (Small)이(가) {baitType} 미끼 없이 돌을 던지세요");
-                SetCaptureChanceInstant(baitType, baitPosition, true);
+                Debug.Log($"{animalName} (Small)이(가) {baitType} 미끼 없이도 포획 가능!");
+                SetCaptureChanceInstant(baitPosition, true);
                 break;
 
             case AnimalSizeType.Medium:
                 if (likesBait)
                 {
-                    SetCaptureChanceInstant(baitType, baitPosition, true);
-                    Debug.Log($"{gameObject.name} (Medium)이(가) 좋아하는 {baitType} 미끼를 발견 이제 돌을 던져서 포획");
-                    if (checkProximityCoroutine != null) StopCoroutine(checkProximityCoroutine);
+                    Debug.Log($"{animalName} (Medium)이(가) 좋아하는 {baitType} 미끼 발견! 가까이 오게 함.");
+                    BaitEffectApplied = true;
+
+                    if (checkProximityCoroutine != null)
+                        StopCoroutine(checkProximityCoroutine);
 
                     GameObject foundBait = GameObject.Find(baitType);
                     if (foundBait != null)
                         targetBait = foundBait.transform;
 
-                    checkProximityCoroutine = StartCoroutine(CheckProximityAndIncreaseChance(baitType));
+                    checkProximityCoroutine = StartCoroutine(CheckProximityAndIncreaseChance());
                 }
                 else
                 {
-                    Debug.Log($"{gameObject.name} (Medium)은 {baitType} 미끼를 좋아하지 않아서 반응하지 않음");
+                    Debug.Log($"{animalName} (Medium)은 {baitType} 미끼를 좋아하지 않아서 반응하지 않음.");
                 }
                 break;
 
             case AnimalSizeType.Large:
                 if (likesBait)
                 {
-                    Debug.Log($"{gameObject.name} (Large)은 {baitType} 도망가세요.");
-                    Invoke(nameof(Flee), 3f);
+                    Debug.Log($"{animalName} (Large)은 {baitType}을 싫어해서 도망갑니다!");
+                    Invoke(nameof(Flee), 3f); // 3초 후 도망
                 }
                 else
                 {
-                    Debug.Log($"{gameObject.name} (Large)은 {baitType} 미끼를 무시하고 도망가지 않음");
+                    Debug.Log($"{animalName} (Large)은 {baitType} 미끼를 무시합니다.");
                 }
                 break;
         }
     }
 
-    void SetCaptureChanceInstant(string baitType, Vector3 baitPosition, bool isBaitEffective)
+    // 돌에 맞았을 때 호출
+    public void GetHitByRock(Vector3 hitPosition)
+    {
+        if (animalSizeType == AnimalSizeType.Small)
+        {
+            SetCaptureChanceInstant(hitPosition, true);
+        }
+        else if (animalSizeType == AnimalSizeType.Medium)
+        {
+            if (BaitEffectApplied)
+            {
+                SetCaptureChanceInstant(hitPosition, true);
+            }
+            else
+            {
+                Debug.Log($"{animalName} (Medium)은 미끼에 반응하지 않아 돌을 맞아도 포획 불가!");
+            }
+        }
+        else if (animalSizeType == AnimalSizeType.Large)
+        {
+            Debug.Log($"{animalName} (Large)은 돌을 맞아도 포획할 수 없습니다.");
+        }
+    }
+
+    public void TryGetHitByRock(Vector2 hitPosition)
+    {
+        if (BaitEffectApplied)
+        {
+            GetHitByRock(hitPosition);  // 미끼 반응했을 때만 기절
+        }
+        else
+        {
+            Debug.Log($"{animalName}은 미끼에 반응하지 않아서 돌에 맞아도 포획 불가!");
+        }
+    }
+
+    void SetCaptureChanceInstant(Vector3 targetPosition, bool isBaitEffective)
     {
         if (!isBaitEffective)
         {
@@ -90,20 +129,18 @@ public class Animal : MonoBehaviour
             return;
         }
 
-        float distance = Vector3.Distance(transform.position, baitPosition);
+        float distance = Vector3.Distance(transform.position, targetPosition);
         float bonus = Mathf.Clamp01(1f - distance / 5f);
         float bonusChance = bonus * 0.5f;
 
         captureChance = baseCaptureChance + bonusChance;
         canBeCaptured = true;
-
-        Debug.Log($"[동물: {animalName}] 미끼({baitType}) 반응. 거리: {distance:F2}, 확률: {captureChance * 100:F1}%");
+        Debug.Log($"{animalName} 포획 기회 활성화됨! 현재 확률: {captureChance * 100f}%");
     }
 
-    IEnumerator CheckProximityAndIncreaseChance(string baitType)
+    IEnumerator CheckProximityAndIncreaseChance()
     {
         stayNearBaitTimer = 0f;
-        canBeCaptured = false;
 
         while (true)
         {
@@ -111,117 +148,54 @@ public class Animal : MonoBehaviour
                 yield break;
 
             float distance = Vector3.Distance(transform.position, targetBait.position);
-
             if (distance <= stayDistance)
             {
                 stayNearBaitTimer += Time.deltaTime;
 
                 if (stayNearBaitTimer >= requiredStayTime)
                 {
-                    float timeFactor = Mathf.Clamp01(stayNearBaitTimer / 5f);
-                    float bonusChance = timeFactor * 0.6f;
-                    captureChance = baseCaptureChance + bonusChance;
-                    canBeCaptured = true;
-
-                    Debug.Log($"[동물: {animalName}] 미끼 근처에 머무름: {stayNearBaitTimer:F1}s → 확률: {captureChance * 100:F1}%");
+                    Debug.Log($"{animalName}가 {requiredStayTime}초 동안 미끼 근처에 머무름. 포획 확률 증가!");
+                    captureChance += 0.2f;
+                    captureChance = Mathf.Clamp01(captureChance);
+                    break;
                 }
             }
             else
             {
-                stayNearBaitTimer = 0f;
-                captureChance = baseCaptureChance;
-                canBeCaptured = false;
+                stayNearBaitTimer = 0f; // 멀어지면 초기화
             }
 
             yield return null;
         }
     }
 
-    public void OnHitByRock()
+    void Flee()
     {
-        if (isFleeing)
-        {
-            return;
-        }
-
-        switch (animalSizeType)
-        {
-            case AnimalSizeType.Small:
-                Debug.Log($"{animalName} (Small)이(가) 돌에 맞고 기절했습니다!");
-                isStunned = true;
-                IsStunned = true; // Update the public property as well
-                if (stunCoroutine != null) StopCoroutine(stunCoroutine);
-                stunCoroutine = StartCoroutine(StunAndEnableCapture());
-                break;
-
-            case AnimalSizeType.Medium:
-                if (canBeCaptured)
-                {
-                    Debug.Log($"{animalName} (Medium)이(가) 돌에 맞고 포획 가능");
-                    isStunned = true;
-                    IsStunned = true; 
-                }
-                else
-                {
-                    Debug.Log($"{animalName} (Medium)은 아직 미끼 반응 상태 아님.");
-                }
-                break;
-
-            case AnimalSizeType.Large:
-                Debug.Log($"{animalName} (Large)은 돌에 맞았지만 반응 없음");
-                break;
-        }
-    }
-
-    IEnumerator StunAndEnableCapture()
-    {
-        yield return new WaitForSeconds(stunDuration);
-
-        isStunned = false;
-        IsStunned = false; 
-        canBeCaptured = false;
-
-        Debug.Log($"{animalName}의 기절 상태가 종료되었습니다.");
+        if (isFleeing) return;
+        isFleeing = true;
+        Debug.Log($"{animalName}이(가) 도망갑니다!");
+        // 도망가는 로직 추가 (ex: NavMeshAgent 이동)
     }
 
     public bool TryCapture()
     {
-        Debug.Log($"{animalName} IsStunned: {IsStunned}"); 
-        if (!CanBeCaptured()) return false;
-
-        Destroy(gameObject);
-        return true;
-    }
-
-    public void Flee()
-    {
-        isFleeing = true;
-        Debug.Log($"{animalName}이(가) 도망쳤습니다!");
-        Destroy(gameObject, 1f);
-    }
-
-    public void ForceFleeByButton()
-    {
-        if (animalSizeType == AnimalSizeType.Large && !isFleeing)
+        if (!canBeCaptured)
         {
-            Debug.Log($"{animalName}이(가) 미끼 반응 후 플레이어가 도망을 선택하여 도망칩니다.");
-            Flee();
+            Debug.Log($"{animalName}은(는) 아직 포획할 수 없습니다.");
+            return false;
         }
+
+        float roll = Random.value;
+        bool success = roll < captureChance;
+        Debug.Log(success ? $"{animalName} 포획 성공!" : $"{animalName} 포획 실패!");
+
+        return success;
     }
 
-    public bool CanBeCaptured()
+    public void ApplyBaitEffect()
     {
-        switch (animalSizeType)
-        {
-            case AnimalSizeType.Small:
-                return IsStunned;
-            case AnimalSizeType.Medium:
-                return IsHurt && BaitEffectApplied;
-            case AnimalSizeType.Large:
-                return false;
-        }
-        return false;
+        BaitEffectApplied = true;
+        Debug.Log($"{gameObject.name} : 미끼 효과 적용됨");
     }
-
-    
 }
+
