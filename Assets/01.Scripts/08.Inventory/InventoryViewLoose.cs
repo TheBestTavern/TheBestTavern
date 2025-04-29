@@ -1,0 +1,139 @@
+using System;
+using System.Collections.Generic;
+using TMPro;
+using UnityEngine;
+using UnityEngine.UI;
+
+public class InventoryViewLoose : InventoryView
+{
+    [SerializeField] Button nextPageBtn;
+    [SerializeField] Button prevPageBtn;
+    [SerializeField] int showSlotCount;
+    [SerializeField] TextMeshProUGUI PagesTMP;
+
+    int currentPage; // 시작페이지 = 0
+    int lastPage;
+    Queue<int> showingSlotIndex = new();
+
+    [field: SerializeField] protected int TargetingNum { get; private set; } = 1; // 선택 가능한 슬롯 갯수
+    protected List<int> targetingSlots = new(); // 선택된 슬롯
+
+    private void OnEnable()
+    {
+        초기화BySelf();
+    }
+
+    private void OnDisable()
+    {
+        index2Slots.Clear();
+        BiID2SlotIndex.Clear();
+        currentPage = 0;
+    }
+
+    private void 아이템있는슬롯만보여주기()
+    {
+        int itemCount = BiID2SlotIndex.Count;
+        lastPage = itemCount / showSlotCount;
+        if (currentPage > lastPage)
+        {
+            currentPage = lastPage;
+        }
+
+        int temp = currentPage * showSlotCount;
+        int showCount = showSlotCount;
+
+        while(showingSlotIndex.Count > 0)
+        {
+            index2Slots[showingSlotIndex.Dequeue()].gameObject.SetActive(false);
+        }
+
+        for (int i = 0; i < slotCount && showCount > 0; i++)
+        {
+            if (index2Slots[i].HasItem)
+            {
+                temp--;
+                if (temp < 0)
+                {
+                    index2Slots[i].gameObject.SetActive(true);
+                    showingSlotIndex.Enqueue(i);
+                    showCount--;
+                }
+            }
+        }
+
+        PagesTMP.text = $"{currentPage+1} / {lastPage+1}";
+    }
+
+    protected override void 초기화(InventoryController controller)
+    {
+        base.초기화(controller);
+
+        nextPageBtn.onClick.AddListener(NextPage);
+        prevPageBtn.onClick.AddListener(PrevPage);
+
+        foreach (var pair in index2Slots)
+        {
+            pair.Value.gameObject.SetActive(false);
+        }
+    }
+
+    private void NextPage()
+    {
+        currentPage++;
+        if (currentPage > lastPage)
+        {
+            currentPage = 0;
+        }
+        아이템있는슬롯만보여주기();
+    }
+
+    private void PrevPage()
+    {
+        currentPage--;
+        if (currentPage < 0)
+        {
+            currentPage = lastPage;
+        }
+        아이템있는슬롯만보여주기();
+    }
+
+    public override void 특정아이템정보갱신(int id)  // 특정 ID의 정보만 갱신
+    {
+        base.특정아이템정보갱신(id);
+
+        아이템있는슬롯만보여주기();
+    }
+
+    public override void 아이템띄우기()  // 전체 아이템 띄우기
+    {
+        base.아이템띄우기();
+
+        아이템있는슬롯만보여주기();
+    }
+
+    public override void 슬롯비우기(int index)
+    {
+        base.슬롯비우기(index);
+
+        아이템있는슬롯만보여주기();
+    }
+
+    public override void 아이템타게팅(int index)  //  아이템 타게팅(좌클릭). 선택 가능한 갯수 초과하면 팝업 호출
+    {
+        base.아이템타게팅(index);
+
+        while(targetingSlots.Count >= TargetingNum)
+        {
+            index2Slots[targetingSlots[0]].ExitTargetingState();
+            targetingSlots.RemoveAt(0);
+        }
+
+        targetingSlots.Add(index);
+    }
+    public override void 아이템타게팅취소(int index) // 아이템 타게팅취소(좌클릭). 타게팅된 슬롯이면 선택 취소.
+    {
+        base.아이템타게팅취소(index);
+
+        targetingSlots.Remove(index);
+    }
+}

@@ -6,26 +6,6 @@ using static DesignEnums;
 
 public class ForestGatheringManager : MonoSingleton<ForestGatheringManager>
 {
-    [SerializeField] private Color gizmoColor = new Color(1, 0, 0, .3f);
-    [SerializeField] List<Rect> spawnAreas;
-
-    [SerializeField] LayerMask gatheringPropsLayerMask;
-
-    [SerializeField] GameObject[] trees;
-    [SerializeField] Transform treeParent;
-
-    [SerializeField] GameObject[] rocks;
-    [SerializeField] Transform rockParent;
-
-    [SerializeField] GameObject[] bushs;
-    [SerializeField] Transform bushParent;
-
-    [SerializeField] GameObject[] exProps;
-    [SerializeField] Transform exPropsParent;
-
-    [SerializeField] GameObject[] fields;
-    [SerializeField] Transform fieldParent;
-
     DesignEnums.RegionType region;
     DesignEnums.SeasonType season;
 

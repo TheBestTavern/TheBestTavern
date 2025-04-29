@@ -50,6 +50,5 @@ public class ConfirmPopUp : BasePopUp
     public override void OnClose()
     {
         base.OnClose();
-        gameObject.SetActive(false);
     }
 }

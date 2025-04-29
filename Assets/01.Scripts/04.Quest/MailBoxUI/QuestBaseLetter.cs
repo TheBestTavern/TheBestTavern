@@ -61,7 +61,6 @@ public abstract class QuestBaseLetter : BasePopUp
     public override void OnClose()
     {
         base.OnClose();
-        gameObject.SetActive(false);
         Debug.Log("닫는 효과음 재생");
 
     }
