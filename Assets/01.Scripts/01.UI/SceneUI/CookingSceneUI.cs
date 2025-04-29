@@ -27,11 +27,11 @@ public class CookingSceneUI : MonoBehaviour
         // 메인 씬으로 돌아가기 버튼 이벤트 리스너 추가
         mainSceneButton.onClick.AddListener(OnClickMainSceneButton);
         // 굽기 미니게임 시작 버튼 이벤트 리스너 추가
-        grillMiniGameButton.onClick.AddListener(OnClickGrillMiniGameButton);
+        grillMiniGameButton.onClick.AddListener(() => OnClickCookingTool("Cooking_Grill_Test"));
         // 절구 미니게임 시작 버튼 이벤트 리스너 추가
-        grindMiniGameButton.onClick.AddListener(OnClickGrindMiniGameButton);
+        grindMiniGameButton.onClick.AddListener(() => OnClickCookingTool("Cooking_Grind_Test"));
         // 맷돌 미니게임 시작 버튼 이벤트 리스너 추가 
-        millMiniGameButton.onClick.AddListener(OnClickMillMiniGameButton);
+        millMiniGameButton.onClick.AddListener(() => OnClickCookingTool("Cooking_Mill_Test"));
     }
 
     // 메인 씬으로 돌아가기 버튼 함수
@@ -43,25 +43,9 @@ public class CookingSceneUI : MonoBehaviour
         UIManager.Instance.confirmPopUp.SetConfirm("마당으로 이동하시겠습니까?", ConfirmFunc);
     }
 
-    // 굽기 미니게임 시작 버튼 함수
-    void OnClickGrillMiniGameButton()
+    void OnClickCookingTool(string s)
     {
-        // 굽기 미니게임 씬 불러오기
-        CookingMiniGameManager.Instance.ShowMiniGame("Cooking_Grill_Test");
-    }
-
-    // 절구 미니게임 시작 버튼 함수 
-    void OnClickGrindMiniGameButton()
-    {
-        // 절구 미니게임 씬 불러오기
-        CookingMiniGameManager.Instance.ShowMiniGame("Cooking_Grind_Test");
-    }
-
-    // 맷돌 미니게임 시작 버튼 함수
-    void OnClickMillMiniGameButton()
-    {
-        // 맷돌 미니게임 씬 불러오기 
-        CookingMiniGameManager.Instance.ShowMiniGame("Cooking_Mill_Test");
+        CookingMiniGameManager.Instance.SetMiniGameTool(s);
     }
 
     // 확인 팝업 함수
