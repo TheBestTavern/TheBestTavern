@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class CaptureManager : MonoBehaviour
+public class CaptureManager : MonoSingleton<CaptureManager>
 {
     public Button captureButton; // 포획 버튼
     public Button escapeButton;  // 도망가기 버튼 (큰 동물용)
@@ -60,7 +60,7 @@ public class CaptureManager : MonoBehaviour
 
             case AnimalSizeType.Medium:
                 // 돌로 데미지 입힌 후, 조건 만족 시 포획 가능
-                captureButton.gameObject.SetActive(animalInRange.IsHurt && animalInRange.BaitEffectApplied);
+                captureButton.gameObject.SetActive(animalInRange.IsStunned && animalInRange.BaitEffectApplied);
                 escapeButton.gameObject.SetActive(false);
                 break;
 
@@ -93,7 +93,7 @@ public class CaptureManager : MonoBehaviour
     }
 
     // 도망가기
-    void EscapeFromAnimal()
+    public void EscapeFromAnimal()
     {
         Debug.Log("Escaped from large animal.");
         // 씬 전환 및 화면 복귀 호출
