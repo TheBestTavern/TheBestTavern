@@ -127,32 +127,7 @@ public class CookingGrillMiniGame : CookingMiniGameBase
     /// <summary>
     /// 결과 최종 판정
     /// </summary>
-    public CookingResultGrade JudgeGrade()
-    {
-        // 7~8쌍 상 : 완벽한 구이
-        // 4~6쌍 중 : 무난한 구이
-        // 1~3쌍 하 : 덜 익음
-        // 0쌍 : 실패
-        // 총 개수를 확인한다 : 맞췄을 때마다 count +1 씩해서 count별로 등급 매기면 될듯
-
-       if (matchCount >= result.legendaryMatchCount)
-       {
-            Debug.Log("완벽한 구이");
-            return CookingResultGrade.Legendary;
-       }
-       else if (matchCount >= result.rareMatchCount)
-       {
-            Debug.Log("무난한 구이");
-            return CookingResultGrade.Rare;
-       }
-       else if (matchCount >= result.commonMatchCount)
-       {
-            Debug.Log("망가진 구이");
-            return CookingResultGrade.Common;
-       }
-       Debug.Log("실패");
-       return CookingResultGrade.Failed;
-    }
+    
 
     protected override void UpdateGamePlay()
     {
@@ -198,7 +173,34 @@ public class CookingGrillMiniGame : CookingMiniGameBase
         isFlipLocked = true;
 
         var grade = JudgeGrade();
+        CookingMiniGameManager.Instance.SetMiniGameResult(grade);
         PlayEffect(grade);
+    }
+    public CookingResultGrade JudgeGrade()
+    {
+        // 7~8쌍 상 : 완벽한 구이
+        // 4~6쌍 중 : 무난한 구이
+        // 1~3쌍 하 : 덜 익음
+        // 0쌍 : 실패
+        // 총 개수를 확인한다 : 맞췄을 때마다 count +1 씩해서 count별로 등급 매기면 될듯
+
+        if (matchCount >= result.legendaryMatchCount)
+        {
+            Debug.Log("완벽한 구이");
+            return CookingResultGrade.Legendary;
+        }
+        else if (matchCount >= result.rareMatchCount)
+        {
+            Debug.Log("무난한 구이");
+            return CookingResultGrade.Rare;
+        }
+        else if (matchCount >= result.commonMatchCount)
+        {
+            Debug.Log("망가진 구이");
+            return CookingResultGrade.Common;
+        }
+        Debug.Log("실패");
+        return CookingResultGrade.Failed;
     }
 
     // 게임 종료 시 맞춘 쌍 수에 따라 요리 연출 분기
@@ -217,10 +219,5 @@ public class CookingGrillMiniGame : CookingMiniGameBase
                 effectController.PlayBlackSmoke();
                 break;
         }
-    }
-
-    private void GetText(CookingResultGrade grade)
-    {
-
     }
 }

@@ -14,6 +14,8 @@ public class CookingMiniGameManager : MonoSingleton<CookingMiniGameManager>
     private ICookingMiniGameHandler currentGame;
     private ItemStack item;
 
+    private CookingResultGrade resultGrade;
+
     async public void ShowMiniGame(string miniGameSceneName)
     {
         await SceneLoader.Instance.LoadSceneAsyncMiniGame(miniGameSceneName);
@@ -46,5 +48,19 @@ public class CookingMiniGameManager : MonoSingleton<CookingMiniGameManager>
     public ItemStack GetMiniGameItem()
     {
         return item;
+    }
+
+    /// <summary>
+    /// 미니게임 결과 Get/Set
+    /// </summary>
+    /// <param name="grade"></param>
+    public void SetMiniGameResult(CookingResultGrade grade)
+    {
+        resultGrade = grade;
+    }
+
+    public CookingResultGrade GetMiniGameResult()
+    {
+        return resultGrade;
     }
 }

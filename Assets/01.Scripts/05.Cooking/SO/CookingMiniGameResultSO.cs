@@ -25,5 +25,5 @@ public class CookingMiniGameResultSO : ScriptableObject
     [Header("맷돌 미니게임 기준")]
 
     [Header("절구 미니게임 기준")]
-
+    public int failedCount;
 }
