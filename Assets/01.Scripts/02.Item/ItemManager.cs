@@ -3,22 +3,17 @@ using UnityEngine;
 
 public class ItemManager : MonoSingleton<ItemManager>
 {
-    public Dictionary<int, Item> AllItems { get; private set; }
-    public override void Init()
-    {
-        if (_isInitialized) return;
-        base.Init();
+    public Stack<int> IDs { get; private set; }
 
-        InstantiateItems();
+    private Item InstantiateItem(int itemKey, int count)
+    {
+        Item item = new();
+        item.Init(Data.GetRawItem(itemKey), ReCoverID, IDs.Pop(), count);
+        return item;
     }
 
-    private void InstantiateItems()
+    public void ReCoverID(int id)
     {
-        // 아이템 래핑 인스턴스 생성
-        foreach (var itemData in DataManager.Instance.DataLoader_Foods.ItemsList)
-        {
-            Item tempItem = new Item(itemData);
-            AllItems.Add(tempItem.origin.key, tempItem);
-        }
+        IDs.Push(id);
     }
 }
