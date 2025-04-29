@@ -12,6 +12,7 @@ public class CookingMiniGameManager : MonoSingleton<CookingMiniGameManager>
     public CookingSceneUI cookingSceneUI;
 
     private ICookingMiniGameHandler currentGame;
+    private ItemStack item;
 
     async public void ShowMiniGame(string miniGameSceneName)
     {
@@ -35,5 +36,15 @@ public class CookingMiniGameManager : MonoSingleton<CookingMiniGameManager>
     void SettingMiniGame(bool active)
     {
         miniGameUI.gameObject.SetActive(active);
+    }
+
+    public void SetMiniGameItem(ItemStack item)
+    {
+        this.item = item;
+    }
+
+    public ItemStack GetMiniGameItem()
+    {
+        return item;
     }
 }

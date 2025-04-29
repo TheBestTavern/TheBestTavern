@@ -15,11 +15,9 @@ public class CookingResultPopUp : BasePopUp
 
     public override void OnClose()
     {
-        base.OnClose();
         // 미니게임 닫기 
         CookingMiniGameManager.Instance.miniGameUI.OnClickCloseButton();
-        // 미니게임 UI 비활성화 
-        gameObject.SetActive(false);
+        base.OnClose();
     }
 
     public override void OnOpen()

@@ -23,12 +23,6 @@ MonoBehaviour:
     m_SerializedLabels:
     - BasicScene
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 108b0eaf738eee148a34181e05b62730
-    m_Address: GatheringSceneDev.unity
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - BasicScene
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1c110343623460045971cc33cd6e8db7
     m_Address: MainSceneDev.unity
     m_ReadOnly: 0
@@ -36,9 +30,16 @@ MonoBehaviour:
     - BasicScene
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5fec95f02a104d54990bcfef241e1208
-    m_Address: GatheringSceneDev1.unity
+    m_Address: SeaGatheringSceneDev.unity
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - BasicScene
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 67b57b1e42a18c54b9b2af307068bed1
+    m_Address: ForestGatheringSceneDev.unity
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - BasicScene
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 3f946b317ceaa2747b411cad54511d5f, type: 2}

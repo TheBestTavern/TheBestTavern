@@ -23,6 +23,5 @@ public class AlarmPopUp : BasePopUp
     public override void OnClose()
     {
         base.OnClose();
-        gameObject.SetActive(false);
     }
 }

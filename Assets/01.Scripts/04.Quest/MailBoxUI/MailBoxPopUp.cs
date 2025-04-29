@@ -64,6 +64,5 @@ public class MailBoxPopUp : BasePopUp
     public override void OnClose()
     {
         base.OnClose();
-        gameObject.SetActive(false);
     }
 }

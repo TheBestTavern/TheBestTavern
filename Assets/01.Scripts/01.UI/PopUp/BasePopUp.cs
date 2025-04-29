@@ -45,14 +45,15 @@ public class BasePopUp : DraggableMonoBehaviour, IPointerDownHandler
     public virtual void OnOpen()
     {
         gameObject.SetActive(true);
-        popupManager.PopupOpen(id);
-        SetSortingOrder();
+        //popupManager.PopupOpen(id);
+        //SetSortingOrder();
     }
 
     // 팝업 닫을 때 필요한 함수
     public virtual void OnClose()
     {
         popupManager.PopupClose(id);
+        gameObject.SetActive(false);
     }
 
     private void OnDestroy()

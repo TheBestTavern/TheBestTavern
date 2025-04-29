@@ -8,8 +8,6 @@ public class GatheringMapController : MonoBehaviour
     [SerializeField] private Color gizmoColor = new Color(1, 0, 0, .3f);
     [SerializeField] List<Rect> spawnAreas;
 
-    [SerializeField] LayerMask gatheringPropsLayerMask;
-
     [SerializeField] GameObject[] trees;
     [SerializeField] GameObject[] bushes;
     [SerializeField] GameObject[] fields;

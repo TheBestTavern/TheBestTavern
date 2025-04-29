@@ -30,6 +30,15 @@ public class GatheringInventoryUI : MonoBehaviour
                 }
             }
         }
+    }
 
+    public GatheringInventorySlot[] GetSlot()
+    {
+        return slots;
+    }
+
+    public void SetSlotsHistory(GatheringInventorySlot[] slotHis)
+    {
+        slots = slotHis;
     }
 }
