@@ -32,7 +32,6 @@ public class CookingResultPopUp : BasePopUp
 
     public void ShowResultText()
     {
-        var item = CookingMiniGameManager.Instance.GetMiniGameItem();
         var result = CookingMiniGameManager.Instance.GetMiniGameResult();
         
         // 결과에 따라 성공/실패 텍스트 활성

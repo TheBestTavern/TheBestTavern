@@ -7,9 +7,11 @@ public enum CookingResultGrade
     Legendary = 100,
     Rare = 80,
     Common = 50,
-    Failed =0
+    Failed = 0
 }
+
 public class CookingMiniGameResult : MonoBehaviour
 {
     
+
 }
