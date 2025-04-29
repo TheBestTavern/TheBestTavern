@@ -32,9 +32,9 @@ public abstract class InventoryView : MonoBehaviour
 
     public virtual void 초기화BySelf() // 컨트롤러를 직접 찾아서 초기화.
     {
+        if (IsInitialized) return;
         if (InventoryManager.Instance.Invens.TryGetValue(invenType, out InventoryController controller))
         {
-            if (IsInitialized) return;
             IsInitialized = true;
 
             초기화(controller);
@@ -68,6 +68,8 @@ public abstract class InventoryView : MonoBehaviour
         int targetIndex = 0;
         foreach (var pair in controller.모델정보반환())
         {
+            if (!toShowTypes.Contains(ItemStackManager.Instance.AllItemStack[pair.Key].Origin.itemCategory)) continue;
+
             index2Slots[targetIndex].슬롯세팅(pair.Key);
             BiID2SlotIndex.Add(pair.Key, targetIndex);
             targetIndex++;
@@ -110,7 +112,6 @@ public abstract class InventoryView : MonoBehaviour
     public virtual void 아이템타게팅취소(int index) // loose에서
     {
     }
-
 
     //공통
     public virtual void 아이템정렬_합치기() { } // [컨트롤러]의 정렬_합치기 호출
