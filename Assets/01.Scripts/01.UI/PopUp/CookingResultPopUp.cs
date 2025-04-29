@@ -27,4 +27,9 @@ public class CookingResultPopUp : BasePopUp
         base.OnOpen();
         resultCanvasGroup.DOFade(1f, 1f);
     }
+
+    public void SetResultText()
+    {
+
+    }
 }

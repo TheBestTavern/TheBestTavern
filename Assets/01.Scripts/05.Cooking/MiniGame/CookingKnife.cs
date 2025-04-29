@@ -109,25 +109,25 @@ public class CookingKnife : MonoBehaviour
     }
 
     #region
-    //private async UniTask SliceDelay(Collider collider)
-    // {
-    //     Collider knifeCollider = GetComponent<Collider>();
-    //     knifeCollider.enabled = false;
-    //     isSlicing = true;
-    //     float sliceTimer = 0f;
-    //     await UniTask.WaitUntil(() =>
-    //     {
-    //         sliceTimer += Time.deltaTime;
-    //         if (collider == null) return true;
-    //         if (sliceTimer > 0.1f) return true;
-    //         return !knifeCollider.bounds.Intersects(collider.bounds);
-    //     });
-    //     if (knifeCollider != null)
-    //         knifeCollider.enabled = true;
+    private async UniTask SliceDelay(Collider collider)
+     {
+         Collider knifeCollider = GetComponent<Collider>();
+         knifeCollider.enabled = false;
+         isSlicing = true;
+         float sliceTimer = 0f;
+         await UniTask.WaitUntil(() =>
+         {
+             sliceTimer += Time.deltaTime;
+             if (collider == null) return true;
+             if (sliceTimer > 0.1f) return true;
+             return !knifeCollider.bounds.Intersects(collider.bounds);
+         });
+         if (knifeCollider != null)
+             knifeCollider.enabled = true;
 
-    //     knifeCollider.enabled = true;
-    //     isSlicing = false;
-    // }
+         knifeCollider.enabled = true;
+         isSlicing = false;
+     }
     #endregion
 
     private void Update()
