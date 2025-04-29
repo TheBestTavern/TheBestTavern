@@ -3,7 +3,7 @@ guid: f975d15d4f22f524bb4e6c31c161423c
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -20,11 +20,12 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
+    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
-  ignoreMasterTextureLimit: 0
+  ignoreMipmapLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -63,6 +64,8 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -74,6 +77,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -86,6 +90,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -98,6 +103,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -110,6 +116,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
@@ -820,41 +827,40 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       base grass_0: 1943133978
-      base grass_25: 195477973
-      base grass_30: 867629660
-      base grass_2: 160701649
-      base grass_9: 3535053
-      base grass_18: 444506021
-      base grass_8: -556212840
       base grass_1: -1283074469
-      base grass_6: -415654051
+      base grass_10: -1126564823
+      base grass_11: -315756714
+      base grass_12: 553052632
+      base grass_13: -420875796
+      base grass_14: -128211410
+      base grass_15: 1203665537
+      base grass_16: -909368673
       base grass_17: 1721307878
+      base grass_18: 444506021
+      base grass_19: 1274191999
+      base grass_2: 160701649
+      base grass_20: -2079339141
+      base grass_21: -593852687
+      base grass_22: 1003157965
+      base grass_23: -1245615334
+      base grass_24: 1680783417
+      base grass_25: 195477973
+      base grass_26: -1807797657
       base grass_27: 1226606142
       base grass_28: 1966666251
-      base grass_32: 2020375065
-      base grass_16: -909368673
-      base grass_5: 241434042
-      base grass_11: -315756714
-      base grass_13: -420875796
-      base grass_3: 312558277
-      base grass_21: -593852687
-      base grass_10: -1126564823
       base grass_29: -711610500
-      base grass_20: -2079339141
-      base grass_4: 1458284298
-      base grass_15: 1203665537
-      base grass_22: 1003157965
-      base grass_24: 1680783417
-      base grass_14: -128211410
+      base grass_3: 312558277
+      base grass_30: 867629660
       base grass_31: -786090147
-      base grass_12: 553052632
-      base grass_26: -1807797657
+      base grass_32: 2020375065
+      base grass_4: 1458284298
+      base grass_5: 241434042
+      base grass_6: -415654051
       base grass_7: 1766422835
-      base grass_19: 1274191999
-      base grass_23: -1245615334
-  spritePackingTag: 
+      base grass_8: -556212840
+      base grass_9: 3535053
+  mipmapLimitGroupName: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

@@ -15,25 +15,30 @@ public class InventoryViewLoose : InventoryView
     int lastPage;
     Queue<int> showingSlotIndex = new();
 
-    [field: SerializeField] protected int TargetingNum { get; private set; } = 1; // 선택 가능한 슬롯 갯수
+    [SerializeField] protected int minTargetingNum = 1; // 어떤 행동을 하기 위해 최소로 선택해야하는 슬롯 갯수
+    [SerializeField] protected int maxTargetingNum = 1; // 최대 선택 가능한 슬롯 갯수
     protected List<int> targetingSlots = new(); // 선택된 슬롯
+    public Action<List<Data_Foods>> OnEnableTargetSlot;
+    public Action OnDisalbeTargetSlot;
 
-    private void OnEnable()
+    protected virtual void OnEnable()
     {
         초기화BySelf();
     }
 
-    private void OnDisable()
+    protected virtual void OnDisable()
     {
         index2Slots.Clear();
         BiID2SlotIndex.Clear();
+        targetingSlots.Clear();
         currentPage = 0;
     }
 
     private void 아이템있는슬롯만보여주기()
     {
         int itemCount = BiID2SlotIndex.Count;
-        lastPage = itemCount / showSlotCount;
+        lastPage = (itemCount == 0) ? 0 : (itemCount - 1) / showSlotCount;
+
         if (currentPage > lastPage)
         {
             currentPage = lastPage;
@@ -42,7 +47,7 @@ public class InventoryViewLoose : InventoryView
         int temp = currentPage * showSlotCount;
         int showCount = showSlotCount;
 
-        while(showingSlotIndex.Count > 0)
+        while (showingSlotIndex.Count > 0)
         {
             index2Slots[showingSlotIndex.Dequeue()].gameObject.SetActive(false);
         }
@@ -61,7 +66,7 @@ public class InventoryViewLoose : InventoryView
             }
         }
 
-        PagesTMP.text = $"{currentPage+1} / {lastPage+1}";
+        PagesTMP.text = $"{currentPage + 1} / {lastPage + 1}";
     }
 
     protected override void 초기화(InventoryController controller)
@@ -122,18 +127,37 @@ public class InventoryViewLoose : InventoryView
     {
         base.아이템타게팅(index);
 
-        while(targetingSlots.Count >= TargetingNum)
+        while (targetingSlots.Count >= maxTargetingNum)
         {
             index2Slots[targetingSlots[0]].ExitTargetingState();
             targetingSlots.RemoveAt(0);
         }
 
         targetingSlots.Add(index);
+        TriggerOnTargetSlot();
     }
     public override void 아이템타게팅취소(int index) // 아이템 타게팅취소(좌클릭). 타게팅된 슬롯이면 선택 취소.
     {
         base.아이템타게팅취소(index);
 
         targetingSlots.Remove(index);
+        TriggerOnTargetSlot();
+    }
+
+    protected virtual void TriggerOnTargetSlot()
+    {
+        if (!(targetingSlots.Count >= minTargetingNum && targetingSlots.Count <= maxTargetingNum))
+        {
+            OnDisalbeTargetSlot?.Invoke();
+        }
+        else
+        {
+            List<Data_Foods> rawItems = new();
+            for (int i = 0; i < targetingSlots.Count; i++)
+            {
+                rawItems.Add(index2Slots[targetingSlots[i]].GetSlotItem().Origin);
+            }
+            OnEnableTargetSlot?.Invoke(rawItems);
+        }
     }
 }

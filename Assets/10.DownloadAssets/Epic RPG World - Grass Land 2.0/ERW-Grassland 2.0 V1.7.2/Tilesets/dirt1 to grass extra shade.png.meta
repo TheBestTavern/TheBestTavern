@@ -3,7 +3,7 @@ guid: fc455484e69489649862ab38de27fa5b
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -20,11 +20,12 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
+    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
-  ignoreMasterTextureLimit: 0
+  ignoreMipmapLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -63,6 +64,8 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -74,6 +77,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -86,6 +90,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -98,6 +103,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -110,6 +116,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
@@ -1008,51 +1015,50 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      dirt1 to grass extra shade_0: 1116138554
+      dirt1 to grass extra shade_1: -265658739
       dirt1 to grass extra shade_10: -889781053
+      dirt1 to grass extra shade_11: 958895704
       dirt1 to grass extra shade_12: -69073030
-      dirt1 to grass extra shade_38: -871758213
-      dirt1 to grass extra shade_28: 1943336528
-      dirt1 to grass extra shade_7: 949975140
-      dirt1 to grass extra shade_21: 1012909735
-      dirt1 to grass extra shade_25: 616858903
-      dirt1 to grass extra shade_9: -545771354
-      dirt1 to grass extra shade_4: 134332850
-      dirt1 to grass extra shade_34: -1459388984
-      dirt1 to grass extra shade_29: 1610500833
-      dirt1 to grass extra shade_30: 463423230
+      dirt1 to grass extra shade_13: -1623682603
+      dirt1 to grass extra shade_14: 660573728
+      dirt1 to grass extra shade_15: 878780075
+      dirt1 to grass extra shade_16: -1622941044
+      dirt1 to grass extra shade_17: -1913666534
+      dirt1 to grass extra shade_18: -2146750037
+      dirt1 to grass extra shade_19: -7957581
+      dirt1 to grass extra shade_2: -2106621775
       dirt1 to grass extra shade_20: -1481825653
+      dirt1 to grass extra shade_21: 1012909735
+      dirt1 to grass extra shade_22: 1353024087
+      dirt1 to grass extra shade_23: -1378044153
+      dirt1 to grass extra shade_24: 79970086
+      dirt1 to grass extra shade_25: 616858903
+      dirt1 to grass extra shade_26: 617248091
+      dirt1 to grass extra shade_27: -1162606464
+      dirt1 to grass extra shade_28: 1943336528
+      dirt1 to grass extra shade_29: 1610500833
+      dirt1 to grass extra shade_3: -1903683502
+      dirt1 to grass extra shade_30: 463423230
+      dirt1 to grass extra shade_31: 1123454220
+      dirt1 to grass extra shade_32: 163190506
       dirt1 to grass extra shade_33: 1102264617
+      dirt1 to grass extra shade_34: -1459388984
       dirt1 to grass extra shade_35: -867764253
       dirt1 to grass extra shade_36: 458060746
-      dirt1 to grass extra shade_5: -1447111773
-      dirt1 to grass extra shade_14: 660573728
-      dirt1 to grass extra shade_1: -265658739
-      dirt1 to grass extra shade_27: -1162606464
-      dirt1 to grass extra shade_23: -1378044153
-      dirt1 to grass extra shade_15: 878780075
-      dirt1 to grass extra shade_31: 1123454220
-      dirt1 to grass extra shade_39: 1538250561
-      dirt1 to grass extra shade_24: 79970086
-      dirt1 to grass extra shade_13: -1623682603
-      dirt1 to grass extra shade_2: -2106621775
-      dirt1 to grass extra shade_3: -1903683502
-      dirt1 to grass extra shade_8: 442220951
-      dirt1 to grass extra shade_16: -1622941044
-      dirt1 to grass extra shade_11: 958895704
-      dirt1 to grass extra shade_17: -1913666534
-      dirt1 to grass extra shade_26: 617248091
-      dirt1 to grass extra shade_0: 1116138554
-      dirt1 to grass extra shade_18: -2146750037
-      dirt1 to grass extra shade_41: 1340424297
-      dirt1 to grass extra shade_19: -7957581
       dirt1 to grass extra shade_37: -795285768
-      dirt1 to grass extra shade_22: 1353024087
-      dirt1 to grass extra shade_6: -1015906609
-      dirt1 to grass extra shade_32: 163190506
+      dirt1 to grass extra shade_38: -871758213
+      dirt1 to grass extra shade_39: 1538250561
+      dirt1 to grass extra shade_4: 134332850
       dirt1 to grass extra shade_40: -1355006089
-  spritePackingTag: 
+      dirt1 to grass extra shade_41: 1340424297
+      dirt1 to grass extra shade_5: -1447111773
+      dirt1 to grass extra shade_6: -1015906609
+      dirt1 to grass extra shade_7: 949975140
+      dirt1 to grass extra shade_8: 442220951
+      dirt1 to grass extra shade_9: -545771354
+  mipmapLimitGroupName: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 
