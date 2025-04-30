@@ -39,6 +39,7 @@ public class CookingMiniGameManager : MonoSingleton<CookingMiniGameManager>
     {
         currentGame = game;
         currentGame?.StartGame();
+        SetCookingData();
     }
 
     async public void CloseMiniGame()
@@ -96,6 +97,39 @@ public class CookingMiniGameManager : MonoSingleton<CookingMiniGameManager>
         return selectedItems;
     }
 
+    /// <summary>
+    /// 데이터 관련
+    /// </summary>
+    // 선택한 재료/도구 넘겨주기
+    public void SetCookingData()
+    {
+        RecipeManager.Instance.StartCooking(selectedItems, selectedCookingTool);
+    }
+
+    // 아이템키 가져와서 인벤토리에 넣어주기
+    public void GetCookingResultData()
+    {
+        int newItemKey = RecipeManager.Instance.EndCooking();
+        var itemData = DataManager.Instance.DataLoader_Foods.GetByKey(newItemKey);
+
+        if (itemData == null) { Debug.Log("아이템 키에 해당하는 아이템 데이터가 없음"); }
+
+        var controller = InventoryManager.Instance.Invens[InvenType.Player];
+        controller.아이템획득(itemData, 1);
+        if (controller.아이템획득(itemData, 1))
+        {
+            Debug.Log("아이템 인벤토리에 추가 성공");
+        }
+        else
+        {
+            Debug.Log("아이템 추가 불가능 상태");
+        }
+    }
+
+    /// <summary>
+    /// 미니게임 결과등급 저장/반환
+    /// </summary>
+    /// <param name="grade"></param>
     public void SetMiniGameResult(CookingResultGrade grade)
     {
         resultGrade = grade;
