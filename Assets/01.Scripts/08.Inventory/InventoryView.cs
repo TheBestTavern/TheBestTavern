@@ -21,6 +21,11 @@ public abstract class InventoryView : MonoBehaviour
     [field: Header("toShowType")]
     [field: SerializeField] public List<DesignEnums.ItemType> toShowTypes { get; private set; }// 뷰에서 보여줄 아이템 타입.
 
+    private void Awake()
+    {
+        초기화BySelf();
+    }
+
     public virtual void 초기화ByController(InventoryController controller)
     {
         if (IsInitialized) return;
@@ -35,6 +40,7 @@ public abstract class InventoryView : MonoBehaviour
         if (IsInitialized) return;
         if (InventoryManager.Instance.Invens.TryGetValue(invenType, out InventoryController controller))
         {
+            if (IsInitialized) return;
             IsInitialized = true;
 
             초기화(controller);
