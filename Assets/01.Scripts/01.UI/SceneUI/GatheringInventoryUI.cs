@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using static System.Collections.Specialized.BitVector32;
 
 /// <summary>
@@ -10,5 +11,13 @@ using static System.Collections.Specialized.BitVector32;
 /// </summary>
 public class GatheringInventoryUI : InventoryViewLoose
 {
-    
+    public void AddItemToPlayerInventory()
+    {
+        foreach(var slot in index2Slots)
+        {
+            ItemStack item = slot.Value.GetSlotItem();
+            //InventoryManager.Instance.Invens[InvenType.Player].아이템획득(item.Origin, item.Count);
+            InventoryManager.Instance.Invens[InvenType.Player].아이템획득(Data.GetRawItem(item.Origin.key), item.Count);
+        }
+    }
 }

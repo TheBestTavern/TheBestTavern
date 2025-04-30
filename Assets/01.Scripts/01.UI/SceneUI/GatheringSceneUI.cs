@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
@@ -53,8 +54,15 @@ public class GatheringSceneUI : MonoBehaviour
     // 확인 팝업 함수
     async void ConfirmFunc()
     {
+        SaveInventory();
+
         // 메인씬 불러오기 
         await SceneLoader.Instance.LoadSceneAsync("MainSceneDev");
+    }
+
+    private void SaveInventory()
+    {
+        ForestGatheringManager.Instance.gatheringInventoryUI.AddItemToPlayerInventory();
     }
 
     void OnClickLeftButton()
