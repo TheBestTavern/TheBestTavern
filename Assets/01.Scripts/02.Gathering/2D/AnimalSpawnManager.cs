@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AnimalSpawnManager : MonoBehaviour
+public class AnimalSpawnManager : MonoSingleton<AnimalSpawnManager>
 {
     public List<GameObject> smallAnimals;
     public List<GameObject> mediumAnimals;
@@ -69,5 +69,10 @@ public class AnimalSpawnManager : MonoBehaviour
             return AnimalSizeType.Medium;
         else
             return AnimalSizeType.Large;
+    }
+
+    public void DestroyAnimal()
+    {
+        Destroy(gameObject);
     }
 }

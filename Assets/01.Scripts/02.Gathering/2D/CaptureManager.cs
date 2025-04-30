@@ -20,7 +20,7 @@ public class CaptureManager : MonoSingleton<CaptureManager>
     void Start()
     {
         captureButton.gameObject.SetActive(false);
-        escapeButton.gameObject.SetActive(false);
+        escapeButton.gameObject.SetActive(true);
     }
 
     void Update()
@@ -58,7 +58,6 @@ public class CaptureManager : MonoSingleton<CaptureManager>
     public void CaptureButton()
     {
         captureButton.gameObject.SetActive(true);
-        escapeButton.gameObject.SetActive(false);
     }
 
     // 포획 시도
@@ -87,8 +86,9 @@ public class CaptureManager : MonoSingleton<CaptureManager>
 
     public void EscapeFromAnimal()
     {
-        Debug.Log("Escaped from large animal.");
-        // 씬 전환
+        Debug.Log("도망가기");
+        animalInRange.DestroyAnimal();
+        UnLoadMiniGame();
     }
 
     async public void UnLoadMiniGame()
@@ -105,10 +105,5 @@ public class CaptureManager : MonoSingleton<CaptureManager>
     public void ForceCheckAnimal(Animal animal)
     {
         animalInRange = animal;
-    }
-
-    public void AddtoInventory()
-    {
-
     }
 }
