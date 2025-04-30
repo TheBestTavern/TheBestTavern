@@ -37,7 +37,7 @@ public class Animal : MonoBehaviour
 
     public void ReactToBait(string baitType, Vector3 baitPosition)
     {
-        if (hasReactedToBait) return; // 한 번만 반응
+        if (hasReactedToBait) return; 
         hasReactedToBait = true;
 
         bool likesBait = System.Array.Exists(favoriteBaits, bait => bait == baitType);
@@ -74,7 +74,7 @@ public class Animal : MonoBehaviour
                 if (likesBait)
                 {
                     Debug.Log($"{animalName} (Large)은 {baitType}을 싫어해서 도망갑니다!");
-                    Invoke(nameof(Flee), 3f); // 3초 후 도망
+                    Invoke(nameof(Flee), 3f); 
                 }
                 else
                 {
@@ -112,7 +112,7 @@ public class Animal : MonoBehaviour
     {
         if (BaitEffectApplied)
         {
-            GetHitByRock(hitPosition);  // 미끼 반응했을 때만 기절
+            GetHitByRock(hitPosition);  
         }
         else
         {
@@ -162,7 +162,7 @@ public class Animal : MonoBehaviour
             }
             else
             {
-                stayNearBaitTimer = 0f; // 멀어지면 초기화
+                stayNearBaitTimer = 0f; 
             }
 
             yield return null;
@@ -174,7 +174,6 @@ public class Animal : MonoBehaviour
         if (isFleeing) return;
         isFleeing = true;
         Debug.Log($"{animalName}이(가) 도망갑니다!");
-        // 도망가는 로직 추가 (ex: NavMeshAgent 이동)
     }
 
     public bool TryCapture()

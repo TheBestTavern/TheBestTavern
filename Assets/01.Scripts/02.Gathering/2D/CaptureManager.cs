@@ -5,8 +5,8 @@ using UnityEngine.UI;
 
 public class CaptureManager : MonoSingleton<CaptureManager>
 {
-    public Button captureButton; // 포획 버튼
-    public Button escapeButton;  // 도망가기 버튼 (큰 동물용)
+    public Button captureButton; 
+    public Button escapeButton;  
     public float captureRadius = 5f;
 
     private Animal animalInRange;
@@ -92,11 +92,10 @@ public class CaptureManager : MonoSingleton<CaptureManager>
         }
     }
 
-    // 도망가기
     public void EscapeFromAnimal()
     {
         Debug.Log("Escaped from large animal.");
-        // 씬 전환 및 화면 복귀 호출
+        // 씬 전환
     }
 
     void OnDrawGizmosSelected()
