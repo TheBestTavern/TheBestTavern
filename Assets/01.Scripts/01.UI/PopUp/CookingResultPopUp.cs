@@ -10,7 +10,7 @@ public class CookingResultPopUp : BasePopUp
     //private TextMeshProUGUI promptText; // 아이템 설명
     [SerializeField] private TextMeshProUGUI successText; // 성공 텍스트 
     [SerializeField] private TextMeshProUGUI failText; // 실패 텍스트
-    //[SerializeField] private TextMeshProUGUI itemNameText; // 아이템 이름 텍스트
+    [SerializeField] private TextMeshProUGUI itemNameText; // 아이템 이름 텍스트
 
 
     [SerializeField] private CanvasGroup resultCanvasGroup;
@@ -28,6 +28,7 @@ public class CookingResultPopUp : BasePopUp
         resultCanvasGroup.DOFade(1f, 1f);
 
         ShowResultText();
+        ShowItemInfo();
     }
 
     public void ShowResultText()
@@ -49,5 +50,12 @@ public class CookingResultPopUp : BasePopUp
                 failText.gameObject.SetActive(true);
                 break;
         }
+    }
+
+    public void ShowItemInfo()
+    {
+        int itemKey = RecipeManager.Instance.EndCooking();
+        var data = DataManager.Instance.DataLoader_Foods.GetByKey(itemKey);
+        itemNameText.text = data.name;
     }
 }

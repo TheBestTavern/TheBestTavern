@@ -630,6 +630,7 @@ MonoBehaviour:
   popUpType: 9
   successText: {fileID: 6705211295722216043}
   failText: {fileID: 8002306758438322540}
+  itemNameText: {fileID: 7054828951398744907}
   resultCanvasGroup: {fileID: 7401233372704870651}
 --- !u!1 &4385166779639670006
 GameObject:
@@ -1029,7 +1030,7 @@ GameObject:
   - component: {fileID: 7579693906444938211}
   - component: {fileID: 7054828951398744907}
   m_Layer: 0
-  m_Name: PromptText
+  m_Name: ItemNameText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
