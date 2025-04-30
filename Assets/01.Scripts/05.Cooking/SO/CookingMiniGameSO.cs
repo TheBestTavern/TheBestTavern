@@ -37,6 +37,9 @@ public class CookingMiniGameSO : ScriptableObject
     // 노트속도
     [field: SerializeField][field: Range(0f, 2f)] public float NoteSpeed { get; private set; }
 
+    [field: Header("MixingBowlData")]
+    [field: SerializeField] public float MixingBowlTimer { get; private set; } = 15f;
+
 }
 /// <summary>
 /// 도마 미니게임 관련 데이터
