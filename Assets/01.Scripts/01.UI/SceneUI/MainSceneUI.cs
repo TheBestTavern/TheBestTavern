@@ -62,6 +62,6 @@ public class MainSceneUI : MonoBehaviour
     // 확인 버튼 함수
     async void ConfirmFunc()
     {
-        await SceneLoader.Instance.LoadSceneAsync("CookingSceneDev");
+        await SceneLoader.Instance.LoadSceneAsync("CookingScene");
     }
 }
