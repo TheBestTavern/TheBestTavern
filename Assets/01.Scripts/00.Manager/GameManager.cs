@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class GameManager : MonoSingleton<GameManager>
 {
+    public Action onSceneMove;
 
     private async void Start()
     {
@@ -18,4 +19,6 @@ public class GameManager : MonoSingleton<GameManager>
 
         DayManager.Instance.ExecuteCommands(); 
     }
+
+    public void TriggerSceneMoveEvents() => onSceneMove?.Invoke();
 }

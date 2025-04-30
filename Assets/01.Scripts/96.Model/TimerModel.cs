@@ -7,15 +7,20 @@ using UnityEngine;
 /// <summary>
 /// 날짜 모델
 /// </summary>
-public class TimerModel : MonoBehaviour
+public class TimerModel
 {
     // 음력 시간
     public LunarDateTime dateTime;
 
-    private void Awake()
+    //private void Awake()
+    //{
+    //    // 날짜 초기화
+    //    dateTime = new LunarDateTime(1234, 11, 26, false);
+    //}
+
+    public TimerModel(int year, int month, int day, bool isLeapMonth)
     {
-        // 날짜 초기화
-        dateTime = new LunarDateTime(1234, 11, 26, false);
+        dateTime = new LunarDateTime(year, month, day, isLeapMonth);
     }
 
     // 날짜 바꾸기

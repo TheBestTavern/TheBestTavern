@@ -3641,8 +3641,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1456391345}
   - component: {fileID: 1456391348}
-  - component: {fileID: 1456391347}
-  - component: {fileID: 1456391346}
   m_Layer: 5
   m_Name: Timer
   m_TagString: Untagged
@@ -3670,33 +3668,6 @@ RectTransform:
   m_AnchoredPosition: {x: -616, y: 637}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1456391346
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1456391344}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4bb4bfcf41234dc4f89b729725195821, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isDontDestroyOnLoad: 1
-  timerUI: {fileID: 1456391348}
-  timerModel: {fileID: 1456391347}
---- !u!114 &1456391347
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1456391344}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 00a685aadf8d7d746a3922b45a5b1e8b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1456391348
 MonoBehaviour:
   m_ObjectHideFlags: 0

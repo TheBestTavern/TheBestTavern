@@ -37,7 +37,7 @@ public class UIManager : MonoSingleton<UIManager>, IPopupManager
 
     public AlarmPopUp alarmPopUp;
 
-    int sortingOrderIndex;
+    int sortingOrderIndex = 100;
     public Stack<int> PopupIDs = new();
     public List<int> UsingPopups = new();
 
@@ -105,7 +105,7 @@ public class UIManager : MonoSingleton<UIManager>, IPopupManager
         UsingPopups.Remove(id);
         if (UsingPopups.Count == 0)
         {
-            sortingOrderIndex = 0;
+            sortingOrderIndex = 100;
         }
     }
 

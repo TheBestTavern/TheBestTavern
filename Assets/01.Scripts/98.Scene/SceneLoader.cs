@@ -44,6 +44,7 @@ public class SceneLoader : MonoSingleton<SceneLoader>
 
         await loadScene;
 
+        GameManager.Instance.TriggerSceneMoveEvents();
         // 로딩 UI 없애기
         await HideLoadingUI();
     }

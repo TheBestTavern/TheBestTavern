@@ -12,6 +12,14 @@ public class DayManager : MonoSingleton<DayManager>
     List<IDayCommand> commands = new();
     bool isReady;
 
+    public override void Init()
+    {
+        if (_isInitialized) return;
+        base.Init();
+
+        DontDestroyOnLoad(this);
+    }
+
     public void AddCommand(IDayCommand command)
     {
         commands.Add(command);
