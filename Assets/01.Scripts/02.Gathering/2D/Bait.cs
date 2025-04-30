@@ -15,22 +15,19 @@ public class Bait : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
 
-        PhysicsMaterial2D noSlide = new PhysicsMaterial2D("NoSlide");
-        noSlide.friction = 1f;
-        noSlide.bounciness = 0f;
+        // 필요한 최소 설정만
+        PhysicsMaterial2D noSlide = new PhysicsMaterial2D("NoSlide")
+        {
+            friction = 1f,
+            bounciness = 0f
+        };
 
         BoxCollider2D col = GetComponent<BoxCollider2D>();
         col.sharedMaterial = noSlide;
-
-        rb.drag = 0f;
-        rb.angularDrag = 0.05f;
-        rb.gravityScale = 1f;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log("Collided with: " + collision.collider.name + " (Tag: " + collision.collider.tag + ")");
-
         if (!hasLanded && collision.collider.CompareTag("Ground"))
         {
             Land();
@@ -39,7 +36,6 @@ public class Bait : MonoBehaviour
 
     void Land()
     {
-        Debug.Log("미끼 착지");
         hasLanded = true;
 
         rb.velocity = Vector2.zero;
@@ -53,16 +49,13 @@ public class Bait : MonoBehaviour
 
     void NotifyAnimals()
     {
-        Debug.Log("미끼가 착지하여 동물에게 반응");
-
         Collider2D[] hitColliders = Physics2D.OverlapCircleAll(transform.position, effectRadius);
         foreach (var hit in hitColliders)
         {
             Animal animal = hit.GetComponent<Animal>();
             if (animal != null)
             {
-                Debug.Log($"{animal.gameObject.name}에게 미끼 반응 전달");
-                animal.ReactToBait(baitType, transform.position);
+                animal.ApplyBaitEffect(); // 미끼 효과 바로 적용
             }
         }
     }
