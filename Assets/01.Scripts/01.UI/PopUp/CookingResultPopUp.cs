@@ -24,11 +24,11 @@ public class CookingResultPopUp : BasePopUp
 
     public override void OnOpen()
     {
-        base.OnOpen();
         resultCanvasGroup.DOFade(1f, 1f);
-
         ShowResultText();
         ShowItemInfo();
+
+        base.OnOpen(); // 여기서 오류
     }
 
     public void ShowResultText()
@@ -54,7 +54,14 @@ public class CookingResultPopUp : BasePopUp
 
     public void ShowItemInfo()
     {
+
         int itemKey = RecipeManager.Instance.EndCooking();
+        if (itemKey == -1)
+        {
+            Debug.Log("요리 실패해서 이름 안 뜸");
+            itemNameText.gameObject.SetActive(false);
+            return;
+        }
         var data = DataManager.Instance.DataLoader_Foods.GetByKey(itemKey);
         itemNameText.text = data.name;
     }

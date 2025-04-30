@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 
@@ -9,53 +10,17 @@ using UnityEngine;
 /// </summary>
 public class RecipeManager : MonoSingleton<RecipeManager>
 {
-    // 레시피 
-    //private Data_RecipesLoader loader;
-
+    
     // 도구
-    private Data_CookingSteps cookingSteps;
+   // private Data_CookingSteps cookingSteps;
 
     private List<Data_Foods> currentIngredients; // 현재 사용중인 재료
-    private string currentTool; // 현재 사용 중인 도구
+    private int currentTool; // 현재 사용 중인 도구
     private Data_Recipes currentRecipe; // 현재 레시피
 
-    public void StartCooking(List<Data_Foods> ingredients, string tool)
-    {
-        currentIngredients = ingredients;
-        currentTool = tool;
-        currentRecipe = GetRecipe(ingredients, tool);
-        
+    public int resultItemKey = -1;
 
-        if (currentRecipe == null)
-        {
-            // 무조건 '실패한 요리' 나와야 함
-            Debug.Log($"요리 실패 : 해당하는 레시피 없음");
-        }
-        else 
-        {
-            int category = currentRecipe.resultCategory;
-            Debug.Log($"요리 시작 레시피 : {currentRecipe}"); 
-        }
-
-    }
-    
-    public int EndCooking()
-    {
-        var grade = CookingMiniGameManager.Instance.GetMiniGameResult();
-        int resultItemKey = GetItemKey(currentRecipe.resultCategory, grade);
-
-        return resultItemKey;
-    }
-
-    /// <summary>
-    /// 일치하는 레시피 찾기
-    /// </summary>
-    /// <param name="ingredients"></param>
-    /// <param name="tool"></param>
-    /// <returns></returns>
-    public Data_Recipes GetRecipe(List<Data_Foods> ingredients, string tool)
-    {
-        Dictionary<string, int> toolTable = new()
+    Dictionary<string, int> toolTable = new()
         {
             //{ DesignEnums.CookingToolType.doma, 1001 },
             //{ DesignEnums.CookingToolType.julgu, 1002 },
@@ -69,13 +34,60 @@ public class RecipeManager : MonoSingleton<RecipeManager>
             {"Cooking_Mill_Test", 1003 }
         };
 
-        toolTable.TryGetValue(tool, out int toolId);
+    public void StartCooking(List<Data_Foods> ingredients, string tool)
+    {
+        currentIngredients = ingredients;
 
+        toolTable.TryGetValue(tool, out int toolId);
+        currentTool = toolId;
+        //currentRecipe = GetRecipe(ingredients, toolId);
+        // 수정
+        
+
+        if (currentRecipe == null)
+        {
+            // 무조건 '실패한 요리' 나와야 함
+            Debug.Log($"재료 :{currentIngredients} 도구 : {currentTool} / 요리 실패 : 해당하는 레시피 없음");
+        }
+        else 
+        {
+            int category = currentRecipe.resultCategory;
+            Debug.Log($"요리 시작 레시피 : {currentRecipe}"); 
+        }
+    }
+    
+    public int EndCooking()
+    {
+        
+        var grade = CookingMiniGameManager.Instance.GetMiniGameResult();
+
+        // 레시피대로 조리하지 않으면 무조건 실패
+        if (currentRecipe == null) 
+        {
+            grade = CookingResultGrade.Failed;
+            CookingMiniGameManager.Instance.SetMiniGameResult(grade);
+            resultItemKey = -1;
+            return -1; 
+        }
+
+        resultItemKey = GetItemKey(currentRecipe.resultCategory, grade);
+        return resultItemKey;
+    }
+
+    /// <summary>
+    /// 일치하는 레시피 찾기
+    /// </summary>
+    /// <param name="ingredients"></param>
+    /// <param name="tool"></param>
+    /// <returns></returns>
+    public Data_Recipes GetRecipe(List<Data_Foods> ingredients, int toolId)
+    {
+        
         // 재료 리스트에서 음식군ID 가져오기
        var ingredientsSet = new HashSet<int>();
         foreach (var ingredient in ingredients) 
         {
-            ingredientsSet.Add(ingredient.key);
+           //ingredientsSet.Add(ingredient.카테고리);
         }
 
         // 재료와 tool의 조합이 레시피대로인지 확인
@@ -97,6 +109,7 @@ public class RecipeManager : MonoSingleton<RecipeManager>
     /// </summary>
     public int GetItemKey(int resultCategory, CookingResultGrade grade)
     {
+       
         var dict = DataManager.Instance.DataLoader_FoodCategory.ItemsDict;
         dict.TryGetValue(resultCategory, out var data);
 

@@ -110,8 +110,9 @@ public class CookingMiniGameManager : MonoSingleton<CookingMiniGameManager>
     public void GetCookingResultData()
     {
         int newItemKey = RecipeManager.Instance.EndCooking();
+        if (newItemKey == -1) return;
         var itemData = DataManager.Instance.DataLoader_Foods.GetByKey(newItemKey);
-
+       
         if (itemData == null) { Debug.Log("아이템 키에 해당하는 아이템 데이터가 없음"); }
 
         var controller = InventoryManager.Instance.Invens[InvenType.Player];
@@ -123,6 +124,12 @@ public class CookingMiniGameManager : MonoSingleton<CookingMiniGameManager>
         else
         {
             Debug.Log("아이템 추가 불가능 상태");
+        }
+
+        // 기존 아이템 없애주기
+        foreach (var item in selectedItems)
+        {
+            controller.아이템잃음(item, 1);
         }
     }
 

@@ -626,7 +626,7 @@ MonoBehaviour:
   draggableObjectTrs: {fileID: 6607435259683682824}
   draggable: 0
   closeButton: {fileID: 7532414593101267258}
-  canvas: {fileID: 0}
+  canvas: {fileID: 3104860181281777239}
   popUpType: 9
   successText: {fileID: 6705211295722216043}
   failText: {fileID: 8002306758438322540}
