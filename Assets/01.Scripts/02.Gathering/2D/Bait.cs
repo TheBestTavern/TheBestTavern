@@ -26,14 +26,13 @@ public class Bait : MonoBehaviour
         col.sharedMaterial = noSlide;
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (!hasLanded && collision.collider.CompareTag("Ground"))
+        if (!hasLanded && collision.CompareTag("Ground"))
         {
             Land();
         }
     }
-
     void Land()
     {
         hasLanded = true;
