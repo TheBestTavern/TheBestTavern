@@ -18,7 +18,6 @@ public class test_Inventory : MonoBehaviour
 
     private void Start()
     {
-        InventoryManager.Instance.CreateInventory(InvenType.Player, 54, 10);
         addBtn_goguma.onClick.AddListener(() => AddItemBtn(101015));
         addBtn_butter.onClick.AddListener(() => AddItemBtn(103007));
         addBtn_manuel.onClick.AddListener(() => AddItemBtn(101001));

@@ -15,7 +15,9 @@ public class InventoryManager : MonoSingleton<InventoryManager>
         if (_isInitialized) return;
         base.Init();
 
-        isDontDestroyOnLoad = true;
+        DontDestroyOnLoad(this);
+        InventoryManager.Instance.CreateInventory(InvenType.Player, 54, 10);
+        InventoryManager.Instance.CreateInventory(InvenType.Gathering, 6, 10);
     }
 
     public Dictionary<InvenType, InventoryController> Invens { get; private set; } = new();
@@ -30,6 +32,4 @@ public class InventoryManager : MonoSingleton<InventoryManager>
     {
         return FindObjectsOfType<InventoryView>();
     }
-
-
 }

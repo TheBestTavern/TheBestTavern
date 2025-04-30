@@ -127,9 +127,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animalName: Cow
-  animalSizeType: 0
+  animalSizeType: 1
   favoriteBaits:
   - Carrot
+  BaitEffectApplied: 0
 --- !u!70 &4376235845715228615
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
