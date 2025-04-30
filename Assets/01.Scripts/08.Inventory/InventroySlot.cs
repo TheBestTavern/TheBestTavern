@@ -13,7 +13,7 @@ public class InventorySlot : MonoBehaviour, IDragHandler, IDropHandler, IPointer
     int ID;
     ItemStack item;
     int count;
-    [SerializeField] Image image;
+    public Image image;
     [SerializeField] TextMeshProUGUI CountTMP;
     public bool IsTargeting { get; private set; }
 

@@ -26,6 +26,7 @@ public class ForestGatheringManager : MonoSingleton<ForestGatheringManager>
     {
         mapController.CreateMapProps();
         SetItem();
+        InventoryManager.Instance.CreateInventory(InvenType.Gathering, 6, 10);
     }
 
     public void SetItem()

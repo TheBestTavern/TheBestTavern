@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using DG.Tweening;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using static DesignEnums;
 
 public class GatheringProps : MonoBehaviour
@@ -59,7 +60,13 @@ public class GatheringProps : MonoBehaviour
         int itemId = ForestGatheringManager.Instance.GetRandomItemID();
         Debug.Log(itemId);
 
-        var item = DataManager.Instance.DataLoader_Foods.GetByKey(itemId);
-        ForestGatheringManager.Instance.gatheringInventoryUI.SetSlot(item);
+        if (InventoryManager.Instance.Invens[InvenType.Gathering].아이템획득(Data.GetRawItem(itemId), 1))
+        {
+            Debug.Log("아이템 증가 가능");
+        }
+        else
+        {
+            Debug.Log("아이템 증가 불가능");
+        }
     }
 }

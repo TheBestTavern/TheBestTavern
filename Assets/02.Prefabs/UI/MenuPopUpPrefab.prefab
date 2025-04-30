@@ -1900,6 +1900,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6110026376554207569}
   - component: {fileID: 3340273941753793633}
+  - component: {fileID: 5223993467733600230}
   m_Layer: 5
   m_Name: Inventory
   m_TagString: Untagged
@@ -1942,6 +1943,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   contentParent: {fileID: 1540129280412585049}
   contentPrefab: {fileID: 0}
+  mainInventory: {fileID: 5223993467733600230}
+--- !u!114 &5223993467733600230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3475352175682851869}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28d58b8574dee314a95fbfa8053e1aee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <invenType>k__BackingField: 0
+  slotPref: {fileID: 7050718121081789698, guid: 77444633087827543a45cb996dcd98a0, type: 3}
+  slotTrs: {fileID: 1540129280412585049}
+  slotCount: 54
+  <toShowTypes>k__BackingField: 000000000100000002000000
 --- !u!1 &3520753766482931134
 GameObject:
   m_ObjectHideFlags: 0
@@ -4656,7 +4675,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1310ced4a8466114089b13259205ed4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  draggableObjectTrs: {fileID: 0}
+  draggable: 0
   closeButton: {fileID: 5585859271247861627}
+  canvas: {fileID: 0}
   popUpType: 1
   inventoryButton: {fileID: 3548321237705354215}
   inventoryGameObject: {fileID: 3475352175682851869}

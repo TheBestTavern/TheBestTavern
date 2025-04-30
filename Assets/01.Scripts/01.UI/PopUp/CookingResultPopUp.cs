@@ -10,6 +10,8 @@ public class CookingResultPopUp : BasePopUp
     //private TextMeshProUGUI promptText; // 아이템 설명
     [SerializeField] private TextMeshProUGUI successText; // 성공 텍스트 
     [SerializeField] private TextMeshProUGUI failText; // 실패 텍스트
+    //[SerializeField] private TextMeshProUGUI itemNameText; // 아이템 이름 텍스트
+
 
     [SerializeField] private CanvasGroup resultCanvasGroup;
 
@@ -24,5 +26,28 @@ public class CookingResultPopUp : BasePopUp
     {
         base.OnOpen();
         resultCanvasGroup.DOFade(1f, 1f);
+
+        ShowResultText();
+    }
+
+    public void ShowResultText()
+    {
+        var result = CookingMiniGameManager.Instance.GetMiniGameResult();
+        
+        // 결과에 따라 성공/실패 텍스트 활성
+         switch (result)
+        {
+            case CookingResultGrade.Legendary:
+            case CookingResultGrade.Rare:
+            case CookingResultGrade.Common:
+                successText.gameObject.SetActive(true);
+                failText.gameObject.SetActive(false);
+                break;
+
+            case CookingResultGrade.Failed:
+                successText.gameObject.SetActive(false);
+                failText.gameObject.SetActive(true);
+                break;
+        }
     }
 }

@@ -1,7 +1,9 @@
 
+using System.Collections.Generic;
 using Cinemachine;
 using Cysharp.Threading.Tasks;
 using Cysharp.Threading.Tasks.Triggers;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.SceneManagement;
@@ -10,15 +12,27 @@ public class CookingMiniGameManager : MonoSingleton<CookingMiniGameManager>
 {
     public MiniGameUI miniGameUI;
     public CookingSceneUI cookingSceneUI;
+    public CookingInventoryView cookingInventoryView;
 
     private ICookingMiniGameHandler currentGame;
-    private ItemStack item;
+    private List<Data_Foods> selectedItems;
 
-    async public void ShowMiniGame(string miniGameSceneName)
+    string selectedCookingTool = null;
+
+    private CookingResultGrade resultGrade;
+
+    private void Start()
     {
-        await SceneLoader.Instance.LoadSceneAsyncMiniGame(miniGameSceneName);
+        cookingInventoryView.OnEnableTargetSlot = SetMiniGameItem;
+        cookingInventoryView.OnDisalbeTargetSlot = ClearMiniGameItem;
+    }
+
+    async public void ShowMiniGame()
+    {
+        await SceneLoader.Instance.LoadSceneAsyncMiniGame(selectedCookingTool);
         miniGameUI.ResetTimer();
         SettingMiniGame(true);
+        selectedCookingTool = null;
     }
 
     public void GetCurrentMiniGame(ICookingMiniGameHandler game)
@@ -38,13 +52,57 @@ public class CookingMiniGameManager : MonoSingleton<CookingMiniGameManager>
         miniGameUI.gameObject.SetActive(active);
     }
 
-    public void SetMiniGameItem(ItemStack item)
+    public void SetMiniGameItem(List<Data_Foods> items)
     {
-        this.item = item;
+        this.selectedItems = items;
+        cookingInventoryView.SetAbleButton();
     }
 
-    public ItemStack GetMiniGameItem()
+    public void ClearMiniGameItem()
     {
-        return item;
+        selectedItems.Clear();
+        cookingInventoryView.SetAbleButton();
+    }
+
+    public void SetMiniGameTool(string s)
+    {
+        selectedCookingTool = s;
+        switch (s)
+        {
+            case "Cooking_Grill_Test":
+                cookingInventoryView.SetTargetSlotCount(1,1);
+                break;
+            case "Cooking_Grind_Test":
+                cookingInventoryView.SetTargetSlotCount(1,1);
+                break;
+            case "Cooking_Mill_Test":
+                cookingInventoryView.SetTargetSlotCount(1,1);
+                break;
+            default:
+                break;
+        }
+        cookingInventoryView.SetAbleButton();
+
+
+        if (!cookingInventoryView.gameObject.activeSelf)
+        {
+            cookingInventoryView.gameObject.SetActive(true);
+        }
+
+    }
+
+    public List<Data_Foods> GetMiniGameItem()
+    {
+        return selectedItems;
+    }
+
+    public void SetMiniGameResult(CookingResultGrade grade)
+    {
+        resultGrade = grade;
+    }
+
+    public CookingResultGrade GetMiniGameResult()
+    {
+        return resultGrade;
     }
 }

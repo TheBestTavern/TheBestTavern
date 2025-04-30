@@ -1,9 +1,11 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.UI;
+using static UnityEditor.Progress;
 
 /// <summary>
 /// 요리씬 기본 UI 
@@ -22,16 +24,25 @@ public class CookingSceneUI : MonoBehaviour
     // 맷돌 미니게임 시작 버튼
     [SerializeField] private Button millMiniGameButton;
 
+    [SerializeField] private Button blurBackGround;
+
+    private RectTransform curBtn;
+    private Vector2 curBtnPos;
+
+    private int btnClickCount = 0;
+
     private void Awake()
     {
         // 메인 씬으로 돌아가기 버튼 이벤트 리스너 추가
         mainSceneButton.onClick.AddListener(OnClickMainSceneButton);
         // 굽기 미니게임 시작 버튼 이벤트 리스너 추가
-        grillMiniGameButton.onClick.AddListener(OnClickGrillMiniGameButton);
+        grillMiniGameButton.onClick.AddListener(() => OnClickCookingTool("Cooking_Grill_Test"));
         // 절구 미니게임 시작 버튼 이벤트 리스너 추가
-        grindMiniGameButton.onClick.AddListener(OnClickGrindMiniGameButton);
+        grindMiniGameButton.onClick.AddListener(() => OnClickCookingTool("Cooking_Grind_Test"));
         // 맷돌 미니게임 시작 버튼 이벤트 리스너 추가 
-        millMiniGameButton.onClick.AddListener(OnClickMillMiniGameButton);
+        millMiniGameButton.onClick.AddListener(() => OnClickCookingTool("Cooking_Mill_Test"));
+
+        blurBackGround.onClick.AddListener(OnClickBlurBackGround);
     }
 
     // 메인 씬으로 돌아가기 버튼 함수
@@ -43,25 +54,44 @@ public class CookingSceneUI : MonoBehaviour
         UIManager.Instance.confirmPopUp.SetConfirm("마당으로 이동하시겠습니까?", ConfirmFunc);
     }
 
-    // 굽기 미니게임 시작 버튼 함수
+    void OnClickCookingTool(string s)
+    {
+        CookingMiniGameManager.Instance.SetMiniGameTool(s);
+    }
+
     void OnClickGrillMiniGameButton()
     {
-        // 굽기 미니게임 씬 불러오기
-        CookingMiniGameManager.Instance.ShowMiniGame("Cooking_Grill_Test");
+        if (btnClickCount == 0)
+        {
+            btnClickCount++;
+            ReadyMiniGame(grillMiniGameButton);
+            grillMiniGameButton.GetComponent<RectTransform>().DORotate(new Vector3(0, 0, 0), 2f);
+        }
+        else
+        {
+            if (CookingMiniGameManager.Instance.GetMiniGameItem() == null)
+            {
+                NotSelectedFood();
+            }
+            else
+            {
+                // 굽기 미니게임 씬 불러오기
+                //StartMinGame("Cooking_Grill_Test");
+            }
+        }
     }
 
-    // 절구 미니게임 시작 버튼 함수 
-    void OnClickGrindMiniGameButton()
+    private void OnClickBlurBackGround()
     {
-        // 절구 미니게임 씬 불러오기
-        CookingMiniGameManager.Instance.ShowMiniGame("Cooking_Grind_Test");
-    }
-
-    // 맷돌 미니게임 시작 버튼 함수
-    void OnClickMillMiniGameButton()
-    {
-        // 맷돌 미니게임 씬 불러오기 
-        CookingMiniGameManager.Instance.ShowMiniGame("Cooking_Mill_Test");
+        btnClickCount = 0;
+        blurBackGround.gameObject.SetActive(false);
+        curBtn.DOAnchorPos(curBtnPos, 2f);
+        curBtn.DOScale(new Vector3(1, 1, 1), 1.5f);
+        if (curBtn.gameObject.name == "GrillMiniGameButton")
+        {
+            curBtn.DORotate(new Vector3(0, 0, -40), 1.5f);
+        }
+        //CookingMiniGameManager.Instance.SetMiniGameItem();
     }
 
     // 확인 팝업 함수
@@ -69,5 +99,29 @@ public class CookingSceneUI : MonoBehaviour
     {
         // 메인씬 불러오기
         await SceneLoader.Instance.LoadSceneAsync("MainSceneDev");
+    }
+
+    void ReadyMiniGame(Button button)
+    {
+        RectTransform btnRect = button.GetComponent<RectTransform>();
+        curBtn = btnRect;
+        curBtnPos = new Vector2(btnRect.anchoredPosition.x, btnRect.anchoredPosition.y);
+
+        button.transform.SetAsLastSibling();
+        btnRect.DOAnchorPos(new Vector2(0, 0), 1.5f);
+        btnRect.DOScale(new Vector3(3, 3, 3), 1.5f);
+        blurBackGround.gameObject.SetActive(true);
+        //miniGameStartButton.gameObject.SetActive(true);
+    }
+
+    //void StartMinGame(string miniGameName)
+    //{
+    //    CookingMiniGameManager.Instance.ShowMiniGame();
+    //}
+
+    async void NotSelectedFood()
+    {
+        await UIManager.Instance.ShowPopUp(PopUpType.Alarm);
+        UIManager.Instance.alarmPopUp.SetAlarm("음식을 선택해주세요");
     }
 }
