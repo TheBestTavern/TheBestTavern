@@ -3106,9 +3106,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   smallAnimals:
   - {fileID: 4016735987611543773, guid: bd9c6cb322fd2ee49a4aa6c547b5f469, type: 3}
-  - {fileID: 4016735987611543773, guid: bfec1912e07c88e4e80359f4a571f8b7, type: 3}
   mediumAnimals:
-  - {fileID: 4016735987611543773, guid: b3ad0d2938d13834d8115fd973042fae, type: 3}
   - {fileID: 4016735987611543773, guid: 685043ea9978d65439436694f5dcdd18, type: 3}
   largeAnimals:
   - {fileID: 4016735987611543773, guid: ba32ed4b1e947e044af808755420c820, type: 3}

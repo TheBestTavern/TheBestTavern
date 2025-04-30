@@ -43,16 +43,13 @@ public class Animal : MonoBehaviour
     {
         if (animalSizeType == AnimalSizeType.Small)
         {
-            canBeCaptured = true;
-            captureChance = 1f;
-            CaptureManager.Instance.CaptureButton();
+            HitSmallAnimal();
         }
         else if (animalSizeType == AnimalSizeType.Medium)
         {
             if (BaitEffectApplied)
             {
-                SetCaptureChanceInstant(hitPosition, true);
-                CaptureManager.Instance.CaptureButton();
+                HitMediumAnimal(hitPosition);
             }
             else
             {
@@ -63,6 +60,19 @@ public class Animal : MonoBehaviour
         {
             Debug.Log($"{animalName} (Large)은 돌을 맞아도 포획할 수 없습니다.");
         }
+    }
+
+    public void HitSmallAnimal()
+    {
+        canBeCaptured = true;
+        captureChance = 1f;
+        CaptureManager.Instance.CaptureButton();
+    }
+
+    public void HitMediumAnimal(Vector3 hitPosition)
+    {
+        SetCaptureChanceInstant(hitPosition, true);
+        CaptureManager.Instance.CaptureButton();
     }
 
     void SetCaptureChanceInstant(Vector3 targetPosition, bool isBaitEffective)
@@ -101,6 +111,11 @@ public class Animal : MonoBehaviour
     public void ApplyBaitEffect()
     {
         BaitEffectApplied = true;
+    }
+
+    public void DestroyAnimal()
+    {
+        Destroy(gameObject);
     }
 }
 
