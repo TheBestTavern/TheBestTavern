@@ -64,6 +64,7 @@ public class CaptureManager : MonoSingleton<CaptureManager>
         {
             Debug.Log("동물 포획 성공!");
             animalInRange.DestroyAnimal();
+            UnLoadMiniGame();
         }
         else
         {
@@ -75,6 +76,11 @@ public class CaptureManager : MonoSingleton<CaptureManager>
     {
         Debug.Log("Escaped from large animal.");
         // 씬 전환
+    }
+
+    async public void UnLoadMiniGame()
+    {
+        await SceneLoader.Instance.UnLoadSceneAsyncMiniGame();
     }
 
     void OnDrawGizmosSelected()
