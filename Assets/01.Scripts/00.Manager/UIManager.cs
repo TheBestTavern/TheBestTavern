@@ -37,7 +37,7 @@ public class UIManager : MonoSingleton<UIManager>, IPopupManager
 
     public AlarmPopUp alarmPopUp;
 
-    int sortingOrderIndex;
+    int sortingOrderIndex = 100;
     public Stack<int> PopupIDs = new();
     public List<int> UsingPopups = new();
 
@@ -45,8 +45,12 @@ public class UIManager : MonoSingleton<UIManager>, IPopupManager
 
     public override void Init()
     {
+        if (_isInitialized) return;
         base.Init();
+
+        DontDestroyOnLoad(this);
         GetReadyIDs(PopupIDs, 1000, 9999);
+        GameManager.Instance.onSceneMoveAfter += OnSceneMove;
     }
 
     void GetReadyIDs(Stack<int> IDs, int from, int to)
@@ -105,7 +109,7 @@ public class UIManager : MonoSingleton<UIManager>, IPopupManager
         UsingPopups.Remove(id);
         if (UsingPopups.Count == 0)
         {
-            sortingOrderIndex = 0;
+            sortingOrderIndex = 100;
         }
     }
 
@@ -117,5 +121,10 @@ public class UIManager : MonoSingleton<UIManager>, IPopupManager
     public int GetNextSortingOrder()
     {
         return sortingOrderIndex++;
+    }
+
+    public void OnSceneMove()
+    {
+        popUps.Clear();
     }
 }

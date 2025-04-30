@@ -11,6 +11,7 @@ public class TimerUI : MonoBehaviour
     // 날짜 텍스트 
     [SerializeField] private TextMeshProUGUI dayText;
 
+
     // 날짜 설정 함수 
     public void SetDay(string day)
     {

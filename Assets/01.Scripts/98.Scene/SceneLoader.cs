@@ -31,6 +31,8 @@ public class SceneLoader : MonoSingleton<SceneLoader>
         // 로딩 UI 불러오기
         await ShowLoadingUI();
 
+        GameManager.Instance.onSceneMoveBefore();
+
         // 씬 불러오기 
         var loadScene = Addressables.LoadSceneAsync($"{sceneName}.unity");
 
@@ -44,6 +46,7 @@ public class SceneLoader : MonoSingleton<SceneLoader>
 
         await loadScene;
 
+        GameManager.Instance.TriggerSceneMoveEvents();
         // 로딩 UI 없애기
         await HideLoadingUI();
     }

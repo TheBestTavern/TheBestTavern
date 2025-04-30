@@ -80,8 +80,10 @@ public class SelectMapPopUp : BasePopUp
 
     // 바다 이동 확인 팝업 함수 
     async void ConfirmMoveSeaFunc()
-    {       
+    {
         // 채집 씬으로 이동 
+        SceneParameter.Set("Region", region);
+        SceneParameter.Set("Season", DesignEnums.SeasonType.winter);
         await SceneLoader.Instance.LoadSceneAsync("SeaGatheringSceneDev");
     }
 

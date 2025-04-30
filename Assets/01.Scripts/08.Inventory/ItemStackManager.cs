@@ -14,7 +14,7 @@ public class ItemStackManager : MonoSingleton<ItemStackManager>
         if (_isInitialized) return;
         base.Init();
 
-        isDontDestroyOnLoad = true;
+        DontDestroyOnLoad(this);
         for (int i = idRangeMax; i >= idRangeMin; i--)
         {
             IDs.Push(i);

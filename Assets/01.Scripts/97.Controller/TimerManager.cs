@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
+using static Cinemachine.CinemachineTriggerAction.ActionSettings;
 
 /// <summary>
 /// 날짜 매니저
@@ -20,18 +21,36 @@ public class TimerManager : MonoSingleton<TimerManager>
         if (_isInitialized) return;
         base.Init();
 
+        DontDestroyOnLoad(this);
+        timerModel = new TimerModel(1234, 11, 26, false);
+        OnSceneMove();
+
         OnNewDay command = new(this);
         DayManager.Instance.AddCommand(command);
+
+        GameManager.Instance.onSceneMoveAfter += OnSceneMove;
     }
 
-    private void Start()
+    public void OnSceneMove() // 씬이동, 게임시작할때 한번씩 실행.
     {
-        // 날짜 UI 초기화 
-        timerUI.SetDay(timerModel.GetFormatDay());
-
-        // 파괴 금지
-        isDontDestroyOnLoad = true;
+        if (timerUI == null)
+        {
+            timerUI = FindObjectOfType<TimerUI>();
+            if (timerUI != null)
+            {
+                ChangeDayUI();
+            }
+        }
     }
+
+    //private void Start()
+    //{
+    //    // 날짜 UI 초기화 
+    //    timerUI.SetDay(timerModel.GetFormatDay());
+
+    //    // 파괴 금지
+    //    isDontDestroyOnLoad = true;
+    //}
 
     // 날짜 바꾸기 함수
     public void DayChange(int day)
@@ -82,4 +101,6 @@ public class TimerManager : MonoSingleton<TimerManager>
             prt.OneDayPass();
         }
     }
+
+    //public class OnSceneMove : 
 }
