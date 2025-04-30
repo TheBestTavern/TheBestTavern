@@ -28,7 +28,7 @@ public class TimerManager : MonoSingleton<TimerManager>
         OnNewDay command = new(this);
         DayManager.Instance.AddCommand(command);
 
-        GameManager.Instance.onSceneMove += OnSceneMove;
+        GameManager.Instance.onSceneMoveAfter += OnSceneMove;
     }
 
     public void OnSceneMove() // 씬이동, 게임시작할때 한번씩 실행.

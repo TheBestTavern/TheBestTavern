@@ -5,7 +5,8 @@ using UnityEngine;
 
 public class GameManager : MonoSingleton<GameManager>
 {
-    public Action onSceneMove;
+    public Action onSceneMoveAfter;
+    public Action onSceneMoveBefore;
 
     private async void Start()
     {
@@ -13,6 +14,7 @@ public class GameManager : MonoSingleton<GameManager>
         QuestManager.Instance.Init();
         NPCManager.Instance.Init();
         TimerManager.Instance.Init();
+        InventoryManager.Instance.Init();
 
         BasePopUp temp = await UIManager.Instance.ShowPopUp(PopUpType.MailBox);
         temp.OnClickCloseButton();
@@ -20,5 +22,5 @@ public class GameManager : MonoSingleton<GameManager>
         DayManager.Instance.ExecuteCommands(); 
     }
 
-    public void TriggerSceneMoveEvents() => onSceneMove?.Invoke();
+    public void TriggerSceneMoveEvents() => onSceneMoveAfter?.Invoke();
 }

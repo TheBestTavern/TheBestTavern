@@ -45,8 +45,12 @@ public class UIManager : MonoSingleton<UIManager>, IPopupManager
 
     public override void Init()
     {
+        if (_isInitialized) return;
         base.Init();
+
+        DontDestroyOnLoad(this);
         GetReadyIDs(PopupIDs, 1000, 9999);
+        GameManager.Instance.onSceneMoveAfter += OnSceneMove;
     }
 
     void GetReadyIDs(Stack<int> IDs, int from, int to)
@@ -117,5 +121,10 @@ public class UIManager : MonoSingleton<UIManager>, IPopupManager
     public int GetNextSortingOrder()
     {
         return sortingOrderIndex++;
+    }
+
+    public void OnSceneMove()
+    {
+        popUps.Clear();
     }
 }
