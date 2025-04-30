@@ -23,7 +23,7 @@ public class QuestManager : MonoSingleton<QuestManager>
         if (_isInitialized) return;
         base.Init();
 
-        isDontDestroyOnLoad = true;
+        DontDestroyOnLoad(gameObject);
         questData = new QuestData();
         questData.Init();
 

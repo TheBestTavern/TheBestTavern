@@ -26,7 +26,7 @@ public class DayManager : MonoSingleton<DayManager>
         
     }
 
-    public void ExecuteCommands()
+    public void ExecuteCommands(int from = 0)
     {
         if(!isReady)
         {
@@ -36,6 +36,7 @@ public class DayManager : MonoSingleton<DayManager>
 
         foreach (var command in commands)
         {
+            if (command.Priority < from) continue;
             command.Execute();
         }
     }

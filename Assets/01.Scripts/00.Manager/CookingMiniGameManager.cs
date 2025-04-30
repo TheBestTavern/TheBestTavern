@@ -25,6 +25,18 @@ public class CookingMiniGameManager : MonoSingleton<CookingMiniGameManager>
     {
         cookingInventoryView.OnEnableTargetSlot = SetMiniGameItem;
         cookingInventoryView.OnDisalbeTargetSlot = ClearMiniGameItem;
+
+        cookingSceneUI.selectTool += SetMiniGameTool;
+        cookingSceneUI.selectTool += cookingInventoryView.SetTargetSlotCount;
+        cookingSceneUI.deselectTool += () =>
+        {
+            selectedCookingTool = null;
+            cookingInventoryView.gameObject.SetActive(false);
+        };
+        cookingSceneUI.deselectTool += () =>
+        {
+            cookingInventoryView.SetTargetSlotCount("none");
+        };
     }
 
     async public void ShowMiniGame()
@@ -68,28 +80,11 @@ public class CookingMiniGameManager : MonoSingleton<CookingMiniGameManager>
     public void SetMiniGameTool(string s)
     {
         selectedCookingTool = s;
-        switch (s)
-        {
-            case "Cooking_Grill_Test":
-                cookingInventoryView.SetTargetSlotCount(1,1);
-                break;
-            case "Cooking_Grind_Test":
-                cookingInventoryView.SetTargetSlotCount(1,1);
-                break;
-            case "Cooking_Mill_Test":
-                cookingInventoryView.SetTargetSlotCount(1,1);
-                break;
-            default:
-                break;
-        }
-        cookingInventoryView.SetAbleButton();
-
 
         if (!cookingInventoryView.gameObject.activeSelf)
         {
             cookingInventoryView.gameObject.SetActive(true);
         }
-
     }
 
     public List<Data_Foods> GetMiniGameItem()
