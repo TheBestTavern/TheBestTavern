@@ -17,6 +17,11 @@ public class Data_Foods
     public string name;
 
     /// <summary>
+    /// 음식군
+    /// </summary>
+    public int FoodCategory;
+
+    /// <summary>
     /// 등급
     /// </summary>
     public DesignEnums.GradeType grade;
