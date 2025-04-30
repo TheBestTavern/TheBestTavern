@@ -17,7 +17,7 @@ public class Stone : MonoBehaviour
             Animal animal = other.GetComponent<Animal>();
             if (animal != null)
             {
-                animal.TryGetHitByRock(transform.position); 
+                animal.GetHitByRock(transform.position); 
                 Debug.Log("동물 기절 처리 완료!");
 
                 CaptureManager.Instance.ForceCheckAnimal(animal);
