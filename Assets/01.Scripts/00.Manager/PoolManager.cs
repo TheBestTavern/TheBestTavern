@@ -9,6 +9,7 @@ public enum PoolType
 
 public interface IPool
 {
+    public PoolType poolType { get; set; }
     public Component Issue();
     public void Regain(IPoolabe poolabe);
     public void Increase();
@@ -25,10 +26,21 @@ public interface IPoolabe
 public class Pool<T> : MonoBehaviour, IPool where T : MonoBehaviour, IPoolabe
 {
     Stack<T> pool;
-    [SerializeField] T Pref;
-    [SerializeField] bool canDec = true;
-    [SerializeField] float decPeriod;
-    [SerializeField] float remainPeriod;
+    public PoolType poolType { get; set;}   
+    T pref;
+    bool canDec;
+    float decPeriod;
+    float remainPeriod;
+
+
+    public Pool(PoolType poolType, T pref, bool canDec = false, float decPeriod = 0, float remainPeriod = 0)
+    {
+        this.poolType = poolType;
+        this.pref = pref;
+        this.canDec = canDec;
+        this.decPeriod = decPeriod;
+        this.remainPeriod = remainPeriod;
+    }
 
     private void Update()
     {
@@ -70,18 +82,18 @@ public class Pool<T> : MonoBehaviour, IPool where T : MonoBehaviour, IPoolabe
 
     public void Increase()
     {
-        T temp = Instantiate(Pref);
+        T temp = Instantiate(pref);
     }
 
     public void Decrease()
     {
+        remainPeriod = decPeriod;
         Destroy(pool.Pop());
     }
 }
 
 public class PoolManager : MonoSingleton<PoolManager>
 {
-    [SerializeField] 
     Dictionary<PoolType, IPool> pools = new();
 
     public override void Init()
@@ -92,6 +104,21 @@ public class PoolManager : MonoSingleton<PoolManager>
         DontDestroyOnLoad(gameObject);
     }
 
+    public T Get<T>(T toGet) where T : MonoBehaviour, IPool
+    {
+        if(pools.TryGetValue(toGet.poolType, out IPool value))
+        {
+            return (T)value.Issue();
+        }
+        else
+        {
+            return 
+        }
+    }
 
+    private void AddPool<T>(T toAdd) where T : MonoBehaviour, IPool
+    {
+        pools.Add(toAdd.poolType, new IPool)
+    }
 }
 
