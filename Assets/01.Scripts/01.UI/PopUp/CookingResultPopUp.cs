@@ -27,8 +27,14 @@ public class CookingResultPopUp : BasePopUp
         resultCanvasGroup.DOFade(1f, 1f);
         ShowResultText();
         ShowItemInfo();
-
-        base.OnOpen(); // 여기서 오류
+        try
+        {
+            base.OnOpen();
+        }
+        catch (System.Exception e) 
+        {
+            Debug.LogError(e);
+        }
     }
 
     public void ShowResultText()

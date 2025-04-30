@@ -40,14 +40,13 @@ public class RecipeManager : MonoSingleton<RecipeManager>
 
         toolTable.TryGetValue(tool, out int toolId);
         currentTool = toolId;
-        //currentRecipe = GetRecipe(ingredients, toolId);
-        // 수정
+        currentRecipe = GetRecipe(ingredients, toolId);
         
 
         if (currentRecipe == null)
         {
             // 무조건 '실패한 요리' 나와야 함
-            Debug.Log($"재료 :{currentIngredients} 도구 : {currentTool} / 요리 실패 : 해당하는 레시피 없음");
+            Debug.Log($"도구 : {currentTool}, 요리 실패 : 해당하는 레시피 없음");
         }
         else 
         {
@@ -87,7 +86,8 @@ public class RecipeManager : MonoSingleton<RecipeManager>
        var ingredientsSet = new HashSet<int>();
         foreach (var ingredient in ingredients) 
         {
-           //ingredientsSet.Add(ingredient.카테고리);
+           ingredientsSet.Add(ingredient.FoodCategory);
+            Debug.Log($"재료 음식군 번호 : {ingredient.FoodCategory}");
         }
 
         // 재료와 tool의 조합이 레시피대로인지 확인
@@ -98,8 +98,10 @@ public class RecipeManager : MonoSingleton<RecipeManager>
             
             var recipeSet = new HashSet<int>(recipe.ingredients);
 
-            
-            if (recipeSet.SetEquals(ingredientsSet)) return recipe;
+           
+            if (recipeSet.SetEquals(ingredientsSet)) 
+                return recipe;
+
         }     
         return null; 
     }

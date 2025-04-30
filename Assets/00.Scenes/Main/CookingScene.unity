@@ -4767,7 +4767,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isDontDestroyOnLoad: 0
   miniGameUI: {fileID: 405680330}
-  cookingSceneUI: {fileID: 0}
+  cookingSceneUI: {fileID: 447909935}
   cookingInventoryView: {fileID: 408048307}
 --- !u!1 &1582973155
 GameObject:
