@@ -2684,8 +2684,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1971538186}
   - component: {fileID: 1971538187}
-  - component: {fileID: 1971538189}
-  - component: {fileID: 1971538188}
   m_Layer: 5
   m_Name: Timer
   m_TagString: Untagged
@@ -2726,32 +2724,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dayText: {fileID: 937271740}
---- !u!114 &1971538188
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1971538185}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4bb4bfcf41234dc4f89b729725195821, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isDontDestroyOnLoad: 0
-  timerUI: {fileID: 1971538187}
---- !u!114 &1971538189
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1971538185}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 00a685aadf8d7d746a3922b45a5b1e8b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2030817048
 GameObject:
   m_ObjectHideFlags: 0
