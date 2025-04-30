@@ -131,6 +131,7 @@ MonoBehaviour:
   favoriteBaits: []
   BaitEffectApplied: 0
   captureChance: 0
+  gatheringKey: 0
 --- !u!70 &-7433109153125957031
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

@@ -27,6 +27,18 @@ public class CaptureManager : MonoSingleton<CaptureManager>
     {
     }
 
+    protected void AddItem()
+    {
+        if (InventoryManager.Instance.Invens[InvenType.Gathering].아이템획득(Data.GetRawItem(animalInRange.gatheringKey), 1))
+        {
+            Debug.Log("아이템 증가");
+        }
+        else
+        {
+            Debug.Log("아이템 증가 불가능");
+        }
+    }
+
     void CheckForAnimalsInRange()
     {
         Collider2D[] hitColliders = Physics2D.OverlapCircleAll(transform.position, captureRadius);
@@ -63,6 +75,7 @@ public class CaptureManager : MonoSingleton<CaptureManager>
         if (success)
         {
             Debug.Log("동물 포획 성공!");
+            AddItem();
             animalInRange.DestroyAnimal();
             UnLoadMiniGame();
         }
@@ -92,5 +105,10 @@ public class CaptureManager : MonoSingleton<CaptureManager>
     public void ForceCheckAnimal(Animal animal)
     {
         animalInRange = animal;
+    }
+
+    public void AddtoInventory()
+    {
+
     }
 }

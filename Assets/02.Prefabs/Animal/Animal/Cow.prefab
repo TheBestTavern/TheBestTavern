@@ -132,6 +132,7 @@ MonoBehaviour:
   - Carrot
   BaitEffectApplied: 0
   captureChance: 0
+  gatheringKey: 101001
 --- !u!70 &4376235845715228615
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
