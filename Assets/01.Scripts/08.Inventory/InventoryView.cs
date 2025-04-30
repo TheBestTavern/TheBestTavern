@@ -62,8 +62,8 @@ public abstract class InventoryView : MonoBehaviour
         //2. 슬롯 딕셔너리 생성
         for (int i = 0; i < this.slotCount; i++)
         {
-            var temp = Instantiate(slotPref);
-            temp.transform.SetParent(slotTrs);
+            var temp = Instantiate(slotPref, slotTrs);
+            //temp.transform.SetParent(slotTrs);
             temp.초기화(i, this, 슬롯비우기, 아이템타게팅, 아이템타게팅취소);
             index2Slots.Add(i, temp);
         }

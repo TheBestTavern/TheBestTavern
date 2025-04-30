@@ -2809,6 +2809,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   data: {fileID: 11400000, guid: 7c61f50033f8139428fc181562661f79, type: 2}
   effectController: {fileID: 451252365}
+  result: {fileID: 11400000, guid: cbe883d51f6ad2644ae155136a4b0b2d, type: 2}
   timerText: {fileID: 1507723043}
   cards:
   - {fileID: 1797398147}

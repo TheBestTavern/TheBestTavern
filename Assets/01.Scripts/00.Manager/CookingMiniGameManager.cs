@@ -19,6 +19,7 @@ public class CookingMiniGameManager : MonoSingleton<CookingMiniGameManager>
 
     string selectedCookingTool = null;
 
+    private CookingResultGrade resultGrade;
 
     private void Start()
     {
@@ -93,5 +94,15 @@ public class CookingMiniGameManager : MonoSingleton<CookingMiniGameManager>
     public List<Data_Foods> GetMiniGameItem()
     {
         return selectedItems;
+    }
+
+    public void SetMiniGameResult(CookingResultGrade grade)
+    {
+        resultGrade = grade;
+    }
+
+    public CookingResultGrade GetMiniGameResult()
+    {
+        return resultGrade;
     }
 }
