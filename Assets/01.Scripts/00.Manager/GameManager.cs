@@ -19,8 +19,9 @@ public class GameManager : MonoSingleton<GameManager>
         BasePopUp temp = await UIManager.Instance.ShowPopUp(PopUpType.MailBox);
         temp.OnClickCloseButton();
 
-        DayManager.Instance.ExecuteCommands(); 
+        DayManager.Instance.ExecuteCommands(1001); 
     }
 
-    public void TriggerSceneMoveEvents() => onSceneMoveAfter?.Invoke();
+    public void TriggerSceneMoveAfterEvents() => onSceneMoveAfter?.Invoke();
+    public void TriggerSceneMoveBeforeEvents() => onSceneMoveBefore?.Invoke();
 }

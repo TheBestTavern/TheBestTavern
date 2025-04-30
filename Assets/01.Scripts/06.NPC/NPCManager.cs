@@ -15,6 +15,8 @@ public class NPCManager : MonoSingleton<NPCManager>
         if(_isInitialized) return;
         base.Init();
 
+        DontDestroyOnLoad(gameObject);
+
         NPCData = new NPCData();
         NPCData.Init();
     }
