@@ -63,6 +63,7 @@ public class CaptureManager : MonoSingleton<CaptureManager>
         if (success)
         {
             Debug.Log("동물 포획 성공!");
+            animalInRange.DestroyAnimal();
         }
         else
         {

@@ -26,12 +26,12 @@ public class AnimalSpawnManager : MonoBehaviour
         {
             case AnimalSizeType.Small:
                 animalToSpawn = smallAnimals[Random.Range(0, smallAnimals.Count)];
-                animalToSpawn.transform.localScale = new Vector3(0.4f, 0.4f, 1f);
+                animalToSpawn.transform.localScale = new Vector3(0.2f, 0.2f, 1f);
                 break;
 
             case AnimalSizeType.Medium:
                 animalToSpawn = mediumAnimals[Random.Range(0, mediumAnimals.Count)];
-                animalToSpawn.transform.localScale = new Vector3(0.6f, 0.6f, 1f);
+                animalToSpawn.transform.localScale = new Vector3(0.2f, 0.2f, 1f);
                 break;
 
             case AnimalSizeType.Large:

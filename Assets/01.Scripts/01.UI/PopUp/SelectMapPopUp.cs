@@ -93,7 +93,7 @@ public class SelectMapPopUp : BasePopUp
         // 채집 씬으로 이동 
         SceneParameter.Set("Region", region);
         SceneParameter.Set("Season", DesignEnums.SeasonType.winter);
-        await SceneLoader.Instance.LoadSceneAsync("ForestGatheringSceneDev");
+        await SceneLoader.Instance.LoadSceneAsync("ForestGatheringScene");
     }
 
     // 팝업 열때 필요한 함수

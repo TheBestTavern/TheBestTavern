@@ -17,26 +17,20 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: 95ab6bfcde0e27c4aba73c04e12e09fd
   m_SerializeEntries:
-  - m_GUID: ea6b089072695f64eafa81c899f00eda
-    m_Address: CookingSceneDev.unity
+  - m_GUID: 897395fc3162cb14a8fd6e98aa2b2021
+    m_Address: MainScene.unity
     m_ReadOnly: 0
     m_SerializedLabels:
     - BasicScene
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 1c110343623460045971cc33cd6e8db7
-    m_Address: MainSceneDev.unity
+  - m_GUID: 9d872d5bba2e91a40823cce02a0147da
+    m_Address: ForestGatheringScene.unity
     m_ReadOnly: 0
     m_SerializedLabels:
     - BasicScene
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 5fec95f02a104d54990bcfef241e1208
-    m_Address: SeaGatheringSceneDev.unity
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - BasicScene
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 67b57b1e42a18c54b9b2af307068bed1
-    m_Address: ForestGatheringSceneDev.unity
+  - m_GUID: 6a25f84f620830f47828b21428b79647
+    m_Address: CookingScene.unity
     m_ReadOnly: 0
     m_SerializedLabels:
     - BasicScene

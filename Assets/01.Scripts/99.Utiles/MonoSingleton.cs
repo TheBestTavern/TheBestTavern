@@ -51,7 +51,7 @@ public class MonoSingleton<T> : Mono<T> where T : Mono<T>
         if (_instance != null && _instance != this)
         {
             Debug.Log("중복 생성된 싱글톤 객체 삭제");
-            Destroy(this);
+            Destroy(gameObject);
         }
         else
         {
