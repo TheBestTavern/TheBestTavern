@@ -684,6 +684,7 @@ GameObject:
   m_Component:
   - component: {fileID: 677960723}
   - component: {fileID: 677960722}
+  - component: {fileID: 677960724}
   m_Layer: 0
   m_Name: Directional Light
   m_TagString: Untagged
@@ -768,6 +769,29 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!114 &677960724
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 677960721}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 3
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_RenderingLayers: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_ShadowRenderingLayers: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
+  m_SoftShadowQuality: 0
 --- !u!1 &681926779
 GameObject:
   m_ObjectHideFlags: 0
@@ -1003,6 +1027,51 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 538.79626, y: 1293.3171, z: -82.899536}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &849539681
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 849539683}
+  - component: {fileID: 849539682}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &849539682
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 849539681}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 471eca4506f8ffd4d8db75d8fced99cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isDontDestroyOnLoad: 1
+--- !u!4 &849539683
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 849539681}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -34.642555, y: -76.09802, z: -29.296188}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2671,7 +2740,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isDontDestroyOnLoad: 0
   timerUI: {fileID: 1971538187}
-  timerModel: {fileID: 1971538189}
 --- !u!114 &1971538189
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2713,11 +2781,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8591363ff7623bf44ba50ea5bd773db3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  duration: 0.3
-  submitBtn: {fileID: 681926783}
-  submissionPanel: {fileID: 1509638267}
-  NPCPivot: {fileID: 1049064357}
   BG: {fileID: 776934114}
+  submissionPanel: {fileID: 1509638267}
+  InventoryUI: {fileID: 0}
+  submissionSlot: {fileID: 0}
+  NPCPivot: {fileID: 1049064357}
+  submitBtn: {fileID: 681926783}
+  duration: 0.3
+  devBtn: {fileID: 0}
 --- !u!224 &2030817050
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3085,3 +3156,4 @@ SceneRoots:
   - {fileID: 780640371}
   - {fileID: 255711140}
   - {fileID: 1323471969}
+  - {fileID: 849539683}

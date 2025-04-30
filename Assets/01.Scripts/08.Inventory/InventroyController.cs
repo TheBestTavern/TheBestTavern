@@ -23,12 +23,21 @@ public class InventoryController
         this.model = new InventoryModel();
         model.Init(slotCount, maxStackSize, 특정아이템정보변경);
 
-        On씬이동();
+        GameManager.Instance.onSceneMoveBefore += On씬이동Before;
+        GameManager.Instance.onSceneMoveAfter += On씬이동After;
+        var allViews = InventoryManager.Instance.FindInventoryView();
+        On씬이동After();
     }
 
-    public virtual void On씬이동() // view 찾아서 연결. 씬이동할때마다 실행? 안해도 view에서 자체적으로 연결을 걸듯. 
+    public virtual void On씬이동Before() // view 찾아서 연결. 씬이동할때마다 실행? 안해도 view에서 자체적으로 연결을 걸듯. 
+    {
+        views.Clear();
+    }
+
+    public virtual void On씬이동After() // view 찾아서 연결. 씬이동할때마다 실행? 안해도 view에서 자체적으로 연결을 걸듯. 
     {
         var allViews = InventoryManager.Instance.FindInventoryView();
+
         foreach (var view in allViews)
         {
             if (view.invenType == invenType)
