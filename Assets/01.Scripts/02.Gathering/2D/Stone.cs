@@ -17,15 +17,17 @@ public class Stone : MonoBehaviour
             Animal animal = other.GetComponent<Animal>();
             if (animal != null)
             {
-                animal.OnHitByRock();  // Animal이 기절하는 함수
+                animal.GetHitByRock(transform.position); 
                 Debug.Log("동물 기절 처리 완료!");
+
+                CaptureManager.Instance.ForceCheckAnimal(animal);
             }
             else
             {
                 Debug.LogWarning("Animal 컴포넌트를 찾지 못함!");
             }
 
-            Destroy(gameObject);  // 돌 제거
+            Destroy(gameObject);  
         }
     }
 

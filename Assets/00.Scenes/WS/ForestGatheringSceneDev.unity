@@ -4636,7 +4636,7 @@ MonoBehaviour:
   isDontDestroyOnLoad: 0
   data_Gatherings: []
   mapController: {fileID: 209272600}
-  gatheringInventoryUI: {fileID: 0}
+  gatheringInventoryUI: {fileID: 1981033257}
 --- !u!4 &1853943763
 Transform:
   m_ObjectHideFlags: 0
@@ -5083,7 +5083,8 @@ MonoBehaviour:
   prevPageBtn: {fileID: 241601443}
   showSlotCount: 6
   PagesTMP: {fileID: 1137068551}
-  <TargetingNum>k__BackingField: 1
+  minTargetingNum: 1
+  maxTargetingNum: 1
 --- !u!114 &1981033258
 MonoBehaviour:
   m_ObjectHideFlags: 0
