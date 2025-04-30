@@ -29,7 +29,7 @@ public class RecipeManager : MonoSingleton<RecipeManager>
         if (currentRecipe == null)
         {
             // 무조건 '실패한 요리' 나와야 함
-            Debug.Log($"요리 시작 실패");
+            Debug.Log($"요리 실패 : 해당하는 레시피 없음");
         }
         else 
         {
