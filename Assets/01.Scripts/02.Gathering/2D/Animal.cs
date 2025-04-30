@@ -22,19 +22,6 @@ public class Animal : MonoBehaviour
     public float captureChance = 0f;
     private bool canBeCaptured = false;
 
-    private Transform targetBait;
-    private float stayNearBaitTimer = 0f;
-    private float requiredStayTime = 3f;
-    private float stayDistance = 2f;
-
-    private Coroutine checkProximityCoroutine;
-
-    private float stunDuration = 3f;
-    private Coroutine stunCoroutine;
-
-    private bool hasReactedToBait = false;
-    private bool isFleeing = false;
-
     private void Start()
     {
     }
@@ -57,12 +44,14 @@ public class Animal : MonoBehaviour
         if (animalSizeType == AnimalSizeType.Small)
         {
             canBeCaptured = true;
+            captureChance = 1f;
             CaptureManager.Instance.CaptureButton();
         }
         else if (animalSizeType == AnimalSizeType.Medium)
         {
             if (BaitEffectApplied)
             {
+                SetCaptureChanceInstant(hitPosition, true);
                 CaptureManager.Instance.CaptureButton();
             }
             else
@@ -75,7 +64,24 @@ public class Animal : MonoBehaviour
             Debug.Log($"{animalName} (Large)은 돌을 맞아도 포획할 수 없습니다.");
         }
     }
-    
+
+    void SetCaptureChanceInstant(Vector3 targetPosition, bool isBaitEffective)
+    {
+        if (!isBaitEffective)
+        {
+            captureChance = 0f;
+            canBeCaptured = false;
+            return;
+        }
+
+        float distance = Vector3.Distance(transform.position, targetPosition);
+        float bonus = Mathf.Clamp01(1f - distance / 5f);
+        float bonusChance = bonus * 0.5f;
+
+        captureChance = baseCaptureChance + bonusChance;
+        canBeCaptured = true;
+        Debug.Log($"{animalName} 포획 기회 활성화됨! 현재 확률: {captureChance * 100f}%");
+    }
 
     public bool TryCapture()
     {
