@@ -1900,11 +1900,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6110026376554207569}
   - component: {fileID: 3340273941753793633}
-<<<<<<< HEAD
   - component: {fileID: 5392838849258967074}
-=======
-  - component: {fileID: 5223993467733600230}
->>>>>>> Dev
   m_Layer: 5
   m_Name: Inventory
   m_TagString: Untagged
@@ -1948,12 +1944,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   contentParent: {fileID: 1540129280412585049}
   contentPrefab: {fileID: 0}
-<<<<<<< HEAD
+  mainInventory: {fileID: 5392838849258967074}
 --- !u!114 &5392838849258967074
-=======
-  mainInventory: {fileID: 5223993467733600230}
---- !u!114 &5223993467733600230
->>>>>>> Dev
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1967,11 +1959,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <invenType>k__BackingField: 0
   slotPref: {fileID: 7050718121081789698, guid: 77444633087827543a45cb996dcd98a0, type: 3}
-<<<<<<< HEAD
   slotTrs: {fileID: 8103548447927079472}
-=======
-  slotTrs: {fileID: 1540129280412585049}
->>>>>>> Dev
   slotCount: 54
   <toShowTypes>k__BackingField: 000000000100000002000000
 --- !u!1 &3520753766482931134
