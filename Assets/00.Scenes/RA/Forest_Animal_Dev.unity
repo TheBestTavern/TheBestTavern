@@ -947,7 +947,7 @@ GameObject:
   - component: {fileID: 872800727}
   - component: {fileID: 872800730}
   m_Layer: 6
-  m_Name: Main Camera
+  m_Name: MiniGameCamera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1479,6 +1479,7 @@ MonoBehaviour:
   throwAngle: 65
   previewLength: 0.2
   previewResolution: 30
+  miniGameCamera: {fileID: 872800728}
   powerUI: {fileID: 1348650188}
 --- !u!114 &1084325237
 MonoBehaviour:
@@ -1499,6 +1500,7 @@ MonoBehaviour:
   throwAngle: 50
   previewLength: 0.2
   previewResolution: 30
+  miniGameCamera: {fileID: 872800728}
   powerUI: {fileID: 1348650188}
 --- !u!114 &1084325238
 MonoBehaviour:
@@ -1512,6 +1514,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c73242c599510c4392d423aa88a5f5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isDontDestroyOnLoad: 0
   smallAnimals:
   - {fileID: 4016735987611543773, guid: bd9c6cb322fd2ee49a4aa6c547b5f469, type: 3}
   mediumAnimals:
@@ -1520,6 +1523,7 @@ MonoBehaviour:
   - {fileID: 4016735987611543773, guid: ba32ed4b1e947e044af808755420c820, type: 3}
   ground: {fileID: 874726981155893856, guid: 28bac2777b1effb4da640e0919102faf, type: 3}
   spawnPoint: {fileID: 1084325239}
+  miniGameCamera: {fileID: 872800728}
 --- !u!4 &1084325239
 Transform:
   m_ObjectHideFlags: 0

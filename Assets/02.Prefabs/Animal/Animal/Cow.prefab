@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3331156974029630444}
   - component: {fileID: 3532555507739658437}
   - component: {fileID: 4376235845715228615}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cow
   m_TagString: Animal
   m_Icon: {fileID: 0}
@@ -132,6 +132,7 @@ MonoBehaviour:
   - Carrot
   BaitEffectApplied: 0
   captureChance: 0
+  gatheringKey: 101001
 --- !u!70 &4376235845715228615
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

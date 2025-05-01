@@ -26,14 +26,6 @@ public class InventoryViewLoose : InventoryView
         초기화BySelf();
     }
 
-    protected virtual void OnDisable()
-    {
-        index2Slots.Clear();
-        BiID2SlotIndex.Clear();
-        targetingSlots.Clear();
-        currentPage = 0;
-    }
-
     private void 아이템있는슬롯만보여주기()
     {
         int itemCount = BiID2SlotIndex.Count;
