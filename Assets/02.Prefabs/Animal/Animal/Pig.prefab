@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1131309394735763721}
   - component: {fileID: 3331156974029630444}
   - component: {fileID: -3826956269660616720}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Pig
   m_TagString: Animal
   m_Icon: {fileID: 0}
@@ -105,6 +105,7 @@ MonoBehaviour:
   - Carrot
   BaitEffectApplied: 0
   captureChance: 0
+  gatheringKey: 101001
 --- !u!50 &3331156974029630444
 Rigidbody2D:
   serializedVersion: 4

@@ -6,7 +6,7 @@ public class Bait : MonoBehaviour
 {
     public string baitType;
     public float effectRadius = 5f;
-    public float lifetime = 2f;
+    public float lifetime = 3f;
 
     private bool hasLanded = false;
     private Rigidbody2D rb;
@@ -24,16 +24,16 @@ public class Bait : MonoBehaviour
 
         BoxCollider2D col = GetComponent<BoxCollider2D>();
         col.sharedMaterial = noSlide;
+        Destroy(gameObject, lifetime);
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (!hasLanded && collision.collider.CompareTag("Ground"))
+        if (!hasLanded && collision.CompareTag("Ground"))
         {
             Land();
         }
     }
-
     void Land()
     {
         hasLanded = true;
@@ -44,7 +44,6 @@ public class Bait : MonoBehaviour
         rb.isKinematic = true;
 
         NotifyAnimals();
-        Destroy(gameObject, lifetime);
     }
 
     void NotifyAnimals()

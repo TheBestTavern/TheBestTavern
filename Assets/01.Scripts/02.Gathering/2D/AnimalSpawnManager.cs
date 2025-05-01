@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AnimalSpawnManager : MonoBehaviour
+public class AnimalSpawnManager : MonoSingleton<AnimalSpawnManager>
 {
     public List<GameObject> smallAnimals;
     public List<GameObject> mediumAnimals;
@@ -10,6 +10,7 @@ public class AnimalSpawnManager : MonoBehaviour
     public GameObject ground;
 
     public Transform spawnPoint;
+    public Camera miniGameCamera;
 
     void Start()
     {
@@ -42,7 +43,7 @@ public class AnimalSpawnManager : MonoBehaviour
 
         if (animalToSpawn != null)
         {
-            Vector3 spawnPosition = Camera.main.ViewportToWorldPoint(new Vector3(1.5f, 1.5f, Camera.main.nearClipPlane + 5f));
+            Vector3 spawnPosition = miniGameCamera.ViewportToWorldPoint(new Vector3(1.5f, 1.5f, Camera.main.nearClipPlane + 5f));
             spawnPosition.z = 0; 
 
             Instantiate(animalToSpawn, spawnPosition, Quaternion.identity);
@@ -51,7 +52,7 @@ public class AnimalSpawnManager : MonoBehaviour
         if (ground != null)
         {
             Vector3 offset = new Vector3(1.5f, 1.2f, 0f);
-            Vector3 groundSpawn = Camera.main.transform.position + offset;
+            Vector3 groundSpawn = miniGameCamera.transform.position + offset;
             groundSpawn.z = 0f;
             spawnPoint.position = groundSpawn;
 
@@ -69,5 +70,10 @@ public class AnimalSpawnManager : MonoBehaviour
             return AnimalSizeType.Medium;
         else
             return AnimalSizeType.Large;
+    }
+
+    public void DestroyAnimal()
+    {
+        Destroy(gameObject);
     }
 }

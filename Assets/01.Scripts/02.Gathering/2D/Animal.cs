@@ -22,9 +22,15 @@ public class Animal : MonoBehaviour
     public float captureChance = 0f;
     private bool canBeCaptured = false;
 
+    [Header("아이템 설정")]
+    public int gatheringKey;
+
     private void Start()
     {
+
     }
+
+
     public void ReactToBait(string baitType, Vector3 baitPosition)
     {
         foreach (string favorite in favoriteBaits)
