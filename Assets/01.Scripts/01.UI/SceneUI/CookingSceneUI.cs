@@ -52,6 +52,21 @@ public class CookingSceneUI : MonoBehaviour
         blurBackGround.onClick.AddListener(OnClickBlurBackGround);
     }
 
+    private void Start()
+    {
+        CookingMiniGameManager manager = CookingMiniGameManager.Instance;
+        CookingInventoryView cookingInventoryView = CookingMiniGameManager.Instance.cookingInventoryView;
+        selectTool += (s) =>
+        {
+            manager.OnSelectTool(s);
+            cookingInventoryView.OnSelectTool(s);
+        };
+        deselectTool += () =>
+        {
+            manager.OnDeselectTool();
+            cookingInventoryView.OnDeselectTool();
+        };
+    }
     // 메인 씬으로 돌아가기 버튼 함수
     async void OnClickMainSceneButton()
     {
