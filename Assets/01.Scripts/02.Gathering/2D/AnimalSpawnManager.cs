@@ -65,11 +65,11 @@ public class AnimalSpawnManager : MonoSingleton<AnimalSpawnManager>
         float rand = Random.Range(0f, 100f);
 
         if (rand < 55f)
-            return AnimalSizeType.Large;
+            return AnimalSizeType.Small;
         else if (rand < 90f)
             return AnimalSizeType.Medium;
         else
-            return AnimalSizeType.Small;
+            return AnimalSizeType.Large;
     }
 
     public void DestroyAnimal()

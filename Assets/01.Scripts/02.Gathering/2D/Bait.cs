@@ -6,7 +6,7 @@ public class Bait : MonoBehaviour
 {
     public string baitType;
     public float effectRadius = 5f;
-    public float lifetime = 2f;
+    public float lifetime = 3f;
 
     private bool hasLanded = false;
     private Rigidbody2D rb;
@@ -24,6 +24,7 @@ public class Bait : MonoBehaviour
 
         BoxCollider2D col = GetComponent<BoxCollider2D>();
         col.sharedMaterial = noSlide;
+        Destroy(gameObject, lifetime);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -43,7 +44,6 @@ public class Bait : MonoBehaviour
         rb.isKinematic = true;
 
         NotifyAnimals();
-        Destroy(gameObject, lifetime);
     }
 
     void NotifyAnimals()

@@ -173,4 +173,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baitType: Apple
   effectRadius: 5
-  lifetime: 5
+  lifetime: 3
