@@ -10,6 +10,8 @@ public class CookingCuttingMiniGame_Test : CookingMiniGameBase
     }
     public override void StartGame()
     {
+        timer = 15f;
+  
     }
 
     public override void StopGame()
@@ -20,7 +22,7 @@ public class CookingCuttingMiniGame_Test : CookingMiniGameBase
 
     protected override float GetTimer()
     {
-        return data.GrillTimer;
+        return data.CutTimer;
     }
 
     protected override void UpdateGamePlay()
