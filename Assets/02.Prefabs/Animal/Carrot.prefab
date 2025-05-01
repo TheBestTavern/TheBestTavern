@@ -172,5 +172,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baitType: Carrot
-  effectRadius: 5
+  effectRadius: 2
   lifetime: 3

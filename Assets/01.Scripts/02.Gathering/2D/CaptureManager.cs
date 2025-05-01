@@ -68,14 +68,14 @@ public class CaptureManager : MonoSingleton<CaptureManager>
         CheckForAnimalsInRange();
         if (animalInRange == null)
         {
-            Debug.Log("No animal in range.");
+            Debug.Log("주변 동물 없음");
             return;
         }
 
         bool success = animalInRange.TryCapture();
         if (success)
         {
-            Debug.Log("동물 포획 성공!");
+            Debug.Log("동물 포획 성공");
             AddItem();
             animalInRange.DestroyAnimal();
             UnLoadMiniGame();

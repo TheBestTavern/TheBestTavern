@@ -44,7 +44,6 @@ public class FishController : MonoBehaviour
         // 저항이 있을 경우 천천히 이동하도록 조정
         float step = moveSpeed * Time.deltaTime; // 이동 속도
 
-        // 물고기가 CatchZone 위치에 가까워질수록 속도가 감소하게 할 수 있음
         Vector3 target = Vector3.MoveTowards(transform.position, catchZonePosition, step);
         transform.position = target;
     }
