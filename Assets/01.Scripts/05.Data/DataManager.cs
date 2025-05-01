@@ -79,6 +79,8 @@ public class DataManager : MonoSingleton<DataManager>
         if (_isInitialized) return;
         base.Init();
 
+        DontDestroyOnLoad(gameObject);
+
         DataLoader_CookingSteps = new();
         DataLoader_Foods = new();
         DataLoader_Gathering = new();

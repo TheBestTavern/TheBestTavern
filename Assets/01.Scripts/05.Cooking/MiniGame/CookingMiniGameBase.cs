@@ -45,8 +45,11 @@ public abstract class CookingMiniGameBase : MonoBehaviour, ICookingMiniGameHandl
         {
             isGameOver = true;
             StopGame();
-            UIManager.Instance.ShowPopUp(PopUpType.CookingResult); // 결과 팝업 띄우기
+            Debug.Log("게임종료");
+            RecipeManager.Instance.EndCooking();
             CookingMiniGameManager.Instance.GetCookingResultData(); // 완성된 것 인벤토리에 넣어주기
+            UIManager.Instance.ShowPopUp(PopUpType.CookingResult); // 결과 팝업 띄우기
+
             //Time.timeScale = 0f;
         }
 

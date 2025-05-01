@@ -25,6 +25,18 @@ public class CookingMiniGameManager : MonoSingleton<CookingMiniGameManager>
     {
         cookingInventoryView.OnEnableTargetSlot = SetMiniGameItem;
         cookingInventoryView.OnDisalbeTargetSlot = ClearMiniGameItem;
+
+        cookingSceneUI.selectTool += SetMiniGameTool;
+        cookingSceneUI.selectTool += cookingInventoryView.SetTargetSlotCount;
+        cookingSceneUI.deselectTool += () =>
+        {
+            selectedCookingTool = null;
+            cookingInventoryView.gameObject.SetActive(false);
+        };
+        cookingSceneUI.deselectTool += () =>
+        {
+            cookingInventoryView.SetTargetSlotCount("none");
+        };
     }
 
     async public void ShowMiniGame()
@@ -68,28 +80,11 @@ public class CookingMiniGameManager : MonoSingleton<CookingMiniGameManager>
     public void SetMiniGameTool(string s)
     {
         selectedCookingTool = s;
-        switch (s)
-        {
-            case "Cooking_Grill_Test":
-                cookingInventoryView.SetTargetSlotCount(1,1);
-                break;
-            case "Cooking_Grind_Test":
-                cookingInventoryView.SetTargetSlotCount(1,1);
-                break;
-            case "Cooking_Mill_Test":
-                cookingInventoryView.SetTargetSlotCount(1,1);
-                break;
-            default:
-                break;
-        }
-        cookingInventoryView.SetAbleButton();
-
 
         if (!cookingInventoryView.gameObject.activeSelf)
         {
             cookingInventoryView.gameObject.SetActive(true);
         }
-
     }
 
     public List<Data_Foods> GetMiniGameItem()
@@ -110,8 +105,9 @@ public class CookingMiniGameManager : MonoSingleton<CookingMiniGameManager>
     public void GetCookingResultData()
     {
         int newItemKey = RecipeManager.Instance.EndCooking();
+        if (newItemKey == -1) return;
         var itemData = DataManager.Instance.DataLoader_Foods.GetByKey(newItemKey);
-
+       
         if (itemData == null) { Debug.Log("아이템 키에 해당하는 아이템 데이터가 없음"); }
 
         var controller = InventoryManager.Instance.Invens[InvenType.Player];
@@ -123,6 +119,12 @@ public class CookingMiniGameManager : MonoSingleton<CookingMiniGameManager>
         else
         {
             Debug.Log("아이템 추가 불가능 상태");
+        }
+
+        // 기존 아이템 없애주기
+        foreach (var item in selectedItems)
+        {
+            controller.아이템잃음(item, 1);
         }
     }
 

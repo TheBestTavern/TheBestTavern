@@ -32,7 +32,7 @@ public class CookingInventoryView : InventoryViewLoose
 
     public void SetAbleButton()
     {
-        if(targetingSlots.Count >= minTargetingNum && targetingSlots.Count <= maxTargetingNum)
+        if (targetingSlots.Count >= minTargetingNum && targetingSlots.Count <= maxTargetingNum)
         {
             EnableButton();
         }
@@ -54,12 +54,32 @@ public class CookingInventoryView : InventoryViewLoose
         btnImage.material = grayscaleMaterial;
     }
 
-    public void SetTargetSlotCount(int min, int max)
+    public void SetTargetSlotCount(string s)
     {
-        minTargetingNum = min;
-        maxTargetingNum = max;
+        switch (s)
+        {
+            case "none":
+                minTargetingNum = 0;
+                maxTargetingNum = 0;
+                break;
+            case "Cooking_Grill_Test":
+                minTargetingNum = 1;
+                maxTargetingNum = 1;
+                break;
+            case "Cooking_Grind_Test":
+                minTargetingNum = 1;
+                maxTargetingNum = 1;
+                break;
+            case "Cooking_Mill_Test":
+                minTargetingNum = 1;
+                maxTargetingNum = 1;
+                break;
+            default:
+                break;
+        }
+        SetAbleButton();
     }
-  
+
     public override void 아이템타게팅(int index)
     {
         base.아이템타게팅(index);
