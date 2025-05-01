@@ -97,7 +97,7 @@ public class QuestData
                     //당일
                     // 소환할 NPC 목록 구성
                     spawnNPCs.Add(key);
-                    Debug.Log($"{tempQuest.origin.name}퀘스트의 NPC 소환");
+                    Debug.Log($"{tempQuest.origin.name}퀘스트의 NPC를 소환 목록에 등록");
                 }
                 else
                 {
@@ -140,6 +140,11 @@ public class QuestData
             }
             Debug.Log("오늘의 퀘스트 받아오기");
 
+        }
+
+        public bool isValid()
+        {
+            return prt != null;
         }
     }
 

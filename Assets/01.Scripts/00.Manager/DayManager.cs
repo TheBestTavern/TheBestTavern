@@ -5,6 +5,7 @@ public interface IDayCommand
 {
     public int Priority {get;}
     public void Execute();
+    public bool isValid();
 }
 
 public class DayManager : MonoSingleton<DayManager>
@@ -23,7 +24,7 @@ public class DayManager : MonoSingleton<DayManager>
     public void AddCommand(IDayCommand command)
     {
         commands.Add(command);
-        
+        isReady = false;
     }
 
     public void ExecuteCommands(int from = 0)
@@ -33,6 +34,8 @@ public class DayManager : MonoSingleton<DayManager>
             commands.Sort((a,b) => a.Priority.CompareTo(b.Priority)); // 퀵정렬 내부에 비교로직을 매개변수로 대입
             isReady = true;
         }
+
+        commands.RemoveAll(x => !x.isValid());
 
         foreach (var command in commands)
         {
