@@ -25,7 +25,7 @@ public class CookingCuttingMiniGame_Test : CookingMiniGameBase
 
     protected override void UpdateGamePlay()
     {
-        InstantGameOver();
+       
     }
 
     public void InstantGameOver()
