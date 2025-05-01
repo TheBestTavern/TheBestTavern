@@ -31,7 +31,9 @@ public class RecipeManager : MonoSingleton<RecipeManager>
             //{ DesignEnums.CookingToolType.dish, 1007 }
             {"Cooking_Grill_Test", 1006 },
             {"Cooking_Grind_Test", 1002 },
-            {"Cooking_Mill_Test", 1003 }
+            {"Cooking_Mill_Test", 1003 },
+             {"dish", 1007 }
+     
         };
 
     public void StartCooking(List<Data_Foods> ingredients, string tool)
@@ -57,7 +59,6 @@ public class RecipeManager : MonoSingleton<RecipeManager>
     
     public int EndCooking()
     {
-        
         var grade = CookingMiniGameManager.Instance.GetMiniGameResult();
 
         // 레시피대로 조리하지 않으면 무조건 실패
@@ -67,6 +68,20 @@ public class RecipeManager : MonoSingleton<RecipeManager>
             CookingMiniGameManager.Instance.SetMiniGameResult(grade);
             resultItemKey = -1;
             return -1; 
+        }
+
+        resultItemKey = GetItemKey(currentRecipe.resultCategory, grade);
+        return resultItemKey;
+    }
+
+    // !!임시 코드입니다. 미니게임 계산식에 따라 수정해야 함
+    public int CompleteDish()
+    {
+        var grade = CookingResultGrade.Legendary;
+        if (currentRecipe == null)
+        {
+            resultItemKey = -1;
+            return -1;
         }
 
         resultItemKey = GetItemKey(currentRecipe.resultCategory, grade);

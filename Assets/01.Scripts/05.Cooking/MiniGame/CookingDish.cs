@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class CookingDish : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        
-    }
+        // 시작
+        var items = CookingMiniGameManager.Instance.GetMiniGameItem();
+        RecipeManager.Instance.StartCooking(items, "dish");
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        // 마무리 버튼 클릭 시
+        RecipeManager.Instance.CompleteDish();
+        CookingMiniGameManager.Instance.GetCookingResultData();
     }
 }

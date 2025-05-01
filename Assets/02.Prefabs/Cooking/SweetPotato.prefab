@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5385452201764136211}
   - component: {fileID: 381446614581414634}
   - component: {fileID: 6684448357601566658}
+  - component: {fileID: 1635147216605576816}
   m_Layer: 6
   m_Name: SweetPotato
   m_TagString: Untagged
@@ -133,3 +134,15 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1635147216605576816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8732304425803997744}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50bbfefc4245a47449874b898cab47ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

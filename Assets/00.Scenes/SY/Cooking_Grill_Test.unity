@@ -1135,7 +1135,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <Data>k__BackingField: {fileID: 11400000, guid: f6a8c5dd76913144e9bd8bf777b6bc54, type: 2}
-  sweetPotatoPrefab: {fileID: 5979068305810167843, guid: 1ec00bb58fd59744f82c5ef5828aeaca, type: 3}
+  sweetPotatosPrefab: {fileID: 5979068305810167843, guid: 1ec00bb58fd59744f82c5ef5828aeaca, type: 3}
 --- !u!4 &451252366
 Transform:
   m_ObjectHideFlags: 0
@@ -2531,25 +2531,13 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 310922926}
     m_Modifications:
-    - target: {fileID: 81885072499349223, guid: cbd0658fa09b41345b268b6401d3c5a6, type: 3}
-      propertyPath: m_Layer
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 380869640697173093, guid: cbd0658fa09b41345b268b6401d3c5a6, type: 3}
       propertyPath: grillMiniGame
       value: 
       objectReference: {fileID: 1329670361}
-    - target: {fileID: 2137645371153109735, guid: cbd0658fa09b41345b268b6401d3c5a6, type: 3}
-      propertyPath: m_Layer
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 3352190068421702299, guid: cbd0658fa09b41345b268b6401d3c5a6, type: 3}
       propertyPath: m_Name
       value: Card
-      objectReference: {fileID: 0}
-    - target: {fileID: 3352190068421702299, guid: cbd0658fa09b41345b268b6401d3c5a6, type: 3}
-      propertyPath: m_Layer
-      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3418192509419096197, guid: cbd0658fa09b41345b268b6401d3c5a6, type: 3}
       propertyPath: m_Pivot.x
@@ -2630,10 +2618,6 @@ PrefabInstance:
     - target: {fileID: 3418192509419096197, guid: cbd0658fa09b41345b268b6401d3c5a6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5288790388341535723, guid: cbd0658fa09b41345b268b6401d3c5a6, type: 3}
-      propertyPath: m_Layer
-      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -9050,7 +9034,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!108 &2019807683
 Light:
   m_ObjectHideFlags: 0
