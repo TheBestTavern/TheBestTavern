@@ -8,7 +8,8 @@ public class CookingDish : MonoBehaviour
     {
         // 시작
         var items = CookingMiniGameManager.Instance.GetMiniGameItem();
-        RecipeManager.Instance.StartCooking(items, "dish");
+        RecipeManager.Instance.StartCooking(items, "plate");
+
 
         // 마무리 버튼 클릭 시
         RecipeManager.Instance.CompleteDish();

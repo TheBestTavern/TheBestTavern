@@ -41,9 +41,15 @@ public class CookingMiniGameManager : MonoSingleton<CookingMiniGameManager>
 
     public async void ClickStartButton()
     {
-        if (selectedCookingTool == "plate")
+        Debug.Log(selectedCookingTool);
+        if (selectedCookingTool == "Plate")
         {
+            selectedItems = GetMiniGameItem();
+            RecipeManager.Instance.StartCooking(selectedItems, "Plate");
+            RecipeManager.Instance.CompleteDish();
             await UIManager.Instance.ShowPopUp(PopUpType.CookingResult);
+
+            GetCookingResultData();
         }
         else
         {
