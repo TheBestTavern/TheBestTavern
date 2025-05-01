@@ -2012,18 +2012,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 533039813045965591, guid: 9505b8ff7fe1d024c907d50f453f0a3a, type: 3}
-      propertyPath: <toShowTypes>k__BackingField.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 533039813045965591, guid: 9505b8ff7fe1d024c907d50f453f0a3a, type: 3}
-      propertyPath: <toShowTypes>k__BackingField.Array.data[1]
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 533039813045965591, guid: 9505b8ff7fe1d024c907d50f453f0a3a, type: 3}
-      propertyPath: <toShowTypes>k__BackingField.Array.data[2]
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 3027218066246070440, guid: 9505b8ff7fe1d024c907d50f453f0a3a, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -2103,10 +2091,6 @@ PrefabInstance:
     - target: {fileID: 3027218066246070440, guid: 9505b8ff7fe1d024c907d50f453f0a3a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4046150044594427547, guid: 9505b8ff7fe1d024c907d50f453f0a3a, type: 3}
-      propertyPath: m_Name
-      value: 'InventoryPanel '
       objectReference: {fileID: 0}
     - target: {fileID: 5192589647058252763, guid: 9505b8ff7fe1d024c907d50f453f0a3a, type: 3}
       propertyPath: m_Name
