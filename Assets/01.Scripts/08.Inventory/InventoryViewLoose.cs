@@ -115,7 +115,7 @@ public class InventoryViewLoose : InventoryView
         아이템있는슬롯만보여주기();
     }
 
-    public override void 아이템타게팅(int index)  //  아이템 타게팅(좌클릭). 선택 가능한 갯수 초과하면 팝업 호출
+    public override void 아이템타게팅(int index)  //  아이템 타게팅(좌클릭). 
     {
         base.아이템타게팅(index);
 
