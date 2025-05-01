@@ -23,9 +23,9 @@ public class CookingInventoryView : InventoryViewLoose
         DisableButton();
     }
 
-    protected override void OnDisable()
+    protected virtual void OnDisable()
     {
-        base.OnDisable();
+        //base.OnDisable();
 
         startMiniGameBtn.onClick.RemoveAllListeners();
     }

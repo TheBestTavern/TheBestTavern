@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum AnimalSizeType
+public enum AnimalSizeType //동물 사이즈
 {
     Small,
     Medium,
@@ -11,20 +11,20 @@ public enum AnimalSizeType
 
 public class Animal : MonoBehaviour
 {
+    [Header("동물 설정")]
     public string animalName;
-    public AnimalSizeType animalSizeType;
     public string[] favoriteBaits;
-    public bool IsStunned { get; private set; }
-    public bool IsHurt { get; private set; }
-    public bool BaitEffectApplied = false;
+    public AnimalSizeType animalSizeType;
 
+    [Header("아이템 설정")]
+    public int gatheringKey;
+
+    [Header("동물 포획")]
+    private bool BaitEffectApplied = false;
     private float baseCaptureChance = 0.2f;
-    public float captureChance = 0f;
+    private float captureChance = 0f;
     private bool canBeCaptured = false;
 
-    private void Start()
-    {
-    }
     public void ReactToBait(string baitType, Vector3 baitPosition)
     {
         foreach (string favorite in favoriteBaits)
@@ -53,7 +53,7 @@ public class Animal : MonoBehaviour
             }
             else
             {
-                Debug.Log($"{animalName} (Medium)은 미끼에 반응하지 않아 돌을 맞아도 포획 불가!1111");
+                Debug.Log($"{animalName} (Medium)은 미끼에 반응하지 않아 돌을 맞아도 포획 불가");
             }
         }
         else if (animalSizeType == AnimalSizeType.Large)

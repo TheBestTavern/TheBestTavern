@@ -69,5 +69,6 @@ public static class DesignEnums
     {
         ingredient = 0,
         dish = 1,
+        processed = 2,
     }
 }
