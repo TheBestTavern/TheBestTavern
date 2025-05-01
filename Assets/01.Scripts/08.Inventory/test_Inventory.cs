@@ -18,8 +18,8 @@ public class test_Inventory : MonoBehaviour
 
     private void Start()
     {
-        addBtn_goguma.onClick.AddListener(() => AddItemBtn(101015));
-        addBtn_butter.onClick.AddListener(() => AddItemBtn(103007));
+        addBtn_goguma.onClick.AddListener(() => AddItemBtn(101011));
+        addBtn_butter.onClick.AddListener(() => AddItemBtn(102074));
         addBtn_manuel.onClick.AddListener(() => AddItemBtn(101001));
         addBtn_gochu.onClick.AddListener(() => AddItemBtn(101002));
         addBtn.onClick.AddListener(() => AddItemBtn(key));

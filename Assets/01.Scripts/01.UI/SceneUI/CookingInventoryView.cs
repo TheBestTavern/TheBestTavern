@@ -18,7 +18,7 @@ public class CookingInventoryView : InventoryViewLoose
     protected override void OnEnable()
     {
         base.OnEnable();
-        startMiniGameBtn.onClick.AddListener(CookingMiniGameManager.Instance.ShowMiniGame);
+        startMiniGameBtn.onClick.AddListener(CookingMiniGameManager.Instance.ClickStartButton);
         startMiniGameBtn.onClick.AddListener(() => gameObject.SetActive(false));
         DisableButton();
     }

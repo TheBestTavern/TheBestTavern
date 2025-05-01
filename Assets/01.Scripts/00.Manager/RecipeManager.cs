@@ -20,6 +20,8 @@ public class RecipeManager : MonoSingleton<RecipeManager>
 
     public int resultItemKey = -1;
 
+    public event Action<int> OnCookingEnded;
+
     Dictionary<string, int> toolTable = new()
         {
             //{ DesignEnums.CookingToolType.doma, 1001 },
@@ -32,8 +34,8 @@ public class RecipeManager : MonoSingleton<RecipeManager>
             {"Cooking_Grill_Test", 1006 },
             {"Cooking_Grind_Test", 1002 },
             {"Cooking_Mill_Test", 1003 },
-             {"dish", 1007 }
-     
+             {"Plate", 1008 }
+   
         };
 
     public void StartCooking(List<Data_Foods> ingredients, string tool)
@@ -53,7 +55,7 @@ public class RecipeManager : MonoSingleton<RecipeManager>
         else 
         {
             int category = currentRecipe.resultCategory;
-            Debug.Log($"요리 시작 레시피 : {currentRecipe}"); 
+            Debug.Log($"요리 시작 레시피 : {currentRecipe.name}"); 
         }
     }
     
@@ -71,6 +73,7 @@ public class RecipeManager : MonoSingleton<RecipeManager>
         }
 
         resultItemKey = GetItemKey(currentRecipe.resultCategory, grade);
+        OnCookingEnded?.Invoke(resultItemKey);
         return resultItemKey;
     }
 
@@ -78,6 +81,7 @@ public class RecipeManager : MonoSingleton<RecipeManager>
     public int CompleteDish()
     {
         var grade = CookingResultGrade.Legendary;
+        CookingMiniGameManager.Instance.SetMiniGameResult(grade);
         if (currentRecipe == null)
         {
             resultItemKey = -1;
@@ -85,6 +89,7 @@ public class RecipeManager : MonoSingleton<RecipeManager>
         }
 
         resultItemKey = GetItemKey(currentRecipe.resultCategory, grade);
+        OnCookingEnded?.Invoke(resultItemKey);
         return resultItemKey;
     }
 
@@ -137,5 +142,10 @@ public class RecipeManager : MonoSingleton<RecipeManager>
                 CookingResultGrade.Failed => -1,
                 _ => -1
             };
+    }
+
+    public int GetItemKey()
+    {
+        return resultItemKey;
     }
 }

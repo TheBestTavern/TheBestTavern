@@ -631,6 +631,7 @@ MonoBehaviour:
   successText: {fileID: 6705211295722216043}
   failText: {fileID: 8002306758438322540}
   itemNameText: {fileID: 7054828951398744907}
+  itemImage: {fileID: 7487536392901323382}
   resultCanvasGroup: {fileID: 7401233372704870651}
 --- !u!1 &4385166779639670006
 GameObject:
