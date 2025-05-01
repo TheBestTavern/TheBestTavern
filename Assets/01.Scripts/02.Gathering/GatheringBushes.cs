@@ -10,8 +10,8 @@ public class GatheringBushes : GatheringProps
         transform.DOShakeRotation(1f,10f);
         OffMouseFunc();
         spriteRenderer.DOColor(new Color(0.5f, 0.5f, 0.5f), 0.5f);
-        //int randInt = Random.Range(0, 10);        
-        int randInt = 0;
+        int randInt = Random.Range(0, 10);
+        //int randInt = 0;
         if (randInt == 0)
         {
             ForestGatheringManager.Instance.OnMiniGame();
