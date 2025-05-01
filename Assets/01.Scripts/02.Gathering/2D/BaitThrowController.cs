@@ -13,6 +13,7 @@ public class BaitThrowController : MonoBehaviour
     [SerializeField] private float throwAngle;
     public float previewLength = 0.2f;
     public int previewResolution = 30;
+    public Camera miniGameCamera;
 
 
     float currentPower = 0f;
@@ -25,7 +26,7 @@ public class BaitThrowController : MonoBehaviour
 
     private void Start()
     {
-        Vector3 bottomLeft = Camera.main.ViewportToWorldPoint(new Vector3(-0.9f, -0.9f, Camera.main.nearClipPlane + 5f));
+        Vector3 bottomLeft = miniGameCamera.ViewportToWorldPoint(new Vector3(-0.9f, -0.9f, miniGameCamera.nearClipPlane + 5f));
         bottomLeft.z = 0f;
         throwPoint.position = bottomLeft;
     }

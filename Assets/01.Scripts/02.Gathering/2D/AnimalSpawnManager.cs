@@ -10,6 +10,7 @@ public class AnimalSpawnManager : MonoSingleton<AnimalSpawnManager>
     public GameObject ground;
 
     public Transform spawnPoint;
+    public Camera miniGameCamera;
 
     void Start()
     {
@@ -42,7 +43,7 @@ public class AnimalSpawnManager : MonoSingleton<AnimalSpawnManager>
 
         if (animalToSpawn != null)
         {
-            Vector3 spawnPosition = Camera.main.ViewportToWorldPoint(new Vector3(1.5f, 1.5f, Camera.main.nearClipPlane + 5f));
+            Vector3 spawnPosition = miniGameCamera.ViewportToWorldPoint(new Vector3(1.5f, 1.5f, Camera.main.nearClipPlane + 5f));
             spawnPosition.z = 0; 
 
             Instantiate(animalToSpawn, spawnPosition, Quaternion.identity);
@@ -51,7 +52,7 @@ public class AnimalSpawnManager : MonoSingleton<AnimalSpawnManager>
         if (ground != null)
         {
             Vector3 offset = new Vector3(1.5f, 1.2f, 0f);
-            Vector3 groundSpawn = Camera.main.transform.position + offset;
+            Vector3 groundSpawn = miniGameCamera.transform.position + offset;
             groundSpawn.z = 0f;
             spawnPoint.position = groundSpawn;
 
@@ -64,11 +65,11 @@ public class AnimalSpawnManager : MonoSingleton<AnimalSpawnManager>
         float rand = Random.Range(0f, 100f);
 
         if (rand < 55f)
-            return AnimalSizeType.Small;
+            return AnimalSizeType.Large;
         else if (rand < 90f)
             return AnimalSizeType.Medium;
         else
-            return AnimalSizeType.Large;
+            return AnimalSizeType.Small;
     }
 
     public void DestroyAnimal()

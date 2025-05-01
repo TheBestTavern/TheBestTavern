@@ -15,14 +15,16 @@ public class StoneThrowerController : MonoBehaviour
     public int previewResolution = 30;
 
     float currentPower = 0f;  
-    bool isIncreasing = true;  
+    bool isIncreasing = true;
+
+    public Camera miniGameCamera;
 
     // UI Elements
     public Image powerUI;
 
     private void Start()
     {
-        Vector3 bottomLeft = Camera.main.ViewportToWorldPoint(new Vector3(-0.9f, -0.9f, Camera.main.nearClipPlane + 5f));
+        Vector3 bottomLeft = miniGameCamera.ViewportToWorldPoint(new Vector3(-0.9f, -0.9f, miniGameCamera.nearClipPlane + 5f));
         bottomLeft.z = 0f;
         throwPoint.position = bottomLeft;
     }

@@ -127,7 +127,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animalName: Tiger
-  animalSizeType: 0
+  animalSizeType: 2
   favoriteBaits: []
   BaitEffectApplied: 0
   captureChance: 0

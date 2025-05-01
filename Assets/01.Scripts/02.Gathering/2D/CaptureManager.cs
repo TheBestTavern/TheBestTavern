@@ -12,7 +12,7 @@ public class CaptureManager : MonoSingleton<CaptureManager>
 
     private Animal animalInRange;
 
-    private void Awake()
+    protected override void Awake()
     {
         captureButton.onClick.AddListener(CaptureAnimal);
         escapeButton.onClick.AddListener(EscapeFromAnimal);
@@ -21,6 +21,7 @@ public class CaptureManager : MonoSingleton<CaptureManager>
     {
         captureButton.gameObject.SetActive(false);
         escapeButton.gameObject.SetActive(true);
+        CheckForAnimalsInRange();
     }
 
     void Update()
