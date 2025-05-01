@@ -47,6 +47,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - MiniGameScene
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4608a24015c0f8e499b99cdb3dca3761
+    m_Address: Cooking_Cutting_Test.unity
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - MiniGameScene
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 3f946b317ceaa2747b411cad54511d5f, type: 2}
   m_SchemaSet:

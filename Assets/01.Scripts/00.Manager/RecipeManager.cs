@@ -34,6 +34,7 @@ public class RecipeManager : MonoSingleton<RecipeManager>
             {"Cooking_Grill_Test", 1006 },
             {"Cooking_Grind_Test", 1002 },
             {"Cooking_Mill_Test", 1003 },
+            {"Cooking_Cutting_Test", 1001 },
              {"Plate", 1008 }
    
         };
