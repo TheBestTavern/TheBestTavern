@@ -25,19 +25,24 @@ public class NPCArea : MonoBehaviour
     [SerializeField] SubmissionMode submissionMode;
     List<float> targetPositions = new();
 
+    LunarDateTime dateID =new(); // 테스트용
+    
+
+
     private void Awake()
     {
+        dateID = TimerManager.Instance.GetToday(); // 테스트용
         Init();
         QuestManager.Instance.questData.onTriggerNPC += ShowNPC;
         QuestManager.Instance.questData.onSpawnNPC += PlaceNPCsInside;
     }
 
-    public void OnHandleFinishDay() // 하루 마치면 초기화해야할 사항들. 이벤트로 상위 매니저에서 실행할 예정.
+    private void OnDestroy()
     {
-        activeSlots.Clear();
+        QuestManager.Instance.questData.onTriggerNPC -= ShowNPC;
+        QuestManager.Instance.questData.onSpawnNPC -= PlaceNPCsInside;
     }
-
-    public void Init() // 실행 어디서?
+    public void Init()
     {
         //풀에 슬롯 생성
         for (int i = 0; i < npcNumber; i++)
@@ -52,10 +57,10 @@ public class NPCArea : MonoBehaviour
         DayManager.Instance.AddCommand(command);
     }
 
-    private void ShowNPC(List<int> keys)
+    private void ShowNPC(List<int> NPCKeys)
     {
         int i = 0;
-        foreach (int key in keys)
+        foreach (int NPCKey in NPCKeys)
         {
             //NPCSlot slot;
             for (; i < npcNumber; i++)
@@ -72,8 +77,8 @@ public class NPCArea : MonoBehaviour
                     slotPool.Remove(i);
                     activeSlots.Add(value.index, value);
 
+                    value.SetSlot(NPCKey);
                     value.gameObject.SetActive(true);
-                    value.SetSlot(key);
                     break;
                 }
             }
@@ -150,13 +155,12 @@ public class NPCArea : MonoBehaviour
     }
 
 
-
     public class OnNewDay : IDayCommand
     {
-        public NPCArea area;
+        public NPCArea prt;
         public OnNewDay(NPCArea nPCArea)
         {
-            this.area = nPCArea;
+            this.prt = nPCArea;
         }
 
         public int Priority => 500;
@@ -168,12 +172,16 @@ public class NPCArea : MonoBehaviour
 
         public void HideNPCs()
         {
-            foreach (var key in area.activeSlots.Keys.ToList())
+            foreach (var key in prt.activeSlots.Keys.ToList())
             {
-                area.HideNPC(key);
+                prt.HideNPC(key);
             }
             Debug.Log("NPC Area 비우기");
+        }
 
+        public bool isValid()
+        {
+            return prt != null;
         }
     }
 }

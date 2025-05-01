@@ -100,6 +100,11 @@ public class TimerManager : MonoSingleton<TimerManager>
         {
             prt.OneDayPass();
         }
+
+        public bool isValid()
+        {
+            return prt != null;
+        }
     }
 
     //public class OnSceneMove : 
