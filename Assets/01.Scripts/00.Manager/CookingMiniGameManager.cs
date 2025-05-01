@@ -15,7 +15,7 @@ public class CookingMiniGameManager : MonoSingleton<CookingMiniGameManager>
     public CookingInventoryView cookingInventoryView;
 
     private ICookingMiniGameHandler currentGame;
-    private List<Data_Foods> selectedItems;
+    private List<Data_Foods> selectedItems = new();
 
     string selectedCookingTool = null;
 
