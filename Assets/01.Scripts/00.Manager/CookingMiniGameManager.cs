@@ -15,7 +15,7 @@ public class CookingMiniGameManager : MonoSingleton<CookingMiniGameManager>
     public CookingInventoryView cookingInventoryView;
 
     private ICookingMiniGameHandler currentGame;
-    private List<Data_Foods> selectedItems;
+    private List<Data_Foods> selectedItems = new();
 
     string selectedCookingTool = null;
 
@@ -39,7 +39,19 @@ public class CookingMiniGameManager : MonoSingleton<CookingMiniGameManager>
         };
     }
 
-    async public void ShowMiniGame()
+    public async void ClickStartButton()
+    {
+        if (selectedCookingTool == "plate")
+        {
+            await UIManager.Instance.ShowPopUp(PopUpType.CookingResult);
+        }
+        else
+        {
+            ShowMiniGame();
+        }
+    }
+
+    async private void ShowMiniGame()
     {
         await SceneLoader.Instance.LoadSceneAsyncMiniGame(selectedCookingTool);
         miniGameUI.ResetTimer();
@@ -118,7 +130,7 @@ public class CookingMiniGameManager : MonoSingleton<CookingMiniGameManager>
 
 
         var itemData = DataManager.Instance.DataLoader_Foods.GetByKey(newItemKey);
-       
+
         if (itemData == null) { Debug.Log("아이템 키에 해당하는 아이템 데이터가 없음"); }
 
         controller.아이템획득(itemData, 1);

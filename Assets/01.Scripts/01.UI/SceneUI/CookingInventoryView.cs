@@ -18,7 +18,7 @@ public class CookingInventoryView : InventoryViewLoose
     protected override void OnEnable()
     {
         base.OnEnable();
-        startMiniGameBtn.onClick.AddListener(CookingMiniGameManager.Instance.ShowMiniGame);
+        startMiniGameBtn.onClick.AddListener(CookingMiniGameManager.Instance.ClickStartButton);
         startMiniGameBtn.onClick.AddListener(() => gameObject.SetActive(false));
         DisableButton();
     }
@@ -73,6 +73,10 @@ public class CookingInventoryView : InventoryViewLoose
             case "Cooking_Mill_Test":
                 minTargetingNum = 1;
                 maxTargetingNum = 1;
+                break;
+            case "Plate":
+                minTargetingNum = 2;
+                maxTargetingNum = 2;
                 break;
             default:
                 break;
