@@ -245,7 +245,7 @@
       "name": "구운 고구마",
       "resultCategory": 110124,
       "ingredients": [
-        110015
+        110123
       ],
       "usingTool": 1006,
       "cookingProperty": "가공 재료"
@@ -255,7 +255,7 @@
       "name": "삶은 고구마",
       "resultCategory": 110125,
       "ingredients": [
-        110015
+        110123
       ],
       "usingTool": 1004,
       "cookingProperty": "가공 재료"
@@ -265,7 +265,7 @@
       "name": "으깬 고구마",
       "resultCategory": 110126,
       "ingredients": [
-        110015
+        110123
       ],
       "usingTool": 1002,
       "cookingProperty": "가공 재료"
