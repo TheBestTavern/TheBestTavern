@@ -90,6 +90,7 @@ public class CookingGrillMiniGame : CookingMiniGameBase
             // 매치
             matchCount++; // 맞춘 횟수 +1
             effectController.CookingGrillEffect(matchCount);
+            //effectController.AddForce();
 
             // 1. 고정, 선택 불가
             firstCard.clickedCard.interactable = false;

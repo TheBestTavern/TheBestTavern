@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3357705610490269959}
   - component: {fileID: 7745934090830424482}
   - component: {fileID: 8701886465895021140}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Back
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -86,7 +86,7 @@ GameObject:
   - component: {fileID: 8806644472644715551}
   - component: {fileID: 3551107760983911573}
   - component: {fileID: 7890713262173570548}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Front
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -141,8 +141,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 0
+  m_Sprite: {fileID: 21300000, guid: c2233227efbfd924b8bc385ab9ce3f8e, type: 3}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -163,7 +163,7 @@ GameObject:
   - component: {fileID: 380869640697173093}
   - component: {fileID: 2511161872051173526}
   - component: {fileID: 2666950772069960289}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Card
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -286,7 +286,7 @@ GameObject:
   - component: {fileID: 2517719819356775193}
   - component: {fileID: 8200646345267752479}
   - component: {fileID: 6195592495385733953}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Number
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -342,8 +342,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 1
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8178b5d5ebd11394bac7de4daca52cfa, type: 2}
+  m_sharedMaterial: {fileID: -3296332329668144623, guid: 8178b5d5ebd11394bac7de4daca52cfa, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
