@@ -41,6 +41,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - BasicScene
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5fec95f02a104d54990bcfef241e1208
+    m_Address: SeaGatheringSceneDev.unity
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - BasicScene
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 3f946b317ceaa2747b411cad54511d5f, type: 2}
   m_SchemaSet:

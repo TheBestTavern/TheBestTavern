@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
@@ -28,6 +29,22 @@ public class CookingInventoryView : InventoryViewLoose
         //base.OnDisable();
 
         startMiniGameBtn.onClick.RemoveAllListeners();
+    }
+
+    public void OnSelectTool(string s)
+    {
+        SetTargetSlotCount(s);
+    }
+
+    public void OnDeselectTool()
+    {
+        gameObject.SetActive(false);
+        SetTargetSlotCount("none");
+        foreach (var slotindex in targetingSlots.ToList())
+        {
+            아이템타게팅취소(slotindex);
+            index2Slots[slotindex].ExitTargetingState();
+        }
     }
 
     public void SetAbleButton()
@@ -71,6 +88,10 @@ public class CookingInventoryView : InventoryViewLoose
                 maxTargetingNum = 1;
                 break;
             case "Cooking_Mill_Test":
+                minTargetingNum = 1;
+                maxTargetingNum = 1;
+                break;
+            case "Cooking_Cutting_Test":
                 minTargetingNum = 1;
                 maxTargetingNum = 1;
                 break;

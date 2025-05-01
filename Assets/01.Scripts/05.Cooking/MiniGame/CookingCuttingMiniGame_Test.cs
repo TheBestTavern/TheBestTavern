@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class CookingCuttingMiniGame_Test : CookingMiniGameBase
 {
+    private void Awake()
+    {
+        CookingMiniGameManager.Instance.GetCurrentMiniGame(this);
+    }
     public override void StartGame()
     {
     }
@@ -21,6 +25,12 @@ public class CookingCuttingMiniGame_Test : CookingMiniGameBase
 
     protected override void UpdateGamePlay()
     {
+       
+    }
+
+    public void InstantGameOver()
+    {
+        isGameOver = true;
     }
 
     public CookingResultGrade JudgeGrade()
