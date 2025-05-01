@@ -5,24 +5,24 @@ using UnityEngine.UI;
 
 public class BaitThrowController : MonoBehaviour
 {
-    public List<GameObject> baitPrefabs;
-    public Transform throwPoint;
-    public LineRenderer lineRenderer;
+    [Header("프리팹 및 위치 설정")]
+    [SerializeField] private List<GameObject> baitPrefabs;
+    [SerializeField] private Transform throwPoint;
+    [SerializeField] private LineRenderer lineRenderer;
+    [SerializeField] private Camera miniGameCamera;
+    [SerializeField] private Image powerUI;
 
+    [Header("파워 및 각도 설정")]
     [SerializeField] private float maxPower;
     [SerializeField] private float throwAngle;
-    public float previewLength = 0.2f;
-    public int previewResolution = 30;
-    public Camera miniGameCamera;
+    [SerializeField] private float previewLength = 0.2f;
+    [SerializeField] private int previewResolution = 30;
 
-
-    float currentPower = 0f;
-    bool isIncreasing = true;
-
-    int currentBaitIndex = -1; 
-    bool isBaitReady = false; 
-    bool readyNextFrame = false;
-    public Image powerUI;
+    private float currentPower = 0f;
+    private bool isIncreasing = false;
+    private int currentBaitIndex = -1; 
+    private bool isBaitReady = false; 
+    private bool readyNextFrame = false;
 
     private void Start()
     {
@@ -42,29 +42,16 @@ public class BaitThrowController : MonoBehaviour
 
         if (!isBaitReady) return;
 
-
         if (Input.GetMouseButton(0))
         {
-
             if (isIncreasing)
             {
-                currentPower += Time.deltaTime * maxPower;
-                if (currentPower >= maxPower)
-                {
-                    currentPower = maxPower;
-                    isIncreasing = false;
-                }
+                IncreasePower();
             }
             else
             {
-                currentPower -= Time.deltaTime * maxPower;
-                if (currentPower <= 0f)
-                {
-                    currentPower = 0f;
-                    isIncreasing = true;
-                }
+                DecreasePower();
             }
-
             ShowTrajectory(currentPower);
             UpdatePowerUI(currentPower);
         }
@@ -75,7 +62,6 @@ public class BaitThrowController : MonoBehaviour
             HidePreview();
             currentPower = 0f;
             UpdatePowerUI(currentPower); 
-
             isBaitReady = false;
             currentBaitIndex = -1;
         }
@@ -86,11 +72,7 @@ public class BaitThrowController : MonoBehaviour
         if (currentBaitIndex < 0 || currentBaitIndex >= baitPrefabs.Count) return;
 
         GameObject prefab = baitPrefabs[currentBaitIndex];
-
-        
-
         GameObject obj = Instantiate(prefab, throwPoint.position, Quaternion.identity);
-
         Rigidbody2D rb = obj.GetComponent<Rigidbody2D>();
 
         float rad = throwAngle * Mathf.Deg2Rad;
@@ -113,7 +95,6 @@ public class BaitThrowController : MonoBehaviour
             Vector2 pos = (Vector2)startPos + velocity * t + 0.5f * Physics2D.gravity * t * t;
             points[i] = pos;
         }
-
         lineRenderer.positionCount = previewResolution;
         lineRenderer.SetPositions(points);
         lineRenderer.enabled = true;
@@ -124,7 +105,6 @@ public class BaitThrowController : MonoBehaviour
         lineRenderer.enabled = false;
     }
 
-    // 버튼에서 호출
     public void SetBaitIndex(int index)
     {
         currentBaitIndex = index;
@@ -137,6 +117,26 @@ public class BaitThrowController : MonoBehaviour
         if (powerUI != null)
         {
             powerUI.fillAmount = power / maxPower;
+        }
+    }
+
+    private void IncreasePower()
+    {
+        currentPower += Time.deltaTime * maxPower;
+        if (currentPower >= maxPower)
+        {
+            currentPower = maxPower;
+            isIncreasing = false;
+        }
+    }
+
+    private void DecreasePower()
+    {
+        currentPower -= Time.deltaTime * maxPower;
+        if (currentPower <= 0f)
+        {
+            currentPower = 0f;
+            isIncreasing = true;
         }
     }
 }

@@ -5,11 +5,12 @@ using UnityEngine.UI;
 
 public class CaptureManager : MonoSingleton<CaptureManager>
 {
-    public Button captureButton; 
-    public Button escapeButton;  
-    public float captureRadius = 5f;
-    private float captureChance = 0f;
+    [Header("포획 및 도망 버튼")]
+    [SerializeField] private Button captureButton;
+    [SerializeField] private Button escapeButton;
 
+    [Header("포획 설정")]
+    [SerializeField] private float captureRadius = 5f;
     private Animal animalInRange;
 
     protected override void Awake()

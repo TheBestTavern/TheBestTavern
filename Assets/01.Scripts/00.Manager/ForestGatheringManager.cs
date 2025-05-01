@@ -36,7 +36,7 @@ public class ForestGatheringManager : MonoSingleton<ForestGatheringManager>
 
         itemDict = new();
 
-        // JSON 툴로 들여온 데이터 클래스를 활용
+        //JSON 툴로 들여온 데이터 클래스를 활용
         foreach (var i in data_Gatherings)
         {
             itemDict.Add(i.condition_chance, i.availableFood);
@@ -62,25 +62,36 @@ public class ForestGatheringManager : MonoSingleton<ForestGatheringManager>
         float rand = Random.Range(0, 100);
         int randItemID;
 
-        if (rand < highGroupProb)
+        //if (rand < highGroupProb)
+        //{
+        //    List<int> temp = itemDict[ChanceType.high];
+        //    randItemID = temp[Random.Range(0, temp.Count)];
+        //}
+        //else if (rand < highGroupProb + mediumGroupProb)
+        //{
+        //    List<int> temp = itemDict[ChanceType.medium];
+        //    randItemID = temp[Random.Range(0, temp.Count)];
+        //}
+        //else if (rand < highGroupProb + mediumGroupProb + lowGroupProb)
+        //{
+        //    List<int> temp = itemDict[ChanceType.low];
+        //    randItemID = temp[Random.Range(0, temp.Count)];
+        //}
+        //else // 합이 100이 되도록.
+        //{
+        //    List<int> temp = itemDict[ChanceType.veryLow];
+        //    randItemID = temp[Random.Range(0, temp.Count)];
+        //}
+
+        int tempId = Random.Range(0, 2);
+
+        if (tempId == 0)
         {
-            List<int> temp = itemDict[ChanceType.high];
-            randItemID = temp[Random.Range(0, temp.Count)];
+            randItemID = 101015;
         }
-        else if (rand < highGroupProb + mediumGroupProb)
+        else
         {
-            List<int> temp = itemDict[ChanceType.medium];
-            randItemID = temp[Random.Range(0, temp.Count)];
-        }
-        else if (rand < highGroupProb + mediumGroupProb + lowGroupProb)
-        {
-            List<int> temp = itemDict[ChanceType.low];
-            randItemID = temp[Random.Range(0, temp.Count)];
-        }
-        else // 합이 100이 되도록.
-        {
-            List<int> temp = itemDict[ChanceType.veryLow];
-            randItemID = temp[Random.Range(0, temp.Count)];
+            randItemID = 101011;
         }
 
         return randItemID;
