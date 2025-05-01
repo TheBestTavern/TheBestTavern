@@ -23,6 +23,9 @@ public class CookingSceneUI : MonoBehaviour
     // 맷돌 미니게임 시작 버튼
     [SerializeField] private Button millMiniGameButton;
 
+    // 합치기 버튼
+    [SerializeField] private Button plateButton;
+
     [SerializeField] private Button blurBackGround;
 
     private RectTransform curBtn;
@@ -43,6 +46,8 @@ public class CookingSceneUI : MonoBehaviour
         grindMiniGameButton.onClick.AddListener(() => ClickToolButton("Cooking_Grind_Test"));
         // 맷돌 미니게임 시작 버튼 이벤트 리스너 추가 
         millMiniGameButton.onClick.AddListener(() => ClickToolButton("Cooking_Mill_Test"));
+
+        plateButton.onClick.AddListener(() => ClickToolButton("Plate"));
 
         blurBackGround.onClick.AddListener(OnClickBlurBackGround);
     }
@@ -74,12 +79,12 @@ public class CookingSceneUI : MonoBehaviour
                 case "Cooking_Mill_Test":
                     ReadyMiniGame(millMiniGameButton);
                     break;
+                case "Plate":
+                    ReadyMiniGame(plateButton);
+                    break;
                 default:
                     break;
             }
-
-
-
 
             OnClickCookingTool(s);
         }
