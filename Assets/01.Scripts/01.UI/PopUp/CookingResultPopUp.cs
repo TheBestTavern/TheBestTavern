@@ -10,7 +10,7 @@ public class CookingResultPopUp : BasePopUp
     //private TextMeshProUGUI promptText; // 아이템 설명
     [SerializeField] private TextMeshProUGUI successText; // 성공 텍스트 
     [SerializeField] private TextMeshProUGUI failText; // 실패 텍스트
-   [SerializeField] private TextMeshProUGUI itemNameText; // 아이템 이름 텍스트
+    [SerializeField] private TextMeshProUGUI itemNameText; // 아이템 이름 텍스트
 
     [SerializeField] private Image itemImage;
 
@@ -20,16 +20,23 @@ public class CookingResultPopUp : BasePopUp
     {
         // 미니게임 닫기 
         CookingMiniGameManager.Instance.miniGameUI.OnClickCloseButton();
-        ResetContents();
+        
         base.OnClose();
     }
 
     public override void OnOpen()
     {
-       
-            resultCanvasGroup.DOFade(1f, 1f);
+        //setContents();
+
+        resultCanvasGroup.DOFade(1f, 1f);
+
+        itemNameText.gameObject.SetActive(true);
+        itemImage.gameObject.SetActive(true);
+
         ShowResultText();
+        
         ShowItemInfo();
+
         try
         {
             base.OnOpen();
@@ -57,6 +64,7 @@ public class CookingResultPopUp : BasePopUp
             case CookingResultGrade.Failed:
                 successText.gameObject.SetActive(false);
                 failText.gameObject.SetActive(true);
+                itemImage.gameObject.SetActive(false);
                 break;
         }
     }
@@ -79,11 +87,9 @@ public class CookingResultPopUp : BasePopUp
         if (itemImage.sprite == null) { itemImage.gameObject.SetActive(false); }
     }
 
-    public void ResetContents()
-    {
-        successText.gameObject.SetActive(false);
-        failText.gameObject.SetActive(false);
-        itemNameText.text = null;
-        itemImage.sprite = null;
-    }
+    //public void ResetContents()
+    //{
+    //    itemNameText.text = null;
+    //    itemImage.sprite = null;
+    //}
 }

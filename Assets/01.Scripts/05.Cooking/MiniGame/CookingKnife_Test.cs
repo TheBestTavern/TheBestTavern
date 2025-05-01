@@ -139,13 +139,17 @@ public class CookingKnife_Test : MonoBehaviour
                     if (bounds.size.x < 0.1f)
                     {
                         canSlice = false;
+
+                        //Debug.Log(bounds.size.x);
+
                         //CookingMiniGameManager.Instance.currentGame?.InstantGameOver();
 
-                        var game = CookingMiniGameManager.Instance.currentGame as CookingCuttingMiniGame_Test;
-                        if (game != null)
-                        {
-                            game.InstantGameOver();
-                        }
+                        //var game = CookingMiniGameManager.Instance.currentGame as CookingCuttingMiniGame_Test;
+                        //if (game != null)
+                        //{
+                        //    Debug.Log("바로종료");
+                        //    game.InstantGameOver();
+                        //}
                         return;
                     }
 

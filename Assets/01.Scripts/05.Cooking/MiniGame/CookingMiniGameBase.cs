@@ -16,7 +16,7 @@ public abstract class CookingMiniGameBase : MonoBehaviour, ICookingMiniGameHandl
     protected float elapsedTimer = 0f; // 이 씬에서의 경과시간
     protected bool isGameOver = false;
 
-    private void Awake()
+    private void Start()
     {
         timer = GetTimer();
     }

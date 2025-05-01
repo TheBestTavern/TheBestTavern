@@ -80,9 +80,9 @@ public class BaitThrowController : MonoBehaviour
         rb.AddForce(dir.normalized * power, ForceMode2D.Impulse);
     }
 
-    void ShowTrajectory(float power)
+    void ShowTrajectory(float power) //던지기 궤적 함수
     {
-        Vector3[] points = new Vector3[previewResolution];
+        Vector3[] points = new Vector3[previewResolution]; //궤적 구성을 위한 포인트 배열
         float rad = throwAngle * Mathf.Deg2Rad;
         Vector2 dir = new Vector2(Mathf.Cos(rad), Mathf.Sin(rad)).normalized;
 
@@ -92,12 +92,13 @@ public class BaitThrowController : MonoBehaviour
         for (int i = 0; i < previewResolution; i++)
         {
             float t = i * previewLength / previewResolution;
-            Vector2 pos = (Vector2)startPos + velocity * t + 0.5f * Physics2D.gravity * t * t;
+            Vector2 pos = (Vector2)startPos + velocity * t + 0.5f * Physics2D.gravity * t * t; //등가속도 운동 공식 사용
             points[i] = pos;
         }
         lineRenderer.positionCount = previewResolution;
         lineRenderer.SetPositions(points);
         lineRenderer.enabled = true;
+        //LineRenderer를 통해 실제 게임 화면에서 궤적 그리기
     }
 
     void HidePreview()

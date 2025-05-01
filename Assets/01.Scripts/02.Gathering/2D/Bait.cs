@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class Bait : MonoBehaviour
 {
-    public string baitType;
-    public float effectRadius = 5f;
-    public float lifetime = 3f;
+    [Header("미끼 종류 및 효과")]
+    [SerializeField] private string baitType;
+    [SerializeField] private float effectRadius = 2f;
+    [SerializeField] private float lifetime = 3f;
 
     private bool hasLanded = false;
     private Rigidbody2D rb;
@@ -15,8 +16,7 @@ public class Bait : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
 
-        // 필요한 최소 설정만
-        PhysicsMaterial2D noSlide = new PhysicsMaterial2D("NoSlide")
+        PhysicsMaterial2D noSlide = new PhysicsMaterial2D
         {
             friction = 1f,
             bounciness = 0f
