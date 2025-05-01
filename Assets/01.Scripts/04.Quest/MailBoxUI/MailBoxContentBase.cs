@@ -12,12 +12,18 @@ public abstract class MailBoxContentBase : MonoBehaviour
 
     protected QuestBaseLetter currentLetter;
 
-    protected bool isInitialized;
+    protected bool isReadyTodaySlot;
 
-    public virtual void Init()
+    private void Start()
     {
+        OnNewDay command = new(this);
+        DayManager.Instance.AddCommand(command);
     }
 
+    public virtual void OnEnable()
+    {
+        
+    }
 
     public virtual void MakeSlot(List<int> quests)
     {
@@ -57,5 +63,26 @@ public abstract class MailBoxContentBase : MonoBehaviour
     {
         slots.Remove(slot);
         Destroy(slot.gameObject);
+    }
+
+    public class OnNewDay : IDayCommand
+    {
+        public MailBoxContentBase prt;
+        public OnNewDay(MailBoxContentBase mailBox)
+        {
+            this.prt = mailBox;
+        }
+
+        public int Priority => 2000;
+
+        public void Execute()
+        {
+            prt.isReadyTodaySlot = false;
+        }
+
+        public bool isValid()
+        {
+            return prt != null;
+        }
     }
 }

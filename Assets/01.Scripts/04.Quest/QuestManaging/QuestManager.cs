@@ -92,31 +92,31 @@ public class QuestManager : MonoSingleton<QuestManager>
                 var quest = Data.GetQuest(pair.questID);
 
                 // 데이터 테이블에 아직 들여오지 않은 변수.
-                //if (quest.origin.goodFood.Contains(pair.itemID))
-                //{
-                //    Debug.Log("대성공");
-                //    QM.questData.CompleteQuest(pair.questID, SuccessDegree.good);
-                //}
-                //else if (quest.origin.sosoFood.Contains(pair.itemID))
-                //{
-                //    Debug.Log("중성공");
-                //    QM.questData.CompleteQuest(pair.questID, SuccessDegree.soso);
-                //}
-                //else if (quest.origin.badFood.Contains(pair.itemID))
-                //{
-                //    Debug.Log("소성공");
-                //    QM.questData.CompleteQuest(pair.questID, SuccessDegree.bad);
-                //}
-                //else
-                //{
-                //    Debug.Log("실패");
-                //    QM.questData.FailQuest(pair.questID);
-                //}
+                if (quest.origin.goodFood.Contains(pair.itemID))
+                {
+                    Debug.Log("대성공");
+                    prt.questData.CompleteQuest(pair.questID, SuccessDegree.good);
+                }
+                else if (quest.origin.sosoFood.Contains(pair.itemID))
+                {
+                    Debug.Log("중성공");
+                    prt.questData.CompleteQuest(pair.questID, SuccessDegree.soso);
+                }
+                else if (quest.origin.notBadFood.Contains(pair.itemID))
+                {
+                    Debug.Log("소성공");
+                    prt.questData.CompleteQuest(pair.questID, SuccessDegree.bad);
+                }
+                else
+                {
+                    Debug.Log("실패");
+                    prt.questData.FailQuest(pair.questID);
+                }
 
-                /*  테스트용 */
-                Debug.Log("Dev-퀘스트 중성공");
-                prt.questData.CompleteQuest(pair.questID, SuccessDegree.soso);
-                /*  테스트용 */
+                ///*  테스트용 */
+                //Debug.Log("Dev-퀘스트 중성공");
+                //prt.questData.CompleteQuest(pair.questID, SuccessDegree.soso);
+                ///*  테스트용 */
 
             }
             Debug.Log("퀘스트 대기열 체크");

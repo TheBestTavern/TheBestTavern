@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class MailBoxContentOffer : MailBoxContentBase
 {
-    public override void Init()
+    public override void OnEnable()
     {
-        if (isInitialized) return;
-        isInitialized = true;
-        base.Init();
+        if (isReadyTodaySlot) return;
+        isReadyTodaySlot = true;
+        base.OnEnable();
 
         MakeSlot(QuestManager.Instance.questData.TodayAvailableQuest);
         //OnNewDay command = new(this);

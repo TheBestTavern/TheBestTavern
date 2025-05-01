@@ -29,7 +29,7 @@ public class MailBoxPopUp : BasePopUp
 
         for(int i  = 0; i < mailBoxContentsList.Count; i++)
         {
-            mailBoxContentsList[i].Init();
+            //mailBoxContentsList[i].Init();
             MailBoxContentType temp = mailBoxContentsList[i].ContentType;
             contentsDic.Add(temp, mailBoxContentsList[i]);
             contentsBtnDic.Add(temp, contentBtn[i]);

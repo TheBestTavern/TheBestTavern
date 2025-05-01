@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class MailBoxContentResult : MailBoxContentBase // 제네릭으로 할 수 있을려나
 {
-    public override void Init()
+    public override void OnEnable()
     {
-        if (isInitialized) return;
-        isInitialized = true;
-        base.Init();
+        if (isReadyTodaySlot) return;
+        isReadyTodaySlot = true;
+        base.OnEnable();
 
         MakeSlot(QuestManager.Instance.questData.JustCompleteQuests);
         //OnNewDay command = new(this);

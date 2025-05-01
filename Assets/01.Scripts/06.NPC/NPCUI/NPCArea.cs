@@ -23,10 +23,12 @@ public class NPCArea : MonoBehaviour
     private Dictionary<int, NPCSlot> activeSlots = new(); // <슬롯 인덱스, npcSlot객체>
 
     [SerializeField] SubmissionMode submissionMode;
+    bool setNPCCount;
+    int npcCount;
     List<float> targetPositions = new();
 
-    LunarDateTime dateID =new(); // 테스트용
-    
+    LunarDateTime dateID = new(); // 테스트용
+
 
 
     private void Awake()
@@ -140,16 +142,27 @@ public class NPCArea : MonoBehaviour
     private List<float> AllocateExternalPos(int clickedSlotIndex) // 화면 바깥에 위치 지정(클릭된 슬롯 중심으로 가까운 바깥으로 나가도록)
     {
         float width = Screen.width;
-        int count = activeSlots.Count();
+        
+        if (!setNPCCount)
+        {
+            npcCount = activeSlots.Count();
+            setNPCCount = true;
+        }
 
         List<float> targetPositions = new();
         for (int i = 0; i < clickedSlotIndex; i++)
         {
-            targetPositions.Add(activeSlots[i].transform.position.x - width);
+            if (activeSlots.TryGetValue(i, out var slot))
+            {
+                targetPositions.Add(slot.transform.position.x - width);
+            }
         }
-        for (int i = clickedSlotIndex; i < count; i++) // 클릭된 슬롯은 더 늦게 호출된 다른 트윈에 의해 Kill()됨.
+        for (int i = clickedSlotIndex; i < npcCount; i++) // 클릭된 슬롯은 더 늦게 호출된 다른 트윈에 의해 Kill()됨.
         {
-            targetPositions.Add(activeSlots[i].transform.position.x + width);
+            if (activeSlots.TryGetValue(i, out var slot))
+            {
+                targetPositions.Add(slot.transform.position.x + width);
+            }
         }
         return targetPositions;
     }
@@ -168,6 +181,7 @@ public class NPCArea : MonoBehaviour
         public void Execute()
         {
             HideNPCs();
+            prt.setNPCCount = false;
         }
 
         public void HideNPCs()
