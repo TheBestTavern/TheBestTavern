@@ -26,7 +26,7 @@ public abstract class CookingMiniGameBase : MonoBehaviour, ICookingMiniGameHandl
     protected virtual void Update()
     {
         if (isGameOver) return;
-        
+
         elapsedTimer += Time.deltaTime;
 
         if (elapsedTimer >= 2f)
@@ -40,8 +40,8 @@ public abstract class CookingMiniGameBase : MonoBehaviour, ICookingMiniGameHandl
             // 게임 로직 구현부 실행
             UpdateGamePlay();
         }
-        
-        if(timer <= 0f)
+
+        if (timer <= 0f || isGameOver)
         {
             isGameOver = true;
             StopGame();
