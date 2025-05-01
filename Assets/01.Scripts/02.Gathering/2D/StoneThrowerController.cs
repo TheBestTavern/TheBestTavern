@@ -5,22 +5,22 @@ using UnityEngine.UI;
 
 public class StoneThrowerController : MonoBehaviour
 {
-    public GameObject throwObjectPrefab;
-    public Transform throwPoint;
-    public LineRenderer lineRenderer;
+    [Header("프리팹 및 위치 설정")]
+    [SerializeField] private GameObject throwObjectPrefab;
+    [SerializeField] private Transform throwPoint;
+    [SerializeField] private LineRenderer lineRenderer;
+    [SerializeField] private Camera miniGameCamera;
+    [SerializeField] private Image powerUI;
 
+
+    [Header("파워 및 각도 설정")]
     [SerializeField] private float maxPower;
     [SerializeField] private float throwAngle;
-    public float previewLength = 0.2f;
-    public int previewResolution = 30;
+    [SerializeField] private float previewLength = 0.2f;
+    [SerializeField] private int previewResolution = 30;
 
-    float currentPower = 0f;  
-    bool isIncreasing = true;
-
-    public Camera miniGameCamera;
-
-    // UI Elements
-    public Image powerUI;
+    private float currentPower = 0f;
+    private bool isIncreasing = false;
 
     private void Start()
     {
