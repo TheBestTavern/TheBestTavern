@@ -69,25 +69,26 @@ public class QuestManager : MonoSingleton<QuestManager>
 
     public class OnNewDay : IDayCommand
     {
-        QuestManager QM;
+        QuestManager prt;
 
         public OnNewDay(QuestManager questManager)
         {
-            this.QM = questManager;
+            this.prt = questManager;
         }
 
         public int Priority => 200;
 
         public void Execute()
         {
+            prt.JustCompleteQuests.Clear();
             CheckQuestCheckQueue();
         }
 
         void CheckQuestCheckQueue()
         {
-            while (QM.QuestCheckQueue.Count > 0)
+            while (prt.QuestCheckQueue.Count > 0)
             {
-                var pair = QM.QuestCheckQueue.Dequeue();
+                var pair = prt.QuestCheckQueue.Dequeue();
                 var quest = Data.GetQuest(pair.questID);
 
                 // 데이터 테이블에 아직 들여오지 않은 변수.
@@ -114,12 +115,16 @@ public class QuestManager : MonoSingleton<QuestManager>
 
                 /*  테스트용 */
                 Debug.Log("Dev-퀘스트 중성공");
-                QM.questData.CompleteQuest(pair.questID, SuccessDegree.soso);
+                prt.questData.CompleteQuest(pair.questID, SuccessDegree.soso);
                 /*  테스트용 */
 
             }
             Debug.Log("퀘스트 대기열 체크");
+        }
 
+        public bool isValid()
+        {
+            return prt != null;
         }
     }
 }

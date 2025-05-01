@@ -31,9 +31,12 @@
       "condition_season": 0,
       "condition_chance": 3,
       "availableFood": [
-        101033,
-        101034,
-        101035
+        101002,
+        101003,
+        101004,
+        101005,
+        101006,
+        101060
       ]
     },
     {
@@ -67,9 +70,12 @@
       "condition_season": 1,
       "condition_chance": 3,
       "availableFood": [
-        101033,
-        101034,
-        101035
+        101002,
+        101003,
+        101004,
+        101005,
+        101006,
+        101060
       ]
     },
     {
@@ -94,9 +100,7 @@
       "condition_biome": 0,
       "condition_season": 2,
       "condition_chance": 2,
-      "availableFood": [
-        101036
-      ]
+      "availableFood": []
     },
     {
       "key": 12,
@@ -105,9 +109,12 @@
       "condition_season": 2,
       "condition_chance": 3,
       "availableFood": [
-        101033,
-        101034,
-        101035
+        101002,
+        101003,
+        101004,
+        101005,
+        101006,
+        101060
       ]
     },
     {
@@ -133,8 +140,7 @@
       "condition_season": 3,
       "condition_chance": 2,
       "availableFood": [
-        101037,
-        101038
+        101009
       ]
     },
     {
@@ -143,7 +149,9 @@
       "condition_biome": 0,
       "condition_season": 3,
       "condition_chance": 3,
-      "availableFood": []
+      "availableFood": [
+        101060
+      ]
     },
     {
       "key": 17,
@@ -176,12 +184,9 @@
       "condition_season": 0,
       "condition_chance": 3,
       "availableFood": [
-        101002,
-        101003,
-        101004,
-        101005,
-        101006,
-        101060
+        101033,
+        101034,
+        101035
       ]
     },
     {
@@ -215,12 +220,9 @@
       "condition_season": 1,
       "condition_chance": 3,
       "availableFood": [
-        101002,
-        101003,
-        101004,
-        101005,
-        101006,
-        101060
+        101033,
+        101034,
+        101035
       ]
     },
     {
@@ -245,7 +247,9 @@
       "condition_biome": 1,
       "condition_season": 2,
       "condition_chance": 2,
-      "availableFood": []
+      "availableFood": [
+        101036
+      ]
     },
     {
       "key": 28,
@@ -254,12 +258,9 @@
       "condition_season": 2,
       "condition_chance": 3,
       "availableFood": [
-        101002,
-        101003,
-        101004,
-        101005,
-        101006,
-        101060
+        101033,
+        101034,
+        101035
       ]
     },
     {
@@ -285,7 +286,8 @@
       "condition_season": 3,
       "condition_chance": 2,
       "availableFood": [
-        101009
+        101037,
+        101038
       ]
     },
     {
@@ -294,9 +296,7 @@
       "condition_biome": 1,
       "condition_season": 3,
       "condition_chance": 3,
-      "availableFood": [
-        101060
-      ]
+      "availableFood": []
     },
     {
       "key": 33,
@@ -312,7 +312,9 @@
       "condition_biome": 0,
       "condition_season": 0,
       "condition_chance": 1,
-      "availableFood": []
+      "availableFood": [
+        101011
+      ]
     },
     {
       "key": 35,
@@ -320,7 +322,9 @@
       "condition_biome": 0,
       "condition_season": 0,
       "condition_chance": 2,
-      "availableFood": []
+      "availableFood": [
+        101010
+      ]
     },
     {
       "key": 36,
@@ -329,9 +333,12 @@
       "condition_season": 0,
       "condition_chance": 3,
       "availableFood": [
-        101033,
-        101034,
-        101035
+        101002,
+        101003,
+        101004,
+        101005,
+        101006,
+        101060
       ]
     },
     {
@@ -340,9 +347,7 @@
       "condition_biome": 0,
       "condition_season": 1,
       "condition_chance": 0,
-      "availableFood": [
-        101039
-      ]
+      "availableFood": []
     },
     {
       "key": 38,
@@ -367,9 +372,12 @@
       "condition_season": 1,
       "condition_chance": 3,
       "availableFood": [
-        101033,
-        101034,
-        101035
+        101002,
+        101003,
+        101004,
+        101005,
+        101006,
+        101060
       ]
     },
     {
@@ -403,9 +411,12 @@
       "condition_season": 2,
       "condition_chance": 3,
       "availableFood": [
-        101033,
-        101034,
-        101035
+        101002,
+        101003,
+        101004,
+        101005,
+        101006,
+        101060
       ]
     },
     {
@@ -422,9 +433,7 @@
       "condition_biome": 0,
       "condition_season": 3,
       "condition_chance": 1,
-      "availableFood": [
-        101041
-      ]
+      "availableFood": []
     },
     {
       "key": 47,
@@ -433,7 +442,7 @@
       "condition_season": 3,
       "condition_chance": 2,
       "availableFood": [
-        101040
+        101012
       ]
     },
     {
@@ -442,7 +451,9 @@
       "condition_biome": 0,
       "condition_season": 3,
       "condition_chance": 3,
-      "availableFood": []
+      "availableFood": [
+        101060
+      ]
     },
     {
       "key": 49,
@@ -458,9 +469,7 @@
       "condition_biome": 1,
       "condition_season": 0,
       "condition_chance": 1,
-      "availableFood": [
-        101011
-      ]
+      "availableFood": []
     },
     {
       "key": 51,
@@ -468,9 +477,7 @@
       "condition_biome": 1,
       "condition_season": 0,
       "condition_chance": 2,
-      "availableFood": [
-        101010
-      ]
+      "availableFood": []
     },
     {
       "key": 52,
@@ -479,12 +486,9 @@
       "condition_season": 0,
       "condition_chance": 3,
       "availableFood": [
-        101002,
-        101003,
-        101004,
-        101005,
-        101006,
-        101060
+        101033,
+        101034,
+        101035
       ]
     },
     {
@@ -493,7 +497,9 @@
       "condition_biome": 1,
       "condition_season": 1,
       "condition_chance": 0,
-      "availableFood": []
+      "availableFood": [
+        101039
+      ]
     },
     {
       "key": 54,
@@ -518,12 +524,9 @@
       "condition_season": 1,
       "condition_chance": 3,
       "availableFood": [
-        101002,
-        101003,
-        101004,
-        101005,
-        101006,
-        101060
+        101033,
+        101034,
+        101035
       ]
     },
     {
@@ -557,12 +560,9 @@
       "condition_season": 2,
       "condition_chance": 3,
       "availableFood": [
-        101002,
-        101003,
-        101004,
-        101005,
-        101006,
-        101060
+        101033,
+        101034,
+        101035
       ]
     },
     {
@@ -579,7 +579,9 @@
       "condition_biome": 1,
       "condition_season": 3,
       "condition_chance": 1,
-      "availableFood": []
+      "availableFood": [
+        101041
+      ]
     },
     {
       "key": 63,
@@ -588,7 +590,7 @@
       "condition_season": 3,
       "condition_chance": 2,
       "availableFood": [
-        101012
+        101040
       ]
     },
     {
@@ -597,9 +599,7 @@
       "condition_biome": 1,
       "condition_season": 3,
       "condition_chance": 3,
-      "availableFood": [
-        101060
-      ]
+      "availableFood": []
     },
     {
       "key": 65,
@@ -632,9 +632,12 @@
       "condition_season": 0,
       "condition_chance": 3,
       "availableFood": [
-        101033,
-        101034,
-        101035
+        101002,
+        101003,
+        101004,
+        101005,
+        101006,
+        101060
       ]
     },
     {
@@ -643,9 +646,7 @@
       "condition_biome": 0,
       "condition_season": 1,
       "condition_chance": 0,
-      "availableFood": [
-        101053
-      ]
+      "availableFood": []
     },
     {
       "key": 70,
@@ -653,9 +654,7 @@
       "condition_biome": 0,
       "condition_season": 1,
       "condition_chance": 1,
-      "availableFood": [
-        101044
-      ]
+      "availableFood": []
     },
     {
       "key": 71,
@@ -663,9 +662,7 @@
       "condition_biome": 0,
       "condition_season": 1,
       "condition_chance": 2,
-      "availableFood": [
-        101052
-      ]
+      "availableFood": []
     },
     {
       "key": 72,
@@ -674,9 +671,12 @@
       "condition_season": 1,
       "condition_chance": 3,
       "availableFood": [
-        101033,
-        101034,
-        101035
+        101002,
+        101003,
+        101004,
+        101005,
+        101006,
+        101060
       ]
     },
     {
@@ -701,9 +701,7 @@
       "condition_biome": 0,
       "condition_season": 2,
       "condition_chance": 2,
-      "availableFood": [
-        101042
-      ]
+      "availableFood": []
     },
     {
       "key": 76,
@@ -712,9 +710,12 @@
       "condition_season": 2,
       "condition_chance": 3,
       "availableFood": [
-        101033,
-        101034,
-        101035
+        101002,
+        101003,
+        101004,
+        101005,
+        101006,
+        101060
       ]
     },
     {
@@ -723,9 +724,7 @@
       "condition_biome": 0,
       "condition_season": 3,
       "condition_chance": 0,
-      "availableFood": [
-        101054
-      ]
+      "availableFood": []
     },
     {
       "key": 78,
@@ -741,10 +740,7 @@
       "condition_biome": 0,
       "condition_season": 3,
       "condition_chance": 2,
-      "availableFood": [
-        101038,
-        101040
-      ]
+      "availableFood": []
     },
     {
       "key": 80,
@@ -752,7 +748,9 @@
       "condition_biome": 0,
       "condition_season": 3,
       "condition_chance": 3,
-      "availableFood": []
+      "availableFood": [
+        101060
+      ]
     },
     {
       "key": 81,
@@ -785,12 +783,9 @@
       "condition_season": 0,
       "condition_chance": 3,
       "availableFood": [
-        101002,
-        101003,
-        101004,
-        101005,
-        101006,
-        101060
+        101033,
+        101034,
+        101035
       ]
     },
     {
@@ -799,7 +794,9 @@
       "condition_biome": 1,
       "condition_season": 1,
       "condition_chance": 0,
-      "availableFood": []
+      "availableFood": [
+        101053
+      ]
     },
     {
       "key": 86,
@@ -807,7 +804,9 @@
       "condition_biome": 1,
       "condition_season": 1,
       "condition_chance": 1,
-      "availableFood": []
+      "availableFood": [
+        101044
+      ]
     },
     {
       "key": 87,
@@ -815,7 +814,9 @@
       "condition_biome": 1,
       "condition_season": 1,
       "condition_chance": 2,
-      "availableFood": []
+      "availableFood": [
+        101052
+      ]
     },
     {
       "key": 88,
@@ -824,12 +825,9 @@
       "condition_season": 1,
       "condition_chance": 3,
       "availableFood": [
-        101002,
-        101003,
-        101004,
-        101005,
-        101006,
-        101060
+        101033,
+        101034,
+        101035
       ]
     },
     {
@@ -854,7 +852,9 @@
       "condition_biome": 1,
       "condition_season": 2,
       "condition_chance": 2,
-      "availableFood": []
+      "availableFood": [
+        101042
+      ]
     },
     {
       "key": 92,
@@ -863,12 +863,9 @@
       "condition_season": 2,
       "condition_chance": 3,
       "availableFood": [
-        101002,
-        101003,
-        101004,
-        101005,
-        101006,
-        101060
+        101033,
+        101034,
+        101035
       ]
     },
     {
@@ -877,7 +874,9 @@
       "condition_biome": 1,
       "condition_season": 3,
       "condition_chance": 0,
-      "availableFood": []
+      "availableFood": [
+        101054
+      ]
     },
     {
       "key": 94,
@@ -893,7 +892,10 @@
       "condition_biome": 1,
       "condition_season": 3,
       "condition_chance": 2,
-      "availableFood": []
+      "availableFood": [
+        101038,
+        101040
+      ]
     },
     {
       "key": 96,
@@ -901,9 +903,7 @@
       "condition_biome": 1,
       "condition_season": 3,
       "condition_chance": 3,
-      "availableFood": [
-        101060
-      ]
+      "availableFood": []
     },
     {
       "key": 97,
@@ -919,7 +919,9 @@
       "condition_biome": 0,
       "condition_season": 0,
       "condition_chance": 1,
-      "availableFood": []
+      "availableFood": [
+        101017
+      ]
     },
     {
       "key": 99,
@@ -927,7 +929,9 @@
       "condition_biome": 0,
       "condition_season": 0,
       "condition_chance": 2,
-      "availableFood": []
+      "availableFood": [
+        101016
+      ]
     },
     {
       "key": 100,
@@ -936,9 +940,12 @@
       "condition_season": 0,
       "condition_chance": 3,
       "availableFood": [
-        101033,
-        101034,
-        101035
+        101002,
+        101003,
+        101004,
+        101005,
+        101006,
+        101060
       ]
     },
     {
@@ -972,9 +979,12 @@
       "condition_season": 1,
       "condition_chance": 3,
       "availableFood": [
-        101033,
-        101034,
-        101035
+        101002,
+        101003,
+        101004,
+        101005,
+        101006,
+        101060
       ]
     },
     {
@@ -991,7 +1001,9 @@
       "condition_biome": 0,
       "condition_season": 2,
       "condition_chance": 1,
-      "availableFood": []
+      "availableFood": [
+        101021
+      ]
     },
     {
       "key": 107,
@@ -999,7 +1011,11 @@
       "condition_biome": 0,
       "condition_season": 2,
       "condition_chance": 2,
-      "availableFood": []
+      "availableFood": [
+        101018,
+        101019,
+        101020
+      ]
     },
     {
       "key": 108,
@@ -1008,9 +1024,12 @@
       "condition_season": 2,
       "condition_chance": 3,
       "availableFood": [
-        101033,
-        101034,
-        101035
+        101002,
+        101003,
+        101004,
+        101005,
+        101006,
+        101060
       ]
     },
     {
@@ -1035,7 +1054,10 @@
       "condition_biome": 0,
       "condition_season": 3,
       "condition_chance": 2,
-      "availableFood": []
+      "availableFood": [
+        101012,
+        101022
+      ]
     },
     {
       "key": 112,
@@ -1043,7 +1065,9 @@
       "condition_biome": 0,
       "condition_season": 3,
       "condition_chance": 3,
-      "availableFood": []
+      "availableFood": [
+        101060
+      ]
     },
     {
       "key": 113,
@@ -1059,9 +1083,7 @@
       "condition_biome": 1,
       "condition_season": 0,
       "condition_chance": 1,
-      "availableFood": [
-        101017
-      ]
+      "availableFood": []
     },
     {
       "key": 115,
@@ -1069,9 +1091,7 @@
       "condition_biome": 1,
       "condition_season": 0,
       "condition_chance": 2,
-      "availableFood": [
-        101016
-      ]
+      "availableFood": []
     },
     {
       "key": 116,
@@ -1080,12 +1100,9 @@
       "condition_season": 0,
       "condition_chance": 3,
       "availableFood": [
-        101002,
-        101003,
-        101004,
-        101005,
-        101006,
-        101060
+        101033,
+        101034,
+        101035
       ]
     },
     {
@@ -1119,12 +1136,9 @@
       "condition_season": 1,
       "condition_chance": 3,
       "availableFood": [
-        101002,
-        101003,
-        101004,
-        101005,
-        101006,
-        101060
+        101033,
+        101034,
+        101035
       ]
     },
     {
@@ -1141,9 +1155,7 @@
       "condition_biome": 1,
       "condition_season": 2,
       "condition_chance": 1,
-      "availableFood": [
-        101021
-      ]
+      "availableFood": []
     },
     {
       "key": 123,
@@ -1151,11 +1163,7 @@
       "condition_biome": 1,
       "condition_season": 2,
       "condition_chance": 2,
-      "availableFood": [
-        101018,
-        101019,
-        101020
-      ]
+      "availableFood": []
     },
     {
       "key": 124,
@@ -1164,12 +1172,9 @@
       "condition_season": 2,
       "condition_chance": 3,
       "availableFood": [
-        101002,
-        101003,
-        101004,
-        101005,
-        101006,
-        101060
+        101033,
+        101034,
+        101035
       ]
     },
     {
@@ -1194,10 +1199,7 @@
       "condition_biome": 1,
       "condition_season": 3,
       "condition_chance": 2,
-      "availableFood": [
-        101012,
-        101022
-      ]
+      "availableFood": []
     },
     {
       "key": 128,
@@ -1205,9 +1207,7 @@
       "condition_biome": 1,
       "condition_season": 3,
       "condition_chance": 3,
-      "availableFood": [
-        101060
-      ]
+      "availableFood": []
     },
     {
       "key": 129,
@@ -1215,9 +1215,7 @@
       "condition_biome": 0,
       "condition_season": 0,
       "condition_chance": 0,
-      "availableFood": [
-        101057
-      ]
+      "availableFood": []
     },
     {
       "key": 130,
@@ -1242,9 +1240,12 @@
       "condition_season": 0,
       "condition_chance": 3,
       "availableFood": [
-        101033,
-        101034,
-        101035
+        101002,
+        101003,
+        101004,
+        101005,
+        101006,
+        101060
       ]
     },
     {
@@ -1278,9 +1279,12 @@
       "condition_season": 1,
       "condition_chance": 3,
       "availableFood": [
-        101033,
-        101034,
-        101035
+        101002,
+        101003,
+        101004,
+        101005,
+        101006,
+        101060
       ]
     },
     {
@@ -1314,9 +1318,12 @@
       "condition_season": 2,
       "condition_chance": 3,
       "availableFood": [
-        101033,
-        101034,
-        101035
+        101002,
+        101003,
+        101004,
+        101005,
+        101006,
+        101060
       ]
     },
     {
@@ -1325,11 +1332,7 @@
       "condition_biome": 0,
       "condition_season": 3,
       "condition_chance": 0,
-      "availableFood": [
-        101056,
-        101058,
-        101059
-      ]
+      "availableFood": []
     },
     {
       "key": 142,
@@ -1337,9 +1340,7 @@
       "condition_biome": 0,
       "condition_season": 3,
       "condition_chance": 1,
-      "availableFood": [
-        101041
-      ]
+      "availableFood": []
     },
     {
       "key": 143,
@@ -1347,10 +1348,7 @@
       "condition_biome": 0,
       "condition_season": 3,
       "condition_chance": 2,
-      "availableFood": [
-        101046,
-        101055
-      ]
+      "availableFood": []
     },
     {
       "key": 144,
@@ -1358,7 +1356,9 @@
       "condition_biome": 0,
       "condition_season": 3,
       "condition_chance": 3,
-      "availableFood": []
+      "availableFood": [
+        101060
+      ]
     },
     {
       "key": 145,
@@ -1366,7 +1366,9 @@
       "condition_biome": 1,
       "condition_season": 0,
       "condition_chance": 0,
-      "availableFood": []
+      "availableFood": [
+        101057
+      ]
     },
     {
       "key": 146,
@@ -1391,12 +1393,9 @@
       "condition_season": 0,
       "condition_chance": 3,
       "availableFood": [
-        101002,
-        101003,
-        101004,
-        101005,
-        101006,
-        101060
+        101033,
+        101034,
+        101035
       ]
     },
     {
@@ -1430,12 +1429,9 @@
       "condition_season": 1,
       "condition_chance": 3,
       "availableFood": [
-        101002,
-        101003,
-        101004,
-        101005,
-        101006,
-        101060
+        101033,
+        101034,
+        101035
       ]
     },
     {
@@ -1469,12 +1465,9 @@
       "condition_season": 2,
       "condition_chance": 3,
       "availableFood": [
-        101002,
-        101003,
-        101004,
-        101005,
-        101006,
-        101060
+        101033,
+        101034,
+        101035
       ]
     },
     {
@@ -1483,7 +1476,11 @@
       "condition_biome": 1,
       "condition_season": 3,
       "condition_chance": 0,
-      "availableFood": []
+      "availableFood": [
+        101056,
+        101058,
+        101059
+      ]
     },
     {
       "key": 158,
@@ -1491,7 +1488,9 @@
       "condition_biome": 1,
       "condition_season": 3,
       "condition_chance": 1,
-      "availableFood": []
+      "availableFood": [
+        101041
+      ]
     },
     {
       "key": 159,
@@ -1499,7 +1498,10 @@
       "condition_biome": 1,
       "condition_season": 3,
       "condition_chance": 2,
-      "availableFood": []
+      "availableFood": [
+        101046,
+        101055
+      ]
     },
     {
       "key": 160,
@@ -1507,9 +1509,7 @@
       "condition_biome": 1,
       "condition_season": 3,
       "condition_chance": 3,
-      "availableFood": [
-        101060
-      ]
+      "availableFood": []
     },
     {
       "key": 161,
@@ -1525,9 +1525,7 @@
       "condition_biome": 0,
       "condition_season": 0,
       "condition_chance": 1,
-      "availableFood": [
-        101043
-      ]
+      "availableFood": []
     },
     {
       "key": 163,
@@ -1544,9 +1542,12 @@
       "condition_season": 0,
       "condition_chance": 3,
       "availableFood": [
-        101033,
-        101034,
-        101035
+        101002,
+        101003,
+        101004,
+        101005,
+        101006,
+        101060
       ]
     },
     {
@@ -1564,7 +1565,7 @@
       "condition_season": 1,
       "condition_chance": 1,
       "availableFood": [
-        101044
+        101023
       ]
     },
     {
@@ -1582,9 +1583,12 @@
       "condition_season": 1,
       "condition_chance": 3,
       "availableFood": [
-        101033,
-        101034,
-        101035
+        101002,
+        101003,
+        101004,
+        101005,
+        101006,
+        101060
       ]
     },
     {
@@ -1609,7 +1613,9 @@
       "condition_biome": 0,
       "condition_season": 2,
       "condition_chance": 2,
-      "availableFood": []
+      "availableFood": [
+        101024
+      ]
     },
     {
       "key": 172,
@@ -1618,9 +1624,12 @@
       "condition_season": 2,
       "condition_chance": 3,
       "availableFood": [
-        101033,
-        101034,
-        101035
+        101002,
+        101003,
+        101004,
+        101005,
+        101006,
+        101060
       ]
     },
     {
@@ -1629,7 +1638,9 @@
       "condition_biome": 0,
       "condition_season": 3,
       "condition_chance": 0,
-      "availableFood": []
+      "availableFood": [
+        101025
+      ]
     },
     {
       "key": 174,
@@ -1645,9 +1656,7 @@
       "condition_biome": 0,
       "condition_season": 3,
       "condition_chance": 2,
-      "availableFood": [
-        101046
-      ]
+      "availableFood": []
     },
     {
       "key": 176,
@@ -1655,7 +1664,9 @@
       "condition_biome": 0,
       "condition_season": 3,
       "condition_chance": 3,
-      "availableFood": []
+      "availableFood": [
+        101060
+      ]
     },
     {
       "key": 177,
@@ -1671,7 +1682,9 @@
       "condition_biome": 1,
       "condition_season": 0,
       "condition_chance": 1,
-      "availableFood": []
+      "availableFood": [
+        101043
+      ]
     },
     {
       "key": 179,
@@ -1688,12 +1701,9 @@
       "condition_season": 0,
       "condition_chance": 3,
       "availableFood": [
-        101002,
-        101003,
-        101004,
-        101005,
-        101006,
-        101060
+        101033,
+        101034,
+        101035
       ]
     },
     {
@@ -1711,7 +1721,7 @@
       "condition_season": 1,
       "condition_chance": 1,
       "availableFood": [
-        101023
+        101044
       ]
     },
     {
@@ -1729,12 +1739,9 @@
       "condition_season": 1,
       "condition_chance": 3,
       "availableFood": [
-        101002,
-        101003,
-        101004,
-        101005,
-        101006,
-        101060
+        101033,
+        101034,
+        101035
       ]
     },
     {
@@ -1759,9 +1766,7 @@
       "condition_biome": 1,
       "condition_season": 2,
       "condition_chance": 2,
-      "availableFood": [
-        101024
-      ]
+      "availableFood": []
     },
     {
       "key": 188,
@@ -1770,12 +1775,9 @@
       "condition_season": 2,
       "condition_chance": 3,
       "availableFood": [
-        101002,
-        101003,
-        101004,
-        101005,
-        101006,
-        101060
+        101033,
+        101034,
+        101035
       ]
     },
     {
@@ -1784,9 +1786,7 @@
       "condition_biome": 1,
       "condition_season": 3,
       "condition_chance": 0,
-      "availableFood": [
-        101025
-      ]
+      "availableFood": []
     },
     {
       "key": 190,
@@ -1802,7 +1802,9 @@
       "condition_biome": 1,
       "condition_season": 3,
       "condition_chance": 2,
-      "availableFood": []
+      "availableFood": [
+        101046
+      ]
     },
     {
       "key": 192,
@@ -1810,9 +1812,7 @@
       "condition_biome": 1,
       "condition_season": 3,
       "condition_chance": 3,
-      "availableFood": [
-        101060
-      ]
+      "availableFood": []
     },
     {
       "key": 193,
@@ -1845,9 +1845,12 @@
       "condition_season": 0,
       "condition_chance": 3,
       "availableFood": [
-        101033,
-        101034,
-        101035
+        101002,
+        101003,
+        101004,
+        101005,
+        101006,
+        101060
       ]
     },
     {
@@ -1881,9 +1884,12 @@
       "condition_season": 1,
       "condition_chance": 3,
       "availableFood": [
-        101033,
-        101034,
-        101035
+        101002,
+        101003,
+        101004,
+        101005,
+        101006,
+        101060
       ]
     },
     {
@@ -1917,9 +1923,12 @@
       "condition_season": 2,
       "condition_chance": 3,
       "availableFood": [
-        101033,
-        101034,
-        101035
+        101002,
+        101003,
+        101004,
+        101005,
+        101006,
+        101060
       ]
     },
     {
@@ -1952,7 +1961,9 @@
       "condition_biome": 0,
       "condition_season": 3,
       "condition_chance": 3,
-      "availableFood": []
+      "availableFood": [
+        101060
+      ]
     },
     {
       "key": 209,
@@ -1985,12 +1996,9 @@
       "condition_season": 0,
       "condition_chance": 3,
       "availableFood": [
-        101002,
-        101003,
-        101004,
-        101005,
-        101006,
-        101060
+        101033,
+        101034,
+        101035
       ]
     },
     {
@@ -2024,12 +2032,9 @@
       "condition_season": 1,
       "condition_chance": 3,
       "availableFood": [
-        101002,
-        101003,
-        101004,
-        101005,
-        101006,
-        101060
+        101033,
+        101034,
+        101035
       ]
     },
     {
@@ -2063,12 +2068,9 @@
       "condition_season": 2,
       "condition_chance": 3,
       "availableFood": [
-        101002,
-        101003,
-        101004,
-        101005,
-        101006,
-        101060
+        101033,
+        101034,
+        101035
       ]
     },
     {
@@ -2101,9 +2103,7 @@
       "condition_biome": 1,
       "condition_season": 3,
       "condition_chance": 3,
-      "availableFood": [
-        101060
-      ]
+      "availableFood": []
     },
     {
       "key": 225,
@@ -2136,9 +2136,12 @@
       "condition_season": 0,
       "condition_chance": 3,
       "availableFood": [
-        101033,
-        101034,
-        101035
+        101002,
+        101003,
+        101004,
+        101005,
+        101006,
+        101060
       ]
     },
     {
@@ -2172,9 +2175,12 @@
       "condition_season": 1,
       "condition_chance": 3,
       "availableFood": [
-        101033,
-        101034,
-        101035
+        101002,
+        101003,
+        101004,
+        101005,
+        101006,
+        101060
       ]
     },
     {
@@ -2208,9 +2214,12 @@
       "condition_season": 2,
       "condition_chance": 3,
       "availableFood": [
-        101033,
-        101034,
-        101035
+        101002,
+        101003,
+        101004,
+        101005,
+        101006,
+        101060
       ]
     },
     {
@@ -2243,7 +2252,9 @@
       "condition_biome": 0,
       "condition_season": 3,
       "condition_chance": 3,
-      "availableFood": []
+      "availableFood": [
+        101060
+      ]
     },
     {
       "key": 241,
@@ -2276,12 +2287,9 @@
       "condition_season": 0,
       "condition_chance": 3,
       "availableFood": [
-        101002,
-        101003,
-        101004,
-        101005,
-        101006,
-        101060
+        101033,
+        101034,
+        101035
       ]
     },
     {
@@ -2315,12 +2323,9 @@
       "condition_season": 1,
       "condition_chance": 3,
       "availableFood": [
-        101002,
-        101003,
-        101004,
-        101005,
-        101006,
-        101060
+        101033,
+        101034,
+        101035
       ]
     },
     {
@@ -2354,12 +2359,9 @@
       "condition_season": 2,
       "condition_chance": 3,
       "availableFood": [
-        101002,
-        101003,
-        101004,
-        101005,
-        101006,
-        101060
+        101033,
+        101034,
+        101035
       ]
     },
     {
@@ -2392,9 +2394,7 @@
       "condition_biome": 1,
       "condition_season": 3,
       "condition_chance": 3,
-      "availableFood": [
-        101060
-      ]
+      "availableFood": []
     },
     {
       "key": 257,
@@ -2410,7 +2410,9 @@
       "condition_biome": 0,
       "condition_season": 0,
       "condition_chance": 1,
-      "availableFood": []
+      "availableFood": [
+        101028
+      ]
     },
     {
       "key": 259,
@@ -2418,9 +2420,7 @@
       "condition_biome": 0,
       "condition_season": 0,
       "condition_chance": 2,
-      "availableFood": [
-        101047
-      ]
+      "availableFood": []
     },
     {
       "key": 260,
@@ -2429,9 +2429,12 @@
       "condition_season": 0,
       "condition_chance": 3,
       "availableFood": [
-        101033,
-        101034,
-        101035
+        101002,
+        101003,
+        101004,
+        101005,
+        101006,
+        101060
       ]
     },
     {
@@ -2440,7 +2443,10 @@
       "condition_biome": 0,
       "condition_season": 1,
       "condition_chance": 0,
-      "availableFood": []
+      "availableFood": [
+        101029,
+        101030
+      ]
     },
     {
       "key": 262,
@@ -2456,7 +2462,9 @@
       "condition_biome": 0,
       "condition_season": 1,
       "condition_chance": 2,
-      "availableFood": []
+      "availableFood": [
+        101026
+      ]
     },
     {
       "key": 264,
@@ -2465,9 +2473,12 @@
       "condition_season": 1,
       "condition_chance": 3,
       "availableFood": [
-        101033,
-        101034,
-        101035
+        101002,
+        101003,
+        101004,
+        101005,
+        101006,
+        101060
       ]
     },
     {
@@ -2484,7 +2495,10 @@
       "condition_biome": 0,
       "condition_season": 2,
       "condition_chance": 1,
-      "availableFood": []
+      "availableFood": [
+        101027,
+        101031
+      ]
     },
     {
       "key": 267,
@@ -2492,9 +2506,7 @@
       "condition_biome": 0,
       "condition_season": 2,
       "condition_chance": 2,
-      "availableFood": [
-        101048
-      ]
+      "availableFood": []
     },
     {
       "key": 268,
@@ -2503,9 +2515,12 @@
       "condition_season": 2,
       "condition_chance": 3,
       "availableFood": [
-        101033,
-        101034,
-        101035
+        101002,
+        101003,
+        101004,
+        101005,
+        101006,
+        101060
       ]
     },
     {
@@ -2514,10 +2529,7 @@
       "condition_biome": 0,
       "condition_season": 3,
       "condition_chance": 0,
-      "availableFood": [
-        101050,
-        101051
-      ]
+      "availableFood": []
     },
     {
       "key": 270,
@@ -2533,9 +2545,7 @@
       "condition_biome": 0,
       "condition_season": 3,
       "condition_chance": 2,
-      "availableFood": [
-        101049
-      ]
+      "availableFood": []
     },
     {
       "key": 272,
@@ -2543,7 +2553,9 @@
       "condition_biome": 0,
       "condition_season": 3,
       "condition_chance": 3,
-      "availableFood": []
+      "availableFood": [
+        101060
+      ]
     },
     {
       "key": 273,
@@ -2559,9 +2571,7 @@
       "condition_biome": 1,
       "condition_season": 0,
       "condition_chance": 1,
-      "availableFood": [
-        101028
-      ]
+      "availableFood": []
     },
     {
       "key": 275,
@@ -2569,7 +2579,9 @@
       "condition_biome": 1,
       "condition_season": 0,
       "condition_chance": 2,
-      "availableFood": []
+      "availableFood": [
+        101047
+      ]
     },
     {
       "key": 276,
@@ -2578,12 +2590,9 @@
       "condition_season": 0,
       "condition_chance": 3,
       "availableFood": [
-        101002,
-        101003,
-        101004,
-        101005,
-        101006,
-        101060
+        101033,
+        101034,
+        101035
       ]
     },
     {
@@ -2592,10 +2601,7 @@
       "condition_biome": 1,
       "condition_season": 1,
       "condition_chance": 0,
-      "availableFood": [
-        101029,
-        101030
-      ]
+      "availableFood": []
     },
     {
       "key": 278,
@@ -2611,9 +2617,7 @@
       "condition_biome": 1,
       "condition_season": 1,
       "condition_chance": 2,
-      "availableFood": [
-        101026
-      ]
+      "availableFood": []
     },
     {
       "key": 280,
@@ -2622,12 +2626,9 @@
       "condition_season": 1,
       "condition_chance": 3,
       "availableFood": [
-        101002,
-        101003,
-        101004,
-        101005,
-        101006,
-        101060
+        101033,
+        101034,
+        101035
       ]
     },
     {
@@ -2644,10 +2645,7 @@
       "condition_biome": 1,
       "condition_season": 2,
       "condition_chance": 1,
-      "availableFood": [
-        101027,
-        101031
-      ]
+      "availableFood": []
     },
     {
       "key": 283,
@@ -2655,7 +2653,9 @@
       "condition_biome": 1,
       "condition_season": 2,
       "condition_chance": 2,
-      "availableFood": []
+      "availableFood": [
+        101048
+      ]
     },
     {
       "key": 284,
@@ -2664,12 +2664,9 @@
       "condition_season": 2,
       "condition_chance": 3,
       "availableFood": [
-        101002,
-        101003,
-        101004,
-        101005,
-        101006,
-        101060
+        101033,
+        101034,
+        101035
       ]
     },
     {
@@ -2678,7 +2675,10 @@
       "condition_biome": 1,
       "condition_season": 3,
       "condition_chance": 0,
-      "availableFood": []
+      "availableFood": [
+        101050,
+        101051
+      ]
     },
     {
       "key": 286,
@@ -2694,7 +2694,9 @@
       "condition_biome": 1,
       "condition_season": 3,
       "condition_chance": 2,
-      "availableFood": []
+      "availableFood": [
+        101049
+      ]
     },
     {
       "key": 288,
@@ -2702,9 +2704,7 @@
       "condition_biome": 1,
       "condition_season": 3,
       "condition_chance": 3,
-      "availableFood": [
-        101060
-      ]
+      "availableFood": []
     },
     {
       "key": 289,
@@ -2737,9 +2737,12 @@
       "condition_season": 0,
       "condition_chance": 3,
       "availableFood": [
-        101033,
-        101034,
-        101035
+        101002,
+        101003,
+        101004,
+        101005,
+        101006,
+        101060
       ]
     },
     {
@@ -2773,9 +2776,12 @@
       "condition_season": 1,
       "condition_chance": 3,
       "availableFood": [
-        101033,
-        101034,
-        101035
+        101002,
+        101003,
+        101004,
+        101005,
+        101006,
+        101060
       ]
     },
     {
@@ -2809,9 +2815,12 @@
       "condition_season": 2,
       "condition_chance": 3,
       "availableFood": [
-        101033,
-        101034,
-        101035
+        101002,
+        101003,
+        101004,
+        101005,
+        101006,
+        101060
       ]
     },
     {
@@ -2844,7 +2853,9 @@
       "condition_biome": 0,
       "condition_season": 3,
       "condition_chance": 3,
-      "availableFood": []
+      "availableFood": [
+        101060
+      ]
     },
     {
       "key": 305,
@@ -2877,12 +2888,9 @@
       "condition_season": 0,
       "condition_chance": 3,
       "availableFood": [
-        101002,
-        101003,
-        101004,
-        101005,
-        101006,
-        101060
+        101033,
+        101034,
+        101035
       ]
     },
     {
@@ -2916,12 +2924,9 @@
       "condition_season": 1,
       "condition_chance": 3,
       "availableFood": [
-        101002,
-        101003,
-        101004,
-        101005,
-        101006,
-        101060
+        101033,
+        101034,
+        101035
       ]
     },
     {
@@ -2955,12 +2960,9 @@
       "condition_season": 2,
       "condition_chance": 3,
       "availableFood": [
-        101002,
-        101003,
-        101004,
-        101005,
-        101006,
-        101060
+        101033,
+        101034,
+        101035
       ]
     },
     {
@@ -2993,9 +2995,7 @@
       "condition_biome": 1,
       "condition_season": 3,
       "condition_chance": 3,
-      "availableFood": [
-        101060
-      ]
+      "availableFood": []
     },
     {
       "key": 321,
@@ -3028,9 +3028,12 @@
       "condition_season": 0,
       "condition_chance": 3,
       "availableFood": [
-        101033,
-        101034,
-        101035
+        101002,
+        101003,
+        101004,
+        101005,
+        101006,
+        101060
       ]
     },
     {
@@ -3064,9 +3067,12 @@
       "condition_season": 1,
       "condition_chance": 3,
       "availableFood": [
-        101033,
-        101034,
-        101035
+        101002,
+        101003,
+        101004,
+        101005,
+        101006,
+        101060
       ]
     },
     {
@@ -3083,7 +3089,9 @@
       "condition_biome": 0,
       "condition_season": 2,
       "condition_chance": 1,
-      "availableFood": []
+      "availableFood": [
+        101013
+      ]
     },
     {
       "key": 331,
@@ -3091,9 +3099,7 @@
       "condition_biome": 0,
       "condition_season": 2,
       "condition_chance": 2,
-      "availableFood": [
-        101042
-      ]
+      "availableFood": []
     },
     {
       "key": 332,
@@ -3102,9 +3108,12 @@
       "condition_season": 2,
       "condition_chance": 3,
       "availableFood": [
-        101033,
-        101034,
-        101035
+        101002,
+        101003,
+        101004,
+        101005,
+        101006,
+        101060
       ]
     },
     {
@@ -3129,7 +3138,9 @@
       "condition_biome": 0,
       "condition_season": 3,
       "condition_chance": 2,
-      "availableFood": []
+      "availableFood": [
+        101015
+      ]
     },
     {
       "key": 336,
@@ -3137,7 +3148,9 @@
       "condition_biome": 0,
       "condition_season": 3,
       "condition_chance": 3,
-      "availableFood": []
+      "availableFood": [
+        101060
+      ]
     },
     {
       "key": 337,
@@ -3170,12 +3183,9 @@
       "condition_season": 0,
       "condition_chance": 3,
       "availableFood": [
-        101002,
-        101003,
-        101004,
-        101005,
-        101006,
-        101060
+        101033,
+        101034,
+        101035
       ]
     },
     {
@@ -3209,12 +3219,9 @@
       "condition_season": 1,
       "condition_chance": 3,
       "availableFood": [
-        101002,
-        101003,
-        101004,
-        101005,
-        101006,
-        101060
+        101033,
+        101034,
+        101035
       ]
     },
     {
@@ -3231,9 +3238,7 @@
       "condition_biome": 1,
       "condition_season": 2,
       "condition_chance": 1,
-      "availableFood": [
-        101013
-      ]
+      "availableFood": []
     },
     {
       "key": 347,
@@ -3241,7 +3246,9 @@
       "condition_biome": 1,
       "condition_season": 2,
       "condition_chance": 2,
-      "availableFood": []
+      "availableFood": [
+        101042
+      ]
     },
     {
       "key": 348,
@@ -3250,12 +3257,9 @@
       "condition_season": 2,
       "condition_chance": 3,
       "availableFood": [
-        101002,
-        101003,
-        101004,
-        101005,
-        101006,
-        101060
+        101033,
+        101034,
+        101035
       ]
     },
     {
@@ -3280,9 +3284,7 @@
       "condition_biome": 1,
       "condition_season": 3,
       "condition_chance": 2,
-      "availableFood": [
-        101015
-      ]
+      "availableFood": []
     },
     {
       "key": 352,
@@ -3290,9 +3292,7 @@
       "condition_biome": 1,
       "condition_season": 3,
       "condition_chance": 3,
-      "availableFood": [
-        101060
-      ]
+      "availableFood": []
     },
     {
       "key": 353,
@@ -3308,7 +3308,9 @@
       "condition_biome": 0,
       "condition_season": 0,
       "condition_chance": 1,
-      "availableFood": []
+      "availableFood": [
+        101011
+      ]
     },
     {
       "key": 355,
@@ -3316,7 +3318,9 @@
       "condition_biome": 0,
       "condition_season": 0,
       "condition_chance": 2,
-      "availableFood": []
+      "availableFood": [
+        101010
+      ]
     },
     {
       "key": 356,
@@ -3325,9 +3329,12 @@
       "condition_season": 0,
       "condition_chance": 3,
       "availableFood": [
-        101033,
-        101034,
-        101035
+        101002,
+        101003,
+        101004,
+        101005,
+        101006,
+        101060
       ]
     },
     {
@@ -3361,9 +3368,12 @@
       "condition_season": 1,
       "condition_chance": 3,
       "availableFood": [
-        101033,
-        101034,
-        101035
+        101002,
+        101003,
+        101004,
+        101005,
+        101006,
+        101060
       ]
     },
     {
@@ -3397,9 +3407,12 @@
       "condition_season": 2,
       "condition_chance": 3,
       "availableFood": [
-        101033,
-        101034,
-        101035
+        101002,
+        101003,
+        101004,
+        101005,
+        101006,
+        101060
       ]
     },
     {
@@ -3424,7 +3437,9 @@
       "condition_biome": 0,
       "condition_season": 3,
       "condition_chance": 2,
-      "availableFood": []
+      "availableFood": [
+        101012
+      ]
     },
     {
       "key": 368,
@@ -3432,7 +3447,9 @@
       "condition_biome": 0,
       "condition_season": 3,
       "condition_chance": 3,
-      "availableFood": []
+      "availableFood": [
+        101060
+      ]
     },
     {
       "key": 369,
@@ -3448,9 +3465,7 @@
       "condition_biome": 1,
       "condition_season": 0,
       "condition_chance": 1,
-      "availableFood": [
-        101011
-      ]
+      "availableFood": []
     },
     {
       "key": 371,
@@ -3458,9 +3473,7 @@
       "condition_biome": 1,
       "condition_season": 0,
       "condition_chance": 2,
-      "availableFood": [
-        101010
-      ]
+      "availableFood": []
     },
     {
       "key": 372,
@@ -3469,12 +3482,9 @@
       "condition_season": 0,
       "condition_chance": 3,
       "availableFood": [
-        101002,
-        101003,
-        101004,
-        101005,
-        101006,
-        101060
+        101033,
+        101034,
+        101035
       ]
     },
     {
@@ -3508,12 +3518,9 @@
       "condition_season": 1,
       "condition_chance": 3,
       "availableFood": [
-        101002,
-        101003,
-        101004,
-        101005,
-        101006,
-        101060
+        101033,
+        101034,
+        101035
       ]
     },
     {
@@ -3547,12 +3554,9 @@
       "condition_season": 2,
       "condition_chance": 3,
       "availableFood": [
-        101002,
-        101003,
-        101004,
-        101005,
-        101006,
-        101060
+        101033,
+        101034,
+        101035
       ]
     },
     {
@@ -3577,9 +3581,7 @@
       "condition_biome": 1,
       "condition_season": 3,
       "condition_chance": 2,
-      "availableFood": [
-        101012
-      ]
+      "availableFood": []
     },
     {
       "key": 384,
@@ -3587,9 +3589,7 @@
       "condition_biome": 1,
       "condition_season": 3,
       "condition_chance": 3,
-      "availableFood": [
-        101060
-      ]
+      "availableFood": []
     },
     {
       "key": 385,
@@ -3622,9 +3622,12 @@
       "condition_season": 0,
       "condition_chance": 3,
       "availableFood": [
-        101033,
-        101034,
-        101035
+        101002,
+        101003,
+        101004,
+        101005,
+        101006,
+        101060
       ]
     },
     {
@@ -3658,9 +3661,12 @@
       "condition_season": 1,
       "condition_chance": 3,
       "availableFood": [
-        101033,
-        101034,
-        101035
+        101002,
+        101003,
+        101004,
+        101005,
+        101006,
+        101060
       ]
     },
     {
@@ -3694,9 +3700,12 @@
       "condition_season": 2,
       "condition_chance": 3,
       "availableFood": [
-        101033,
-        101034,
-        101035
+        101002,
+        101003,
+        101004,
+        101005,
+        101006,
+        101060
       ]
     },
     {
@@ -3729,7 +3738,9 @@
       "condition_biome": 0,
       "condition_season": 3,
       "condition_chance": 3,
-      "availableFood": []
+      "availableFood": [
+        101060
+      ]
     },
     {
       "key": 401,
@@ -3762,12 +3773,9 @@
       "condition_season": 0,
       "condition_chance": 3,
       "availableFood": [
-        101002,
-        101003,
-        101004,
-        101005,
-        101006,
-        101060
+        101033,
+        101034,
+        101035
       ]
     },
     {
@@ -3801,12 +3809,9 @@
       "condition_season": 1,
       "condition_chance": 3,
       "availableFood": [
-        101002,
-        101003,
-        101004,
-        101005,
-        101006,
-        101060
+        101033,
+        101034,
+        101035
       ]
     },
     {
@@ -3840,12 +3845,9 @@
       "condition_season": 2,
       "condition_chance": 3,
       "availableFood": [
-        101002,
-        101003,
-        101004,
-        101005,
-        101006,
-        101060
+        101033,
+        101034,
+        101035
       ]
     },
     {
@@ -3878,9 +3880,7 @@
       "condition_biome": 1,
       "condition_season": 3,
       "condition_chance": 3,
-      "availableFood": [
-        101060
-      ]
+      "availableFood": []
     }
   ]
 }

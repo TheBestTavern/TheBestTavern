@@ -1427,8 +1427,8 @@
       "getRoute": [
         2
       ],
-      "itemCategory": 0,
-      "englishName": "none"
+      "itemCategory": 2,
+      "englishName": "slicedGoguma"
     },
     {
       "key": 102071,
@@ -1438,8 +1438,8 @@
       "getRoute": [
         2
       ],
-      "itemCategory": 0,
-      "englishName": "none"
+      "itemCategory": 2,
+      "englishName": "slicedGoguma"
     },
     {
       "key": 102072,
@@ -1449,8 +1449,8 @@
       "getRoute": [
         2
       ],
-      "itemCategory": 0,
-      "englishName": "none"
+      "itemCategory": 2,
+      "englishName": "slicedGoguma"
     },
     {
       "key": 102073,
@@ -1460,8 +1460,8 @@
       "getRoute": [
         2
       ],
-      "itemCategory": 0,
-      "englishName": "none"
+      "itemCategory": 2,
+      "englishName": "roastGoguma"
     },
     {
       "key": 102074,
@@ -1471,8 +1471,8 @@
       "getRoute": [
         2
       ],
-      "itemCategory": 0,
-      "englishName": "none"
+      "itemCategory": 2,
+      "englishName": "roastGoguma"
     },
     {
       "key": 102075,
@@ -1482,8 +1482,8 @@
       "getRoute": [
         2
       ],
-      "itemCategory": 0,
-      "englishName": "none"
+      "itemCategory": 2,
+      "englishName": "roastGoguma"
     },
     {
       "key": 102076,
@@ -3972,37 +3972,37 @@
       "englishName": "none"
     },
     {
-      "key": 104001,
-      "name": "평범한 고구마 맛탕",
-      "FoodCategory": 110501,
-      "grade": 0,
-      "getRoute": [
-        2
-      ],
-      "itemCategory": 1,
-      "englishName": "none"
+        "key": 104001,
+        "name": "평범한 고구마 맛탕",
+        "FoodCategory": 110501,
+        "grade": 0,
+        "getRoute": [
+            2
+        ],
+        "itemCategory": 1,
+        "englishName": "candiedGoguma"
     },
     {
-      "key": 104002,
-      "name": "맛있는 고구마 맛탕",
-      "FoodCategory": 110501,
-      "grade": 1,
-      "getRoute": [
-        2
-      ],
-      "itemCategory": 1,
-      "englishName": "none"
+        "key": 104002,
+        "name": "맛있는 고구마 맛탕",
+        "FoodCategory": 110501,
+        "grade": 1,
+        "getRoute": [
+            2
+        ],
+        "itemCategory": 1,
+        "englishName": "candiedGoguma"
     },
     {
-      "key": 104003,
-      "name": "전설의 고구마 맛탕",
-      "FoodCategory": 110501,
-      "grade": 2,
-      "getRoute": [
-        2
-      ],
-      "itemCategory": 1,
-      "englishName": "none"
+        "key": 104003,
+        "name": "전설의 고구마 맛탕",
+        "FoodCategory": 110501,
+        "grade": 2,
+        "getRoute": [
+            2
+        ],
+        "itemCategory": 1,
+        "englishName": "candiedGoguma"
     },
     {
       "key": 104004,

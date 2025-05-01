@@ -6,10 +6,13 @@ public class MailBoxContentOffer : MailBoxContentBase
 {
     public override void Init()
     {
+        if (isInitialized) return;
+        isInitialized = true;
         base.Init();
 
-        OnNewDay command = new(this);
-        DayManager.Instance.AddCommand(command);
+        MakeSlot(QuestManager.Instance.questData.TodayAvailableQuest);
+        //OnNewDay command = new(this);
+        //DayManager.Instance.AddCommand(command);
     }
 
     public override void MakeSlot(List<int> quests)
@@ -33,19 +36,19 @@ public class MailBoxContentOffer : MailBoxContentBase
         base.OpenLetter(quest, slot);
     }
 
-    public class OnNewDay : IDayCommand
-    {
-        MailBoxContentOffer prt;
-        public OnNewDay(MailBoxContentOffer mailBoxContentOffer)
-        {
-            this.prt = mailBoxContentOffer;
-        }
+    //public class OnNewDay : IDayCommand
+    //{
+    //    MailBoxContentOffer prt;
+    //    public OnNewDay(MailBoxContentOffer mailBoxContentOffer)
+    //    {
+    //        this.prt = mailBoxContentOffer;
+    //    }
 
-        public int Priority => 2000;
+    //    public int Priority => 2000;
 
-        public void Execute()
-        {
-            prt.MakeSlot(QuestManager.Instance.questData.TodayAvailableQuest);
-        }
-    }
+    //    public void Execute()
+    //    {
+    //        prt.MakeSlot(QuestManager.Instance.questData.TodayAvailableQuest);
+    //    }
+    //}
 }

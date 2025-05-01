@@ -1,14 +1,18 @@
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class MailBoxContentResult : MailBoxContentBase // 제네릭으로 할 수 있을려나
 {
     public override void Init()
     {
+        if (isInitialized) return;
+        isInitialized = true;
         base.Init();
 
-        OnNewDay command = new(this);
-        DayManager.Instance.AddCommand(command);
+        MakeSlot(QuestManager.Instance.questData.JustCompleteQuests);
+        //OnNewDay command = new(this);
+        //DayManager.Instance.AddCommand(command);
     }
 
     public async override void OpenLetter(Quest quest, QuestBaseSlot slot)
@@ -19,22 +23,22 @@ public class MailBoxContentResult : MailBoxContentBase // 제네릭으로 할 �
         base.OpenLetter(quest, slot);
     }
 
-    public class OnNewDay : IDayCommand
-    {
-        MailBoxContentResult prt;
-        public OnNewDay(MailBoxContentResult mailBoxContentOffer)
-        {
-            this.prt = mailBoxContentOffer;
-        }
+    //public class OnNewDay : IDayCommand
+    //{
+    //    MailBoxContentResult prt;
+    //    public OnNewDay(MailBoxContentResult mailBoxContentOffer)
+    //    {
+    //        this.prt = mailBoxContentOffer;
+    //    }
 
-        public int Priority => 2000;
+    //    public int Priority => 2000;
 
-        public void Execute()
-        {
-            prt.MakeSlot(QuestManager.Instance.questData.JustCompleteQuests);
-            QuestManager.Instance.questData.JustCompleteQuests.Clear();
-            Debug.Log("의뢰 결과창 슬롯 생성");
+    //    public void Execute()
+    //    {
+    //        prt.MakeSlot(QuestManager.Instance.questData.JustCompleteQuests);
+    //        //QuestManager.Instance.questData.JustCompleteQuests.Clear();
+    //        Debug.Log("의뢰 결과창 슬롯 생성");
 
-        }
-    }
+    //    }
+    //}
 }

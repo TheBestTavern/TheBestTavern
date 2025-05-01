@@ -12,15 +12,12 @@ public abstract class MailBoxContentBase : MonoBehaviour
 
     protected QuestBaseLetter currentLetter;
 
-    //protected bool isReady;
+    protected bool isInitialized;
 
     public virtual void Init()
     {
     }
 
-    //protected virtual void OnEnable()
-    //{
-    //}
 
     public virtual void MakeSlot(List<int> quests)
     {

@@ -20,13 +20,16 @@ public class NPCSlot : MonoBehaviour
         this.npcArea = npcArea;
         btn.onClick.AddListener(OnClickBtn);
         transform.gameObject.SetActive(false);
+        Debug.Log("슬롯의 켜짐상태:" + gameObject.activeSelf); // 테스트용
         messagePivot.gameObject.SetActive(false);
     }
 
     public void SetSlot(int questID)
     {
         this.quest = Data.GetQuest(questID);
-        image.sprite = Resources.Load<Sprite>("NPC/" + NPCManager.Instance.AllNPC[quest.origin.givingNPC].origin.name);
+        Data_NPC npcRaw = NPCManager.Instance.AllNPC[quest.origin.givingNPC].origin;
+        image.sprite = Resources.Load<Sprite>("NPC/" + npcRaw.name);
+        TmpMessage.text = npcRaw.thanksMent;
     }
 
     private void OnClickBtn()
