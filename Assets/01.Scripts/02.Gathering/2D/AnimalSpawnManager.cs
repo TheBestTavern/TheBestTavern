@@ -4,13 +4,21 @@ using UnityEngine;
 
 public class AnimalSpawnManager : MonoSingleton<AnimalSpawnManager>
 {
-    public List<GameObject> smallAnimals;
-    public List<GameObject> mediumAnimals;
-    public List<GameObject> largeAnimals;
-    public GameObject ground;
+    [Header("동물 생성 위치")]
+    [SerializeField] private Transform spawnPoint;
+    [SerializeField] private Camera miniGameCamera;
 
-    public Transform spawnPoint;
-    public Camera miniGameCamera;
+    [Header("동물 프리팹")]
+    [SerializeField] private List<GameObject> smallAnimals;
+    [SerializeField] private List<GameObject> mediumAnimals;
+    [SerializeField] private List<GameObject> largeAnimals;
+
+    [Header("땅 프리팹")]
+    [SerializeField] private GameObject ground;
+
+    private GameObject animalToSpawn;
+
+    
 
     void Start()
     {
@@ -21,42 +29,31 @@ public class AnimalSpawnManager : MonoSingleton<AnimalSpawnManager>
     {
         AnimalSizeType selectedSize = GetRandomSizeByProbability();
 
-        GameObject animalToSpawn = null;
+        animalToSpawn = null;
 
         switch (selectedSize)
         {
             case AnimalSizeType.Small:
-                animalToSpawn = smallAnimals[Random.Range(0, smallAnimals.Count)];
-                animalToSpawn.transform.localScale = new Vector3(0.2f, 0.2f, 1f);
+                SpawnSmallAnimal();
                 break;
 
             case AnimalSizeType.Medium:
-                animalToSpawn = mediumAnimals[Random.Range(0, mediumAnimals.Count)];
-                animalToSpawn.transform.localScale = new Vector3(0.2f, 0.2f, 1f);
+                SpawnMediumAnimal();
                 break;
 
             case AnimalSizeType.Large:
-                animalToSpawn = largeAnimals[Random.Range(0, largeAnimals.Count)];
-                animalToSpawn.transform.localScale = new Vector3(1f, 1f, 1f);
+                SpawnLargeAnimal();
                 break;
         }
-
+        
         if (animalToSpawn != null)
         {
-            Vector3 spawnPosition = miniGameCamera.ViewportToWorldPoint(new Vector3(1.5f, 1.5f, Camera.main.nearClipPlane + 5f));
-            spawnPosition.z = 0; 
-
-            Instantiate(animalToSpawn, spawnPosition, Quaternion.identity);
+            AnimalSpawnPosition();
         }
 
         if (ground != null)
         {
-            Vector3 offset = new Vector3(1.5f, 1.2f, 0f);
-            Vector3 groundSpawn = miniGameCamera.transform.position + offset;
-            groundSpawn.z = 0f;
-            spawnPoint.position = groundSpawn;
-
-            Instantiate(ground, spawnPoint);
+            GroundSpawnPosition();
         }
     }
 
@@ -72,8 +69,39 @@ public class AnimalSpawnManager : MonoSingleton<AnimalSpawnManager>
             return AnimalSizeType.Large;
     }
 
-    public void DestroyAnimal()
+    private void SpawnSmallAnimal()
     {
-        Destroy(gameObject);
+        animalToSpawn = smallAnimals[Random.Range(0, smallAnimals.Count)];
+        animalToSpawn.transform.localScale = new Vector3(0.2f, 0.2f, 1f);
+    }
+
+    private void SpawnMediumAnimal()
+    {
+        animalToSpawn = mediumAnimals[Random.Range(0, mediumAnimals.Count)];
+        animalToSpawn.transform.localScale = new Vector3(0.2f, 0.2f, 1f);
+    }
+
+    private void SpawnLargeAnimal()
+    {
+        animalToSpawn = largeAnimals[Random.Range(0, largeAnimals.Count)];
+        animalToSpawn.transform.localScale = new Vector3(1f, 1f, 1f);
+    }
+
+    private void AnimalSpawnPosition()
+    {
+        Vector3 spawnPosition = miniGameCamera.ViewportToWorldPoint(new Vector3(1.5f, 1.5f, Camera.main.nearClipPlane + 5f));
+        spawnPosition.z = 0;
+
+        Instantiate(animalToSpawn, spawnPosition, Quaternion.identity);
+    }
+
+    private void GroundSpawnPosition()
+    {
+        Vector3 offset = new Vector3(1.5f, 1.2f, 0f);
+        Vector3 groundSpawn = miniGameCamera.transform.position + offset;
+        groundSpawn.z = 0f;
+        spawnPoint.position = groundSpawn;
+
+        Instantiate(ground, spawnPoint);
     }
 }
