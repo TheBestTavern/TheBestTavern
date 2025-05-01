@@ -12,7 +12,7 @@ public class CaptureManager : MonoSingleton<CaptureManager>
 
     private Animal animalInRange;
 
-    private void Awake()
+    protected override void Awake()
     {
         captureButton.onClick.AddListener(CaptureAnimal);
         escapeButton.onClick.AddListener(EscapeFromAnimal);
@@ -20,11 +20,24 @@ public class CaptureManager : MonoSingleton<CaptureManager>
     void Start()
     {
         captureButton.gameObject.SetActive(false);
-        escapeButton.gameObject.SetActive(false);
+        escapeButton.gameObject.SetActive(true);
+        CheckForAnimalsInRange();
     }
 
     void Update()
     {
+    }
+
+    protected void AddItem()
+    {
+        if (InventoryManager.Instance.Invens[InvenType.Gathering].아이템획득(Data.GetRawItem(animalInRange.gatheringKey), 1))
+        {
+            Debug.Log("아이템 증가");
+        }
+        else
+        {
+            Debug.Log("아이템 증가 불가능");
+        }
     }
 
     void CheckForAnimalsInRange()
@@ -46,7 +59,6 @@ public class CaptureManager : MonoSingleton<CaptureManager>
     public void CaptureButton()
     {
         captureButton.gameObject.SetActive(true);
-        escapeButton.gameObject.SetActive(false);
     }
 
     // 포획 시도
@@ -63,7 +75,9 @@ public class CaptureManager : MonoSingleton<CaptureManager>
         if (success)
         {
             Debug.Log("동물 포획 성공!");
+            AddItem();
             animalInRange.DestroyAnimal();
+            UnLoadMiniGame();
         }
         else
         {
@@ -73,8 +87,14 @@ public class CaptureManager : MonoSingleton<CaptureManager>
 
     public void EscapeFromAnimal()
     {
-        Debug.Log("Escaped from large animal.");
-        // 씬 전환
+        Debug.Log("도망가기");
+        animalInRange.DestroyAnimal();
+        UnLoadMiniGame();
+    }
+
+    async public void UnLoadMiniGame()
+    {
+        await SceneLoader.Instance.UnLoadSceneAsyncMiniGame();
     }
 
     void OnDrawGizmosSelected()

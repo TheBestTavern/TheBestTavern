@@ -19,7 +19,8 @@ public class BasePopUp : DraggableMonoBehaviour, IPointerDownHandler
 
     public virtual void Init(int id, IPopupManager manager)
     {
-        canvas = GetComponent<Canvas>();
+        //canvas = GetComponent<Canvas>();
+        if (canvas == null) { canvas = GetComponentInChildren<Canvas>(); }
         this.id = id;
         this.popupManager = manager;
     }

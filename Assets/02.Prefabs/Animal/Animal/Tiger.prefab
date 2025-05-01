@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3331156974029630444}
   - component: {fileID: 3532555507739658437}
   - component: {fileID: -7433109153125957031}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Tiger
   m_TagString: Animal
   m_Icon: {fileID: 0}
@@ -127,8 +127,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animalName: Tiger
-  animalSizeType: 0
+  animalSizeType: 2
   favoriteBaits: []
+  BaitEffectApplied: 0
+  captureChance: 0
+  gatheringKey: 0
 --- !u!70 &-7433109153125957031
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

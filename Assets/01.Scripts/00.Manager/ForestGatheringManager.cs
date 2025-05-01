@@ -52,7 +52,7 @@ public class ForestGatheringManager : MonoSingleton<ForestGatheringManager>
 
     public async void OnMiniGame()
     {
-        await SceneLoader.Instance.LoadSceneAsyncMiniGame("Forest_Animal");
+        await SceneLoader.Instance.LoadSceneAsyncMiniGame("Forest_Animal_Dev");
         //To Do - 미니게임 열릴때 해줘야하는 것들 (기존 씬에 있는 것들 안보이게 하기)
     }
 

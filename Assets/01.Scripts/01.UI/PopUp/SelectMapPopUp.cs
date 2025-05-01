@@ -15,6 +15,7 @@ public class SelectMapPopUp : BasePopUp
 
     // 지역 선택 버튼 
     [SerializeField] private Button[] selectRegionButton;
+    [SerializeField] private Image[] selectRegionImage;
     // 지역 선택 취소 버튼 
     [SerializeField] private Button selectCloseButton;
 
@@ -38,8 +39,13 @@ public class SelectMapPopUp : BasePopUp
         seaButton.onClick.AddListener(OnClickSeaButton);
         forestButton.onClick.AddListener(OnClickforestButton);
 
+        for (int i = 0; i < selectRegionImage.Length; i++)
+        {
+            selectRegionImage[i].alphaHitTestMinimumThreshold = 0.2f;
+        }
+
         // 지역 선택 버튼 클릭 이벤트 리스너 추가
-        for(int i = 0; i < selectRegionButton.Length; i++)
+        for (int i = 0; i < selectRegionButton.Length; i++)
         {
             int index = i;
             selectRegionButton[index].onClick.AddListener(() => OnClickSelectRegionButton(selectRegionButton[index].name));
@@ -50,6 +56,9 @@ public class SelectMapPopUp : BasePopUp
     void OnClickSelectRegionButton(string regionName)
     {
         selectForestOcean.SetActive(true);
+        selectForestOcean.transform.localScale = new Vector3(1, 0, 1);
+        selectForestOcean.transform.DOScaleY(1f, 0.8f).SetEase(Ease.OutBack);
+        
         region = (DesignEnums.RegionType)Enum.Parse(typeof(DesignEnums.RegionType), regionName);
         Debug.Log(region.ToString());
     }
@@ -57,7 +66,7 @@ public class SelectMapPopUp : BasePopUp
     // 지역 선택 취소 버튼 클릭 함수
     void OnClickSelectCloseButton()
     {
-        selectForestOcean.SetActive(false);
+        selectForestOcean.transform.DOScaleY(0f, 0.6f).SetEase(Ease.InBack).OnComplete(() => selectForestOcean.SetActive(false));
     }
 
     // 바다 선택 버튼 함수
