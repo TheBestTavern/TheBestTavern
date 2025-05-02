@@ -3,7 +3,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Test : MonoBehaviour
+public class Test_GetRandomItem : MonoBehaviour
 {
     public int num;
     public Button btn;
