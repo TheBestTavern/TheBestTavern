@@ -1,0 +1,1552 @@
+{
+  "Items": [
+    {
+      "key": 110001,
+      "goodFoodName": "마늘",
+      "sosoFoodName": "00000000",
+      "badFoodName": "00000000",
+      "goodFoodID": 101001,
+      "sosoFoodID": 0,
+      "badFoodID": 0
+    },
+    {
+      "key": 110002,
+      "goodFoodName": "고추",
+      "sosoFoodName": "00000000",
+      "badFoodName": "00000000",
+      "goodFoodID": 101002,
+      "sosoFoodID": 0,
+      "badFoodID": 0
+    },
+    {
+      "key": 110003,
+      "goodFoodName": "당근",
+      "sosoFoodName": "00000000",
+      "badFoodName": "00000000",
+      "goodFoodID": 101003,
+      "sosoFoodID": 0,
+      "badFoodID": 0
+    },
+    {
+      "key": 110004,
+      "goodFoodName": "대파",
+      "sosoFoodName": "00000000",
+      "badFoodName": "00000000",
+      "goodFoodID": 101004,
+      "sosoFoodID": 0,
+      "badFoodID": 0
+    },
+    {
+      "key": 110005,
+      "goodFoodName": "상추",
+      "sosoFoodName": "00000000",
+      "badFoodName": "00000000",
+      "goodFoodID": 101005,
+      "sosoFoodID": 0,
+      "badFoodID": 0
+    },
+    {
+      "key": 110006,
+      "goodFoodName": "깻잎",
+      "sosoFoodName": "00000000",
+      "badFoodName": "00000000",
+      "goodFoodID": 101006,
+      "sosoFoodID": 0,
+      "badFoodID": 0
+    },
+    {
+      "key": 110007,
+      "goodFoodName": "더덕",
+      "sosoFoodName": "00000000",
+      "badFoodName": "00000000",
+      "goodFoodID": 101007,
+      "sosoFoodID": 0,
+      "badFoodID": 0
+    },
+    {
+      "key": 110008,
+      "goodFoodName": "대두",
+      "sosoFoodName": "00000000",
+      "badFoodName": "00000000",
+      "goodFoodID": 101008,
+      "sosoFoodID": 0,
+      "badFoodID": 0
+    },
+    {
+      "key": 110009,
+      "goodFoodName": "감자",
+      "sosoFoodName": "00000000",
+      "badFoodName": "00000000",
+      "goodFoodID": 101009,
+      "sosoFoodID": 0,
+      "badFoodID": 0
+    },
+    {
+      "key": 110010,
+      "goodFoodName": "고사리",
+      "sosoFoodName": "00000000",
+      "badFoodName": "00000000",
+      "goodFoodID": 101010,
+      "sosoFoodID": 0,
+      "badFoodID": 0
+    },
+    {
+      "key": 110011,
+      "goodFoodName": "꿀",
+      "sosoFoodName": "00000000",
+      "badFoodName": "00000000",
+      "goodFoodID": 101011,
+      "sosoFoodID": 0,
+      "badFoodID": 0
+    },
+    {
+      "key": 110012,
+      "goodFoodName": "무",
+      "sosoFoodName": "00000000",
+      "badFoodName": "00000000",
+      "goodFoodID": 101012,
+      "sosoFoodID": 0,
+      "badFoodID": 0
+    },
+    {
+      "key": 110013,
+      "goodFoodName": "연근",
+      "sosoFoodName": "00000000",
+      "badFoodName": "00000000",
+      "goodFoodID": 101013,
+      "sosoFoodID": 0,
+      "badFoodID": 0
+    },
+    {
+      "key": 110014,
+      "goodFoodName": "조선 인삼",
+      "sosoFoodName": "00000000",
+      "badFoodName": "00000000",
+      "goodFoodID": 101014,
+      "sosoFoodID": 0,
+      "badFoodID": 0
+    },
+    {
+      "key": 110015,
+      "goodFoodName": "고구마",
+      "sosoFoodName": "00000000",
+      "badFoodName": "00000000",
+      "goodFoodID": 101015,
+      "sosoFoodID": 0,
+      "badFoodID": 0
+    },
+    {
+      "key": 110016,
+      "goodFoodName": "쑥",
+      "sosoFoodName": "00000000",
+      "badFoodName": "00000000",
+      "goodFoodID": 101016,
+      "sosoFoodID": 0,
+      "badFoodID": 0
+    },
+    {
+      "key": 110017,
+      "goodFoodName": "두릅",
+      "sosoFoodName": "00000000",
+      "badFoodName": "00000000",
+      "goodFoodID": 101017,
+      "sosoFoodID": 0,
+      "badFoodID": 0
+    },
+    {
+      "key": 110018,
+      "goodFoodName": "밤",
+      "sosoFoodName": "00000000",
+      "badFoodName": "00000000",
+      "goodFoodID": 101018,
+      "sosoFoodID": 0,
+      "badFoodID": 0
+    },
+    {
+      "key": 110019,
+      "goodFoodName": "감",
+      "sosoFoodName": "00000000",
+      "badFoodName": "00000000",
+      "goodFoodID": 101019,
+      "sosoFoodID": 0,
+      "badFoodID": 0
+    },
+    {
+      "key": 110020,
+      "goodFoodName": "배",
+      "sosoFoodName": "00000000",
+      "badFoodName": "00000000",
+      "goodFoodID": 101020,
+      "sosoFoodID": 0,
+      "badFoodID": 0
+    },
+    {
+      "key": 110021,
+      "goodFoodName": "호두",
+      "sosoFoodName": "00000000",
+      "badFoodName": "00000000",
+      "goodFoodID": 101021,
+      "sosoFoodID": 0,
+      "badFoodID": 0
+    },
+    {
+      "key": 110022,
+      "goodFoodName": "우엉",
+      "sosoFoodName": "00000000",
+      "badFoodName": "00000000",
+      "goodFoodID": 101022,
+      "sosoFoodID": 0,
+      "badFoodID": 0
+    },
+    {
+      "key": 110023,
+      "goodFoodName": "도라지",
+      "sosoFoodName": "00000000",
+      "badFoodName": "00000000",
+      "goodFoodID": 101023,
+      "sosoFoodID": 0,
+      "badFoodID": 0
+    },
+    {
+      "key": 110024,
+      "goodFoodName": "사과",
+      "sosoFoodName": "00000000",
+      "badFoodName": "00000000",
+      "goodFoodID": 101024,
+      "sosoFoodID": 0,
+      "badFoodID": 0
+    },
+    {
+      "key": 110025,
+      "goodFoodName": "약주",
+      "sosoFoodName": "00000000",
+      "badFoodName": "00000000",
+      "goodFoodID": 101025,
+      "sosoFoodID": 0,
+      "badFoodID": 0
+    },
+    {
+      "key": 110026,
+      "goodFoodName": "귀리",
+      "sosoFoodName": "00000000",
+      "badFoodName": "00000000",
+      "goodFoodID": 101026,
+      "sosoFoodID": 0,
+      "badFoodID": 0
+    },
+    {
+      "key": 110027,
+      "goodFoodName": "표고버섯",
+      "sosoFoodName": "00000000",
+      "badFoodName": "00000000",
+      "goodFoodID": 101027,
+      "sosoFoodID": 0,
+      "badFoodID": 0
+    },
+    {
+      "key": 110028,
+      "goodFoodName": "죽순",
+      "sosoFoodName": "00000000",
+      "badFoodName": "00000000",
+      "goodFoodID": 101028,
+      "sosoFoodID": 0,
+      "badFoodID": 0
+    },
+    {
+      "key": 110029,
+      "goodFoodName": "두반장 원료",
+      "sosoFoodName": "00000000",
+      "badFoodName": "00000000",
+      "goodFoodID": 101029,
+      "sosoFoodID": 0,
+      "badFoodID": 0
+    },
+    {
+      "key": 110030,
+      "goodFoodName": "화자오",
+      "sosoFoodName": "00000000",
+      "badFoodName": "00000000",
+      "goodFoodID": 101030,
+      "sosoFoodID": 0,
+      "badFoodID": 0
+    },
+    {
+      "key": 110031,
+      "goodFoodName": "목이버섯",
+      "sosoFoodName": "00000000",
+      "badFoodName": "00000000",
+      "goodFoodID": 101031,
+      "sosoFoodID": 0,
+      "badFoodID": 0
+    },
+    {
+      "key": 110032,
+      "goodFoodName": "정어리",
+      "sosoFoodName": "00000000",
+      "badFoodName": "00000000",
+      "goodFoodID": 101032,
+      "sosoFoodID": 0,
+      "badFoodID": 0
+    },
+    {
+      "key": 110033,
+      "goodFoodName": "멸치",
+      "sosoFoodName": "00000000",
+      "badFoodName": "00000000",
+      "goodFoodID": 101033,
+      "sosoFoodID": 0,
+      "badFoodID": 0
+    },
+    {
+      "key": 110034,
+      "goodFoodName": "바지락",
+      "sosoFoodName": "00000000",
+      "badFoodName": "00000000",
+      "goodFoodID": 101034,
+      "sosoFoodID": 0,
+      "badFoodID": 0
+    },
+    {
+      "key": 110035,
+      "goodFoodName": "홍합",
+      "sosoFoodName": "00000000",
+      "badFoodName": "00000000",
+      "goodFoodID": 101035,
+      "sosoFoodID": 0,
+      "badFoodID": 0
+    },
+    {
+      "key": 110036,
+      "goodFoodName": "고등어",
+      "sosoFoodName": "00000000",
+      "badFoodName": "00000000",
+      "goodFoodID": 101036,
+      "sosoFoodID": 0,
+      "badFoodID": 0
+    },
+    {
+      "key": 110037,
+      "goodFoodName": "생태",
+      "sosoFoodName": "00000000",
+      "badFoodName": "00000000",
+      "goodFoodID": 101037,
+      "sosoFoodID": 0,
+      "badFoodID": 0
+    },
+    {
+      "key": 110038,
+      "goodFoodName": "김",
+      "sosoFoodName": "00000000",
+      "badFoodName": "00000000",
+      "goodFoodID": 101038,
+      "sosoFoodID": 0,
+      "badFoodID": 0
+    },
+    {
+      "key": 110039,
+      "goodFoodName": "참 돔",
+      "sosoFoodName": "00000000",
+      "badFoodName": "00000000",
+      "goodFoodID": 101039,
+      "sosoFoodID": 0,
+      "badFoodID": 0
+    },
+    {
+      "key": 110040,
+      "goodFoodName": "굴",
+      "sosoFoodName": "00000000",
+      "badFoodName": "00000000",
+      "goodFoodID": 101040,
+      "sosoFoodID": 0,
+      "badFoodID": 0
+    },
+    {
+      "key": 110041,
+      "goodFoodName": "해삼",
+      "sosoFoodName": "00000000",
+      "badFoodName": "00000000",
+      "goodFoodID": 101041,
+      "sosoFoodID": 0,
+      "badFoodID": 0
+    },
+    {
+      "key": 110042,
+      "goodFoodName": "갈치",
+      "sosoFoodName": "00000000",
+      "badFoodName": "00000000",
+      "goodFoodID": 101042,
+      "sosoFoodID": 0,
+      "badFoodID": 0
+    },
+    {
+      "key": 110043,
+      "goodFoodName": "미역",
+      "sosoFoodName": "00000000",
+      "badFoodName": "00000000",
+      "goodFoodID": 101043,
+      "sosoFoodID": 0,
+      "badFoodID": 0
+    },
+    {
+      "key": 110044,
+      "goodFoodName": "전복",
+      "sosoFoodName": "00000000",
+      "badFoodName": "00000000",
+      "goodFoodID": 101044,
+      "sosoFoodID": 0,
+      "badFoodID": 0
+    },
+    {
+      "key": 110045,
+      "goodFoodName": "문어",
+      "sosoFoodName": "00000000",
+      "badFoodName": "00000000",
+      "goodFoodID": 101045,
+      "sosoFoodID": 0,
+      "badFoodID": 0
+    },
+    {
+      "key": 110046,
+      "goodFoodName": "병어",
+      "sosoFoodName": "00000000",
+      "badFoodName": "00000000",
+      "goodFoodID": 101046,
+      "sosoFoodID": 0,
+      "badFoodID": 0
+    },
+    {
+      "key": 110047,
+      "goodFoodName": "꽃게",
+      "sosoFoodName": "00000000",
+      "badFoodName": "00000000",
+      "goodFoodID": 101047,
+      "sosoFoodID": 0,
+      "badFoodID": 0
+    },
+    {
+      "key": 110048,
+      "goodFoodName": "오징어",
+      "sosoFoodName": "00000000",
+      "badFoodName": "00000000",
+      "goodFoodID": 101048,
+      "sosoFoodID": 0,
+      "badFoodID": 0
+    },
+    {
+      "key": 110049,
+      "goodFoodName": "다시마",
+      "sosoFoodName": "00000000",
+      "badFoodName": "00000000",
+      "goodFoodID": 101049,
+      "sosoFoodID": 0,
+      "badFoodID": 0
+    },
+    {
+      "key": 110050,
+      "goodFoodName": "대게",
+      "sosoFoodName": "00000000",
+      "badFoodName": "00000000",
+      "goodFoodID": 101050,
+      "sosoFoodID": 0,
+      "badFoodID": 0
+    },
+    {
+      "key": 110051,
+      "goodFoodName": "킹크랩",
+      "sosoFoodName": "00000000",
+      "badFoodName": "00000000",
+      "goodFoodID": 101051,
+      "sosoFoodID": 0,
+      "badFoodID": 0
+    },
+    {
+      "key": 110052,
+      "goodFoodName": "새우",
+      "sosoFoodName": "00000000",
+      "badFoodName": "00000000",
+      "goodFoodID": 101052,
+      "sosoFoodID": 0,
+      "badFoodID": 0
+    },
+    {
+      "key": 110053,
+      "goodFoodName": "대하",
+      "sosoFoodName": "00000000",
+      "badFoodName": "00000000",
+      "goodFoodID": 101053,
+      "sosoFoodID": 0,
+      "badFoodID": 0
+    },
+    {
+      "key": 110054,
+      "goodFoodName": "석화",
+      "sosoFoodName": "00000000",
+      "badFoodName": "00000000",
+      "goodFoodID": 101054,
+      "sosoFoodID": 0,
+      "badFoodID": 0
+    },
+    {
+      "key": 110055,
+      "goodFoodName": "톳",
+      "sosoFoodName": "00000000",
+      "badFoodName": "00000000",
+      "goodFoodID": 101055,
+      "sosoFoodID": 0,
+      "badFoodID": 0
+    },
+    {
+      "key": 110056,
+      "goodFoodName": "방어",
+      "sosoFoodName": "00000000",
+      "badFoodName": "00000000",
+      "goodFoodID": 101056,
+      "sosoFoodID": 0,
+      "badFoodID": 0
+    },
+    {
+      "key": 110057,
+      "goodFoodName": "유자",
+      "sosoFoodName": "00000000",
+      "badFoodName": "00000000",
+      "goodFoodID": 101057,
+      "sosoFoodID": 0,
+      "badFoodID": 0
+    },
+    {
+      "key": 110058,
+      "goodFoodName": "와사비 뿌리",
+      "sosoFoodName": "00000000",
+      "badFoodName": "00000000",
+      "goodFoodID": 101058,
+      "sosoFoodID": 0,
+      "badFoodID": 0
+    },
+    {
+      "key": 110059,
+      "goodFoodName": "가쓰오부시",
+      "sosoFoodName": "00000000",
+      "badFoodName": "00000000",
+      "goodFoodID": 101059,
+      "sosoFoodID": 0,
+      "badFoodID": 0
+    },
+    {
+      "key": 110060,
+      "goodFoodName": "식수",
+      "sosoFoodName": "00000000",
+      "badFoodName": "00000000",
+      "goodFoodID": 101060,
+      "sosoFoodID": 0,
+      "badFoodID": 0
+    },
+    {
+      "key": 110100,
+      "goodFoodName": "완벽한 편 마늘",
+      "sosoFoodName": "평범한 편 마늘",
+      "badFoodName": "망가진 편 마늘",
+      "goodFoodID": 102003,
+      "sosoFoodID": 102002,
+      "badFoodID": 102001
+    },
+    {
+      "key": 110101,
+      "goodFoodName": "완벽한 다진 마늘",
+      "sosoFoodName": "평범한 다진 마늘",
+      "badFoodName": "망가진 다진 마늘",
+      "goodFoodID": 102006,
+      "sosoFoodID": 102005,
+      "badFoodID": 102004
+    },
+    {
+      "key": 110102,
+      "goodFoodName": "완벽한 편 고추",
+      "sosoFoodName": "평범한 편 고추",
+      "badFoodName": "망가진 편 고추",
+      "goodFoodID": 102009,
+      "sosoFoodID": 102008,
+      "badFoodID": 102007
+    },
+    {
+      "key": 110103,
+      "goodFoodName": "완벽한 다진 고추",
+      "sosoFoodName": "평범한 다진 고추",
+      "badFoodName": "망가진 다진 고추",
+      "goodFoodID": 102012,
+      "sosoFoodID": 102011,
+      "badFoodID": 102010
+    },
+    {
+      "key": 110104,
+      "goodFoodName": "완벽한 당근 채",
+      "sosoFoodName": "평범한 당근 채",
+      "badFoodName": "망가진 당근 채",
+      "goodFoodID": 102015,
+      "sosoFoodID": 102014,
+      "badFoodID": 102013
+    },
+    {
+      "key": 110105,
+      "goodFoodName": "완벽한 당근 즙",
+      "sosoFoodName": "평범한 당근 즙",
+      "badFoodName": "망가진 당근 즙",
+      "goodFoodID": 102018,
+      "sosoFoodID": 102017,
+      "badFoodID": 102016
+    },
+    {
+      "key": 110106,
+      "goodFoodName": "완벽한 파채",
+      "sosoFoodName": "평범한 파채",
+      "badFoodName": "망가진 파채",
+      "goodFoodID": 102021,
+      "sosoFoodID": 102020,
+      "badFoodID": 102019
+    },
+    {
+      "key": 110107,
+      "goodFoodName": "완벽한 껍질 벗긴 더덕",
+      "sosoFoodName": "평범한 껍질 벗긴 더덕",
+      "badFoodName": "망가진 껍질 벗긴 더덕",
+      "goodFoodID": 102024,
+      "sosoFoodID": 102023,
+      "badFoodID": 102022
+    },
+    {
+      "key": 110108,
+      "goodFoodName": "완벽한 넓게 펴진 더덕",
+      "sosoFoodName": "평범한 넓게 펴진 더덕",
+      "badFoodName": "망가진 넓게 펴진 더덕",
+      "goodFoodID": 102027,
+      "sosoFoodID": 102026,
+      "badFoodID": 102025
+    },
+    {
+      "key": 110109,
+      "goodFoodName": "완벽한 구운 더덕",
+      "sosoFoodName": "평범한 구운 더덕",
+      "badFoodName": "망가진 구운 더덕",
+      "goodFoodID": 102030,
+      "sosoFoodID": 102029,
+      "badFoodID": 102028
+    },
+    {
+      "key": 110110,
+      "goodFoodName": "완벽한 콩물",
+      "sosoFoodName": "평범한 콩물",
+      "badFoodName": "망가진 콩물",
+      "goodFoodID": 102033,
+      "sosoFoodID": 102032,
+      "badFoodID": 102031
+    },
+    {
+      "key": 110111,
+      "goodFoodName": "완벽한 두부",
+      "sosoFoodName": "평범한 두부",
+      "badFoodName": "망가진 두부",
+      "goodFoodID": 102036,
+      "sosoFoodID": 102035,
+      "badFoodID": 102034
+    },
+    {
+      "key": 110112,
+      "goodFoodName": "완벽한 썰린 두부",
+      "sosoFoodName": "평범한 썰린 두부",
+      "badFoodName": "망가진 썰린 두부",
+      "goodFoodID": 102039,
+      "sosoFoodID": 102038,
+      "badFoodID": 102037
+    },
+    {
+      "key": 110113,
+      "goodFoodName": "완벽한 토막 난 감자",
+      "sosoFoodName": "평범한 토막 난 감자",
+      "badFoodName": "망가진 토막 난 감자",
+      "goodFoodID": 102042,
+      "sosoFoodID": 102041,
+      "badFoodID": 102040
+    },
+    {
+      "key": 110114,
+      "goodFoodName": "완벽한 구운 감자",
+      "sosoFoodName": "평범한 구운 감자",
+      "badFoodName": "망가진 구운 감자",
+      "goodFoodID": 102045,
+      "sosoFoodID": 102044,
+      "badFoodID": 102043
+    },
+    {
+      "key": 110115,
+      "goodFoodName": "완벽한 삶은 감자",
+      "sosoFoodName": "평범한 삶은 감자",
+      "badFoodName": "망가진 삶은 감자",
+      "goodFoodID": 102048,
+      "sosoFoodID": 102047,
+      "badFoodID": 102046
+    },
+    {
+      "key": 110116,
+      "goodFoodName": "완벽한 으깬 감자",
+      "sosoFoodName": "평범한 으깬 감자",
+      "badFoodName": "망가진 으깬 감자",
+      "goodFoodID": 102051,
+      "sosoFoodID": 102050,
+      "badFoodID": 102049
+    },
+    {
+      "key": 110117,
+      "goodFoodName": "완벽한 삶은 고사리",
+      "sosoFoodName": "평범한 삶은 고사리",
+      "badFoodName": "망가진 삶은 고사리",
+      "goodFoodID": 102054,
+      "sosoFoodID": 102053,
+      "badFoodID": 102052
+    },
+    {
+      "key": 110118,
+      "goodFoodName": "완벽한 토막 난 무",
+      "sosoFoodName": "평범한 토막 난 무",
+      "badFoodName": "망가진 토막 난 무",
+      "goodFoodID": 102057,
+      "sosoFoodID": 102056,
+      "badFoodID": 102055
+    },
+    {
+      "key": 110119,
+      "goodFoodName": "완벽한 삶은 무",
+      "sosoFoodName": "평범한 삶은 무",
+      "badFoodName": "망가진 삶은 무",
+      "goodFoodID": 102060,
+      "sosoFoodID": 102059,
+      "badFoodID": 102058
+    },
+    {
+      "key": 110120,
+      "goodFoodName": "완벽한 무 즙",
+      "sosoFoodName": "평범한 무 즙",
+      "badFoodName": "망가진 무 즙",
+      "goodFoodID": 102063,
+      "sosoFoodID": 102062,
+      "badFoodID": 102061
+    },
+    {
+      "key": 110121,
+      "goodFoodName": "완벽한 토막 난 연근",
+      "sosoFoodName": "평범한 토막 난 연근",
+      "badFoodName": "망가진 토막 난 연근",
+      "goodFoodID": 102066,
+      "sosoFoodID": 102065,
+      "badFoodID": 102064
+    },
+    {
+      "key": 110122,
+      "goodFoodName": "완벽한 인삼 즙",
+      "sosoFoodName": "평범한 인삼 즙",
+      "badFoodName": "망가진 인삼 즙",
+      "goodFoodID": 102069,
+      "sosoFoodID": 102068,
+      "badFoodID": 102067
+    },
+    {
+      "key": 110123,
+      "goodFoodName": "완벽한 토막 난 고구마",
+      "sosoFoodName": "평범한 토막 난 고구마",
+      "badFoodName": "망가진 토막 난 고구마",
+      "goodFoodID": 102072,
+      "sosoFoodID": 102071,
+      "badFoodID": 102070
+    },
+    {
+      "key": 110124,
+      "goodFoodName": "완벽한 구운 고구마",
+      "sosoFoodName": "평범한 구운 고구마",
+      "badFoodName": "망가진 구운 고구마",
+      "goodFoodID": 102075,
+      "sosoFoodID": 102074,
+      "badFoodID": 102073
+    },
+    {
+      "key": 110125,
+      "goodFoodName": "완벽한 삶은 고구마",
+      "sosoFoodName": "평범한 삶은 고구마",
+      "badFoodName": "망가진 삶은 고구마",
+      "goodFoodID": 102078,
+      "sosoFoodID": 102077,
+      "badFoodID": 102076
+    },
+    {
+      "key": 110126,
+      "goodFoodName": "완벽한 으깬 고구마",
+      "sosoFoodName": "평범한 으깬 고구마",
+      "badFoodName": "망가진 으깬 고구마",
+      "goodFoodID": 102081,
+      "sosoFoodID": 102080,
+      "badFoodID": 102079
+    },
+    {
+      "key": 110127,
+      "goodFoodName": "완벽한 데친 두릅",
+      "sosoFoodName": "평범한 데친 두릅",
+      "badFoodName": "망가진 데친 두릅",
+      "goodFoodID": 102084,
+      "sosoFoodID": 102083,
+      "badFoodID": 102082
+    },
+    {
+      "key": 110128,
+      "goodFoodName": "완벽한 쪄진 밤",
+      "sosoFoodName": "평범한 쪄진 밤",
+      "badFoodName": "망가진 쪄진 밤",
+      "goodFoodID": 102087,
+      "sosoFoodID": 102086,
+      "badFoodID": 102085
+    },
+    {
+      "key": 110129,
+      "goodFoodName": "완벽한 으깬 밤",
+      "sosoFoodName": "평범한 으깬 밤",
+      "badFoodName": "망가진 으깬 밤",
+      "goodFoodID": 102090,
+      "sosoFoodID": 102089,
+      "badFoodID": 102088
+    },
+    {
+      "key": 110130,
+      "goodFoodName": "완벽한 토막 난 감",
+      "sosoFoodName": "평범한 토막 난 감",
+      "badFoodName": "망가진 토막 난 감",
+      "goodFoodID": 102093,
+      "sosoFoodID": 102092,
+      "badFoodID": 102091
+    },
+    {
+      "key": 110131,
+      "goodFoodName": "완벽한 감 즙",
+      "sosoFoodName": "평범함 감 즙",
+      "badFoodName": "망가진 감 즙",
+      "goodFoodID": 102096,
+      "sosoFoodID": 102095,
+      "badFoodID": 102094
+    },
+    {
+      "key": 110132,
+      "goodFoodName": "완벽한 토막 난 배",
+      "sosoFoodName": "평범한 토막 난 배",
+      "badFoodName": "망가진 토막 난 배",
+      "goodFoodID": 102099,
+      "sosoFoodID": 102098,
+      "badFoodID": 102097
+    },
+    {
+      "key": 110133,
+      "goodFoodName": "완벽한 배 즙",
+      "sosoFoodName": "평범한 배 즙",
+      "badFoodName": "망가진 배 즙",
+      "goodFoodID": 102102,
+      "sosoFoodID": 102101,
+      "badFoodID": 102100
+    },
+    {
+      "key": 110134,
+      "goodFoodName": "완벽한 호두 알맹이",
+      "sosoFoodName": "평범한 호두 알맹이",
+      "badFoodName": "망가진 호두 알맹이",
+      "goodFoodID": 102105,
+      "sosoFoodID": 102104,
+      "badFoodID": 102103
+    },
+    {
+      "key": 110135,
+      "goodFoodName": "완벽한 토막 난 호두",
+      "sosoFoodName": "평범한 토막 난 호두",
+      "badFoodName": "망가진 토막 난 호두",
+      "goodFoodID": 102108,
+      "sosoFoodID": 102107,
+      "badFoodID": 102106
+    },
+    {
+      "key": 110136,
+      "goodFoodName": "완벽한 껍질 벗긴 우엉",
+      "sosoFoodName": "평범한 껍질 벗긴 우엉",
+      "badFoodName": "망가진 껍질 벗긴 우엉",
+      "goodFoodID": 102111,
+      "sosoFoodID": 102110,
+      "badFoodID": 102109
+    },
+    {
+      "key": 110137,
+      "goodFoodName": "완벽한 껍질 벗긴 도라지",
+      "sosoFoodName": "평범한 껍질 벗긴 도라지",
+      "badFoodName": "망가진 껍질 벗긴 도라지",
+      "goodFoodID": 102114,
+      "sosoFoodID": 102113,
+      "badFoodID": 102112
+    },
+    {
+      "key": 110138,
+      "goodFoodName": "완벽한 토막 난 사과",
+      "sosoFoodName": "평범한 토막 난 사과",
+      "badFoodName": "망가진 토막 난 사과",
+      "goodFoodID": 102117,
+      "sosoFoodID": 102116,
+      "badFoodID": 102115
+    },
+    {
+      "key": 110139,
+      "goodFoodName": "완벽한 사과 즙",
+      "sosoFoodName": "평범한 사과 즙",
+      "badFoodName": "망가진 사과 즙",
+      "goodFoodID": 102120,
+      "sosoFoodID": 102119,
+      "badFoodID": 102118
+    },
+    {
+      "key": 110140,
+      "goodFoodName": "완벽한 토막 난 표고 버섯",
+      "sosoFoodName": "평범한 토막 난 표고 버섯",
+      "badFoodName": "망가진 토막 난 표고 버섯",
+      "goodFoodID": 102123,
+      "sosoFoodID": 102122,
+      "badFoodID": 102121
+    },
+    {
+      "key": 110141,
+      "goodFoodName": "완벽한 잘게 썰린 표고 버섯",
+      "sosoFoodName": "평범한 잘게 썰린 표고 버섯",
+      "badFoodName": "망가진 잘게 썰린 표고 버섯",
+      "goodFoodID": 102126,
+      "sosoFoodID": 102125,
+      "badFoodID": 102124
+    },
+    {
+      "key": 110142,
+      "goodFoodName": "완벽한 삶은 죽순",
+      "sosoFoodName": "평범한 삶은 죽순",
+      "badFoodName": "망가진 삶은 죽순",
+      "goodFoodID": 102129,
+      "sosoFoodID": 102128,
+      "badFoodID": 102127
+    },
+    {
+      "key": 110143,
+      "goodFoodName": "완벽한 손질 된 정어리",
+      "sosoFoodName": "평범한 손질 된 정어리",
+      "badFoodName": "망가진 손질 된 정어리",
+      "goodFoodID": 102132,
+      "sosoFoodID": 102131,
+      "badFoodID": 102130
+    },
+    {
+      "key": 110144,
+      "goodFoodName": "완벽한 회로 손질 된 정어리",
+      "sosoFoodName": "평범한 회로 손질 된 정어리",
+      "badFoodName": "망가진 회로 손질 된 정어리",
+      "goodFoodID": 102135,
+      "sosoFoodID": 102134,
+      "badFoodID": 102133
+    },
+    {
+      "key": 110145,
+      "goodFoodName": "완벽한 구운 정어리",
+      "sosoFoodName": "평범한 구운 정어리",
+      "badFoodName": "망가진 구운 정어리",
+      "goodFoodID": 102138,
+      "sosoFoodID": 102137,
+      "badFoodID": 102136
+    },
+    {
+      "key": 110146,
+      "goodFoodName": "완벽한 손질 된 멸치",
+      "sosoFoodName": "평범한 손질 된 멸치",
+      "badFoodName": "망가진 손질 된 멸치",
+      "goodFoodID": 102141,
+      "sosoFoodID": 102140,
+      "badFoodID": 102139
+    },
+    {
+      "key": 110147,
+      "goodFoodName": "완벽한 구운 멸치",
+      "sosoFoodName": "평범한 구운 멸치",
+      "badFoodName": "망가진 구운 멸치",
+      "goodFoodID": 102144,
+      "sosoFoodID": 102143,
+      "badFoodID": 102142
+    },
+    {
+      "key": 110148,
+      "goodFoodName": "완벽한 삶은 바지락",
+      "sosoFoodName": "평범한 삶은 바지락",
+      "badFoodName": "망가진 삶은 바지락",
+      "goodFoodID": 102147,
+      "sosoFoodID": 102146,
+      "badFoodID": 102145
+    },
+    {
+      "key": 110149,
+      "goodFoodName": "완벽한 삶은 홍합",
+      "sosoFoodName": "평범한 삶은 홍합",
+      "badFoodName": "망가진 삶은 홍합",
+      "goodFoodID": 102150,
+      "sosoFoodID": 102149,
+      "badFoodID": 102148
+    },
+    {
+      "key": 110150,
+      "goodFoodName": "완벽한 손질 된 고등어",
+      "sosoFoodName": "평범한 손질 된 고등어",
+      "badFoodName": "망가진 손질 된 고등어",
+      "goodFoodID": 102153,
+      "sosoFoodID": 102152,
+      "badFoodID": 102151
+    },
+    {
+      "key": 110151,
+      "goodFoodName": "완벽한 회로 손질 된 고등어",
+      "sosoFoodName": "평범한 회로 손질 된 고등어",
+      "badFoodName": "망가진 회로 손질 된 고등어",
+      "goodFoodID": 102156,
+      "sosoFoodID": 102155,
+      "badFoodID": 102154
+    },
+    {
+      "key": 110152,
+      "goodFoodName": "완벽한 구운 고등어",
+      "sosoFoodName": "평범한 구운 고등어",
+      "badFoodName": "망가진 구운 고등어",
+      "goodFoodID": 102159,
+      "sosoFoodID": 102158,
+      "badFoodID": 102157
+    },
+    {
+      "key": 110153,
+      "goodFoodName": "완벽한 손질 된 생태",
+      "sosoFoodName": "평범한 손질 된 생태",
+      "badFoodName": "망가진 손질 된 생태",
+      "goodFoodID": 102162,
+      "sosoFoodID": 102161,
+      "badFoodID": 102160
+    },
+    {
+      "key": 110154,
+      "goodFoodName": "완벽한 손질 된 참돔",
+      "sosoFoodName": "평범한 손질 된 참돔",
+      "badFoodName": "망가진 손질 된 참돔",
+      "goodFoodID": 102165,
+      "sosoFoodID": 102164,
+      "badFoodID": 102163
+    },
+    {
+      "key": 110155,
+      "goodFoodName": "완벽한 회로 손질 된 참돔",
+      "sosoFoodName": "평범한 회로 손질 된 참돔",
+      "badFoodName": "망가진 회로 손질 된 참돔",
+      "goodFoodID": 102168,
+      "sosoFoodID": 102167,
+      "badFoodID": 102166
+    },
+    {
+      "key": 110156,
+      "goodFoodName": "완벽한 쪄진 굴",
+      "sosoFoodName": "평범한 쪄진 굴",
+      "badFoodName": "망가진 쪄진 굴",
+      "goodFoodID": 102171,
+      "sosoFoodID": 102170,
+      "badFoodID": 102169
+    },
+    {
+      "key": 110157,
+      "goodFoodName": "완벽한 회로 손질 된 해삼",
+      "sosoFoodName": "평범한 회로 손질 된 해삼",
+      "badFoodName": "망가진 회로 손질 된 해삼",
+      "goodFoodID": 102174,
+      "sosoFoodID": 102173,
+      "badFoodID": 102172
+    },
+    {
+      "key": 110158,
+      "goodFoodName": "완벽한 손질 된 갈치",
+      "sosoFoodName": "평범한 손질 된 갈치",
+      "badFoodName": "망가진 손질 된 갈치",
+      "goodFoodID": 102177,
+      "sosoFoodID": 102176,
+      "badFoodID": 102175
+    },
+    {
+      "key": 110159,
+      "goodFoodName": "완벽한 뼈가 발린 갈치",
+      "sosoFoodName": "평범한 뼈가 발린 갈치",
+      "badFoodName": "망가진 뼈가 발린 갈치",
+      "goodFoodID": 102180,
+      "sosoFoodID": 102179,
+      "badFoodID": 102178
+    },
+    {
+      "key": 110160,
+      "goodFoodName": "완벽한 구운 갈치",
+      "sosoFoodName": "평범한 구운 갈치",
+      "badFoodName": "망가진 구운 갈치",
+      "goodFoodID": 102183,
+      "sosoFoodID": 102182,
+      "badFoodID": 102181
+    },
+    {
+      "key": 110161,
+      "goodFoodName": "완벽한 손질 된 전복",
+      "sosoFoodName": "평범한 손질 된 전복",
+      "badFoodName": "망가진 손질 된 전복",
+      "goodFoodID": 102186,
+      "sosoFoodID": 102185,
+      "badFoodID": 102184
+    },
+    {
+      "key": 110162,
+      "goodFoodName": "완벽한 전복 내장",
+      "sosoFoodName": "평범한 전복 내장",
+      "badFoodName": "망가진 전복 내장",
+      "goodFoodID": 102189,
+      "sosoFoodID": 102188,
+      "badFoodID": 102187
+    },
+    {
+      "key": 110163,
+      "goodFoodName": "완벽한 회로 손질 된 전복",
+      "sosoFoodName": "평범한 회뢰 손질 된 전복",
+      "badFoodName": "망가진 회로 손질 된 전복",
+      "goodFoodID": 102192,
+      "sosoFoodID": 102191,
+      "badFoodID": 102190
+    },
+    {
+      "key": 110164,
+      "goodFoodName": "완벽한 쪄진 전복",
+      "sosoFoodName": "평범한 쪄진 전복",
+      "badFoodName": "망가진 쪄진 전복",
+      "goodFoodID": 102195,
+      "sosoFoodID": 102194,
+      "badFoodID": 102193
+    },
+    {
+      "key": 110165,
+      "goodFoodName": "완벽한 구운 전복",
+      "sosoFoodName": "평범한 구운 전복",
+      "badFoodName": "망가진 구운 전복",
+      "goodFoodID": 102198,
+      "sosoFoodID": 102197,
+      "badFoodID": 102196
+    },
+    {
+      "key": 110166,
+      "goodFoodName": "완벽한 손질 된 문어",
+      "sosoFoodName": "평범한 손질 된 문어",
+      "badFoodName": "망가진 손질 된 문어",
+      "goodFoodID": 102201,
+      "sosoFoodID": 102200,
+      "badFoodID": 102199
+    },
+    {
+      "key": 110167,
+      "goodFoodName": "완벽한 토막 난 문어",
+      "sosoFoodName": "평범한 토막 난 문어",
+      "badFoodName": "망가진 토막 난 문어",
+      "goodFoodID": 102204,
+      "sosoFoodID": 102203,
+      "badFoodID": 102202
+    },
+    {
+      "key": 110168,
+      "goodFoodName": "완벽한 쪄진 문어",
+      "sosoFoodName": "평범한 쪄진 문어",
+      "badFoodName": "망가진 쪄진 문어",
+      "goodFoodID": 102207,
+      "sosoFoodID": 102206,
+      "badFoodID": 102205
+    },
+    {
+      "key": 110169,
+      "goodFoodName": "완벽한 손질 된 병어",
+      "sosoFoodName": "평범한 손질 된 병어",
+      "badFoodName": "망가진 손질 된 병어",
+      "goodFoodID": 102210,
+      "sosoFoodID": 102209,
+      "badFoodID": 102208
+    },
+    {
+      "key": 110170,
+      "goodFoodName": "완벽한 쪄진 병어",
+      "sosoFoodName": "평범한 쪄진 병어",
+      "badFoodName": "망가진 쪄진 병어",
+      "goodFoodID": 102213,
+      "sosoFoodID": 102212,
+      "badFoodID": 102211
+    },
+    {
+      "key": 110171,
+      "goodFoodName": "완벽한 구워진 병어",
+      "sosoFoodName": "평범한 구워진 병어",
+      "badFoodName": "망가진 구워진 병어",
+      "goodFoodID": 102216,
+      "sosoFoodID": 102215,
+      "badFoodID": 102214
+    },
+    {
+      "key": 110172,
+      "goodFoodName": "완벽한 손질 된 꽃게",
+      "sosoFoodName": "평범한 손질 된 꽃게",
+      "badFoodName": "망가진 손질 된 꽃게",
+      "goodFoodID": 102219,
+      "sosoFoodID": 102218,
+      "badFoodID": 102217
+    },
+    {
+      "key": 110173,
+      "goodFoodName": "완벽한 토막 난 꽃게",
+      "sosoFoodName": "평범한 토막 난 꽃게",
+      "badFoodName": "망가진 토막 난 꽃게",
+      "goodFoodID": 102222,
+      "sosoFoodID": 102221,
+      "badFoodID": 102220
+    },
+    {
+      "key": 110174,
+      "goodFoodName": "완벽한 쪄진 꽃게",
+      "sosoFoodName": "평범한 쪄진 꽃게",
+      "badFoodName": "망가진 쪄진 꽃게",
+      "goodFoodID": 102225,
+      "sosoFoodID": 102224,
+      "badFoodID": 102223
+    },
+    {
+      "key": 110175,
+      "goodFoodName": "완벽한 살이 발라진 꽃게",
+      "sosoFoodName": "평범한 살이 발라진 꽃게",
+      "badFoodName": "망가진 살이 발라진 꽃게",
+      "goodFoodID": 102228,
+      "sosoFoodID": 102227,
+      "badFoodID": 102226
+    },
+    {
+      "key": 110176,
+      "goodFoodName": "완벽한 손질 된 오징어",
+      "sosoFoodName": "평범한 손질 된 오징어",
+      "badFoodName": "망가진 손질 된 오징어",
+      "goodFoodID": 102231,
+      "sosoFoodID": 102230,
+      "badFoodID": 102229
+    },
+    {
+      "key": 110177,
+      "goodFoodName": "완벽한 토막 난 오징어",
+      "sosoFoodName": "평범한 토막 난 오징어",
+      "badFoodName": "망가진 토막 난 오징어",
+      "goodFoodID": 102234,
+      "sosoFoodID": 102233,
+      "badFoodID": 102232
+    },
+    {
+      "key": 110178,
+      "goodFoodName": "완벽한 쪄진 오징어",
+      "sosoFoodName": "평범한 쪄진 오징어",
+      "badFoodName": "망가진 쪄진 오징어",
+      "goodFoodID": 102237,
+      "sosoFoodID": 102236,
+      "badFoodID": 102235
+    },
+    {
+      "key": 110179,
+      "goodFoodName": "완벽한 손질 된 대게",
+      "sosoFoodName": "평범한 손질 된 대게",
+      "badFoodName": "망가진 손질 된 대게",
+      "goodFoodID": 102240,
+      "sosoFoodID": 102239,
+      "badFoodID": 102238
+    },
+    {
+      "key": 110180,
+      "goodFoodName": "완벽한 회로 손질 된 대게",
+      "sosoFoodName": "평범한 회로 손질 된 대게",
+      "badFoodName": "망가진 회로 손질 된 대게",
+      "goodFoodID": 102243,
+      "sosoFoodID": 102242,
+      "badFoodID": 102241
+    },
+    {
+      "key": 110181,
+      "goodFoodName": "완벽한 쪄진 대게",
+      "sosoFoodName": "평범한 쪄진 대게",
+      "badFoodName": "망가진 쪄진 대게",
+      "goodFoodID": 102246,
+      "sosoFoodID": 102245,
+      "badFoodID": 102244
+    },
+    {
+      "key": 110182,
+      "goodFoodName": "완벽한 살이 발라진 대게",
+      "sosoFoodName": "평범한 살이 발라진 대게",
+      "badFoodName": "망가진 살이 발라진 대게",
+      "goodFoodID": 102249,
+      "sosoFoodID": 102248,
+      "badFoodID": 102247
+    },
+    {
+      "key": 110183,
+      "goodFoodName": "완벽한 쪄진 새우",
+      "sosoFoodName": "평범한 쪄진 새우",
+      "badFoodName": "망가진 쪄진 새우",
+      "goodFoodID": 102252,
+      "sosoFoodID": 102251,
+      "badFoodID": 102250
+    },
+    {
+      "key": 110184,
+      "goodFoodName": "완벽한 구운 새우",
+      "sosoFoodName": "평범한 구운 새우",
+      "badFoodName": "망가진 구운 새우",
+      "goodFoodID": 102255,
+      "sosoFoodID": 102254,
+      "badFoodID": 102253
+    },
+    {
+      "key": 110185,
+      "goodFoodName": "완벽한 쪄진 대하",
+      "sosoFoodName": "평범한 쪄진 대하",
+      "badFoodName": "망가진 쪄진 대하",
+      "goodFoodID": 102258,
+      "sosoFoodID": 102257,
+      "badFoodID": 102256
+    },
+    {
+      "key": 110186,
+      "goodFoodName": "완벽한 구운 대하",
+      "sosoFoodName": "평범한 구운 대하",
+      "badFoodName": "망가진 구운 대하",
+      "goodFoodID": 102261,
+      "sosoFoodID": 102260,
+      "badFoodID": 102259
+    },
+    {
+      "key": 110187,
+      "goodFoodName": "완벽한 쪄진 석화",
+      "sosoFoodName": "평범한 쪄진 석화",
+      "badFoodName": "망가진 쪄진 석화",
+      "goodFoodID": 102264,
+      "sosoFoodID": 102263,
+      "badFoodID": 102262
+    },
+    {
+      "key": 110188,
+      "goodFoodName": "완벽한 손질 된 방어",
+      "sosoFoodName": "평범한 손질 된 방어",
+      "badFoodName": "망가진 손질 된 방어",
+      "goodFoodID": 102267,
+      "sosoFoodID": 102266,
+      "badFoodID": 102265
+    },
+    {
+      "key": 110189,
+      "goodFoodName": "완벽한 회로 손질 된 방어",
+      "sosoFoodName": "평범한 회로 손질 된 방어",
+      "badFoodName": "망가진 회로 손질 된 방어",
+      "goodFoodID": 102270,
+      "sosoFoodID": 102269,
+      "badFoodID": 102268
+    },
+    {
+      "key": 110190,
+      "goodFoodName": "완벽한 토막 난 유자",
+      "sosoFoodName": "평범한 토막 난 유자",
+      "badFoodName": "망가진 토막 난 유자",
+      "goodFoodID": 102273,
+      "sosoFoodID": 102272,
+      "badFoodID": 102271
+    },
+    {
+      "key": 110191,
+      "goodFoodName": "완벽한 유자 즙",
+      "sosoFoodName": "평범한 유자 즙",
+      "badFoodName": "망가진 유자 즙",
+      "goodFoodID": 102276,
+      "sosoFoodID": 102275,
+      "badFoodID": 102274
+    },
+    {
+      "key": 110192,
+      "goodFoodName": "완벽한 손질 된 와사비 뿌리",
+      "sosoFoodName": "평범한 손질 된 와사비 뿌리",
+      "badFoodName": "망가진 손질 된 와사비 뿌리",
+      "goodFoodID": 102279,
+      "sosoFoodID": 102278,
+      "badFoodID": 102277
+    },
+    {
+      "key": 110193,
+      "goodFoodName": "완벽한 생와사비",
+      "sosoFoodName": "평범한 생와사비",
+      "badFoodName": "망가진 생와사비",
+      "goodFoodID": 102282,
+      "sosoFoodID": 102281,
+      "badFoodID": 102280
+    },
+    {
+      "key": 110194,
+      "goodFoodName": "완벽한 쌈장",
+      "sosoFoodName": "평범한 쌈장",
+      "badFoodName": "망가진 쌈장",
+      "goodFoodID": 102285,
+      "sosoFoodID": 102284,
+      "badFoodID": 102283
+    },
+    {
+      "key": 110195,
+      "goodFoodName": "완벽한 삶은 소면",
+      "sosoFoodName": "평범한 삶은 소면",
+      "badFoodName": "망가진 삶은 소면",
+      "goodFoodID": 102288,
+      "sosoFoodID": 102287,
+      "badFoodID": 102286
+    },
+    {
+      "key": 110196,
+      "goodFoodName": "완벽한 밀가루 반죽",
+      "sosoFoodName": "평범한 밀가루 반죽",
+      "badFoodName": "망가진 밀가루 반죽",
+      "goodFoodID": 102291,
+      "sosoFoodID": 102290,
+      "badFoodID": 102289
+    },
+    {
+      "key": 110197,
+      "goodFoodName": "완벽한 뜨거운 식용유",
+      "sosoFoodName": "평범한 뜨거운 식용유",
+      "badFoodName": "망가진 뜨거운 식용유",
+      "goodFoodID": 102294,
+      "sosoFoodID": 102293,
+      "badFoodID": 102292
+    },
+    {
+      "key": 110401,
+      "goodFoodName": "고추장",
+      "sosoFoodName": "00000000",
+      "badFoodName": "00000000",
+      "goodFoodID": 103001,
+      "sosoFoodID": 0,
+      "badFoodID": 0
+    },
+    {
+      "key": 110402,
+      "goodFoodName": "간장",
+      "sosoFoodName": "00000000",
+      "badFoodName": "00000000",
+      "goodFoodID": 103002,
+      "sosoFoodID": 0,
+      "badFoodID": 0
+    },
+    {
+      "key": 110403,
+      "goodFoodName": "된장",
+      "sosoFoodName": "00000000",
+      "badFoodName": "00000000",
+      "goodFoodID": 103003,
+      "sosoFoodID": 0,
+      "badFoodID": 0
+    },
+    {
+      "key": 110404,
+      "goodFoodName": "식용유",
+      "sosoFoodName": "00000000",
+      "badFoodName": "00000000",
+      "goodFoodID": 103004,
+      "sosoFoodID": 0,
+      "badFoodID": 0
+    },
+    {
+      "key": 110405,
+      "goodFoodName": "소면",
+      "sosoFoodName": "00000000",
+      "badFoodName": "00000000",
+      "goodFoodID": 103005,
+      "sosoFoodID": 0,
+      "badFoodID": 0
+    },
+    {
+      "key": 110406,
+      "goodFoodName": "밀가루",
+      "sosoFoodName": "00000000",
+      "badFoodName": "00000000",
+      "goodFoodID": 103006,
+      "sosoFoodID": 0,
+      "badFoodID": 0
+    },
+    {
+      "key": 110407,
+      "goodFoodName": "버터",
+      "sosoFoodName": "00000000",
+      "badFoodName": "00000000",
+      "goodFoodID": 103007,
+      "sosoFoodID": 0,
+      "badFoodID": 0
+    },
+    {
+      "key": 110501,
+      "goodFoodName": "전설의 고구마 맛탕",
+      "sosoFoodName": "맛있는 고구마 맛탕",
+      "badFoodName": "평범한 고구마 맛탕",
+      "goodFoodID": 104003,
+      "sosoFoodID": 104002,
+      "badFoodID": 104001
+    },
+    {
+      "key": 110502,
+      "goodFoodName": "전설의 멸치 볶음",
+      "sosoFoodName": "맛있는 멸치 볶음",
+      "badFoodName": "평범한 멸치 볶음",
+      "goodFoodID": 104006,
+      "sosoFoodID": 104005,
+      "badFoodID": 104004
+    },
+    {
+      "key": 110503,
+      "goodFoodName": "전설의 견과류 멸치 볶음",
+      "sosoFoodName": "맛있는 견과류 멸치 볶음",
+      "badFoodName": "평범한 견과류 멸치 볶음",
+      "goodFoodID": 104009,
+      "sosoFoodID": 104008,
+      "badFoodID": 104007
+    },
+    {
+      "key": 110504,
+      "goodFoodName": "전설의 버터 감자",
+      "sosoFoodName": "맛있는 버터 감자",
+      "badFoodName": "평범한 버터 감자",
+      "goodFoodID": 104012,
+      "sosoFoodID": 104011,
+      "badFoodID": 104010
+    },
+    {
+      "key": 110505,
+      "goodFoodName": "전설의 허니 버터 감자",
+      "sosoFoodName": "맛있는 허니 버터 감자",
+      "badFoodName": "평범한 허니 버터 감자",
+      "goodFoodID": 104015,
+      "sosoFoodID": 104014,
+      "badFoodID": 104013
+    },
+    {
+      "key": 110506,
+      "goodFoodName": "전설의 정어리 회",
+      "sosoFoodName": "맛있는 정어리 회",
+      "badFoodName": "평범한 정어리 회",
+      "goodFoodID": 104018,
+      "sosoFoodID": 104017,
+      "badFoodID": 104016
+    },
+    {
+      "key": 110507,
+      "goodFoodName": "전설의 정어리 구이",
+      "sosoFoodName": "맛있는 정어리 구이",
+      "badFoodName": "평범한 정어리 구이",
+      "goodFoodID": 104021,
+      "sosoFoodID": 104020,
+      "badFoodID": 104019
+    }
+  ]
+}

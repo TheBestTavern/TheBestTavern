@@ -1,0 +1,55 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: BasicScene
+  m_EditorClassIdentifier: 
+  m_GroupName: BasicScene
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 95ab6bfcde0e27c4aba73c04e12e09fd
+  m_SerializeEntries:
+  - m_GUID: 897395fc3162cb14a8fd6e98aa2b2021
+    m_Address: MainScene.unity
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - BasicScene
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9d872d5bba2e91a40823cce02a0147da
+    m_Address: ForestGatheringScene.unity
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - BasicScene
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6a25f84f620830f47828b21428b79647
+    m_Address: CookingScene.unity
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - BasicScene
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8d6ea25d930c0af4a80f42f6fb9a2598
+    m_Address: StartScene.unity
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - BasicScene
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5fec95f02a104d54990bcfef241e1208
+    m_Address: SeaGatheringSceneDev.unity
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - BasicScene
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 3f946b317ceaa2747b411cad54511d5f, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: dc3b09f9322ab574eb3dbe736d133a5b, type: 2}
+    - {fileID: 11400000, guid: b8a5d53ec8811974689f780deb27e4ff, type: 2}
