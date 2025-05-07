@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class InventorySlot : MonoBehaviour, IDragHandler, IDropHandler, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler
+public class InventorySlot : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHandler, IDropHandler, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler
 {
     int index;
     InventoryView view;
@@ -16,6 +16,10 @@ public class InventorySlot : MonoBehaviour, IDragHandler, IDropHandler, IPointer
     public Image image;
     [SerializeField] TextMeshProUGUI CountTMP;
     public bool IsTargeting { get; private set; }
+
+    private GameObject draggingIcon;
+    private RectTransform draggingIconTransform;
+    private Canvas rootCanvas;
 
     Action<int> OnZero;
     Action<int> OnClick;
@@ -71,18 +75,61 @@ public class InventorySlot : MonoBehaviour, IDragHandler, IDropHandler, IPointer
         image.gameObject.SetActive(false);
         ID = -1;
         count = -1;
+        CountTMP.text = " "; //CountTMP 초기화
         OnZero?.Invoke(index);
     }
 
     private void TriggerClickAction() => OnClick?.Invoke(index);
     private void TriggerClickAgainAction() => OnClickAgain?.Invoke(index);
 
+    public void OnBeginDrag(PointerEventData eventData)
+    {
+        if (!HasItem) return;
+
+        rootCanvas = GetComponentInParent<Canvas>();
+
+        // 드래그 아이콘 생성
+        draggingIcon = new GameObject("DraggingIcon");
+        draggingIconTransform = draggingIcon.AddComponent<RectTransform>();
+        draggingIconTransform.SetParent(rootCanvas.transform, false);
+        draggingIconTransform.sizeDelta = new Vector2(64, 64); // 적절한 크기로 조정
+
+        Image iconImage = draggingIcon.AddComponent<Image>();
+        iconImage.sprite = image.sprite;
+        iconImage.raycastTarget = false;
+        draggingIconTransform.position = eventData.position;
+    }
+
     public void OnDrag(PointerEventData eventData) // 아이템 이미지만 마우스 따라서 이동
     {
+        if (draggingIconTransform != null)
+        {
+            draggingIconTransform.position = eventData.position;
+        }
     }
     public void OnDrop(PointerEventData eventData) // 슬롯에 아이템이 없다면, view 아이템 이동 로직 호출
     {
+        InventorySlot fromSlot = eventData.pointerDrag?.GetComponent<InventorySlot>();
+        if (fromSlot != null && fromSlot != this && !this.HasItem)
+        {
+            ItemStack fromItem = fromSlot.GetSlotItem();
+            if (fromItem != null)
+            {
+                슬롯세팅(fromItem.ID); // 이 슬롯에 세팅
+                fromSlot.슬롯비우기();  // 원래 슬롯 비우기
+            }
+        }
     }
+
+    public void OnEndDrag(PointerEventData eventData)
+    {
+        if (draggingIcon != null)
+        {
+            Destroy(draggingIcon);
+        }
+    }
+
+
     public void OnPointerClick(PointerEventData eventData) // 좌클릭 우클릭 구분하여, view 타게팅 또는 상세보기 호출함. 
     {
         if (HasItem)
