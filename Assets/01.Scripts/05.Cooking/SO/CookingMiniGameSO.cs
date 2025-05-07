@@ -33,9 +33,25 @@ public class CookingMiniGameSO : ScriptableObject
     [field: Header("GrindData")]
     //[field: SerializeField] public CookingGrindData grindData { get; private set; }
     [field: SerializeField] public float GrindTimer { get; private set; } = 15f;
-   
+    
+    // 노트판정 횟수 기준
+    [field: SerializeField] public int PerfectCount { get; private set; } = 4;
+    [field: SerializeField] public int GoodCount { get; private set; } = 4;
+    [field: SerializeField] public int BadCount { get; private set; } = 4;
+    [field: SerializeField] public int MissCount { get; private set; } = 4;
+
+    // 노트판정 오차 기준
+    [field: SerializeField] public float PerfectDiff { get; private set; } = 0.15f;
+    [field: SerializeField] public float GoodDiff { get; private set; } = 0.3f;
+    [field: SerializeField] public float BadDiff { get; private set; } = 0.5f;
+    [field: SerializeField] public float MissDiff { get; private set; } = 0.6f;
+
+
+
     // 노트속도
     [field: SerializeField][field: Range(0f, 2f)] public float NoteSpeed { get; private set; }
+    [field: SerializeField] public float NoteTravelTime = 1.5f; // 노트가 도착까지 걸리는 시간 
+    [field: SerializeField] public float NoteRespwanTime = 2f; // 2초마다 노트 생성
 
     [field: Header("MixingBowlData")]
     [field: SerializeField] public float MixingBowlTimer { get; private set; } = 15f;
