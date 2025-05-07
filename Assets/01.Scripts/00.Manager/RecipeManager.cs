@@ -10,10 +10,7 @@ using UnityEngine;
 /// </summary>
 public class RecipeManager : MonoSingleton<RecipeManager>
 {
-    
     // 도구
-   // private Data_CookingSteps cookingSteps;
-
     private List<Data_Foods> currentIngredients; // 현재 사용중인 재료
     private int currentTool; // 현재 사용 중인 도구
     private Data_Recipes currentRecipe; // 현재 레시피
@@ -35,8 +32,9 @@ public class RecipeManager : MonoSingleton<RecipeManager>
             {"Cooking_Grind_Test", 1002 },
             {"Cooking_Mill_Test", 1003 },
             {"Cooking_Cutting_Test", 1001 },
-             {"Plate", 1008 }
-   
+            {"Plate", 1008 },
+            {"Cooking_MixingBowl_Test", 1007 }
+            //{"Cooking_Boil_Test", 1004, 1005 }
         };
 
     public void StartCooking(List<Data_Foods> ingredients, string tool)
