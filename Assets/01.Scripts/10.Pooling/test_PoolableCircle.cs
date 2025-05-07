@@ -3,11 +3,9 @@ using UnityEngine;
 
 public class test_PoolableCircle : MonoBehaviour, IPoolable
 {
-    public string ID => "circle";
+    public string ID => gameObject.name;
     public event Action<IPoolable> OnReturn;
-
     public bool CanDec => true;
-
     public float DecPeriod => 5;
 
     bool isActive;
