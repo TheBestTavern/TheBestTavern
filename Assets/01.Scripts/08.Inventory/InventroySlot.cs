@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -88,16 +89,17 @@ public class InventorySlot : MonoBehaviour, IBeginDragHandler, IEndDragHandler, 
 
         rootCanvas = GetComponentInParent<Canvas>();
 
-        // 드래그 아이콘 생성
         draggingIcon = new GameObject("DraggingIcon");
         draggingIconTransform = draggingIcon.AddComponent<RectTransform>();
         draggingIconTransform.SetParent(rootCanvas.transform, false);
-        draggingIconTransform.sizeDelta = new Vector2(64, 64); // 적절한 크기로 조정
+        draggingIconTransform.sizeDelta = new Vector2(64, 64);
 
         Image iconImage = draggingIcon.AddComponent<Image>();
         iconImage.sprite = image.sprite;
         iconImage.raycastTarget = false;
         draggingIconTransform.position = eventData.position;
+
+        eventData.pointerDrag = this.gameObject;
     }
 
     public void OnDrag(PointerEventData eventData) // 아이템 이미지만 마우스 따라서 이동
@@ -115,8 +117,8 @@ public class InventorySlot : MonoBehaviour, IBeginDragHandler, IEndDragHandler, 
             ItemStack fromItem = fromSlot.GetSlotItem();
             if (fromItem != null)
             {
-                슬롯세팅(fromItem.ID); // 이 슬롯에 세팅
-                fromSlot.슬롯비우기();  // 원래 슬롯 비우기
+                슬롯세팅(fromItem.ID); 
+                fromSlot.슬롯비우기();  
             }
         }
     }
@@ -126,6 +128,18 @@ public class InventorySlot : MonoBehaviour, IBeginDragHandler, IEndDragHandler, 
         if (draggingIcon != null)
         {
             Destroy(draggingIcon);
+        }
+
+        var results = new List<RaycastResult>();
+        EventSystem.current.RaycastAll(eventData, results);
+        foreach (var result in results)
+        {
+            BaitDropArea dropArea = result.gameObject.GetComponent<BaitDropArea>();
+            if (dropArea != null)
+            {
+                dropArea.OnDrop(eventData);
+                break;
+            }
         }
     }
 

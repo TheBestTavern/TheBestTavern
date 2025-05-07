@@ -5,7 +5,6 @@ using UnityEngine;
 public class Bait : MonoBehaviour
 {
     [Header("미끼 종류 및 효과")]
-    [SerializeField] private string baitType;
     [SerializeField] private float effectRadius = 2f;
     [SerializeField] private float lifetime = 3f;
 
