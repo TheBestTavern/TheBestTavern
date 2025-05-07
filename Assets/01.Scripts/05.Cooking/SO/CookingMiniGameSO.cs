@@ -25,12 +25,16 @@ public class CookingMiniGameSO : ScriptableObject
     [field: SerializeField] public float BoilTimer { get; private set; } = 15f;
 
 
-    [field: Header("MillData")]
+    [field: Header("MillData")] // 맷돌
     //[field: SerializeField] public CookingMillData millData { get; private set; }
     [field: SerializeField] public float MillTimer { get; private set; } = 15f;
+    [field: SerializeField] public float PerfectTime { get; private set; } = 12f;
+    [field: SerializeField] public float GoodTime { get; private set; } = 8f;
+    [field: SerializeField] public float BadTime { get; private set; } = 5f;
+    [field: SerializeField] public float FailTime { get; private set; } = 0f;
 
 
-    [field: Header("GrindData")]
+    [field: Header("GrindData")] // 절구
     //[field: SerializeField] public CookingGrindData grindData { get; private set; }
     [field: SerializeField] public float GrindTimer { get; private set; } = 15f;
     
