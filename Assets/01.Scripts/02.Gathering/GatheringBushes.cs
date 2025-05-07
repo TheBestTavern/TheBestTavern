@@ -14,7 +14,7 @@ public class GatheringBushes : GatheringProps
         //int randInt = 0;
         if (randInt == 0)
         {
-            ForestGatheringManager.Instance.OnMiniGame();
+            ForestGatheringManager.Instance.OnMiniGame("Forest_Animal_Dev");
         }
         else
         {

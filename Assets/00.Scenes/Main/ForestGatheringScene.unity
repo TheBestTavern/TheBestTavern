@@ -4787,8 +4787,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isDontDestroyOnLoad: 0
   data_Gatherings: []
-  mapController: {fileID: 209272600}
   gatheringInventoryUI: {fileID: 1981033257}
+  gatheringMapController: {fileID: 209272600}
 --- !u!4 &1853943763
 Transform:
   m_ObjectHideFlags: 0
