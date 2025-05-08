@@ -249,8 +249,8 @@ Transform:
   m_GameObject: {fileID: 204371272}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -13.8, y: 0, z: 0}
-  m_LocalScale: {x: 0.9, y: 1, z: 0}
+  m_LocalPosition: {x: -13.15, y: 0, z: 0}
+  m_LocalScale: {x: 0.856, y: 1, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 209272599}
@@ -337,8 +337,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 778164526}
   - {fileID: 204371273}
+  - {fileID: 778164526}
   - {fileID: 1416665296}
   - {fileID: 1499846125}
   - {fileID: 1419075881}
@@ -363,34 +363,34 @@ MonoBehaviour:
   gizmoColor: {r: 1, g: 0, b: 0, a: 0.3}
   spawnAreas:
   - serializedVersion: 2
-    x: -20.5
+    x: -19.6
     y: -5
-    width: 4
+    width: 3.5
     height: 2.3
   - serializedVersion: 2
     x: -13
     y: -5
-    width: 4
+    width: 3.5
     height: 2.3
   - serializedVersion: 2
-    x: -5
+    x: -6
     y: -5
-    width: 4
+    width: 3.5
     height: 2.3
   - serializedVersion: 2
-    x: 3
+    x: 2
     y: -5
-    width: 4
+    width: 3.5
     height: 2.3
   - serializedVersion: 2
-    x: 10
+    x: 9
     y: -5
-    width: 4
+    width: 3.5
     height: 2.3
   - serializedVersion: 2
-    x: 16.5
+    x: 16
     y: -5
-    width: 4
+    width: 3.5
     height: 2.3
   trees:
   - {fileID: 922330210}
@@ -2480,7 +2480,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.9, y: 1, z: 0}
+  m_LocalScale: {x: 0.856, y: 1, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 209272599}
@@ -3921,8 +3921,8 @@ Transform:
   m_GameObject: {fileID: 1416665295}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 13.8, y: 0, z: 0}
-  m_LocalScale: {x: 0.9, y: 1, z: 0}
+  m_LocalPosition: {x: 13.15, y: 0, z: 0}
+  m_LocalScale: {x: 0.856, y: 1, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 209272599}
