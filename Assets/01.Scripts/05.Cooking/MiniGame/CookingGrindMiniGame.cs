@@ -11,6 +11,7 @@ using UnityEngine.UI;
 /// </summary>
 public class CookingGrindMiniGame : CookingMiniGameBase
 {
+    double noteElapsedTime = 0d;
 
     // 노트
     [SerializeField] GameObject notePrefab = null;
@@ -71,21 +72,24 @@ public class CookingGrindMiniGame : CookingMiniGameBase
     {
         
         if (perfect >= data.PerfectCount)
-        { 
+        {
             return CookingResultGrade.Legendary; 
         }
         else if (good >= data.GoodCount)
         {
+
             return CookingResultGrade.Rare;
 
         }
         else if (bad >= data.BadCount)
         {
+
             return CookingResultGrade.Common;
 
         }
         else if (miss >= data.MissCount)
         {
+
             return CookingResultGrade.Failed;
         }
 
@@ -94,9 +98,7 @@ public class CookingGrindMiniGame : CookingMiniGameBase
 
     protected override void UpdateGamePlay()
     {
-        if(isGameOver) return;
-
-        double noteElapsedTime = 0d;
+        
         noteElapsedTime += Time.deltaTime;
 
         // 노트 총 7회 , 2초 간격으로 내려옴
@@ -106,6 +108,7 @@ public class CookingGrindMiniGame : CookingMiniGameBase
 
             if (note != null)
             {
+
                 note.Init(noteAppear.localPosition, judgeButton.transform.localPosition, data.NoteTravelTime);
                 note.Show();
             }
@@ -133,6 +136,8 @@ public class CookingGrindMiniGame : CookingMiniGameBase
                 {
                     activeNote.Hide();
                     // activeNote.gameObject.SetActive(false);
+                    CookingEffectManager.Instance.ShowJudgeText(0);
+
                     Debug.Log($"Perfect {diff}");
                     // note hit 애니메이션
                     NoteHitEffect();
@@ -145,6 +150,7 @@ public class CookingGrindMiniGame : CookingMiniGameBase
                 if (diff <= data.GoodDiff)
                 {
                     activeNote.Hide();
+                    CookingEffectManager.Instance.ShowJudgeText(1);
 
                     // activeNote.gameObject.SetActive(false);
                     Debug.Log($"Good {diff}");
@@ -162,6 +168,8 @@ public class CookingGrindMiniGame : CookingMiniGameBase
                 if (diff <= data.BadDiff)
                 {
                     activeNote.Hide();
+                    CookingEffectManager.Instance.ShowJudgeText(2);
+
                     // activeNote.gameObject.SetActive(false);
                     Debug.Log($"Bad {diff}");
 
@@ -176,6 +184,7 @@ public class CookingGrindMiniGame : CookingMiniGameBase
                 {
                     Debug.Log("Miss");
                     StartCoroutine(Delay(activeNote.gameObject, 0.3f));
+                    CookingEffectManager.Instance.ShowJudgeText(3);
 
                     // 판정 텍스트 이미지 애니메이션
                     //effect.JudgeEffect(3);
@@ -187,13 +196,15 @@ public class CookingGrindMiniGame : CookingMiniGameBase
             }
         }
 
-        // 노트 판정 시각 + 0.5f 까지 입력 없으면 무조건 Miss
+        // 노트 판정 시각 + 0.3f 까지 입력 없으면 무조건 Miss
         foreach (var note in notePool)
         {
             if (!note.NoteImage.activeInHierarchy) continue;
 
             if (Time.time > note.noteMissTime)
             {
+                CookingEffectManager.Instance.ShowJudgeText(3);
+
                 Debug.Log("Miss");
                 note.Hide();
             }

@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
+using TMPro;
 using UnityEngine;
 
 public class CookingEffectManager : MonoSingleton<CookingEffectManager>
@@ -7,6 +9,8 @@ public class CookingEffectManager : MonoSingleton<CookingEffectManager>
     //[SerializeField] private CookingEffectController controller;
 
     [field: SerializeField] public CookingEffectSO Data { get; private set; }
+    [field: SerializeField] private Transform canvasTransform;
+
 
     // 테스트용
     //[SerializeField] private GameObject ingredientPrefab;
@@ -61,6 +65,27 @@ public class CookingEffectManager : MonoSingleton<CookingEffectManager>
         {
             float force = UnityEngine.Random.Range(1f, 3f);
             rb?.AddForce(Vector3.up * force, ForceMode.Impulse);
+        }
+    }
+    // 판정 텍스트 이펙트
+    public void ShowJudgeText(int grade)
+    {
+        Dictionary<int, GameObject> gradeToText = new();
+        gradeToText[0] = Data.PerfectText;
+        gradeToText[1] = Data.GoodText;
+        gradeToText[2] = Data.BadText;
+        gradeToText[3] = Data.MissText;
+
+        if (gradeToText.TryGetValue(grade, out GameObject prefab))
+        {
+            GameObject go;
+            if (canvasTransform != null)
+            { go = Instantiate(prefab, canvasTransform); }
+            else { go = Instantiate(prefab); }
+            var text = go.GetComponent<TextMeshProUGUI>();
+            text.gameObject.SetActive(true);
+            text.DOFade(0f, 0.2f).SetDelay(0.3f).OnComplete(()=> text.gameObject.SetActive(false));  
+            
         }
     }
 }

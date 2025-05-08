@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 /// <summary>
@@ -17,6 +18,13 @@ public class CookingEffectSO : ScriptableObject
     [field: SerializeField] public GameObject SweetPotato { get; private set; }
 
     [field: Header("Camera")]
+
+    [field: Header("Text")]
+    [field: SerializeField] public GameObject PerfectText { get; private set; }
+    [field: SerializeField] public GameObject GoodText { get; private set; }
+    [field: SerializeField] public GameObject BadText { get; private set; }
+    [field: SerializeField] public GameObject MissText { get; private set; }
+
 
     [field: Header("Animation")]
     [field: SerializeField] private CookingAnimationData animationData;
