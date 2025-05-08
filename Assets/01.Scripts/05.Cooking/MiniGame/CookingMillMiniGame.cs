@@ -6,6 +6,7 @@ using UnityEngine;
 public class CookingMillMiniGame : CookingMiniGameBase
 {
    public MileStoneController mileStoneController;
+   [SerializeField] private CookingMillUI millUI;
 
     // 기준
     public int direction; // 시계 or 반시계
@@ -131,10 +132,13 @@ public class CookingMillMiniGame : CookingMiniGameBase
             float mouseSpeed = totalAngle / 0.75f;
 
             // 6. mouseSpeed (180f~250f) 사이 & 올바른 회전방향 유지한 시간도 구해야 판정 기준에 쓸 수 있음
-            if (mouseSpeed >= 180f && mouseSpeed <= 250f && JudgeDirection(deltaAngle)) // SO로 옮기기
+            if (mouseSpeed >= 200f && mouseSpeed <= 400f && JudgeDirection(deltaAngle)) // SO로 옮기기
             {
                 maintainTime += Time.deltaTime;
             }
+
+            // 
+            millUI.UpdateUI(mouseSpeed, JudgeDirection(deltaAngle));
 
             // 7.. 모든 처리 이후 초기화
             previousAngle = curAngle;
