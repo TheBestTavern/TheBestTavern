@@ -51,6 +51,7 @@ public class CookingMillMiniGame : CookingMiniGameBase
         playTime = 0f;
 
         direction = Random.Range(0, 2) == 0 ? 1 : -1; // 시계방향 1, 반시계방향 -1
+        millUI.SetDirection(direction);
     }
 
     public override void StopGame()
