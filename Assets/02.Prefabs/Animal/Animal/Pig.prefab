@@ -100,11 +100,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animalName: Pig
+  favoriteBaitIds: 938a0100978a0100
   animalSizeType: 1
-  favoriteBaits:
-  - Carrot
-  BaitEffectApplied: 0
-  captureChance: 0
   gatheringKey: 101001
 --- !u!50 &3331156974029630444
 Rigidbody2D:

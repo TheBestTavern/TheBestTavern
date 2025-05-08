@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class CaptureManager : MonoSingleton<CaptureManager>
 {
@@ -75,14 +76,14 @@ public class CaptureManager : MonoSingleton<CaptureManager>
         bool success = animalInRange.TryCapture();
         if (success)
         {
-            Debug.Log("동물 포획 성공");
-            AddItem();
+            Debug.LogError("동물 포획 성공");
+            //AddItem();
             animalInRange.DestroyAnimal();
             UnLoadMiniGame();
         }
         else
         {
-            Debug.Log("동물 포획 실패");
+            Debug.LogError("동물 포획 실패");
         }
     }
 

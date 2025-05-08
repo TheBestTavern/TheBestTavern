@@ -13,6 +13,7 @@ public class BaitThrowController : MonoBehaviour
     [SerializeField] private LineRenderer lineRenderer;
     [SerializeField] private Camera miniGameCamera;
     [SerializeField] private Image powerUI;
+    [SerializeField] private BaitDropArea baitDropArea;
 
     [Header("파워 및 각도 설정")]
     [SerializeField] private float maxPower;
@@ -24,8 +25,6 @@ public class BaitThrowController : MonoBehaviour
     private bool isIncreasing = false;
     private bool isBaitReady = false; 
     private bool readyNextFrame = false;
-
-    [SerializeField] private BaitDropArea baitDropArea;
     private ItemStack currentBait;
 
     private void Start()
@@ -67,6 +66,7 @@ public class BaitThrowController : MonoBehaviour
             currentPower = 0f;
             UpdatePowerUI(currentPower); 
             isBaitReady = false;
+            baitDropArea.ClearBait();
         }
     }
 
@@ -77,18 +77,22 @@ public class BaitThrowController : MonoBehaviour
         GameObject obj = Instantiate(baitObjectPrefab, throwPoint.position, Quaternion.identity);
         Rigidbody2D rb = obj.GetComponent<Rigidbody2D>();
         SpriteRenderer sr = obj.GetComponentInChildren<SpriteRenderer>();
+        Bait bait = obj.GetComponent<Bait>();
 
         if (sr != null)
         {
             Sprite sprite = Resources.Load<Sprite>($"Item/{currentBait.Origin.englishName}");
-            if (sprite != null) sr.sprite = sprite;
+            if (sprite != null)
+            {
+                sr.sprite = sprite;
+            }
         }
 
+        bait.SetBaitKey(currentBait.Origin.key);
         float rad = throwAngle * Mathf.Deg2Rad;
         Vector2 dir = new Vector2(Mathf.Cos(rad), Mathf.Sin(rad));
         rb.AddForce(dir.normalized * power, ForceMode2D.Impulse);
 
-        baitDropArea.UseOneBait();
     }
 
     void ShowTrajectory(float power) //던지기 궤적 함수
