@@ -57,7 +57,7 @@ public class GatheringProps : MonoBehaviour
     protected virtual void OnClickedFunc()
     {
         Debug.Log($"{gameObject.name} 클릭");
-        int itemId = ForestGatheringManager.Instance.GetRandomItemID();
+        int itemId = GatheringManager.Instance.GetRandomItemID();
         Debug.Log(itemId);
 
         if (InventoryManager.Instance.Invens[InvenType.Gathering].아이템획득(Data.GetRawItem(itemId), 1))

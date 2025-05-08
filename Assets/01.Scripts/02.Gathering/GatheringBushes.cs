@@ -11,7 +11,6 @@ public class GatheringBushes : GatheringProps
         OffMouseFunc();
         spriteRenderer.DOColor(new Color(0.5f, 0.5f, 0.5f), 0.5f);
         int randInt = Random.Range(0, 10);
-        //int randInt = 0;
         if (randInt == 0)
         {
             ForestGatheringManager.Instance.OnMiniGame("Forest_Animal_Dev");

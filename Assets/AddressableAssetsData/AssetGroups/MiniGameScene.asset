@@ -53,6 +53,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - MiniGameScene
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d00ed41f3115f0746a03cb29eb4fe189
+    m_Address: Ocean_Fishing.unity
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - MiniGameScene
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 3f946b317ceaa2747b411cad54511d5f, type: 2}
   m_SchemaSet:

@@ -6,11 +6,8 @@ using static DesignEnums;
 
 public class ForestGatheringManager : GatheringManager
 {
-    public GatheringMapController gatheringMapController;
-
     public override void Start()
     {
-        gatheringMapController.CreateMapProps();
         biome = DesignEnums.BiomeType.forest;
         base.Start();
     }

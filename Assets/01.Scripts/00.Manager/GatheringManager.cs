@@ -20,8 +20,11 @@ public class GatheringManager : MonoSingleton<GatheringManager>
 
     public GatheringInventoryUI gatheringInventoryUI;
 
+    [SerializeField] private GatheringMapController gatheringMapController;
+
     public virtual void Start()
     {
+        gatheringMapController.CreateMapProps();
         SetItem();
     }
 
