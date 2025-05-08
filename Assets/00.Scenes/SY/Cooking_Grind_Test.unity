@@ -185,6 +185,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   data: {fileID: 11400000, guid: 7c61f50033f8139428fc181562661f79, type: 2}
   effectController: {fileID: 0}
+  pestle: {fileID: 1162063696}
   notePrefab: {fileID: 1520797657532468901, guid: cb426d8526bbd3949b6542c9aeded0df, type: 3}
   noteAppear: {fileID: 27854590}
   noteDisappear: {fileID: 1483208211}
@@ -1883,6 +1884,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1580587039}
   - component: {fileID: 1580587038}
+  - component: {fileID: 1580587040}
   m_Layer: 0
   m_Name: Mortar
   m_TagString: Untagged
@@ -1928,6 +1930,18 @@ Transform:
   - {fileID: 1580587008}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1580587040
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1580587036}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d96bcdd045aabb64a8a0e8c269f3d614, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1603367875
 GameObject:
   m_ObjectHideFlags: 0

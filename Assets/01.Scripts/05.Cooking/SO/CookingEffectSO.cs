@@ -27,5 +27,7 @@ public class CookingEffectSO : ScriptableObject
 
 
     [field: Header("Animation")]
+    [field: SerializeField] public Animation MortarMoving { get; private set; }
+
     [field: SerializeField] private CookingAnimationData animationData;
 }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,6 +12,7 @@ using UnityEngine.UI;
 /// </summary>
 public class CookingGrindMiniGame : CookingMiniGameBase
 {
+    [SerializeField] private Transform pestle;
     double noteElapsedTime = 0d;
 
     // 노트
@@ -136,6 +138,7 @@ public class CookingGrindMiniGame : CookingMiniGameBase
                 {
                     activeNote.Hide();
                     // activeNote.gameObject.SetActive(false);
+                    TriggerAnimation();
                     CookingEffectManager.Instance.ShowJudgeText(0);
 
                     Debug.Log($"Perfect {diff}");
@@ -154,6 +157,7 @@ public class CookingGrindMiniGame : CookingMiniGameBase
 
                     // activeNote.gameObject.SetActive(false);
                     Debug.Log($"Good {diff}");
+                    TriggerAnimation();
 
                     // note hit 애니메이션
                     NoteHitEffect();
@@ -172,6 +176,7 @@ public class CookingGrindMiniGame : CookingMiniGameBase
 
                     // activeNote.gameObject.SetActive(false);
                     Debug.Log($"Bad {diff}");
+                    TriggerAnimation();
 
                     // 판정 텍스트 이미지 애니메이션
                     //effect.JudgeEffect(2);
@@ -228,4 +233,8 @@ public class CookingGrindMiniGame : CookingMiniGameBase
         //PlayEffect(grade);
     }
 
+    public void TriggerAnimation()
+    {
+        pestle.DOLocalMoveY(2f, 0.3f).OnComplete(() => { pestle.DOLocalMoveY(1.55f, 0.3f).OnComplete(() => pestle.DOLocalMoveY(1.79f, 0.5f)); });
+    }
 }
