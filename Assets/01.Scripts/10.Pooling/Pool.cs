@@ -1,11 +1,12 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.PlayerSettings;
 
 public interface IPool
 {
     public void ManualUpdate();
-    public Component Issue();
+    public Component Issue(Vector3 pos);
     public void Regain(IPoolable poolable);
     public void Increase();
     public void Decrease();
@@ -18,8 +19,9 @@ public interface IPoolable
     public bool CanDec { get; }
     public float DecPeriod { get; }
     public void Initialize(Action<IPoolable> a); // 초기화
-    public void OnSpawn(); // 출전
+    public void OnSpawn(Vector3 pos); // 출전
     public void OnDespawn(); // 원상복구, 집에 있을때 상태
+    public void TriggerReturn();
 }
 
 public class Pool<T> : IPool where T : MonoBehaviour, IPoolable
@@ -29,12 +31,20 @@ public class Pool<T> : IPool where T : MonoBehaviour, IPoolable
     bool canDec;
     float decPeriod;
     float remainPeriod = 0;
-    Transform tsr;
 
-    public void Init(T pref, Transform tsr)
+    bool swapTsr = false;
+    Transform despawnTsr;
+    Transform spawnTsr;
+
+    public void Init(T pref, Transform DespawnTsr, Transform SpawnTsr)
     {
         this.pref = pref;
-        this.tsr = tsr;
+        if (SpawnTsr)
+        {
+            this.spawnTsr = SpawnTsr;
+            swapTsr = true;
+        }
+        this.despawnTsr = DespawnTsr;
         this.canDec = pref.CanDec;
         this.decPeriod = pref.DecPeriod;
         this.remainPeriod = decPeriod;
@@ -55,7 +65,7 @@ public class Pool<T> : IPool where T : MonoBehaviour, IPoolable
         }
     }
 
-    public Component Issue()
+    public Component Issue(Vector3 pos)
     {
         if (!pool.TryPop(out T temp))
         {
@@ -63,7 +73,8 @@ public class Pool<T> : IPool where T : MonoBehaviour, IPoolable
             temp = pool.Pop();
         }
         temp.gameObject.SetActive(true);
-        temp.OnSpawn();
+        if (swapTsr) temp.transform.SetParent(spawnTsr);
+        temp.OnSpawn(pos);
 
         return temp; // component로 캐스팅을 해줘야할까? 안해줬을때, Manager에서 이걸 반환받았을때, 컴포넌트가 아니라 T로 받게되는 거 아닌가?
     }
@@ -72,12 +83,13 @@ public class Pool<T> : IPool where T : MonoBehaviour, IPoolable
     {
         var thing = poolable as T;
         thing.OnDespawn();
+        if (swapTsr) thing.transform.SetParent(despawnTsr);
         pool.Push(thing);
     }
 
     public void Increase()
     {
-        T temp = UnityEngine.Object.Instantiate(pref, tsr, true);
+        T temp = UnityEngine.Object.Instantiate(pref, despawnTsr, true);
         Debug.Log("오브젝트 생성");
         temp.Initialize(Regain);
         pool.Push(temp);

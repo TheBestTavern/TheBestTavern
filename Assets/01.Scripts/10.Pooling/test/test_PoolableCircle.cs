@@ -14,10 +14,10 @@ public class test_PoolableCircle : MonoBehaviour, IPoolable
         OnReturn = a;
     }
 
-    public void OnSpawn()
+    public void OnSpawn(Vector3 pos)
     {
         Debug.Log("출격");
-        transform.position = new Vector3(0, 0, 0);
+        transform.position = pos;
         isActive = true;
         flexibleTime = disappearTime;
     }
@@ -26,6 +26,11 @@ public class test_PoolableCircle : MonoBehaviour, IPoolable
     {
         isActive = false;
         gameObject.SetActive(false);
+    }
+
+    public void TriggerReturn()
+    {
+        OnReturn?.Invoke(this);
     }
 
     float disappearTime = 3;
@@ -38,7 +43,7 @@ public class test_PoolableCircle : MonoBehaviour, IPoolable
         flexibleTime -= Time.deltaTime;
         if (flexibleTime < 0)
         {
-            OnReturn?.Invoke(this);
+            TriggerReturn();
             Debug.Log("원래 자리로 복귀");
             flexibleTime = disappearTime;
         }
