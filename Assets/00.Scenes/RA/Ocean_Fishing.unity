@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 22601190}
   - component: {fileID: 22601192}
   - component: {fileID: 22601191}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Tilemap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1868,7 +1868,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 159658563}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: FishingRod
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1903,7 +1903,7 @@ GameObject:
   - component: {fileID: 225341495}
   - component: {fileID: 225341494}
   - component: {fileID: 225341493}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1978,7 +1978,7 @@ GameObject:
   - component: {fileID: 307342302}
   - component: {fileID: 307342301}
   - component: {fileID: 307342300}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: FishingLine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2130,7 +2130,7 @@ GameObject:
   m_Component:
   - component: {fileID: 451019911}
   - component: {fileID: 451019910}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: FishingController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2179,7 +2179,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 509152627}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: LineStart
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2211,7 +2211,7 @@ GameObject:
   m_Component:
   - component: {fileID: 715146142}
   - component: {fileID: 715146141}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Grid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2257,7 +2257,7 @@ GameObject:
   - component: {fileID: 820558236}
   - component: {fileID: 820558238}
   - component: {fileID: 820558237}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: FishingUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2281,7 +2281,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 70, y: 70}
+  m_AnchoredPosition: {x: 170, y: 140}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &820558237
@@ -2334,7 +2334,7 @@ GameObject:
   - component: {fileID: 916815650}
   - component: {fileID: 916815649}
   - component: {fileID: 916815652}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -2376,19 +2376,19 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0
-    y: 0
-    width: 1
-    height: 1
+    x: 0.05
+    y: 0.05
+    width: 0.9
+    height: 0.9
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
   orthographic: 1
   orthographic size: 5
-  m_Depth: -1
+  m_Depth: 2
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 64
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -2470,7 +2470,7 @@ GameObject:
   - component: {fileID: 1072356177}
   - component: {fileID: 1072356176}
   - component: {fileID: 1072356175}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: GaugeBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2545,7 +2545,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1142349414}
   - component: {fileID: 1142349415}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: TensionGauge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2598,7 +2598,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1296661613}
   - component: {fileID: 1296661614}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Rod
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2681,7 +2681,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1326879268}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Spawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2714,7 +2714,7 @@ GameObject:
   - component: {fileID: 1340112301}
   - component: {fileID: 1340112300}
   - component: {fileID: 1340112299}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: EventSystem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2781,7 +2781,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1355540673}
   - component: {fileID: 1355540674}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CatchPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2867,7 +2867,7 @@ GameObject:
   - component: {fileID: 1546094688}
   - component: {fileID: 1546094687}
   - component: {fileID: 1546094686}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2968,7 +2968,7 @@ GameObject:
   - component: {fileID: 1838248995}
   - component: {fileID: 1838248994}
   - component: {fileID: 1838248996}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Directional Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3085,7 +3085,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1939856336}
   - component: {fileID: 1939856335}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: FishingManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
