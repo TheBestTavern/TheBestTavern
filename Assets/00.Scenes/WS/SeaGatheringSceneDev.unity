@@ -8009,7 +8009,7 @@ MonoBehaviour:
   mainSceneButton: {fileID: 1926234941}
   leftButton: {fileID: 1278449178}
   rightButton: {fileID: 260953147}
-  mainCameraTransform: {fileID: 0}
+  mainCameraTransform: {fileID: 728924422}
 --- !u!224 &8427973276096639582
 RectTransform:
   m_ObjectHideFlags: 0

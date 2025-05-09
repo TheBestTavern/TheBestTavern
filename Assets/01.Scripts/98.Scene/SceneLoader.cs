@@ -60,6 +60,29 @@ public class SceneLoader : MonoSingleton<SceneLoader>
     {
         // 미니게임 씬 이름으로 불러오기
         miniGameInstance = await Addressables.LoadSceneAsync($"{miniGameSceneName}.unity", LoadSceneMode.Additive);
+
+        Camera cam = GameObject.FindWithTag("MiniGameCamera").GetComponent<Camera>();
+
+        float duration = 0.6f;
+        float time = 0f;
+
+        float finalWidth = 0.9f;
+        float height = 0.9f;
+        float y = 0.05f;
+
+        while (time < 1f)
+        {
+            time += Time.deltaTime / duration;
+            float t = Mathf.SmoothStep(0f, 1f, time);
+
+            float width = Mathf.Lerp(0f, finalWidth, t);
+            float x = 0.05f + (finalWidth - width) / 2f;
+
+            cam.rect = new Rect(x, y, width, height);
+            await UniTask.Yield();
+        }
+
+        cam.rect = new Rect(0.05f, 0.05f, 0.9f, 0.9f);
     }
 
     /// <summary>
