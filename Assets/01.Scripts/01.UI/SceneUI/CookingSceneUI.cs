@@ -150,7 +150,7 @@ public class CookingSceneUI : MonoBehaviour
         {
             isFocused = false;
 
-            curBtn.DOAnchorPos(curBtnPos, 2f);
+            curBtn.DOAnchorPos(curBtnPos, 2f).OnComplete(() => { grillMiniGameButton.transform.SetAsLastSibling(); });
             curBtn.DOScale(new Vector3(1, 1, 1), 1.5f);
             if (curBtn.gameObject.name == "GrillMiniGameButton")
             {
@@ -176,7 +176,7 @@ public class CookingSceneUI : MonoBehaviour
         curBtn = btnRect;
         curBtnPos = new Vector2(btnRect.anchoredPosition.x, btnRect.anchoredPosition.y);
 
-        button.transform.SetAsLastSibling();
+        button.transform.SetAsLastSibling();        
         btnRect.DOAnchorPos(new Vector2(0, 0), 1.5f);
         btnRect.DOScale(new Vector3(3, 3, 3), 1.5f);
         blurBackGround.gameObject.SetActive(true);
