@@ -7,6 +7,10 @@ public interface IDayCommand
 {
     public int Priority {get;}
     public Task Execute();
+    /// <summary>
+    /// return prt != null;
+    /// </summary>
+    /// <returns></returns>
     public bool isValid();
 }
 

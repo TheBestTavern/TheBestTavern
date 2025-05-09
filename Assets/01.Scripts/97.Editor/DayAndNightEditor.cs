@@ -15,6 +15,7 @@ public class DayAndNightEditor : Editor
 
         script.nightMat = (Material)EditorGUILayout.ObjectField("Night Material", script.nightMat, typeof(Material), false);
         script.process = EditorGUILayout.Slider("Process", script.process, 0f, 1f);
+        script.duration = EditorGUILayout.Slider("Duration", script.duration, 0f, 1f);
         script.saturationCurve = (AnimationCurve)EditorGUILayout.CurveField("saturationCurve", script.saturationCurve);
         script.lightnessCurve = (AnimationCurve)EditorGUILayout.CurveField("LightnessCurve", script.lightnessCurve);
 
