@@ -59,6 +59,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - MiniGameScene
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6e80c233513f7fd4085da7c4beec7654
+    m_Address: Cooking_Boil_Test.unity
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - MiniGameScene
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 3f946b317ceaa2747b411cad54511d5f, type: 2}
   m_SchemaSet:

@@ -1875,6 +1875,7 @@ MonoBehaviour:
   grindMiniGameButton: {fileID: 1929045921}
   millMiniGameButton: {fileID: 1904193666}
   cuttingMiniGameButton: {fileID: 1835725789}
+  boilMiniGameButton: {fileID: 1153014936}
   plateButton: {fileID: 379798607}
   blurBackGround: {fileID: 526851128}
 --- !u!1 &504776292
