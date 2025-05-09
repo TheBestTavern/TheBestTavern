@@ -127,11 +127,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animalName: Cow
+  favoriteBaitIds: 00000000
   animalSizeType: 1
-  favoriteBaits:
-  - Carrot
-  BaitEffectApplied: 0
-  captureChance: 0
   gatheringKey: 101001
 --- !u!70 &4376235845715228615
 CapsuleCollider2D:
