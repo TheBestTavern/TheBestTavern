@@ -56,7 +56,7 @@ public class MainSceneUI : MonoBehaviour
     // 하루 보내기 버튼 함수 
     void OnClickBedButton()
     {
-        DayManager.Instance.ExecuteCommands();
+        CommandManager.Instance.ExecuteCommands();
     }
 
     // 확인 버튼 함수

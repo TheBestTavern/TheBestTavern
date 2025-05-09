@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 [Serializable]
 public abstract class MailBoxContentBase : MonoBehaviour
@@ -17,7 +18,7 @@ public abstract class MailBoxContentBase : MonoBehaviour
     private void Start()
     {
         OnNewDay command = new(this);
-        DayManager.Instance.AddCommand(command);
+        CommandManager.Instance.AddCommand(command);
     }
 
     public virtual void OnEnable()
@@ -73,11 +74,13 @@ public abstract class MailBoxContentBase : MonoBehaviour
             this.prt = mailBox;
         }
 
-        public int Priority => 2000;
+        public int Priority => 1900;
 
-        public void Execute()
+        public Task Execute()
         {
             prt.isReadyTodaySlot = false;
+
+            return Task.CompletedTask;
         }
 
         public bool isValid()

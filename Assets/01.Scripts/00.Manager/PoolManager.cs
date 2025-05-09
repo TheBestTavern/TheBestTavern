@@ -1,124 +1,102 @@
-//using System.Collections.Generic;
-//using UnityEngine;
-//public enum PoolType
-//{
-//    Image,
-//    Slot,
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using Cysharp.Threading.Tasks;
+using UnityEngine;
+using UnityEngine.AddressableAssets;
+using static UnityEditor.PlayerSettings;
 
-//}
+public class PoolManager : MonoSingleton<PoolManager>
+{
+    Dictionary<string, IPool> pools = new();
+    Dictionary<string, (GameObject, Component)> cache = new();
 
-//public interface IPool
-//{
-//    public PoolType poolType { get; set; }
-//    public Component Issue();
-//    public void Regain(IPoolabe poolabe);
-//    public void Increase();
-//    public void Decrease();
-//}
+    public override void Init()
+    {
+        if (_isInitialized) return;
+        base.Init();
 
-//public interface IPoolabe
-//{
-//    public void Init(); // 초기화, 출전준비
-//    public void Restore(); // 원상복구, 집에 있을때 상태
-//}
+        DontDestroyOnLoad(gameObject);
+    }
 
-//[System.Serializable]
-//public class Pool<T> : MonoBehaviour, IPool where T : MonoBehaviour, IPoolabe
-//{
-//    Stack<T> pool;
-//    public PoolType poolType { get; set;}   
-//    T pref;
-//    bool canDec;
-//    float decPeriod;
-//    float remainPeriod;
+    private void Update()
+    {
+        foreach (var poolPair in pools)
+        {
+            poolPair.Value.ManualUpdate();
+        }
+    }
 
+    /// <summary>
+    /// 이미 로드된 프리팹을 풀링.
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <param name="toGet"></param> 풀링할 오브젝트 프리팹
+    /// <param name="pos"></param> 풀링 위치
+    /// <param name="tsr"></param> 아이템이 풀링돼있는 동안 부모로 만들어 줄 대상. 기본값: 매니저에 유지.
+    /// <returns></returns>
+    public T Get<T>(T toGet, Vector3 pos, Transform spawnTsr = null) where T : MonoBehaviour, IPoolable
+    {
+        if (!pools.TryGetValue(toGet.ID, out IPool value))
+        {
+            value = AddPool(toGet, spawnTsr); // 미작성
+        }
 
-//    public Pool(PoolType poolType, T pref, bool canDec = false, float decPeriod = 0, float remainPeriod = 0)
-//    {
-//        this.poolType = poolType;
-//        this.pref = pref;
-//        this.canDec = canDec;
-//        this.decPeriod = decPeriod;
-//        this.remainPeriod = remainPeriod;
-//    }
+        return value.Issue(pos) as T; // (T): 예외(InvalidCastException) 발생 vs  as T: 타입이 맞지 않으면 null 반환
+    }
 
-//    private void Update()
-//    {
-//        if (canDec)
-//        {
-//            if (remainPeriod < 0)
-//            {
-//                Decrease();
+    /// <summary>
+    /// 어드레서블로 로드 후 풀링
+    /// </summary>
+    /// <returns></returns>
+    public async Task<T> GetAddressable<T>(string prefabName, Vector3 pos, Transform spawnTsr = null) where T : MonoBehaviour, IPoolable
+    {
+        T toGet;
+        if (cache.TryGetValue(prefabName, out var tuple) && tuple.Item1 != null) // 어드레서블 메모리 해제 상황 예외처리
+        {
+            toGet = (T)tuple.Item2;
+        }
+        else
+        {
+            GameObject go = await AddressablesLoader.Instance.AddressablesLoadAsync(prefabName);
 
-//            }
-//            else
-//            {
-//                remainPeriod -= Time.deltaTime;
-//            }
-//        }
-//    }
+            if (!go.TryGetComponent<T>(out toGet))
+            {
+                Debug.LogError($"{prefabName}에 {typeof(T).Name} 컴포넌트가 없습니다.");
+                return null;
+            }
 
-//    public Component Issue()
-//    {
-//        if (pool.TryPop(out T temp))
-//        {
-//            temp.Init();
-//            return temp; // component로 캐스팅을 해줘야할까? 안해줬을때, Manager에서 이걸 반환받았을때, 컴포넌트가 아니라 T로 받게되는 거 아닌가?
-//        }
-//        else
-//        {
-//            Increase();
-//            T temp2 = pool.Pop();
-//            temp2.Init();
-//            return temp2;
-//        }
-//    }
+            cache[prefabName] = (go, toGet); // 값이 있더라도 덮어 씌움.
+        }
 
-//    public void Regain(IPoolabe poolabe)
-//    {
-//        poolabe.Restore();
-//        pool.Push((T)poolabe);
-//    }
+        return Get<T>(toGet, pos, spawnTsr);
+    }
 
-//    public void Increase()
-//    {
-//        T temp = Instantiate(pref);
-//    }
+    /// <summary>
+    /// 리소스 폴더에서 로드 후 풀링
+    /// </summary>
+    /// <returns></returns>
+    public T GetResourcesLoad<T>(string path, Vector3 pos, Transform spawnTsr = null) where T : MonoBehaviour, IPoolable
+    {
+        GameObject go = Resources.Load<GameObject>(path);
+        if (!go.TryGetComponent<T>(out T toGet))
+        {
+            Debug.LogError($"{path}에 {typeof(T).Name} 컴포넌트가 없습니다.");
+            return null;
+        }
 
-//    public void Decrease()
-//    {
-//        remainPeriod = decPeriod;
-//        Destroy(pool.Pop());
-//    }
-//}
+        return Get<T>(toGet, pos, spawnTsr);
+    }
 
-//public class PoolManager : MonoSingleton<PoolManager>
-//{
-//    Dictionary<PoolType, IPool> pools = new();
+    private IPool AddPool<T>(T toAdd, Transform spawnTsr) where T : MonoBehaviour, IPoolable
+    {
+        string name = toAdd.ID;
+        var despawnTsr = new GameObject(name).GetComponent<Transform>();
+        despawnTsr.SetParent(gameObject.transform);
 
-//    public override void Init()
-//    {
-//        if (_isInitialized) return;
-//        base.Init();
+        Pool<T> pool = new Pool<T>();
+        pool.Init(toAdd, despawnTsr, spawnTsr);
+        pools.Add(toAdd.ID, pool);
 
-//        DontDestroyOnLoad(gameObject);
-//    }
-
-//    public T Get<T>(T toGet) where T : MonoBehaviour, IPool
-//    {
-//        if(pools.TryGetValue(toGet.poolType, out IPool value))
-//        {
-//            return (T)value.Issue();
-//        }
-//        else
-//        {
-//            return 
-//        }
-//    }
-
-//    private void AddPool<T>(T toAdd) where T : MonoBehaviour, IPool
-//    {
-//        pools.Add(toAdd.poolType, new IPool)
-//    }
-//}
-
+        return pool;
+    }
+}
