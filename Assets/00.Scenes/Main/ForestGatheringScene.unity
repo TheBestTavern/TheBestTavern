@@ -357,41 +357,42 @@ MonoBehaviour:
   m_GameObject: {fileID: 209272598}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6070cdc5b24087c429fd5c18934fe698, type: 3}
+  m_Script: {fileID: 11500000, guid: ffa46b076bc37404d82802c565341af6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   gizmoColor: {r: 1, g: 0, b: 0, a: 0.3}
   spawnAreas:
   - serializedVersion: 2
-    x: -19.6
+    x: -19.7
     y: -5
-    width: 3.5
-    height: 2.3
+    width: 4
+    height: 2
   - serializedVersion: 2
     x: -13
     y: -5
-    width: 3.5
-    height: 2.3
+    width: 4
+    height: 2
   - serializedVersion: 2
     x: -6
     y: -5
-    width: 3.5
-    height: 2.3
+    width: 4
+    height: 2
   - serializedVersion: 2
     x: 2
     y: -5
-    width: 3.5
-    height: 2.3
+    width: 4
+    height: 2
   - serializedVersion: 2
     x: 9
     y: -5
-    width: 3.5
-    height: 2.3
+    width: 4
+    height: 2
   - serializedVersion: 2
-    x: 16
+    x: 15.7
     y: -5
-    width: 3.5
-    height: 2.3
+    width: 4
+    height: 2
+  propsParent: {fileID: 1499846125}
   trees:
   - {fileID: 922330210}
   - {fileID: 1625261666}
@@ -400,7 +401,6 @@ MonoBehaviour:
   fields:
   - {fileID: 233223537}
   - {fileID: 2060932916}
-  propsParent: {fileID: 1499846125}
 --- !u!1 &233223537
 GameObject:
   m_ObjectHideFlags: 0

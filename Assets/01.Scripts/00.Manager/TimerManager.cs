@@ -17,19 +17,21 @@ public class TimerManager : MonoSingleton<TimerManager>
     // 날짜 모델
     public TimerModel timerModel;
 
+    public int startyear = 1234;
+    public int startmonth = 11;
+    public int startday = 28;
+
     public override void Init()
     {
         if (_isInitialized) return;
         base.Init();
 
         DontDestroyOnLoad(this);
-        timerModel = new TimerModel(1234, 11, 26, false);
+        timerModel = new TimerModel(startyear, startmonth, startday, false);
         OnSceneMove();
 
         OnNewDay command = new(this);
         CommandManager.Instance.AddCommand(command);
-
-        GameManager.Instance.onSceneMoveAfter += OnSceneMove;
     }
 
     public void OnSceneMove() // 씬이동, 게임시작할때 한번씩 실행.

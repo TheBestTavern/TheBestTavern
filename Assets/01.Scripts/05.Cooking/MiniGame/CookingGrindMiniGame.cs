@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,13 +12,8 @@ using UnityEngine.UI;
 /// </summary>
 public class CookingGrindMiniGame : CookingMiniGameBase
 {
-
-    [SerializeField] private double noteElapsedTime = 0d; // 노트 생성 후 누적 시간
-
-
-    private float noteTravelTime = 1.5f; // 노트가 도착까지 걸리는 시간 
-
-    private float noteRespwanTime = 2f; // 2초마다 노트 생성
+    [SerializeField] private Transform pestle;
+    double noteElapsedTime = 0d;
 
     // 노트
     [SerializeField] GameObject notePrefab = null;
@@ -28,12 +24,13 @@ public class CookingGrindMiniGame : CookingMiniGameBase
 
     // 버튼 (판정)
     public Button judgeButton = null;
-
     public List<Note> notePool = new();
 
     // 이펙트
     [SerializeField] private Animator animator;
     [SerializeField] private Effect effect;
+
+    private int perfect, bad, good, miss;
 
     protected override float GetTimer()
     {
@@ -45,37 +42,10 @@ public class CookingGrindMiniGame : CookingMiniGameBase
         CookingMiniGameManager.Instance.GetCurrentMiniGame(this);
     }
 
-
     private IEnumerator Delay(GameObject note, float delay)
     {
         yield return new WaitForSeconds(delay);
         note.SetActive(false);
-    }
-
-
-    // 타이밍 판정
-    public void JudgeTiming(float time)
-    {
-        // 허용오차
-        // perfect += 0.15
-        // good 0.3
-        // bad 0.5
-        // miss 오차초과 || 미입력
-
-        foreach (var note in notePool)
-        {
-
-        }
-
-    }
-
-    // 등급 판정
-    public void JudgeGrade()
-    {
-        // 상 : perfect >=4
-        // 중 : Good >= 4
-        // 하 : Bad >= 4
-        // 실패 : Miss >= 4
     }
 
 
@@ -87,7 +57,7 @@ public class CookingGrindMiniGame : CookingMiniGameBase
     private Note SpawnNote()
     {
         Note note = Instantiate(notePrefab, noteAppear.position, Quaternion.identity, parentTransform).GetComponent<Note>();
-        note.Init(noteAppear.localPosition, judgeButton.transform.localPosition, noteTravelTime);
+        note.Init(noteAppear.localPosition, judgeButton.transform.localPosition, data.NoteTravelTime);
 
         notePool.Add(note); // notePool에 생성된 노트를 추가
 
@@ -99,18 +69,49 @@ public class CookingGrindMiniGame : CookingMiniGameBase
         animator.SetTrigger("NoteHit");
     }
 
+    // 등급 판정
+    public CookingResultGrade JudgeGrade()
+    {
+        
+        if (perfect >= data.PerfectCount)
+        {
+            return CookingResultGrade.Legendary; 
+        }
+        else if (good >= data.GoodCount)
+        {
+
+            return CookingResultGrade.Rare;
+
+        }
+        else if (bad >= data.BadCount)
+        {
+
+            return CookingResultGrade.Common;
+
+        }
+        else if (miss >= data.MissCount)
+        {
+
+            return CookingResultGrade.Failed;
+        }
+
+        return CookingResultGrade.Failed;
+    }
+
     protected override void UpdateGamePlay()
     {
+        
         noteElapsedTime += Time.deltaTime;
 
         // 노트 총 7회 , 2초 간격으로 내려옴
-        if (noteElapsedTime >= noteRespwanTime)
+        if (noteElapsedTime >= data.NoteRespwanTime)
         {
             Note note = GetNotePool();
 
             if (note != null)
             {
-                note.Init(noteAppear.localPosition, judgeButton.transform.localPosition, noteTravelTime);
+
+                note.Init(noteAppear.localPosition, judgeButton.transform.localPosition, data.NoteTravelTime);
                 note.Show();
             }
             else
@@ -133,71 +134,82 @@ public class CookingGrindMiniGame : CookingMiniGameBase
             {
                 float diff = Mathf.Abs(activeNote.noteJudgeTime - inputTiming);
 
-                if (diff <= 0.15f)
+                if (diff <= data.PerfectDiff)
                 {
                     activeNote.Hide();
                     // activeNote.gameObject.SetActive(false);
+                    TriggerAnimation();
+                    CookingEffectManager.Instance.ShowJudgeText(0);
+
                     Debug.Log($"Perfect {diff}");
                     // note hit 애니메이션
                     NoteHitEffect();
 
-
+                    perfect++;
                     // 판정 텍스트 이미지 애니메이션
                     //effect.JudgeEffect(0);
                     break;
                 }
-                if (diff <= 0.3f)
+                if (diff <= data.GoodDiff)
                 {
                     activeNote.Hide();
+                    CookingEffectManager.Instance.ShowJudgeText(1);
 
                     // activeNote.gameObject.SetActive(false);
                     Debug.Log($"Good {diff}");
+                    TriggerAnimation();
 
                     // note hit 애니메이션
                     NoteHitEffect();
+
+                    good++;
 
                     // 판정 텍스트 이미지 애니메이션
                     //effect.JudgeEffect(1);
 
                     break;
                 }
-                if (diff <= 0.5f)
+                if (diff <= data.BadDiff)
                 {
                     activeNote.Hide();
+                    CookingEffectManager.Instance.ShowJudgeText(2);
+
                     // activeNote.gameObject.SetActive(false);
                     Debug.Log($"Bad {diff}");
+                    TriggerAnimation();
 
                     // 판정 텍스트 이미지 애니메이션
                     //effect.JudgeEffect(2);
 
+                    bad++;
+
                     break;
                 }
-                if (diff <= 0.6f)
+                if (diff <= data.MissDiff)
                 {
                     Debug.Log("Miss");
-                    StartCoroutine(Delay(activeNote.gameObject, 0.2f));
+                    StartCoroutine(Delay(activeNote.gameObject, 0.3f));
+                    CookingEffectManager.Instance.ShowJudgeText(3);
 
                     // 판정 텍스트 이미지 애니메이션
                     //effect.JudgeEffect(3);
 
+                    miss++;
+
                     break;
                 }
             }
-
-            // 입력이 0.7f안에도 들어오지 않았다면 그냥 무효 처리되는 것
         }
 
-
-        // 이펙트, 판정텍스트 등 연출
-
-
-        // 노트 판정 시각 + 0.5f 까지 입력 없으면 무조건 Miss
+        // 노트 판정 시각 + 0.3f 까지 입력 없으면 무조건 Miss
         foreach (var note in notePool)
         {
             if (!note.NoteImage.activeInHierarchy) continue;
 
             if (Time.time > note.noteMissTime)
             {
+                CookingEffectManager.Instance.ShowJudgeText(3);
+
                 Debug.Log("Miss");
                 note.Hide();
             }
@@ -208,16 +220,21 @@ public class CookingGrindMiniGame : CookingMiniGameBase
     public override void StartGame()
     {
         //SpawnNote();
-        isGameOver = false;
+        //isGameOver = false;
         elapsedTimer = 0f;
         playTime = 0f;
-        timer = 15f;
+        //timer = 15f;
     }
 
     public override void StopGame()
     {
-        
+        var grade = JudgeGrade();
+        CookingMiniGameManager.Instance.SetMiniGameResult(grade);
+        //PlayEffect(grade);
     }
 
-
+    public void TriggerAnimation()
+    {
+        pestle.DOLocalMoveY(2f, 0.3f).OnComplete(() => { pestle.DOLocalMoveY(1.55f, 0.3f).OnComplete(() => pestle.DOLocalMoveY(1.79f, 0.5f)); });
+    }
 }

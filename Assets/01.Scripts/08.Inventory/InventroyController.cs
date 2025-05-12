@@ -23,8 +23,6 @@ public class InventoryController
         this.model = new InventoryModel();
         model.Init(slotCount, maxStackSize, 특정아이템정보변경);
 
-        GameManager.Instance.onSceneMoveBefore += On씬이동Before;
-        GameManager.Instance.onSceneMoveAfter += On씬이동After;
         var allViews = InventoryManager.Instance.FindInventoryView();
         On씬이동After();
     }
