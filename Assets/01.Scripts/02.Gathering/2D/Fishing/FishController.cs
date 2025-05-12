@@ -11,26 +11,19 @@ public class FishController : MonoBehaviour
     private Vector3 startPosition; // 초기 위치
     private Vector3 targetPosition; // 목표 위치 (CatchZone)
 
+    public int[] gatheringKeys;
+
     private void Start()
     {
         startPosition = transform.position;
-        // 물고기의 방향을 랜덤하게 설정
         direction = new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), 0).normalized;
     }
 
     void Update()
     {
-        // 물고기가 랜덤으로 화면을 이동
-        transform.Translate(direction * moveSpeed * Time.deltaTime);
-
-        // 화면 끝을 넘지 않도록 처리 (물고기가 화면 밖으로 나가지 않도록)
-        if (transform.position.x < -5.5f || transform.position.x > 5.5f)
+        if (FishingManager.Instance.IsFishingStarted())
         {
-            direction.x *= -1;
-        }
-        if (transform.position.y < -3.4f || transform.position.y > 5f)
-        {
-            direction.y *= -1;
+            StartFishing();
         }
 
         // 물고기의 y값에 따라 크기를 조정
@@ -48,10 +41,8 @@ public class FishController : MonoBehaviour
         transform.position = target;
     }
 
-    // IsCaught: 물고기가 CatchZone에 도달했는지 확인
     public bool IsCaught(Vector3 catchZonePosition)
     {
-        // 물고기와 CatchZone의 거리 계산 후 가까워지면 성공
         if (Vector3.Distance(transform.position, catchZonePosition) < 1f)
         {
             return true;
@@ -59,10 +50,24 @@ public class FishController : MonoBehaviour
         return false;
     }
 
-    // 물고기의 크기를 y값에 따라 조정
+    public void StartFishing()
+    {
+        // 물고기가 랜덤으로 화면을 이동
+        transform.Translate(direction * moveSpeed * Time.deltaTime);
+
+        // 화면 끝을 넘지 않도록 처리 (물고기가 화면 밖으로 나가지 않도록)
+        if (transform.position.x < -5.5f || transform.position.x > 5.5f)
+        {
+            direction.x *= -1;
+        }
+        if (transform.position.y < -2f || transform.position.y > 3f)
+        {
+            direction.y *= -1;
+        }
+    }
+
     private void AdjustFishSize()
     {
-        // y값이 클수록 작아지고, 작을수록 커지게 설정
         float scale = Mathf.Lerp(1f, 0.5f, Mathf.InverseLerp(-5f, 5f, transform.position.y)); // y값에 따른 크기 변화
         transform.localScale = new Vector3(scale, scale, 1f); // x, y 방향으로 크기 조정
     }

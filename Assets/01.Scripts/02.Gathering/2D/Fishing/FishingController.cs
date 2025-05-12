@@ -12,12 +12,16 @@ public class FishingController : MonoBehaviour
     public TensionGauge tensionGauge;
     public FishingLineController fishLineController;
 
+    [SerializeField] private FishingBaitDrop fishingBaitDrop;
+    private ItemStack currentBait;
+    private GameObject baitObject;
     private GameObject currentFish;
     private bool fishingInProgress = false;
 
     private void Start()
     {
-        fishingUI.SetActive(false);
+        fishingUI.SetActive(true);
+        SetFishing();
     }
 
     void Update()
@@ -50,9 +54,20 @@ public class FishingController : MonoBehaviour
             else if (fishController.IsCaught(catchZone.position))
             {
                 Debug.Log("물고기 성공");
-                StopFishing(true);
+                FishingSuccess();
+
             }
         }
+    }
+
+    public void SetFishing()
+    {
+        Vector3 spawnPos = fishSpawnArea.position;
+        spawnPos.y += Random.Range(-2f, 2f);
+
+        currentFish = Instantiate(fishPrefab, spawnPos, Quaternion.identity);
+        fishLineController.lineEndTarget = currentFish.transform;
+        tensionGauge.ResetGauge();
     }
 
     IEnumerator StartFishing()
@@ -62,21 +77,35 @@ public class FishingController : MonoBehaviour
 
         yield return new WaitForSeconds(Random.Range(1f, 3f)); 
 
-        Vector3 spawnPos = fishSpawnArea.position;
-        spawnPos.y += Random.Range(-2f, 2f);
+        
 
-        currentFish = Instantiate(fishPrefab, spawnPos, Quaternion.identity);
-        fishLineController.lineEndTarget = currentFish.transform;
-        tensionGauge.ResetGauge();
+        if (baitObject != null)
+        {
+            Destroy(baitObject);
+            baitObject = null;
+        }
     }
 
     void StopFishing(bool success)
     {
         if (currentFish != null)
+        {
             Destroy(currentFish);
-
+        }
         tensionGauge.ResetGauge();
         fishingUI.SetActive(false);
         fishingInProgress = false;
+    }
+
+    public void FishingSuccess()
+    {
+        StopFishing(true);
+        FishingManager.Instance.UnLoadMiniGame();
+    }
+
+    public void SetBait(GameObject baitObj, ItemStack baitData)
+    {
+        baitObject = baitObj;
+        currentBait = baitData;
     }
 }
