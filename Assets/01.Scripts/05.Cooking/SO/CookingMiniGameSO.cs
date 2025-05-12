@@ -20,9 +20,18 @@ public class CookingMiniGameSO : ScriptableObject
     [field: SerializeField] public float GrillTimer { get; private set; } = 15f;
 
 
-    [field: Header("BoilData")]
+    [field: Header("BoilData")] // 가마솥 - 끓이기
     //[field: SerializeField] public CookingBoilData boilData { get; private set; }
     [field: SerializeField] public float BoilTimer { get; private set; } = 15f;
+    [field: SerializeField] public float SpawnInterval { get; private set; } = 4f;
+    [field: SerializeField] public int PerfectBoilCount { get; private set; } = 4;
+    [field: SerializeField] public int GoodBoilCount { get; private set; } = 3;
+
+    [field: SerializeField] public int BadBoilCount { get; private set; } = 2;
+
+    [field: SerializeField] public int MissBoilCount { get; private set; } = 3;
+
+
 
 
     [field: Header("MillData")] // 맷돌
