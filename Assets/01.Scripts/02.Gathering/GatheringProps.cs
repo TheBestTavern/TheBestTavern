@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using DG.Tweening;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using static DesignEnums;
 
@@ -21,6 +22,7 @@ public class GatheringProps : MonoBehaviour
 
     private void OnMouseEnter()
     {
+        if (EventSystem.current.IsPointerOverGameObject()) return;
         if (!isClicked)
         {
             OnMouseFunc();
@@ -37,6 +39,7 @@ public class GatheringProps : MonoBehaviour
 
     private void OnMouseDown()
     {
+        if (EventSystem.current.IsPointerOverGameObject()) return;
         if (!isClicked)
         {
             OnClickedFunc();

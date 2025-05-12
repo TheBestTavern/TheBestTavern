@@ -34,6 +34,8 @@ public class CookingSceneUI : MonoBehaviour
 
     [SerializeField] private Button blurBackGround;
 
+    [SerializeField] private Canvas miniGameAnimCanvs;
+
     private RectTransform curBtn;
     private Vector2 curBtnPos;
 
@@ -60,6 +62,8 @@ public class CookingSceneUI : MonoBehaviour
         plateButton.onClick.AddListener(() => ClickToolButton("Plate"));
 
         blurBackGround.onClick.AddListener(OnClickBlurBackGround);
+
+        CookingMiniGameManager.Instance.miniGameAnim += StartMiniGame;
     }
 
     private void Start()
@@ -150,7 +154,7 @@ public class CookingSceneUI : MonoBehaviour
         {
             isFocused = false;
 
-            curBtn.DOAnchorPos(curBtnPos, 2f).OnComplete(() => { grillMiniGameButton.transform.SetAsLastSibling(); });
+            curBtn.DOAnchorPos(curBtnPos, 2f);
             curBtn.DOScale(new Vector3(1, 1, 1), 1.5f);
             if (curBtn.gameObject.name == "GrillMiniGameButton")
             {
@@ -176,7 +180,7 @@ public class CookingSceneUI : MonoBehaviour
         curBtn = btnRect;
         curBtnPos = new Vector2(btnRect.anchoredPosition.x, btnRect.anchoredPosition.y);
 
-        button.transform.SetAsLastSibling();        
+        button.transform.SetAsLastSibling();
         btnRect.DOAnchorPos(new Vector2(0, 0), 1.5f);
         btnRect.DOScale(new Vector3(3, 3, 3), 1.5f);
         blurBackGround.gameObject.SetActive(true);
@@ -193,4 +197,19 @@ public class CookingSceneUI : MonoBehaviour
     //    await UIManager.Instance.ShowPopUp(PopUpType.Alarm);
     //    UIManager.Instance.alarmPopUp.SetAlarm("음식을 선택해주세요");
     //}
+
+    public void StartMiniGame()
+    {
+        GameObject btnObj = Instantiate(curBtn.gameObject, miniGameAnimCanvs.transform.GetChild(0));
+        RectTransform btnObjTransform = btnObj.GetComponent<RectTransform>();
+        btnObjTransform.GetComponent<Image>().DOColor(Color.black, 0.5f);
+        btnObjTransform.DOScale(new Vector3(50, 50), 2).SetEase(Ease.OutExpo).OnComplete(async() =>
+        {
+            await CookingMiniGameManager.Instance.ClickStartButton();
+            btnObjTransform.GetComponent<Image>().DOFade(0f, 2f).OnComplete(()=> 
+            {
+                Destroy(btnObj);
+                });
+        });
+    }
 }

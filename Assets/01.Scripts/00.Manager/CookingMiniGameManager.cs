@@ -1,5 +1,7 @@
 
+using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using Cinemachine;
 using Cysharp.Threading.Tasks;
 using Cysharp.Threading.Tasks.Triggers;
@@ -21,6 +23,8 @@ public class CookingMiniGameManager : MonoSingleton<CookingMiniGameManager>
 
     private CookingResultGrade resultGrade;
 
+    public Action miniGameAnim;
+
     private void Start()
     {
         cookingInventoryView.OnEnableTargetSlot = SetMiniGameItem;
@@ -39,7 +43,7 @@ public class CookingMiniGameManager : MonoSingleton<CookingMiniGameManager>
         selectedCookingTool = null;
     }
 
-    public async void ClickStartButton()
+    public async Task ClickStartButton()
     {
         Debug.Log(selectedCookingTool);
         if (selectedCookingTool == "Plate")
@@ -53,11 +57,11 @@ public class CookingMiniGameManager : MonoSingleton<CookingMiniGameManager>
         }
         else
         {
-            ShowMiniGame();
+            await ShowMiniGame();
         }
     }
 
-    async private void ShowMiniGame()
+    async private Task ShowMiniGame()
     {
         await SceneLoader.Instance.LoadSceneAsyncMiniGame(selectedCookingTool);
         miniGameUI.ResetTimer();
