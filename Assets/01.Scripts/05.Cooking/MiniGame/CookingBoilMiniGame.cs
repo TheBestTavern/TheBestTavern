@@ -29,6 +29,8 @@ public class CookingBoilMiniGame : CookingMiniGameBase
     float spawnMaxTime = 2f; // 이 안에 클릭하지 않으면 사라짐
     bool isClicked = false;
 
+    [SerializeField] private Transform parent;
+
     protected override float GetTimer()
     {
         return data.BoilTimer;
@@ -77,7 +79,7 @@ public class CookingBoilMiniGame : CookingMiniGameBase
     public void SpawnStartPoint()
     {
         Vector3 pos = new Vector3(UnityEngine.Random.Range(-3f, 3f), UnityEngine.Random.Range(-2f, 2f), 0f);
-        var spawnPoint = Instantiate(startPointPrefab, pos, Quaternion.identity);
+        var spawnPoint = Instantiate(startPointPrefab, pos, Quaternion.identity, parent);
         Debug.Log(pos);
         spawnPoint.GetComponent<StartPoint>().Init(pos, OnStartPointMissed);
     }
@@ -90,7 +92,7 @@ public class CookingBoilMiniGame : CookingMiniGameBase
 
     void SpawnArrowPoint(Vector3 pos)
     {
-        GameObject arrowGo = Instantiate(arrowPrefab, pos, Quaternion.identity);
+        GameObject arrowGo = Instantiate(arrowPrefab, pos, Quaternion.identity, parent);
 
         var arrow = arrowGo.GetComponent<Arrow>();
         arrow.SpawnRandomArrow((randomPoints) =>
