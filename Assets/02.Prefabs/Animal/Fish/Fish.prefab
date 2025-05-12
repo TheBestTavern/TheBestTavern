@@ -48,7 +48,7 @@ MonoBehaviour:
   moveSpeed: 2
   resistanceSpeed: 2
   direction: {x: 0, y: 0, z: 0}
-  gatheringKeys: 
+  gatheringKeys: 898a0100938a0100978a0100
 --- !u!212 &3493186553650895008
 SpriteRenderer:
   m_ObjectHideFlags: 0

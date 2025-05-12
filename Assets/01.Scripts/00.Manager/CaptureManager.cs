@@ -77,7 +77,7 @@ public class CaptureManager : MonoSingleton<CaptureManager>
         if (success)
         {
             Debug.LogError("동물 포획 성공");
-            //AddItem();
+            AddItem();
             animalInRange.DestroyAnimal();
             UnLoadMiniGame();
         }

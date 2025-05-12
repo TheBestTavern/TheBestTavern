@@ -42,7 +42,7 @@ public class BaitDropArea : MonoBehaviour, IDropHandler, IPointerEnterHandler, I
     {
         currentBait = null;
         previewImage.sprite = null;
-        previewImage.color = new Color(1, 1, 1, 0);
+        previewImage.color = new Color(111, 111, 111, 0);
     }
 
     public void OnPointerEnter(PointerEventData eventData)

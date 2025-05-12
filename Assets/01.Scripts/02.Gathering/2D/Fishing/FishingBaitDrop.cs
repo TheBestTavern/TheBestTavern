@@ -44,7 +44,7 @@ public class FishingBaitDrop : MonoBehaviour, IDropHandler, IPointerEnterHandler
     {
         currentBait = null;
         previewImage.sprite = null;
-        previewImage.color = new Color(1, 1, 1, 0);
+        previewImage.color = new Color(111, 111, 111, 0);
 
         if (baitObjectInstance != null)
         {

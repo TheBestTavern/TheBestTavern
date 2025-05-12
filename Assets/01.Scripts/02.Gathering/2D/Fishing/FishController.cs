@@ -45,6 +45,7 @@ public class FishController : MonoBehaviour
     {
         if (Vector3.Distance(transform.position, catchZonePosition) < 1f)
         {
+            AddItemtoInventory();
             return true;
         }
         return false;
@@ -63,6 +64,32 @@ public class FishController : MonoBehaviour
         if (transform.position.y < -2f || transform.position.y > 3f)
         {
             direction.y *= -1;
+        }
+    }
+
+    public int GetRandomGatheringKey()
+    {
+        if (gatheringKeys != null && gatheringKeys.Length > 0)
+        {
+            int randomIndex = Random.Range(0, gatheringKeys.Length);
+            return gatheringKeys[randomIndex];
+        }
+        else
+        {
+            Debug.LogWarning("gatheringKeys가 비어있습니다.");
+            return -1;
+        }
+    }
+
+    protected void AddItemtoInventory()
+    {
+        if (InventoryManager.Instance.Invens[InvenType.Gathering].아이템획득(Data.GetRawItem(GetRandomGatheringKey()), 1))
+        {
+            Debug.Log("아이템 증가");
+        }
+        else
+        {
+            Debug.Log("아이템 증가 불가능");
         }
     }
 
