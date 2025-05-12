@@ -23,7 +23,7 @@ public interface IDayCommand
 
 public class CommandManager : MonoSingleton<CommandManager>
 {
-    List<IDayCommand> commands = new();
+    List<IDayCommand> commands = new(); // 우선순위 큐로 전환 고려.
     bool isReady;
 
     DayAndNightManager dayAndNightManager;
