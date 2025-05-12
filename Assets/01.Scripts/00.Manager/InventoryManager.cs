@@ -17,7 +17,7 @@ public class InventoryManager : MonoSingleton<InventoryManager>
 
         DontDestroyOnLoad(this);
         InventoryManager.Instance.CreateInventory(InvenType.Player, 54, 10);
-        InventoryManager.Instance.CreateInventory(InvenType.Gathering, 6, 10);
+        InventoryManager.Instance.CreateInventory(InvenType.Gathering, 6, 5);
     }
 
     public Dictionary<InvenType, InventoryController> Invens { get; private set; } = new();
