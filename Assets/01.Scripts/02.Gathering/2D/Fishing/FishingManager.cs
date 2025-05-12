@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FishingManager : MonoSingleton<FishingManager>
 {
-    public TensionGauge tensionGauge;
+    public TensionGaugeController tensionGauge;
     public FishingLineController fishingLineController;
     [SerializeField] private GameObject fishingRod;
     public bool fishingStart = false;

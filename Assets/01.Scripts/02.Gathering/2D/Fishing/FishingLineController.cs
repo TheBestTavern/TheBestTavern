@@ -9,7 +9,7 @@ public class FishingLineController : MonoBehaviour
     private LineRenderer lineRenderer;
 
     public float shakeIntensity = 0.5f;
-    public TensionGauge tensionGauge;
+    public TensionGaugeController tensionGauge;
 
     void Start()
     {

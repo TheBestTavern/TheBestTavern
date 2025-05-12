@@ -4,14 +4,16 @@ using UnityEngine;
 
 public class FishController : MonoBehaviour
 {
-    public float moveSpeed = 3f; // 물고기의 기본 이동 속도
-    public float resistanceSpeed = 2f; // 저항 속도 (Space를 눌렀을 때 물고기가 저항함)
-    public Vector3 direction; // 물고기 방향 (랜덤)
+    [Header("물고기 설정")]
+    [SerializeField] private float moveSpeed = 3f; // 물고기의 기본 이동 속도
+    [SerializeField] private int[] gatheringKeys;
+    [SerializeField] private float resistanceSpeed;
+    public float resistanceChance = 0.3f; // 저항 확률 (0.3 = 30%)
+    private float resistanceCooldown = 1f; // 저항 시도 간격
+    private float lastResistanceTime = 0f;
 
+    private Vector3 direction; // 물고기 방향 (랜덤)
     private Vector3 startPosition; // 초기 위치
-    private Vector3 targetPosition; // 목표 위치 (CatchZone)
-
-    public int[] gatheringKeys;
 
     private void Start()
     {
@@ -25,7 +27,6 @@ public class FishController : MonoBehaviour
         {
             StartFishing();
         }
-
         // 물고기의 y값에 따라 크기를 조정
         AdjustFishSize();
     }
@@ -33,10 +34,19 @@ public class FishController : MonoBehaviour
     // PullToward: 낚시대를 끌어당기는 기능
     public void PullToward(Vector3 catchZonePosition)
     {
-        // CatchZone 위치로 물고기를 끌어당김
-        // 저항이 있을 경우 천천히 이동하도록 조정
-        float step = moveSpeed * Time.deltaTime; // 이동 속도
+        float step = moveSpeed * Time.deltaTime;
 
+        // 일정 시간마다 저항을 시도
+        if (Time.time - lastResistanceTime > resistanceCooldown)
+        {
+            lastResistanceTime = Time.time;
+            if (Random.value < resistanceChance) // 확률적으로 저항
+            {
+                Vector3 awayFromZone = (transform.position - catchZonePosition).normalized;
+                transform.Translate(awayFromZone * resistanceSpeed * Time.deltaTime);
+                return; 
+            }
+        }
         Vector3 target = Vector3.MoveTowards(transform.position, catchZonePosition, step);
         transform.position = target;
     }
@@ -81,7 +91,7 @@ public class FishController : MonoBehaviour
         }
     }
 
-    protected void AddItemtoInventory()
+    private void AddItemtoInventory()
     {
         if (InventoryManager.Instance.Invens[InvenType.Gathering].아이템획득(Data.GetRawItem(GetRandomGatheringKey()), 1))
         {

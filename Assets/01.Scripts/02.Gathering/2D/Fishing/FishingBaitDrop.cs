@@ -6,14 +6,15 @@ using UnityEngine.UI;
 
 public class FishingBaitDrop : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPointerExitHandler
 {
+    [Header("아이템 Drop 설정")]
     [SerializeField] private Image previewImage;
     [SerializeField] private Image dropAreaImage;
+
+    [Header("컨트롤러 설정")]
     [SerializeField] private FishingController fishingController;
-    [SerializeField] private GameObject baitPrefab;
-    [SerializeField] private Transform baitSpawnPoint;
-    private GameObject baitObjectInstance;
+
     private InventorySlot previousSlot;
-    public ItemStack currentBait;
+    private ItemStack currentBait;
 
     public void OnDrop(PointerEventData eventData)
     {
@@ -25,7 +26,6 @@ public class FishingBaitDrop : MonoBehaviour, IDropHandler, IPointerEnterHandler
                 previousSlot.GetSlotItem()?.Add(1, 10);
                 previousSlot.슬롯갱신();
             }
-
             currentBait = draggedSlot.GetSlotItem();
             currentBait?.Subtract(1);
             draggedSlot.슬롯갱신();
@@ -45,12 +45,6 @@ public class FishingBaitDrop : MonoBehaviour, IDropHandler, IPointerEnterHandler
         currentBait = null;
         previewImage.sprite = null;
         previewImage.color = new Color(111, 111, 111, 0);
-
-        if (baitObjectInstance != null)
-        {
-            Destroy(baitObjectInstance);
-            baitObjectInstance = null;
-        }
     }
 
     public void OnPointerEnter(PointerEventData eventData)

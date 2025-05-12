@@ -2228,7 +2228,7 @@ MonoBehaviour:
   fishPrefab: {fileID: 2230436364054991810, guid: ffbe15a380a3a6941a724a92af575bf2, type: 3}
   fishSpawnArea: {fileID: 1326879268}
   catchZone: {fileID: 1355540673}
-  tensionGauge: {fileID: 1142349415}
+  tensionGaugeController: {fileID: 1142349415}
   fishLineController: {fileID: 307342300}
   fishingBaitDrop: {fileID: 504074745}
 --- !u!4 &451019911
@@ -2338,8 +2338,6 @@ MonoBehaviour:
   previewImage: {fileID: 330872598}
   dropAreaImage: {fileID: 330872598}
   fishingController: {fileID: 451019910}
-  baitPrefab: {fileID: 0}
-  baitSpawnPoint: {fileID: 0}
 --- !u!1 &509152626
 GameObject:
   m_ObjectHideFlags: 0

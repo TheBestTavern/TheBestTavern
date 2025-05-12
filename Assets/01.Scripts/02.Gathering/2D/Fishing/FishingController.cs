@@ -5,16 +5,18 @@ using UnityEngine.UI;
 
 public class FishingController : MonoBehaviour
 {
-    public GameObject fishingUI;
-    public GameObject fishPrefab;
-    public Transform fishSpawnArea;
-    public Transform catchZone;
-    public TensionGauge tensionGauge;
-    public FishingLineController fishLineController;
+    [Header("낚시 설정")]
+    [SerializeField] private GameObject fishingUI;
+    [SerializeField] private GameObject fishPrefab;
+    [SerializeField] private Transform fishSpawnArea;
+    [SerializeField] private Transform catchZone;
 
+    [Header("컨트롤러 설정")]
+    [SerializeField] private TensionGaugeController tensionGaugeController;
+    [SerializeField] private FishingLineController fishLineController;
     [SerializeField] private FishingBaitDrop fishingBaitDrop;
+
     private ItemStack currentBait;
-    private GameObject baitObject;
     private GameObject currentFish;
     private bool fishingInProgress = false;
 
@@ -38,14 +40,14 @@ public class FishingController : MonoBehaviour
             if (Input.GetKey(KeyCode.Space))
             {
                 fishController.PullToward(catchZone.position);
-                tensionGauge.IncreaseGauge();
+                tensionGaugeController.IncreaseGauge();
             }
             else
             {
-                tensionGauge.DecreaseGauge();
+                tensionGaugeController.DecreaseGauge();
             }
 
-            if (tensionGauge.IsOverloaded())
+            if (tensionGaugeController.IsOverloaded())
             {
                 Debug.Log("게이지 과부하 실패");
                 StopFishing(false);
@@ -59,13 +61,13 @@ public class FishingController : MonoBehaviour
         }
     }
 
-    public void SetFishing()
+    private void SetFishing()
     {
         Vector3 spawnPos = fishSpawnArea.position;
 
         currentFish = Instantiate(fishPrefab, spawnPos, Quaternion.identity);
         fishLineController.lineEndTarget = currentFish.transform;
-        tensionGauge.ResetGauge();
+        tensionGaugeController.ResetGauge();
     }
 
     IEnumerator StartFishing()
@@ -80,18 +82,18 @@ public class FishingController : MonoBehaviour
         }
     }
 
-    void StopFishing(bool success)
+    private void StopFishing(bool success)
     {
         if (currentFish != null)
         {
             Destroy(currentFish);
         }
-        tensionGauge.ResetGauge();
+        tensionGaugeController.ResetGauge();
         fishingUI.SetActive(false);
         fishingInProgress = false;
     }
 
-    public void FishingSuccess()
+    private void FishingSuccess()
     {
         StopFishing(true);
         FishingManager.Instance.UnLoadMiniGame();
