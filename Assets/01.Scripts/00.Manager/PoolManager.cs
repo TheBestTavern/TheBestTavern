@@ -57,7 +57,7 @@ public class PoolManager : MonoSingleton<PoolManager>
         }
         else
         {
-            GameObject go = await AddressablesLoader.Instance.AddressablesLoadAsync(prefabName);
+            GameObject go = await AddressablesLoader.Instance.AddressablesLoadAsync<GameObject>(prefabName);
 
             if (!go.TryGetComponent<T>(out toGet))
             {

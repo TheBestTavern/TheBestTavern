@@ -54,7 +54,7 @@ public class NPCArea : MonoBehaviour
             slot.Init(i, this);
             slotPool.Add(i, slot);
         }
-        Debug.Log($"npc슬롯 {npcNumber}개 생성 완료");
+        //Debug.Log($"npc슬롯 {npcNumber}개 생성 완료");
 
         OnNewDay command = new(this);
         CommandManager.Instance.AddCommand(command);
@@ -193,7 +193,7 @@ public class NPCArea : MonoBehaviour
             {
                 prt.HideNPC(key);
             }
-            Debug.Log("NPC Area 비우기");
+            //Debug.Log("NPC Area 비우기");
         }
 
         public bool isValid()

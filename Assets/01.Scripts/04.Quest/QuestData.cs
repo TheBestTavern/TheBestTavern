@@ -26,7 +26,7 @@ public class QuestData
 
     public void Init()
     {
-        Debug.Log("퀘스트 인스턴스 생성");
+        //Debug.Log("퀘스트 인스턴스 생성");
         Quest quest;
         foreach (Data_Quest item in DataManager.Instance.DataLoader_Quest.ItemsList)
         {
@@ -118,7 +118,7 @@ public class QuestData
                 prt.onSpawnNPC?.Invoke();
                 spawnNPCs.Clear();
             }
-            Debug.Log("진행중 퀘스트 체크");
+            //Debug.Log("진행중 퀘스트 체크");
 
         }
 
@@ -141,7 +141,7 @@ public class QuestData
                     prt.TodayAvailableQuest.Add(item.Key);
                 }
             }
-            Debug.Log("오늘의 퀘스트 받아오기");
+            //Debug.Log("오늘의 퀘스트 받아오기");
 
         }
 

@@ -76,7 +76,7 @@ public class OnCommandEnd : IDayCommand
 
     public Task Execute()
     {
-        Debug.Log("하루 명령 끝");
+        //Debug.Log("하루 명령 끝");
 
         return Task.CompletedTask;
     }
@@ -93,7 +93,7 @@ public class OnCommandStart : IDayCommand
 
     public Task Execute()
     {
-        Debug.Log("하루 명령 시작");
+        //Debug.Log("하루 명령 시작");
         DayAndNightManager.Instance.TriggerTimeProcess(1);
         return Task.CompletedTask;
     }

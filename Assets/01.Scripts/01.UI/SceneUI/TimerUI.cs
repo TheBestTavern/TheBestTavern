@@ -9,12 +9,12 @@ using UnityEngine;
 public class TimerUI : MonoBehaviour
 {
     // 날짜 텍스트 
-    [SerializeField] private TextMeshProUGUI dayText;
+    [SerializeField] private TextMeshProUGUI Text;
 
 
     // 날짜 설정 함수 
-    public void SetDay(string day)
+    public void SetTimer(string day, string season)
     {
-        dayText.text = day;
+        Text.text = $"{day} {season}";
     }
 }

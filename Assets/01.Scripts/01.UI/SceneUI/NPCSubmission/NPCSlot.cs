@@ -20,7 +20,7 @@ public class NPCSlot : MonoBehaviour
         this.npcArea = npcArea;
         btn.onClick.AddListener(OnClickBtn);
         transform.gameObject.SetActive(false);
-        Debug.Log("슬롯의 켜짐상태:" + gameObject.activeSelf); // 테스트용
+        //Debug.Log("슬롯의 켜짐상태:" + gameObject.activeSelf); // 테스트용
         messagePivot.gameObject.SetActive(false);
     }
 

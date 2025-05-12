@@ -11,13 +11,5 @@ public class ForestGatheringManager : GatheringManager
         biome = DesignEnums.BiomeType.forest;
         base.Start();
     }
-
-    public async void OnExitGathering()
-    {
-        for(int i = 0; i < 10; i++)
-        {
-            await CommandManager.Instance.ExecuteCommands();
-        }
-    }
 }
 

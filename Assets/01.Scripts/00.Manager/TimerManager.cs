@@ -30,8 +30,10 @@ public class TimerManager : MonoSingleton<TimerManager>
         timerModel = new TimerModel(startyear, startmonth, startday, false);
         OnSceneMove();
 
-        OnNewDay command = new(this);
-        CommandManager.Instance.AddCommand(command);
+        OnNewDay_DayPass command1 = new(this);
+        CommandManager.Instance.AddCommand(command1);
+        OnNewDay_SetTimeUI command2 = new(this);
+        CommandManager.Instance.AddCommand(command2);
     }
 
     public void OnSceneMove() // 씬이동, 게임시작할때 한번씩 실행.
@@ -56,29 +58,47 @@ public class TimerManager : MonoSingleton<TimerManager>
     //}
 
     // 날짜 바꾸기 함수
-    public void DayChange(int day)
+    public void DaysPass(int day)
     {
         // 모델에서 날짜 변경 
         timerModel.DayChange(day);
-        // UI에서 날짜 변경 
-        ChangeDayUI();
     }
 
     // 하루 보내기 함수 
     public void OneDayPass()
     {
-        DayChange(1);
+        DaysPass(1);
         Debug.Log("1일 경과");
     }
 
     // 날짜 UI 변경 함수 
-    private void ChangeDayUI()
+    public void ChangeDayUI()
     {
         // 날짜 포멧 불러오기
         string day = timerModel.GetFormatDay();
 
+        string season;
+        switch (CalendarManager.Instance.CurrentSeasonType.ToString())
+        {
+            case "spring":
+                season = "봄";
+                break;
+            case "summer":
+                season = "여름";
+                break;
+            case "fall":
+                season = "가을";
+                break;
+            case "winter":
+                season = "겨울";
+                break;
+            default:
+                season = "Error";
+                break;
+        }
+
         // 날짜 UI 설정 
-        timerUI.SetDay(day);
+        timerUI.SetTimer(day, season);
     }
 
     // 오늘 날짜 불러오기 함수
@@ -87,11 +107,11 @@ public class TimerManager : MonoSingleton<TimerManager>
         return timerModel.dateTime;
     }
 
-    public class OnNewDay : IDayCommand
+    public class OnNewDay_DayPass : IDayCommand
     {
         TimerManager prt;
 
-        public OnNewDay(TimerManager timerManager)
+        public OnNewDay_DayPass(TimerManager timerManager)
         {
             this.prt = timerManager;
         }
@@ -101,6 +121,30 @@ public class TimerManager : MonoSingleton<TimerManager>
         public Task Execute()
         {
             prt.OneDayPass();
+
+            return Task.CompletedTask;
+        }
+
+        public bool isValid()
+        {
+            return prt != null;
+        }
+    }
+
+    public class OnNewDay_SetTimeUI : IDayCommand
+    {
+        TimerManager prt;
+
+        public OnNewDay_SetTimeUI(TimerManager timerManager)
+        {
+            this.prt = timerManager;
+        }
+
+        public int Priority => 1990;
+
+        public Task Execute()
+        {
+            prt.ChangeDayUI();
 
             return Task.CompletedTask;
         }

@@ -121,7 +121,7 @@ public class QuestManager : MonoSingleton<QuestManager>
                 ///*  테스트용 */
 
             }
-            Debug.Log("퀘스트 대기열 체크");
+            //Debug.Log("퀘스트 대기열 체크");
         }
 
         public bool isValid()
