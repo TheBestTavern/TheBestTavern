@@ -20,32 +20,18 @@ public class FishingBaitDrop : MonoBehaviour, IDropHandler, IPointerEnterHandler
         InventorySlot draggedSlot = eventData.pointerDrag?.GetComponent<InventorySlot>();
         if (draggedSlot != null && draggedSlot.HasItem)
         {
-            // 기존 미끼 되돌리기
             if (currentBait != null && previousSlot != null)
             {
                 previousSlot.GetSlotItem()?.Add(1, 10);
                 previousSlot.슬롯갱신();
             }
 
-            // 기존 미끼 오브젝트 제거
-            if (baitObjectInstance != null)
-            {
-                Destroy(baitObjectInstance);
-            }
-
-            // 미끼 설정
             currentBait = draggedSlot.GetSlotItem();
             currentBait?.Subtract(1);
             draggedSlot.슬롯갱신();
             previewImage.sprite = Resources.Load<Sprite>($"Item/{currentBait.Origin.englishName}");
             previewImage.color = Color.white;
             previousSlot = draggedSlot;
-
-            // 🧠 미끼 오브젝트 생성
-            baitObjectInstance = Instantiate(baitPrefab, baitSpawnPoint.position, Quaternion.identity);
-
-            // 🎯 FishingController로 전달 (ItemStack + GameObject)
-            fishingController.SetBait(baitObjectInstance, currentBait);
         }
     }
 
