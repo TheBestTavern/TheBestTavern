@@ -50,7 +50,6 @@ public class UIManager : MonoSingleton<UIManager>, IPopupManager
 
         DontDestroyOnLoad(this);
         GetReadyIDs(PopupIDs, 1000, 9999);
-        GameManager.Instance.onSceneMoveAfter += OnSceneMove;
     }
 
     void GetReadyIDs(Stack<int> IDs, int from, int to)

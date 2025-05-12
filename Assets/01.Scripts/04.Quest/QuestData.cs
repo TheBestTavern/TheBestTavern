@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -35,7 +36,7 @@ public class QuestData
 
         // 커맨드 등록
         OnNewDay command = new(this);
-        DayManager.Instance.AddCommand(command);
+        CommandManager.Instance.AddCommand(command);
     }
 
     public void AcceptQuest(int questID)
@@ -74,10 +75,12 @@ public class QuestData
 
         public int Priority => 1500;
 
-        public void Execute()
+        public Task Execute()
         {
             CheckAcceptedQuests();
             TakeTodayAvailableQuest();
+
+            return Task.CompletedTask;
         }
 
         public void CheckAcceptedQuests()

@@ -19,6 +19,7 @@ public class GatheringInventoryUI : InventoryViewLoose
             {
                 ItemStack item = slot.Value.GetSlotItem();
                 InventoryManager.Instance.Invens[InvenType.Player].아이템획득(Data.GetRawItem(item.Origin.key), item.Count);
+                InventoryManager.Instance.Invens[InvenType.Gathering].아이템잃음(Data.GetRawItem(item.Origin.key), item.Count);
             }
         }
     }

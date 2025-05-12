@@ -1,16 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class BaitThrowController : MonoBehaviour
 {
     [Header("프리팹 및 위치 설정")]
-    [SerializeField] private List<GameObject> baitPrefabs;
+    [SerializeField] private GameObject baitObjectPrefab; // Generic bait prefab
     [SerializeField] private Transform throwPoint;
     [SerializeField] private LineRenderer lineRenderer;
     [SerializeField] private Camera miniGameCamera;
     [SerializeField] private Image powerUI;
+    [SerializeField] private BaitDropArea baitDropArea;
 
     [Header("파워 및 각도 설정")]
     [SerializeField] private float maxPower;
@@ -20,9 +23,9 @@ public class BaitThrowController : MonoBehaviour
 
     private float currentPower = 0f;
     private bool isIncreasing = false;
-    private int currentBaitIndex = -1; 
     private bool isBaitReady = false; 
     private bool readyNextFrame = false;
+    private ItemStack currentBait;
 
     private void Start()
     {
@@ -42,7 +45,7 @@ public class BaitThrowController : MonoBehaviour
 
         if (!isBaitReady) return;
 
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButton(1))
         {
             if (isIncreasing)
             {
@@ -56,28 +59,40 @@ public class BaitThrowController : MonoBehaviour
             UpdatePowerUI(currentPower);
         }
 
-        if (Input.GetMouseButtonUp(0))
+        if (Input.GetMouseButtonUp(1))
         {
             Throw(currentPower);
             HidePreview();
             currentPower = 0f;
             UpdatePowerUI(currentPower); 
             isBaitReady = false;
-            currentBaitIndex = -1;
+            baitDropArea.ClearBait();
         }
     }
 
     void Throw(float power)
     {
-        if (currentBaitIndex < 0 || currentBaitIndex >= baitPrefabs.Count) return;
+        if (baitObjectPrefab == null || currentBait == null) return;
 
-        GameObject prefab = baitPrefabs[currentBaitIndex];
-        GameObject obj = Instantiate(prefab, throwPoint.position, Quaternion.identity);
+        GameObject obj = Instantiate(baitObjectPrefab, throwPoint.position, Quaternion.identity);
         Rigidbody2D rb = obj.GetComponent<Rigidbody2D>();
+        SpriteRenderer sr = obj.GetComponentInChildren<SpriteRenderer>();
+        Bait bait = obj.GetComponent<Bait>();
 
+        if (sr != null)
+        {
+            Sprite sprite = Resources.Load<Sprite>($"Item/{currentBait.Origin.englishName}");
+            if (sprite != null)
+            {
+                sr.sprite = sprite;
+            }
+        }
+
+        bait.SetBaitKey(currentBait.Origin.key);
         float rad = throwAngle * Mathf.Deg2Rad;
         Vector2 dir = new Vector2(Mathf.Cos(rad), Mathf.Sin(rad));
         rb.AddForce(dir.normalized * power, ForceMode2D.Impulse);
+
     }
 
     void ShowTrajectory(float power) //던지기 궤적 함수
@@ -106,11 +121,11 @@ public class BaitThrowController : MonoBehaviour
         lineRenderer.enabled = false;
     }
 
-    public void SetBaitIndex(int index)
+    public void SetBaitIndex(ItemStack bait)
     {
-        currentBaitIndex = index;
+        currentBait = bait;
         readyNextFrame = true;
-        Debug.Log("미끼 장전 완료: " + index);
+        Debug.Log("미끼 설정: " + currentBait.Origin.englishName);
     }
 
     void UpdatePowerUI(float power)
@@ -140,4 +155,6 @@ public class BaitThrowController : MonoBehaviour
             isIncreasing = true;
         }
     }
+
+
 }

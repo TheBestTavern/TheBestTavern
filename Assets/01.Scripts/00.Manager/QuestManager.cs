@@ -29,7 +29,7 @@ public class QuestManager : MonoSingleton<QuestManager>
 
         // 커맨드 등록
         OnNewDay command = new(this);
-        DayManager.Instance.AddCommand(command);
+        CommandManager.Instance.AddCommand(command);
     }
 
     // 퀘스트 수령 조건 판단
@@ -78,10 +78,12 @@ public class QuestManager : MonoSingleton<QuestManager>
 
         public int Priority => 200;
 
-        public void Execute()
+        public Task Execute()
         {
             prt.JustCompleteQuests.Clear();
             CheckQuestCheckQueue();
+
+            return Task.CompletedTask;
         }
 
         void CheckQuestCheckQueue()

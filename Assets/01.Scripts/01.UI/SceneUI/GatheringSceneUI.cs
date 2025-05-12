@@ -70,9 +70,9 @@ public class GatheringSceneUI : MonoBehaviour
         if (isCameraMoving)
             return;
 
-        Vector3 pos = mainCameraTransform.position + Vector3.left * 14.12f;
+        Vector3 pos = mainCameraTransform.position + Vector3.left * 13.15f;
 
-        if (pos.x < -14.13f)
+        if (pos.x < -13.15f)
             return;
 
         MoveCamera(pos);
@@ -82,9 +82,9 @@ public class GatheringSceneUI : MonoBehaviour
         if (isCameraMoving)
             return;
 
-        Vector3 pos = mainCameraTransform.position + Vector3.right * 14.12f;
+        Vector3 pos = mainCameraTransform.position + Vector3.right * 13.15f;
 
-        if (pos.x > 14.13f)
+        if (pos.x > 13.15f)
             return;
 
         MoveCamera(pos);

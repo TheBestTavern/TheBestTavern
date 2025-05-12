@@ -14,12 +14,13 @@ public class CookingInventoryView : InventoryViewLoose
     [SerializeField] Button startMiniGameBtn;
     [SerializeField] Image btnImage;
     [SerializeField] Material grayscaleMaterial;
-    [SerializeField] private Image ItemImage;
+    [SerializeField] private ItemImage itemImage;
 
     protected override void OnEnable()
     {
         base.OnEnable();
-        startMiniGameBtn.onClick.AddListener(CookingMiniGameManager.Instance.ClickStartButton);
+        startMiniGameBtn.onClick.AddListener(CookingMiniGameManager.Instance.miniGameAnim.Invoke);
+        //startMiniGameBtn.onClick.AddListener(CookingMiniGameManager.Instance.ClickStartButton);
         startMiniGameBtn.onClick.AddListener(() => gameObject.SetActive(false));
         DisableButton();
     }
@@ -95,6 +96,10 @@ public class CookingInventoryView : InventoryViewLoose
                 minTargetingNum = 1;
                 maxTargetingNum = 1;
                 break;
+            case "Cooking_Boil_Test":
+                minTargetingNum = 1;
+                maxTargetingNum = 1;
+                break;
             case "Plate":
                 minTargetingNum = 2;
                 maxTargetingNum = 2;
@@ -105,7 +110,7 @@ public class CookingInventoryView : InventoryViewLoose
         SetAbleButton();
     }
 
-    public override void 아이템타게팅(int index)
+    public async override void 아이템타게팅(int index)
     {
         base.아이템타게팅(index);
 
@@ -113,15 +118,17 @@ public class CookingInventoryView : InventoryViewLoose
 
         //CookingMiniGameManager.Instance.SetMiniGameItem(item);
 
-        ItemImage.gameObject.SetActive(true);
-        ItemImage.sprite = index2Slots[index].image.sprite;
+        //var pooledImage = PoolManager.Instance.Get<ItemImage>(itemImage, index2Slots[index].GetComponent<RectTransform>().position, transform);
+        var pooledImage = await PoolManager.Instance.GetAddressable<ItemImage>("ItemImage.prefab", index2Slots[index].GetComponent<RectTransform>().position, transform);
+        pooledImage.gameObject.SetActive(true);
+        pooledImage.sprite = index2Slots[index].image.sprite;
 
-        RectTransform rect = ItemImage.GetComponent<RectTransform>();
+        RectTransform rect = pooledImage.GetComponent<RectTransform>();
         rect.position = index2Slots[index].GetComponent<RectTransform>().position;
         rect.DOScale(new Vector3(2f, 2f, 2f), 1.5f);
         rect.DOAnchorPos(new Vector2(0, 0), 1.5f).OnComplete(() =>
         {
-            ItemImage.gameObject.SetActive(false);
+            pooledImage.TriggerReturn();
             rect.localScale = new Vector3(1, 1, 1);
         });
     }

@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using DG.Tweening;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -56,7 +57,7 @@ public class NPCArea : MonoBehaviour
         Debug.Log($"npc슬롯 {npcNumber}개 생성 완료");
 
         OnNewDay command = new(this);
-        DayManager.Instance.AddCommand(command);
+        CommandManager.Instance.AddCommand(command);
     }
 
     private void ShowNPC(List<int> NPCKeys)
@@ -178,10 +179,12 @@ public class NPCArea : MonoBehaviour
 
         public int Priority => 500;
 
-        public void Execute()
+        public Task Execute()
         {
             HideNPCs();
             prt.setNPCCount = false;
+
+            return Task.CompletedTask;
         }
 
         public void HideNPCs()

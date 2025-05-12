@@ -15,10 +15,8 @@ public class GameManager : MonoSingleton<GameManager>
         NPCManager.Instance.Init();
         TimerManager.Instance.Init();
         InventoryManager.Instance.Init();
+        DayAndNightManager.Instance.Init();
 
-        DayManager.Instance.ExecuteCommands(1001); 
+        CommandManager.Instance.ExecuteCommands(1001); 
     }
-
-    public void TriggerSceneMoveAfterEvents() => onSceneMoveAfter?.Invoke();
-    public void TriggerSceneMoveBeforeEvents() => onSceneMoveBefore?.Invoke();
 }

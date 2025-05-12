@@ -9,7 +9,6 @@ public class BaitInventory : MonoBehaviour
 
     public void SelectBait(int index)
     {
-        baitThrowController.SetBaitIndex(index);
     }
 
 }

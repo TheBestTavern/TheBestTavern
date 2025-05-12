@@ -13,7 +13,7 @@ public class Animal : MonoBehaviour
 {
     [Header("동물 설정")]
     public string animalName;
-    public string[] favoriteBaits;
+    public int[] favoriteBaitIds;
     public AnimalSizeType animalSizeType;
 
     [Header("아이템 설정")]
@@ -25,14 +25,14 @@ public class Animal : MonoBehaviour
     private float captureChance = 0f;
     private bool canBeCaptured = false;
 
-    public void ReactToBait(string baitType, Vector3 baitPosition)
+    public void ReactToBait(int baitID, Vector3 baitPosition)
     {
-        foreach (string favorite in favoriteBaits)
+        foreach (int favoriteId in favoriteBaitIds)
         {
-            if (favorite == baitType)
+            if (favoriteId == baitID)
             {
                 ApplyBaitEffect();
-                Debug.Log($"{animalName}가 {baitType} 미끼에 반응함!");
+                Debug.LogError($"{animalName}가 ID {baitID} 미끼에 반응함!");
                 break;
             }
         }

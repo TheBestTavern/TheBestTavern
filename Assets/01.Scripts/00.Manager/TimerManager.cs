@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
@@ -16,19 +17,21 @@ public class TimerManager : MonoSingleton<TimerManager>
     // 날짜 모델
     public TimerModel timerModel;
 
+    public int startyear = 1234;
+    public int startmonth = 11;
+    public int startday = 28;
+
     public override void Init()
     {
         if (_isInitialized) return;
         base.Init();
 
         DontDestroyOnLoad(this);
-        timerModel = new TimerModel(1234, 11, 26, false);
+        timerModel = new TimerModel(startyear, startmonth, startday, false);
         OnSceneMove();
 
         OnNewDay command = new(this);
-        DayManager.Instance.AddCommand(command);
-
-        GameManager.Instance.onSceneMoveAfter += OnSceneMove;
+        CommandManager.Instance.AddCommand(command);
     }
 
     public void OnSceneMove() // 씬이동, 게임시작할때 한번씩 실행.
@@ -66,7 +69,6 @@ public class TimerManager : MonoSingleton<TimerManager>
     {
         DayChange(1);
         Debug.Log("1일 경과");
-
     }
 
     // 날짜 UI 변경 함수 
@@ -96,9 +98,11 @@ public class TimerManager : MonoSingleton<TimerManager>
 
         public int Priority => 1000;
 
-        public void Execute()
+        public Task Execute()
         {
             prt.OneDayPass();
+
+            return Task.CompletedTask;
         }
 
         public bool isValid()
@@ -106,6 +110,4 @@ public class TimerManager : MonoSingleton<TimerManager>
             return prt != null;
         }
     }
-
-    //public class OnSceneMove : 
 }
