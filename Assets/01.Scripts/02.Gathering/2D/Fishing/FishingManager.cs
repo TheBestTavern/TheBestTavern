@@ -14,9 +14,9 @@ public class FishingManager : MonoSingleton<FishingManager>
 
     }
 
-    public bool IsFishingStarted()
+    public void BeginFishing()
     {
-        return fishingStart;
+        fishingStart = true;
     }
 
     public void EndFishing() 

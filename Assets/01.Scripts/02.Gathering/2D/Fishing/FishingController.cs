@@ -71,12 +71,12 @@ public class FishingController : MonoBehaviour
     IEnumerator StartFishing()
     {
         fishingInProgress = true;
-        FishingManager.Instance.IsFishingStarted();
         yield return new WaitForSeconds(Random.Range(1f, 3f));
 
+        FishingManager.Instance.BeginFishing();
         if (currentBait != null)
         {
-            currentBait = null;
+            fishingBaitDrop.ClearBait();
         }
     }
 
