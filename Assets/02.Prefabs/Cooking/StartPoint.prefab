@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: -8235178684549178840}
   - component: {fileID: 3003152109037975214}
   - component: {fileID: -5695433246944552908}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: StartPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -147,7 +147,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1639882832608527940}
   - component: {fileID: 950399943964424218}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
