@@ -9,6 +9,8 @@ public class StartSceneUI : MonoBehaviour
     [SerializeField] private Button gameStartButton;
     void Start()
     {
+        UIManager.Instance.startSceneUI = this;
+
         gameStartButton.onClick.AddListener(OnClickGameStartButton);
     }
 

@@ -46,6 +46,8 @@ public class CookingSceneUI : MonoBehaviour
 
     private void Awake()
     {
+        UIManager.Instance.cookingSceneUI = this;
+
         // 메인 씬으로 돌아가기 버튼 이벤트 리스너 추가
         mainSceneButton.onClick.AddListener(OnClickMainSceneButton);
         // 굽기 미니게임 시작 버튼 이벤트 리스너 추가
@@ -85,9 +87,9 @@ public class CookingSceneUI : MonoBehaviour
     async void OnClickMainSceneButton()
     {
         // 확인 팝업 불러오기 
-        await UIManager.Instance.ShowPopUp(PopUpType.Confirm);
+        await PopUpManager.Instance.ShowPopUp(PopUpType.Confirm);
         // 확인 팝업 설정
-        UIManager.Instance.confirmPopUp.SetConfirm("마당으로 이동하시겠습니까?", ConfirmFunc);
+        PopUpManager.Instance.confirmPopUp.SetConfirm("마당으로 이동하시겠습니까?", ConfirmFunc);
     }
 
     void ClickToolButton(string s)

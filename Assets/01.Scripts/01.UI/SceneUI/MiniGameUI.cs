@@ -18,6 +18,8 @@ public class MiniGameUI : MonoBehaviour
 
     private void Awake()
     {
+        UIManager.Instance.miniGameUI = this;
+
         // 미니게임 닫기 버튼 클릭 이벤트 리스너 추가 
         closeButton.onClick.AddListener(OnClickCloseButton);
     }
