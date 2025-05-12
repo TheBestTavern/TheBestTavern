@@ -156,17 +156,22 @@ public class CookingSceneUI : MonoBehaviour
         {
             isFocused = false;
 
-            curBtn.DOAnchorPos(curBtnPos, 2f);
-            curBtn.DOScale(new Vector3(1, 1, 1), 1.5f);
-            if (curBtn.gameObject.name == "GrillMiniGameButton")
-            {
-                curBtn.DORotate(new Vector3(0, 0, -40), 1.5f);
-            }
+            ButtonsBack();
 
             OnClickBG();
-            blurBackGround.gameObject.SetActive(false);
         }
         //CookingMiniGameManager.Instance.SetMiniGameItem();
+    }
+
+    public void ButtonsBack()
+    {
+        curBtn.DOAnchorPos(curBtnPos, 2f);
+        curBtn.DOScale(new Vector3(1, 1, 1), 1.5f);
+        if (curBtn.gameObject.name == "GrillMiniGameButton")
+        {
+            curBtn.DORotate(new Vector3(0, 0, -40), 1.5f);
+        }
+        blurBackGround.gameObject.SetActive(false);
     }
 
     // 확인 팝업 함수
