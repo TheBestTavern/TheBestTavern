@@ -21,7 +21,7 @@ public class FishController : MonoBehaviour
 
     void Update()
     {
-        if (FishingManager.Instance.IsFishingStarted())
+        if (FishingManager.Instance.fishingStart)
         {
             StartFishing();
         }

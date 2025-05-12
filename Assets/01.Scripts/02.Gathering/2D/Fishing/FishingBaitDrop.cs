@@ -32,6 +32,7 @@ public class FishingBaitDrop : MonoBehaviour, IDropHandler, IPointerEnterHandler
             previewImage.sprite = Resources.Load<Sprite>($"Item/{currentBait.Origin.englishName}");
             previewImage.color = Color.white;
             previousSlot = draggedSlot;
+            fishingController.SetBait(currentBait);
         }
     }
 

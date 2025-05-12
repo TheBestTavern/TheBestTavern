@@ -26,9 +26,8 @@ public class FishingController : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F) && !fishingInProgress)
+        if (Input.GetKeyDown(KeyCode.F) && !fishingInProgress && currentBait != null)
         {
-            fishingUI.SetActive(true);
             StartCoroutine(StartFishing());
         }
 
@@ -63,7 +62,6 @@ public class FishingController : MonoBehaviour
     public void SetFishing()
     {
         Vector3 spawnPos = fishSpawnArea.position;
-        spawnPos.y += Random.Range(-2f, 2f);
 
         currentFish = Instantiate(fishPrefab, spawnPos, Quaternion.identity);
         fishLineController.lineEndTarget = currentFish.transform;
@@ -73,16 +71,12 @@ public class FishingController : MonoBehaviour
     IEnumerator StartFishing()
     {
         fishingInProgress = true;
-        fishingUI.SetActive(true);
+        FishingManager.Instance.IsFishingStarted();
+        yield return new WaitForSeconds(Random.Range(1f, 3f));
 
-        yield return new WaitForSeconds(Random.Range(1f, 3f)); 
-
-        
-
-        if (baitObject != null)
+        if (currentBait != null)
         {
-            Destroy(baitObject);
-            baitObject = null;
+            currentBait = null;
         }
     }
 
@@ -103,9 +97,9 @@ public class FishingController : MonoBehaviour
         FishingManager.Instance.UnLoadMiniGame();
     }
 
-    public void SetBait(GameObject baitObj, ItemStack baitData)
+    public void SetBait(ItemStack bait)
     {
-        baitObject = baitObj;
-        currentBait = baitData;
+        currentBait = bait;
+        Debug.Log("미끼 설정: " + currentBait.Origin.englishName);
     }
 }
