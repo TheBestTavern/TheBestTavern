@@ -2155,6 +2155,7 @@ MonoBehaviour:
   catchZone: {fileID: 1355540673}
   tensionGauge: {fileID: 1142349415}
   fishLineController: {fileID: 307342300}
+  fishingBaitDrop: {fileID: 0}
 --- !u!4 &451019911
 Transform:
   m_ObjectHideFlags: 0
@@ -2615,7 +2616,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.18, y: 1.82, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 159658563}
@@ -2661,8 +2662,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 100
-  m_Sprite: {fileID: 7482667652216324306, guid: 94a54f86a72e8694c8aa588b785e9213, type: 3}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 096f40cf7ee7f96409e3a76ba1d3aa64, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -2797,7 +2798,7 @@ Transform:
   m_GameObject: {fileID: 1355540672}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.72, z: 0}
+  m_LocalPosition: {x: 0.15, y: -2.25, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2844,8 +2845,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 90
-  m_Sprite: {fileID: -2413806693520163455, guid: fe84b338701b9784da8589faec52c727, type: 3}
-  m_Color: {r: 0, g: 0.09729433, b: 1, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 01d80e9912bd6c3439fbe305fbed22f5, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -3108,6 +3109,7 @@ MonoBehaviour:
   tensionGauge: {fileID: 1142349415}
   fishingLineController: {fileID: 307342300}
   fishingRod: {fileID: 0}
+  fishingStart: 0
 --- !u!4 &1939856336
 Transform:
   m_ObjectHideFlags: 0
