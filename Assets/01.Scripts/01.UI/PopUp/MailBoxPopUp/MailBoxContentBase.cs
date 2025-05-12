@@ -74,7 +74,7 @@ public abstract class MailBoxContentBase : MonoBehaviour
             this.prt = mailBox;
         }
 
-        public int Priority => 1900;
+        public int Priority => 1800;
 
         public Task Execute()
         {

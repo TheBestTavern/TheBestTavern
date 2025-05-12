@@ -11,6 +11,16 @@ using UnityEngine.SceneManagement;
 /// </summary>
 public class SceneLoader : MonoSingleton<SceneLoader>
 {
+    public override void Init()
+    {
+        if(_isInitialized) return;
+        base.Init();
+
+        DontDestroyOnLoad(gameObject);
+    }
+
+    BaseScene currentScene;
+
     // 로딩 UI 클래스
     LoadingUI loadingUI;
 
@@ -28,10 +38,10 @@ public class SceneLoader : MonoSingleton<SceneLoader>
             // Addressables 초기화
             await Addressables.InitializeAsync().ToUniTask();
 
+        currentScene?.OnEixtScene();
+
         // 로딩 UI 불러오기
         await ShowLoadingUI();
-
-        GameManager.Instance.TriggerSceneMoveBeforeEvents();
 
         // 씬 불러오기 
         var loadScene = Addressables.LoadSceneAsync($"{sceneName}.unity");
@@ -45,8 +55,10 @@ public class SceneLoader : MonoSingleton<SceneLoader>
         }
 
         await loadScene;
+        currentScene = FindObjectOfType<BaseScene>();
 
-        GameManager.Instance.TriggerSceneMoveAfterEvents();
+        currentScene?.OnEnterScene();
+
         // 로딩 UI 없애기
         await HideLoadingUI();
     }
@@ -92,3 +104,4 @@ public class SceneLoader : MonoSingleton<SceneLoader>
         Destroy(loadingUI.gameObject);
     }
 }
+

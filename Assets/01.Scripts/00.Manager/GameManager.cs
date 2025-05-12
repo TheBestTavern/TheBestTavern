@@ -19,7 +19,4 @@ public class GameManager : MonoSingleton<GameManager>
 
         CommandManager.Instance.ExecuteCommands(1001); 
     }
-
-    public void TriggerSceneMoveAfterEvents() => onSceneMoveAfter?.Invoke();
-    public void TriggerSceneMoveBeforeEvents() => onSceneMoveBefore?.Invoke();
 }

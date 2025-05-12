@@ -7,12 +7,19 @@ public interface IDayCommand
 {
     public int Priority {get;}
     public Task Execute();
-    /// <summary>
-    /// return prt != null;
-    /// </summary>
-    /// <returns></returns>
     public bool isValid();
 }
+
+/* Priority : commands
+0 : CommandManager : command 시작 
+200 : Questmanager : 오늘 완료한 퀘스트 체크
+500 : NpcArea : 표시된 NPC 숨기기
+1000 : TimerManager : 하루가 지나감.
+1500 : QuestData : 진행중인 퀘스트 트리거 확인, 오늘의 퀘스트 받아오기
+1900 : MailBoxContentBase : isReadyTodaySlot false로 돌리기
+1800 : Calendarmanager : 오늘이 무슨날인지 체크.
+2000 : CommandManager : command끝 
+*/
 
 public class CommandManager : MonoSingleton<CommandManager>
 {
