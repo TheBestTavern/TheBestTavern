@@ -11,21 +11,7 @@ public class CookingEffectController : MonoBehaviour
     [field:SerializeField] public CookingEffectSO Data { get; private set; }
 
     // 테스트용
-    [SerializeField] private GameObject sweetPotatosPrefab;
-
-    
-    // 수정예정
-
-    private void Awake()
-    {
-        
-        sweetPotatosPrefab = Instantiate(sweetPotatosPrefab);
-        Color initialColor = new Color32(255, 243, 183, 255);
-        var renderer = sweetPotatosPrefab.GetComponentInChildren<MeshRenderer>();
-
-        renderer.sharedMaterial.color = initialColor;
-
-    }
+    //[SerializeField] private GameObject ingredientPrefab;
 
     public void PlayBlackSmoke()
     {
@@ -49,17 +35,22 @@ public class CookingEffectController : MonoBehaviour
     public void CookingGrillEffect(int matchCount)
     {
         //색이 진해지는 연출
+        GameObject prefab = Instantiate(Data.SweetPotato);
 
-        var renderer = sweetPotatosPrefab.GetComponentInChildren<MeshRenderer>();
+        Color initialColor = new Color32(255, 243, 183, 255);
+        var renderer = prefab.GetComponentInChildren<MeshRenderer>();
 
-        
+        renderer.sharedMaterial.color = initialColor;
+
+        //var renderer = ingredientPrefab.GetComponentInChildren<MeshRenderer>();
+
         if (renderer != null)
         {
             Color cookedColor = new Color32(255, 205, 0, 255);
             renderer.sharedMaterial.color = Color.Lerp(renderer.sharedMaterial.color, cookedColor, (float)matchCount / 7);
         }
 
-        Rigidbody[] rbs = sweetPotatosPrefab.GetComponentsInChildren<Rigidbody>();
+        Rigidbody[] rbs = prefab.GetComponentsInChildren<Rigidbody>();
         foreach (var rb in rbs)
         {
             float force = UnityEngine.Random.Range(1f, 3f);

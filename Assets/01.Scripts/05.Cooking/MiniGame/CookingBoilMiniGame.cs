@@ -2,9 +2,13 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
+
 
 public class CookingBoilMiniGame : CookingMiniGameBase
 {
+    [SerializeField] private Transform scoop;
+
     // 참조
     //public StartPoint startPoint;
     public GameObject startPointPrefab;
@@ -122,4 +126,9 @@ public class CookingBoilMiniGame : CookingMiniGameBase
         
     }
 
+
+    public void TriggerAnimation()
+    {
+        scoop.DOLocalMoveY(2f, 0.3f).OnComplete(() => { scoop.DOLocalMoveY(1.55f, 0.3f).OnComplete(() => scoop.DOLocalMoveY(1.79f, 0.5f)); });
+    }
 }
