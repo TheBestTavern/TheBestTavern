@@ -215,6 +215,7 @@ public class CookingSceneUI : MonoBehaviour
             await CookingMiniGameManager.Instance.ClickStartButton();
             btnObjTransform.GetComponent<Image>().DOFade(0f, 2f).OnComplete(()=> 
             {
+                isFocused = false;
                 Destroy(btnObj);
                 });
         });

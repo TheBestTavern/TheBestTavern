@@ -23,6 +23,8 @@ public class GatheringSceneUI : MonoBehaviour
     [SerializeField] private Transform mainCameraTransform;
     private bool isCameraMoving = false;
 
+    [SerializeField] private GameObject miniGameBackGround;
+
     private void Awake()
     {
         UIManager.Instance.gatheringSceneUI = this;
@@ -100,5 +102,10 @@ public class GatheringSceneUI : MonoBehaviour
         {
             isCameraMoving = false;
         });
+    }
+
+    public void SetMiniGameBackGround(bool active)
+    {
+        miniGameBackGround.SetActive(active);
     }
 }

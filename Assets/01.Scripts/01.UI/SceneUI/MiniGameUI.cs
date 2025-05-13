@@ -29,6 +29,7 @@ public class MiniGameUI : MonoBehaviour
     {
         // 미니게임 닫기 
         CookingMiniGameManager.Instance.CloseMiniGame();
+        UIManager.Instance.cookingSceneUI.deselectTool?.Invoke();
     }
 
     // 타이머 업데이트 (남은시각, 게임 자체 제한시간)
