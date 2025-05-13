@@ -13,6 +13,7 @@ using UnityEngine.UI;
 public class CookingGrindMiniGame : CookingMiniGameBase
 {
     [SerializeField] private Transform pestle;
+    [SerializeField] private Transform content;
     double noteElapsedTime = 0d;
 
     // 노트
@@ -216,7 +217,6 @@ public class CookingGrindMiniGame : CookingMiniGameBase
         }
 
     }
-
     public override void StartGame()
     {
         //SpawnNote();
@@ -235,6 +235,10 @@ public class CookingGrindMiniGame : CookingMiniGameBase
 
     public void TriggerAnimation()
     {
-        pestle.DOLocalMoveY(2f, 0.3f).OnComplete(() => { pestle.DOLocalMoveY(1.55f, 0.3f).OnComplete(() => pestle.DOLocalMoveY(1.79f, 0.5f)); });
+        pestle.DOLocalMoveY(2f, 0.3f).OnComplete(() => 
+        { pestle.DOLocalMoveY(1.3f, 0.1f); content.DOShakeScale(0.3f, 0.1f).OnComplete(() => 
+        pestle.DOLocalMoveY(1.79f, 0.5f)); });
+        //pestle.DOLocalMoveY(1.4f, 0.1f).OnComplete(() => pestle.DOLocalMoveY(1.79f, 0.5f)); 
+        //content.DOShakeScale(0.3f, 0.5f);
     }
 }
