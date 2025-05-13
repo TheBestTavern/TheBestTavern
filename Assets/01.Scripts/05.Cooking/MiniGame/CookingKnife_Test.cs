@@ -12,11 +12,11 @@ using UnityEngine;
 public class CookingKnife_Test : MonoBehaviour
 {
     //[SerializeField] private Rigidbody rb;
-    [SerializeField] private CookingKnife_Test knife;
+    [SerializeField] private Transform knife;
 
     [SerializeField] private Material cutMaterial; // 잘린 단면의 메테리얼
 
-    private bool isSlicing = false;
+    [SerializeField] private bool isSlicing = false;
 
     private bool canSlice = true;
 
@@ -38,7 +38,7 @@ public class CookingKnife_Test : MonoBehaviour
     // 바운드 계산
     public void GetBounds()
     {
-       
+
     }
     public void TrySliceObject()
     {
@@ -46,16 +46,20 @@ public class CookingKnife_Test : MonoBehaviour
 
         Collider[] hits = Physics.OverlapSphere(transform.position, 0.5f);
 
-        foreach ( var hit in hits )
+        foreach (var hit in hits)
         {
             ISlicable sliceObject = hit.GetComponent<ISlicable>();
 
             if (sliceObject != null)
             {
                 isSlicing = true;
+
+                
+                StartSlicing();
                 SliceObject(hit.gameObject, cutMaterial);
                 Destroy(hit.gameObject);
-                isSlicing = false;
+
+                //isSlicing = false;
                 break;
             }
         }
@@ -69,7 +73,7 @@ public class CookingKnife_Test : MonoBehaviour
         {
             GameObject upper = slicedObj.CreateUpperHull(obj, material);
             GameObject lower = slicedObj.CreateLowerHull(obj, material);
-            
+
             var upperCollider = upper.GetComponent<Collider>();
             if (upperCollider == null)
             {
@@ -81,7 +85,7 @@ public class CookingKnife_Test : MonoBehaviour
 
             if (upper.GetComponent<ISlicable>() == null)
             {
-                upper.AddComponent<CookingSlice>(); 
+                upper.AddComponent<CookingSlice>();
             }
 
             // 잘린 조각
@@ -92,7 +96,7 @@ public class CookingKnife_Test : MonoBehaviour
             pieceRb.isKinematic = false;
             pieceRb.mass = 1f;
             //pieceRb.useGravity = true;
-            pieceRb.AddForce((piece.transform.position - transform.position).normalized *0.01f , ForceMode.Impulse);
+            pieceRb.AddForce((piece.transform.position - transform.position).normalized * 0.01f, ForceMode.Impulse);
 
             // 잘리고 남은 조각
             upper.transform.position = obj.transform.position;
@@ -123,17 +127,19 @@ public class CookingKnife_Test : MonoBehaviour
     public void MoveKnife()
     {
         Collider[] hits = Physics.OverlapSphere(transform.position, 0.5f);
-
+        Debug.Log($"[Knife] OverlapSphere hit 수: {hits.Length}");
         foreach (var hit in hits)
         {
+            Debug.Log($"[Knife] 감지된 오브젝트: {hit.name}");
             CookingSlice sliceobject = hit.GetComponent<CookingSlice>();
+            //Debug.Log(sliceobject.name);
             if (sliceobject != null)
             {
                 Renderer renderer = sliceobject.GetComponent<Renderer>();
 
                 if (renderer != null)
                 {
-                    
+
                     Bounds bounds = renderer.bounds;
 
                     if (bounds.size.x < 0.1f)
@@ -168,17 +174,31 @@ public class CookingKnife_Test : MonoBehaviour
         }
     }
 
+    private async void StartSlicing()
+    {
+        //yield return KnifeAnimation().WaitForCompletion();
+        //yield return knife.DOLocalMoveY(0.5f, 0.3f).OnComplete(() => { knife.DOLocalMoveY(0.3f, 0.3f).OnComplete(() => knife.DOLocalMoveY(0.43f, 0.5f)); });
+
+
+        await DOTween.Sequence().Append(knife.DOLocalMoveY(0.5f, 0.3f))
+        .Append(knife.DOLocalMoveY(0.3f, 0.3f))
+        .Append(knife.DOLocalMoveY(0.43f, 0.5f))
+        .AsyncWaitForCompletion();
+
+        isSlicing = false;
+    }
     public void KnifeAnimation()
     {
-
+        knife.DOLocalMoveY(0.5f, 0.3f).OnComplete(() => { knife.DOLocalMoveY(0.3f, 0.3f).OnComplete(() => knife.DOLocalMoveY(0.43f, 0.5f)); });
     }
-
     
 
     private void Update()
     {
-       
+        if (isSlicing) return;
+
         MoveKnife();
+
 
         if (Input.GetKeyDown(KeyCode.Space))
         {

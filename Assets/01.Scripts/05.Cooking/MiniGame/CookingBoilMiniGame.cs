@@ -45,14 +45,21 @@ public class CookingBoilMiniGame : CookingMiniGameBase
     private void Awake()
     {
         CookingMiniGameManager.Instance.GetCurrentMiniGame(this);
+        
     }
 
     public override void StartGame()
     {
-        StartPoint.OnClickStartPoint += SpawnArrowPoint;
+        StartPoint.OnClickStartPoint -= SpawnArrowPoint;
+        StartPoint.OnClickStartPoint += SpawnArrowPoint; 
+        drawLine = FindObjectOfType<DrawLine>();
+
     }
 
-
+    private void OnDestroy()
+    {
+        StartPoint.OnClickStartPoint -= SpawnArrowPoint;
+    }
 
     protected override void UpdateGamePlay()
     {
@@ -91,6 +98,17 @@ public class CookingBoilMiniGame : CookingMiniGameBase
 
     void SpawnArrowPoint(Vector3 pos)
     {
+        if (drawLine == null || drawLine.Equals(null))
+        {
+            drawLine = FindObjectOfType<DrawLine>();
+
+            if (drawLine == null || drawLine.Equals(null))
+            {
+                Debug.LogError("❌ drawLine is null or missing (파괴된 참조 포함)");
+                return;
+            }
+        }
+
         GameObject arrowGo = Instantiate(arrowPrefab, pos, Quaternion.identity, parent);
 
         var arrow = arrowGo.GetComponent<Arrow>();

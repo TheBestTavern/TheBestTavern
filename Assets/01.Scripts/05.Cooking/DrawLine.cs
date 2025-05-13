@@ -22,6 +22,8 @@ public class DrawLine : MonoBehaviour
 
     private Action<List<Vector2>> onFinish;
 
+    private Coroutine coroutine;
+
     public void DrawingLine(List<Vector2> arrowLine, float timeLimit, Action<List<Vector2>> callback)
     {
         if (mousePoints.Count > 0) 
@@ -29,18 +31,28 @@ public class DrawLine : MonoBehaviour
         mousePoints.Clear();
         }
 
-        if (line != null ) { line = null; }
+        //if (line != null ) { line = null; }
         onFinish = callback;
         canDraw = true;
-        StartCoroutine(EndDrawTime(timeLimit));
+        if (coroutine != null) { StopCoroutine(coroutine); }
+        coroutine = StartCoroutine(EndDrawTime(timeLimit));
+    }
+
+    void OnDestroy()
+    {
+        StopAllCoroutines();
+        onFinish = null;
+        line = null;
     }
 
     private IEnumerator EndDrawTime(float time)
     {
         yield return new WaitForSeconds(time);
+
+        if (this == null) yield break;
         canDraw = false;
         onFinish?.Invoke(mousePoints);
-        if (line != null) Destroy(line.gameObject);
+        //if (line != null) Destroy(line.gameObject);
     }
 
     private void Update()

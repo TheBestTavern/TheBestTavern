@@ -549,7 +549,7 @@ Transform:
   m_GameObject: {fileID: 914381938}
   serializedVersion: 2
   m_LocalRotation: {x: 0.24358895, y: -0, z: -0, w: 0.9698786}
-  m_LocalPosition: {x: 0, y: 2.05, z: -2.45}
+  m_LocalPosition: {x: 0, y: 1.7, z: -2.02}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1273,7 +1273,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <Data>k__BackingField: {fileID: 11400000, guid: f6a8c5dd76913144e9bd8bf777b6bc54, type: 2}
-  sweetPotatosPrefab: {fileID: 0}
 --- !u!4 &1917111615
 Transform:
   m_ObjectHideFlags: 0

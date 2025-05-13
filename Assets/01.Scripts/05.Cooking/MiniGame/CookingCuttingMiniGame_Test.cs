@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CookingCuttingMiniGame_Test : CookingMiniGameBase
 {
@@ -10,8 +11,7 @@ public class CookingCuttingMiniGame_Test : CookingMiniGameBase
     }
     public override void StartGame()
     {
-        timer = 15f;
-  
+ 
     }
 
     public override void StopGame()

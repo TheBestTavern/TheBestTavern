@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class TensionGauge : MonoBehaviour
+public class TensionGaugeController : MonoBehaviour
 {
     [Header("게이지 설정")]
     public float currentValue = 0f;
