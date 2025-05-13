@@ -14,6 +14,7 @@ public class CaptureManager : MonoSingleton<CaptureManager>
     [SerializeField] private float captureRadius = 5f;
     private Animal animalInRange;
     public int animalItemKey;
+    public bool success;
 
     protected override void Awake()
     {
@@ -71,7 +72,7 @@ public class CaptureManager : MonoSingleton<CaptureManager>
             return;
         }
 
-        bool success = animalInRange.TryCapture();
+        success = animalInRange.TryCapture();
         if (success)
         {
             Debug.LogError("동물 포획 성공");
@@ -94,6 +95,11 @@ public class CaptureManager : MonoSingleton<CaptureManager>
     {
         //animalItemKey = animalInRange.gatheringKey;
         return animalInRange.gatheringKey;
+    }
+
+    public bool GetResult()
+    {
+        return success;
     }
 
     private void EscapeFromAnimal()

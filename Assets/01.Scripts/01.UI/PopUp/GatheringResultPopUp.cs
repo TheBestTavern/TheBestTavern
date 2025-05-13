@@ -48,23 +48,17 @@ public class GatheringResultPopUp : BasePopUp
 
     public void ShowResultText()
     {
-        var result = CookingMiniGameManager.Instance.GetMiniGameResult();
+        bool result = CaptureManager.Instance.GetResult();
 
-        // 결과에 따라 성공/실패 텍스트 활성
-        switch (result)
+        if (result)
         {
-            case CookingResultGrade.Legendary:
-            case CookingResultGrade.Rare:
-            case CookingResultGrade.Common:
-                successText.gameObject.SetActive(true);
-                failText.gameObject.SetActive(false);
-                break;
-
-            case CookingResultGrade.Failed:
-                successText.gameObject.SetActive(false);
-                failText.gameObject.SetActive(true);
-                itemImage.gameObject.SetActive(false);
-                break;
+            successText.gameObject.SetActive(true);
+            failText.gameObject.SetActive(false);
+        }
+        else
+        {
+            successText.gameObject.SetActive(false);
+            failText.gameObject.SetActive(true);
         }
     }
 
@@ -75,7 +69,7 @@ public class GatheringResultPopUp : BasePopUp
         Debug.Log($"최종 아이템 키 : {itemKey}");
         if (itemKey == -1)
         {
-            Debug.Log("요리 실패해서 이름 안 뜸");
+            Debug.Log("포획 실패");
             itemNameText.gameObject.SetActive(false);
             return;
         }
