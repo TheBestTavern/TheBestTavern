@@ -14,12 +14,6 @@ public class StartSceneUI : MonoBehaviour
         gameStartButton.onClick.AddListener(OnClickGameStartButton);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     private async void OnClickGameStartButton()
     {
         await SceneLoader.Instance.LoadSceneAsync("MainScene");

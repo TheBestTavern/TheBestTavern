@@ -255,7 +255,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: The Best Tavern
+  m_text: "\uCD5C\uACE0\uC758 \uC8FC\uB9C9"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8178b5d5ebd11394bac7de4daca52cfa, type: 2}
   m_sharedMaterial: {fileID: -3296332329668144623, guid: 8178b5d5ebd11394bac7de4daca52cfa, type: 2}
