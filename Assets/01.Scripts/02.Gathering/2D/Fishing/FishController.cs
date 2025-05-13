@@ -14,6 +14,7 @@ public class FishController : MonoBehaviour
 
     private Vector3 direction; // 물고기 방향 (랜덤)
     private Vector3 startPosition; // 초기 위치
+    public int selectedKey;
 
     private void Start()
     {
@@ -55,6 +56,7 @@ public class FishController : MonoBehaviour
     {
         if (Vector3.Distance(transform.position, catchZonePosition) < 1f)
         {
+            GetRandomGatheringKey();
             AddItemtoInventory();
             return true;
         }
@@ -82,7 +84,9 @@ public class FishController : MonoBehaviour
         if (gatheringKeys != null && gatheringKeys.Length > 0)
         {
             int randomIndex = Random.Range(0, gatheringKeys.Length);
-            return gatheringKeys[randomIndex];
+            selectedKey = gatheringKeys[randomIndex];
+            FishingManager.Instance.gatheringKey = selectedKey;
+            return selectedKey;
         }
         else
         {
@@ -93,7 +97,7 @@ public class FishController : MonoBehaviour
 
     private void AddItemtoInventory()
     {
-        if (InventoryManager.Instance.Invens[InvenType.Gathering].아이템획득(Data.GetRawItem(GetRandomGatheringKey()), 1))
+        if (InventoryManager.Instance.Invens[InvenType.Gathering].아이템획득(Data.GetRawItem(selectedKey), 1))
         {
             Debug.Log("아이템 증가");
         }

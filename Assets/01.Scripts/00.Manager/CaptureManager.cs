@@ -13,7 +13,6 @@ public class CaptureManager : MonoSingleton<CaptureManager>
     [Header("포획 설정")]
     [SerializeField] private float captureRadius = 5f;
     private Animal animalInRange;
-    public int animalItemKey;
     public bool success;
 
     protected override void Awake()
@@ -93,7 +92,6 @@ public class CaptureManager : MonoSingleton<CaptureManager>
 
     public int GetItemKey()
     {
-        //animalItemKey = animalInRange.gatheringKey;
         return animalInRange.gatheringKey;
     }
 

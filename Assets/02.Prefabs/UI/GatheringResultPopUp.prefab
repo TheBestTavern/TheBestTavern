@@ -345,7 +345,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 219}
-  m_SizeDelta: {x: 200, y: 50}
+  m_SizeDelta: {x: 215, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4598620908000760520
 CanvasRenderer:
@@ -633,6 +633,7 @@ MonoBehaviour:
   itemNameText: {fileID: 7054828951398744907}
   itemImage: {fileID: 7487536392901323382}
   resultCanvasGroup: {fileID: 7401233372704870651}
+  result: 0
 --- !u!1 &4385166779639670006
 GameObject:
   m_ObjectHideFlags: 0
@@ -920,7 +921,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 219}
-  m_SizeDelta: {x: 200, y: 50}
+  m_SizeDelta: {x: 215, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5148168949720415127
 CanvasRenderer:
@@ -1084,7 +1085,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "[\uB4F1\uAE09] [\uC544\uC774\uD15C \uC774\uB984] \uD68D\uB4DD "
+  m_text: "[\uC544\uC774\uD15C \uC774\uB984] \uD68D\uB4DD "
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8178b5d5ebd11394bac7de4daca52cfa, type: 2}
   m_sharedMaterial: {fileID: -3296332329668144623, guid: 8178b5d5ebd11394bac7de4daca52cfa, type: 2}
