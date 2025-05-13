@@ -1,20 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class BaitDropArea : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPointerExitHandler
+public class FishingBaitDrop : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPointerExitHandler
 {
     [Header("아이템 Drop 설정")]
     [SerializeField] private Image previewImage;
     [SerializeField] private Image dropAreaImage;
 
     [Header("컨트롤러 설정")]
-    [SerializeField] private BaitThrowController throwController;
+    [SerializeField] private FishingController fishingController;
 
-    private InventorySlot previousSlot; 
+    private InventorySlot previousSlot;
     private ItemStack currentBait;
 
     public void OnDrop(PointerEventData eventData)
@@ -25,22 +24,21 @@ public class BaitDropArea : MonoBehaviour, IDropHandler, IPointerEnterHandler, I
             if (currentBait != null && previousSlot != null)
             {
                 previousSlot.GetSlotItem()?.Add(1, 10);
-                previousSlot.슬롯갱신(); 
+                previousSlot.슬롯갱신();
             }
-
             currentBait = draggedSlot.GetSlotItem();
             currentBait?.Subtract(1);
             draggedSlot.슬롯갱신();
             previewImage.sprite = Resources.Load<Sprite>($"Item/{currentBait.Origin.englishName}");
             previewImage.color = Color.white;
             previousSlot = draggedSlot;
-            throwController.SetBaitIndex(currentBait);
+            fishingController.SetBait(currentBait);
         }
     }
 
     public ItemStack GetCurrentBait() => currentBait;
 
-    
+
 
     public void ClearBait()
     {
