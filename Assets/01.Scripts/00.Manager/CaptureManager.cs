@@ -82,6 +82,7 @@ public class CaptureManager : MonoSingleton<CaptureManager>
         else
         {
             Debug.LogError("동물 포획 실패");
+            animalInRange.gatheringKey = 0;
         }
     }
 

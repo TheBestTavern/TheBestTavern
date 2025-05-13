@@ -84,8 +84,8 @@ public class GatheringResultPopUp : BasePopUp
         {
             successText.gameObject.SetActive(false);
             failText.gameObject.SetActive(true);
-            itemNameText.gameObject.SetActive(false);
             itemImage.gameObject.SetActive(false);
+            itemNameText.gameObject.SetActive(false);
         }
     }
 
@@ -94,10 +94,9 @@ public class GatheringResultPopUp : BasePopUp
 
         int itemKey = CaptureManager.Instance.GetItemKey();
         Debug.Log($"최종 아이템 키 : {itemKey}");
-        if (itemKey == -1)
+        if (itemKey == 0)
         {
             Debug.Log("포획 실패");
-            itemNameText.gameObject.SetActive(false);
             return;
         }
         var data = DataManager.Instance.DataLoader_Foods.GetByKey(itemKey);
@@ -111,10 +110,9 @@ public class GatheringResultPopUp : BasePopUp
     {
         int itemKey = FishingManager.Instance.GetGatheringKey();
         Debug.Log($"최종 아이템 키 : {itemKey}");
-        if (itemKey == -1)
+        if (itemKey == 0)
         {
             Debug.Log("포획 실패");
-            itemNameText.gameObject.SetActive(false);
             return;
         }
         var data = DataManager.Instance.DataLoader_Foods.GetByKey(itemKey);
