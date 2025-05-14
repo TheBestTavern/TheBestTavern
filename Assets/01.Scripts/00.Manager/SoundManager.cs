@@ -9,69 +9,72 @@ public class SoundManager : MonoSingleton<SoundManager>
     [SerializeField] private AudioSource bgmSource;
     [SerializeField] private AudioSource sfxSource;
 
+
     [Header("Audio Clips")]
-    public AudioClip[] bgmClips;
-    public AudioClip[] sfxClips;
+    [SerializeField] private SoundLibrary soundLibrary;
+    private Dictionary<string, AudioClip> bgmDict = new Dictionary<string, AudioClip>();
+    private Dictionary<string, AudioClip> sfxDict = new Dictionary<string, AudioClip>();
 
-    private Dictionary<string, AudioClip> bgmDict = new();
-    private Dictionary<string, AudioClip> sfxDict = new();
-
-
-    private void InitDictionaries()
+    public override void Init()
     {
-        foreach (var clip in bgmClips)
-        {
-            if (clip != null && !bgmDict.ContainsKey(clip.name))
-                bgmDict.Add(clip.name, clip);
-        }
+        if (_isInitialized) return;
+        base.Init();
 
-        foreach (var clip in sfxClips)
-        {
-            if (clip != null && !sfxDict.ContainsKey(clip.name))
-                sfxDict.Add(clip.name, clip);
-        }
+        DontDestroyOnLoad(this);
     }
 
-    // BGM 재생
-    public void PlayBGM(string clipName, bool loop = true)
+    protected override void Awake()
     {
-        if (bgmDict.TryGetValue(clipName, out var clip))
+
+        bgmSource = gameObject.AddComponent<AudioSource>();
+        bgmSource.loop = true;
+
+        sfxSource = gameObject.AddComponent<AudioSource>();
+        sfxSource.loop = false;
+
+        AddBGM();
+        AddSFX();
+        base.Awake();
+    }
+
+
+    public void PlayBGM(string name)
+    {
+        var data = System.Array.Find(soundLibrary.bgmClips, x => x.soundName == name);
+        if (data != null)
         {
-            bgmSource.clip = clip;
-            bgmSource.loop = loop;
+            bgmSource.clip = data.clip;
             bgmSource.Play();
         }
-        else
+    }
+
+    public void PlaySFX(string name)
+    {
+        var data = System.Array.Find(soundLibrary.sfxClips, x => x.soundName == name);
+        if (data != null)
         {
-            Debug.LogWarning($"BGM '{clipName}' not found.");
+            sfxSource.PlayOneShot(data.clip);
         }
     }
 
-    // SFX 재생
-    public void PlaySFX(string clipName)
+    private void AddBGM()
     {
-        if (sfxDict.TryGetValue(clipName, out var clip))
+        foreach (var bgm in soundLibrary.bgmClips)
         {
-            sfxSource.PlayOneShot(clip);
-        }
-        else
-        {
-            Debug.LogWarning($"SFX '{clipName}' not found.");
+            if (!bgmDict.ContainsKey(bgm.soundName))
+                bgmDict.Add(bgm.soundName, bgm.clip);
         }
     }
 
-    public void StopBGM()
+    private void AddSFX()
     {
-        bgmSource.Stop();
+        foreach (var sfx in soundLibrary.sfxClips)
+        {
+            if (!sfxDict.ContainsKey(sfx.soundName))
+                sfxDict.Add(sfx.soundName, sfx.clip);
+        }
     }
 
-    public void SetBGMVolume(float volume)
-    {
-        bgmSource.volume = volume;
-    }
-
-    public void SetSFXVolume(float volume)
-    {
-        sfxSource.volume = volume;
-    }
+    public void SetBGMVolume(float volume) => bgmSource.volume = volume;
+    public void SetSFXVolume(float volume) => sfxSource.volume = volume;
 }
