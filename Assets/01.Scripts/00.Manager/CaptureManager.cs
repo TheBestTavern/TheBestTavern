@@ -88,7 +88,7 @@ public class CaptureManager : MonoSingleton<CaptureManager>
 
     async void ShowResult()
     {
-        await UIManager.Instance.ShowPopUp(PopUpType.GatheringResult);
+        await PopUpManager.Instance.ShowPopUp(PopUpType.GatheringResult);
     }
 
     public int GetItemKey()
@@ -110,6 +110,7 @@ public class CaptureManager : MonoSingleton<CaptureManager>
 
     async public void UnLoadMiniGame()
     {
+        UIManager.Instance.gatheringSceneUI.SetMiniGameBackGround(false);
         await SceneLoader.Instance.UnLoadSceneAsyncMiniGame();
     }
 

@@ -28,11 +28,12 @@ public class FishingManager : MonoSingleton<FishingManager>
 
     async public void ShowResult()
     {
-        await UIManager.Instance.ShowPopUp(PopUpType.GatheringResult);
+        await PopUpManager.Instance.ShowPopUp(PopUpType.GatheringResult);
     }
 
     async public void UnLoadMiniGame()
     {
+        UIManager.Instance.gatheringSceneUI.SetMiniGameBackGround(false);
         await SceneLoader.Instance.UnLoadSceneAsyncMiniGame();
     }
 

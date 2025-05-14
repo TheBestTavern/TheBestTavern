@@ -39,7 +39,7 @@ public class GatheringResultPopUp : BasePopUp
 
         resultCanvasGroup.DOFade(1f, 1f);
 
-        
+
 
         ShowResultText();
 

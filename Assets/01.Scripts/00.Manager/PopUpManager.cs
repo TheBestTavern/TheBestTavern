@@ -16,7 +16,8 @@ public enum PopUpType
     Alarm,
     OfferLetter,
     ResultLetter,
-    CookingResult
+    CookingResult,
+    GatheringResult
 }
 
 public interface IPopupManager
