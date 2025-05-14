@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
+using UnityEngine.ResourceManagement.AsyncOperations;
 
 public class SoundManager : MonoSingleton<SoundManager>
 {
@@ -12,8 +14,11 @@ public class SoundManager : MonoSingleton<SoundManager>
 
     [Header("Audio Clips")]
     [SerializeField] private SoundLibrary soundLibrary;
-    private Dictionary<string, AudioClip> bgmDict = new Dictionary<string, AudioClip>();
-    private Dictionary<string, AudioClip> sfxDict = new Dictionary<string, AudioClip>();
+    private Dictionary<string, string> bgmKeys = new Dictionary<string, string>();
+    private Dictionary<string, string> sfxKeys = new Dictionary<string, string>();
+
+    private float currentBGMTime = 0f;
+    private string currentBGMName;
 
     public override void Init()
     {
@@ -39,35 +44,63 @@ public class SoundManager : MonoSingleton<SoundManager>
 
     private void Start()
     {
-        PlayBGM("MainBGM");
+        PlayBGM("MainBGM1");
     }
 
 
-    public void PlayBGM(string name)
+    public void PlayBGM(string name, bool resume = false)
     {
-        var data = System.Array.Find(soundLibrary.bgmClips, x => x.soundName == name);
-        if (data != null)
+        if (!bgmKeys.TryGetValue(name, out var addressKey))
         {
-            bgmSource.clip = data.clip;
-            bgmSource.Play();
+            Debug.LogWarning($"BGM not found: {name}");
+            return;
         }
+
+        Addressables.LoadAssetAsync<AudioClip>(addressKey).Completed += (handle) =>
+        {
+            if (handle.Status == AsyncOperationStatus.Succeeded)
+            {
+                bgmSource.clip = handle.Result;
+                bgmSource.time = resume ? currentBGMTime : 0f;
+                currentBGMName = name;
+                bgmSource.Play();
+            }
+            else
+            {
+                Debug.LogError($"Failed to load BGM: {addressKey}");
+            }
+        };
+    }
+
+    public void SaveCurrentBGMState()
+    {
+        if (bgmSource.isPlaying)
+            currentBGMTime = bgmSource.time;
     }
 
     public void PlaySFX(string name)
     {
-        var data = System.Array.Find(soundLibrary.sfxClips, x => x.soundName == name);
-        if (data != null)
+        if (!sfxKeys.TryGetValue(name, out var addressKey))
         {
-            sfxSource.PlayOneShot(data.clip);
+            Debug.LogWarning($"SFX not found: {name}");
+            return;
         }
+
+        Addressables.LoadAssetAsync<AudioClip>(addressKey).Completed += (handle) =>
+        {
+            if (handle.Status == AsyncOperationStatus.Succeeded)
+                sfxSource.PlayOneShot(handle.Result);
+        };
     }
 
     private void AddBGM()
     {
         foreach (var bgm in soundLibrary.bgmClips)
         {
-            if (!bgmDict.ContainsKey(bgm.soundName))
-                bgmDict.Add(bgm.soundName, bgm.clip);
+            if (!bgmKeys.ContainsKey(bgm.soundName))
+            {
+                bgmKeys.Add(bgm.soundName, bgm.addressableKey);
+            }
         }
     }
 
@@ -75,8 +108,10 @@ public class SoundManager : MonoSingleton<SoundManager>
     {
         foreach (var sfx in soundLibrary.sfxClips)
         {
-            if (!sfxDict.ContainsKey(sfx.soundName))
-                sfxDict.Add(sfx.soundName, sfx.clip);
+            if (!sfxKeys.ContainsKey(sfx.soundName))
+            {
+                sfxKeys.Add(sfx.soundName, sfx.addressableKey);
+            }
         }
     }
 

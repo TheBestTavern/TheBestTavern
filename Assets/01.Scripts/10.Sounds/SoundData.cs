@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "NewSoundData", menuName = "Sound/SoundData")]
-public class SoundData : ScriptableObject
+[System.Serializable]
+public class SoundData
 {
     public string soundName;
-    public AudioClip clip;
+    public string addressableKey;
 }
