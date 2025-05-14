@@ -10,6 +10,7 @@ public class CookingMixingBowlMiniGame : CookingMiniGameBase
 {
     private bool isSuccess = false;
     [SerializeField] private MixingSpoon mixingSpoon;
+    [SerializeField] private CookingMixingBowlUI mixingbowlUI;
     private float mixingTime = 0;
 
     private void Awake()
@@ -55,6 +56,7 @@ public class CookingMixingBowlMiniGame : CookingMiniGameBase
         if (mixingSpoon.isDragging)
         {
             mixingTime += Time.deltaTime;
+            mixingbowlUI.UpdateUI(mixingTime);
             if (mixingTime > data.MixingTime)
             {
                isSuccess = true;

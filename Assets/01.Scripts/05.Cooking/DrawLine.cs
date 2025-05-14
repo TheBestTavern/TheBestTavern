@@ -52,7 +52,7 @@ public class DrawLine : MonoBehaviour
         if (this == null) yield break;
         canDraw = false;
         onFinish?.Invoke(mousePoints);
-        //if (line != null) Destroy(line.gameObject);
+        if (line != null) Destroy(line.gameObject);
     }
 
     private void Update()
@@ -90,6 +90,7 @@ public class DrawLine : MonoBehaviour
         else if (Input.GetMouseButtonUp(0))
         {
            // mousePoints.Clear();
+           //line.gameObject.SetActive(false);
         }
     }
     public void Judge()

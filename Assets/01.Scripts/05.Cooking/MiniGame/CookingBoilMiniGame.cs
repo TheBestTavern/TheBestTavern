@@ -148,7 +148,7 @@ public class CookingBoilMiniGame : CookingMiniGameBase
         {
             foreach (var targetPoint in targetLine)
             {
-                if (Vector2.Distance(userPoint, targetPoint) < 0.1f)
+                if (Vector2.Distance(userPoint, targetPoint) < 0.18f)
                 {
                     matchCount++;
                     break;
@@ -213,13 +213,11 @@ public class CookingBoilMiniGame : CookingMiniGameBase
 
         }
         // 클릭안함/엉뚱한방향/40%미만
-        else if (finalScore < 0.4f || userLine == null || userLine.Count <= 2)
+        else if (finalScore < 0.4f || userLine == null || userLine.Count <= 3)
         {
             miss++;
             CookingEffectManager.Instance.ShowJudgeText(3);
-
         }
-
 
         Debug.Log($"점수 :{ finalScore} 미스 횟수 : {miss}");
     }
@@ -260,7 +258,6 @@ public class CookingBoilMiniGame : CookingMiniGameBase
 
     public void TriggerWaterWave()
     {
-
         water = water.GetComponent<WaterVolumeTransforms>();
         var waterRenderer = water.GetComponent<Renderer>();
         Material mat = waterRenderer.material;
