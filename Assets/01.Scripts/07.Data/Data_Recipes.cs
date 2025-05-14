@@ -32,9 +32,9 @@ public class Data_Recipes
     public int usingTool;
 
     /// <summary>
-    /// 요리 속성
+    /// 요리할 아이템 타입
     /// </summary>
-    public string cookingProperty;
+    public DesignEnums.ItemType itemType;
 
 }
 public class Data_RecipesLoader

@@ -4,50 +4,55 @@ using System.IO;
 using UnityEngine;
 
 [Serializable]
-public class Data_Recipes
+public class Data_Book_Ingredient
 {
     /// <summary>
-    /// 레시피ID (INT)
+    /// 음식군id
     /// </summary>
     public int key;
 
     /// <summary>
-    /// 레시피명 (VARCHAR(50)
+    /// 음식명
     /// </summary>
     public string name;
 
     /// <summary>
-    /// 결과 요리 음식군 번호
+    /// 영어이름
     /// </summary>
-    public int resultCategory;
+    public string englishName;
 
     /// <summary>
-    /// 재료가 될 음식군 번호 
+    /// 지역
     /// </summary>
-    public List<int> ingredients;
+    public List<DesignEnums.RegionType> region;
 
     /// <summary>
-    /// 도구
+    /// 생태
     /// </summary>
-    public int usingTool;
+    public DesignEnums.BiomeType biome;
 
     /// <summary>
-    /// 요리할 아이템 타입
+    /// 계절
     /// </summary>
-    public DesignEnums.ItemType itemType;
+    public List<DesignEnums.SeasonType> season;
+
+    /// <summary>
+    /// 설명
+    /// </summary>
+    public string description;
 
 }
-public class Data_RecipesLoader
+public class Data_Book_IngredientLoader
 {
-    public List<Data_Recipes> ItemsList { get; private set; }
-    public Dictionary<int, Data_Recipes> ItemsDict { get; private set; }
+    public List<Data_Book_Ingredient> ItemsList { get; private set; }
+    public Dictionary<int, Data_Book_Ingredient> ItemsDict { get; private set; }
 
-    public Data_RecipesLoader(string path = "JSON/Data_Recipes")
+    public Data_Book_IngredientLoader(string path = "JSON/Data_Book_Ingredient")
     {
         string jsonData;
         jsonData = Resources.Load<TextAsset>(path).text;
         ItemsList = JsonUtility.FromJson<Wrapper>(jsonData).Items;
-        ItemsDict = new Dictionary<int, Data_Recipes>();
+        ItemsDict = new Dictionary<int, Data_Book_Ingredient>();
         foreach (var item in ItemsList)
         {
             ItemsDict.Add(item.key, item);
@@ -57,10 +62,10 @@ public class Data_RecipesLoader
     [Serializable]
     private class Wrapper
     {
-        public List<Data_Recipes> Items;
+        public List<Data_Book_Ingredient> Items;
     }
 
-    public Data_Recipes GetByKey(int key)
+    public Data_Book_Ingredient GetByKey(int key)
     {
         if (ItemsDict.ContainsKey(key))
         {
@@ -68,7 +73,7 @@ public class Data_RecipesLoader
         }
         return null;
     }
-    public Data_Recipes GetByIndex(int index)
+    public Data_Book_Ingredient GetByIndex(int index)
     {
         if (index >= 0 && index < ItemsList.Count)
         {

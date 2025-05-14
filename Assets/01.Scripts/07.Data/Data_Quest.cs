@@ -52,9 +52,14 @@ public class Data_Quest
     public string letterOffer;
 
     /// <summary>
-    /// 성공편지
+    /// 만족도 하 요리를 받았을 때 (호감도만 오르고 보상 X)
     /// </summary>
-    public string letterSuccess;
+    public string letterNotBadSuccess;
+
+    /// <summary>
+    /// 성공편지 (만족도 중 이상 요리를 받았을 때)
+    /// </summary>
+    public string letterSoSoGoodSuccess;
 
     /// <summary>
     /// 실패편지

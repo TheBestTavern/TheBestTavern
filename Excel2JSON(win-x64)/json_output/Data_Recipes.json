@@ -8,7 +8,7 @@
         110001
       ],
       "usingTool": 1001,
-      "cookingProperty": "가공 재료"
+      "itemType": 1
     },
     {
       "key": 601002,
@@ -18,7 +18,7 @@
         110001
       ],
       "usingTool": 1002,
-      "cookingProperty": "가공 재료"
+      "itemType": 1
     },
     {
       "key": 601003,
@@ -28,7 +28,7 @@
         110002
       ],
       "usingTool": 1001,
-      "cookingProperty": "가공 재료"
+      "itemType": 1
     },
     {
       "key": 601004,
@@ -38,7 +38,7 @@
         110002
       ],
       "usingTool": 1002,
-      "cookingProperty": "가공 재료"
+      "itemType": 1
     },
     {
       "key": 601005,
@@ -48,7 +48,7 @@
         110003
       ],
       "usingTool": 1001,
-      "cookingProperty": "가공 재료"
+      "itemType": 1
     },
     {
       "key": 601006,
@@ -58,7 +58,7 @@
         110003
       ],
       "usingTool": 1003,
-      "cookingProperty": "가공 재료"
+      "itemType": 1
     },
     {
       "key": 601007,
@@ -68,997 +68,1366 @@
         110004
       ],
       "usingTool": 1001,
-      "cookingProperty": "가공 재료"
+      "itemType": 1
     },
     {
       "key": 601008,
-      "name": "껍질 벗긴 더덕",
+      "name": "콩물",
       "resultCategory": 110107,
       "ingredients": [
-        110007
+        110006
       ],
-      "usingTool": 1001,
-      "cookingProperty": "가공 재료"
+      "usingTool": 1004,
+      "itemType": 1
     },
     {
       "key": 601009,
-      "name": "넓게 펴진 더덕",
+      "name": "두부",
       "resultCategory": 110108,
       "ingredients": [
-        110007
+        110006
       ],
-      "usingTool": 1006,
-      "cookingProperty": "가공 재료"
+      "usingTool": 1005,
+      "itemType": 1
     },
     {
       "key": 601010,
-      "name": "구운 더덕",
+      "name": "썰린 두부",
       "resultCategory": 110109,
+      "ingredients": [
+        110006
+      ],
+      "usingTool": 1001,
+      "itemType": 1
+    },
+    {
+      "key": 601011,
+      "name": "토막 난 감자",
+      "resultCategory": 110110,
+      "ingredients": [
+        110007
+      ],
+      "usingTool": 1001,
+      "itemType": 1
+    },
+    {
+      "key": 601012,
+      "name": "구운 감자",
+      "resultCategory": 110111,
       "ingredients": [
         110007
       ],
       "usingTool": 1006,
-      "cookingProperty": "가공 재료"
-    },
-    {
-      "key": 601011,
-      "name": "콩물",
-      "resultCategory": 110110,
-      "ingredients": [
-        110008
-      ],
-      "usingTool": 1004,
-      "cookingProperty": "가공 재료"
-    },
-    {
-      "key": 601012,
-      "name": "두부",
-      "resultCategory": 110111,
-      "ingredients": [
-        110008
-      ],
-      "usingTool": 1005,
-      "cookingProperty": "가공 재료"
+      "itemType": 1
     },
     {
       "key": 601013,
-      "name": "썰린 두부",
+      "name": "삶은 감자",
       "resultCategory": 110112,
       "ingredients": [
-        110008
+        110007
       ],
-      "usingTool": 1001,
-      "cookingProperty": "가공 재료"
+      "usingTool": 1004,
+      "itemType": 1
     },
     {
       "key": 601014,
-      "name": "토막 난 감자",
+      "name": "으깬 감자",
       "resultCategory": 110113,
       "ingredients": [
-        110009
+        110007
       ],
-      "usingTool": 1001,
-      "cookingProperty": "가공 재료"
+      "usingTool": 1002,
+      "itemType": 1
     },
     {
       "key": 601015,
-      "name": "구운 감자",
+      "name": "토막 난 무",
       "resultCategory": 110114,
       "ingredients": [
         110009
       ],
-      "usingTool": 1006,
-      "cookingProperty": "가공 재료"
+      "usingTool": 1001,
+      "itemType": 1
     },
     {
       "key": 601016,
-      "name": "삶은 감자",
+      "name": "삶은 무",
       "resultCategory": 110115,
       "ingredients": [
         110009
       ],
       "usingTool": 1004,
-      "cookingProperty": "가공 재료"
+      "itemType": 1
     },
     {
       "key": 601017,
-      "name": "으깬 감자",
+      "name": "무 즙",
       "resultCategory": 110116,
       "ingredients": [
         110009
       ],
-      "usingTool": 1002,
-      "cookingProperty": "가공 재료"
+      "usingTool": 1003,
+      "itemType": 1
     },
     {
       "key": 601018,
-      "name": "삶은 고사리",
+      "name": "인삼 즙",
       "resultCategory": 110117,
       "ingredients": [
         110010
       ],
-      "usingTool": 1004,
-      "cookingProperty": "가공 재료"
+      "usingTool": 1003,
+      "itemType": 1
     },
     {
       "key": 601019,
-      "name": "토막 난 무",
+      "name": "토막 난 고구마",
       "resultCategory": 110118,
       "ingredients": [
-        110012
+        110011
       ],
       "usingTool": 1001,
-      "cookingProperty": "가공 재료"
+      "itemType": 1
     },
     {
       "key": 601020,
-      "name": "삶은 무",
+      "name": "구운 고구마",
       "resultCategory": 110119,
       "ingredients": [
-        110012
+        110011
       ],
-      "usingTool": 1004,
-      "cookingProperty": "가공 재료"
+      "usingTool": 1006,
+      "itemType": 1
     },
     {
       "key": 601021,
-      "name": "무 즙",
+      "name": "삶은 고구마",
       "resultCategory": 110120,
       "ingredients": [
-        110012
+        110011
       ],
-      "usingTool": 1003,
-      "cookingProperty": "가공 재료"
+      "usingTool": 1004,
+      "itemType": 1
     },
     {
       "key": 601022,
-      "name": "토막 난 연근",
+      "name": "으깬 고구마",
       "resultCategory": 110121,
       "ingredients": [
-        110013
+        110011
       ],
-      "usingTool": 1001,
-      "cookingProperty": "가공 재료"
+      "usingTool": 1002,
+      "itemType": 1
     },
     {
       "key": 601023,
-      "name": "인삼 즙",
+      "name": "쪄진 밤",
       "resultCategory": 110122,
+      "ingredients": [
+        110013
+      ],
+      "usingTool": 1005,
+      "itemType": 1
+    },
+    {
+      "key": 601024,
+      "name": "으깬 밤",
+      "resultCategory": 110123,
+      "ingredients": [
+        110013
+      ],
+      "usingTool": 1002,
+      "itemType": 1
+    },
+    {
+      "key": 601025,
+      "name": "토막 난 감",
+      "resultCategory": 110124,
+      "ingredients": [
+        110014
+      ],
+      "usingTool": 1001,
+      "itemType": 1
+    },
+    {
+      "key": 601026,
+      "name": "감 즙",
+      "resultCategory": 110125,
       "ingredients": [
         110014
       ],
       "usingTool": 1003,
-      "cookingProperty": "가공 재료"
-    },
-    {
-      "key": 601024,
-      "name": "토막 난 고구마",
-      "resultCategory": 110123,
-      "ingredients": [
-        110015
-      ],
-      "usingTool": 1001,
-      "cookingProperty": "가공 재료"
-    },
-    {
-      "key": 601025,
-      "name": "구운 고구마",
-      "resultCategory": 110124,
-      "ingredients": [
-        110015
-      ],
-      "usingTool": 1006,
-      "cookingProperty": "가공 재료"
-    },
-    {
-      "key": 601026,
-      "name": "삶은 고구마",
-      "resultCategory": 110125,
-      "ingredients": [
-        110015
-      ],
-      "usingTool": 1004,
-      "cookingProperty": "가공 재료"
+      "itemType": 1
     },
     {
       "key": 601027,
-      "name": "으깬 고구마",
+      "name": "토막 난 배",
       "resultCategory": 110126,
       "ingredients": [
         110015
       ],
-      "usingTool": 1002,
-      "cookingProperty": "가공 재료"
+      "usingTool": 1001,
+      "itemType": 1
     },
     {
       "key": 601028,
-      "name": "데친 두릅",
+      "name": "배 즙",
       "resultCategory": 110127,
       "ingredients": [
-        110017
+        110015
       ],
-      "usingTool": 1005,
-      "cookingProperty": "가공 재료"
+      "usingTool": 1003,
+      "itemType": 1
     },
     {
       "key": 601029,
-      "name": "쪄진 밤",
+      "name": "호두 알맹이",
       "resultCategory": 110128,
       "ingredients": [
-        110018
+        110016
       ],
-      "usingTool": 1005,
-      "cookingProperty": "가공 재료"
+      "usingTool": 1002,
+      "itemType": 1
     },
     {
       "key": 601030,
-      "name": "으깬 밤",
+      "name": "토막 난 호두",
       "resultCategory": 110129,
       "ingredients": [
-        110018
+        110016
       ],
-      "usingTool": 1002,
-      "cookingProperty": "가공 재료"
+      "usingTool": 1001,
+      "itemType": 1
     },
     {
       "key": 601031,
-      "name": "토막 난 감",
+      "name": "토막 난 사과",
       "resultCategory": 110130,
       "ingredients": [
-        110019
+        110017
       ],
       "usingTool": 1001,
-      "cookingProperty": "가공 재료"
+      "itemType": 1
     },
     {
       "key": 601032,
-      "name": "감 즙",
+      "name": "사과 즙",
       "resultCategory": 110131,
       "ingredients": [
-        110019
+        110017
       ],
       "usingTool": 1003,
-      "cookingProperty": "가공 재료"
+      "itemType": 1
     },
     {
       "key": 601033,
-      "name": "토막 난 배",
+      "name": "토막 난 표고 버섯",
       "resultCategory": 110132,
       "ingredients": [
-        110020
+        110018
       ],
       "usingTool": 1001,
-      "cookingProperty": "가공 재료"
+      "itemType": 1
     },
     {
       "key": 601034,
-      "name": "배 즙",
+      "name": "잘게 썰린 표고 버섯",
       "resultCategory": 110133,
       "ingredients": [
-        110020
+        110018
       ],
-      "usingTool": 1003,
-      "cookingProperty": "가공 재료"
+      "usingTool": 1001,
+      "itemType": 1
     },
     {
       "key": 601035,
-      "name": "호두 알맹이",
+      "name": "손질 된 멸치",
       "resultCategory": 110134,
       "ingredients": [
-        110021
+        110019
       ],
-      "usingTool": 1002,
-      "cookingProperty": "가공 재료"
+      "usingTool": 1001,
+      "itemType": 1
     },
     {
       "key": 601036,
-      "name": "토막 난 호두",
+      "name": "구운 멸치",
       "resultCategory": 110135,
       "ingredients": [
-        110021
+        110019
       ],
-      "usingTool": 1001,
-      "cookingProperty": "가공 재료"
+      "usingTool": 1006,
+      "itemType": 1
     },
     {
       "key": 601037,
-      "name": "껍질 벗긴 우엉",
+      "name": "삶은 바지락",
       "resultCategory": 110136,
+      "ingredients": [
+        110020
+      ],
+      "usingTool": 1004,
+      "itemType": 1
+    },
+    {
+      "key": 601038,
+      "name": "삶은 홍합",
+      "resultCategory": 110137,
+      "ingredients": [
+        110021
+      ],
+      "usingTool": 1004,
+      "itemType": 1
+    },
+    {
+      "key": 601039,
+      "name": "손질 된 고등어",
+      "resultCategory": 110138,
       "ingredients": [
         110022
       ],
       "usingTool": 1001,
-      "cookingProperty": "가공 재료"
-    },
-    {
-      "key": 601038,
-      "name": "껍질 벗긴 도라지",
-      "resultCategory": 110137,
-      "ingredients": [
-        110023
-      ],
-      "usingTool": 1001,
-      "cookingProperty": "가공 재료"
-    },
-    {
-      "key": 601039,
-      "name": "토막 난 사과",
-      "resultCategory": 110138,
-      "ingredients": [
-        110024
-      ],
-      "usingTool": 1001,
-      "cookingProperty": "가공 재료"
+      "itemType": 1
     },
     {
       "key": 601040,
-      "name": "사과 즙",
+      "name": "회로 손질 된 고등어",
       "resultCategory": 110139,
       "ingredients": [
-        110024
+        110022
       ],
-      "usingTool": 1003,
-      "cookingProperty": "가공 재료"
+      "usingTool": 1001,
+      "itemType": 1
     },
     {
       "key": 601041,
-      "name": "토막 난 표고 버섯",
+      "name": "구운 고등어",
       "resultCategory": 110140,
       "ingredients": [
-        110027
+        110022
       ],
-      "usingTool": 1001,
-      "cookingProperty": "가공 재료"
+      "usingTool": 1006,
+      "itemType": 1
     },
     {
       "key": 601042,
-      "name": "잘게 썰린 표고 버섯",
+      "name": "손질 된 참돔",
       "resultCategory": 110141,
       "ingredients": [
-        110027
+        110024
       ],
       "usingTool": 1001,
-      "cookingProperty": "가공 재료"
+      "itemType": 1
     },
     {
       "key": 601043,
-      "name": "삶은 죽순",
+      "name": "회로 손질 된 참돔",
       "resultCategory": 110142,
       "ingredients": [
-        110028
+        110024
       ],
-      "usingTool": 1004,
-      "cookingProperty": "가공 재료"
+      "usingTool": 1001,
+      "itemType": 1
     },
     {
       "key": 601044,
-      "name": "손질 된 정어리",
+      "name": "쪄진 굴",
       "resultCategory": 110143,
       "ingredients": [
-        110032
+        110025
       ],
-      "usingTool": 1001,
-      "cookingProperty": "가공 재료"
+      "usingTool": 1005,
+      "itemType": 1
     },
     {
       "key": 601045,
-      "name": "회로 손질 된 정어리",
+      "name": "손질 된 갈치",
       "resultCategory": 110144,
       "ingredients": [
-        110032
+        110026
       ],
       "usingTool": 1001,
-      "cookingProperty": "가공 재료"
+      "itemType": 1
     },
     {
       "key": 601046,
-      "name": "구운 정어리",
+      "name": "뼈가 발린 갈치",
       "resultCategory": 110145,
       "ingredients": [
-        110032
+        110026
       ],
-      "usingTool": 1006,
-      "cookingProperty": "가공 재료"
+      "usingTool": 1001,
+      "itemType": 1
     },
     {
       "key": 601047,
-      "name": "손질 된 멸치",
+      "name": "구운 갈치",
       "resultCategory": 110146,
       "ingredients": [
-        110033
+        110026
       ],
-      "usingTool": 1001,
-      "cookingProperty": "가공 재료"
+      "usingTool": 1006,
+      "itemType": 1
     },
     {
       "key": 601048,
-      "name": "구운 멸치",
+      "name": "손질 된 전복",
       "resultCategory": 110147,
+      "ingredients": [
+        110028
+      ],
+      "usingTool": 1001,
+      "itemType": 1
+    },
+    {
+      "key": 601049,
+      "name": "전복 내장",
+      "resultCategory": 110148,
+      "ingredients": [
+        110028
+      ],
+      "usingTool": 1001,
+      "itemType": 1
+    },
+    {
+      "key": 601050,
+      "name": "회로 손질 된 전복",
+      "resultCategory": 110149,
+      "ingredients": [
+        110028
+      ],
+      "usingTool": 1001,
+      "itemType": 1
+    },
+    {
+      "key": 601051,
+      "name": "쪄진 전복",
+      "resultCategory": 110150,
+      "ingredients": [
+        110028
+      ],
+      "usingTool": 1005,
+      "itemType": 1
+    },
+    {
+      "key": 601052,
+      "name": "구운 전복",
+      "resultCategory": 110151,
+      "ingredients": [
+        110028
+      ],
+      "usingTool": 1006,
+      "itemType": 1
+    },
+    {
+      "key": 601053,
+      "name": "손질 된 문어",
+      "resultCategory": 110152,
+      "ingredients": [
+        110029
+      ],
+      "usingTool": 1001,
+      "itemType": 1
+    },
+    {
+      "key": 601054,
+      "name": "토막 난 문어",
+      "resultCategory": 110153,
+      "ingredients": [
+        110029
+      ],
+      "usingTool": 1001,
+      "itemType": 1
+    },
+    {
+      "key": 601055,
+      "name": "쪄진 문어",
+      "resultCategory": 110154,
+      "ingredients": [
+        110029
+      ],
+      "usingTool": 1005,
+      "itemType": 1
+    },
+    {
+      "key": 601056,
+      "name": "손질 된 꽃게",
+      "resultCategory": 110155,
+      "ingredients": [
+        110030
+      ],
+      "usingTool": 1001,
+      "itemType": 1
+    },
+    {
+      "key": 601057,
+      "name": "토막 난 꽃게",
+      "resultCategory": 110156,
+      "ingredients": [
+        110030
+      ],
+      "usingTool": 1001,
+      "itemType": 1
+    },
+    {
+      "key": 601058,
+      "name": "쪄진 꽃게",
+      "resultCategory": 110157,
+      "ingredients": [
+        110030
+      ],
+      "usingTool": 1005,
+      "itemType": 1
+    },
+    {
+      "key": 601059,
+      "name": "살이 발라진 꽃게",
+      "resultCategory": 110158,
+      "ingredients": [
+        110030
+      ],
+      "usingTool": 1001,
+      "itemType": 1
+    },
+    {
+      "key": 601060,
+      "name": "손질 된 오징어",
+      "resultCategory": 110159,
+      "ingredients": [
+        110031
+      ],
+      "usingTool": 1001,
+      "itemType": 1
+    },
+    {
+      "key": 601061,
+      "name": "토막 난 오징어 ",
+      "resultCategory": 110160,
+      "ingredients": [
+        110031
+      ],
+      "usingTool": 1001,
+      "itemType": 1
+    },
+    {
+      "key": 601062,
+      "name": "쪄진 오징어",
+      "resultCategory": 110161,
+      "ingredients": [
+        110031
+      ],
+      "usingTool": 1005,
+      "itemType": 1
+    },
+    {
+      "key": 601063,
+      "name": "손질 된 대게",
+      "resultCategory": 110162,
+      "ingredients": [
+        110032
+      ],
+      "usingTool": 1001,
+      "itemType": 1
+    },
+    {
+      "key": 601064,
+      "name": "회로 손질 된 대게",
+      "resultCategory": 110163,
+      "ingredients": [
+        110032
+      ],
+      "usingTool": 1001,
+      "itemType": 1
+    },
+    {
+      "key": 601065,
+      "name": "쪄진 대게",
+      "resultCategory": 110164,
+      "ingredients": [
+        110032
+      ],
+      "usingTool": 1005,
+      "itemType": 1
+    },
+    {
+      "key": 601066,
+      "name": "살이 발라진 대게",
+      "resultCategory": 110165,
+      "ingredients": [
+        110032
+      ],
+      "usingTool": 1001,
+      "itemType": 1
+    },
+    {
+      "key": 601067,
+      "name": "쪄진 새우",
+      "resultCategory": 110166,
+      "ingredients": [
+        110033
+      ],
+      "usingTool": 1005,
+      "itemType": 1
+    },
+    {
+      "key": 601068,
+      "name": "구운 새우",
+      "resultCategory": 110167,
       "ingredients": [
         110033
       ],
       "usingTool": 1006,
-      "cookingProperty": "가공 재료"
-    },
-    {
-      "key": 601049,
-      "name": "삶은 바지락",
-      "resultCategory": 110148,
-      "ingredients": [
-        110034
-      ],
-      "usingTool": 1004,
-      "cookingProperty": "가공 재료"
-    },
-    {
-      "key": 601050,
-      "name": "삶은 홍합",
-      "resultCategory": 110149,
-      "ingredients": [
-        110035
-      ],
-      "usingTool": 1004,
-      "cookingProperty": "가공 재료"
-    },
-    {
-      "key": 601051,
-      "name": "손질 된 고등어",
-      "resultCategory": 110150,
-      "ingredients": [
-        110036
-      ],
-      "usingTool": 1001,
-      "cookingProperty": "가공 재료"
-    },
-    {
-      "key": 601052,
-      "name": "회로 손질 된 고등어",
-      "resultCategory": 110151,
-      "ingredients": [
-        110036
-      ],
-      "usingTool": 1001,
-      "cookingProperty": "가공 재료"
-    },
-    {
-      "key": 601053,
-      "name": "구운 고등어",
-      "resultCategory": 110152,
-      "ingredients": [
-        110036
-      ],
-      "usingTool": 1006,
-      "cookingProperty": "가공 재료"
-    },
-    {
-      "key": 601054,
-      "name": "손질 된 생태",
-      "resultCategory": 110153,
-      "ingredients": [
-        110037
-      ],
-      "usingTool": 1001,
-      "cookingProperty": "가공 재료"
-    },
-    {
-      "key": 601055,
-      "name": "손질 된 참돔",
-      "resultCategory": 110154,
-      "ingredients": [
-        110039
-      ],
-      "usingTool": 1001,
-      "cookingProperty": "가공 재료"
-    },
-    {
-      "key": 601056,
-      "name": "회로 손질 된 참돔",
-      "resultCategory": 110155,
-      "ingredients": [
-        110039
-      ],
-      "usingTool": 1001,
-      "cookingProperty": "가공 재료"
-    },
-    {
-      "key": 601057,
-      "name": "쪄진 굴",
-      "resultCategory": 110156,
-      "ingredients": [
-        110040
-      ],
-      "usingTool": 1005,
-      "cookingProperty": "가공 재료"
-    },
-    {
-      "key": 601058,
-      "name": "회로 손질 된 해삼",
-      "resultCategory": 110157,
-      "ingredients": [
-        110041
-      ],
-      "usingTool": 1001,
-      "cookingProperty": "가공 재료"
-    },
-    {
-      "key": 601059,
-      "name": "손질 된 갈치",
-      "resultCategory": 110158,
-      "ingredients": [
-        110042
-      ],
-      "usingTool": 1001,
-      "cookingProperty": "가공 재료"
-    },
-    {
-      "key": 601060,
-      "name": "뼈가 발린 갈치",
-      "resultCategory": 110159,
-      "ingredients": [
-        110042
-      ],
-      "usingTool": 1001,
-      "cookingProperty": "가공 재료"
-    },
-    {
-      "key": 601061,
-      "name": "구운 갈치",
-      "resultCategory": 110160,
-      "ingredients": [
-        110042
-      ],
-      "usingTool": 1006,
-      "cookingProperty": "가공 재료"
-    },
-    {
-      "key": 601062,
-      "name": "손질 된 전복",
-      "resultCategory": 110161,
-      "ingredients": [
-        110044
-      ],
-      "usingTool": 1001,
-      "cookingProperty": "가공 재료"
-    },
-    {
-      "key": 601063,
-      "name": "전복 내장",
-      "resultCategory": 110162,
-      "ingredients": [
-        110044
-      ],
-      "usingTool": 1001,
-      "cookingProperty": "가공 재료"
-    },
-    {
-      "key": 601064,
-      "name": "회로 손질 된 전복",
-      "resultCategory": 110163,
-      "ingredients": [
-        110044
-      ],
-      "usingTool": 1001,
-      "cookingProperty": "가공 재료"
-    },
-    {
-      "key": 601065,
-      "name": "쪄진 전복",
-      "resultCategory": 110164,
-      "ingredients": [
-        110044
-      ],
-      "usingTool": 1005,
-      "cookingProperty": "가공 재료"
-    },
-    {
-      "key": 601066,
-      "name": "구운 전복",
-      "resultCategory": 110165,
-      "ingredients": [
-        110044
-      ],
-      "usingTool": 1006,
-      "cookingProperty": "가공 재료"
-    },
-    {
-      "key": 601067,
-      "name": "손질 된 문어",
-      "resultCategory": 110166,
-      "ingredients": [
-        110045
-      ],
-      "usingTool": 1001,
-      "cookingProperty": "가공 재료"
-    },
-    {
-      "key": 601068,
-      "name": "토막 난 문어",
-      "resultCategory": 110167,
-      "ingredients": [
-        110045
-      ],
-      "usingTool": 1001,
-      "cookingProperty": "가공 재료"
+      "itemType": 1
     },
     {
       "key": 601069,
-      "name": "쪄진 문어",
+      "name": "쪄진 대하",
       "resultCategory": 110168,
       "ingredients": [
-        110045
+        110034
       ],
       "usingTool": 1005,
-      "cookingProperty": "가공 재료"
+      "itemType": 1
     },
     {
       "key": 601070,
-      "name": "손질 된 병어",
+      "name": "구운 대하",
       "resultCategory": 110169,
       "ingredients": [
-        110046
+        110034
       ],
-      "usingTool": 1001,
-      "cookingProperty": "가공 재료"
+      "usingTool": 1006,
+      "itemType": 1
     },
     {
       "key": 601071,
-      "name": "쪄진 병어",
+      "name": "손질 된 방어",
       "resultCategory": 110170,
       "ingredients": [
-        110046
+        110035
       ],
-      "usingTool": 1005,
-      "cookingProperty": "가공 재료"
+      "usingTool": 1001,
+      "itemType": 1
     },
     {
       "key": 601072,
-      "name": "구워진 병어",
+      "name": "회로 손질 된 방어",
       "resultCategory": 110171,
       "ingredients": [
-        110046
+        110035
       ],
-      "usingTool": 1006,
-      "cookingProperty": "가공 재료"
+      "usingTool": 1001,
+      "itemType": 1
     },
     {
       "key": 601073,
-      "name": "손질 된 꽃게",
-      "resultCategory": 110172,
+      "name": "삶은 소면",
+      "resultCategory": 110173,
       "ingredients": [
-        110047
+        110406
       ],
-      "usingTool": 1001,
-      "cookingProperty": "가공 재료"
+      "usingTool": 1004,
+      "itemType": 1
     },
     {
       "key": 601074,
-      "name": "토막 난 꽃게",
-      "resultCategory": 110173,
-      "ingredients": [
-        110047
-      ],
-      "usingTool": 1001,
-      "cookingProperty": "가공 재료"
-    },
-    {
-      "key": 601075,
-      "name": "쪄진 꽃게",
-      "resultCategory": 110174,
-      "ingredients": [
-        110047
-      ],
-      "usingTool": 1005,
-      "cookingProperty": "가공 재료"
-    },
-    {
-      "key": 601076,
-      "name": "살이 발라진 꽃게",
-      "resultCategory": 110175,
-      "ingredients": [
-        110047
-      ],
-      "usingTool": 1001,
-      "cookingProperty": "가공 재료"
-    },
-    {
-      "key": 601077,
-      "name": "손질 된 오징어",
-      "resultCategory": 110176,
-      "ingredients": [
-        110048
-      ],
-      "usingTool": 1001,
-      "cookingProperty": "가공 재료"
-    },
-    {
-      "key": 601078,
-      "name": "토막 난 오징어 ",
-      "resultCategory": 110177,
-      "ingredients": [
-        110048
-      ],
-      "usingTool": 1001,
-      "cookingProperty": "가공 재료"
-    },
-    {
-      "key": 601079,
-      "name": "쪄진 오징어",
-      "resultCategory": 110178,
-      "ingredients": [
-        110048
-      ],
-      "usingTool": 1005,
-      "cookingProperty": "가공 재료"
-    },
-    {
-      "key": 601080,
-      "name": "손질 된 대게",
-      "resultCategory": 110179,
-      "ingredients": [
-        110050
-      ],
-      "usingTool": 1001,
-      "cookingProperty": "가공 재료"
-    },
-    {
-      "key": 601081,
-      "name": "회로 손질 된 대게",
-      "resultCategory": 110180,
-      "ingredients": [
-        110050
-      ],
-      "usingTool": 1001,
-      "cookingProperty": "가공 재료"
-    },
-    {
-      "key": 601082,
-      "name": "쪄진 대게",
-      "resultCategory": 110181,
-      "ingredients": [
-        110050
-      ],
-      "usingTool": 1005,
-      "cookingProperty": "가공 재료"
-    },
-    {
-      "key": 601083,
-      "name": "살이 발라진 대게",
-      "resultCategory": 110182,
-      "ingredients": [
-        110050
-      ],
-      "usingTool": 1001,
-      "cookingProperty": "가공 재료"
-    },
-    {
-      "key": 601084,
-      "name": "쪄진 새우",
-      "resultCategory": 110183,
-      "ingredients": [
-        110052
-      ],
-      "usingTool": 1005,
-      "cookingProperty": "가공 재료"
-    },
-    {
-      "key": 601085,
-      "name": "구운 새우",
-      "resultCategory": 110184,
-      "ingredients": [
-        110052
-      ],
-      "usingTool": 1006,
-      "cookingProperty": "가공 재료"
-    },
-    {
-      "key": 601086,
-      "name": "쪄진 대하",
-      "resultCategory": 110185,
-      "ingredients": [
-        110053
-      ],
-      "usingTool": 1005,
-      "cookingProperty": "가공 재료"
-    },
-    {
-      "key": 601087,
-      "name": "구운 대하",
-      "resultCategory": 110186,
-      "ingredients": [
-        110053
-      ],
-      "usingTool": 1006,
-      "cookingProperty": "가공 재료"
-    },
-    {
-      "key": 601088,
-      "name": "쪄진 석화",
-      "resultCategory": 110187,
-      "ingredients": [
-        110054
-      ],
-      "usingTool": 1005,
-      "cookingProperty": "가공 재료"
-    },
-    {
-      "key": 601089,
-      "name": "손질 된 방어",
-      "resultCategory": 110188,
-      "ingredients": [
-        110056
-      ],
-      "usingTool": 1001,
-      "cookingProperty": "가공 재료"
-    },
-    {
-      "key": 601090,
-      "name": "회로 손질 된 방어",
-      "resultCategory": 110189,
-      "ingredients": [
-        110056
-      ],
-      "usingTool": 1001,
-      "cookingProperty": "가공 재료"
-    },
-    {
-      "key": 601091,
-      "name": "토막 난 유자",
-      "resultCategory": 110190,
-      "ingredients": [
-        110057
-      ],
-      "usingTool": 1001,
-      "cookingProperty": "가공 재료"
-    },
-    {
-      "key": 601092,
-      "name": "유자 즙",
-      "resultCategory": 110191,
-      "ingredients": [
-        110057
-      ],
-      "usingTool": 1003,
-      "cookingProperty": "가공 재료"
-    },
-    {
-      "key": 601093,
-      "name": "손질 된 와사비 뿌리",
-      "resultCategory": 110192,
-      "ingredients": [
-        110058
-      ],
-      "usingTool": 1001,
-      "cookingProperty": "가공 재료"
-    },
-    {
-      "key": 601094,
-      "name": "생와사비",
-      "resultCategory": 110193,
-      "ingredients": [
-        110058
-      ],
-      "usingTool": 1003,
-      "cookingProperty": "가공 재료"
-    },
-    {
-      "key": 601095,
-      "name": "삶은 소면",
-      "resultCategory": 110194,
-      "ingredients": [
-        110405
-      ],
-      "usingTool": 1004,
-      "cookingProperty": "가공 재료"
-    },
-    {
-      "key": 601096,
       "name": "뜨거운 식용유",
-      "resultCategory": 110195,
+      "resultCategory": 110175,
       "ingredients": [
         110404
       ],
       "usingTool": 1004,
-      "cookingProperty": "가공 재료"
+      "itemType": 1
+    },
+    {
+      "key": 601075,
+      "name": "삶은 콩나물",
+      "resultCategory": 110184,
+      "ingredients": [
+        110037
+      ],
+      "usingTool": 1004,
+      "itemType": 1
+    },
+    {
+      "key": 601076,
+      "name": "삶은 고기",
+      "resultCategory": 110185,
+      "ingredients": [
+        110038
+      ],
+      "usingTool": 1004,
+      "itemType": 1
     },
     {
       "key": 602001,
       "name": "쌈장",
-      "resultCategory": 110194,
+      "resultCategory": 110172,
       "ingredients": [
         110401,
         110403,
-        110011
+        110008
       ],
       "usingTool": 1007,
-      "cookingProperty": "조합 재료"
+      "itemType": 3
     },
     {
       "key": 602002,
       "name": "밀가루 반죽",
-      "resultCategory": 110196,
+      "resultCategory": 110174,
       "ingredients": [
-        110406,
-        110060
+        110405,
+        110036
       ],
       "usingTool": 1007,
-      "cookingProperty": "조합 재료"
+      "itemType": 3
+    },
+    {
+      "key": 602003,
+      "name": "볶음양념",
+      "resultCategory": 110176,
+      "ingredients": [
+        110402,
+        110401,
+        110101
+      ],
+      "usingTool": 1007,
+      "itemType": 3
+    },
+    {
+      "key": 602004,
+      "name": "조림간장",
+      "resultCategory": 110177,
+      "ingredients": [
+        110402,
+        110036,
+        110008
+      ],
+      "usingTool": 1007,
+      "itemType": 3
+    },
+    {
+      "key": 602005,
+      "name": "고추양념장",
+      "resultCategory": 110178,
+      "ingredients": [
+        110401,
+        110103,
+        110101
+      ],
+      "usingTool": 1007,
+      "itemType": 3
+    },
+    {
+      "key": 602006,
+      "name": "튀김반죽",
+      "resultCategory": 110179,
+      "ingredients": [
+        110405,
+        110036,
+        110404
+      ],
+      "usingTool": 1007,
+      "itemType": 3
+    },
+    {
+      "key": 602007,
+      "name": "간장 양념장",
+      "resultCategory": 110180,
+      "ingredients": [
+        110402,
+        110409,
+        110103
+      ],
+      "usingTool": 1007,
+      "itemType": 3
+    },
+    {
+      "key": 602008,
+      "name": "육수",
+      "resultCategory": 110181,
+      "ingredients": [
+        110019,
+        110101,
+        110036
+      ],
+      "usingTool": 1007,
+      "itemType": 3
+    },
+    {
+      "key": 602009,
+      "name": "해물탕 베이스",
+      "resultCategory": 110182,
+      "ingredients": [
+        110178,
+        110403,
+        110036
+      ],
+      "usingTool": 1007,
+      "itemType": 3
+    },
+    {
+      "key": 602010,
+      "name": "된장국물베이스",
+      "resultCategory": 110183,
+      "ingredients": [
+        110403,
+        110036,
+        110101
+      ],
+      "usingTool": 1007,
+      "itemType": 3
     },
     {
       "key": 603001,
-      "name": "고구마 맛탕",
+      "name": "견과류 멸치 볶음",
       "resultCategory": 110501,
       "ingredients": [
-        110124,
-        110011
+        110135,
+        110008,
+        110129
       ],
       "usingTool": 1008,
-      "cookingProperty": "조합 요리"
+      "itemType": 4
     },
     {
       "key": 603002,
-      "name": "멸치 볶음",
+      "name": "감자조림",
       "resultCategory": 110502,
       "ingredients": [
-        110147,
-        110011
+        110110,
+        110117
       ],
       "usingTool": 1008,
-      "cookingProperty": "조합 요리"
+      "itemType": 4
     },
     {
       "key": 603003,
-      "name": "견과류 멸치 볶음",
+      "name": "무나물",
       "resultCategory": 110503,
       "ingredients": [
-        110147,
-        110011,
-        110135
+        110115,
+        110409
       ],
       "usingTool": 1008,
-      "cookingProperty": "조합 요리"
+      "itemType": 4
     },
     {
       "key": 603004,
-      "name": "버터 감자",
+      "name": "마늘쫑볶음",
       "resultCategory": 110504,
       "ingredients": [
-        110114,
-        1100407
+        110100,
+        110177
       ],
       "usingTool": 1008,
-      "cookingProperty": "조합 요리"
+      "itemType": 4
     },
     {
       "key": 603005,
-      "name": "허니 버터 감자 ",
+      "name": "두부조림",
       "resultCategory": 110505,
       "ingredients": [
-        110114,
-        110407,
-        110011
+        110109,
+        110178
       ],
       "usingTool": 1008,
-      "cookingProperty": "조합 요리"
+      "itemType": 4
     },
     {
       "key": 603006,
-      "name": "정어리 회",
+      "name": "고구마 조림",
       "resultCategory": 110506,
       "ingredients": [
-        110144
+        110119,
+        110177
       ],
       "usingTool": 1008,
-      "cookingProperty": "조합 요리"
+      "itemType": 4
     },
     {
       "key": 603007,
-      "name": "정어리 구이",
+      "name": "콩나물 무침",
       "resultCategory": 110507,
       "ingredients": [
-        110145
+        110184,
+        110180,
+        110409
       ],
       "usingTool": 1008,
-      "cookingProperty": "조합 요리"
+      "itemType": 4
+    },
+    {
+      "key": 603008,
+      "name": "버섯볶음",
+      "resultCategory": 110508,
+      "ingredients": [
+        110133,
+        110404,
+        110004
+      ],
+      "usingTool": 1008,
+      "itemType": 4
+    },
+    {
+      "key": 603009,
+      "name": "버터 감자",
+      "resultCategory": 110509,
+      "ingredients": [
+        110111,
+        110407
+      ],
+      "usingTool": 1008,
+      "itemType": 4
+    },
+    {
+      "key": 603010,
+      "name": "호두조림",
+      "resultCategory": 110510,
+      "ingredients": [
+        110128,
+        110177
+      ],
+      "usingTool": 1008,
+      "itemType": 4
+    },
+    {
+      "key": 603011,
+      "name": "고등어구이",
+      "resultCategory": 110511,
+      "ingredients": [
+        110140,
+        110407
+      ],
+      "usingTool": 1008,
+      "itemType": 4
+    },
+    {
+      "key": 603012,
+      "name": "표고버섯구이",
+      "resultCategory": 110512,
+      "ingredients": [
+        110132,
+        110404,
+        110177
+      ],
+      "usingTool": 1008,
+      "itemType": 4
+    },
+    {
+      "key": 603013,
+      "name": "전복버터구이",
+      "resultCategory": 110513,
+      "ingredients": [
+        110151,
+        110407
+      ],
+      "usingTool": 1008,
+      "itemType": 4
+    },
+    {
+      "key": 603014,
+      "name": "대하버터구이",
+      "resultCategory": 110514,
+      "ingredients": [
+        110169,
+        110407
+      ],
+      "usingTool": 1008,
+      "itemType": 4
+    },
+    {
+      "key": 603015,
+      "name": "감자채볶음",
+      "resultCategory": 110515,
+      "ingredients": [
+        110111,
+        110404,
+        110004
+      ],
+      "usingTool": 1008,
+      "itemType": 4
+    },
+    {
+      "key": 603016,
+      "name": "마늘볶음밥",
+      "resultCategory": 110516,
+      "ingredients": [
+        110100,
+        110410,
+        110180
+      ],
+      "usingTool": 1008,
+      "itemType": 4
+    },
+    {
+      "key": 603017,
+      "name": "고추장 제육볶음",
+      "resultCategory": 110517,
+      "ingredients": [
+        110103,
+        110178,
+        110185
+      ],
+      "usingTool": 1008,
+      "itemType": 4
+    },
+    {
+      "key": 603018,
+      "name": "버터 고구마",
+      "resultCategory": 110518,
+      "ingredients": [
+        110119,
+        110407
+      ],
+      "usingTool": 1008,
+      "itemType": 4
+    },
+    {
+      "key": 603019,
+      "name": "구운 꽃게",
+      "resultCategory": 110519,
+      "ingredients": [
+        110155,
+        110407
+      ],
+      "usingTool": 1008,
+      "itemType": 4
+    },
+    {
+      "key": 603020,
+      "name": "된장찌개",
+      "resultCategory": 110520,
+      "ingredients": [
+        110183,
+        110132,
+        110108
+      ],
+      "usingTool": 1008,
+      "itemType": 4
+    },
+    {
+      "key": 603021,
+      "name": "전복죽",
+      "resultCategory": 110521,
+      "ingredients": [
+        110181,
+        110410,
+        110147
+      ],
+      "usingTool": 1008,
+      "itemType": 4
+    },
+    {
+      "key": 603022,
+      "name": "꽃게탕",
+      "resultCategory": 110522,
+      "ingredients": [
+        110182,
+        110156
+      ],
+      "usingTool": 1008,
+      "itemType": 4
+    },
+    {
+      "key": 603023,
+      "name": "쑥 된장국",
+      "resultCategory": 110523,
+      "ingredients": [
+        110012,
+        110183,
+        110112
+      ],
+      "usingTool": 1008,
+      "itemType": 4
+    },
+    {
+      "key": 603024,
+      "name": "굴미역국",
+      "resultCategory": 110524,
+      "ingredients": [
+        110143,
+        110027,
+        110181
+      ],
+      "usingTool": 1008,
+      "itemType": 4
+    },
+    {
+      "key": 603025,
+      "name": "콩나물김칫국",
+      "resultCategory": 110525,
+      "ingredients": [
+        110184,
+        110181,
+        110408
+      ],
+      "usingTool": 1008,
+      "itemType": 4
+    },
+    {
+      "key": 603026,
+      "name": "대하탕",
+      "resultCategory": 110526,
+      "ingredients": [
+        110182,
+        110168,
+        110115
+      ],
+      "usingTool": 1008,
+      "itemType": 4
+    },
+    {
+      "key": 603027,
+      "name": "문어연포탕",
+      "resultCategory": 110527,
+      "ingredients": [
+        110154,
+        110181,
+        110115
+      ],
+      "usingTool": 1008,
+      "itemType": 4
+    },
+    {
+      "key": 603028,
+      "name": "전복버터찜",
+      "resultCategory": 110528,
+      "ingredients": [
+        110150,
+        110407
+      ],
+      "usingTool": 1008,
+      "itemType": 4
+    },
+    {
+      "key": 603029,
+      "name": "고구마 맛탕",
+      "resultCategory": 110529,
+      "ingredients": [
+        110119,
+        110008
+      ],
+      "usingTool": 1008,
+      "itemType": 4
+    },
+    {
+      "key": 603030,
+      "name": "허니 버터 감자",
+      "resultCategory": 110530,
+      "ingredients": [
+        110111,
+        110407,
+        110008
+      ],
+      "usingTool": 1008,
+      "itemType": 4
+    },
+    {
+      "key": 603031,
+      "name": "감말랭이",
+      "resultCategory": 110531,
+      "ingredients": [
+        110124,
+        110008
+      ],
+      "usingTool": 1008,
+      "itemType": 4
+    },
+    {
+      "key": 603032,
+      "name": "사과주스",
+      "resultCategory": 110532,
+      "ingredients": [
+        110131,
+        110008
+      ],
+      "usingTool": 1008,
+      "itemType": 4
+    },
+    {
+      "key": 603033,
+      "name": "배숙",
+      "resultCategory": 110533,
+      "ingredients": [
+        110127,
+        110008
+      ],
+      "usingTool": 1008,
+      "itemType": 4
+    },
+    {
+      "key": 603034,
+      "name": "수육 세트",
+      "resultCategory": 110534,
+      "ingredients": [
+        110185,
+        110408,
+        110005
+      ],
+      "usingTool": 1008,
+      "itemType": 4
+    },
+    {
+      "key": 603035,
+      "name": "두부스테이크",
+      "resultCategory": 110535,
+      "ingredients": [
+        110109,
+        110174,
+        110177
+      ],
+      "usingTool": 1008,
+      "itemType": 4
+    },
+    {
+      "key": 603036,
+      "name": "감자크로켓",
+      "resultCategory": 110536,
+      "ingredients": [
+        110113,
+        110179
+      ],
+      "usingTool": 1008,
+      "itemType": 4
+    },
+    {
+      "key": 603037,
+      "name": "멸치국수",
+      "resultCategory": 110537,
+      "ingredients": [
+        110173,
+        110134,
+        110180
+      ],
+      "usingTool": 1008,
+      "itemType": 4
+    },
+    {
+      "key": 603038,
+      "name": "콩물국수",
+      "resultCategory": 110538,
+      "ingredients": [
+        110173,
+        110107
+      ],
+      "usingTool": 1008,
+      "itemType": 4
+    },
+    {
+      "key": 603039,
+      "name": "전복회",
+      "resultCategory": 110539,
+      "ingredients": [
+        110149,
+        110409
+      ],
+      "usingTool": 1008,
+      "itemType": 4
+    },
+    {
+      "key": 603040,
+      "name": "대게찜정식",
+      "resultCategory": 110540,
+      "ingredients": [
+        110164,
+        110180,
+        110410
+      ],
+      "usingTool": 1008,
+      "itemType": 4
+    },
+    {
+      "key": 603041,
+      "name": "방어 회 세트",
+      "resultCategory": 110541,
+      "ingredients": [
+        110171,
+        110402
+      ],
+      "usingTool": 1008,
+      "itemType": 4
+    },
+    {
+      "key": 603042,
+      "name": "참돔 회 세트",
+      "resultCategory": 110542,
+      "ingredients": [
+        110142,
+        110402
+      ],
+      "usingTool": 1008,
+      "itemType": 4
+    },
+    {
+      "key": 603043,
+      "name": "고등어 회 세트",
+      "resultCategory": 110543,
+      "ingredients": [
+        110139,
+        110402
+      ],
+      "usingTool": 1008,
+      "itemType": 4
+    },
+    {
+      "key": 603044,
+      "name": "쑥떡",
+      "resultCategory": 110544,
+      "ingredients": [
+        110012,
+        110410
+      ],
+      "usingTool": 1008,
+      "itemType": 4
+    },
+    {
+      "key": 603045,
+      "name": "오징어 튀김",
+      "resultCategory": 110545,
+      "ingredients": [
+        110174,
+        110175,
+        110160
+      ],
+      "usingTool": 1008,
+      "itemType": 4
+    },
+    {
+      "key": 603046,
+      "name": "새우 튀김",
+      "resultCategory": 110546,
+      "ingredients": [
+        110174,
+        110175,
+        110033
+      ],
+      "usingTool": 1008,
+      "itemType": 4
+    },
+    {
+      "key": 603047,
+      "name": "대게 볶음밥",
+      "resultCategory": 110547,
+      "ingredients": [
+        110410,
+        110165,
+        110023
+      ],
+      "usingTool": 1008,
+      "itemType": 4
+    },
+    {
+      "key": 603048,
+      "name": "새우 대하 구이 세트",
+      "resultCategory": 110548,
+      "ingredients": [
+        110167,
+        110169
+      ],
+      "usingTool": 1008,
+      "itemType": 4
     }
   ]
 }
