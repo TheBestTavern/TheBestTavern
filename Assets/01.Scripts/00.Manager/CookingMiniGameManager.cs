@@ -168,4 +168,13 @@ public class CookingMiniGameManager : MonoSingleton<CookingMiniGameManager>
     {
         return resultGrade;
     }
+
+    // 게임 바로 종료
+    public void InstantGameOver()
+    {
+        if (currentGame is CookingMiniGameBase baseGame)
+        {
+            baseGame.InstantGameOver();
+        }
+    }
 }
