@@ -172,7 +172,7 @@ public class CookingGrillMiniGame : CookingMiniGameBase
     public override void StopGame()
     {
         isFlipLocked = true;
-
+        RecipeManager.Instance.EndCooking();
         var grade = JudgeGrade();
         CookingMiniGameManager.Instance.SetMiniGameResult(grade);
         PlayEffect(grade);

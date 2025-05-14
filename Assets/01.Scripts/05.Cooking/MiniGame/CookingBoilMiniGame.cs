@@ -226,6 +226,7 @@ public class CookingBoilMiniGame : CookingMiniGameBase
 
     public override void StopGame()
     {
+        RecipeManager.Instance.EndCooking();
         var grade = JudgeGrade();
         Debug.Log($"재료최종등급:{grade}");
         CookingMiniGameManager.Instance.SetMiniGameResult(grade);
