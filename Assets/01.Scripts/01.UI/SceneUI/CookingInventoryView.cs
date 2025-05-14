@@ -103,6 +103,10 @@ public class CookingInventoryView : InventoryViewLoose
                 minTargetingNum = 1;
                 maxTargetingNum = 1;
                 break;
+            case "Cooking_MixingBowl_Test":
+                minTargetingNum = 2;
+                maxTargetingNum = 2;
+                break;
             case "Plate":
                 minTargetingNum = 2;
                 maxTargetingNum = 2;
