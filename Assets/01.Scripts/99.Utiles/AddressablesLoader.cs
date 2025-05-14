@@ -24,7 +24,7 @@ public class AddressablesLoader : MonoSingleton<AddressablesLoader>
     /// </summary>
     /// <param name="address">불러올 Addressables 프리펩 경로</param>
     /// <returns></returns>
-    public async Task<T> AddressablesLoadAsync<T>(string address)
+    public async Task<T> AddressablesLoadAsync<T>(string address, bool fallback = false)
     {
         if (cache.TryGetValue(address, out var cacheHandle))
         {
@@ -53,7 +53,14 @@ public class AddressablesLoader : MonoSingleton<AddressablesLoader>
         Debug.LogError($"에셋 로드 실패: {address}");
         Addressables.Release(handle);
         // 실패시 null 반환
-        return default(T);
+        if (fallback)
+        {
+            return await AddressablesLoadAsync<T>("default." + typeof(T).Name); ;
+        }
+        else
+        {
+            return default(T);
+        }
     }
 
     public void Release(string address)

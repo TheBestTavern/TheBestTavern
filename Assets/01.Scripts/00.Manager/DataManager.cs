@@ -65,6 +65,10 @@ public static class Data // 간단 key 검색 클래스
 /// </summary>
 public class DataManager : MonoSingleton<DataManager>
 {
+    public Data_Book_DishLoader DataLoader_Book_Dish { get; private set; } // 도감(요리) 정보
+    public Data_Book_IngredientLoader DataLoader_Book_Ingredient { get; private set; } // 도감(원재료) 정보
+    public Data_Book_MixLoader DataLoader_Book_Mix { get; private set; } // 도감(조합재료) 정보
+    public Data_Book_SpecialLoader DataLoader_Book_Special { get; private set; } // 도감(특수재료) 정보
     public Data_CookingStepsLoader DataLoader_CookingSteps { get; private set; } // 요리 방식 데이터 ex.끓이기 찌기, 굽기 등
     public Data_FoodsLoader DataLoader_Foods { get; private set; } // 게임 상에 존재하는 모든 아이템(재료, 가공재료, 요리 포함)
     public Data_FoodCategoryLoader DataLoader_FoodCategory { get; private set; } // 게임 상에 존재하는 모든 아이템(재료, 가공재료, 요리 포함)
@@ -81,6 +85,10 @@ public class DataManager : MonoSingleton<DataManager>
 
         DontDestroyOnLoad(gameObject);
 
+        DataLoader_Book_Dish = new();
+        DataLoader_Book_Ingredient = new();
+        DataLoader_Book_Mix = new();
+        DataLoader_Book_Special = new();
         DataLoader_CookingSteps = new();
         DataLoader_Foods = new();
         DataLoader_Gathering = new();
