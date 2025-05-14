@@ -5,42 +5,35 @@ using UnityEngine.UI;
 
 public interface IBook
 {
+    public BookType thisBookType { get; set; }
+    public void Init1();
+    public void Init2();
     public void On();
     public void Off();
 }
 
 public abstract class BookUI_Base<TSlot, TData> : MonoBehaviour, IBook where TSlot : BaseBookSlot<TData>
 {
-    protected int 한페이지에보이는슬롯수;
+    public BookType thisBookType { get; set; }
+
+    protected int 한페이지에보이는슬롯수 = 6;
     protected int 현재페이지;
     protected int 마지막페이지;
 
     [SerializeField] protected List<TSlot> 슬롯들;
+    [SerializeField] protected BaseBookSlot<TData> 슬롯프리팹;
+    [SerializeField] protected Transform 슬롯생성위치;
+
     protected List<TData> 테이블; // 요소 타입 바꿔야
 
-    [SerializeField] protected Button 다음버튼;
-    [SerializeField] protected Button 이전버튼;
+    [SerializeField] Button 다음버튼;
+    [SerializeField] Button 이전버튼;
+    [SerializeField] TextMeshProUGUI pageUI;
 
-    protected TextMeshProUGUI pageUI;
+    protected bool isReady1;
+    protected bool isReady2;
 
-    bool isReady;
-
-    public void On()
-    {
-        if (!isReady)
-            초기설정();
-
-        gameObject.SetActive(true);
-        현재페이지에맞게슬롯갱신();
-        페이지UI갱신();
-    }
-
-    public void Off()
-    {
-        gameObject.SetActive(false);
-    }
-
-    protected virtual void 초기설정()
+    public virtual void Init1()
     {
         다음버튼.onClick.AddListener(() =>
         {
@@ -66,11 +59,29 @@ public abstract class BookUI_Base<TSlot, TData> : MonoBehaviour, IBook where TSl
         else
         {
             현재페이지 = 1;
-            현재페이지에맞게슬롯갱신();
         }
 
-        isReady = true;
+        isReady1 = true;
     }
+
+    public virtual void Init2()
+    {
+    }
+
+    public void On()
+    {
+        if (!isReady2) Init2();
+
+        gameObject.SetActive(true);
+        현재페이지에맞게슬롯갱신();
+        페이지UI갱신();
+    }
+
+    public void Off()
+    {
+        gameObject.SetActive(false);
+    }
+
 
     public void 현재페이지에맞게슬롯갱신()
     {

@@ -29,7 +29,7 @@ public class ItemRecordManager : MonoSingleton<ItemRecordManager>
 
     private void CreateRecordDict()
     {
-        foreach (var pair in DataManager.Instance.DataLoader_Foods.ItemsDict)
+        foreach (var pair in DataManager.Instance.DataLoader_FoodCategory.ItemsDict)
         {
             ItemRecord item = new ItemRecord();
             itemRecords[pair.Key] = item;
