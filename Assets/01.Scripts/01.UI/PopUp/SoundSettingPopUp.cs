@@ -4,10 +4,7 @@ using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
 
-/// <summary>
-/// ESC 설정 팝업 
-/// </summary>
-public class SettingPopUp : BasePopUp
+public class SoundSettingPopUp : BasePopUp
 {
     // 게임 종료 버튼
     [SerializeField] private Button quitButton;
@@ -18,7 +15,7 @@ public class SettingPopUp : BasePopUp
         base.Awake();
 
         // 설정 팝업으로 설정 
-        popUpType = PopUpType.Setting;
+        popUpType = PopUpType.SoundSetting;
 
         // 게임 종료 버튼 클릭 이벤트 리스터 추가
         quitButton.onClick.AddListener(OnClickQuitButton);
@@ -32,14 +29,13 @@ public class SettingPopUp : BasePopUp
         Application.Quit();
 
         // 유니티 플레이모드 종료
-        #if UNITY_EDITOR
+#if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
-        #endif
+#endif
     }
 
-    async void OnClickSoundButton()
+    void OnClickSoundButton()
     {
-        await PopUpManager.Instance.ShowPopUp(PopUpType.SoundSetting);
     }
 
     // 팝업 열때 필요한 함수
