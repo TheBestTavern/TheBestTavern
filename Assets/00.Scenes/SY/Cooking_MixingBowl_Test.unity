@@ -1672,8 +1672,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   data: {fileID: 11400000, guid: 7c61f50033f8139428fc181562661f79, type: 2}
   effectController: {fileID: 1917111614}
-  mixingSpoon: {fileID: 0}
-  mixingbowlUI: {fileID: 0}
+  mixingSpoon: {fileID: 33942787616864131}
+  mixingbowlUI: {fileID: 1494030874}
 --- !u!4 &1957832545
 Transform:
   m_ObjectHideFlags: 0
@@ -2090,7 +2090,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 0 / 100
+  m_text: 0 %
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7e3c63f00b766644d9aa34e1de75307c, type: 2}
   m_sharedMaterial: {fileID: 5297644960594369381, guid: 7e3c63f00b766644d9aa34e1de75307c, type: 2}
