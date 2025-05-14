@@ -52,7 +52,7 @@ public class SoundManager : MonoSingleton<SoundManager>
     {
         if (!bgmKeys.TryGetValue(name, out var addressKey))
         {
-            Debug.LogWarning($"BGM not found: {name}");
+            Debug.LogWarning($"BGM을 찾을 수 없음: {name}");
             return;
         }
 
@@ -67,29 +67,30 @@ public class SoundManager : MonoSingleton<SoundManager>
             }
             else
             {
-                Debug.LogError($"Failed to load BGM: {addressKey}");
+                Debug.LogError($"로드 실패: {addressKey}");
             }
         };
     }
-
-    public void SaveCurrentBGMState()
-    {
-        if (bgmSource.isPlaying)
-            currentBGMTime = bgmSource.time;
-    }
+    
 
     public void PlaySFX(string name)
     {
         if (!sfxKeys.TryGetValue(name, out var addressKey))
         {
-            Debug.LogWarning($"SFX not found: {name}");
+            Debug.LogWarning($"SFX 찾을 수 없음: {name}");
             return;
         }
 
         Addressables.LoadAssetAsync<AudioClip>(addressKey).Completed += (handle) =>
         {
             if (handle.Status == AsyncOperationStatus.Succeeded)
+            {
                 sfxSource.PlayOneShot(handle.Result);
+            }
+            else
+            {
+                Debug.LogError($"로드 실패: {addressKey}");
+            }
         };
     }
 

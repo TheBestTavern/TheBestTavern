@@ -19,6 +19,7 @@ public class SoundSettingPopUp : BasePopUp
 
         SetInitialVolume();
         bgmSlider.onValueChanged.AddListener(SoundManager.Instance.SetBGMVolume);
+        sfxSlider.onValueChanged.AddListener(SoundManager.Instance.SetSFXVolume);
 
     }
 
