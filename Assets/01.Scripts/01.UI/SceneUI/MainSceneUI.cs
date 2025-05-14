@@ -20,6 +20,8 @@ public class MainSceneUI : MonoBehaviour
 
     private void Awake()
     {
+        UIManager.Instance.mainSceneUI = this;
+
         // 요리 씬 이동 버튼 클릭 이벤트 리스너 추가 
         cookingSceneButton.onClick.AddListener(OnClickCookingSceneButton);
         // 채집 씬 이동 버튼 클릭 이벤트 리스너 추가 
@@ -34,23 +36,23 @@ public class MainSceneUI : MonoBehaviour
     async void OnClickCookingSceneButton()
     {
         // 확인 팝업 불러오기 
-        await UIManager.Instance.ShowPopUp(PopUpType.Confirm);
+        await PopUpManager.Instance.ShowPopUp(PopUpType.Confirm);
 
         // 확인 팝업 설정 
-        UIManager.Instance.confirmPopUp.SetConfirm("부엌으로 이동하시겠습니까?", ConfirmFunc);
+        PopUpManager.Instance.confirmPopUp.SetConfirm("부엌으로 이동하시겠습니까?", ConfirmFunc);
     }
 
     // 채집씬 이동 버튼 함수 
     async void OnClickGatheringSceneButton()
     {
         // 맵 선택 팝업 불러오기 
-        await UIManager.Instance.ShowPopUp(PopUpType.SelectMap);
+        await PopUpManager.Instance.ShowPopUp(PopUpType.SelectMap);
     }
 
     // 퀘스트 보기 버튼 함수 
     async void OnClickMailBoxButton()
     {
-        await UIManager.Instance.ShowPopUp(PopUpType.MailBox);
+        await PopUpManager.Instance.ShowPopUp(PopUpType.MailBox);
     }
 
     // 하루 보내기 버튼 함수 

@@ -18,7 +18,7 @@ public class MailBoxContentResult : MailBoxContentBase // 제네릭으로 할 �
     public async override void OpenLetter(Quest quest, QuestBaseSlot slot)
     {
         //1. 편지 띄우기
-        currentLetter = await UIManager.Instance.ShowPopUp(PopUpType.ResultLetter) as QuestBaseLetter;
+        currentLetter = await PopUpManager.Instance.ShowPopUp(PopUpType.ResultLetter) as QuestBaseLetter;
 
         base.OpenLetter(quest, slot);
     }

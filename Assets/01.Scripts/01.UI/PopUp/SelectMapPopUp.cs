@@ -73,18 +73,18 @@ public class SelectMapPopUp : BasePopUp
     async void OnClickSeaButton()
     {
         // 확인 팝업 불러오기
-        await UIManager.Instance.ShowPopUp(PopUpType.Confirm);
+        await PopUpManager.Instance.ShowPopUp(PopUpType.Confirm);
         // 확인 팝업 설정
-        UIManager.Instance.confirmPopUp.SetConfirm("정말 이동하시겠습니까?", ConfirmMoveSeaFunc);
+        PopUpManager.Instance.confirmPopUp.SetConfirm("정말 이동하시겠습니까?", ConfirmMoveSeaFunc);
     }
 
     // 산 선택 버튼 함수
     async void OnClickforestButton()
     {
         // 확인 팝업 불러오기
-        await UIManager.Instance.ShowPopUp(PopUpType.Confirm);
+        await PopUpManager.Instance.ShowPopUp(PopUpType.Confirm);
         // 확인 팝업 설정
-        UIManager.Instance.confirmPopUp.SetConfirm("정말 이동하시겠습니까?", ConfirmMoveForestFunc);
+        PopUpManager.Instance.confirmPopUp.SetConfirm("정말 이동하시겠습니까?", ConfirmMoveForestFunc);
     }
 
     // 바다 이동 확인 팝업 함수 

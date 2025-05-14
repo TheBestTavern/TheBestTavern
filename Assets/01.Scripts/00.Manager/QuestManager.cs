@@ -39,22 +39,22 @@ public class QuestManager : MonoSingleton<QuestManager>
         if (AcceptedQuests.Count >= 5)
         {
             Debug.Log("퀘스트 갯수 제한(5개) 초과");
-            await UIManager.Instance.ShowPopUp(PopUpType.Alarm);
-            UIManager.Instance.alarmPopUp.SetAlarm("퀘스트 갯수 제한을 초과했습니다.");
+            await PopUpManager.Instance.ShowPopUp(PopUpType.Alarm);
+            PopUpManager.Instance.alarmPopUp.SetAlarm("퀘스트 갯수 제한을 초과했습니다.");
             return false;
         }
         else if (tempQuest.IsAccepted)
         {
             Debug.Log("이미 수락한 퀘스트임");
-            await UIManager.Instance.ShowPopUp(PopUpType.Alarm);
-            UIManager.Instance.alarmPopUp.SetAlarm("이미 수락한 퀘스트입니다.");
+            await PopUpManager.Instance.ShowPopUp(PopUpType.Alarm);
+            PopUpManager.Instance.alarmPopUp.SetAlarm("이미 수락한 퀘스트입니다.");
             return false;
         }
         else if (NPCManager.Instance.AllNPC[tempQuest.origin.givingNPC].isGivingQuest)
         {
             Debug.Log("이미 퀘스트를 준 npc입니다.");
-            await UIManager.Instance.ShowPopUp(PopUpType.Alarm);
-            UIManager.Instance.alarmPopUp.SetAlarm("이미 퀘스트를 준 npc입니다.");
+            await PopUpManager.Instance.ShowPopUp(PopUpType.Alarm);
+            PopUpManager.Instance.alarmPopUp.SetAlarm("이미 퀘스트를 준 npc입니다.");
             return false;
         }
 

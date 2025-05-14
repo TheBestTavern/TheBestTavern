@@ -13,6 +13,7 @@ public class CaptureManager : MonoSingleton<CaptureManager>
     [Header("포획 설정")]
     [SerializeField] private float captureRadius = 5f;
     private Animal animalInRange;
+    public bool success;
 
     protected override void Awake()
     {
@@ -70,18 +71,34 @@ public class CaptureManager : MonoSingleton<CaptureManager>
             return;
         }
 
-        bool success = animalInRange.TryCapture();
+        success = animalInRange.TryCapture();
         if (success)
         {
             Debug.LogError("동물 포획 성공");
             AddItem();
             animalInRange.DestroyAnimal();
-            UnLoadMiniGame();
+            ShowResult();
         }
         else
         {
             Debug.LogError("동물 포획 실패");
+            animalInRange.gatheringKey = 0;
         }
+    }
+
+    async void ShowResult()
+    {
+        await PopUpManager.Instance.ShowPopUp(PopUpType.GatheringResult);
+    }
+
+    public int GetItemKey()
+    {
+        return animalInRange.gatheringKey;
+    }
+
+    public bool GetResult()
+    {
+        return success;
     }
 
     private void EscapeFromAnimal()
@@ -93,6 +110,7 @@ public class CaptureManager : MonoSingleton<CaptureManager>
 
     async public void UnLoadMiniGame()
     {
+        UIManager.Instance.gatheringSceneUI.SetMiniGameBackGround(false);
         await SceneLoader.Instance.UnLoadSceneAsyncMiniGame();
     }
 

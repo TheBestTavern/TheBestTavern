@@ -6,7 +6,7 @@ using UnityEngine;
 public class GatheringBushes : GatheringProps
 {
     protected override void OnClickedFunc()
-    {
+    {       
         transform.DOShakeRotation(1f,10f);
         OffMouseFunc();
         spriteRenderer.DOColor(new Color(0.5f, 0.5f, 0.5f), 0.5f);
@@ -14,6 +14,7 @@ public class GatheringBushes : GatheringProps
         if (randInt == 0)
         {
             ForestGatheringManager.Instance.OnMiniGame("Forest_Animal_Dev");
+            UIManager.Instance.gatheringSceneUI.SetMiniGameBackGround(true);
         }
         else
         {

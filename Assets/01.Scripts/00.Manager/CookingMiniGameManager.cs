@@ -13,6 +13,7 @@ using UnityEngine.SceneManagement;
 public class CookingMiniGameManager : MonoSingleton<CookingMiniGameManager>
 {
     public MiniGameUI miniGameUI;
+    public GameObject miniGameBackground;
     public CookingSceneUI cookingSceneUI;
     public CookingInventoryView cookingInventoryView;
 
@@ -29,8 +30,6 @@ public class CookingMiniGameManager : MonoSingleton<CookingMiniGameManager>
     {
         cookingInventoryView.OnEnableTargetSlot = SetMiniGameItem;
         cookingInventoryView.OnDisalbeTargetSlot = ClearMiniGameItem;
-
-
     }
 
     public void OnSelectTool(string s)
@@ -51,7 +50,7 @@ public class CookingMiniGameManager : MonoSingleton<CookingMiniGameManager>
             selectedItems = GetMiniGameItem();
             RecipeManager.Instance.StartCooking(selectedItems, "Plate");
             RecipeManager.Instance.CompleteDish();
-            await UIManager.Instance.ShowPopUp(PopUpType.CookingResult);
+            await PopUpManager.Instance.ShowPopUp(PopUpType.CookingResult);
 
             GetCookingResultData();
         }
@@ -85,6 +84,7 @@ public class CookingMiniGameManager : MonoSingleton<CookingMiniGameManager>
     void SettingMiniGame(bool active)
     {
         miniGameUI.gameObject.SetActive(active);
+        miniGameBackground.SetActive(active);
     }
 
     public void SetMiniGameItem(List<Data_Foods> items)

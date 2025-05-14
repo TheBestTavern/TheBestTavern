@@ -60,16 +60,22 @@ public class GatheringProps : MonoBehaviour
     protected virtual void OnClickedFunc()
     {
         Debug.Log($"{gameObject.name} 클릭");
-        int itemId = GatheringManager.Instance.GetRandomItemID();
-        Debug.Log(itemId);
 
-        if (InventoryManager.Instance.Invens[InvenType.Gathering].아이템획득(Data.GetRawItem(itemId), 1))
+        int randInt = Random.Range(0,10);
+
+        if (randInt > 2)
         {
-            Debug.Log("아이템 증가 가능");
-        }
-        else
-        {
-            Debug.Log("아이템 증가 불가능");
+            int itemId = GatheringManager.Instance.GetRandomItemID();
+            Debug.Log(itemId);
+
+            if (InventoryManager.Instance.Invens[InvenType.Gathering].아이템획득(Data.GetRawItem(itemId), 1))
+            {
+                Debug.Log("아이템 증가 가능");
+            }
+            else
+            {
+                Debug.Log("아이템 증가 불가능");
+            }
         }
     }
 }

@@ -51,12 +51,14 @@ public class FishingController : MonoBehaviour
             {
                 Debug.Log("게이지 과부하 실패");
                 StopFishing(false);
+                FishingManager.Instance.success = false;
+                FishingResult();
             }
             else if (fishController.IsCaught(catchZone.position))
             {
                 Debug.Log("물고기 성공");
-                FishingSuccess();
-
+                FishingManager.Instance.success = true;
+                FishingResult();
             }
         }
     }
@@ -93,10 +95,10 @@ public class FishingController : MonoBehaviour
         fishingInProgress = false;
     }
 
-    private void FishingSuccess()
+    private void FishingResult()
     {
         StopFishing(true);
-        FishingManager.Instance.UnLoadMiniGame();
+        FishingManager.Instance.ShowResult();
     }
 
     public void SetBait(ItemStack bait)
