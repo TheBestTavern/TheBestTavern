@@ -17,6 +17,9 @@ public class SoundSettingPopUp : BasePopUp
         // 설정 팝업으로 설정 
         popUpType = PopUpType.SoundSetting;
 
+        SetInitialVolume();
+        bgmSlider.onValueChanged.AddListener(SoundManager.Instance.SetBGMVolume);
+
     }
 
     // 팝업 열때 필요한 함수
@@ -33,5 +36,11 @@ public class SoundSettingPopUp : BasePopUp
         base.OnClose();
         // 페이드 아웃 애니메이션 후 비활성화
         transform.GetChild(0).GetComponent<CanvasGroup>().DOFade(0f, 1f).OnComplete(() => gameObject.SetActive(false));
+    }
+
+    private void SetInitialVolume()
+    {
+        bgmSlider.value = SoundManager.Instance.GetBGMVolume();
+        sfxSlider.value = SoundManager.Instance.GetSFXVolume();
     }
 }

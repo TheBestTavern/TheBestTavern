@@ -12,5 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b348c5e76f0111428a9657d80f5037a, type: 3}
   m_Name: SoundLibrary
   m_EditorClassIdentifier: 
-  bgmClips: []
+  bgmClips:
+  - {fileID: 11400000, guid: ed328017fcee8f04b918472b32a05cfb, type: 2}
+  - {fileID: 11400000, guid: a733bbc6c4f09c84aad7ef27431b154c, type: 2}
   sfxClips: []

@@ -37,6 +37,11 @@ public class SoundManager : MonoSingleton<SoundManager>
         base.Awake();
     }
 
+    private void Start()
+    {
+        PlayBGM("MainBGM");
+    }
+
 
     public void PlayBGM(string name)
     {
@@ -77,4 +82,7 @@ public class SoundManager : MonoSingleton<SoundManager>
 
     public void SetBGMVolume(float volume) => bgmSource.volume = volume;
     public void SetSFXVolume(float volume) => sfxSource.volume = volume;
+
+    public float GetBGMVolume() => bgmSource.volume;
+    public float GetSFXVolume() => sfxSource.volume;
 }
