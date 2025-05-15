@@ -1,0 +1,91 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: CookingPrefabs
+  m_EditorClassIdentifier: 
+  m_GroupName: CookingPrefabs
+  m_Data:
+    m_SerializedData: []
+  m_GUID: cff25c8d0ff49f043b91255e7357bd7a
+  m_SerializeEntries:
+  - m_GUID: 95a55bfdc24515745b2ced693881deb1
+    m_Address: Assets/02.Prefabs/Cooking/Ingredient/Carrot.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - CookingPrefabs
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ce8e092ea02b9534099f18b5f3b2270c
+    m_Address: Assets/02.Prefabs/Cooking/Ingredient/FishFillet.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - CookingPrefabs
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c92859a3b8f276c4ca521cf8450c2b81
+    m_Address: Assets/02.Prefabs/Cooking/Ingredient/FishFilletDark.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - CookingPrefabs
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7502d6ccee954f7468e77cb2f46a1dc6
+    m_Address: Assets/02.Prefabs/Cooking/Ingredient/Garlic.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - CookingPrefabs
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8d9b866b5bb471a438d1baf1024005c5
+    m_Address: Assets/02.Prefabs/Cooking/Ingredient/Gourd.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - CookingPrefabs
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: dc3e143db63ae984e94b20033e85406d
+    m_Address: Assets/02.Prefabs/Cooking/Ingredient/GreenLong.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - CookingPrefabs
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a9ecf3c11fc889c4fa9f1512c9058711
+    m_Address: Assets/02.Prefabs/Cooking/Ingredient/Peanut.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - CookingPrefabs
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cfc3db0abab3eb8469ef926f62f6ff33
+    m_Address: Assets/02.Prefabs/Cooking/Ingredient/Potato.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - CookingPrefabs
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: dfc6df1764a87ca4ba5d58c0a4086a5c
+    m_Address: Assets/02.Prefabs/Cooking/Ingredient/Radish.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - CookingPrefabs
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4c16b69cb5d6f0d41a5d4cdcc486eafc
+    m_Address: Assets/02.Prefabs/Cooking/Ingredient/SweetPotato.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - CookingPrefabs
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: dfe76daadd2a22f4b98332f6bb76ae57
+    m_Address: Assets/02.Prefabs/Cooking/Ingredient/Tofu.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - CookingPrefabs
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 3f946b317ceaa2747b411cad54511d5f, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: d26d13c4129467c468d37c2778c80f72, type: 2}
+    - {fileID: 11400000, guid: 39fdb011395df7946b6e18ed820e7dd0, type: 2}

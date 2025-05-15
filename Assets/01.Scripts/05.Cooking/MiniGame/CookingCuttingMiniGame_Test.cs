@@ -6,14 +6,38 @@ using UnityEngine.SceneManagement;
 public class CookingCuttingMiniGame_Test : CookingMiniGameBase
 {
     [ SerializeField ] CookingKnife_Test knife;
+    [SerializeField] CookingIngredientSO ingredientSO;
 
     private void Awake()
     {
         CookingMiniGameManager.Instance.GetCurrentMiniGame(this);
     }
-    public override void StartGame()
+    public override async void StartGame()
     {
- 
+        int itemKey = CookingMiniGameManager.Instance.GetSelectedItemFoodCategory();
+        ingredientSO = CookingMiniGameManager.Instance.GetSelectdItemSO(itemKey);
+        if (ingredientSO != null)
+        {
+            string prefabAdress = ingredientSO.prefabAdress;
+            GameObject prefab = await AddressablesLoader.Instance.AddressablesLoadAsync(prefabAdress);
+            if (prefab != null)
+            {
+                Instantiate(prefab);
+            }
+            else
+            {
+                GameObject defaultPrefab = await AddressablesLoader.Instance.AddressablesLoadAsync("Assets/02.Prefabs/Cooking/Ingredient/GreenLong.prefab");
+                Instantiate(defaultPrefab);
+
+                //string defalutAdress = "";
+                //GameObject defaultPrefab = await AddressablesLoader.Instance.AddressablesLoadAsync(defalutAdress);
+            }
+        }
+        else
+        {
+            GameObject defaultPrefab = await AddressablesLoader.Instance.AddressablesLoadAsync("Assets/02.Prefabs/Cooking/Ingredient/GreenLong.prefab");
+            Instantiate(defaultPrefab);
+        }
     }
 
     public override void StopGame()

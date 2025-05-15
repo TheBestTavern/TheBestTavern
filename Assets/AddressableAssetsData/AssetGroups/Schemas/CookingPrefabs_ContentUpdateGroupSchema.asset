@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eef8c804f8d264b4c9023c9593e5bc9a, type: 3}
-  m_Name: SweetPotato
+  m_Script: {fileID: 11500000, guid: 5834b5087d578d24c926ce20cd31e6d6, type: 3}
+  m_Name: CookingPrefabs_ContentUpdateGroupSchema
   m_EditorClassIdentifier: 
-  prefabAdress: Assets/02.Prefabs/Cooking/Ingredient/SweetPotato.prefab
-  foodCategoryID: bbad0100
+  m_Group: {fileID: 11400000, guid: d3157d99c20dc2644b39501ca5875966, type: 2}
+  m_StaticContent: 0
