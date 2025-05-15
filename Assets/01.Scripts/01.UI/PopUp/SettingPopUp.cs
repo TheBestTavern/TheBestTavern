@@ -41,6 +41,7 @@ public class SettingPopUp : BasePopUp
 
     async void OnClickSoundButton()
     {
+        SoundManager.Instance.PlaySFX("Button1");
         await PopUpManager.Instance.ShowPopUp(PopUpType.SoundSetting);
     }
 
