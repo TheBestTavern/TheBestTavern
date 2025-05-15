@@ -182,14 +182,20 @@ public class CookingKnife_Test : MonoBehaviour
     {
         //yield return KnifeAnimation().WaitForCompletion();
         //yield return knife.DOLocalMoveY(0.5f, 0.3f).OnComplete(() => { knife.DOLocalMoveY(0.3f, 0.3f).OnComplete(() => knife.DOLocalMoveY(0.43f, 0.5f)); });
-
-
-        await DOTween.Sequence().Append(knife.DOLocalMoveY(0.5f, 0.3f))
-        .Append(knife.DOLocalMoveY(0.3f, 0.3f))
-        .Append(knife.DOLocalMoveY(0.43f, 0.5f))
-        .AsyncWaitForCompletion();
-
-        isSlicing = false;
+        try
+        {
+            await DOTween.Sequence().Append(knife.DOLocalMoveY(0.5f, 0.3f))
+            .Append(knife.DOLocalMoveY(0.3f, 0.3f))
+            .Append(knife.DOLocalMoveY(0.43f, 0.5f))
+            .AsyncWaitForCompletion();
+        }
+        catch
+        {
+        }
+        finally
+        {
+            isSlicing = false;
+        }
     }
     public void KnifeAnimation()
     {
