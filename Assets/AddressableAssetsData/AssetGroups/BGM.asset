@@ -23,10 +23,11 @@ MonoBehaviour:
     m_SerializedLabels:
     - BGM
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 1cdf72f5a4cd25a4fb9892a4d3453709
-    m_Address: Assets/10.DownloadAssets/Sound/SFX/Button.mp3
+  - m_GUID: a380aa2396b1bc0468eaae23b3b3c283
+    m_Address: MainBGM2
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - BGM
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 3f946b317ceaa2747b411cad54511d5f, type: 2}

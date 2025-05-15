@@ -15,4 +15,8 @@ MonoBehaviour:
   bgmClips:
   - soundName: Main1
     addressableKey: MainBGM1
-  sfxClips: []
+  - soundName: Main2
+    addressableKey: MainBGM2
+  sfxClips:
+  - soundName: Button1
+    addressableKey: SFX_Button1

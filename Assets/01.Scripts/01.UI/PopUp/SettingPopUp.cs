@@ -24,7 +24,7 @@ public class SettingPopUp : BasePopUp
         // 게임 종료 버튼 클릭 이벤트 리스터 추가
         quitButton.onClick.AddListener(OnClickQuitButton);
         soundButton.onClick.AddListener(OnClickSoundButton);
-        saveButton.onClick.AddListener(OnClickSaveButton);
+        //saveButton.onClick.AddListener(OnClickSaveButton);
     }
 
     // 게임 종료 버튼 클릭 함수
