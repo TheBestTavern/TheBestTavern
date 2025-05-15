@@ -10,9 +10,14 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Cooking", menuName = "MiniGame")]
 public class CookingMiniGameSO : ScriptableObject
 {
-    [field:Header("CutData")]
+    [field:Header("CutData")] // 도마
     //[field: SerializeField] public CookingCutData cutData { get; private set; }
     [field: SerializeField] public float CutTimer { get; private set; } = 15f;
+    [field: SerializeField] public float PerfectRatio { get; private set; } = 0.9f;
+    [field: SerializeField] public float GoodRatio { get; private set; } = 0.7f;
+    [field: SerializeField] public float BadRatio { get; private set; } = 0.5f;
+
+
 
 
     [field: Header("GrillData")]

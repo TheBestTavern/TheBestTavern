@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class CookingCuttingMiniGame_Test : CookingMiniGameBase
 {
+    [ SerializeField ] CookingKnife_Test knife;
+
     private void Awake()
     {
         CookingMiniGameManager.Instance.GetCurrentMiniGame(this);
@@ -16,9 +18,9 @@ public class CookingCuttingMiniGame_Test : CookingMiniGameBase
 
     public override void StopGame()
     {
-        RecipeManager.Instance.EndCooking();
         var grade = JudgeGrade();
         CookingMiniGameManager.Instance.SetMiniGameResult(grade);
+        RecipeManager.Instance.EndCooking();
     }
 
     protected override float GetTimer()
@@ -31,14 +33,27 @@ public class CookingCuttingMiniGame_Test : CookingMiniGameBase
        
     }
 
-    public void InstantGameOver()
-    {
-        isGameOver = true;
-    }
-
     public CookingResultGrade JudgeGrade()
     {
-        // 임시로 무조건 최상위 등급 반환
-        return CookingResultGrade.Legendary;
+        float ratio = knife.GetPiecesRatio();
+        Debug.Log($"자른 비율:{ratio}");
+
+        // 조각 크기 평균
+        if (ratio >= data.PerfectRatio)
+        {
+            return CookingResultGrade.Legendary;
+        }
+        else if (ratio >= data.GoodRatio)
+        {
+            return CookingResultGrade.Rare;
+        }
+        else if (ratio >= data.BadRatio)
+        {
+            return CookingResultGrade.Common;
+        }
+        else
+        {
+            return CookingResultGrade.Failed;
+        }
     }
 }

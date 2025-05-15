@@ -58,6 +58,7 @@ public abstract class CookingMiniGameBase : MonoBehaviour, ICookingMiniGameHandl
     public void InstantGameOver()
     {
         isGameOver = true;
+        StopGame();
         PopUpManager.Instance.ShowPopUp(PopUpType.CookingResult);
         CookingMiniGameManager.Instance.GetCookingResultData();
     }

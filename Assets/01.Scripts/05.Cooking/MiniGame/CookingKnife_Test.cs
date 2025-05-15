@@ -5,6 +5,8 @@ using Unity.VisualScripting;
 using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using UnityEngine;
+using System.Linq;
+using Cinemachine;
 
 /// <summary>
 /// 칼 자동으로 움직이는 버전 스크립트
@@ -19,6 +21,8 @@ public class CookingKnife_Test : MonoBehaviour
     [SerializeField] private bool isSlicing = false;
 
     private bool canSlice = true;
+
+    private List<GameObject> slicePieces = new();
 
     //private void OnTriggerEnter(Collider other)
     //{
@@ -90,6 +94,7 @@ public class CookingKnife_Test : MonoBehaviour
 
             // 잘린 조각
             GameObject piece = lower;
+            slicePieces.Add(piece);
             piece.transform.position = obj.transform.position + Vector3.right * 0.1f;
 
             Rigidbody pieceRb = piece.AddComponent<Rigidbody>();
@@ -107,6 +112,10 @@ public class CookingKnife_Test : MonoBehaviour
             upperRb.useGravity = true;
             upperRb.isKinematic = true;
 
+            if(upper == null)
+            {
+                CookingMiniGameManager.Instance.InstantGameOver();
+            }
         }
         return slicedObj;
     }
@@ -127,10 +136,8 @@ public class CookingKnife_Test : MonoBehaviour
     public void MoveKnife()
     {
         Collider[] hits = Physics.OverlapSphere(transform.position, 0.5f);
-        Debug.Log($"[Knife] OverlapSphere hit 수: {hits.Length}");
         foreach (var hit in hits)
         {
-            Debug.Log($"[Knife] 감지된 오브젝트: {hit.name}");
             CookingSlice sliceobject = hit.GetComponent<CookingSlice>();
             //Debug.Log(sliceobject.name);
             if (sliceobject != null)
@@ -192,6 +199,7 @@ public class CookingKnife_Test : MonoBehaviour
 
     private void Update()
     {
+        
         if (isSlicing) return;
 
         MoveKnife();
@@ -223,4 +231,26 @@ public class CookingKnife_Test : MonoBehaviour
          isSlicing = false;
      }
     #endregion
+
+    public float GetPiecesRatio()
+    {
+        if (slicePieces.Count < 2) return 0f;
+        List<float> size = new();
+
+        foreach (var piece in slicePieces)
+        {
+            Renderer renderer = piece.GetComponent<Renderer>();
+            if (renderer != null) size.Add(renderer.bounds.size.x);
+        }
+
+        float minX = size.Min();
+        float maxX = size.Max();
+        float ratio = minX / maxX;
+        return ratio;
+
+        //if(ratio >= 0.95f)
+        //{
+            
+        //}
+    }
 }
