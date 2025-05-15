@@ -42,9 +42,9 @@ public class CookingCuttingMiniGame_Test : CookingMiniGameBase
 
     public override void StopGame()
     {
+        RecipeManager.Instance.EndCooking();
         var grade = JudgeGrade();
         CookingMiniGameManager.Instance.SetMiniGameResult(grade);
-        RecipeManager.Instance.EndCooking();
     }
 
     protected override float GetTimer()

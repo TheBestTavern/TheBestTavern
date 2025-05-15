@@ -191,6 +191,7 @@ public class CookingKnife_Test : MonoBehaviour
         }
         catch
         {
+            Debug.Log("에러");
         }
         finally
         {
