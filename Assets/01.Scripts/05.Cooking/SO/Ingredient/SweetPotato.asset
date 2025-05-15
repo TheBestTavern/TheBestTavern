@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eef8c804f8d264b4c9023c9593e5bc9a, type: 3}
   m_Name: SweetPotato
   m_EditorClassIdentifier: 
-  prefabAdress: Assets/02.Prefabs/Cooking/Ingredient/SweetPotato.prefab
+  prefabAdress: SweetPotato
   foodCategoryID: bbad0100

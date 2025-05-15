@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eef8c804f8d264b4c9023c9593e5bc9a, type: 3}
   m_Name: FishFillet
   m_EditorClassIdentifier: 
-  prefabAdress: Assets/02.Prefabs/Cooking/Ingredient/FishFillet.prefab
+  prefabAdress: FishFillet
   foodCategoryID: c3ad0100ccad010043ae010043ae0100cdad010048ae0100cead01004bae01004dae0100cfad01004fae0100d0ad010052ae010054ae0100
