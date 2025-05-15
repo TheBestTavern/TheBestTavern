@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public interface IBook
 {
     public BookType thisBookType { get; set; }
-    public void Init1();
+    public void Init1(BookUI bookUI);
     public void Init2();
     public void On();
     public void Off();
@@ -15,6 +15,7 @@ public interface IBook
 public abstract class BookUI_Base<TSlot, TData> : MonoBehaviour, IBook where TSlot : BaseBookSlot<TData>
 {
     public BookType thisBookType { get; set; }
+    BookUI bookUI;
 
     protected int 한페이지에보이는슬롯수 = 6;
     protected int 현재페이지;
@@ -33,8 +34,9 @@ public abstract class BookUI_Base<TSlot, TData> : MonoBehaviour, IBook where TSl
     protected bool isReady1;
     protected bool isReady2;
 
-    public virtual void Init1()
+    public virtual void Init1(BookUI bookUI)
     {
+        this.bookUI = bookUI;
         다음버튼.onClick.AddListener(() =>
         {
             if (마지막페이지 == 0) return;
@@ -66,6 +68,13 @@ public abstract class BookUI_Base<TSlot, TData> : MonoBehaviour, IBook where TSl
 
     public virtual void Init2()
     {
+        for (int i = 0; i < 한페이지에보이는슬롯수; i++)
+        {
+            var slot = (TSlot)Instantiate(슬롯프리팹, 슬롯생성위치);
+            slot.Init(bookUI);
+            슬롯들.Add(slot);
+        }
+        isReady2 = true;
     }
 
     public void On()

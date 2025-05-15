@@ -5,15 +5,15 @@ using UnityEngine.UI;
 
 public class IngredientBookSlot : BaseBookSlot<Data_Book_Ingredient>
 {
-    [SerializeField] Image icon;
-    [SerializeField] TextMeshProUGUI foodName;
-    [SerializeField] TextMeshProUGUI desc;
+
     [SerializeField] TextMeshProUGUI region;
     [SerializeField] TextMeshProUGUI biome;
     [SerializeField] TextMeshProUGUI season;
 
     public async override void SetSlot(Data_Book_Ingredient thing)
     {
+        foodCatergoryID = thing.key;
+
         icon.sprite = await AddressablesLoader.Instance.AddressablesLoadAsync<Sprite>($"Assets/16.Image/FoodImage/{thing.englishName}.png", true);
         foodName.text = thing.name;
         desc.text = thing.description;
@@ -67,16 +67,16 @@ public class IngredientBookSlot : BaseBookSlot<Data_Book_Ingredient>
             switch (thing.season[i])
             {
                 case DesignEnums.SeasonType.spring:
-                    regionString.Add("봄");
+                    seasonString.Add("봄");
                     break;
                 case DesignEnums.SeasonType.summer:
-                    regionString.Add("여름");
+                    seasonString.Add("여름");
                     break;
                 case DesignEnums.SeasonType.fall:
-                    regionString.Add("가을");
+                    seasonString.Add("가을");
                     break;
                 case DesignEnums.SeasonType.winter:
-                    regionString.Add("겨울");
+                    seasonString.Add("겨울");
                     break;
             }
         }

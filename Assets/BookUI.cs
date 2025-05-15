@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Net.Http.Headers;
 using UnityEngine;
 using UnityEngine.UI;
@@ -29,9 +31,11 @@ public class BookUI : BaseMenuContentUI
     BookType currentBook;
     Image currentBtnImg;
 
+    public Action<int> OnClickSlotEvent;
+
     bool isReady;
 
-    public override void CreateContent()
+    public async override void CreateContent()
     {
         if (!isReady)
         {
@@ -56,7 +60,7 @@ public class BookUI : BaseMenuContentUI
             IBook[] tempbooks = GetComponentsInChildren<IBook>();
             foreach (IBook book in tempbooks)
             {
-                book.Init1();
+                book.Init1(this);
                 books[book.thisBookType] = book;
                 book.Off();
             }
@@ -64,6 +68,13 @@ public class BookUI : BaseMenuContentUI
 
             // 첫 화면 열기
             books[currentBook].On();
+
+            // 상세화면 이벤트
+            OnClickSlotEvent = async (foodCategoryID) =>
+            {
+                var detailPopup = (DetailPopup)await UIManager.Instance.ShowPopUp(PopUpType.FoodDetail);
+                detailPopup.NewDetail(foodCategoryID);
+            };
 
             isReady = true;
         }
@@ -102,5 +113,10 @@ public class BookUI : BaseMenuContentUI
                 break;
         }
         currentBtnImg.color = Color.white;
+    }
+
+    public void TriggerClickSlotEvent(int foodCategoryID)
+    {
+        OnClickSlotEvent?.Invoke(foodCategoryID);
     }
 }

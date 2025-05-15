@@ -16,7 +16,8 @@ public enum PopUpType
     Alarm,
     OfferLetter,
     ResultLetter,
-    CookingResult
+    CookingResult,
+    FoodDetail,
 }
 
 public interface IPopupManager
@@ -34,8 +35,8 @@ public class UIManager : MonoSingleton<UIManager>, IPopupManager
 
     // 확인 팝업 - 여러 곳에서 쓰이고 각자 사용하는 용도가 달라 각자 접근 할 수 있도록 캐싱  
     public ConfirmPopUp confirmPopUp;
-
     public AlarmPopUp alarmPopUp;
+    public DetailPopup detailPopup;
 
     int sortingOrderIndex = 100;
     public Stack<int> PopupIDs = new();
@@ -81,16 +82,29 @@ public class UIManager : MonoSingleton<UIManager>, IPopupManager
             popUps.Add(popUpType, basePopUp);
         }
 
+        switch (popUpType)
+        {
+            case PopUpType.Confirm:
+                confirmPopUp = (ConfirmPopUp)basePopUp;
+                break;
+            case PopUpType.Alarm:
+                alarmPopUp = (AlarmPopUp)basePopUp;
+                break;
+            case PopUpType.FoodDetail:
+                detailPopup = (DetailPopup)basePopUp;
+                break;
+        }
         // 확인 팝업이라면 
-        if (popUpType == PopUpType.Confirm)
-        {
-            // ConfirmPopUp 클래스 캐싱
-            confirmPopUp = basePopUp.GetComponent<ConfirmPopUp>();
-        }
-        else if (popUpType == PopUpType.Alarm)
-        {
-            alarmPopUp = basePopUp.GetComponent<AlarmPopUp>();
-        }
+        //if (popUpType == PopUpType.Confirm)
+        //{
+        //    // ConfirmPopUp 클래스 캐싱
+        //    confirmPopUp = basePopUp.GetComponent<ConfirmPopUp>();
+        //}
+        //else if (popUpType == PopUpType.Alarm)
+        //{
+        //    alarmPopUp = basePopUp.GetComponent<AlarmPopUp>();
+        //}
+        //else if()
 
         // 각 팝업들이 열릴 때 필요한 함수 실행
         basePopUp.OnOpen();
