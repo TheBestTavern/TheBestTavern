@@ -10,12 +10,28 @@ public class SpecialBookSlot : BaseBookSlot<Data_Book_Special>
 
     public async override void SetSlot(Data_Book_Special thing)
     {
-        foodCatergoryID = thing.key;
-        icon.sprite = await AddressablesLoader.Instance.AddressablesLoadAsync<Sprite>($"Assets/16.Image/FoodImage/{thing.englishName}.png", true);
+        if (!ItemRecordManager.Instance.IsDiscovered(thing.key))
+        {
+            SetUndiscoveredItem();
+        }
+        else
+        {
+            detailBtn.interactable = true;
+            foodCatergoryID = thing.key;
+            title.text = "획득 NPC";
 
-        foodName.text = thing.name;
-        desc.text = thing.description;
-        npcName.text = thing.givingNPCName;
+            icon.sprite = await AddressablesLoader.Instance.AddressablesLoadAsync<Sprite>($"Assets/16.Image/FoodImage/{thing.englishName}.png", true);
+            foodName.text = thing.name;
+            desc.text = thing.description;
+            npcName.text = thing.givingNPCName;
+        }
+    }
+
+    protected override void SetUndiscoveredItem()
+    {
+        base.SetUndiscoveredItem();
+        title.text = "";
+        npcName.text = "";
     }
 }
 

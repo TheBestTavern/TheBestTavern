@@ -10,7 +10,7 @@ public class BookUI_Mix : BookUI_Base<MixBookSlot, Data_Book_Mix>
         if (isReady1) return;
 
         thisBookType = BookType.Mix;
-        테이블 = DataManager.Instance.DataLoader_Book_Mix.ItemsList;
+        bookTable = DataManager.Instance.DataLoader_Book_Mix.ItemsList;
         base.Init1(bookUI);
     }
 

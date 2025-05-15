@@ -18,14 +18,14 @@ public class ItemRecordManager : MonoSingleton<ItemRecordManager>
 {
     public override void Init()
     {
-        if(_isInitialized) return;
+        if (_isInitialized) return;
         base.Init();
 
         DontDestroyOnLoad(this);
         CreateRecordDict();
     }
 
-    Dictionary<int, ItemRecord> itemRecords;
+    Dictionary<int, ItemRecord> itemRecords = new();
 
     private void CreateRecordDict()
     {
@@ -44,5 +44,10 @@ public class ItemRecordManager : MonoSingleton<ItemRecordManager>
     public void HasGainedItem(int key)
     {
         itemRecords[key].RecordDiscover();
+    }
+
+    public bool IsDiscovered(int key)
+    {
+        return itemRecords[key].HasDiscovered;
     }
 }

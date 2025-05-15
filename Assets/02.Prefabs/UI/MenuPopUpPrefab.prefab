@@ -750,12 +750,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bbfdf63c019aa248aaff0b3d37bc64e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  "\uC2AC\uB86F\uB4E4": []
-  "\uC2AC\uB86F\uD504\uB9AC\uD339": {fileID: -7721021832764300221, guid: cb40e8920a051234da2c6ca925f2c5d2, type: 3}
-  "\uC2AC\uB86F\uC0DD\uC131\uC704\uCE58": {fileID: 4072380993735649988}
-  "\uB2E4\uC74C\uBC84\uD2BC": {fileID: 4138511722963771582}
-  "\uC774\uC804\uBC84\uD2BC": {fileID: 2590913694431012226}
+  slots: []
+  slotPref: {fileID: -7721021832764300221, guid: cb40e8920a051234da2c6ca925f2c5d2, type: 3}
+  slotTsr: {fileID: 4072380993735649988}
+  nextBtn: {fileID: 4138511722963771582}
+  PrevBtn: {fileID: 2590913694431012226}
   pageUI: {fileID: 7464155863803430363}
+  HideUndiscoveredFood: 1
 --- !u!1 &541433472037120703
 GameObject:
   m_ObjectHideFlags: 0
@@ -3041,12 +3042,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9df44df76086d54dab5d7f93039e6d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  "\uC2AC\uB86F\uB4E4": []
-  "\uC2AC\uB86F\uD504\uB9AC\uD339": {fileID: -7704455546490076852, guid: 72787ac3d15e4ce459f8face97573e42, type: 3}
-  "\uC2AC\uB86F\uC0DD\uC131\uC704\uCE58": {fileID: 8421527408571472577}
-  "\uB2E4\uC74C\uBC84\uD2BC": {fileID: 5010096181030795952}
-  "\uC774\uC804\uBC84\uD2BC": {fileID: 7056230798857550557}
+  slots: []
+  slotPref: {fileID: -7704455546490076852, guid: 72787ac3d15e4ce459f8face97573e42, type: 3}
+  slotTsr: {fileID: 8421527408571472577}
+  nextBtn: {fileID: 5010096181030795952}
+  PrevBtn: {fileID: 7056230798857550557}
   pageUI: {fileID: 2098388622785489650}
+  HideUndiscoveredFood: 1
 --- !u!1 &3035650878554861396
 GameObject:
   m_ObjectHideFlags: 0
@@ -5794,12 +5796,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f899d182dfe0ce458b644e82400fe4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  "\uC2AC\uB86F\uB4E4": []
-  "\uC2AC\uB86F\uD504\uB9AC\uD339": {fileID: 7543382348798004586, guid: 88136419485a12740bda834966c749cf, type: 3}
-  "\uC2AC\uB86F\uC0DD\uC131\uC704\uCE58": {fileID: 1182089839114537902}
-  "\uB2E4\uC74C\uBC84\uD2BC": {fileID: 1472323559260772605}
-  "\uC774\uC804\uBC84\uD2BC": {fileID: 5151424655067135237}
+  slots: []
+  slotPref: {fileID: 7543382348798004586, guid: 88136419485a12740bda834966c749cf, type: 3}
+  slotTsr: {fileID: 1182089839114537902}
+  nextBtn: {fileID: 1472323559260772605}
+  PrevBtn: {fileID: 5151424655067135237}
   pageUI: {fileID: 4027317251763808683}
+  HideUndiscoveredFood: 1
 --- !u!1 &5832902733324154285
 GameObject:
   m_ObjectHideFlags: 0
@@ -7959,12 +7962,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e9761326cc130743af815335373f1b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  "\uC2AC\uB86F\uB4E4": []
-  "\uC2AC\uB86F\uD504\uB9AC\uD339": {fileID: 4643102682024174263, guid: 787163198c9046f44a090d0cae769d1b, type: 3}
-  "\uC2AC\uB86F\uC0DD\uC131\uC704\uCE58": {fileID: 7009438431303537732}
-  "\uB2E4\uC74C\uBC84\uD2BC": {fileID: 891755664721325160}
-  "\uC774\uC804\uBC84\uD2BC": {fileID: 1188017994758492521}
+  slots: []
+  slotPref: {fileID: 4643102682024174263, guid: 787163198c9046f44a090d0cae769d1b, type: 3}
+  slotTsr: {fileID: 7009438431303537732}
+  nextBtn: {fileID: 891755664721325160}
+  PrevBtn: {fileID: 1188017994758492521}
   pageUI: {fileID: 4774574624948537959}
+  HideUndiscoveredFood: 1
 --- !u!1 &8396991874220776148
 GameObject:
   m_ObjectHideFlags: 0

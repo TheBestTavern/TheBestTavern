@@ -10,7 +10,7 @@ public class BookUI_Dish : BookUI_Base<DishBookSlot, Data_Book_Dish>
         if (isReady1) return;
 
         thisBookType = BookType.Dish;
-        테이블 = DataManager.Instance.DataLoader_Book_Dish.ItemsList;
+        bookTable = DataManager.Instance.DataLoader_Book_Dish.ItemsList;
         base.Init1(bookUI);
     }
 

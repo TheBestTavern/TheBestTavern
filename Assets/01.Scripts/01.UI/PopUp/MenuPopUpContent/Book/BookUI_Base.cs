@@ -17,50 +17,52 @@ public abstract class BookUI_Base<TSlot, TData> : MonoBehaviour, IBook where TSl
     public BookType thisBookType { get; set; }
     BookUI bookUI;
 
-    protected int 한페이지에보이는슬롯수 = 6;
-    protected int 현재페이지;
-    protected int 마지막페이지;
+    protected int slotCountPerPage = 6;
+    protected int curPage;
+    protected int lastPage;
 
-    [SerializeField] protected List<TSlot> 슬롯들;
-    [SerializeField] protected BaseBookSlot<TData> 슬롯프리팹;
-    [SerializeField] protected Transform 슬롯생성위치;
+    [SerializeField] protected List<TSlot> slots;
+    [SerializeField] protected BaseBookSlot<TData> slotPref;
+    [SerializeField] protected Transform slotTsr;
 
-    protected List<TData> 테이블; // 요소 타입 바꿔야
+    protected List<TData> bookTable; // 요소 타입 바꿔야
 
-    [SerializeField] Button 다음버튼;
-    [SerializeField] Button 이전버튼;
+    [SerializeField] Button nextBtn;
+    [SerializeField] Button PrevBtn;
     [SerializeField] TextMeshProUGUI pageUI;
 
     protected bool isReady1;
     protected bool isReady2;
 
+    [SerializeField] protected bool HideUndiscoveredFood = true;
+
     public virtual void Init1(BookUI bookUI)
     {
         this.bookUI = bookUI;
-        다음버튼.onClick.AddListener(() =>
+        nextBtn.onClick.AddListener(() =>
         {
-            if (마지막페이지 == 0) return;
-            다음페이지();
-            페이지UI갱신();
-            현재페이지에맞게슬롯갱신();
+            if (lastPage == 0) return;
+            GoNextPage();
+            ReviewPageUI();
+            ReviewSlotsByCurPage();
         });
-        이전버튼.onClick.AddListener(() =>
+        PrevBtn.onClick.AddListener(() =>
         {
-            if (마지막페이지 == 0) return;
-            이전페이지();
-            페이지UI갱신();
-            현재페이지에맞게슬롯갱신();
+            if (lastPage == 0) return;
+            GoPrevPage();
+            ReviewPageUI();
+            ReviewSlotsByCurPage();
         });
 
-        마지막페이지 = (테이블.Count - 1) / 한페이지에보이는슬롯수 + 1;
+        lastPage = (bookTable.Count - 1) / slotCountPerPage + 1;
 
-        if (마지막페이지 == 0)
+        if (lastPage == 0)
         {
-            현재페이지 = 0;
+            curPage = 0;
         }
         else
         {
-            현재페이지 = 1;
+            curPage = 1;
         }
 
         isReady1 = true;
@@ -68,11 +70,11 @@ public abstract class BookUI_Base<TSlot, TData> : MonoBehaviour, IBook where TSl
 
     public virtual void Init2()
     {
-        for (int i = 0; i < 한페이지에보이는슬롯수; i++)
+        for (int i = 0; i < slotCountPerPage; i++)
         {
-            var slot = (TSlot)Instantiate(슬롯프리팹, 슬롯생성위치);
+            var slot = (TSlot)Instantiate(slotPref, slotTsr);
             slot.Init(bookUI);
-            슬롯들.Add(slot);
+            slots.Add(slot);
         }
         isReady2 = true;
     }
@@ -82,8 +84,8 @@ public abstract class BookUI_Base<TSlot, TData> : MonoBehaviour, IBook where TSl
         if (!isReady2) Init2();
 
         gameObject.SetActive(true);
-        현재페이지에맞게슬롯갱신();
-        페이지UI갱신();
+        ReviewSlotsByCurPage();
+        ReviewPageUI();
     }
 
     public void Off()
@@ -92,49 +94,49 @@ public abstract class BookUI_Base<TSlot, TData> : MonoBehaviour, IBook where TSl
     }
 
 
-    public void 현재페이지에맞게슬롯갱신()
+    public void ReviewSlotsByCurPage()
     {
-        for (int i = 0; i < 슬롯들.Count; i++)
+        for (int i = 0; i < slots.Count; i++)
         {
-            int 인덱스 = 한페이지에보이는슬롯수 * (현재페이지 - 1) + i;
-            if (인덱스 < 테이블.Count)
+            int itemIndex = slotCountPerPage * (curPage - 1) + i;
+            if (itemIndex < bookTable.Count)
             {
-                슬롯들[i].gameObject.SetActive(true);
-                슬롯들[i].SetSlot(테이블[인덱스]);
+                slots[i].gameObject.SetActive(true);
+                slots[i].SetSlot(bookTable[itemIndex]);
             }
             else
             {
-                슬롯들[i].gameObject.SetActive(false);
+                slots[i].gameObject.SetActive(false);
             }
         }
     }
 
-    public void 다음페이지()
+    public void GoNextPage()
     {
-        if (현재페이지 < 마지막페이지)
+        if (curPage < lastPage)
         {
-            현재페이지++;
+            curPage++;
         }
         else
         {
-            현재페이지 = 1;
+            curPage = 1;
         }
     }
 
-    public void 이전페이지()
+    public void GoPrevPage()
     {
-        if (1 < 현재페이지)
+        if (1 < curPage)
         {
-            현재페이지--;
+            curPage--;
         }
         else
         {
-            현재페이지 = 마지막페이지;
+            curPage = lastPage;
         }
     }
 
-    public void 페이지UI갱신()
+    public void ReviewPageUI()
     {
-        pageUI.text = $"{현재페이지} / {마지막페이지}";
+        pageUI.text = $"{curPage} / {lastPage}";
     }
 }

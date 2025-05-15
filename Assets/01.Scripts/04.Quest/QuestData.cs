@@ -53,7 +53,9 @@ public class QuestData
     public void CompleteQuest(int questID, SuccessDegree successDegree) // 퀘스트 완료
     {
         AcceptedQuests.Remove(questID);
-        Data.GetQuest(questID).CompleteQuest(TimerManager.Instance.GetToday());
+        Quest tempQuest = Data.GetQuest(questID);
+        tempQuest.CompleteQuest(TimerManager.Instance.GetToday());
+        NPCManager.Instance.AllNPC[tempQuest.origin.givingNPC].CompleteQuest(); // npc 퀘스트 준 상태로 전환
         JustCompleteQuests.Add(questID);
 
         if (!OnceCompletedQuests.TryGetValue(questID, out var prev) || prev < successDegree)

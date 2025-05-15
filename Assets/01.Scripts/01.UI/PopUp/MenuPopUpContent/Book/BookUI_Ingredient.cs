@@ -10,7 +10,7 @@ public class BookUI_Ingredient : BookUI_Base<IngredientBookSlot, Data_Book_Ingre
         if (isReady1) return;
 
         thisBookType = BookType.Ingredient;
-        테이블 = DataManager.Instance.DataLoader_Book_Ingredient.ItemsList;
+        bookTable = DataManager.Instance.DataLoader_Book_Ingredient.ItemsList;
         base.Init1(bookUI);
     }
 

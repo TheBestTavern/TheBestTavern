@@ -101,7 +101,7 @@ MonoBehaviour:
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_DisabledColor: {r: 0.8627451, g: 0.8627451, b: 0.8627451, a: 1}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -400,6 +400,7 @@ MonoBehaviour:
   icon: {fileID: 5247701227050432032}
   foodName: {fileID: 3906031996266660256}
   desc: {fileID: 4877375532525372192}
+  title: {fileID: 9119935915240575831}
   npcName: {fileID: 4864323760109712727}
 --- !u!1 &6099698957101573630
 GameObject:

@@ -84,9 +84,10 @@ MonoBehaviour:
     - UIPrefabs
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6c786ccea97f65f439c895461be7c320
-    m_Address: DetailPopUpPrefab.prefab
+    m_Address: FoodDetailPopUpPrefab.prefab
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - UIPrefabs
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 3f946b317ceaa2747b411cad54511d5f, type: 2}

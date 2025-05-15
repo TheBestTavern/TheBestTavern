@@ -10,7 +10,7 @@ public class BookUI_special : BookUI_Base<SpecialBookSlot, Data_Book_Special>
         if (isReady1) return;
 
         thisBookType = BookType.Special;
-        테이블 = DataManager.Instance.DataLoader_Book_Special.ItemsList;
+        bookTable = DataManager.Instance.DataLoader_Book_Special.ItemsList;
         base.Init1(bookUI);
     }
 
