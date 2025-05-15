@@ -77,19 +77,85 @@ public class RecipeManager : MonoSingleton<RecipeManager>
     }
 
     // !!임시 코드입니다. 미니게임 계산식에 따라 수정해야 함
+    // 접시에서 사용
     public int CompleteDish()
     {
-        var grade = CookingResultGrade.Legendary;
-        CookingMiniGameManager.Instance.SetMiniGameResult(grade);
+        //현재 무조건 전설등급이 나오게 되어있으나 조합 규칙대로 수정해야함
+        //var grade = CookingResultGrade.Legendary;
+        //CookingMiniGameManager.Instance.SetMiniGameResult(grade);
         if (currentRecipe == null)
         {
             resultItemKey = -1;
             return -1;
         }
 
-        resultItemKey = GetItemKey(currentRecipe.resultCategory, grade);
+        var combineGrade = JudgeCombineGrade(currentIngredients);
+        CookingMiniGameManager.Instance.SetMiniGameResult(combineGrade);
+        resultItemKey = GetItemKey(currentRecipe.resultCategory, combineGrade);
         OnCookingEnded?.Invoke(resultItemKey);
         return resultItemKey;
+    }
+
+    // 재료들 조합 결과 
+    // (믹싱볼에서 사용) 
+    public int CombineIngredients()
+    {
+        // 흐름
+        // 미니게임 끝난다 -> fail 됐다 -> fail 들어오면 무조건 실패처리 -1 반환
+        // 미니게임 끝났다 -> fail 한개도 없다 -> 레시피 확인한다
+        // -> 레시피 틀렸따 -1반환
+        // -> 레시피맞았다 -> 조합식에 따라서 최종키반환
+
+        var grade = CookingMiniGameManager.Instance.GetMiniGameResult();
+        if(grade == CookingResultGrade.Failed)
+        {
+            resultItemKey = -1;
+            return -1;
+        }
+        if (currentRecipe == null)
+        {
+            resultItemKey = -1;
+            return -1;
+        }
+
+        var combineGrade = JudgeCombineGrade(currentIngredients);
+        CookingMiniGameManager.Instance.SetMiniGameResult(combineGrade);
+        int key = GetItemKey(currentRecipe.resultCategory, combineGrade);
+        //OnCookingEnded?.Invoke(resultItemKey);
+        return key;
+    }
+
+    /// <summary>
+    /// 재료 2개이상 조합 시 결과등급 반환 메서드
+    /// </summary>
+    /// <param name="ingredients"></param>
+    /// <returns></returns>
+    private CookingResultGrade JudgeCombineGrade(List<Data_Foods> ingredients)
+    {
+        bool hasCommon = false;
+        bool hasRare = false;
+        bool hasLegendary = false;
+
+        foreach (var ingredient in ingredients)
+        {
+            switch (ingredient.grade)
+            {
+                case DesignEnums.GradeType.common:
+                    hasCommon = true; break;
+                case DesignEnums.GradeType.rare:
+                    hasRare = true; break;
+                case DesignEnums.GradeType.legendary:
+                    hasLegendary = true;  break;
+            }
+        }
+        // 모두 레전더리 : Legendary
+        // 레전더리 없이 Rare이상만 있음 : Rare
+        // Common이 하나라도 포함되면 : common
+        if (hasCommon) return CookingResultGrade.Common;
+        if (hasRare && !hasLegendary) return CookingResultGrade.Rare;
+        if (hasLegendary && !hasCommon) return CookingResultGrade.Common;
+
+        return CookingResultGrade.Common; //기본값
     }
 
     /// <summary>
@@ -120,7 +186,6 @@ public class RecipeManager : MonoSingleton<RecipeManager>
            
             if (recipeSet.SetEquals(ingredientsSet)) 
                 return recipe;
-
         }     
         return null; 
     }

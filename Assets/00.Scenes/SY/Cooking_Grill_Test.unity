@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
+  m_IndirectSpecularColor: {r: 0.4467377, g: 0.49659622, b: 0.574914, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1135,7 +1135,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <Data>k__BackingField: {fileID: 11400000, guid: f6a8c5dd76913144e9bd8bf777b6bc54, type: 2}
-  sweetPotatosPrefab: {fileID: 5979068305810167843, guid: 1ec00bb58fd59744f82c5ef5828aeaca, type: 3}
 --- !u!4 &451252366
 Transform:
   m_ObjectHideFlags: 0
@@ -9034,7 +9033,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!108 &2019807683
 Light:
   m_ObjectHideFlags: 0
@@ -9044,10 +9043,10 @@ Light:
   m_GameObject: {fileID: 2019807682}
   m_Enabled: 1
   serializedVersion: 10
-  m_Type: 0
+  m_Type: 1
   m_Shape: 0
   m_Color: {r: 1, g: 0.8466156, b: 0.6462264, a: 1}
-  m_Intensity: 80
+  m_Intensity: 0.8
   m_Range: 40
   m_SpotAngle: 19.646343
   m_InnerSpotAngle: 11.4484215
