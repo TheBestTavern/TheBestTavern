@@ -18,7 +18,12 @@ MonoBehaviour:
   m_GUID: 2eb43c9bfd815e043b8414c891d3c085
   m_SerializeEntries:
   - m_GUID: 7a83f318d49f53441b15f1375c6b55f7
-    m_Address: DayAndNightManagerContainer.asset
+    m_Address: DayAndNightManagerContainer.SO
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6573cf3141257ce47b1cdb1d8eae3054
+    m_Address: QuestSO.SO
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

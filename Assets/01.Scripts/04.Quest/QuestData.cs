@@ -9,7 +9,7 @@ public enum SuccessDegree
 {
     good = 20,
     soso = 10,
-    bad = 0
+    notBad = 0
 }
 
 public class QuestData
@@ -21,10 +21,16 @@ public class QuestData
     public List<int> TodayAvailableQuest { get; private set; } = new(); // 오늘의 퀘스트
     public Queue<(int questID, int itemID)> QuestCheckQueue { get; private set; } = new(); // 아이템 제출한 퀘스트 목록.
 
+    Dictionary<SuccessDegree, int> favorMap;
+
+    public QuestContainer questSO { get; private set; }
+    private InventoryController playerInvenController;
+    private Dictionary<int, NPC> allNPC;
+
     public Action<List<int>> onTriggerNPC; // npc 소환
     public Action onSpawnNPC; // 소환된 npc 정렬
 
-    public void Init()
+    public async void Init()
     {
         //Debug.Log("퀘스트 인스턴스 생성");
         Quest quest;
@@ -33,6 +39,17 @@ public class QuestData
             quest = new Quest(item);
             AllQuests.Add(quest.origin.key, quest);
         }
+
+        // 참조 할당
+        questSO = await AddressablesLoader.Instance.AddressablesLoadAsync<QuestContainer>("QuestContainer.SO");
+        favorMap = new()
+        {
+            { SuccessDegree.good , questSO.goodQuest},
+            { SuccessDegree.soso, questSO.sosoQuest},
+            { SuccessDegree.notBad , questSO.notBadQuest},
+        };
+        playerInvenController = InventoryManager.Instance.Invens[InvenType.Player];
+        allNPC = NPCManager.Instance.AllNPC;
 
         // 커맨드 등록
         OnNewDay command = new(this);
@@ -47,16 +64,21 @@ public class QuestData
     public void FailQuest(int questID)
     {
         AcceptedQuests.Remove(questID);
-        Data.GetQuest(questID).FailQuest(TimerManager.Instance.GetToday());
+        Quest tempQuest = Data.GetQuest(questID);
+        tempQuest.FailQuest(TimerManager.Instance.GetToday());
+        allNPC[tempQuest.origin.givingNPC].FailQuest();
     }
 
     public void CompleteQuest(int questID, SuccessDegree successDegree) // 퀘스트 완료
     {
-        AcceptedQuests.Remove(questID);
         Quest tempQuest = Data.GetQuest(questID);
+
+        AcceptedQuests.Remove(questID);
         tempQuest.CompleteQuest(TimerManager.Instance.GetToday());
-        NPCManager.Instance.AllNPC[tempQuest.origin.givingNPC].CompleteQuest(); // npc 퀘스트 준 상태로 전환
         JustCompleteQuests.Add(questID);
+
+        playerInvenController.아이템획득(tempQuest.origin.compensationID, 1);
+        allNPC[tempQuest.origin.givingNPC].SuccessQuest(favorMap[successDegree]);
 
         if (!OnceCompletedQuests.TryGetValue(questID, out var prev) || prev < successDegree)
         {

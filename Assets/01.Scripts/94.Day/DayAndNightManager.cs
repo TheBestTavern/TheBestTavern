@@ -20,8 +20,7 @@ public class DayAndNightManager : MonoSingleton<DayAndNightManager>
         base.Init();
         DontDestroyOnLoad(gameObject);
 
-        var container = await AddressablesLoader.Instance.AddressablesLoadAsync<ScriptableObject>("DayAndNightManagerContainer.asset");
-        ManagerContainer so = (ManagerContainer)container;
+        ManagerContainer so = await AddressablesLoader.Instance.AddressablesLoadAsync<ManagerContainer>("DayAndNightManagerContainer.SO");
 
         if (nightMat == null)
         {

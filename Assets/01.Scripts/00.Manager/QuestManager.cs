@@ -107,7 +107,7 @@ public class QuestManager : MonoSingleton<QuestManager>
                 else if (quest.origin.notBadFood.Contains(pair.itemID))
                 {
                     Debug.Log("소성공");
-                    prt.questData.CompleteQuest(pair.questID, SuccessDegree.bad);
+                    prt.questData.CompleteQuest(pair.questID, SuccessDegree.notBad);
                 }
                 else
                 {

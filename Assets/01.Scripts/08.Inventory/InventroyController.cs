@@ -61,6 +61,12 @@ public class InventoryController
         return true;
     }
 
+    public bool 아이템획득(int itemID, int amount)
+    {
+        var data_Foods = Data.GetRawItem(itemID);
+        return 아이템획득(data_Foods, amount);
+    }
+
     public virtual bool 아이템잃음(Data_Foods data_Foods, int amount)
     {
         if (!model.아이템감소(data_Foods, amount))
