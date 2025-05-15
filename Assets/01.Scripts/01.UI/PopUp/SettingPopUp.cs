@@ -11,6 +11,7 @@ public class SettingPopUp : BasePopUp
 {
     // 게임 종료 버튼
     [SerializeField] private Button quitButton;
+    [SerializeField] private Button soundButton;
 
     public override void Awake()
     {
@@ -21,6 +22,7 @@ public class SettingPopUp : BasePopUp
 
         // 게임 종료 버튼 클릭 이벤트 리스터 추가
         quitButton.onClick.AddListener(OnClickQuitButton);
+        soundButton.onClick.AddListener(OnClickSoundButton);
     }
 
     // 게임 종료 버튼 클릭 함수
@@ -33,6 +35,11 @@ public class SettingPopUp : BasePopUp
         #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
         #endif
+    }
+
+    async void OnClickSoundButton()
+    {
+        await PopUpManager.Instance.ShowPopUp(PopUpType.SoundSetting);
     }
 
     // 팝업 열때 필요한 함수
