@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
 
-public class GatheringTrees : GatheringProps
+public class GatheringTrees : GatheringBase
 {
     protected override void OnClickedFunc()
     {

@@ -5,6 +5,10 @@ using static DesignEnums;
 
 public class GatheringManager : MonoSingleton<GatheringManager>
 {
+    public RectTransform invenRect;
+    public RectTransform canvsRect;
+    public Camera uiCamera;
+
     DesignEnums.RegionType region;
     DesignEnums.SeasonType season;
     protected DesignEnums.BiomeType biome;
