@@ -13,7 +13,7 @@ public class RecipeManager : MonoSingleton<RecipeManager>
     // 도구
     private List<Data_Foods> currentIngredients; // 현재 사용중인 재료
     private int currentTool; // 현재 사용 중인 도구
-    private Data_Recipes currentRecipe; // 현재 레시피
+    private List<Data_Recipes> currentRecipe; // 현재 레시피
 
     public int resultItemKey = -1;
 
@@ -53,12 +53,12 @@ public class RecipeManager : MonoSingleton<RecipeManager>
         }
         else 
         {
-            int category = currentRecipe.resultCategory;
-            Debug.Log($"요리 시작 레시피 : {currentRecipe.name}"); 
+            //int category = currentRecipe.resultCategory;
+            //Debug.Log($"요리 시작 레시피 : {currentRecipe.name}"); 
         }
     }
     
-    public int EndCooking()
+    public List<int> EndCooking()
     {
         var grade = CookingMiniGameManager.Instance.GetMiniGameResult();
 
@@ -68,37 +68,48 @@ public class RecipeManager : MonoSingleton<RecipeManager>
             grade = CookingResultGrade.Failed;
             CookingMiniGameManager.Instance.SetMiniGameResult(grade);
             resultItemKey = -1;
-            return -1; 
+            return new List<int> { -1 };
+
         }
 
-        resultItemKey = GetItemKey(currentRecipe.resultCategory, grade);
-        OnCookingEnded?.Invoke(resultItemKey);
-        return resultItemKey;
+        var resultItemKeys = new List<int>();
+        foreach (var recipe in currentRecipe)
+        {
+            var key = GetItemKey(recipe.resultCategory, grade);
+            resultItemKeys.Add(key);
+            OnCookingEnded?.Invoke(key);
+        }
+        return resultItemKeys;
     }
 
-    // !!임시 코드입니다. 미니게임 계산식에 따라 수정해야 함
     // 접시에서 사용
-    public int CompleteDish()
+    public List<int> CompleteDish()
     {
-        //현재 무조건 전설등급이 나오게 되어있으나 조합 규칙대로 수정해야함
         //var grade = CookingResultGrade.Legendary;
         //CookingMiniGameManager.Instance.SetMiniGameResult(grade);
         if (currentRecipe == null)
         {
             resultItemKey = -1;
-            return -1;
+            return new List<int> { -1 };
         }
 
         var combineGrade = JudgeCombineGrade(currentIngredients);
         CookingMiniGameManager.Instance.SetMiniGameResult(combineGrade);
-        resultItemKey = GetItemKey(currentRecipe.resultCategory, combineGrade);
-        OnCookingEnded?.Invoke(resultItemKey);
-        return resultItemKey;
+
+        var resultItemKeys = new List<int>();
+        foreach (var recipe in currentRecipe)
+        {
+            var key = GetItemKey(recipe.resultCategory, combineGrade);
+            resultItemKeys.Add(key);
+            OnCookingEnded?.Invoke(key);
+        }
+
+        return resultItemKeys;
     }
 
     // 재료들 조합 결과 
     // (믹싱볼에서 사용) 
-    public int CombineIngredients()
+    public List<int> CombineIngredients()
     {
         // 흐름
         // 미니게임 끝난다 -> fail 됐다 -> fail 들어오면 무조건 실패처리 -1 반환
@@ -110,19 +121,28 @@ public class RecipeManager : MonoSingleton<RecipeManager>
         if(grade == CookingResultGrade.Failed)
         {
             resultItemKey = -1;
-            return -1;
+            return new List<int> { -1 };
+
         }
         if (currentRecipe == null)
         {
             resultItemKey = -1;
-            return -1;
+            return new List<int> { -1 };
         }
 
         var combineGrade = JudgeCombineGrade(currentIngredients);
         CookingMiniGameManager.Instance.SetMiniGameResult(combineGrade);
-        int key = GetItemKey(currentRecipe.resultCategory, combineGrade);
-        //OnCookingEnded?.Invoke(resultItemKey);
-        return key;
+        
+        var resultItemKeys = new List<int>();
+        foreach (var recipe in currentRecipe)
+        {
+            var key = GetItemKey(recipe.resultCategory, combineGrade);
+            resultItemKeys.Add(key);
+            OnCookingEnded?.Invoke(key);
+        }
+
+        return resultItemKeys;
+
     }
 
     /// <summary>
@@ -164,7 +184,7 @@ public class RecipeManager : MonoSingleton<RecipeManager>
     /// <param name="ingredients"></param>
     /// <param name="tool"></param>
     /// <returns></returns>
-    public Data_Recipes GetRecipe(List<Data_Foods> ingredients, int toolId)
+    public List<Data_Recipes> GetRecipe(List<Data_Foods> ingredients, int toolId)
     {
         
         // 재료 리스트에서 음식군ID 가져오기
@@ -175,6 +195,8 @@ public class RecipeManager : MonoSingleton<RecipeManager>
             Debug.Log($"재료 음식군 번호 : {ingredient.FoodCategory}");
         }
 
+        var matchedRecipes = new List<Data_Recipes>(); 
+
         // 재료와 tool의 조합이 레시피대로인지 확인
         foreach (var recipe in DataManager.Instance.Dataloader_Recipes.ItemsList) 
         {
@@ -184,8 +206,9 @@ public class RecipeManager : MonoSingleton<RecipeManager>
             var recipeSet = new HashSet<int>(recipe.ingredients);
 
            
-            if (recipeSet.SetEquals(ingredientsSet)) 
-                return recipe;
+            if (recipeSet.SetEquals(ingredientsSet))
+                matchedRecipes.Add(recipe);
+                return matchedRecipes;
         }     
         return null; 
     }

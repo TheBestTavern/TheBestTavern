@@ -10,9 +10,14 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Cooking", menuName = "MiniGame")]
 public class CookingMiniGameSO : ScriptableObject
 {
-    [field:Header("CutData")]
+    [field:Header("CutData")] // 도마
     //[field: SerializeField] public CookingCutData cutData { get; private set; }
     [field: SerializeField] public float CutTimer { get; private set; } = 15f;
+    [field: SerializeField] public float PerfectRatio { get; private set; } = 0.9f;
+    [field: SerializeField] public float GoodRatio { get; private set; } = 0.7f;
+    [field: SerializeField] public float BadRatio { get; private set; } = 0.5f;
+
+
 
 
     [field: Header("GrillData")]
@@ -67,7 +72,7 @@ public class CookingMiniGameSO : ScriptableObject
     [field: SerializeField] public float NoteRespwanTime = 2f; // 2초마다 노트 생성
 
     [field: Header("MixingBowlData")]
-    [field: SerializeField] public float MixingBowlTimer { get; private set; } = 10f;
+    [field: SerializeField] public float MixingBowlTimer { get; private set; } = 15f;
     [field: SerializeField] public float MixingTime { get; private set; } = 5f;
 
 

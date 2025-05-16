@@ -15,7 +15,7 @@ MonoBehaviour:
   m_DefaultGroup: c3f494c16557d594cb251a411faddc9f
   m_currentHash:
     serializedVersion: 2
-    Hash: 29d2c55c879365f54ff46416c4f26413
+    Hash: 00000000000000000000000000000000
   m_OptimizeCatalogSize: 0
   m_BuildRemoteCatalog: 0
   m_BundleLocalCatalog: 0
@@ -50,6 +50,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 9a126ea1724e9c94fb7a17c42b2a09e0, type: 2}
   - {fileID: 11400000, guid: 478f9b6dcab53a4499d4e8709c0c04c7, type: 2}
   - {fileID: 11400000, guid: c505702a0514eeb42a615b4f855a59a4, type: 2}
+  - {fileID: 11400000, guid: d3157d99c20dc2644b39501ca5875966, type: 2}
   m_BuildSettings:
     m_CompileScriptsInVirtualMode: 0
     m_CleanupStreamingAssetsAfterBuilds: 1
@@ -95,6 +96,7 @@ MonoBehaviour:
     - BasicScene
     - MiniGameScene
     - BGM
+    - CookingPrefabs
   m_SchemaTemplates: []
   m_GroupTemplateObjects:
   - {fileID: 11400000, guid: fb4860e82cc57f7448b750225714f800, type: 2}

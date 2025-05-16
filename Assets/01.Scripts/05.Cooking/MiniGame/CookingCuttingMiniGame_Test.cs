@@ -5,13 +5,39 @@ using UnityEngine.SceneManagement;
 
 public class CookingCuttingMiniGame_Test : CookingMiniGameBase
 {
+    [ SerializeField ] CookingKnife_Test knife;
+    [SerializeField] CookingIngredientSO ingredientSO;
+
     private void Awake()
     {
         CookingMiniGameManager.Instance.GetCurrentMiniGame(this);
     }
-    public override void StartGame()
+    public override async void StartGame()
     {
- 
+        int itemKey = CookingMiniGameManager.Instance.GetSelectedItemFoodCategory();
+        ingredientSO = CookingMiniGameManager.Instance.GetSelectdItemSO(itemKey);
+        if (ingredientSO != null)
+        {
+            string prefabAdress = ingredientSO.prefabAdress;
+            GameObject prefab = await AddressablesLoader.Instance.AddressablesLoadAsync(prefabAdress);
+            if (prefab != null)
+            {
+                Instantiate(prefab);
+            }
+            else
+            {
+                GameObject defaultPrefab = await AddressablesLoader.Instance.AddressablesLoadAsync("GreenLong");
+                Instantiate(defaultPrefab);
+
+                //string defalutAdress = "";
+                //GameObject defaultPrefab = await AddressablesLoader.Instance.AddressablesLoadAsync(defalutAdress);
+            }
+        }
+        else
+        {
+            GameObject defaultPrefab = await AddressablesLoader.Instance.AddressablesLoadAsync("GreenLong");
+            Instantiate(defaultPrefab);
+        }
     }
 
     public override void StopGame()
@@ -31,14 +57,27 @@ public class CookingCuttingMiniGame_Test : CookingMiniGameBase
        
     }
 
-    public void InstantGameOver()
-    {
-        isGameOver = true;
-    }
-
     public CookingResultGrade JudgeGrade()
     {
-        // 임시로 무조건 최상위 등급 반환
-        return CookingResultGrade.Legendary;
+        float ratio = knife.GetPiecesRatio();
+        Debug.Log($"자른 비율:{ratio}");
+
+        // 조각 크기 평균
+        if (ratio >= data.PerfectRatio)
+        {
+            return CookingResultGrade.Legendary;
+        }
+        else if (ratio >= data.GoodRatio)
+        {
+            return CookingResultGrade.Rare;
+        }
+        else if (ratio >= data.BadRatio)
+        {
+            return CookingResultGrade.Common;
+        }
+        else
+        {
+            return CookingResultGrade.Failed;
+        }
     }
 }

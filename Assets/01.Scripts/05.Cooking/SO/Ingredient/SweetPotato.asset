@@ -12,6 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eef8c804f8d264b4c9023c9593e5bc9a, type: 3}
   m_Name: SweetPotato
   m_EditorClassIdentifier: 
-  originalName: SweetPotato
-  originalPrefab: {fileID: 6768354351604462520, guid: 4c16b69cb5d6f0d41a5d4cdcc486eafc, type: 3}
-  slicedPrefab: {fileID: 5979068305810167843, guid: 1ec00bb58fd59744f82c5ef5828aeaca, type: 3}
+  prefabAdress: SweetPotato
+  foodCategoryID: bbad0100

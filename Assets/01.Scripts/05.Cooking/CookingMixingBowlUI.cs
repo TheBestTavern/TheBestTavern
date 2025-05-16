@@ -16,8 +16,8 @@ public class CookingMixingBowlUI : MonoBehaviour
         slider.maxValue = 100f;
         float curValue = value;
 
-        float sliderValue = Mathf.Clamp01(curValue / 15f);
+        float sliderValue = Mathf.Clamp01(curValue / 5f);
         slider.value = sliderValue * 100;
-        valueText.text = slider.value.ToString();
+        valueText.text = $"{slider.value.ToString("N2")} % ";
     }
 }
