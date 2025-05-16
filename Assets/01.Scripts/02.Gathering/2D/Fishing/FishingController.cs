@@ -14,9 +14,7 @@ public class FishingController : MonoBehaviour
     [Header("컨트롤러 설정")]
     [SerializeField] private TensionGaugeController tensionGaugeController;
     [SerializeField] private FishingLineController fishLineController;
-    [SerializeField] private FishingBaitDrop fishingBaitDrop;
 
-    private ItemStack currentBait;
     private GameObject currentFish;
     private bool fishingInProgress = false;
 
@@ -28,7 +26,7 @@ public class FishingController : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F) && !fishingInProgress && currentBait != null)
+        if (Input.GetKeyDown(KeyCode.F) && !fishingInProgress)
         {
             StartCoroutine(StartFishing());
         }
@@ -78,10 +76,6 @@ public class FishingController : MonoBehaviour
         yield return new WaitForSeconds(Random.Range(1f, 3f));
 
         FishingManager.Instance.BeginFishing();
-        if (currentBait != null)
-        {
-            fishingBaitDrop.ClearBait();
-        }
     }
 
     private void StopFishing(bool success)
@@ -99,11 +93,5 @@ public class FishingController : MonoBehaviour
     {
         StopFishing(true);
         FishingManager.Instance.ShowResult();
-    }
-
-    public void SetBait(ItemStack bait)
-    {
-        currentBait = bait;
-        Debug.Log("미끼 설정: " + currentBait.Origin.englishName);
     }
 }
