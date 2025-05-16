@@ -9,4 +9,5 @@ public class QuestContainer : ScriptableObject
     public int sosoQuest = 20;
     public int goodQuest = 10;
     public int notBadQuest = 5;
+    public int failQuest = -5;
 }

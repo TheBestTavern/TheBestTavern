@@ -4,23 +4,41 @@ using UnityEngine;
 
 public class MailBoxContentResult : MailBoxContentBase // 제네릭으로 할 수 있을려나
 {
-    public override void OnEnable()
+    public async override void OnEnable()
     {
         if (isReadyTodaySlot) return;
         isReadyTodaySlot = true;
         base.OnEnable();
 
         MakeSlot(QuestManager.Instance.questData.JustCompleteQuests);
+
+        currentLetter = (QuestBaseLetter)await UIManager.Instance.ShowPopUp(PopUpType.ResultLetter);
+        currentLetter.OnClickCloseButton();
+        currentLetter.FirstInit(RemoveSlot);
         //OnNewDay command = new(this);
         //DayManager.Instance.AddCommand(command);
     }
 
-    public async override void OpenLetter(Quest quest, QuestBaseSlot slot)
-    {
-        //1. 편지 띄우기
-        currentLetter = await UIManager.Instance.ShowPopUp(PopUpType.ResultLetter) as QuestBaseLetter;
+    //public async override void OpenLetter(Quest quest, QuestBaseSlot slot)
+    //{
+    //    //1. 편지 띄우기
+    //    currentLetter = await UIManager.Instance.ShowPopUp(PopUpType.ResultLetter) as QuestBaseLetter;
 
-        base.OpenLetter(quest, slot);
+    //    base.OpenLetter(quest, slot);
+    //}
+
+    public void MakeSlot(List<int> quests)
+    {
+        QuestBaseSlot pref;
+        int i = 1;
+        foreach (var questID in quests)
+        {
+            pref = Instantiate(slotPref, slotPrt);
+            pref.Init(this);
+            pref.SetSlot(questID, i);
+            slots.Add(pref);
+            i++;
+        }
     }
 
     //public class OnNewDay : IDayCommand

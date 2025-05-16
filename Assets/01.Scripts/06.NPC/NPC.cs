@@ -54,7 +54,7 @@ public class NPC
     }
 
     // 퀘스트 실패 시 발생
-    public void FailQuest()
+    public void FailQuest(float favor)
     {
         isGivingQuest = false;
     }

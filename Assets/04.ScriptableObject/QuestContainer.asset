@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8f694cbe44574d45bdf8fee309b80f7, type: 3}
   m_Name: QuestContainer
   m_EditorClassIdentifier: 
-  sosoQuest: 20
+  sosoQuest: 50
   goodQuest: 10
   notBadQuest: 5
+  failQuest: -5

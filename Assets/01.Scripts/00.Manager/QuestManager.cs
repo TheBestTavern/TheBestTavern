@@ -11,7 +11,7 @@ public class QuestManager : MonoSingleton<QuestManager>
 
     public Dictionary<int, Quest> AllQuests => questData.AllQuests;
     public List<int> AcceptedQuests => questData.AcceptedQuests;
-    public Dictionary<int, SuccessDegree> OnceCompletedQuests => questData.OnceCompletedQuests;
+    public Dictionary<int, SuccessDegree> OnceCompletedQuests => questData.OnceSuccessQuests;
     public List<int> JustCompleteQuests => questData.JustCompleteQuests;
     public List<int> TodayAvailableQuest => questData.TodayAvailableQuest;
 
@@ -97,17 +97,17 @@ public class QuestManager : MonoSingleton<QuestManager>
                 if (quest.origin.goodFood.Contains(pair.itemID))
                 {
                     Debug.Log("대성공");
-                    prt.questData.CompleteQuest(pair.questID, SuccessDegree.good);
+                    prt.questData.SuccessQuest(pair.questID, SuccessDegree.good);
                 }
                 else if (quest.origin.sosoFood.Contains(pair.itemID))
                 {
                     Debug.Log("중성공");
-                    prt.questData.CompleteQuest(pair.questID, SuccessDegree.soso);
+                    prt.questData.SuccessQuest(pair.questID, SuccessDegree.soso);
                 }
                 else if (quest.origin.notBadFood.Contains(pair.itemID))
                 {
                     Debug.Log("소성공");
-                    prt.questData.CompleteQuest(pair.questID, SuccessDegree.notBad);
+                    prt.questData.SuccessQuest(pair.questID, SuccessDegree.notBad);
                 }
                 else
                 {

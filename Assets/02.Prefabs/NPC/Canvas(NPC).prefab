@@ -749,12 +749,13 @@ MonoBehaviour:
   slotPref: {fileID: 7050718121081789698, guid: 77444633087827543a45cb996dcd98a0, type: 3}
   slotTrs: {fileID: 254354172560079049}
   slotCount: 54
-  <toShowTypes>k__BackingField: 01000000
+  <toShowTypes>k__BackingField: 04000000
   nextPageBtn: {fileID: 1710902768599388366}
   prevPageBtn: {fileID: 5894369191591396868}
   showSlotCount: 16
   PagesTMP: {fileID: 6287530900974336776}
-  <TargetingNum>k__BackingField: 1
+  minTargetingNum: 1
+  maxTargetingNum: 1
 --- !u!1 &4341471861405482690
 GameObject:
   m_ObjectHideFlags: 0

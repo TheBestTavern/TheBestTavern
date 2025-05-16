@@ -9,28 +9,28 @@ public enum SuccessDegree
 {
     good = 20,
     soso = 10,
-    notBad = 0
+    notBad = 0,
+    fail = -10,
 }
 
 public class QuestData
 {
     public Dictionary<int, Quest> AllQuests { get; private set; } = new(); // 모든 퀘스트
     public List<int> AcceptedQuests { get; private set; } = new(); // 진행중인 퀘스트
-    public Dictionary<int, SuccessDegree> OnceCompletedQuests { get; private set; } = new(); // 한번이라도 클리어해본 퀘스트. 최대 성공 정도
+    public Dictionary<int, SuccessDegree> OnceSuccessQuests { get; private set; } = new(); // 한번이라도 클리어해본 퀘스트. 최대 성공 정도
     public List<int> JustCompleteQuests { get; private set; } = new(); // 오늘 클리어한 퀘스트 (내일 보상 편지 생성에 사용)
     public List<int> TodayAvailableQuest { get; private set; } = new(); // 오늘의 퀘스트
     public Queue<(int questID, int itemID)> QuestCheckQueue { get; private set; } = new(); // 아이템 제출한 퀘스트 목록.
 
+    public QuestContainer questSO { get; private set; }
     Dictionary<SuccessDegree, int> favorMap;
 
-    public QuestContainer questSO { get; private set; }
-    private InventoryController playerInvenController;
     private Dictionary<int, NPC> allNPC;
 
     public Action<List<int>> onTriggerNPC; // npc 소환
     public Action onSpawnNPC; // 소환된 npc 정렬
 
-    public async void Init()
+    public async Task Init()
     {
         //Debug.Log("퀘스트 인스턴스 생성");
         Quest quest;
@@ -40,6 +40,12 @@ public class QuestData
             AllQuests.Add(quest.origin.key, quest);
         }
 
+        allNPC = NPCManager.Instance.NPCData.AllNPC;
+
+        // 커맨드 등록
+        OnNewDay command = new(this);
+        CommandManager.Instance.AddCommand(command);
+
         // 참조 할당
         questSO = await AddressablesLoader.Instance.AddressablesLoadAsync<QuestContainer>("QuestContainer.SO");
         favorMap = new()
@@ -47,13 +53,8 @@ public class QuestData
             { SuccessDegree.good , questSO.goodQuest},
             { SuccessDegree.soso, questSO.sosoQuest},
             { SuccessDegree.notBad , questSO.notBadQuest},
+            { SuccessDegree.fail , questSO.failQuest}
         };
-        playerInvenController = InventoryManager.Instance.Invens[InvenType.Player];
-        allNPC = NPCManager.Instance.AllNPC;
-
-        // 커맨드 등록
-        OnNewDay command = new(this);
-        CommandManager.Instance.AddCommand(command);
     }
 
     public void AcceptQuest(int questID)
@@ -66,23 +67,24 @@ public class QuestData
         AcceptedQuests.Remove(questID);
         Quest tempQuest = Data.GetQuest(questID);
         tempQuest.FailQuest(TimerManager.Instance.GetToday());
-        allNPC[tempQuest.origin.givingNPC].FailQuest();
+        allNPC[tempQuest.origin.givingNPC].FailQuest(favorMap[SuccessDegree.fail]);
+        JustCompleteQuests.Add(questID);
     }
 
-    public void CompleteQuest(int questID, SuccessDegree successDegree) // 퀘스트 완료
+    public void SuccessQuest(int questID, SuccessDegree successDegree) // 퀘스트 완료
     {
         Quest tempQuest = Data.GetQuest(questID);
 
         AcceptedQuests.Remove(questID);
-        tempQuest.CompleteQuest(TimerManager.Instance.GetToday());
+        tempQuest.SuccessQuest(TimerManager.Instance.GetToday(), successDegree);
         JustCompleteQuests.Add(questID);
 
-        playerInvenController.아이템획득(tempQuest.origin.compensationID, 1);
+        //playerInvenController.아이템획득(tempQuest.origin.compensationID, 1);
         allNPC[tempQuest.origin.givingNPC].SuccessQuest(favorMap[successDegree]);
 
-        if (!OnceCompletedQuests.TryGetValue(questID, out var prev) || prev < successDegree)
+        if (!OnceSuccessQuests.TryGetValue(questID, out var prev) || prev < successDegree)
         {
-            OnceCompletedQuests[questID] = successDegree;
+            OnceSuccessQuests[questID] = successDegree;
             // 읽기작업: 없는 키값에 접근할 경우, KeyNotFoundException 오류가 발생 dic[index];
             // 쓰기작업: 없는 키값에 접근할 경우, 새로운 키-값 쌍을 추가함. dic[index] = value;
         }
