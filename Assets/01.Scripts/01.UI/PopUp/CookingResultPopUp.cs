@@ -77,6 +77,9 @@ public class CookingResultPopUp : BasePopUp
         if (itemKey == -1)
         {
             Debug.Log("요리 실패해서 이름 안 뜸");
+            successText.gameObject.SetActive(false);
+            failText.gameObject.SetActive(true);
+            itemImage.gameObject.SetActive(false);
             itemNameText.gameObject.SetActive(false);
             return;
         }

@@ -527,6 +527,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 310925227}
+  - component: {fileID: 310925228}
   m_Layer: 6
   m_Name: StoveSide
   m_TagString: Untagged
@@ -550,6 +551,27 @@ Transform:
   - {fileID: 556141755}
   m_Father: {fileID: 1101284261}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &310925228
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 310925226}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &382334237
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -708,6 +730,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 420417147}
+  - component: {fileID: 420417148}
   m_Layer: 6
   m_Name: StoveSide (1)
   m_TagString: Untagged
@@ -731,6 +754,27 @@ Transform:
   - {fileID: 1517061451}
   m_Father: {fileID: 1101284261}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &420417148
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 420417146}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &556141754
 GameObject:
   m_ObjectHideFlags: 0
@@ -845,6 +889,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   data: {fileID: 11400000, guid: 7c61f50033f8139428fc181562661f79, type: 2}
   effectController: {fileID: 947084414}
+  knife: {fileID: 384589166}
+  ingredientSO: {fileID: 0}
 --- !u!4 &664344284
 Transform:
   m_ObjectHideFlags: 0
@@ -1195,6 +1241,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1074684519}
+  - component: {fileID: 1074684520}
   m_Layer: 6
   m_Name: StoveSide (2)
   m_TagString: Untagged
@@ -1218,6 +1265,27 @@ Transform:
   - {fileID: 139856098}
   m_Father: {fileID: 1101284261}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1074684520
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1074684518}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1101284260
 GameObject:
   m_ObjectHideFlags: 0
@@ -1983,63 +2051,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.3240001, y: 0.07903673, z: 0.6300002}
   m_Center: {x: -0.000000007450582, y: 0.02954235, z: 0}
---- !u!1001 &7229371210292164729
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 5972988212202233524, guid: 4c16b69cb5d6f0d41a5d4cdcc486eafc, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 1.159
-      objectReference: {fileID: 0}
-    - target: {fileID: 5972988212202233524, guid: 4c16b69cb5d6f0d41a5d4cdcc486eafc, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.384
-      objectReference: {fileID: 0}
-    - target: {fileID: 5972988212202233524, guid: 4c16b69cb5d6f0d41a5d4cdcc486eafc, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.587
-      objectReference: {fileID: 0}
-    - target: {fileID: 5972988212202233524, guid: 4c16b69cb5d6f0d41a5d4cdcc486eafc, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 5972988212202233524, guid: 4c16b69cb5d6f0d41a5d4cdcc486eafc, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5972988212202233524, guid: 4c16b69cb5d6f0d41a5d4cdcc486eafc, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5972988212202233524, guid: 4c16b69cb5d6f0d41a5d4cdcc486eafc, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 5972988212202233524, guid: 4c16b69cb5d6f0d41a5d4cdcc486eafc, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5972988212202233524, guid: 4c16b69cb5d6f0d41a5d4cdcc486eafc, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5972988212202233524, guid: 4c16b69cb5d6f0d41a5d4cdcc486eafc, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6768354351604462520, guid: 4c16b69cb5d6f0d41a5d4cdcc486eafc, type: 3}
-      propertyPath: m_Name
-      value: SweetPotato
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 4c16b69cb5d6f0d41a5d4cdcc486eafc, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -2050,7 +2061,6 @@ SceneRoots:
   - {fileID: 1101284261}
   - {fileID: 1703070184521667391}
   - {fileID: 384589161}
-  - {fileID: 7229371210292164729}
   - {fileID: 1041330405}
   - {fileID: 664344284}
   - {fileID: 947084415}
