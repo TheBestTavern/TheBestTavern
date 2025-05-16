@@ -18,6 +18,7 @@ public class IntroSceneUI : MonoBehaviour
     [SerializeField] private Image startSceneImage;
     [SerializeField] private Image paper;
     [SerializeField] private Image framingImage;
+    [SerializeField] private RectTransform maskRectTransform;
 
     [Header("Texts")]
     [SerializeField] private TextMeshProUGUI introText;
@@ -112,11 +113,12 @@ public class IntroSceneUI : MonoBehaviour
         await Task.Delay(1000, token);
         await paper.rectTransform.DOMoveY(-1500, 2f).AsyncWaitForCompletion();
 
-        await RevealTitleText(token);
+        //await RevealText(titleText,token);
+        BrushTitleText();
 
         gameStartBtnImage.gameObject.SetActive(true);
         gameStartBtnImage.DOFade(1, 4);
-        gameStartBtnText.DOFade(1, 4);        
+        gameStartBtnText.DOFade(1, 4);
     }
 
     private async Task PlayIntroTexts(CancellationToken token)
@@ -154,42 +156,55 @@ public class IntroSceneUI : MonoBehaviour
             token.ThrowIfCancellationRequested();
             await ShowText(introTexts[i], 100, token);
         }
-
+        introText.fontSize = largeFontSize;
         for (int i = introTexts.Length - 2; i < introTexts.Length; i++)
         {
             token.ThrowIfCancellationRequested();
-            await ShowText(introTexts[i], largeFontSize, token);
+            introText.text = introTexts[i];
+            introText.alpha = 1;
+            await RevealText(introText, token);
+            await Task.Delay(1000, token);
+            await introText.DOFade(0, 1).AsyncWaitForCompletion();
         }
+
     }
 
     private async Task ShowText(string text, int fontSize, CancellationToken token)
     {
-        await introText.DOFade(0, 1).AsyncWaitForCompletion();
         token.ThrowIfCancellationRequested();
 
         introText.fontSize = fontSize;
         introText.text = text;
 
-        await introText.DOFade(1, 1.5f).AsyncWaitForCompletion();
+        await introText.DOFade(1, 1f).AsyncWaitForCompletion();
+        await Task.Delay((int)shortDelay, token);
+
+        await introText.DOFade(0, 1).AsyncWaitForCompletion();
         token.ThrowIfCancellationRequested();
 
-        await Task.Delay((int)shortDelay, token);
     }
 
-    private async Task RevealTitleText(CancellationToken token)
+    private async Task RevealText(TextMeshProUGUI text, CancellationToken token)
     {
-        titleText.gameObject.SetActive(true);
-        titleText.ForceMeshUpdate();
-        TMP_TextInfo textInfo = titleText.textInfo;
+        text.gameObject.SetActive(true);
+        text.ForceMeshUpdate();
+        TMP_TextInfo textInfo = text.textInfo;
 
-        titleText.maxVisibleCharacters = 0;
+        text.maxVisibleCharacters = 0;
         int total = textInfo.characterCount;
 
         for (int i = 0; i <= total; i++)
         {
             token.ThrowIfCancellationRequested();
-            titleText.maxVisibleCharacters = i;
-            await Task.Delay(200, token);
+            text.maxVisibleCharacters = i;
+            await Task.Delay(150, token);
         }
+    }
+
+    private void BrushTitleText()
+    {
+        titleText.DOFade(1,2);
+        //maskRectTransform.sizeDelta = new Vector2(0f, titleText.rectTransform.sizeDelta.x);
+        //maskRectTransform.DOSizeDelta(new Vector2(titleText.rectTransform.sizeDelta.x, titleText.rectTransform.sizeDelta.y), 2f).SetEase(Ease.Linear);
     }
 }
