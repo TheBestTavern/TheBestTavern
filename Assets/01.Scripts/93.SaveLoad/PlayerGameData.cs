@@ -9,6 +9,7 @@ public class PlayerGameData
 {
     public PlayerTimeData playerTimeData = new();
     public PlayerInvenData playerInvenData = new();
+    public PlayerQuestData playerQuestData = new();
 }
 
 [System.Serializable]
@@ -32,29 +33,42 @@ public class PlayerTimeData
 [System.Serializable]
 public class PlayerInvenData
 {
-    public List<InvenData> ItemList = new();
+    public List<SaveInvenData> ItemList = new();
 
     public void SetPlayerInvenData(Dictionary<int, ItemStack> ItemStack)
     {
         foreach(var item in ItemStack)
         {
-            InvenData invenData = new InvenData(item.Value.Origin, item.Value.Count, item.Value.ID);
+            SaveInvenData invenData = new SaveInvenData(item.Value.Origin, item.Value.Count, item.Value.ID);
             ItemList.Add(invenData);
         }
     }
 }
 
 [System.Serializable]
-public class InvenData
+public class SaveInvenData
 {
     public Data_Foods Origin;
     public int Count;
     public int ID;
 
-    public InvenData(Data_Foods data_Foods, int Count, int ID)
+    public SaveInvenData(Data_Foods data_Foods, int Count, int ID)
     {
         Origin = data_Foods;
         this.Count = Count;
         this.ID = ID;
+    }
+}
+
+
+[System.Serializable]
+public class PlayerQuestData
+{
+    public List<int> AcceptedQuests = new();
+    public Dictionary<int, SuccessDegree> OnceCompletedQuests = new();
+    public void SetPlayerQuestData(List<int> acceptedQuests, Dictionary<int, SuccessDegree> onceCompletedQuests)
+    {
+        AcceptedQuests = acceptedQuests;
+        OnceCompletedQuests = onceCompletedQuests;
     }
 }

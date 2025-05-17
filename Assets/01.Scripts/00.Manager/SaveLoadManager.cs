@@ -24,6 +24,7 @@ public class SaveLoadManager : MonoSingleton<SaveLoadManager>
     {
         SetPlayerInvenData();
         SetPlayerTimeData();
+        SetPlayerQuestData();
 
         string json = JsonUtility.ToJson(playerGameData, true);
         string path = Application.persistentDataPath + "/save.json";
@@ -55,6 +56,11 @@ public class SaveLoadManager : MonoSingleton<SaveLoadManager>
     void SetPlayerInvenData()
     {
         playerGameData.playerInvenData.SetPlayerInvenData(InventoryManager.Instance.Invens[InvenType.Player].model.ID2ItemStack);
+    }
+
+    void SetPlayerQuestData()
+    {
+        playerGameData.playerQuestData.SetPlayerQuestData(QuestManager.Instance.AcceptedQuests, QuestManager.Instance.OnceCompletedQuests);
     }
 
 }
