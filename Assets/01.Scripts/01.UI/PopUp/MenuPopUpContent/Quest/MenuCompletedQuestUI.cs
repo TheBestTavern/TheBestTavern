@@ -1,33 +1,53 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
-/// <summary>
-/// TAB 메뉴 완료된 퀘스트 클래스
-/// </summary>
-public class MenuCompletedQuestUI : BaseMenuContentUI
+public class MenuCompletedQuestUI : MenuQuestUIBase<Dictionary<int, SuccessDegree>>
 {
-    /// <summary>
-    /// TAB 메뉴 완료된 퀘스트 생성 함수
-    /// </summary>
+    private void Awake()
+    {
+        toShowList = QuestManager.Instance.OnceSuccessQuests;
+    }
+
     public override void CreateContent()
     {
-        //// 완료된 퀘스트가 없다면 리턴
-        //if (QuestManager.Instance.questData.CompletedQuests == null)
-        //    return;
+        base.CreateContent();
 
-        //// 있다면 완료된 퀘스트 목록 순회
-        //for (int i = 0; i < QuestManager.Instance.questData.CompletedQuests.Count; i++)
-        //{
-        //    // To Do - 완료된 퀘스트 생성
-        //    if (QuestManager.Instance.questData.OnceCompletedQuests == null)
-        //        return;
+        EventBus.Subscribe<QuestSuccessFirstEvent>(UpdateList);
+    }
 
-        //    for (int i = 0; i < QuestManager.Instance.questData.OnceCompletedQuests.Count; i++)
-        //    {
-        //        QuestOfferSlot questSlot = Instantiate(contentPrefab, contentParent).GetComponent<QuestOfferSlot>();
-        //        questSlot.SetSlot(QuestManager.Instance.questData.OnceCompletedQuests[i], i);
-        //    }
-        //}
+    public async override void SetList()
+    {
+        foreach(var slot in slots)
+        {
+            slot.TriggerReturn();
+        }
+        slots.Clear();
+
+        foreach (var pair in toShowList)
+        {
+            QuestSlot slot = await PoolManager.Instance.GetAddressable<QuestSlot>("QuestSlot.prefab", Vector3.zero, spawnTsr);
+            slot.SetSlot(pair.Key, false);
+            slots.Add(slot);
+        }
+    }
+
+    private void OnDestroy()
+    {
+        EventBus.UnSubscribe<QuestClickLetterBtnEvent>(OpenLetter);
+        EventBus.UnSubscribe<QuestSuccessFirstEvent>(UpdateList);
+    }
+
+    // 이벤트 버스 함수
+    public async override void OpenLetter(QuestClickLetterBtnEvent evt)
+    {
+        var letter = await UIManager.Instance.ShowPopUp(PopUpType.Letter) as QuestLetter;
+        letter.SetLetter(evt.quest, false);
+    }
+
+    public void UpdateList(QuestSuccessFirstEvent evt)
+    {
+        SetList();
     }
 }

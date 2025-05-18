@@ -2,17 +2,57 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MenuInProgressQuestUI : BaseMenuContentUI
+public class MenuInProgressQuestUI : MenuQuestUIBase<List<int>>
 {
+    private void Awake()
+    {
+        toShowList = QuestManager.Instance.AcceptedQuests;
+    }
+
     public override void CreateContent()
     {
-        if (QuestManager.Instance.questData.AcceptedQuests == null)
-            return;
+        base.CreateContent();
 
-        for (int i = 0; i < QuestManager.Instance.questData.AcceptedQuests.Count; i++)
+        EventBus.Subscribe<QuestAcceptEvent>(UpdateList);
+        EventBus.Subscribe<QuestCompleteEvent>(UpdateList);
+    }
+
+    public async override void SetList()
+    {
+        foreach (var slot in slots)
         {
-            QuestOfferSlot questSlot = Instantiate(contentPrefab, contentParent).GetComponent<QuestOfferSlot>();
-            questSlot.SetSlot(QuestManager.Instance.questData.AcceptedQuests[i], i);
+            slot.TriggerReturn();
         }
+        slots.Clear();
+
+        foreach (int questID in toShowList)
+        {
+            QuestSlot slot = await PoolManager.Instance.GetAddressable<QuestSlot>("QuestSlot.prefab", Vector3.zero, spawnTsr);
+            slot.SetSlot(questID, true);
+            slots.Add(slot);
+        }
+    }
+
+    private void OnDestroy()
+    {
+        EventBus.Subscribe<QuestClickLetterBtnEvent>(OpenLetter);
+        EventBus.UnSubscribe<QuestAcceptEvent>(UpdateList);
+        EventBus.UnSubscribe<QuestCompleteEvent>(UpdateList);
+    }
+
+    // 이벤트 버스 함수
+    public async override void OpenLetter(QuestClickLetterBtnEvent evt)
+    {
+        var letter = await UIManager.Instance.ShowPopUp(PopUpType.Letter) as QuestLetter;
+        letter.SetLetter(evt.quest, true);
+    }
+
+    public void UpdateList(QuestAcceptEvent evt)
+    {
+        SetList();
+    }
+    public void UpdateList(QuestCompleteEvent evt)
+    {
+        SetList();
     }
 }

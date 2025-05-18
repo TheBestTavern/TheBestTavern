@@ -12,8 +12,12 @@ public class DayAndNightManager : MonoSingleton<DayAndNightManager>
     [Range(0f, 1f)] public float process = 0; // 현재 하루의 진행도(시간)
     [Range(0f, 1f)] public float limitProcess; // 시간이 흐를때 리미트
     [Range(0f, 3f)] public float duration = 0.0001f;
+
     public AnimationCurve saturationCurve;
     public AnimationCurve lightnessCurve;
+
+    Coroutine coroutine;
+
     public async override void Init()
     {
         if (_isInitialized) return;
@@ -46,7 +50,9 @@ public class DayAndNightManager : MonoSingleton<DayAndNightManager>
 
     public void TriggerTimeProcess(float targetProcess)
     {
-        StartCoroutine(LerpProcess(targetProcess));
+        if (coroutine != null)
+            StopCoroutine(coroutine);
+        coroutine = StartCoroutine(LerpProcess(targetProcess));
     }
 
     IEnumerator LerpProcess(float targetProcess)
@@ -60,10 +66,10 @@ public class DayAndNightManager : MonoSingleton<DayAndNightManager>
                 nightMat.SetFloat("_Lightness", lightnessCurve.Evaluate(process));
             }
 
-            if(process >= 1)
+            if (process >= 1)
             {
-                DayAndNightManager.Instance.process = 0;
-                DayAndNightManager.Instance.limitProcess = 0;
+                process = 0;
+                limitProcess = 0;
                 yield break;
             }
             if (targetProcess < process) yield break;

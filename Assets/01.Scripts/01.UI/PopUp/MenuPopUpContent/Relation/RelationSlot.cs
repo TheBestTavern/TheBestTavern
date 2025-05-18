@@ -121,7 +121,7 @@ public class RelationSlot : MonoBehaviour, IPoolable
         int i = 0;
         foreach (var pair in compensationMap)
         {
-            QuestManager.Instance.OnceCompletedQuests.TryGetValue(pair.Key, out var successDegree);
+            QuestManager.Instance.OnceSuccessQuests.TryGetValue(pair.Key, out var successDegree);
             if ((int)successDegree >= 10)
             {
                 compensationImages[i].sprite = await AddressablesLoader.Instance.AddressablesLoadAsync<Sprite>($"Assets/16.Image/FoodImage/{pair.Value}.png", true);

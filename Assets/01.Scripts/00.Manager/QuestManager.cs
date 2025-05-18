@@ -11,7 +11,7 @@ public class QuestManager : MonoSingleton<QuestManager>
 
     public Dictionary<int, Quest> AllQuests => questData.AllQuests;
     public List<int> AcceptedQuests => questData.AcceptedQuests;
-    public Dictionary<int, SuccessDegree> OnceCompletedQuests => questData.OnceSuccessQuests;
+    public Dictionary<int, SuccessDegree> OnceSuccessQuests => questData.OnceSuccessQuests;
     public List<int> JustCompleteQuests => questData.JustCompleteQuests;
     public List<int> TodayAvailableQuest => questData.TodayAvailableQuest;
 

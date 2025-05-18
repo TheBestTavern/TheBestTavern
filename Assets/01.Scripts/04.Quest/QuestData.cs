@@ -60,6 +60,7 @@ public class QuestData
     public void AcceptQuest(int questID)
     {
         AcceptedQuests.Add(questID);
+        EventBus.Publish<QuestAcceptEvent>(new QuestAcceptEvent());
     }
 
     public void FailQuest(int questID)
@@ -69,6 +70,7 @@ public class QuestData
         tempQuest.FailQuest(TimerManager.Instance.GetToday());
         allNPC[tempQuest.origin.givingNPC].FailQuest(favorMap[SuccessDegree.fail]);
         JustCompleteQuests.Add(questID);
+        EventBus.Publish<QuestCompleteEvent>(new QuestCompleteEvent());
     }
 
     public void SuccessQuest(int questID, SuccessDegree successDegree) // 퀘스트 완료
@@ -79,14 +81,13 @@ public class QuestData
         tempQuest.SuccessQuest(TimerManager.Instance.GetToday(), successDegree);
         JustCompleteQuests.Add(questID);
 
-        //playerInvenController.아이템획득(tempQuest.origin.compensationID, 1);
         allNPC[tempQuest.origin.givingNPC].SuccessQuest(favorMap[successDegree]);
+        EventBus.Publish<QuestCompleteEvent>(new QuestCompleteEvent());
 
         if (!OnceSuccessQuests.TryGetValue(questID, out var prev) || prev < successDegree)
         {
             OnceSuccessQuests[questID] = successDegree;
-            // 읽기작업: 없는 키값에 접근할 경우, KeyNotFoundException 오류가 발생 dic[index];
-            // 쓰기작업: 없는 키값에 접근할 경우, 새로운 키-값 쌍을 추가함. dic[index] = value;
+            EventBus.Publish<QuestSuccessFirstEvent>(new QuestSuccessFirstEvent());
         }
     }
 

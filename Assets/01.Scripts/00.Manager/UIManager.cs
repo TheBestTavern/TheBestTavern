@@ -18,6 +18,7 @@ public enum PopUpType
     ResultLetter,
     CookingResult,
     FoodDetail,
+    Letter,
 }
 
 public interface IPopupManager
