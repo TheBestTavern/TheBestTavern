@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 16700754}
   - component: {fileID: 16700753}
   - component: {fileID: 16700752}
+  - component: {fileID: 16700755}
   m_Layer: 5
   m_Name: BedButton
   m_TagString: Untagged
@@ -243,6 +244,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 16700750}
   m_CullTransparentMesh: 1
+--- !u!114 &16700755
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 16700750}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e744a27a68559434ea55004cf9f1e781, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sfxName: Button1
 --- !u!1 &147758436
 GameObject:
   m_ObjectHideFlags: 0
@@ -2642,6 +2656,7 @@ GameObject:
   - component: {fileID: 1393936776}
   - component: {fileID: 1393936775}
   - component: {fileID: 1393936774}
+  - component: {fileID: 1393936777}
   m_Layer: 5
   m_Name: MailBoxButton
   m_TagString: Untagged
@@ -2750,6 +2765,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1393936772}
   m_CullTransparentMesh: 1
+--- !u!114 &1393936777
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1393936772}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e744a27a68559434ea55004cf9f1e781, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sfxName: Button1
 --- !u!1 &1396600626
 GameObject:
   m_ObjectHideFlags: 0
@@ -4639,6 +4667,7 @@ GameObject:
   - component: {fileID: 778947680382205133}
   - component: {fileID: 2674625474286020781}
   - component: {fileID: 7210337987937047673}
+  - component: {fileID: 7319761565544892421}
   m_Layer: 5
   m_Name: CookingSceneButton
   m_TagString: Untagged
@@ -4805,6 +4834,7 @@ GameObject:
   - component: {fileID: 1694929214638063300}
   - component: {fileID: 6111286190023217868}
   - component: {fileID: 3876897182951601153}
+  - component: {fileID: 6111286190023217869}
   m_Layer: 5
   m_Name: GatheringSceneButton
   m_TagString: Untagged
@@ -4842,6 +4872,19 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &6111286190023217869
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5344411791867463552}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e744a27a68559434ea55004cf9f1e781, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sfxName: Button1
 --- !u!1 &6187360175416209076
 GameObject:
   m_ObjectHideFlags: 0
@@ -4921,6 +4964,19 @@ RectTransform:
   m_AnchoredPosition: {x: 851, y: -50}
   m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &7319761565544892421
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2283486546181622582}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e744a27a68559434ea55004cf9f1e781, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sfxName: Button1
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

@@ -19,4 +19,4 @@ MonoBehaviour:
     addressableKey: MainBGM2
   sfxClips:
   - soundName: Button1
-    addressableKey: SFX_Button1
+    addressableKey: ClickButton1
