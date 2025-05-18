@@ -34,8 +34,8 @@ public class GatheringManager : MonoSingleton<GatheringManager>
 
     public void SetItem()
     {
-        region = SceneParameter.Get<DesignEnums.RegionType>("Region");
-        season = SceneParameter.Get<DesignEnums.SeasonType>("Season");
+        SceneParameter.TryGet<DesignEnums.RegionType>("Region", out region);
+        SceneParameter.TryGet<DesignEnums.SeasonType>("Season", out season);
         data_Gatherings = Data.GetByRegionSeasonBiome(region, season, biome);
 
         itemDict = new();

@@ -1,15 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 using static UnityEngine.Rendering.DebugUI;
 
 public class SeaGatheringMapController : GatheringMapController
 {
-    [SerializeField] GameObject[] rocks;
-    [SerializeField] GameObject[] holes;
 
-    public override void CreateMapProps()
+    [SerializeField] string rocksLabelName = "Rock";
+    [SerializeField] string holesLabelName = "Hole";
+
+    List<GameObject> rocks;
+    List<GameObject> holes;
+
+
+    public async override void CreateMapProps()
     {
+        await LoadProps();
         foreach (var area in spawnAreas)
         {
             int rand = Random.Range(0, 5);
@@ -22,7 +29,7 @@ public class SeaGatheringMapController : GatheringMapController
                 CreateHole(area);
             }
         }
-    }
+    }    
 
     private void CreateHole(Rect rect)
     {
@@ -30,7 +37,7 @@ public class SeaGatheringMapController : GatheringMapController
         int half = randholeCount / 2;
         float x = rect.x + rect.width / 2;
         float holeY = rect.y + rect.height / 2;
-        int holeIdx = Random.Range(0, holes.Length);
+        int holeIdx = Random.Range(0, holes.Count);
 
         for (int i = -half; i <= half; i++)
         {
@@ -48,7 +55,7 @@ public class SeaGatheringMapController : GatheringMapController
         int half = randRockCount / 2;
         float x = rect.x + rect.width / 2;
         float rockY = rect.y + rect.height / 2;
-        int rockIdx = Random.Range(0, rocks.Length);
+        int rockIdx = Random.Range(0, rocks.Count);
 
         for (int i = -half; i <= half; i++)
         {
@@ -58,5 +65,10 @@ public class SeaGatheringMapController : GatheringMapController
             float rockX = x + i * 1.5f;
             SetSortingLayer(Instantiate(rocks[rockIdx], new Vector3(rockX, rockY, 0), Quaternion.identity, propsParent));
         }
+    }
+    public async override Task LoadProps()
+    {
+        rocks = await AddressablesLoader.Instance.AddressablesListLoadFromLabelAsync(rocksLabelName);
+        holes = await AddressablesLoader.Instance.AddressablesListLoadFromLabelAsync(holesLabelName);
     }
 }
