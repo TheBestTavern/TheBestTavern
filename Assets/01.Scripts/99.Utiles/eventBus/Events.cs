@@ -7,10 +7,19 @@ public class NPCFirstMetEvent
     }
 }
 
-public class NPCChangeFaovr
+public class NPCChangeFavorEvent
 {
     public NPC npc;
-    public NPCChangeFaovr(NPC npc)
+    public NPCChangeFavorEvent(NPC npc)
+    {
+        this.npc = npc;
+    }
+}
+
+public class NPCSuccessQuestEvent
+{
+    public NPC npc;
+    public NPCSuccessQuestEvent(NPC npc)
     {
         this.npc = npc;
     }

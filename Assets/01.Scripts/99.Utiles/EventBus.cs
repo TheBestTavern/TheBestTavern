@@ -23,7 +23,7 @@ public static class EventBus
         }
     }
 
-    public static void Public<T>(T evt)
+    public static void Publish<T>(T evt)
     {
         if(eventsTable.TryGetValue(typeof(T),out var del))
         {

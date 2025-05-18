@@ -8,8 +8,7 @@ using UnityEngine;
 public class MenuRelationUI : BaseMenuContentUI
 {
     Dictionary<int, RelationSlot> slots = new(); // npcID, npc정보슬롯
-    [SerializeField] RelationSlot slotPref;
-    Transform slotTsr;
+    [SerializeField] Transform slotTsr;
     /// <summary>
     /// TAB 메뉴 NPC와의 관계 생성 함수
     /// </summary>
@@ -20,12 +19,34 @@ public class MenuRelationUI : BaseMenuContentUI
         var rawNpclist = DataManager.Instance.DataLoader_NPC.ItemsList;
         for (int i = 0; i < rawNpclist.Count; i++)
         {
-            slots[i] = await PoolManager.Instance.GetAddressable<RelationSlot>("RelationSlot.prefab", Vector3.zero, slotTsr);
+            int npcID = rawNpclist[i].key;
+            slots[npcID] = await PoolManager.Instance.GetAddressable<RelationSlot>("RelationSlot.prefab", Vector3.zero, slotTsr);
+            slots[npcID].SetSlot(npcID);
         }
+        EventBus.Subscribe<NPCChangeFavorEvent>(OnChangeFavor);
+        EventBus.Subscribe<NPCFirstMetEvent>(OnFirstMet);
+        EventBus.Subscribe<NPCSuccessQuestEvent>(OnSuccessQuest);
     }
 
-    public void OnChangeNPC(int npcID)
+    public void OnChangeFavor(NPCChangeFavorEvent evt)
     {
-        slots[npcID].UpdateSlot();
+        slots[evt.npc.origin.key].UpdateFavor();
+    }
+
+    public void OnFirstMet(NPCFirstMetEvent evt)
+    {
+        slots[evt.npc.origin.key].UpdateHasMet();
+    }
+
+    public void OnSuccessQuest(NPCSuccessQuestEvent evt)
+    {
+        slots[evt.npc.origin.key].UpdateSuccessQuest();
+    }
+
+    private void OnDestroy()
+    {
+        EventBus.UnSubscribe<NPCChangeFavorEvent>(OnChangeFavor);
+        EventBus.UnSubscribe<NPCFirstMetEvent>(OnFirstMet);
+        EventBus.UnSubscribe<NPCSuccessQuestEvent>(OnSuccessQuest);
     }
 }

@@ -37,12 +37,16 @@ public class Quest
 
     public void SuccessQuest(LunarDateTime todayDateTime, SuccessDegree successDegree) // 퀘스트 성공
     {
-        if(!IsCompletedOnce) IsCompletedOnce = true;
+        if (!IsCompletedOnce) IsCompletedOnce = true;
         IsAccepted = false;
         AcceptedDate = null;
         TriggerDate = null;
         RecycleDate = todayDateTime.AddDays(RecycleDays); // 퀘스트 완료 시 다음 재출현일자 미리 지정.
         lastSuccessDegree = successDegree;
+        if ((int)lastSuccessDegree >= 10)
+        {
+            EventBus.Publish<NPCSuccessQuestEvent>(new NPCSuccessQuestEvent(Data.GetNPC(origin.givingNPC)));
+        }
     }
 
     public void FailQuest(LunarDateTime todayDateTime) // 퀘스트 실패

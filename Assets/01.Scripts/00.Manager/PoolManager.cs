@@ -41,7 +41,7 @@ public class PoolManager : MonoSingleton<PoolManager>
             value = AddPool(toGet, spawnTsr); // 미작성
         }
 
-        return value.Issue(pos) as T; // (T): 예외(InvalidCastException) 발생 vs  as T: 타입이 맞지 않으면 null 반환
+        return value.Issue(pos, spawnTsr) as T; // (T): 예외(InvalidCastException) 발생 vs  as T: 타입이 맞지 않으면 null 반환
     }
 
     /// <summary>

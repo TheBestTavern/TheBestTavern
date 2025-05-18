@@ -8,16 +8,14 @@ using UnityEngine.UI;
 public class RelationSlot : MonoBehaviour, IPoolable
 {
     Data_NPC npc;
-
-    TextMeshProUGUI npcnName;
-    TextMeshProUGUI favorability;
-    TextMeshProUGUI taste;
-
     bool hasMet;
 
-    List<Image> compensationImages; // 퀘스트 ID와 보상 이미지
-    //Dictionary<int, bool> questsClear= new(); // npc가 주는 퀘스트ID와 보상의 이름
-    Dictionary<int, string> compensationMap = new(); // npc가 주는 퀘스트ID와 보상의 이름
+    [SerializeField] TextMeshProUGUI npcnName;
+    [SerializeField] TextMeshProUGUI favorability;
+    [SerializeField] TextMeshProUGUI taste;
+    [SerializeField] List<Image> compensationImages; // 퀘스트 ID와 보상 이미지
+
+    Dictionary<int, string> compensationMap; // 슬롯의 npc가 주는 퀘스트ID와 보상의 영어이름
 
     public string ID => gameObject.name;
 
@@ -27,7 +25,7 @@ public class RelationSlot : MonoBehaviour, IPoolable
 
     public event Action<IPoolable> OnReturn;
 
-    public RectTransform rect;
+    private RectTransform rect;
 
     public void Initialize(Action<IPoolable> a)
     {
@@ -38,6 +36,9 @@ public class RelationSlot : MonoBehaviour, IPoolable
     public void OnDespawn()
     {
         gameObject.SetActive(false);
+        npc = null;
+        compensationMap.Clear();
+        compensationImages.Clear();
     }
 
     public void OnSpawn(Vector3 pos)
@@ -48,18 +49,47 @@ public class RelationSlot : MonoBehaviour, IPoolable
 
     public void SetSlot(int npcID)
     {
+        // npc등록
         npc = NPCManager.Instance.NPCData.AllNPC[npcID].origin;
-        npcnName.text = npc.name;
-        taste.text = npc.taste.ToString();
-        foreach (var pair in DataManager.Instance.DataLoader_Quest.ItemsDict)
+
+        // 보상 정보 미리 등록( 주는 퀘스트 리스트에 대응하는 영어 이름 등록하기.)
+        compensationMap = new();
+        for (int j = 0; j < npc.givingQuest.Count; j++)
         {
-            if (pair.Value.givingNPC == npc.key)
-            {
-                compensationMap[pair.Key] = Data.GetRawItem(pair.Value.compensationID).englishName;
-            }
+            int compensationID = DataManager.Instance.DataLoader_Quest.ItemsDict[npc.givingQuest[j]].compensationID;
+            string compensationName = Data.GetRawItem(compensationID).englishName;
+            compensationMap[npc.givingQuest[j]] = compensationName;
         }
 
-        UpdateSlot();
+        // 안쓰는 보상아이템 이미지는 끄기.
+        int i = 0;
+        for (; i < compensationMap.Count; i++)
+        {
+            compensationImages[i].gameObject.SetActive(true);
+        }
+        for (; i < compensationImages.Count; i++)
+        {
+            compensationImages[i].gameObject.SetActive(false);
+        }
+
+        // 초기 상태
+        if (Data.GetNPC(npc.key).HasMet)
+        {
+            hasMet = true;
+        }
+        else
+        {
+            favorability.text = "";
+            npcnName.text = "";
+            taste.text = "";
+        }
+
+        if (hasMet)
+        {
+            UpdateBasicInfo();
+            UpdateFavor();
+            UpdateSuccessQuest();
+        }
     }
 
     public void TriggerReturn()
@@ -67,38 +97,40 @@ public class RelationSlot : MonoBehaviour, IPoolable
         OnReturn?.Invoke(this);
     }
 
-    public async void UpdateSlot()
+    public void UpdateHasMet()
+    {
+        hasMet = true;
+        UpdateBasicInfo();
+        UpdateFavor();
+        UpdateSuccessQuest();
+    }
+
+    public void UpdateBasicInfo()
+    {
+        npcnName.text = npc.name;
+        taste.text = npc.taste.ToString();
+    }
+
+    public void UpdateFavor()
+    {
+        favorability.text = Data.GetNPC(npc.key).Favorability.ToString();
+    }
+
+    public async void UpdateSuccessQuest()
     {
         int i = 0;
         foreach (var pair in compensationMap)
         {
             QuestManager.Instance.OnceCompletedQuests.TryGetValue(pair.Key, out var successDegree);
-            if((int)successDegree >= 10)
+            if ((int)successDegree >= 10)
             {
-                compensationImages[i].sprite = await AddressablesLoader.Instance.AddressablesLoadAsync<Sprite>($"Assets/16.Image/FoodImage/{Data.GetRawItem(pair.Key).englishName}.png", true);
+                compensationImages[i].sprite = await AddressablesLoader.Instance.AddressablesLoadAsync<Sprite>($"Assets/16.Image/FoodImage/{pair.Value}.png", true);
+                i++;
             }
-            i++;
         }
-        for(; i < compensationImages.Count; i++)
+        for (; i < compensationImages.Count; i++)
         {
-            compensationImages[i].sprite = await AddressablesLoader.Instance.AddressablesLoadAsync<Sprite>("default.Sprite");
+            compensationImages[i].sprite = await AddressablesLoader.Instance.AddressablesLoadAsync<Sprite>("Undiscovered2.Sprite");
         }
-
-        favorability.text = npc.favorability.ToString();
-    }
-
-    public void UpdateFavor()
-    {
-
-    }
-
-    public void UpdateFirstMet()
-    {
-
-    }
-
-    public void UpdateSuccessQuest()
-    {
-
     }
 }
