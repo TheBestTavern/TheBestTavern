@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 using UnityEngine;
 
 public class SaveLoadManager : MonoSingleton<SaveLoadManager>
@@ -26,10 +27,9 @@ public class SaveLoadManager : MonoSingleton<SaveLoadManager>
         SetPlayerTimeData();
         SetPlayerQuestData();
 
-        string json = JsonUtility.ToJson(playerGameData, true);
+        string json = JsonConvert.SerializeObject(playerGameData, Formatting.Indented);
         string path = Application.persistentDataPath + "/save.json";
         File.WriteAllText(path, json);
-
         Debug.Log(path + " 데이터 세이브");
     }
 
@@ -39,7 +39,7 @@ public class SaveLoadManager : MonoSingleton<SaveLoadManager>
         if (File.Exists(path))
         {
             string json = File.ReadAllText(path);
-            return JsonUtility.FromJson<PlayerGameData>(json);
+            return JsonConvert.DeserializeObject<PlayerGameData>(json);
         }
         return null;
     }
@@ -60,7 +60,7 @@ public class SaveLoadManager : MonoSingleton<SaveLoadManager>
 
     void SetPlayerQuestData()
     {
-        playerGameData.playerQuestData.SetPlayerQuestData(QuestManager.Instance.AcceptedQuests, QuestManager.Instance.OnceCompletedQuests);
+        playerGameData.playerQuestData.SetPlayerQuestData(QuestManager.Instance.AcceptedQuests, QuestManager.Instance.OnceCompletedQuests, QuestManager.Instance.JustCompleteQuests);
     }
 
 }
@@ -77,6 +77,7 @@ public class OnNewDay : IDayCommand
 
     public Task Execute()
     {
+        Debug.Log("데이터 세이브");
         saveLoadManager.SaveData();
         return Task.CompletedTask;
     }
