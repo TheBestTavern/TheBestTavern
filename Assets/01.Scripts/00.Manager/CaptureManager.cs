@@ -25,7 +25,6 @@ public class CaptureManager : MonoSingleton<CaptureManager>
         captureButton.gameObject.SetActive(false);
         escapeButton.gameObject.SetActive(true);
         CheckForAnimalsInRange();
-        SoundManager.Instance.PlayBGM("MainBGM2");
     }
 
 
