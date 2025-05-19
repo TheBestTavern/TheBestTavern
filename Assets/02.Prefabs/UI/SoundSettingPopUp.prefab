@@ -1008,7 +1008,7 @@ MonoBehaviour:
   draggable: 0
   closeButton: {fileID: 6450187425006643512}
   canvas: {fileID: 0}
-  popUpType: 0
+  popUpType: 11
   bgmSlider: {fileID: 3798559467444462555}
   sfxSlider: {fileID: 3347877486767489476}
 --- !u!1 &3411798860091646504
