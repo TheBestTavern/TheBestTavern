@@ -93,4 +93,9 @@ public class InventoryController
             view.특정아이템정보갱신(id);
         }
     }
+
+    public void Dispose()
+    {
+        model.Dipose();
+    }
 }

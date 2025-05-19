@@ -20,6 +20,8 @@ public class ItemStackManager : MonoSingleton<ItemStackManager>
         {
             IDs.Push(i);
         }
+
+        EventBus.Subscribe<ItemStackOnZeroEvent>(ReCoverID);
     }
 
     public void ApplyLoadData(Stack<int> IDs, Dictionary<int, ItemStack> AllItemStack)
@@ -28,9 +30,9 @@ public class ItemStackManager : MonoSingleton<ItemStackManager>
         this.AllItemStack = AllItemStack;
     }
 
-    public ItemStack InstantiateItem(Data_Foods data_Foods, int amount, Action<int> removeItem, Action<int> ChangeCount)
+    public ItemStack InstantiateItem(Data_Foods data_Foods, int amount)
     {
-        ItemStack item = new(data_Foods, amount, IDs.Pop(), ReCoverID, removeItem, ChangeCount);
+        ItemStack item = new(data_Foods, amount, IDs.Pop());
         AllItemStack.Add(item.ID, item);
         return item;
     }
@@ -39,5 +41,15 @@ public class ItemStackManager : MonoSingleton<ItemStackManager>
     {
         AllItemStack.Remove(id);
         IDs.Push(id);
+    }
+
+    public void ReCoverID(ItemStackOnZeroEvent evt)
+    {
+        ReCoverID(evt.ID);
+    }
+
+    protected override void OnDestroy()
+    {
+        EventBus.UnSubscribe<ItemStackOnZeroEvent>(ReCoverID);
     }
 }

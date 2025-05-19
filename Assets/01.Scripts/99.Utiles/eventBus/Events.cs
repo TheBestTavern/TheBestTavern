@@ -78,3 +78,22 @@ public class EndNightUIBlockEvent
 
     }
 }
+
+// 아이템 스택 관련 이벤트
+public class ItemStackOnZeroEvent
+{
+    public int ID;
+
+    public ItemStackOnZeroEvent(int iD)
+    {
+        ID = iD;    
+    }
+}
+public class ItemStackOnChangeEvent
+{
+    public int ID;
+    public ItemStackOnChangeEvent(int iD)
+    {
+        ID = iD;
+    }
+}

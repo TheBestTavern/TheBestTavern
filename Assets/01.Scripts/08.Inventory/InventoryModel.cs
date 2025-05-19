@@ -16,6 +16,9 @@ public class InventoryModel
         this.SlotCount = slotCount;
         this.maxStackSize = maxStackSize;
         this.OnChanged = OnModelChanged;
+
+        EventBus.Subscribe<ItemStackOnChangeEvent>(TriggerOnChange);
+        EventBus.Subscribe<ItemStackOnZeroEvent>(아이템삭제);
     }
 
     public bool 아이템검사후추가(Data_Foods data_Foods, int amount)
@@ -61,7 +64,7 @@ public class InventoryModel
         while (remain > 0)
         {
             //var temp = new ItemStack(data_Foods, 0, 아이템삭제);
-            var temp = ItemStackManager.Instance.InstantiateItem(data_Foods, 0, 아이템삭제, OnChanged);
+            var temp = ItemStackManager.Instance.InstantiateItem(data_Foods, 0);
             remain = temp.Add(remain, maxStackSize);
             IDList.Add(temp.ID);
             ID2ItemStack.Add(temp.ID, temp);
@@ -134,8 +137,19 @@ public class InventoryModel
         if (foodKey2IDs[itemStack.Origin.key].Count == 0) foodKey2IDs.Remove(itemStack.Origin.key);
     }
 
-    //public void TriggerOnChange(int id)
-    //{
-    //    OnChanged?.Invoke(id);
-    //}
+    private void 아이템삭제(ItemStackOnZeroEvent evt)
+    {
+        아이템삭제(evt.ID);
+    }
+
+    private void TriggerOnChange(ItemStackOnChangeEvent evt)
+    {
+        OnChanged?.Invoke(evt.ID);
+    }
+    
+    public void Dipose()
+    {
+        EventBus.UnSubscribe<ItemStackOnChangeEvent>(TriggerOnChange);
+        EventBus.UnSubscribe<ItemStackOnZeroEvent>(아이템삭제);
+    }
 }
