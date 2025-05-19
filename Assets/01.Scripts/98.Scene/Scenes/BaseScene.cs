@@ -8,6 +8,7 @@ public class BaseScene : MonoBehaviour
         {
             controller.Value.On씬이동Before();
         }
+        PopUpManager.Instance.OnSceneMove();
     }
 
     public virtual void OnEnterScene()
@@ -17,8 +18,7 @@ public class BaseScene : MonoBehaviour
             controller.Value.On씬이동After();
         }
 
-        TimerManager.Instance.OnSceneMove();
-        PopUpManager.Instance.OnSceneMove();
+        TimerManager.Instance.OnSceneMove();       
     }
 
     public virtual void OnLoadingScene()
