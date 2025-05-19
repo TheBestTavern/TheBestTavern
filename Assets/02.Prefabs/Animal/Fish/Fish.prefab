@@ -46,9 +46,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 2
+  gatheringKeys: 9b8a01009e8a0100a08a0100a28a0100a58a0100a78a0100a98a0100aa8a0100ab8a0100
   resistanceSpeed: 2
-  direction: {x: 0, y: 0, z: 0}
-  gatheringKeys: 898a0100938a0100978a0100
+  resistanceChance: 0.3
+  selectedKey: 0
 --- !u!212 &3493186553650895008
 SpriteRenderer:
   m_ObjectHideFlags: 0
