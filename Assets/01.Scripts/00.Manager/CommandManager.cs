@@ -73,6 +73,23 @@ public class CommandManager : MonoSingleton<CommandManager>
     }
 }
 
+public class OnCommandStart : IDayCommand
+{
+    public int Priority => 0;
+
+    public Task Execute()
+    {
+        //Debug.Log("하루 명령 시작");
+        DayAndNightManager.Instance.TriggerTimeProcess(1);
+        return Task.CompletedTask;
+    }
+
+    public bool isValid()
+    {
+        return true;
+    }
+}
+
 public class OnCommandEnd : IDayCommand
 {
     public int Priority => 2000;
@@ -90,20 +107,4 @@ public class OnCommandEnd : IDayCommand
     }
 }
 
-public class OnCommandStart : IDayCommand
-{
-    public int Priority => 0;
-
-    public Task Execute()
-    {
-        //Debug.Log("하루 명령 시작");
-        DayAndNightManager.Instance.TriggerTimeProcess(1);
-        return Task.CompletedTask;
-    }
-
-    public bool isValid()
-    {
-        return true;
-    }
-}
 
