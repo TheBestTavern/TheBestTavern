@@ -19,7 +19,7 @@ public class StartSceneUI : MonoBehaviour
 
     private async void OnClickGameStartButton()
     {
-        SoundManager.Instance.PlayBGM("MainBGM");
+        SoundManager.Instance.PlayBGM("MainBGM1");
         await SceneLoader.Instance.LoadSceneAsync("MainScene");
     }
     private async void OnClickGameLoadStartButton()
