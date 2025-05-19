@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: SoundLibrary
   m_EditorClassIdentifier: 
   bgmClips:
-  - soundName: Main1
-    addressableKey: MainBGM1
-  - soundName: Main2
-    addressableKey: MainBGM2
+  - soundName: IntroBGM
+    addressableKey: BGM1
+  - soundName: MainBGM1
+    addressableKey: BGM2
   sfxClips:
   - soundName: Button1
     addressableKey: ClickButton1

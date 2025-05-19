@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 400
-  m_Sprite: {fileID: 21300000, guid: 18e969eaa42b6b642aa144d24709e4e1, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d15443b9110365843bcec94796df9537, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -130,6 +130,7 @@ MonoBehaviour:
   favoriteBaitIds: 
   animalSizeType: 2
   gatheringKey: 0
+  normal: {fileID: 21300000, guid: 18e969eaa42b6b642aa144d24709e4e1, type: 3}
 --- !u!70 &-7433109153125957031
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
