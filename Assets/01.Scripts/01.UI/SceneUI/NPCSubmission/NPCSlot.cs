@@ -42,8 +42,6 @@ public class NPCSlot : MonoBehaviour
     public void ShowMessage()
     {
         messagePivot.gameObject.SetActive(true);
-        TmpMessage.text = quest.origin.description; // 테스트용
-        //TmpMessage.text = quest.origin.thankyouMessageWhentheygotItem; 
     }
 
     public void OnExit()
