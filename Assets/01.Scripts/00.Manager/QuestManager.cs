@@ -9,13 +9,13 @@ public class QuestManager : MonoSingleton<QuestManager>
 {
     public QuestData questData;
 
-    public Dictionary<int, Quest> AllQuests => questData.AllQuests;
-    public List<int> AcceptedQuests => questData.AcceptedQuests;
-    public Dictionary<int, SuccessDegree> OnceSuccessQuests => questData.OnceSuccessQuests;
-    public List<int> JustCompleteQuests => questData.JustCompleteQuests;
-    public List<int> TodayAvailableQuest => questData.TodayAvailableQuest;
+    public Dictionary<int, Quest> AllQuests { get { return questData.AllQuests; } }
+    public List<int> AcceptedQuests { get { return questData.AcceptedQuests; } }
+    public Dictionary<int, SuccessDegree> OnceSuccessQuests { get { return questData.OnceSuccessQuests; } }
+    public List<int> JustCompleteQuests { get { return questData.JustCompleteQuests; } }
+    public List<int> TodayAvailableQuest { get { return questData.TodayAvailableQuest; } }
 
-    public Queue<(int questID, int itemID)> QuestCheckQueue => questData.QuestCheckQueue;
+    public Queue<(int questID, int itemID)> QuestCheckQueue { get { return questData.QuestCheckQueue; } }
 
 
     public override void Init()
