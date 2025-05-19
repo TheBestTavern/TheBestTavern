@@ -12,7 +12,7 @@ public class MailBoxContentResult : MailBoxContentBase // 제네릭으로 할 �
 
         MakeSlot(QuestManager.Instance.questData.JustCompleteQuests);
 
-        currentLetter = (QuestBaseLetter)await UIManager.Instance.ShowPopUp(PopUpType.ResultLetter);
+        currentLetter = (QuestBaseLetter)await PopUpManager.Instance.ShowPopUp(PopUpType.ResultLetter);
         currentLetter.OnClickCloseButton();
         currentLetter.FirstInit(RemoveSlot);
         //OnNewDay command = new(this);

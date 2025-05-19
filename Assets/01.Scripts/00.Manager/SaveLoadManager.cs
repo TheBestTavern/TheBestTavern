@@ -60,7 +60,7 @@ public class SaveLoadManager : MonoSingleton<SaveLoadManager>
 
     void SetPlayerQuestData()
     {
-        playerGameData.playerQuestData.SetPlayerQuestData(QuestManager.Instance.AcceptedQuests, QuestManager.Instance.OnceCompletedQuests, QuestManager.Instance.JustCompleteQuests);
+        playerGameData.playerQuestData.SetPlayerQuestData(QuestManager.Instance.AcceptedQuests, QuestManager.Instance.OnceSuccessQuests, QuestManager.Instance.JustCompleteQuests);
     }
 
 }

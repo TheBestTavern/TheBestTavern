@@ -31,7 +31,7 @@ public class QuestResultSlot : QuestBaseSlot
     private async void OpenLetter()
     {
         //mailBoxContent.OpenLetter(slotQuest, this);
-        var letter = (QuestResultLetter)await UIManager.Instance.ShowPopUp(PopUpType.ResultLetter);
+        var letter = (QuestResultLetter)await PopUpManager.Instance.ShowPopUp(PopUpType.ResultLetter);
         letter.On(slotQuest, this);
         Debug.Log($"{index}번 편지 열람");
     }

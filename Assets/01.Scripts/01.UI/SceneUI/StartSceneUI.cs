@@ -73,7 +73,7 @@ public class StartSceneUI : MonoBehaviour
         }
         foreach (var onceCompletedQuest in playerGameData.playerQuestData.onceCompletedQuests)
         {
-            QuestManager.Instance.questData.CompleteQuest(onceCompletedQuest.Key, onceCompletedQuest.Value);
+            QuestManager.Instance.questData.SuccessQuest(onceCompletedQuest.Key, onceCompletedQuest.Value);
         }
         foreach (var justCompleteQuest in playerGameData.playerQuestData.justCompleteQuests)
         {

@@ -18,7 +18,9 @@ public enum PopUpType
     ResultLetter,
     CookingResult,
     GatheringResult,
-    SoundSetting
+    SoundSetting,
+    Letter,
+    FoodDetail,
 }
 
 public interface IPopupManager
@@ -70,7 +72,7 @@ public class PopUpManager : MonoSingleton<PopUpManager>, IPopupManager
         {
             // Addressables로 해당 팝업 프리펩 불러오기 
             GameObject popUpGameObject =
-                await AddressablesLoader.Instance.AddressablesLoadAsync($"{popUpType.ToString()}PopUpPrefab.prefab");
+                await AddressablesLoader.Instance.AddressablesLoadAsync<GameObject>($"{popUpType.ToString()}PopUpPrefab.prefab");
 
             // 불러온 팝업 인스턴스화
             popUpGameObject = Instantiate(popUpGameObject);

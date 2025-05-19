@@ -12,7 +12,7 @@ public class MailBoxContentOffer : MailBoxContentBase
 
         MakeSlot(QuestManager.Instance.questData.TodayAvailableQuest);
 
-        currentLetter = (QuestBaseLetter)await UIManager.Instance.ShowPopUp(PopUpType.OfferLetter);
+        currentLetter = (QuestBaseLetter)await PopUpManager.Instance.ShowPopUp(PopUpType.OfferLetter);
         currentLetter.OnClickCloseButton();
         currentLetter.FirstInit(RemoveSlot);
         //OnNewDay command = new(this);

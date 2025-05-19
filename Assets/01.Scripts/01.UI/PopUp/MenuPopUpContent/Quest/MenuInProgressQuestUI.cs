@@ -43,7 +43,7 @@ public class MenuInProgressQuestUI : MenuQuestUIBase<List<int>>
     // 이벤트 버스 함수
     public async override void OpenLetter(QuestClickLetterBtnEvent evt)
     {
-        var letter = await UIManager.Instance.ShowPopUp(PopUpType.Letter) as QuestLetter;
+        var letter = await PopUpManager.Instance.ShowPopUp(PopUpType.Letter) as QuestLetter;
         letter.SetLetter(evt.quest, true);
     }
 

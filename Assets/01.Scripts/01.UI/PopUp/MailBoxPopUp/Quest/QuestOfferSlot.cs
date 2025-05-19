@@ -18,7 +18,7 @@ public class QuestOfferSlot : QuestBaseSlot
     private async void OpenLetter()
     {
         //mailBoxContent.OpenLetter(slotQuest, this);
-        var letter = (QuestOfferLetter)await UIManager.Instance.ShowPopUp(PopUpType.OfferLetter);
+        var letter = (QuestOfferLetter)await PopUpManager.Instance.ShowPopUp(PopUpType.OfferLetter);
         letter.On(slotQuest, this);
         Debug.Log($"{index}번 편지 열람");
     }

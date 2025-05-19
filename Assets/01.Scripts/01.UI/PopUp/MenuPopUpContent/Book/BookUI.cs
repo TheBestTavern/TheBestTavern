@@ -72,7 +72,7 @@ public class BookUI : BaseMenuContentUI
             // 상세화면 이벤트
             OnClickSlotEvent = async (foodCategoryID) =>
             {
-                var detailPopup = (DetailPopup)await UIManager.Instance.ShowPopUp(PopUpType.FoodDetail);
+                var detailPopup = (DetailPopup)await PopUpManager.Instance.ShowPopUp(PopUpType.FoodDetail);
                 detailPopup.NewDetail(foodCategoryID);
             };
 

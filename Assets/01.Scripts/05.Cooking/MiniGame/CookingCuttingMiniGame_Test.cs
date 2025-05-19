@@ -19,14 +19,14 @@ public class CookingCuttingMiniGame_Test : CookingMiniGameBase
         if (ingredientSO != null)
         {
             string prefabAdress = ingredientSO.prefabAdress;
-            GameObject prefab = await AddressablesLoader.Instance.AddressablesLoadAsync(prefabAdress);
+            GameObject prefab = await AddressablesLoader.Instance.AddressablesLoadAsync<GameObject>(prefabAdress);
             if (prefab != null)
             {
                 Instantiate(prefab);
             }
             else
             {
-                GameObject defaultPrefab = await AddressablesLoader.Instance.AddressablesLoadAsync("GreenLong");
+                GameObject defaultPrefab = await AddressablesLoader.Instance.AddressablesLoadAsync<GameObject>("GreenLong");
                 Instantiate(defaultPrefab);
 
                 //string defalutAdress = "";
@@ -35,7 +35,7 @@ public class CookingCuttingMiniGame_Test : CookingMiniGameBase
         }
         else
         {
-            GameObject defaultPrefab = await AddressablesLoader.Instance.AddressablesLoadAsync("GreenLong");
+            GameObject defaultPrefab = await AddressablesLoader.Instance.AddressablesLoadAsync<GameObject>("GreenLong");
             Instantiate(defaultPrefab);
         }
     }

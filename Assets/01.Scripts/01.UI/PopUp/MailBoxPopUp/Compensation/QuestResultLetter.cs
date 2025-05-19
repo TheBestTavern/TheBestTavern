@@ -101,8 +101,8 @@ public class QuestResultLetter : QuestBaseLetter
         else
         {
             Debug.Log("인벤토리 칸이 부족합니다.");
-            UIManager.Instance.ShowPopUp(PopUpType.Alarm);
-            UIManager.Instance.alarmPopUp.SetAlarm("인벤토리 칸이 부족합니다.");
+            PopUpManager.Instance.ShowPopUp(PopUpType.Alarm);
+            PopUpManager.Instance.alarmPopUp.SetAlarm("인벤토리 칸이 부족합니다.");
         }
     }
 
