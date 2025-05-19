@@ -1,8 +1,12 @@
 using System;
+using Newtonsoft.Json;
+using UnityEngine;
 
+[Serializable]
 public class NPC
 {
-    public Data_NPC origin { get; private set; } // 원본 데이터
+    [JsonProperty]
+    public Data_NPC Origin { get; private set; } // 원본 데이터
     private float favorability;
     public float Favorability // 호감도
     {
@@ -24,14 +28,20 @@ public class NPC
         }
     }
 
+    [field: SerializeField]
     public bool HasMet { get; private set; } = false; // 면식 여부.
-
+    [field: SerializeField]
     public bool isGivingQuest { get; private set; } = false; // 중복 의뢰 발생 막기 위한 변수
+
+    public NPC()
+    {
+
+    }
 
     public NPC(Data_NPC data_NPC)
     {
-        this.origin = data_NPC;
-        this.Favorability = origin.favorability;
+        this.Origin = data_NPC;
+        this.Favorability = Origin.favorability;
     }
 
     // 매 조우 시 발생.

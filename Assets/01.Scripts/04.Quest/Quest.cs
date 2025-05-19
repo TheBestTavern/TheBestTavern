@@ -1,20 +1,29 @@
 using System;
 using System.Collections.Generic;
 using System.Globalization;
+using Newtonsoft.Json;
 using Unity.VisualScripting;
+using UnityEngine;
 
+[Serializable]
 public class Quest
 {
-    public Data_Quest origin { get; private set; } // 원본 데이터
-
+    [JsonProperty]
+    public Data_Quest Origin { get; private set; }// 원본 데이터
+    [JsonProperty]
     public bool IsCompletedOnce { get; private set; } = false; // 한번이라도 클리어 된 적 있는지.
-
+    [JsonProperty]
     public bool IsAccepted { get; private set; } = false; // 퀘스트 수락 여부
+    [JsonProperty]
     public LunarDateTime? AcceptedDate { get; private set; } // 퀘스트 수락일
+    [JsonProperty]
     public LunarDateTime? TriggerDate { get; private set; } // npc가 찾아올 날
 
+    [JsonProperty]
     public SuccessDegree? lastSuccessDegree { get; private set; } // 퀘스트 성공 여부
+    [JsonProperty]
     public LunarDateTime? RecycleDate { get; private set; } // 다시 퀘스트가 출몰할 날
+    [JsonProperty]
     public bool RecycleDatePass { get; private set; } = true; // 재활용 주기 지났는지
     int RecycleDays = 5; // 재활용에 필요한 일수. 임시로 5일로 지정
 
@@ -22,7 +31,7 @@ public class Quest
 
     public Quest(Data_Quest data_Quest)
     {
-        this.origin = data_Quest;
+        this.Origin = data_Quest;
         allNPC = NPCManager.Instance.NPCData.AllNPC;
     }
 
@@ -45,7 +54,7 @@ public class Quest
         lastSuccessDegree = successDegree;
         if ((int)lastSuccessDegree >= 10)
         {
-            EventBus.Publish<NPCSuccessQuestEvent>(new NPCSuccessQuestEvent(Data.GetNPC(origin.givingNPC)));
+            EventBus.Publish<NPCSuccessQuestEvent>(new NPCSuccessQuestEvent(Data.GetNPC(Origin.givingNPC)));
         }
     }
 
@@ -77,7 +86,7 @@ public class Quest
 
         //NPC 호감도 체크.
         // 1.타겟 npc(origin.givingNPC), 2.npc목록에서 조회, 3.퀘스트의 조건 호감도와 비교
-        if (origin.conditionNPC == 0 || allNPC[origin.conditionNPC].Favorability >= origin.conditionFavorability)
+        if (Origin.conditionNPC == 0 || allNPC[Origin.conditionNPC].Favorability >= Origin.conditionFavorability)
         {
             return true;
         }

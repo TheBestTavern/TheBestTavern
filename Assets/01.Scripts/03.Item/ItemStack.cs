@@ -1,10 +1,14 @@
 using System;
+using Newtonsoft.Json;
 using UnityEngine;
 
 public class ItemStack // 풀로 관리하기
 {
+    [JsonProperty]
     public Data_Foods Origin { get; set; }
+    [JsonProperty]
     public int Count { get; private set; }
+    [JsonProperty]
     public int ID { get; private set; }
 
     public Action<int> OnZero;

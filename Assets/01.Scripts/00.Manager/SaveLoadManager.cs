@@ -94,7 +94,7 @@ public class OnNewDay : IDayCommand
         this.saveLoadManager = saveLoadManager;
     }
 
-    public int Priority => 1200;
+    public int Priority => 1001;
 
     public Task Execute()
     {

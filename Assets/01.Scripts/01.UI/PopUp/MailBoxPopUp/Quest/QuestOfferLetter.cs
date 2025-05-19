@@ -34,7 +34,7 @@ public class QuestOfferLetter : QuestBaseLetter
         base.On(quest, baseQuestSlot);
         isSetDays = false;
         days = 0;
-        bodyText.text = quest.origin.letterOffer;
+        bodyText.text = quest.Origin.letterOffer;
     }
 
     private void OnClickDays(int day)
@@ -59,7 +59,7 @@ public class QuestOfferLetter : QuestBaseLetter
         {
             //bool success = await QuestManager.Instance.TryAcceptQuest(quest, days); // 함수를 결국 전부 async로 바꿔야하는건가?
             Debug.Log($"{days}일 뒤로 퀘스트 수락 시도");
-            return await QuestManager.Instance.TryAcceptQuest(quest.origin.key, days);
+            return await QuestManager.Instance.TryAcceptQuest(quest.Origin.key, days);
         }
         else
         {

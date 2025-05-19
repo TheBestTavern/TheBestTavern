@@ -28,9 +28,9 @@ public class NPCSlot : MonoBehaviour
     public void SetSlot(int questID)
     {
         this.quest = Data.GetQuest(questID);
-        npc = NPCManager.Instance.AllNPC[quest.origin.givingNPC];
-        image.sprite = Resources.Load<Sprite>("NPC/" + npc.origin.name);
-        TmpMessage.text = npc.origin.thanksMent;
+        npc = NPCManager.Instance.AllNPC[quest.Origin.givingNPC];
+        image.sprite = Resources.Load<Sprite>("NPC/" + npc.Origin.name);
+        TmpMessage.text = npc.Origin.thanksMent;
     }
 
     private void OnClickBtn()

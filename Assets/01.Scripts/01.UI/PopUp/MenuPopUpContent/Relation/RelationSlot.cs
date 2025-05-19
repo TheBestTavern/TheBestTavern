@@ -50,7 +50,7 @@ public class RelationSlot : MonoBehaviour, IPoolable
     public void SetSlot(int npcID)
     {
         // npc등록
-        npc = NPCManager.Instance.NPCData.AllNPC[npcID].origin;
+        npc = NPCManager.Instance.NPCData.AllNPC[npcID].Origin;
 
         // 보상 정보 미리 등록( 주는 퀘스트 리스트에 대응하는 영어 이름 등록하기.)
         compensationMap = new();

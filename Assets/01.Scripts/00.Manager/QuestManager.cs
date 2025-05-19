@@ -32,6 +32,11 @@ public class QuestManager : MonoSingleton<QuestManager>
         CommandManager.Instance.AddCommand(command);
     }
 
+    private void Start()
+    {
+        questData.LateInit();
+    }
+
     // 퀘스트 수령 조건 판단
     public async Task<bool> TryAcceptQuest(int questID, int days)
     {
@@ -50,7 +55,7 @@ public class QuestManager : MonoSingleton<QuestManager>
             PopUpManager.Instance.alarmPopUp.SetAlarm("이미 수락한 퀘스트입니다.");
             return false;
         }
-        else if (NPCManager.Instance.AllNPC[tempQuest.origin.givingNPC].isGivingQuest)
+        else if (NPCManager.Instance.AllNPC[tempQuest.Origin.givingNPC].isGivingQuest)
         {
             Debug.Log("이미 퀘스트를 준 npc입니다.");
             await PopUpManager.Instance.ShowPopUp(PopUpType.Alarm);
@@ -61,7 +66,7 @@ public class QuestManager : MonoSingleton<QuestManager>
 
         questData.AcceptQuest(questID); // 리스트에 넣기
         tempQuest.AcceptQuest(TimerManager.Instance.GetToday(), days); // 퀘스트 수락 상태로 전환 및 트리거
-        NPCManager.Instance.AllNPC[tempQuest.origin.givingNPC].GiveQuest(); // npc 퀘스트 준 상태로 전환
+        NPCManager.Instance.AllNPC[tempQuest.Origin.givingNPC].GiveQuest(); // npc 퀘스트 준 상태로 전환
         TodayAvailableQuest.Remove(questID); //오늘의 퀘스트 리스트에서 삭제
         return true;
 
@@ -94,17 +99,17 @@ public class QuestManager : MonoSingleton<QuestManager>
                 var quest = Data.GetQuest(pair.questID);
 
                 // 데이터 테이블에 아직 들여오지 않은 변수.
-                if (quest.origin.goodFood.Contains(pair.itemID))
+                if (quest.Origin.goodFood.Contains(pair.itemID))
                 {
                     Debug.Log("대성공");
                     prt.questData.SuccessQuest(pair.questID, SuccessDegree.good);
                 }
-                else if (quest.origin.sosoFood.Contains(pair.itemID))
+                else if (quest.Origin.sosoFood.Contains(pair.itemID))
                 {
                     Debug.Log("중성공");
                     prt.questData.SuccessQuest(pair.questID, SuccessDegree.soso);
                 }
-                else if (quest.origin.notBadFood.Contains(pair.itemID))
+                else if (quest.Origin.notBadFood.Contains(pair.itemID))
                 {
                     Debug.Log("소성공");
                     prt.questData.SuccessQuest(pair.questID, SuccessDegree.notBad);
