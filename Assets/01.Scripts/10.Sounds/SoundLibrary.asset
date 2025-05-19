@@ -12,5 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b348c5e76f0111428a9657d80f5037a, type: 3}
   m_Name: SoundLibrary
   m_EditorClassIdentifier: 
-  bgmClips: []
-  sfxClips: []
+  bgmClips:
+  - soundName: Main1
+    addressableKey: MainBGM1
+  - soundName: Main2
+    addressableKey: MainBGM2
+  sfxClips:
+  - soundName: Button1
+    addressableKey: SFX_Button1

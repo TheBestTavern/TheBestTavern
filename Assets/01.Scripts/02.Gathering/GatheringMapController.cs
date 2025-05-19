@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 using static DesignEnums;
 
@@ -42,4 +43,6 @@ public abstract class GatheringMapController : MonoBehaviour
         }
     }
     public abstract void CreateMapProps();
+
+    public abstract Task LoadProps();
 }

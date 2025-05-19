@@ -135,15 +135,9 @@ public class InventorySlot : MonoBehaviour, IBeginDragHandler, IEndDragHandler, 
         foreach (var result in results)
         {
             BaitDropArea dropArea = result.gameObject.GetComponent<BaitDropArea>();
-            FishingBaitDrop fishDropArea = result.gameObject.GetComponent<FishingBaitDrop>();
             if (dropArea != null)
             {
                 dropArea.OnDrop(eventData);
-                break;
-            }
-            else if (fishDropArea != null)
-            {
-                fishDropArea.OnDrop(eventData);
                 break;
             }
         }

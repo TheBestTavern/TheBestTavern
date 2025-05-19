@@ -36,6 +36,14 @@ public class AddressablesLoader : MonoSingleton<AddressablesLoader>
         return null;
     }
 
+    public async Task<List<GameObject>> AddressablesListLoadFromLabelAsync(string label)
+    {
+        List<GameObject> results = new List<GameObject>();
+        var handle = Addressables.LoadAssetsAsync<GameObject>(label, null);
+        results.AddRange(await handle.Task);
+        return results;
+    }
+
     protected override void OnDestroy()
     {
         ReleaseAllLoadedAssets();

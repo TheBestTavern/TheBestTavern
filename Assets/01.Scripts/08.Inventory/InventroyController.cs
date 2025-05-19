@@ -8,7 +8,7 @@ public class InventoryController
 {
     InvenType invenType;
 
-    protected InventoryModel model;
+    public InventoryModel model { get; private set; }
     protected List<InventoryView> views = new();
 
     public int slotCount { get; private set; }

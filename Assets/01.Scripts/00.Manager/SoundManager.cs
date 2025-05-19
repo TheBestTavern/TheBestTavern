@@ -44,7 +44,7 @@ public class SoundManager : MonoSingleton<SoundManager>
 
     private void Start()
     {
-        PlayBGM("MainBGM1");
+        PlayBGM("StartBGM");
     }
 
 
@@ -115,6 +115,8 @@ public class SoundManager : MonoSingleton<SoundManager>
             }
         }
     }
+
+    
 
     public void SetBGMVolume(float volume) => bgmSource.volume = volume;
     public void SetSFXVolume(float volume) => sfxSource.volume = volume;
