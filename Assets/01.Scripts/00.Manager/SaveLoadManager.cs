@@ -23,23 +23,66 @@ public class SaveLoadManager : MonoSingleton<SaveLoadManager>
 
     public void SaveData()
     {
-        playerGameData.SetData();
+        playerGameData.SetSaveData();
+#if UNITY_WEBGL
+SaveDataWeb();
+#else
+        SaveDataBasic();
+#endif
+    }
+
+    public void SaveDataWeb()
+    {
+        string json = JsonConvert.SerializeObject(playerGameData);
+        PlayerPrefs.SetString("SaveData", json);
+        PlayerPrefs.Save();
+    }
+
+    public void SaveDataBasic()
+    {
         string json = JsonConvert.SerializeObject(playerGameData, Formatting.Indented);
         string path = Application.persistentDataPath + "/save.json";
         File.WriteAllText(path, json);
         Debug.Log(path + " 데이터 세이브");
     }
 
-    public PlayerGameData LoadData()
+    public bool LoadData(out PlayerGameData playerGameData)
+    {
+#if UNITY_WEBGL
+    return LoadDataWeb(out playerGameData);
+#else
+        return LoadDataBasic(out playerGameData);
+#endif
+    }
+
+    public bool LoadDataWeb(out PlayerGameData playerGameData)
+    {
+        if (PlayerPrefs.HasKey("SaveData"))
+        {
+            string json = PlayerPrefs.GetString("SaveData");
+            playerGameData = JsonConvert.DeserializeObject<PlayerGameData>(json);
+            return true;
+        }
+        else
+        {
+            playerGameData = null;
+            return false;
+        }
+    }
+
+    public bool LoadDataBasic(out PlayerGameData playerGameData)
     {
         string path = Application.persistentDataPath + "/save.json";
         if (File.Exists(path))
         {
             string json = File.ReadAllText(path);
-            return JsonConvert.DeserializeObject<PlayerGameData>(json);
+            playerGameData = JsonConvert.DeserializeObject<PlayerGameData>(json);
+            return true;
         }
-        return null;
+        playerGameData = null;
+        return false;
     }
+
 
 }
 public class OnNewDay : IDayCommand

@@ -27,7 +27,7 @@ public class PlayerGameData
     public Dictionary<int, List<int>> foodKey2IDs = new();
     public Dictionary<int, ItemStack> ID2ItemStack = new();
 
-    public void SetData()
+    public void SetSaveData()
     {
         today = TimerManager.Instance.GetToday();
 
