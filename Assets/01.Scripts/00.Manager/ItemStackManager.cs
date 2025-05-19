@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using static Cinemachine.CinemachineTriggerAction.ActionSettings;
 
 public class ItemStackManager : MonoSingleton<ItemStackManager>
 {
@@ -19,6 +20,12 @@ public class ItemStackManager : MonoSingleton<ItemStackManager>
         {
             IDs.Push(i);
         }
+    }
+
+    public void ApplyLoadData(Stack<int> IDs, Dictionary<int, ItemStack> AllItemStack)
+    {
+        this.IDs = IDs;
+        this.AllItemStack = AllItemStack;
     }
 
     public ItemStack InstantiateItem(Data_Foods data_Foods, int amount, Action<int> removeItem, Action<int> ChangeCount)

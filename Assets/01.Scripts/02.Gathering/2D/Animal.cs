@@ -25,6 +25,16 @@ public class Animal : MonoBehaviour
     private float captureChance = 0f;
     private bool canBeCaptured = false;
 
+    [Header("스프라이트 설정")]
+    [SerializeField] private Sprite normal;
+    private SpriteRenderer spriteRenderer;
+
+
+    private void Awake()
+    {
+        spriteRenderer = GetComponent<SpriteRenderer>();
+    }
+
     public void ReactToBait(int baitID, Vector3 baitPosition)
     {
         foreach (int favoriteId in favoriteBaitIds)
@@ -32,6 +42,7 @@ public class Animal : MonoBehaviour
             if (favoriteId == baitID)
             {
                 ApplyBaitEffect();
+                ChangeSprite();
                 Debug.LogError($"{animalName}가 ID {baitID} 미끼에 반응함!");
                 break;
             }
@@ -111,6 +122,11 @@ public class Animal : MonoBehaviour
     public void ApplyBaitEffect()
     {
         BaitEffectApplied = true;
+    }
+
+    public void ChangeSprite()
+    {
+        spriteRenderer.sprite = normal;
     }
 
     public void DestroyAnimal()

@@ -20,27 +20,32 @@ MonoBehaviour:
   - m_GUID: 0b6ce3a053ca7c5469b928da13a832b5
     m_Address: Bush1.prefab
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Bush
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ab61cbfa06d847f438bfa2961b05cfc7
     m_Address: Field1.prefab
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Field
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 44da1f051d0849348a3c96aae3103925
     m_Address: Field2.prefab
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Field
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5fd6dbb6f49fdcd41931b6eba13908e7
     m_Address: Tree1.prefab
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Tree
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2342ea0508c2e6146ada9318a9cfd983
     m_Address: Tree2.prefab
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Tree
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 3f946b317ceaa2747b411cad54511d5f, type: 2}

@@ -10,13 +10,25 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
-  m_Name: SeaGatheringPrefabs
+  m_Name: SeaGatheringPrefab
   m_EditorClassIdentifier: 
-  m_GroupName: Packed Assets
+  m_GroupName: SeaGatheringPrefab
   m_Data:
     m_SerializedData: []
   m_GUID: eb1e494000bbc184190079f3194de947
-  m_SerializeEntries: []
+  m_SerializeEntries:
+  - m_GUID: 96c88aaf2c7f65e4ca25a257899bb875
+    m_Address: Hole.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Hole
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c5689e00c86c7464fba0b9f631b22545
+    m_Address: Stone.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Stone
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 3f946b317ceaa2747b411cad54511d5f, type: 2}
   m_SchemaSet:

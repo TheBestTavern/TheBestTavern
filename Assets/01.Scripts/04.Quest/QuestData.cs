@@ -5,7 +5,6 @@ using System.Threading.Tasks;
 using Unity.VisualScripting;
 using UnityEngine;
 
-[Serializable]
 public enum SuccessDegree
 {
     good = 20,
@@ -56,6 +55,18 @@ public class QuestData
             { SuccessDegree.notBad , questSO.notBadQuest},
             { SuccessDegree.fail , questSO.failQuest}
         };
+    }
+
+    public void ApplyLoadData(Dictionary<int, Quest> AllQuests, List<int> AcceptedQuests,
+        Dictionary<int, SuccessDegree> OnceSuccessQuests, List<int> JustCompleteQuests, List<int> TodayAvailableQuest,
+        Queue<(int questID, int itemID)> QuestCheckQueue)
+    {
+        this.AllQuests = AllQuests;
+        this.AcceptedQuests = AcceptedQuests;
+        this.OnceSuccessQuests = OnceSuccessQuests;
+        this.JustCompleteQuests = JustCompleteQuests;
+        this.TodayAvailableQuest = TodayAvailableQuest;
+        this.QuestCheckQueue = QuestCheckQueue;
     }
 
     public void AcceptQuest(int questID)

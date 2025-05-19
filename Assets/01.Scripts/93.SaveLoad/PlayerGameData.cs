@@ -7,89 +7,75 @@ using UnityEngine.SceneManagement;
 [System.Serializable]
 public class PlayerGameData
 {
-    public PlayerTimeData playerTimeData = new();
+    public LunarDateTime today = new();
+
+    public Stack<int> IDs = new();
+
+    //public Dictionary<int, ItemStack> AllItemStack = new();
+
+    public Dictionary<int, ItemRecord> itemRecords = new();
+
+    public Dictionary<int, NPC> AllNPC = new();
+
+    public Dictionary<int, Quest> AllQuests = new();
+    public List<int> AcceptedQuests = new();
+    public Dictionary<int, SuccessDegree> OnceSuccessQuests = new();
+    public List<int> JustCompleteQuests = new();
+    public List<int> TodayAvailableQuest = new();
+    public Queue<(int questID, int itemID)> QuestCheckQueue = new();
+
     public PlayerInvenData playerInvenData = new();
-    public PlayerQuestData playerQuestData = new();
-}
 
-[System.Serializable]
-public class PlayerTimeData
-{
-    public int year;
-    public int month;
-    public int day;
-    public bool isLeapYear;
-    public bool isLeapMonth;
-
-    public void SetPlayerTimeData(int year, int month, int day, bool isLeapMonth = false)
+    public void SetSaveData()
     {
-        this.year = year;
-        this.month = month;
-        this.day = day;
-        isLeapYear = Extensions.lunarCalendar.IsLeapYear(year);
-        this.isLeapMonth = isLeapMonth;
+        today = TimerManager.Instance.GetToday();
+
+        IDs = ItemStackManager.Instance.IDs;
+
+        //AllItemStack = ItemStackManager.Instance.AllItemStack;
+
+        itemRecords = ItemRecordManager.Instance.itemRecords;
+
+        AllNPC = NPCManager.Instance.AllNPC;
+
+        AllQuests = QuestManager.Instance.AllQuests;
+        AcceptedQuests = QuestManager.Instance.AcceptedQuests;
+        OnceSuccessQuests = QuestManager.Instance.OnceSuccessQuests;
+        JustCompleteQuests = QuestManager.Instance.JustCompleteQuests;
+        TodayAvailableQuest = QuestManager.Instance.TodayAvailableQuest;
+        QuestCheckQueue = QuestManager.Instance.QuestCheckQueue;
+
+        playerInvenData.SetPlayerInvenData(InventoryManager.Instance.Invens[InvenType.Player].model.ID2ItemStack);
     }
-}
 
-[System.Serializable]
-public class PlayerInvenData
-{
-    public List<SaveInvenData> ItemList = new();
-
-    public void SetPlayerInvenData(Dictionary<int, ItemStack> ItemStack)
+    [System.Serializable]
+    public class PlayerInvenData
     {
-        foreach(var item in ItemStack)
+        public List<PlayerItemData> ItemList = new();
+
+        public void SetPlayerInvenData(Dictionary<int, ItemStack> ItemStack)
         {
-            SaveInvenData invenData = new SaveInvenData(item.Value.Origin, item.Value.Count, item.Value.ID);
-            ItemList.Add(invenData);
+            ItemList.Clear();
+            foreach (var item in ItemStack)
+            {
+                PlayerItemData invenData = new PlayerItemData(item.Value.Origin, item.Value.Count, item.Value.ID);
+                ItemList.Add(invenData);
+            }
         }
     }
-}
 
-[System.Serializable]
-public class SaveInvenData
-{
-    public Data_Foods Origin;
-    public int Count;
-    public int ID;
-
-    public SaveInvenData(Data_Foods data_Foods, int Count, int ID)
+    [System.Serializable]
+    public class PlayerItemData
     {
-        Origin = data_Foods;
-        this.Count = Count;
-        this.ID = ID;
-    }
-}
+        public Data_Foods Origin;
+        public int Count;
+        public int ID;
 
-
-[System.Serializable]
-public class PlayerQuestData
-{
-    public Dictionary<int, PlayerTimeData> acceptedQuestDic = new();
-    public Dictionary<int, PlayerTimeData> triggerQuestDaysDic = new();
-    public Dictionary<int, SuccessDegree> onceCompletedQuests = new();
-    public List<int> justCompleteQuests = new();
-    public void SetPlayerQuestData(List<int> acceptedQuests, Dictionary<int, SuccessDegree> onceCompletedQuests, List<int> justCompleteQuests)
-    {
-        acceptedQuestDic.Clear();
-        triggerQuestDaysDic.Clear();
-        onceCompletedQuests.Clear();
-        justCompleteQuests.Clear();
-
-        foreach (var questID in acceptedQuests)
+        public PlayerItemData(Data_Foods origin, int count, int iD)
         {
-            LunarDateTime acceptedDate = (LunarDateTime)QuestManager.Instance.AllQuests[questID].AcceptedDate;
-            PlayerTimeData accetedQuestDate = new PlayerTimeData();
-            accetedQuestDate.SetPlayerTimeData(acceptedDate.year, acceptedDate.month, acceptedDate.day, acceptedDate.isLeapMonth);
-            acceptedQuestDic[questID] = accetedQuestDate;
-
-            LunarDateTime triggerDate = (LunarDateTime)QuestManager.Instance.AllQuests[questID].TriggerDate;
-            PlayerTimeData triggerQuestDate = new PlayerTimeData();
-            triggerQuestDate.SetPlayerTimeData(triggerDate.year, triggerDate.month, triggerDate.day, triggerDate.isLeapMonth);
-            triggerQuestDaysDic[questID] = triggerQuestDate;
+            Origin = origin;
+            Count = count;
+            ID = iD;
         }
-
-        this.onceCompletedQuests = onceCompletedQuests;
-        this.justCompleteQuests = justCompleteQuests;
     }
 }

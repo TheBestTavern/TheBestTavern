@@ -23,45 +23,66 @@ public class SaveLoadManager : MonoSingleton<SaveLoadManager>
 
     public void SaveData()
     {
-        SetPlayerInvenData();
-        SetPlayerTimeData();
-        SetPlayerQuestData();
+        playerGameData.SetSaveData();
+#if UNITY_WEBGL
+SaveDataWeb();
+#else
+        SaveDataBasic();
+#endif
+    }
 
+    public void SaveDataWeb()
+    {
+        string json = JsonConvert.SerializeObject(playerGameData);
+        PlayerPrefs.SetString("SaveData", json);
+        PlayerPrefs.Save();
+    }
+
+    public void SaveDataBasic()
+    {
         string json = JsonConvert.SerializeObject(playerGameData, Formatting.Indented);
         string path = Application.persistentDataPath + "/save.json";
         File.WriteAllText(path, json);
         Debug.Log(path + " 데이터 세이브");
     }
 
-    public PlayerGameData LoadData()
+    public bool LoadData(out PlayerGameData playerGameData)
+    {
+#if UNITY_WEBGL
+    return LoadDataWeb(out playerGameData);
+#else
+        return LoadDataBasic(out playerGameData);
+#endif
+    }
+
+    public bool LoadDataWeb(out PlayerGameData playerGameData)
+    {
+        if (PlayerPrefs.HasKey("SaveData"))
+        {
+            string json = PlayerPrefs.GetString("SaveData");
+            playerGameData = JsonConvert.DeserializeObject<PlayerGameData>(json);
+            return true;
+        }
+        else
+        {
+            playerGameData = null;
+            return false;
+        }
+    }
+
+    public bool LoadDataBasic(out PlayerGameData playerGameData)
     {
         string path = Application.persistentDataPath + "/save.json";
         if (File.Exists(path))
         {
             string json = File.ReadAllText(path);
-            return JsonConvert.DeserializeObject<PlayerGameData>(json);
+            playerGameData = JsonConvert.DeserializeObject<PlayerGameData>(json);
+            return true;
         }
-        return null;
+        playerGameData = null;
+        return false;
     }
 
-    void SetPlayerTimeData()
-    {
-        playerGameData.playerTimeData.SetPlayerTimeData(TimerManager.Instance.timerModel.dateTime.year,
-            TimerManager.Instance.timerModel.dateTime.month,
-            TimerManager.Instance.timerModel.dateTime.day,
-            TimerManager.Instance.timerModel.dateTime.isLeapMonth
-            );
-    }
-
-    void SetPlayerInvenData()
-    {
-        playerGameData.playerInvenData.SetPlayerInvenData(InventoryManager.Instance.Invens[InvenType.Player].model.ID2ItemStack);
-    }
-
-    void SetPlayerQuestData()
-    {
-        playerGameData.playerQuestData.SetPlayerQuestData(QuestManager.Instance.AcceptedQuests, QuestManager.Instance.OnceSuccessQuests, QuestManager.Instance.JustCompleteQuests);
-    }
 
 }
 public class OnNewDay : IDayCommand

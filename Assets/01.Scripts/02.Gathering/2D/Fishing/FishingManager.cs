@@ -11,19 +11,9 @@ public class FishingManager : MonoSingleton<FishingManager>
     public bool success;
     public int gatheringKey;
 
-    void Start()
-    {
-
-    }
-
     public void BeginFishing()
     {
         fishingStart = true;
-    }
-
-    public void EndFishing() 
-    { 
-
     }
 
     async public void ShowResult()

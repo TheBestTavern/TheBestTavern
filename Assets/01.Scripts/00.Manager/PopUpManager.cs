@@ -129,5 +129,6 @@ public class PopUpManager : MonoSingleton<PopUpManager>, IPopupManager
     public void OnSceneMove()
     {
         popUps.Clear();
+        Debug.Log("팝업 클리어");
     }
 }

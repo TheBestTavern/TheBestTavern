@@ -44,6 +44,11 @@ public class TimerManager : MonoSingleton<TimerManager>
         CommandManager.Instance.AddCommand(command2);
     }
 
+    public void ApplyLoadData(LunarDateTime savedDay)
+    {
+        timerModel.dateTime = savedDay;
+    }
+
     public void OnSceneMove() // 씬이동, 게임시작할때 한번씩 실행.
     {
         if (timerUI == null)
