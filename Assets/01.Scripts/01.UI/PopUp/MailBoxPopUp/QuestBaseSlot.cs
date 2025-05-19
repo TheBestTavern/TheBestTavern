@@ -37,14 +37,6 @@ public abstract class QuestBaseSlot : MonoBehaviour
         slotQuest = Data.GetQuest(questID);
         npcName.text = NPCManager.Instance.NPCData.AllNPC[slotQuest.origin.givingNPC].origin.name;
 
-        // 버튼에 메서드 구독
-        openLetterBtn.onClick.RemoveAllListeners();
-        openLetterBtn.onClick.AddListener(() => OpenLetter());
-    }
 
-    private void OpenLetter()
-    {
-        mailBoxContent.OpenLetter(slotQuest, this);
-        Debug.Log($"{index}번 편지 열람");
     }
 }

@@ -186,7 +186,7 @@ MonoBehaviour:
   data: {fileID: 11400000, guid: 7c61f50033f8139428fc181562661f79, type: 2}
   effectController: {fileID: 0}
   pestle: {fileID: 1162063696}
-  content: {fileID: 525914276321489160}
+  content: {fileID: 472276990}
   notePrefab: {fileID: 1520797657532468901, guid: cb426d8526bbd3949b6542c9aeded0df, type: 3}
   noteAppear: {fileID: 27854590}
   noteDisappear: {fileID: 1483208211}

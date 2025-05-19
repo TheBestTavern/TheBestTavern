@@ -4,18 +4,22 @@ using UnityEngine;
 
 public class MailBoxContentOffer : MailBoxContentBase
 {
-    public override void OnEnable()
+    public async override void OnEnable()
     {
         if (isReadyTodaySlot) return;
         isReadyTodaySlot = true;
         base.OnEnable();
 
         MakeSlot(QuestManager.Instance.questData.TodayAvailableQuest);
+
+        currentLetter = (QuestBaseLetter)await UIManager.Instance.ShowPopUp(PopUpType.OfferLetter);
+        currentLetter.OnClickCloseButton();
+        currentLetter.FirstInit(RemoveSlot);
         //OnNewDay command = new(this);
         //DayManager.Instance.AddCommand(command);
     }
 
-    public override void MakeSlot(List<int> quests)
+    public void MakeSlot(List<int> quests)
     {
         foreach (var slot in slots)
         {
@@ -23,18 +27,24 @@ public class MailBoxContentOffer : MailBoxContentBase
         }
         slots.Clear();
 
-        base.MakeSlot(quests);
-        Debug.Log("의뢰 수주창 슬롯 생성");
-
+        QuestBaseSlot pref;
+        int i = 1;
+        foreach (var questID in quests)
+        {
+            pref = Instantiate(slotPref, slotPrt);
+            pref.Init(this);
+            pref.SetSlot(questID, i);
+            slots.Add(pref);
+            i++;
+        }
     }
 
-    public async override void OpenLetter(Quest quest, QuestBaseSlot slot)
-    {
-        //1. 편지 띄우기
-        currentLetter = await PopUpManager.Instance.ShowPopUp(PopUpType.OfferLetter) as QuestBaseLetter;
-
-        base.OpenLetter(quest, slot);
-    }
+    //public async override void OpenLetter(Quest quest, QuestBaseSlot slot)
+    //{
+    //    //1. 편지 띄우기
+    //    currentLetter = await PopUpManager.Instance.ShowPopUp(PopUpType.OfferLetter) as QuestBaseLetter;
+    //    base.OpenLetter(quest, slot);
+    //}
 
     //public class OnNewDay : IDayCommand
     //{

@@ -10,7 +10,7 @@ public class TimeEditor : MonoBehaviour
 
     public void AdvanceDay()
     {
-        timerController.DayChange(day);
+        timerController.DaysPass(day);
     }
 }
 

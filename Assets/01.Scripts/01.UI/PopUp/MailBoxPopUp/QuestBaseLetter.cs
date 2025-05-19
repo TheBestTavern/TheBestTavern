@@ -24,13 +24,13 @@ public abstract class QuestBaseLetter : BasePopUp
     /// </summary>
 
     // 편지 생성시 한번 초기화
-    public virtual void FirstInit(Quest quest, Action<QuestBaseSlot> action)
+    public virtual void FirstInit(Action<QuestBaseSlot> action)
     {
         OnCompleteLetter = action;
     }
 
     // 편지 열때마다 필요한 초기화.
-    public virtual void EveryInit(Quest quest, QuestBaseSlot baseQuestSlot)
+    public virtual void On(Quest quest, QuestBaseSlot baseQuestSlot)
     {
         // 문구 초기화
         this.quest = quest;
@@ -44,9 +44,6 @@ public abstract class QuestBaseLetter : BasePopUp
     /// </summary>
 
     // 수락 버튼 메서드
-    protected virtual void OnOKButton()
-    {
-    }
 
     /// <summary>
     /// 편지 열고 닫을때 효과

@@ -26,6 +26,7 @@ public class PlayerTimeData
         this.year = year;
         this.month = month;
         this.day = day;
+        isLeapYear = Extensions.lunarCalendar.IsLeapYear(year);
         this.isLeapMonth = isLeapMonth;
     }
 }
@@ -64,11 +65,31 @@ public class SaveInvenData
 [System.Serializable]
 public class PlayerQuestData
 {
-    public List<int> AcceptedQuests = new();
-    public Dictionary<int, SuccessDegree> OnceCompletedQuests = new();
-    public void SetPlayerQuestData(List<int> acceptedQuests, Dictionary<int, SuccessDegree> onceCompletedQuests)
+    public Dictionary<int, PlayerTimeData> acceptedQuestDic = new();
+    public Dictionary<int, PlayerTimeData> triggerQuestDaysDic = new();
+    public Dictionary<int, SuccessDegree> onceCompletedQuests = new();
+    public List<int> justCompleteQuests = new();
+    public void SetPlayerQuestData(List<int> acceptedQuests, Dictionary<int, SuccessDegree> onceCompletedQuests, List<int> justCompleteQuests)
     {
-        AcceptedQuests = acceptedQuests;
-        OnceCompletedQuests = onceCompletedQuests;
+        acceptedQuestDic.Clear();
+        triggerQuestDaysDic.Clear();
+        onceCompletedQuests.Clear();
+        justCompleteQuests.Clear();
+
+        foreach (var questID in acceptedQuests)
+        {
+            LunarDateTime acceptedDate = (LunarDateTime)QuestManager.Instance.AllQuests[questID].AcceptedDate;
+            PlayerTimeData accetedQuestDate = new PlayerTimeData();
+            accetedQuestDate.SetPlayerTimeData(acceptedDate.year, acceptedDate.month, acceptedDate.day, acceptedDate.isLeapMonth);
+            acceptedQuestDic[questID] = accetedQuestDate;
+
+            LunarDateTime triggerDate = (LunarDateTime)QuestManager.Instance.AllQuests[questID].TriggerDate;
+            PlayerTimeData triggerQuestDate = new PlayerTimeData();
+            triggerQuestDate.SetPlayerTimeData(triggerDate.year, triggerDate.month, triggerDate.day, triggerDate.isLeapMonth);
+            triggerQuestDaysDic[questID] = triggerQuestDate;
+        }
+
+        this.onceCompletedQuests = onceCompletedQuests;
+        this.justCompleteQuests = justCompleteQuests;
     }
 }

@@ -12,6 +12,11 @@ public class Data_FoodCategory
     public int key;
 
     /// <summary>
+    /// 음식군 이름
+    /// </summary>
+    public string categoryName;
+
+    /// <summary>
     /// 전설음식명
     /// </summary>
     public string goodFoodName;
@@ -40,6 +45,16 @@ public class Data_FoodCategory
     /// 망가진음식id
     /// </summary>
     public int badFoodID;
+
+    /// <summary>
+    /// 음식군의 아이템 종류
+    /// </summary>
+    public DesignEnums.ItemType itemType;
+
+    /// <summary>
+    /// 제작 레시피 ID
+    /// </summary>
+    public int recipeID;
 
 }
 public class Data_FoodCategoryLoader

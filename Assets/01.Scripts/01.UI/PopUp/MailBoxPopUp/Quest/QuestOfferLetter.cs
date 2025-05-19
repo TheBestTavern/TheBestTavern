@@ -12,29 +12,29 @@ public class QuestOfferLetter : QuestBaseLetter
     bool isSetDays;
 
     // 편지 생성시 한번 초기화
-    public override void FirstInit(Quest quest, Action<QuestBaseSlot> action)
+    public override void FirstInit(Action<QuestBaseSlot> action)
     {
         if (IsReady) return;
 
-        base.FirstInit(quest, action);
+        base.FirstInit(action);
 
         // 버튼 초기화
         buttons[0].onClick.AddListener(() => OnClickDays(7));
         buttons[1].onClick.AddListener(() => OnClickDays(11));
         buttons[2].onClick.AddListener(() => OnClickDays(14));
         buttons[3].onClick.AddListener(() => OnOKButton());
-        buttons[4].onClick.AddListener(() => RejectQuest());
+        //buttons[4].onClick.AddListener(() => RejectQuest());
         IsReady = true;
     }
 
     // 편지 열때마다 필요한 초기화.
-    public override void EveryInit(Quest quest, QuestBaseSlot baseQuestSlot)
+    public override void On(Quest quest, QuestBaseSlot baseQuestSlot)
     {
         // 문구 초기화
-        base.EveryInit(quest, baseQuestSlot);
+        base.On(quest, baseQuestSlot);
         isSetDays = false;
         days = 0;
-        bodyText.text = quest.origin.description;
+        bodyText.text = quest.origin.letterOffer;
     }
 
     private void OnClickDays(int day)
@@ -44,9 +44,8 @@ public class QuestOfferLetter : QuestBaseLetter
     }
 
     // 수락 버튼 메서드
-    protected async override void OnOKButton()
+    protected async void OnOKButton()
     {
-        base.OnOKButton();
         if (await AcceptQuest())
         {
             TriggerOnCompleteLetter(); // 편지 읽고 퀘스트수락/보상수령 시 슬롯 파괴 이벤트 실행
@@ -61,7 +60,6 @@ public class QuestOfferLetter : QuestBaseLetter
             //bool success = await QuestManager.Instance.TryAcceptQuest(quest, days); // 함수를 결국 전부 async로 바꿔야하는건가?
             Debug.Log($"{days}일 뒤로 퀘스트 수락 시도");
             return await QuestManager.Instance.TryAcceptQuest(quest.origin.key, days);
-
         }
         else
         {

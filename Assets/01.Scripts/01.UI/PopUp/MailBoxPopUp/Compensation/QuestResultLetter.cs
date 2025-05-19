@@ -8,29 +8,49 @@ using UnityEngine.UI;
 
 public class QuestResultLetter : QuestBaseLetter
 {
-    bool isSuccessful;
     TextMeshProUGUI yesBtnText;
+    SuccessDegree curSuccessDegree;
+
+    private InventoryController playerInvenController;
 
     // 편지 생성시 한번 초기화
-    public override void FirstInit(Quest quest, Action<QuestBaseSlot> action)
+    public override void FirstInit(Action<QuestBaseSlot> action)
     {
         if (IsReady) return;
 
-        base.FirstInit(quest, action);
+        base.FirstInit(action);
+
+
+        playerInvenController = InventoryManager.Instance.Invens[InvenType.Player];
 
         //  버튼 초기화
-        buttons[0].onClick.AddListener(() => OnOKButton());
         yesBtnText = buttons[0].GetComponentInChildren<TextMeshProUGUI>();
         IsReady = true;
     }
 
     // 편지 열때마다 필요한 초기화.
-    public override void EveryInit(Quest quest, QuestBaseSlot baseQuestSlot)
+    public override void On(Quest quest, QuestBaseSlot baseQuestSlot)
     {
-        base.EveryInit(quest, baseQuestSlot);
-        if (quest.IsSuccessful.HasValue)
+        base.On(quest, baseQuestSlot);
+        if (quest.lastSuccessDegree.HasValue)
         {
-            isSuccessful = (bool)quest.IsSuccessful;
+            curSuccessDegree = quest.lastSuccessDegree.Value;
+
+            switch (curSuccessDegree)
+            {
+                case SuccessDegree.fail:
+                    bodyText.text = quest.origin.letterFail;
+                    break;
+                case SuccessDegree.notBad:
+                    bodyText.text = quest.origin.letterNotBadSuccess;
+                    break;
+                case SuccessDegree.soso:
+                    bodyText.text = quest.origin.letterSoSoGoodSuccess;
+                    break;
+                case SuccessDegree.good:
+                    bodyText.text = quest.origin.letterSoSoGoodSuccess;
+                    break;
+            }
         }
         else
         {
@@ -38,15 +58,31 @@ public class QuestResultLetter : QuestBaseLetter
         }
 
         // 편지 내용 초기화
-        if (isSuccessful)
+        if ((int)curSuccessDegree >= 10)
         {
-            bodyText.text = quest.origin.description; // 성공 편지 내용으로 교체 해야함
-            yesBtnText.text = "수령";
+            yesBtnText.text = "보상 수령";
+            buttons[0].onClick.RemoveAllListeners();
+            buttons[0].onClick.AddListener(() => OnTakeButton());
+        }
+        else if ((int)curSuccessDegree >= 0)
+        {
+            yesBtnText.text = "다음엔 더 잘해봐야지.";
+            buttons[0].onClick.RemoveAllListeners();
+            buttons[0].onClick.AddListener(() =>
+            {
+                TriggerOnCompleteLetter();
+                OnClickCloseButton();
+            });
         }
         else
         {
-            bodyText.text = quest.origin.description; // 실패 편지 내용으로 교체 해야함.
-            yesBtnText.text = "확인";
+            yesBtnText.text = "내가 봐도 먹을게 못돼더라";
+            buttons[0].onClick.RemoveAllListeners();
+            buttons[0].onClick.AddListener(() =>
+            {
+                TriggerOnCompleteLetter();
+                OnClickCloseButton();
+            });
         }
     }
 
@@ -55,39 +91,23 @@ public class QuestResultLetter : QuestBaseLetter
     /// </summary>
 
     // 수락 버튼 메서드
-    protected override void OnOKButton()
+    protected void OnTakeButton()
     {
-        base.OnOKButton();
         if (TakeResult())
         {
             TriggerOnCompleteLetter(); // 편지 읽고 퀘스트수락/결과수령 시 슬롯 파괴 이벤트 실행
             OnClickCloseButton(); //  퀘스트수락/결과수령 시 편지 닫기
         }
+        else
+        {
+            Debug.Log("인벤토리 칸이 부족합니다.");
+            UIManager.Instance.ShowPopUp(PopUpType.Alarm);
+            UIManager.Instance.alarmPopUp.SetAlarm("인벤토리 칸이 부족합니다.");
+        }
     }
 
     private bool TakeResult()
     {
-        if (isSuccessful)
-        {
-            if (true) // 인벤토리 여유 공간 검사
-            {
-                //    보상 수령 로직 작성
-                //    Debug.Log($"보상 수령");
-                return true;
-            }
-            else
-            {
-                //    Debug.Log("인벤토리 칸이 부족합니다.");
-                //    UIManager.Instance.ShowPopUp(PopUpType.Alarm);
-                //    UIManager.Instance.alarmPopUp.SetAlarm("인벤토리 칸이 부족합니다.");
-                return false;
-            }
-        }
-        else
-        {
-            //퀘스트 실패 => 호감도 감소
-            // 호감도 감소는 여기서 말고 하루 시작할때 적용되는 게 좋을듯.
-            return true;
-        }
+        return InventoryManager.Instance.Invens[InvenType.Player].아이템획득(quest.origin.compensationID, 1);
     }
 }

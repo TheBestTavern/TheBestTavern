@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Container
+  m_EditorClassIdentifier: 
+  m_GroupName: Container
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 2eb43c9bfd815e043b8414c891d3c085
+  m_SerializeEntries:
+  - m_GUID: 7a83f318d49f53441b15f1375c6b55f7
+    m_Address: DayAndNightManagerContainer.SO
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6573cf3141257ce47b1cdb1d8eae3054
+    m_Address: QuestContainer.SO
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 3f946b317ceaa2747b411cad54511d5f, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 54aea84d34401c14395934714a356c5f, type: 2}
+    - {fileID: 11400000, guid: 3d8ab89a9d6f9e644a1b42cf5185b9de, type: 2}

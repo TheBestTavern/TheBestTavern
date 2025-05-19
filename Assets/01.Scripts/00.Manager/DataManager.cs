@@ -55,38 +55,54 @@ public static class Data // 간단 key 검색 클래스
         item.condition_season == season &&
         item.condition_biome == biome).ToList();
     }
-}
 
-/// <summary>
-/// - 임시 데이터(최종 아님) 
-/// - 구조,형태 달라질 수도 있음. 
-/// - 요리 레시피 데이터는 아직 추가되지 않음.
-/// - 퀘스트 데이터에 타겟 요리 변수가 아직 추가되지 않음.
-/// </summary>
-public class DataManager : MonoSingleton<DataManager>
-{
-    public Data_CookingStepsLoader DataLoader_CookingSteps { get; private set; } // 요리 방식 데이터 ex.끓이기 찌기, 굽기 등
-    public Data_FoodsLoader DataLoader_Foods { get; private set; } // 게임 상에 존재하는 모든 아이템(재료, 가공재료, 요리 포함)
-    public Data_FoodCategoryLoader DataLoader_FoodCategory { get; private set; } // 게임 상에 존재하는 모든 아이템(재료, 가공재료, 요리 포함)
-    public Data_GatheringLoader DataLoader_Gathering { get; private set; } // 계절별 채집할 수 있는 아이템 정보
-    public Data_NPCLoader DataLoader_NPC { get; private set; } // NPC 정보 (부여 아이템, 이름, 초기 호감도 등)
-    public Data_QuestLoader DataLoader_Quest { get; private set; } // 퀘스트 정보 (퀘스트 등장 조건, 부여 npc 등)
-    public Data_RecipesLoader Dataloader_Recipes { get; private set; } // 퀘스트 정보 (퀘스트 등장 조건, 부여 npc 등)
-
-    // 데이터 로더 인스턴스 생성.
-    public override void Init()
+    public static Data_FoodCategory GetIngredientFromProcessed(Data_FoodCategory processed)
     {
-        if (_isInitialized) return;
-        base.Init();
-
-        DontDestroyOnLoad(gameObject);
-
-        DataLoader_CookingSteps = new();
-        DataLoader_Foods = new();
-        DataLoader_Gathering = new();
-        DataLoader_NPC = new();
-        DataLoader_Quest = new();
-        Dataloader_Recipes = new();
-        DataLoader_FoodCategory = new();
+        var tempID = DataManager.Instance.Dataloader_Recipes.GetByKey(processed.recipeID).ingredients[0];
+        var categoryID = DataManager.Instance.DataLoader_Foods.GetByKey(tempID).FoodCategory;
+        processed = DataManager.Instance.DataLoader_FoodCategory.GetByKey(categoryID);
+        return processed;
     }
-}
+}   
+
+    /// <summary>
+    /// - 임시 데이터(최종 아님) 
+    /// - 구조,형태 달라질 수도 있음. 
+    /// - 요리 레시피 데이터는 아직 추가되지 않음.
+    /// - 퀘스트 데이터에 타겟 요리 변수가 아직 추가되지 않음.
+    /// </summary>
+    public class DataManager : MonoSingleton<DataManager>
+    {
+        public Data_Book_DishLoader DataLoader_Book_Dish { get; private set; } // 도감(요리) 정보
+        public Data_Book_IngredientLoader DataLoader_Book_Ingredient { get; private set; } // 도감(원재료) 정보
+        public Data_Book_MixLoader DataLoader_Book_Mix { get; private set; } // 도감(조합재료) 정보
+        public Data_Book_SpecialLoader DataLoader_Book_Special { get; private set; } // 도감(특수재료) 정보
+        public Data_CookingStepsLoader DataLoader_CookingSteps { get; private set; } // 요리 방식 데이터 ex.끓이기 찌기, 굽기 등
+        public Data_FoodsLoader DataLoader_Foods { get; private set; } // 게임 상에 존재하는 모든 아이템(재료, 가공재료, 요리 포함)
+        public Data_FoodCategoryLoader DataLoader_FoodCategory { get; private set; } // 게임 상에 존재하는 모든 아이템(재료, 가공재료, 요리 포함)
+        public Data_GatheringLoader DataLoader_Gathering { get; private set; } // 계절별 채집할 수 있는 아이템 정보
+        public Data_NPCLoader DataLoader_NPC { get; private set; } // NPC 정보 (부여 아이템, 이름, 초기 호감도 등)
+        public Data_QuestLoader DataLoader_Quest { get; private set; } // 퀘스트 정보 (퀘스트 등장 조건, 부여 npc 등)
+        public Data_RecipesLoader Dataloader_Recipes { get; private set; } // 퀘스트 정보 (퀘스트 등장 조건, 부여 npc 등)
+
+        // 데이터 로더 인스턴스 생성.
+        public override void Init()
+        {
+            if (_isInitialized) return;
+            base.Init();
+
+            DontDestroyOnLoad(gameObject);
+
+            DataLoader_Book_Dish = new();
+            DataLoader_Book_Ingredient = new();
+            DataLoader_Book_Mix = new();
+            DataLoader_Book_Special = new();
+            DataLoader_CookingSteps = new();
+            DataLoader_Foods = new();
+            DataLoader_Gathering = new();
+            DataLoader_NPC = new();
+            DataLoader_Quest = new();
+            Dataloader_Recipes = new();
+            DataLoader_FoodCategory = new();
+        }
+    }

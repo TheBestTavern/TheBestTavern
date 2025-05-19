@@ -6,7 +6,7 @@ using static UnityEditor.PlayerSettings;
 public interface IPool
 {
     public void ManualUpdate();
-    public Component Issue(Vector3 pos);
+    public Component Issue(Vector3 pos, Transform s);
     public void Regain(IPoolable poolable);
     public void Increase();
     public void Decrease();
@@ -34,14 +34,14 @@ public class Pool<T> : IPool where T : MonoBehaviour, IPoolable
 
     bool swapTsr = false;
     Transform despawnTsr;
-    Transform spawnTsr;
+    //Transform spawnTsr;
 
     public void Init(T pref, Transform DespawnTsr, Transform SpawnTsr)
     {
         this.pref = pref;
         if (SpawnTsr)
         {
-            this.spawnTsr = SpawnTsr;
+            //this.spawnTsr = SpawnTsr;
             swapTsr = true;
         }
         this.despawnTsr = DespawnTsr;
@@ -65,7 +65,7 @@ public class Pool<T> : IPool where T : MonoBehaviour, IPoolable
         }
     }
 
-    public Component Issue(Vector3 pos)
+    public Component Issue(Vector3 pos, Transform spawnTsr)
     {
         if (!pool.TryPop(out T temp))
         {
@@ -73,7 +73,7 @@ public class Pool<T> : IPool where T : MonoBehaviour, IPoolable
             temp = pool.Pop();
         }
         temp.gameObject.SetActive(true);
-        if (swapTsr) temp.transform.SetParent(spawnTsr);
+        if (spawnTsr) temp.transform.SetParent(spawnTsr);
         temp.OnSpawn(pos);
 
         return temp; // component로 캐스팅을 해줘야할까? 안해줬을때, Manager에서 이걸 반환받았을때, 컴포넌트가 아니라 T로 받게되는 거 아닌가?

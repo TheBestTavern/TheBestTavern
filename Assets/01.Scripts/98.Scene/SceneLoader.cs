@@ -11,13 +11,6 @@ using UnityEngine.SceneManagement;
 /// </summary>
 public class SceneLoader : MonoSingleton<SceneLoader>
 {
-    public override void Init()
-    {
-        if(_isInitialized) return;
-        base.Init();
-
-        DontDestroyOnLoad(gameObject);
-    }
 
     BaseScene currentScene;
 
@@ -29,6 +22,16 @@ public class SceneLoader : MonoSingleton<SceneLoader>
 
     // Addressables 초기화용 bool 
     bool isInitializeAsync = false;
+
+    public override void Init()
+    {
+        if (_isInitialized) return;
+        base.Init();
+
+        DontDestroyOnLoad(gameObject);
+
+        currentScene = FindObjectOfType<BaseScene>();
+    }
 
     // 비동기로 씬 불러오기 함수
     public async UniTask LoadSceneAsync(string sceneName)
@@ -89,7 +92,7 @@ public class SceneLoader : MonoSingleton<SceneLoader>
     async Task ShowLoadingUI()
     {
         // 로딩UI Addressables로 불러오고 인스턴스화
-        loadingUI = Instantiate(await AddressablesLoader.Instance.AddressablesLoadAsync("LoadingUIPrefab.prefab")).GetComponent<LoadingUI>();
+        loadingUI = Instantiate(await AddressablesLoader.Instance.AddressablesLoadAsync<GameObject>("LoadingUIPrefab.prefab")).GetComponent<LoadingUI>();
         // 씬 넘어가도 파괴 금지
         DontDestroyOnLoad(loadingUI.gameObject);
         // 로딩 UI 페이드인

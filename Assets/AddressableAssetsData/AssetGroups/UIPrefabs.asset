@@ -83,14 +83,8 @@ MonoBehaviour:
     m_SerializedLabels:
     - UIPrefabs
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: d9a631446a1088a4ebb0f721f2ee8ff5
-    m_Address: GatheringResultPopUpPrefab.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - UIPrefabs
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: f6f34a40642b76440b40a7bb68773359
-    m_Address: SoundSettingPopUpPrefab.prefab
+  - m_GUID: 6c786ccea97f65f439c895461be7c320
+    m_Address: FoodDetailPopUpPrefab.prefab
     m_ReadOnly: 0
     m_SerializedLabels:
     - UIPrefabs
