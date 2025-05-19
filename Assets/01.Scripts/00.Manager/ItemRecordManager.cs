@@ -25,7 +25,7 @@ public class ItemRecordManager : MonoSingleton<ItemRecordManager>
         CreateRecordDict();
     }
 
-    Dictionary<int, ItemRecord> itemRecords = new();
+    public Dictionary<int, ItemRecord> itemRecords { get; private set; } = new(); 
 
     private void CreateRecordDict()
     {

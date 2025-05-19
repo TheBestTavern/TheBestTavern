@@ -5,7 +5,6 @@ using System.Threading.Tasks;
 using Unity.VisualScripting;
 using UnityEngine;
 
-[Serializable]
 public enum SuccessDegree
 {
     good = 20,

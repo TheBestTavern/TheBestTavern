@@ -23,10 +23,7 @@ public class SaveLoadManager : MonoSingleton<SaveLoadManager>
 
     public void SaveData()
     {
-        SetPlayerInvenData();
-        SetPlayerTimeData();
-        SetPlayerQuestData();
-
+        playerGameData.SetData();
         string json = JsonConvert.SerializeObject(playerGameData, Formatting.Indented);
         string path = Application.persistentDataPath + "/save.json";
         File.WriteAllText(path, json);
@@ -42,25 +39,6 @@ public class SaveLoadManager : MonoSingleton<SaveLoadManager>
             return JsonConvert.DeserializeObject<PlayerGameData>(json);
         }
         return null;
-    }
-
-    void SetPlayerTimeData()
-    {
-        playerGameData.playerTimeData.SetPlayerTimeData(TimerManager.Instance.timerModel.dateTime.year,
-            TimerManager.Instance.timerModel.dateTime.month,
-            TimerManager.Instance.timerModel.dateTime.day,
-            TimerManager.Instance.timerModel.dateTime.isLeapMonth
-            );
-    }
-
-    void SetPlayerInvenData()
-    {
-        playerGameData.playerInvenData.SetPlayerInvenData(InventoryManager.Instance.Invens[InvenType.Player].model.ID2ItemStack);
-    }
-
-    void SetPlayerQuestData()
-    {
-        playerGameData.playerQuestData.SetPlayerQuestData(QuestManager.Instance.AcceptedQuests, QuestManager.Instance.OnceSuccessQuests, QuestManager.Instance.JustCompleteQuests);
     }
 
 }
