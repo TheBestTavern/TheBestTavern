@@ -11,7 +11,7 @@ public class PlayerGameData
 
     public Stack<int> IDs = new();
 
-    public Dictionary<int, ItemStack> AllItemStack = new();
+    //public Dictionary<int, ItemStack> AllItemStack = new();
 
     public Dictionary<int, ItemRecord> itemRecords = new();
 
@@ -24,8 +24,7 @@ public class PlayerGameData
     public List<int> TodayAvailableQuest = new();
     public Queue<(int questID, int itemID)> QuestCheckQueue = new();
 
-    public Dictionary<int, List<int>> foodKey2IDs = new();
-    public Dictionary<int, ItemStack> ID2ItemStack = new();
+    public PlayerInvenData playerInvenData = new();
 
     public void SetSaveData()
     {
@@ -33,7 +32,7 @@ public class PlayerGameData
 
         IDs = ItemStackManager.Instance.IDs;
 
-        AllItemStack = ItemStackManager.Instance.AllItemStack;
+        //AllItemStack = ItemStackManager.Instance.AllItemStack;
 
         itemRecords = ItemRecordManager.Instance.itemRecords;
 
@@ -46,7 +45,37 @@ public class PlayerGameData
         TodayAvailableQuest = QuestManager.Instance.TodayAvailableQuest;
         QuestCheckQueue = QuestManager.Instance.QuestCheckQueue;
 
-        foodKey2IDs = InventoryManager.Instance.Invens[InvenType.Player].model.foodKey2IDs;
-        ID2ItemStack = InventoryManager.Instance.Invens[InvenType.Player].model.ID2ItemStack;
+        playerInvenData.SetPlayerInvenData(InventoryManager.Instance.Invens[InvenType.Player].model.ID2ItemStack);
+    }
+
+    [System.Serializable]
+    public class PlayerInvenData
+    {
+        public List<PlayerItemData> ItemList = new();
+
+        public void SetPlayerInvenData(Dictionary<int, ItemStack> ItemStack)
+        {
+            ItemList.Clear();
+            foreach (var item in ItemStack)
+            {
+                PlayerItemData invenData = new PlayerItemData(item.Value.Origin, item.Value.Count, item.Value.ID);
+                ItemList.Add(invenData);
+            }
+        }
+    }
+
+    [System.Serializable]
+    public class PlayerItemData
+    {
+        public Data_Foods Origin;
+        public int Count;
+        public int ID;
+
+        public PlayerItemData(Data_Foods origin, int count, int iD)
+        {
+            Origin = origin;
+            Count = count;
+            ID = iD;
+        }
     }
 }
