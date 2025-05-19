@@ -57,6 +57,18 @@ public class QuestData
         };
     }
 
+    public void ApplyLoadData(Dictionary<int, Quest> AllQuests, List<int> AcceptedQuests,
+        Dictionary<int, SuccessDegree> OnceSuccessQuests, List<int> JustCompleteQuests, List<int> TodayAvailableQuest,
+        Queue<(int questID, int itemID)> QuestCheckQueue)
+    {
+        this.AllQuests = AllQuests;
+        this.AcceptedQuests = AcceptedQuests;
+        this.OnceSuccessQuests = OnceSuccessQuests;
+        this.JustCompleteQuests = JustCompleteQuests;
+        this.TodayAvailableQuest = TodayAvailableQuest;
+        this.QuestCheckQueue = QuestCheckQueue;
+    }
+
     public void AcceptQuest(int questID)
     {
         AcceptedQuests.Add(questID);
