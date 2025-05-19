@@ -21,6 +21,7 @@ public enum PopUpType
     SoundSetting,
     Letter,
     FoodDetail,
+    GatheringInfo,
 }
 
 public interface IPopupManager
