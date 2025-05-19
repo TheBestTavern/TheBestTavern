@@ -1953,6 +1953,7 @@ MonoBehaviour:
   isDontDestroyOnLoad: 0
   captureButton: {fileID: 1004739929}
   escapeButton: {fileID: 1955917667}
+  infoButton: {fileID: 345913338}
   captureRadius: 5
   success: 0
 --- !u!1 &1803380170
