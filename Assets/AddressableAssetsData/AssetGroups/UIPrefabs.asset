@@ -95,6 +95,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - UIPrefabs
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d9a631446a1088a4ebb0f721f2ee8ff5
+    m_Address: GatheringResultPopUpPrefab.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - UIPrefabs
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 3f946b317ceaa2747b411cad54511d5f, type: 2}
   m_SchemaSet:
