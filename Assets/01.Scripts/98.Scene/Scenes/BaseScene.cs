@@ -18,7 +18,7 @@ public class BaseScene : MonoBehaviour
         }
 
         TimerManager.Instance.OnSceneMove();
-        UIManager.Instance.OnSceneMove();
+        PopUpManager.Instance.OnSceneMove();
     }
 
     public virtual void OnLoadingScene()

@@ -19,6 +19,7 @@ public abstract class CookingMiniGameBase : MonoBehaviour, ICookingMiniGameHandl
     private void Start()
     {
         timer = GetTimer();
+        isGameOver = false;
     }
     protected abstract float GetTimer();
 
@@ -26,7 +27,6 @@ public abstract class CookingMiniGameBase : MonoBehaviour, ICookingMiniGameHandl
     protected virtual void Update()
     {
         if (isGameOver) return;
-
         elapsedTimer += Time.deltaTime;
 
         if (elapsedTimer >= 2f)
@@ -46,17 +46,22 @@ public abstract class CookingMiniGameBase : MonoBehaviour, ICookingMiniGameHandl
             isGameOver = true;
             StopGame();
             Debug.Log("게임종료");
-            RecipeManager.Instance.EndCooking();
+            //RecipeManager.Instance.EndCooking();
             CookingMiniGameManager.Instance.GetCookingResultData(); // 완성된 것 인벤토리에 넣어주기
-            UIManager.Instance.ShowPopUp(PopUpType.CookingResult); // 결과 팝업 띄우기
+            PopUpManager.Instance.ShowPopUp(PopUpType.CookingResult); // 결과 팝업 띄우기
 
-            //Time.timeScale = 0f;
         }
 
         // FSM 상태 전환 실행 (구현시 이곳에서 실행)
     }
 
-
+    public void InstantGameOver()
+    {
+        isGameOver = true;
+        StopGame();
+        PopUpManager.Instance.ShowPopUp(PopUpType.CookingResult);
+        CookingMiniGameManager.Instance.GetCookingResultData();
+    }
 
     /// <summary>
     /// 게임 로직이 담겨있는 메서드

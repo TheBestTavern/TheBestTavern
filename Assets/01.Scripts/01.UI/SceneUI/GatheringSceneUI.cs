@@ -23,8 +23,12 @@ public class GatheringSceneUI : MonoBehaviour
     [SerializeField] private Transform mainCameraTransform;
     private bool isCameraMoving = false;
 
+    [SerializeField] private GameObject miniGameBackGround;
+
     private void Awake()
     {
+        UIManager.Instance.gatheringSceneUI = this;
+
         // 맵 선택 버튼 클릭 이벤트 리스너 추가 
         mapButton.onClick.AddListener(OnClickMapButton);
 
@@ -39,16 +43,16 @@ public class GatheringSceneUI : MonoBehaviour
     async void OnClickMapButton()
     {
         // 맵 선택 팝업 불러오기
-        await UIManager.Instance.ShowPopUp(PopUpType.SelectMap);
+        await PopUpManager.Instance.ShowPopUp(PopUpType.SelectMap);
     }
 
     // 메인 씬으로 돌아가기 버튼 함수
     async void OnClickMainSceneButton()
     {
         // 확인 팝업 불러오기 
-        await UIManager.Instance.ShowPopUp(PopUpType.Confirm);
+        await PopUpManager.Instance.ShowPopUp(PopUpType.Confirm);
         // 확인 팝업 설정
-        UIManager.Instance.confirmPopUp.SetConfirm("주막으로 돌아가시겠습니까?", ConfirmFunc);
+        PopUpManager.Instance.confirmPopUp.SetConfirm("주막으로 돌아가시겠습니까?", ConfirmFunc);
     }
 
     // 확인 팝업 함수
@@ -98,5 +102,10 @@ public class GatheringSceneUI : MonoBehaviour
         {
             isCameraMoving = false;
         });
+    }
+
+    public void SetMiniGameBackGround(bool active)
+    {
+        miniGameBackGround.SetActive(active);
     }
 }

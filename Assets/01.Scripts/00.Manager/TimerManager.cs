@@ -27,6 +27,14 @@ public class TimerManager : MonoSingleton<TimerManager>
         base.Init();
 
         DontDestroyOnLoad(this);
+
+        if (SceneParameter.TryGet<LunarDateTime>("savedDate", out LunarDateTime savedDate))
+        {
+            startyear = savedDate.year;
+            startmonth = savedDate.month;
+            startday = savedDate.day;
+        }
+
         timerModel = new TimerModel(startyear, startmonth, startday, false);
         OnSceneMove();
 

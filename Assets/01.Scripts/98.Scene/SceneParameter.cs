@@ -16,10 +16,15 @@ public static class SceneParameter
         paramDict[key] = new SceneParam { value = value };
     }
 
-    public static T Get<T>(string key)
+    public static bool TryGet<T>(string key, out T result)
     {
-        if (paramDict.TryGetValue(key, out var sceneParam))
-            return (T)sceneParam.value;
-        return default;
+        if (paramDict.TryGetValue(key, out var sceneParam) && sceneParam.value is T t)
+        {
+            result = t;
+            return true;
+        }
+
+        result = default;
+        return false;
     }
 }

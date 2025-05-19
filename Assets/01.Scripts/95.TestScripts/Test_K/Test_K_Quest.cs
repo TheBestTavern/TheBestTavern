@@ -10,6 +10,6 @@ public class Test_K_Quest : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        btn.onClick.AddListener(() => _ = UIManager.Instance.ShowPopUp(PopUpType.MailBox));
+        btn.onClick.AddListener(() => _ = PopUpManager.Instance.ShowPopUp(PopUpType.MailBox));
     }
 }

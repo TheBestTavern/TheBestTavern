@@ -5,26 +5,29 @@ using UnityEngine.UI;
 
 public class FishingController : MonoBehaviour
 {
-    public GameObject fishingUI;
-    public GameObject fishPrefab;
-    public Transform fishSpawnArea;
-    public Transform catchZone;
-    public TensionGauge tensionGauge;
-    public FishingLineController fishLineController;
+    [Header("낚시 설정")]
+    [SerializeField] private GameObject fishingUI;
+    [SerializeField] private GameObject fishPrefab;
+    [SerializeField] private Transform fishSpawnArea;
+    [SerializeField] private Transform catchZone;
+
+    [Header("컨트롤러 설정")]
+    [SerializeField] private TensionGaugeController tensionGaugeController;
+    [SerializeField] private FishingLineController fishLineController;
 
     private GameObject currentFish;
     private bool fishingInProgress = false;
 
     private void Start()
     {
-        fishingUI.SetActive(false);
+        fishingUI.SetActive(true);
+        SetFishing();
     }
 
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.F) && !fishingInProgress)
         {
-            fishingUI.SetActive(true);
             StartCoroutine(StartFishing());
         }
 
@@ -35,48 +38,60 @@ public class FishingController : MonoBehaviour
             if (Input.GetKey(KeyCode.Space))
             {
                 fishController.PullToward(catchZone.position);
-                tensionGauge.IncreaseGauge();
+                tensionGaugeController.IncreaseGauge();
             }
             else
             {
-                tensionGauge.DecreaseGauge();
+                tensionGaugeController.DecreaseGauge();
             }
 
-            if (tensionGauge.IsOverloaded())
+            if (tensionGaugeController.IsOverloaded())
             {
                 Debug.Log("게이지 과부하 실패");
                 StopFishing(false);
+                FishingManager.Instance.success = false;
+                FishingResult();
             }
             else if (fishController.IsCaught(catchZone.position))
             {
                 Debug.Log("물고기 성공");
-                StopFishing(true);
+                FishingManager.Instance.success = true;
+                FishingResult();
             }
         }
+    }
+
+    private void SetFishing()
+    {
+        Vector3 spawnPos = fishSpawnArea.position;
+
+        currentFish = Instantiate(fishPrefab, spawnPos, Quaternion.identity);
+        fishLineController.lineEndTarget = currentFish.transform;
+        tensionGaugeController.ResetGauge();
     }
 
     IEnumerator StartFishing()
     {
         fishingInProgress = true;
-        fishingUI.SetActive(true);
+        yield return new WaitForSeconds(Random.Range(1f, 3f));
 
-        yield return new WaitForSeconds(Random.Range(1f, 3f)); 
-
-        Vector3 spawnPos = fishSpawnArea.position;
-        spawnPos.y += Random.Range(-2f, 2f);
-
-        currentFish = Instantiate(fishPrefab, spawnPos, Quaternion.identity);
-        fishLineController.lineEndTarget = currentFish.transform;
-        tensionGauge.ResetGauge();
+        FishingManager.Instance.BeginFishing();
     }
 
-    void StopFishing(bool success)
+    private void StopFishing(bool success)
     {
         if (currentFish != null)
+        {
             Destroy(currentFish);
-
-        tensionGauge.ResetGauge();
+        }
+        tensionGaugeController.ResetGauge();
         fishingUI.SetActive(false);
         fishingInProgress = false;
+    }
+
+    private void FishingResult()
+    {
+        StopFishing(true);
+        FishingManager.Instance.ShowResult();
     }
 }

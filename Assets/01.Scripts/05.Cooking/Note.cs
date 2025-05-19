@@ -38,7 +38,7 @@ public class Note : MonoBehaviour
         endPos = end;
         noteSpawnTime = Time.time;
         noteJudgeTime = Time.time + travelTime;
-        noteMissTime = noteJudgeTime + 0.5f;
+        noteMissTime = noteJudgeTime + 0.3f;
         
     }
 

@@ -16,6 +16,8 @@ public class GameManager : MonoSingleton<GameManager>
         TimerManager.Instance.Init();
         InventoryManager.Instance.Init();
         DayAndNightManager.Instance.Init();
+        //SoundManager.Instance.Init();
+        SaveLoadManager.Instance.Init();
 
         CommandManager.Instance.ExecuteCommands(1001); 
     }

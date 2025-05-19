@@ -14,7 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <YellowSmoke>k__BackingField: {fileID: 1744940568350722984, guid: 2d2bf91022d8e724797736d321fc0bc7, type: 3}
   <BlackSmoke>k__BackingField: {fileID: 4634246227964670014, guid: 2f63c33d64b2b824794b380eb26a9cee, type: 3}
-  <SweetPotato>k__BackingField: {fileID: 8732304425803997744, guid: e3e85278008c2f148bba5b405c528753, type: 3}
+  <SweetPotato>k__BackingField: {fileID: 5979068305810167843, guid: 1ec00bb58fd59744f82c5ef5828aeaca, type: 3}
+  <PerfectText>k__BackingField: {fileID: 5054565748260951017, guid: 783194b72551cfb48ad28ac69727c55c, type: 3}
+  <GoodText>k__BackingField: {fileID: 9220656204313070685, guid: 733425ce65665b14a8f8f9ba5e46399b, type: 3}
+  <BadText>k__BackingField: {fileID: 7040577906899051752, guid: 41238295230e75341bb70e8cb9faf184, type: 3}
+  <MissText>k__BackingField: {fileID: 1079498137429257683, guid: c5a287e403c6dc94abb0da03177b2035, type: 3}
   animationData:
     perfectParameterName: Perfect
     goodParameterName: Good

@@ -6,19 +6,21 @@ using UnityEngine;
 public class CookingMillMiniGame : CookingMiniGameBase
 {
    public MileStoneController mileStoneController;
+   [SerializeField] private CookingMillUI millUI;
 
     // 기준
-    public float direction; // 시계 or 반시계
+    public int direction; // 시계 or 반시계
     public bool isClockWise; // 시계방향인지 아닌지
     public float angle; 
     public float speed;
-    public float judgeTime; // 목표 속도를 유지한 시간
+
+    public float maintainTime; // 목표 속도를 유지한 시간
 
     Vector2 curPos; // 현재 마우스 위치
-    Vector2 previousPos;
-    Vector2 targetPos;
+    //Vector2 previousPos;
+    //Vector2 targetPos;
+    //Vector2 centerPos;
 
-    Vector2 centerPos;
     [SerializeField]private RectTransform centerTransform;
 
     private float curAngle;
@@ -42,65 +44,65 @@ public class CookingMillMiniGame : CookingMiniGameBase
         CookingMiniGameManager.Instance.GetCurrentMiniGame(this);
     }
 
-    #region 리팩토링 이후 사용
+   
     public override void StartGame()
     {
-        isGameOver = false;
         elapsedTimer = 0f;
         playTime = 0f;
-        timer = 15f;
+
+        direction = Random.Range(0, 2) == 0 ? 1 : -1; // 시계방향 1, 반시계방향 -1
+        millUI.SetDirection(direction);
     }
 
     public override void StopGame()
     {
-
+        RecipeManager.Instance.EndCooking();
+        var grade = JudgeGrade();
+        CookingMiniGameManager.Instance.SetMiniGameResult(grade);
     }
 
- 
-#endregion
 
- 
     /// <summary>
     /// 게임종료 후 등급 판정 
     /// (mouseSpeed를 180f~250f 사이로 유지한 시간을 기준으로 함)
     /// </summary>
     /// <param name="speed"></param>
     /// <param name="time"></param>
-    void Judge(float speed, float time)
+    CookingResultGrade JudgeGrade()
     {
-        Debug.Log($"{time}");
+        Debug.Log($"{maintainTime}");
         
-        if (time >= 12f) 
+        if (maintainTime >= data.PerfectTime) 
         {
             Debug.Log("Perfect");
+            return CookingResultGrade.Legendary;
         }
-        if (time >= 8f && time <= 11f)
+        if (maintainTime >= data.GoodTime && maintainTime < data.PerfectTime)
         {
             Debug.Log("Good");
-
+            return CookingResultGrade.Rare;
         }
-        if (time >= 5f && time <= 7f)
+        if (maintainTime >= data.BadTime && maintainTime < data.GoodTime)
         {
             Debug.Log("Bad");
-
+            return CookingResultGrade.Common;
         }
         else
         {
             Debug.Log("Fail");
+            return CookingResultGrade.Failed;
         }
 
         // 12초이상 : 상 (perfect)
-
         // 8~11초 : 중 (Good)
-
         // 5~7초 : 하 (Bad)
-
         // 5초 미만 || 반대방향 지속 입력 : 실패 (Miss)
-
     }
 
     protected override void UpdateGamePlay()
     {
+        if(isGameOver) return;
+
         if (mileStoneController.isDragging)
         {
             curPos = Input.mousePosition; // 현 마우스의 위치
@@ -114,9 +116,9 @@ public class CookingMillMiniGame : CookingMiniGameBase
 
             // 2. 마우스 회전방향 
             // (현재 프레임 - 이전 프레임)의 최단각도가 플러스면 시계, 마이너스면 반시계 방향
-            if (deltaAngle > 0) { isClockWise = true; }
+            //bool curDir = JudgeDirection(deltaAngle);
 
-            // 3. (현재 프레임 - 이전 프레임)의 각도를 계속해서 큐에 넣어준다
+           // 3. (현재 프레임 - 이전 프레임)의 각도를 계속해서 큐에 넣어준다
             angleQueue.Enqueue((deltaAngle, Time.time));
 
             // * 0.75초마다 계산하기 위해, 큐에 있는 가장 오래된 데이터의 시간값이 0.75초를 넘으면 제거한다
@@ -131,23 +133,35 @@ public class CookingMillMiniGame : CookingMiniGameBase
             // 5. 그것을 0.75초로 나누어주면 마우스의 평균 속도  
             float mouseSpeed = totalAngle / 0.75f;
 
-            // 6. mouseSpeed (180f~250f) 사이를 유지한 시간도 구해야 판정 기준에 쓸 수 있음
-            if (mouseSpeed >= 180f && mouseSpeed <= 250f)
+            // 6. mouseSpeed (180f~250f) 사이 & 올바른 회전방향 유지한 시간도 구해야 판정 기준에 쓸 수 있음
+            if (mouseSpeed >= 200f && mouseSpeed <= 400f && JudgeDirection(deltaAngle)) // SO로 옮기기
             {
-                judgeTime += Time.deltaTime;
+                maintainTime += Time.deltaTime;
             }
+
+            // 
+            millUI.UpdateUI(mouseSpeed, JudgeDirection(deltaAngle));
 
             // 7.. 모든 처리 이후 초기화
             previousAngle = curAngle;
-
-            if (timer <= 0f)
-            {
-                // 8. 마우스속도와 유지시간을 판정 함수로 넘김
-                Judge(mouseSpeed, judgeTime);
-            }
 
             Debug.Log($"{mouseSpeed}");
        }
     }
 
+    // 방향 판단
+    public bool JudgeDirection(float angle)
+    {
+        if (direction == 1) // 시계방향회전일 때
+        {
+            if (angle > 0) isClockWise = true; // 시계방향으로 회전
+            else isClockWise = false; // 반시계로 회전
+        }
+        else // 반시계방향일 때
+        {
+            if (angle > 0) isClockWise = false; // 시계방향으로 회전
+            else isClockWise = true; // 반시계로 회전
+        }
+        return isClockWise;
+    }
 }

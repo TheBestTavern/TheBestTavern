@@ -64,8 +64,8 @@ public class QuestOfferLetter : QuestBaseLetter
         else
         {
             Debug.Log($"일수가 선택안됨");
-            await UIManager.Instance.ShowPopUp(PopUpType.Alarm);
-            UIManager.Instance.alarmPopUp.SetAlarm("일수를 먼저 선택해주세요.");
+            await PopUpManager.Instance.ShowPopUp(PopUpType.Alarm);
+            PopUpManager.Instance.alarmPopUp.SetAlarm("일수를 먼저 선택해주세요.");
             return false;
         }
     }

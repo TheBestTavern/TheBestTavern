@@ -22,17 +22,34 @@ public class DrawLine : MonoBehaviour
 
     private Action<List<Vector2>> onFinish;
 
+    private Coroutine coroutine;
+
     public void DrawingLine(List<Vector2> arrowLine, float timeLimit, Action<List<Vector2>> callback)
     {
-        onFinish = callback;
+        if (mousePoints.Count > 0) 
+        {
         mousePoints.Clear();
+        }
+
+        //if (line != null ) { line = null; }
+        onFinish = callback;
         canDraw = true;
-        StartCoroutine(EndDrawTime(timeLimit));
+        if (coroutine != null) { StopCoroutine(coroutine); }
+        coroutine = StartCoroutine(EndDrawTime(timeLimit));
+    }
+
+    void OnDestroy()
+    {
+        StopAllCoroutines();
+        onFinish = null;
+        line = null;
     }
 
     private IEnumerator EndDrawTime(float time)
     {
         yield return new WaitForSeconds(time);
+
+        if (this == null) yield break;
         canDraw = false;
         onFinish?.Invoke(mousePoints);
         if (line != null) Destroy(line.gameObject);
@@ -48,19 +65,21 @@ public class DrawLine : MonoBehaviour
             edgeCollider = prefab.GetComponent<EdgeCollider2D>();
             Vector3 mousePos = Input.mousePosition;
 
-            mousePos.z = 10f;
-            mousePoints.Add(Camera.main.ScreenToWorldPoint(mousePos));
+            //mousePos.z = 10f;
+            //mousePoints.Add(Camera.main.ScreenToWorldPoint(mousePos));
 
-            line.positionCount = 1;
-            line.SetPosition(0, mousePoints[0]);
+            //line.positionCount = 1;
+            line.positionCount = 0;
+
+            //line.SetPosition(0, mousePoints[0]);
         }
         else if (Input.GetMouseButton(0))
         {
             Vector3 mousePos = Input.mousePosition;
-
+            
             mousePos.z = 10f;
             Vector2 pos = Camera.main.ScreenToWorldPoint(mousePos);
-            if (Vector2.Distance(mousePoints[mousePoints.Count - 1], pos) > 0.1f)
+            if (mousePoints.Count == 0 || Vector2.Distance(mousePoints[mousePoints.Count - 1], pos) > 0.1f)
             {
                 mousePoints.Add(pos);
                 line.positionCount++;
@@ -70,7 +89,8 @@ public class DrawLine : MonoBehaviour
         }
         else if (Input.GetMouseButtonUp(0))
         {
-            mousePoints.Clear();
+           // mousePoints.Clear();
+           //line.gameObject.SetActive(false);
         }
     }
     public void Judge()

@@ -65,10 +65,11 @@ MonoBehaviour:
     m_SerializedLabels:
     - MiniGameScene
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: f95c5e44d1dad0f478be0f449dc376de
-    m_Address: Assets/02.Prefabs/Scenes/MainScenePrefab.prefab
+  - m_GUID: 1a097857fe7798546b31154e2a2de585
+    m_Address: Cooking_MixingBowl_Test.unity
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - MiniGameScene
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 3f946b317ceaa2747b411cad54511d5f, type: 2}

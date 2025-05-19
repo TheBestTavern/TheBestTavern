@@ -4,21 +4,66 @@ using UnityEngine;
 
 public class FishController : MonoBehaviour
 {
-    public float moveSpeed = 3f; // 물고기의 기본 이동 속도
-    public float resistanceSpeed = 2f; // 저항 속도 (Space를 눌렀을 때 물고기가 저항함)
-    public Vector3 direction; // 물고기 방향 (랜덤)
+    [Header("물고기 설정")]
+    [SerializeField] private float moveSpeed = 3f; // 물고기의 기본 이동 속도
+    [SerializeField] private int[] gatheringKeys;
+    [SerializeField] private float resistanceSpeed;
+    public float resistanceChance = 0.3f; // 저항 확률 (0.3 = 30%)
+    private float resistanceCooldown = 1f; // 저항 시도 간격
+    private float lastResistanceTime = 0f;
 
+    private Vector3 direction; // 물고기 방향 (랜덤)
     private Vector3 startPosition; // 초기 위치
-    private Vector3 targetPosition; // 목표 위치 (CatchZone)
+    public int selectedKey;
 
     private void Start()
     {
         startPosition = transform.position;
-        // 물고기의 방향을 랜덤하게 설정
         direction = new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), 0).normalized;
     }
 
     void Update()
+    {
+        if (FishingManager.Instance.fishingStart)
+        {
+            StartFishing();
+        }
+        // 물고기의 y값에 따라 크기를 조정
+        AdjustFishSize();
+    }
+
+    // PullToward: 낚시대를 끌어당기는 기능
+    public void PullToward(Vector3 catchZonePosition)
+    {
+        float step = moveSpeed * Time.deltaTime;
+
+        // 일정 시간마다 저항을 시도
+        if (Time.time - lastResistanceTime > resistanceCooldown)
+        {
+            lastResistanceTime = Time.time;
+            if (Random.value < resistanceChance) // 확률적으로 저항
+            {
+                Vector3 awayFromZone = (transform.position - catchZonePosition).normalized;
+                transform.Translate(awayFromZone * resistanceSpeed * Time.deltaTime);
+                return; 
+            }
+        }
+        Vector3 target = Vector3.MoveTowards(transform.position, catchZonePosition, step);
+        transform.position = target;
+    }
+
+    public bool IsCaught(Vector3 catchZonePosition)
+    {
+        if (Vector3.Distance(transform.position, catchZonePosition) < 1f)
+        {
+            GetRandomGatheringKey();
+            AddItemtoInventory();
+            return true;
+        }
+        return false;
+    }
+
+    public void StartFishing()
     {
         // 물고기가 랜덤으로 화면을 이동
         transform.Translate(direction * moveSpeed * Time.deltaTime);
@@ -28,41 +73,42 @@ public class FishController : MonoBehaviour
         {
             direction.x *= -1;
         }
-        if (transform.position.y < -3.4f || transform.position.y > 5f)
+        if (transform.position.y < -2f || transform.position.y > 3f)
         {
             direction.y *= -1;
         }
-
-        // 물고기의 y값에 따라 크기를 조정
-        AdjustFishSize();
     }
 
-    // PullToward: 낚시대를 끌어당기는 기능
-    public void PullToward(Vector3 catchZonePosition)
+    public int GetRandomGatheringKey()
     {
-        // CatchZone 위치로 물고기를 끌어당김
-        // 저항이 있을 경우 천천히 이동하도록 조정
-        float step = moveSpeed * Time.deltaTime; // 이동 속도
-
-        Vector3 target = Vector3.MoveTowards(transform.position, catchZonePosition, step);
-        transform.position = target;
-    }
-
-    // IsCaught: 물고기가 CatchZone에 도달했는지 확인
-    public bool IsCaught(Vector3 catchZonePosition)
-    {
-        // 물고기와 CatchZone의 거리 계산 후 가까워지면 성공
-        if (Vector3.Distance(transform.position, catchZonePosition) < 1f)
+        if (gatheringKeys != null && gatheringKeys.Length > 0)
         {
-            return true;
+            int randomIndex = Random.Range(0, gatheringKeys.Length);
+            selectedKey = gatheringKeys[randomIndex];
+            FishingManager.Instance.gatheringKey = selectedKey;
+            return selectedKey;
         }
-        return false;
+        else
+        {
+            Debug.LogWarning("gatheringKeys가 비어있습니다.");
+            return -1;
+        }
     }
 
-    // 물고기의 크기를 y값에 따라 조정
+    private void AddItemtoInventory()
+    {
+        if (InventoryManager.Instance.Invens[InvenType.Gathering].아이템획득(Data.GetRawItem(selectedKey), 1))
+        {
+            Debug.Log("아이템 증가");
+        }
+        else
+        {
+            Debug.Log("아이템 증가 불가능");
+        }
+    }
+
     private void AdjustFishSize()
     {
-        // y값이 클수록 작아지고, 작을수록 커지게 설정
         float scale = Mathf.Lerp(1f, 0.5f, Mathf.InverseLerp(-5f, 5f, transform.position.y)); // y값에 따른 크기 변화
         transform.localScale = new Vector3(scale, scale, 1f); // x, y 방향으로 크기 조정
     }

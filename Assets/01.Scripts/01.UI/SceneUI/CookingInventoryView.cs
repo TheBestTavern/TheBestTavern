@@ -2,7 +2,9 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using DG.Tweening;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -14,7 +16,7 @@ public class CookingInventoryView : InventoryViewLoose
     [SerializeField] Button startMiniGameBtn;
     [SerializeField] Image btnImage;
     [SerializeField] Material grayscaleMaterial;
-    [SerializeField] private ItemImage itemImage;
+    private Queue<ItemImage> pooledImageQueue = new();
 
     protected override void OnEnable()
     {
@@ -22,6 +24,7 @@ public class CookingInventoryView : InventoryViewLoose
         startMiniGameBtn.onClick.AddListener(CookingMiniGameManager.Instance.miniGameAnim.Invoke);
         //startMiniGameBtn.onClick.AddListener(CookingMiniGameManager.Instance.ClickStartButton);
         startMiniGameBtn.onClick.AddListener(() => gameObject.SetActive(false));
+        startMiniGameBtn.onClick.AddListener(() => UIManager.Instance.cookingSceneUI.ButtonsBack());
         DisableButton();
     }
 
@@ -100,6 +103,10 @@ public class CookingInventoryView : InventoryViewLoose
                 minTargetingNum = 1;
                 maxTargetingNum = 1;
                 break;
+            case "Cooking_MixingBowl_Test":
+                minTargetingNum = 2;
+                maxTargetingNum = 2;
+                break;
             case "Plate":
                 minTargetingNum = 2;
                 maxTargetingNum = 2;
@@ -119,17 +126,48 @@ public class CookingInventoryView : InventoryViewLoose
         //CookingMiniGameManager.Instance.SetMiniGameItem(item);
 
         //var pooledImage = PoolManager.Instance.Get<ItemImage>(itemImage, index2Slots[index].GetComponent<RectTransform>().position, transform);
+        if(pooledImageQueue.Count == maxTargetingNum)
+        {
+            DisappearImage(pooledImageQueue.Dequeue());
+        }
         var pooledImage = await PoolManager.Instance.GetAddressable<ItemImage>("ItemImage.prefab", index2Slots[index].GetComponent<RectTransform>().position, transform);
+        pooledImageQueue.Enqueue(pooledImage);
         pooledImage.gameObject.SetActive(true);
         pooledImage.sprite = index2Slots[index].image.sprite;
 
-        RectTransform rect = pooledImage.GetComponent<RectTransform>();
-        rect.position = index2Slots[index].GetComponent<RectTransform>().position;
-        rect.DOScale(new Vector3(2f, 2f, 2f), 1.5f);
-        rect.DOAnchorPos(new Vector2(0, 0), 1.5f).OnComplete(() =>
+        var pooledImageRect = pooledImage.GetComponent<RectTransform>();
+        MoveToCenterImage(pooledImage);
+    }
+
+    public override void 아이템타게팅취소(int index)
+    {
+        base.아이템타게팅취소(index);
+        DisappearImage(pooledImageQueue.Dequeue());
+    }
+
+    void MoveToCenterImage(ItemImage itemImage)
+    {
+        RectTransform pooledImageRect = itemImage.GetComponent<RectTransform>();
+        pooledImageRect.DOKill();
+        pooledImageRect.DOScale(new Vector3(2f, 2f, 2f), 1.5f);
+        pooledImageRect.DOAnchorPos(new Vector2(0, 0), 1.5f).OnComplete(() =>
         {
-            pooledImage.TriggerReturn();
-            rect.localScale = new Vector3(1, 1, 1);
+            pooledImageRect.DOAnchorPos(new Vector2(0, 50), 1.5f)
+                .SetLoops(-1, LoopType.Yoyo)
+                .SetEase(Ease.InOutSine);
+        });
+    }
+
+    void DisappearImage(ItemImage itemImage)
+    {
+        RectTransform pooledImageRect = itemImage.GetComponent<RectTransform>();
+
+        pooledImageRect.DOKill();
+
+        pooledImageRect.DOScale(1.5f, 0.2f).SetEase(Ease.OutBack);
+        pooledImageRect.DOScale(0.1f, 0.3f).SetEase(Ease.InBack).OnComplete(() =>
+        {
+            itemImage.TriggerReturn();
         });
     }
 }

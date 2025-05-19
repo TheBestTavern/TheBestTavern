@@ -1,6 +1,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Cinemachine;
 using Cysharp.Threading.Tasks;
@@ -13,6 +14,7 @@ using UnityEngine.SceneManagement;
 public class CookingMiniGameManager : MonoSingleton<CookingMiniGameManager>
 {
     public MiniGameUI miniGameUI;
+    public GameObject miniGameBackground;
     public CookingSceneUI cookingSceneUI;
     public CookingInventoryView cookingInventoryView;
 
@@ -25,12 +27,12 @@ public class CookingMiniGameManager : MonoSingleton<CookingMiniGameManager>
 
     public Action miniGameAnim;
 
+    public List<CookingIngredientSO> selectedSO = new();
+
     private void Start()
     {
         cookingInventoryView.OnEnableTargetSlot = SetMiniGameItem;
         cookingInventoryView.OnDisalbeTargetSlot = ClearMiniGameItem;
-
-
     }
 
     public void OnSelectTool(string s)
@@ -51,7 +53,7 @@ public class CookingMiniGameManager : MonoSingleton<CookingMiniGameManager>
             selectedItems = GetMiniGameItem();
             RecipeManager.Instance.StartCooking(selectedItems, "Plate");
             RecipeManager.Instance.CompleteDish();
-            await UIManager.Instance.ShowPopUp(PopUpType.CookingResult);
+            await PopUpManager.Instance.ShowPopUp(PopUpType.CookingResult);
 
             GetCookingResultData();
         }
@@ -85,6 +87,7 @@ public class CookingMiniGameManager : MonoSingleton<CookingMiniGameManager>
     void SettingMiniGame(bool active)
     {
         miniGameUI.gameObject.SetActive(active);
+        miniGameBackground.SetActive(active);
     }
 
     public void SetMiniGameItem(List<Data_Foods> items)
@@ -114,6 +117,22 @@ public class CookingMiniGameManager : MonoSingleton<CookingMiniGameManager>
         return selectedItems;
     }
 
+    // 첫번째로 선택한 아이템 결과 음식군 번호 반환
+    public int GetSelectedItemFoodCategory()
+    {
+        if (selectedItems.Count > 0)
+        {
+            return selectedItems[0].FoodCategory;
+        }
+        return -1;
+    }
+
+    // 아이템키에 해당하는 ingredientSO 찾기
+    public CookingIngredientSO GetSelectdItemSO(int itemKey)
+    {
+        return selectedSO.FirstOrDefault(ingredient => ingredient.foodCategoryID.Contains(itemKey));
+    }
+
     /// <summary>
     /// 데이터 관련
     /// </summary>
@@ -126,7 +145,7 @@ public class CookingMiniGameManager : MonoSingleton<CookingMiniGameManager>
     // 아이템키 가져와서 인벤토리에 넣어주기
     public void GetCookingResultData()
     {
-        int newItemKey = RecipeManager.Instance.EndCooking();
+        List<int> newItemKey = RecipeManager.Instance.EndCooking();
 
         var controller = InventoryManager.Instance.Invens[InvenType.Player];
 
@@ -136,23 +155,24 @@ public class CookingMiniGameManager : MonoSingleton<CookingMiniGameManager>
             controller.아이템잃음(item, 1);
         }
 
-        if (newItemKey == -1) return;
+        if (newItemKey.Count == 1 && newItemKey[0] == -1) return;
 
-
-        var itemData = DataManager.Instance.DataLoader_Foods.GetByKey(newItemKey);
-
-        if (itemData == null) { Debug.Log("아이템 키에 해당하는 아이템 데이터가 없음"); }
-
-        controller.아이템획득(itemData, 1);
-        if (controller.아이템획득(itemData, 1))
+        foreach (var itemKey in newItemKey)
         {
-            Debug.Log("아이템 인벤토리에 추가 성공");
-        }
-        else
-        {
-            Debug.Log("아이템 추가 불가능 상태");
-        }
+            var itemData = DataManager.Instance.DataLoader_Foods.GetByKey(itemKey);
 
+            if (itemData == null) { Debug.Log("아이템 키에 해당하는 아이템 데이터가 없음"); }
+
+            controller.아이템획득(itemData, 1);
+            if (controller.아이템획득(itemData, 1))
+            {
+                Debug.Log("아이템 인벤토리에 추가 성공");
+            }
+            else
+            {
+                Debug.Log("아이템 추가 불가능 상태");
+            }
+        }
     }
 
     /// <summary>
@@ -167,5 +187,14 @@ public class CookingMiniGameManager : MonoSingleton<CookingMiniGameManager>
     public CookingResultGrade GetMiniGameResult()
     {
         return resultGrade;
+    }
+
+    // 게임 바로 종료
+    public void InstantGameOver()
+    {
+        if (currentGame is CookingMiniGameBase baseGame)
+        {
+            baseGame.InstantGameOver();
+        }
     }
 }

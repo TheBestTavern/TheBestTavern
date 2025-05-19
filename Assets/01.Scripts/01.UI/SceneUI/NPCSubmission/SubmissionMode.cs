@@ -133,8 +133,8 @@ public class SubmissionMode : MonoBehaviour
     {
         if (submissionSlot == null)
         {
-            await UIManager.Instance.ShowPopUp(PopUpType.Alarm);
-            UIManager.Instance.alarmPopUp.SetAlarm("제출할 아이템을 먼저 선택하세요.");
+            await PopUpManager.Instance.ShowPopUp(PopUpType.Alarm);
+            PopUpManager.Instance.alarmPopUp.SetAlarm("제출할 아이템을 먼저 선택하세요.");
         }
         else
         {

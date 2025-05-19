@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eef8c804f8d264b4c9023c9593e5bc9a, type: 3}
+  m_Name: FishFillet
+  m_EditorClassIdentifier: 
+  prefabAdress: FishFillet
+  foodCategoryID: c3ad0100ccad010043ae010043ae0100cdad010048ae0100cead01004bae01004dae0100cfad01004fae0100d0ad010052ae010054ae0100

@@ -13,6 +13,7 @@ public class CaptureManager : MonoSingleton<CaptureManager>
     [Header("포획 설정")]
     [SerializeField] private float captureRadius = 5f;
     private Animal animalInRange;
+    public bool success;
 
     protected override void Awake()
     {
@@ -24,13 +25,11 @@ public class CaptureManager : MonoSingleton<CaptureManager>
         captureButton.gameObject.SetActive(false);
         escapeButton.gameObject.SetActive(true);
         CheckForAnimalsInRange();
+        SoundManager.Instance.PlayBGM("MainBGM2");
     }
 
-    void Update()
-    {
-    }
 
-    protected void AddItem()
+    private void AddItem()
     {
         if (InventoryManager.Instance.Invens[InvenType.Gathering].아이템획득(Data.GetRawItem(animalInRange.gatheringKey), 1))
         {
@@ -42,7 +41,7 @@ public class CaptureManager : MonoSingleton<CaptureManager>
         }
     }
 
-    void CheckForAnimalsInRange()
+    private void CheckForAnimalsInRange()
     {
         Collider2D[] hitColliders = Physics2D.OverlapCircleAll(transform.position, captureRadius);
         foreach (var hit in hitColliders)
@@ -64,7 +63,7 @@ public class CaptureManager : MonoSingleton<CaptureManager>
     }
 
     // 포획 시도
-    void CaptureAnimal()
+    private void CaptureAnimal()
     {
         CheckForAnimalsInRange();
         if (animalInRange == null)
@@ -73,21 +72,37 @@ public class CaptureManager : MonoSingleton<CaptureManager>
             return;
         }
 
-        bool success = animalInRange.TryCapture();
+        success = animalInRange.TryCapture();
         if (success)
         {
             Debug.LogError("동물 포획 성공");
-            //AddItem();
+            AddItem();
             animalInRange.DestroyAnimal();
-            UnLoadMiniGame();
+            ShowResult();
         }
         else
         {
             Debug.LogError("동물 포획 실패");
+            animalInRange.gatheringKey = 0;
         }
     }
 
-    public void EscapeFromAnimal()
+    async void ShowResult()
+    {
+        await PopUpManager.Instance.ShowPopUp(PopUpType.GatheringResult);
+    }
+
+    public int GetItemKey()
+    {
+        return animalInRange.gatheringKey;
+    }
+
+    public bool GetResult()
+    {
+        return success;
+    }
+
+    private void EscapeFromAnimal()
     {
         Debug.Log("도망가기");
         animalInRange.DestroyAnimal();
@@ -96,6 +111,7 @@ public class CaptureManager : MonoSingleton<CaptureManager>
 
     async public void UnLoadMiniGame()
     {
+        UIManager.Instance.gatheringSceneUI.SetMiniGameBackGround(false);
         await SceneLoader.Instance.UnLoadSceneAsyncMiniGame();
     }
 

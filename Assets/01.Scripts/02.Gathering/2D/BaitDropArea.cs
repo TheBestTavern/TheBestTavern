@@ -7,11 +7,15 @@ using UnityEngine.UI;
 
 public class BaitDropArea : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPointerExitHandler
 {
+    [Header("아이템 Drop 설정")]
     [SerializeField] private Image previewImage;
     [SerializeField] private Image dropAreaImage;
+
+    [Header("컨트롤러 설정")]
     [SerializeField] private BaitThrowController throwController;
+
     private InventorySlot previousSlot; 
-    public ItemStack currentBait;
+    private ItemStack currentBait;
 
     public void OnDrop(PointerEventData eventData)
     {
@@ -42,7 +46,7 @@ public class BaitDropArea : MonoBehaviour, IDropHandler, IPointerEnterHandler, I
     {
         currentBait = null;
         previewImage.sprite = null;
-        previewImage.color = new Color(1, 1, 1, 0);
+        previewImage.color = new Color(111, 111, 111, 0);
     }
 
     public void OnPointerEnter(PointerEventData eventData)

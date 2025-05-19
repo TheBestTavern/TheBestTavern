@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
+using static UnityEngine.Rendering.VirtualTexturing.Debugging;
 
 /// <summary>
 /// Addressables 관리 클래스
@@ -39,6 +40,7 @@ public class AddressablesLoader : MonoSingleton<AddressablesLoader>
         // Addressables 프리펩 불러오기 
         AsyncOperationHandle<T> handle = Addressables.LoadAssetAsync<T>(address);
 
+
         // 다 불러올 때까지 기다리기
         await handle.Task;
 
@@ -52,6 +54,7 @@ public class AddressablesLoader : MonoSingleton<AddressablesLoader>
 
         Debug.LogError($"에셋 로드 실패: {address}");
         Addressables.Release(handle);
+
         // 실패시 null 반환
         if (fallback)
         {
@@ -70,5 +73,24 @@ public class AddressablesLoader : MonoSingleton<AddressablesLoader>
             Addressables.Release(handle);
             cache.Remove(address);
         }
+    }
+
+    public async Task<List<GameObject>> AddressablesListLoadFromLabelAsync(string label)
+    {
+        List<GameObject> results = new List<GameObject>();
+        var handle = Addressables.LoadAssetsAsync<GameObject>(label, null);
+        results.AddRange(await handle.Task);
+        return results;
+    }
+
+
+    // 모든 어드레서블 릴리즈 
+    public void ReleaseAllLoadedAssets()
+    {
+        foreach (var pair in cache)
+        {
+            Addressables.Release(pair.Value);
+        }
+        cache.Clear();
     }
 }

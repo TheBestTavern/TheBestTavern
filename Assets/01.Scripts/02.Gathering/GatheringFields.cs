@@ -5,7 +5,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-public class GatheringFields : GatheringProps
+public class GatheringFields : GatheringBase
 {
     protected override void OnClickedFunc()
     {
