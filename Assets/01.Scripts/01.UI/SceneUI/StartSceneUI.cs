@@ -38,7 +38,7 @@ public class StartSceneUI : MonoBehaviour
 
             foreach(var item in playerGameData.playerInvenData.ItemList)
             {
-                InventoryManager.Instance.Invens[InvenType.Player].아이템획득(item.ID, item.Count);
+                InventoryManager.Instance.Invens[InvenType.Player].아이템획득(item.Origin, item.Count);
             }
 
             await SceneLoader.Instance.LoadSceneAsync("MainScene");
