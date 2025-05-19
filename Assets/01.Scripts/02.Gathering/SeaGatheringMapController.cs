@@ -7,7 +7,7 @@ using static UnityEngine.Rendering.DebugUI;
 public class SeaGatheringMapController : GatheringMapController
 {
 
-    [SerializeField] string rocksLabelName = "Rock";
+    [SerializeField] string rocksLabelName = "Stone";
     [SerializeField] string holesLabelName = "Hole";
 
     List<GameObject> rocks;

@@ -10,58 +10,41 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
-  m_Name: GatheringPrefabs
+  m_Name: ForestGatheringPrefabs
   m_EditorClassIdentifier: 
-  m_GroupName: GatheringPrefabs
+  m_GroupName: ForestGatheringPrefabs
   m_Data:
     m_SerializedData: []
-  m_GUID: 4a16413b761332b469e62da58e4c2604
+  m_GUID: 3965a9952b75b2540bcb846d55899db1
   m_SerializeEntries:
-  - m_GUID: 5fd6dbb6f49fdcd41931b6eba13908e7
-    m_Address: Tree1.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Tree
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 2342ea0508c2e6146ada9318a9cfd983
-    m_Address: Tree2.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Tree
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0b6ce3a053ca7c5469b928da13a832b5
     m_Address: Bush1.prefab
     m_ReadOnly: 0
-    m_SerializedLabels:
-    - Bush
+    m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ab61cbfa06d847f438bfa2961b05cfc7
     m_Address: Field1.prefab
     m_ReadOnly: 0
-    m_SerializedLabels:
-    - Field
+    m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 44da1f051d0849348a3c96aae3103925
     m_Address: Field2.prefab
     m_ReadOnly: 0
-    m_SerializedLabels:
-    - Field
+    m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 96c88aaf2c7f65e4ca25a257899bb875
-    m_Address: Assets/02.Prefabs/Gathering/Hole.prefab
+  - m_GUID: 5fd6dbb6f49fdcd41931b6eba13908e7
+    m_Address: Tree1.prefab
     m_ReadOnly: 0
-    m_SerializedLabels:
-    - Rock
+    m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: c5689e00c86c7464fba0b9f631b22545
-    m_Address: Assets/02.Prefabs/Gathering/Stone.prefab
+  - m_GUID: 2342ea0508c2e6146ada9318a9cfd983
+    m_Address: Tree2.prefab
     m_ReadOnly: 0
-    m_SerializedLabels:
-    - Hole
+    m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 3f946b317ceaa2747b411cad54511d5f, type: 2}
   m_SchemaSet:
     m_Schemas:
-    - {fileID: 11400000, guid: a35ddf375200f7e47a07b85a5298ebdd, type: 2}
-    - {fileID: 11400000, guid: f3516309dd5cb2549aa626880851966c, type: 2}
+    - {fileID: 11400000, guid: 29841f79406efdc48836f551f32d7ff3, type: 2}
+    - {fileID: 11400000, guid: 18b0a08ec2dc22e49829d2f6e8c2feb2, type: 2}
