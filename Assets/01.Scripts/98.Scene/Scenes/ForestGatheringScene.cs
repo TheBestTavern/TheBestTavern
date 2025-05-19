@@ -2,17 +2,22 @@ using UnityEngine;
 
 public class ForestGatheringScene : BaseScene
 {
-    public override void OnEixtScene()
+    public async override void OnEixtScene()
     {
         base.OnEixtScene();
+
+        for (int i = 0; i < 10; i++)
+        {
+            await CommandManager.Instance.ExecuteCommands();
+        }
     }
 
-    public override void OnEnterScene()
+    public async override void OnEnterScene()
     {
         base.OnEnterScene();
     }
 
-    public override void OnLoadingScene()
+    public async override void OnLoadingScene()
     {
         base.OnLoadingScene();
     }

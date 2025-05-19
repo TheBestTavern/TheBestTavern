@@ -10,24 +10,30 @@ public enum SuccessDegree
 {
     good = 20,
     soso = 10,
-    bad = 0
+    notBad = 0,
+    fail = -10,
 }
 
 public class QuestData
 {
     public Dictionary<int, Quest> AllQuests { get; private set; } = new(); // 모든 퀘스트
     public List<int> AcceptedQuests { get; private set; } = new(); // 진행중인 퀘스트
-    public Dictionary<int, SuccessDegree> OnceCompletedQuests { get; private set; } = new(); // 한번이라도 클리어해본 퀘스트. 최대 성공 정도
+    public Dictionary<int, SuccessDegree> OnceSuccessQuests { get; private set; } = new(); // 한번이라도 클리어해본 퀘스트. 최대 성공 정도
     public List<int> JustCompleteQuests { get; private set; } = new(); // 오늘 클리어한 퀘스트 (내일 보상 편지 생성에 사용)
     public List<int> TodayAvailableQuest { get; private set; } = new(); // 오늘의 퀘스트
     public Queue<(int questID, int itemID)> QuestCheckQueue { get; private set; } = new(); // 아이템 제출한 퀘스트 목록.
 
+    public QuestContainer questSO { get; private set; }
+    Dictionary<SuccessDegree, int> favorMap;
+
+    private Dictionary<int, NPC> allNPC;
+
     public Action<List<int>> onTriggerNPC; // npc 소환
     public Action onSpawnNPC; // 소환된 npc 정렬
 
-    public void Init()
+    public async Task Init()
     {
-        Debug.Log("퀘스트 인스턴스 생성");
+        //Debug.Log("퀘스트 인스턴스 생성");
         Quest quest;
         foreach (Data_Quest item in DataManager.Instance.DataLoader_Quest.ItemsList)
         {
@@ -35,33 +41,54 @@ public class QuestData
             AllQuests.Add(quest.origin.key, quest);
         }
 
+        allNPC = NPCManager.Instance.NPCData.AllNPC;
+
         // 커맨드 등록
         OnNewDay command = new(this);
         CommandManager.Instance.AddCommand(command);
+
+        // 참조 할당
+        questSO = await AddressablesLoader.Instance.AddressablesLoadAsync<QuestContainer>("QuestContainer.SO");
+        favorMap = new()
+        {
+            { SuccessDegree.good , questSO.goodQuest},
+            { SuccessDegree.soso, questSO.sosoQuest},
+            { SuccessDegree.notBad , questSO.notBadQuest},
+            { SuccessDegree.fail , questSO.failQuest}
+        };
     }
 
     public void AcceptQuest(int questID)
     {
         AcceptedQuests.Add(questID);
+        EventBus.Publish<QuestAcceptEvent>(new QuestAcceptEvent());
     }
 
     public void FailQuest(int questID)
     {
         AcceptedQuests.Remove(questID);
-        Data.GetQuest(questID).FailQuest(TimerManager.Instance.GetToday());
+        Quest tempQuest = Data.GetQuest(questID);
+        tempQuest.FailQuest(TimerManager.Instance.GetToday());
+        allNPC[tempQuest.origin.givingNPC].FailQuest(favorMap[SuccessDegree.fail]);
+        JustCompleteQuests.Add(questID);
+        EventBus.Publish<QuestCompleteEvent>(new QuestCompleteEvent());
     }
 
-    public void CompleteQuest(int questID, SuccessDegree successDegree) // 퀘스트 완료
+    public void SuccessQuest(int questID, SuccessDegree successDegree) // 퀘스트 완료
     {
+        Quest tempQuest = Data.GetQuest(questID);
+
         AcceptedQuests.Remove(questID);
-        Data.GetQuest(questID).CompleteQuest(TimerManager.Instance.GetToday());
+        tempQuest.SuccessQuest(TimerManager.Instance.GetToday(), successDegree);
         JustCompleteQuests.Add(questID);
 
-        if (!OnceCompletedQuests.TryGetValue(questID, out var prev) || prev < successDegree)
+        allNPC[tempQuest.origin.givingNPC].SuccessQuest(favorMap[successDegree]);
+        EventBus.Publish<QuestCompleteEvent>(new QuestCompleteEvent());
+
+        if (!OnceSuccessQuests.TryGetValue(questID, out var prev) || prev < successDegree)
         {
-            OnceCompletedQuests[questID] = successDegree;
-            // 읽기작업: 없는 키값에 접근할 경우, KeyNotFoundException 오류가 발생 dic[index];
-            // 쓰기작업: 없는 키값에 접근할 경우, 새로운 키-값 쌍을 추가함. dic[index] = value;
+            OnceSuccessQuests[questID] = successDegree;
+            EventBus.Publish<QuestSuccessFirstEvent>(new QuestSuccessFirstEvent());
         }
     }
 
@@ -119,7 +146,7 @@ public class QuestData
                 prt.onSpawnNPC?.Invoke();
                 spawnNPCs.Clear();
             }
-            Debug.Log("진행중 퀘스트 체크");
+            //Debug.Log("진행중 퀘스트 체크");
 
         }
 
@@ -142,7 +169,7 @@ public class QuestData
                     prt.TodayAvailableQuest.Add(item.Key);
                 }
             }
-            Debug.Log("오늘의 퀘스트 받아오기");
+            //Debug.Log("오늘의 퀘스트 받아오기");
 
         }
 

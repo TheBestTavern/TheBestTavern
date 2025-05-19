@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Globalization;
 using Unity.VisualScripting;
 
@@ -12,14 +13,17 @@ public class Quest
     public LunarDateTime? AcceptedDate { get; private set; } // 퀘스트 수락일
     public LunarDateTime? TriggerDate { get; private set; } // npc가 찾아올 날
 
-    public bool? IsSuccessful { get; private set; } // 퀘스트 성공 여부
+    public SuccessDegree? lastSuccessDegree { get; private set; } // 퀘스트 성공 여부
     public LunarDateTime? RecycleDate { get; private set; } // 다시 퀘스트가 출몰할 날
     public bool RecycleDatePass { get; private set; } = true; // 재활용 주기 지났는지
     int RecycleDays = 5; // 재활용에 필요한 일수. 임시로 5일로 지정
 
+    private Dictionary<int, NPC> allNPC;
+
     public Quest(Data_Quest data_Quest)
     {
         this.origin = data_Quest;
+        allNPC = NPCManager.Instance.NPCData.AllNPC;
     }
 
     public void AcceptQuest(LunarDateTime todayDateTime, int afterDays)
@@ -28,17 +32,21 @@ public class Quest
         AcceptedDate = todayDateTime;
         TriggerDate = todayDateTime.AddDays(afterDays);
         RecycleDatePass = false;
-        IsSuccessful = null;
+        lastSuccessDegree = null;
     }
 
-    public void CompleteQuest(LunarDateTime todayDateTime) // 퀘스트 성공
+    public void SuccessQuest(LunarDateTime todayDateTime, SuccessDegree successDegree) // 퀘스트 성공
     {
-        if(!IsCompletedOnce) IsCompletedOnce = true;
+        if (!IsCompletedOnce) IsCompletedOnce = true;
         IsAccepted = false;
         AcceptedDate = null;
         TriggerDate = null;
         RecycleDate = todayDateTime.AddDays(RecycleDays); // 퀘스트 완료 시 다음 재출현일자 미리 지정.
-        IsSuccessful = true;
+        lastSuccessDegree = successDegree;
+        if ((int)lastSuccessDegree >= 10)
+        {
+            EventBus.Publish<NPCSuccessQuestEvent>(new NPCSuccessQuestEvent(Data.GetNPC(origin.givingNPC)));
+        }
     }
 
     public void FailQuest(LunarDateTime todayDateTime) // 퀘스트 실패
@@ -47,7 +55,7 @@ public class Quest
         AcceptedDate = null;
         TriggerDate = null;
         RecycleDate = todayDateTime.AddDays(RecycleDays); // 퀘스트 완료 시 다음 재출현일자 미리 지정.
-        IsSuccessful = false;
+        lastSuccessDegree = SuccessDegree.fail;
     }
 
     // 매일 퀘스트 출현 가능한지 체크.
@@ -69,7 +77,7 @@ public class Quest
 
         //NPC 호감도 체크.
         // 1.타겟 npc(origin.givingNPC), 2.npc목록에서 조회, 3.퀘스트의 조건 호감도와 비교
-        if (NPCManager.Instance.NPCData.AllNPC[origin.givingNPC].favorability >= origin.conditionFavorability)
+        if (origin.conditionNPC == 0 || allNPC[origin.conditionNPC].Favorability >= origin.conditionFavorability)
         {
             return true;
         }

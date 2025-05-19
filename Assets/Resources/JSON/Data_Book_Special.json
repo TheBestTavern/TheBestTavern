@@ -1,0 +1,84 @@
+{
+  "Items": [
+    {
+      "key": 110401,
+      "name": "고추장",
+      "englishName": "none",
+      "givingNPCID": 800004,
+      "givingNPCName": "팥쥐",
+      "description": "none"
+    },
+    {
+      "key": 110402,
+      "name": "간장",
+      "englishName": "none",
+      "givingNPCID": 800003,
+      "givingNPCName": "콩쥐",
+      "description": "none"
+    },
+    {
+      "key": 110403,
+      "name": "된장",
+      "englishName": "none",
+      "givingNPCID": 800001,
+      "givingNPCName": "흥부",
+      "description": "none"
+    },
+    {
+      "key": 110404,
+      "name": "식용유",
+      "englishName": "none",
+      "givingNPCID": 800006,
+      "givingNPCName": "호랑이",
+      "description": "none"
+    },
+    {
+      "key": 110405,
+      "name": "밀가루",
+      "englishName": "none",
+      "givingNPCID": 800008,
+      "givingNPCName": "토끼",
+      "description": "none"
+    },
+    {
+      "key": 110406,
+      "name": "소면",
+      "englishName": "none",
+      "givingNPCID": 800005,
+      "givingNPCName": "선녀",
+      "description": "none"
+    },
+    {
+      "key": 110407,
+      "name": "버터",
+      "englishName": "none",
+      "givingNPCID": 800002,
+      "givingNPCName": "놀부",
+      "description": "none"
+    },
+    {
+      "key": 110408,
+      "name": "김치",
+      "englishName": "none",
+      "givingNPCID": 800010,
+      "givingNPCName": "허생",
+      "description": "none"
+    },
+    {
+      "key": 110409,
+      "name": "참기름",
+      "englishName": "none",
+      "givingNPCID": 800007,
+      "givingNPCName": "도깨비",
+      "description": "none"
+    },
+    {
+      "key": 110410,
+      "name": "쌀",
+      "englishName": "none",
+      "givingNPCID": 800009,
+      "givingNPCName": "거북이",
+      "description": "none"
+    }
+  ]
+}

@@ -42,6 +42,9 @@ public class InventoryModel
 
     private void 아이템그냥추가(Data_Foods data_Foods, int amount)
     {
+        // 아이템 획득 기록.
+        ItemRecordManager.Instance.HasGainedItem(data_Foods.FoodCategory);
+
         int remain = amount;
 
         if (!foodKey2IDs.ContainsKey(data_Foods.key))

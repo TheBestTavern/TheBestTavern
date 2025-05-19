@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,7 +13,7 @@ public enum ContentsType
     Inventory,
     Quest,
     Relation,
-    Recipe,
+    Book,
 }
 
 /// <summary>
@@ -36,9 +37,9 @@ public class MenuPopUp : BasePopUp
     [SerializeField] GameObject relationGameObject;
 
     // 레시피 보기 버튼
-    [SerializeField] Button recipeButton;
+    [SerializeField] Button bookButton;
     // 레시피 게임 오브젝트
-    [SerializeField] GameObject recipeGameObject;
+    [SerializeField] GameObject bookGameObject;
 
     // 메뉴 컨텐츠 딕셔너리
     Dictionary<ContentsType, GameObject> contentDic;
@@ -57,7 +58,7 @@ public class MenuPopUp : BasePopUp
             {ContentsType.Inventory, inventoryGameObject},
             {ContentsType.Quest ,questGameObject},
             {ContentsType.Relation, relationGameObject},
-            {ContentsType.Recipe, recipeGameObject},
+            {ContentsType.Book, bookGameObject},
         };
 
         // 인벤토리 보기 버튼 클릭 이벤트 리스너 추가
@@ -67,7 +68,7 @@ public class MenuPopUp : BasePopUp
         // NPC 관계 보기 버튼 클릭 이벤트 리스너 추가
         relationButton.onClick.AddListener(() => ShowContent(ContentsType.Relation));
         // 레시피 보기 버튼 클릭 이벤트 리스너 추가
-        recipeButton.onClick.AddListener(() => ShowContent(ContentsType.Recipe));
+        bookButton.onClick.AddListener(() => ShowContent(ContentsType.Book));
     }
     
     // 메뉴 컨텐츠 보여주기 함수

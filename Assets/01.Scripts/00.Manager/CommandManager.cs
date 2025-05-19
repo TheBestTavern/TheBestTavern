@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using Unity.IO.LowLevel.Unsafe;
 using System.Threading.Tasks;
 using UnityEngine;
+using OpenCover.Framework.Model;
 
 public interface IDayCommand
 {
@@ -23,8 +24,9 @@ public interface IDayCommand
 
 public class CommandManager : MonoSingleton<CommandManager>
 {
-    List<IDayCommand> commands = new();
+    List<IDayCommand> commands = new(); // 우선순위 큐로 전환 고려.
     bool isReady;
+    //Dictionary<Class, bool> commandAdmin;
 
     DayAndNightManager dayAndNightManager;
     public override void Init()
@@ -38,6 +40,7 @@ public class CommandManager : MonoSingleton<CommandManager>
         OnCommandStart startCommand = new();
         AddCommand(startCommand);
         AddCommand(endCommand);
+
     }
 
     private void Start()
@@ -76,7 +79,7 @@ public class OnCommandEnd : IDayCommand
 
     public Task Execute()
     {
-        Debug.Log("하루 명령 끝");
+        //Debug.Log("하루 명령 끝");
 
         return Task.CompletedTask;
     }
@@ -93,7 +96,7 @@ public class OnCommandStart : IDayCommand
 
     public Task Execute()
     {
-        Debug.Log("하루 명령 시작");
+        //Debug.Log("하루 명령 시작");
         DayAndNightManager.Instance.TriggerTimeProcess(1);
         return Task.CompletedTask;
     }

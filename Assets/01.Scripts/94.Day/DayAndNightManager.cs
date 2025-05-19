@@ -1,14 +1,46 @@
 using System.Collections;
+using System.Net;
 using UnityEngine;
+using static UnityEngine.Rendering.VirtualTexturing.Debugging;
+using UnityEngine.AddressableAssets;
+using UnityEngine.ResourceManagement.AsyncOperations;
+using Unity.VisualScripting;
 
 public class DayAndNightManager : MonoSingleton<DayAndNightManager>
 {
     public Material nightMat;
-    [Range(0f, 1f)] public float process; // 현재 하루의 진행도(시간)
+    [Range(0f, 1f)] public float process = 0; // 현재 하루의 진행도(시간)
     [Range(0f, 1f)] public float limitProcess; // 시간이 흐를때 리미트
-    [Range(0f, 10f)] public float duration = float.MinValue;
+    [Range(0f, 3f)] public float duration = 0.0001f;
+
     public AnimationCurve saturationCurve;
     public AnimationCurve lightnessCurve;
+
+    Coroutine coroutine;
+
+    public async override void Init()
+    {
+        if (_isInitialized) return;
+        base.Init();
+        DontDestroyOnLoad(gameObject);
+
+        ManagerContainer so = await AddressablesLoader.Instance.AddressablesLoadAsync<ManagerContainer>("DayAndNightManagerContainer.SO");
+
+        if (nightMat == null)
+        {
+            nightMat = so.nightMaterial;
+        }
+
+        if (saturationCurve == null)
+        {
+            saturationCurve = so.saturationCurve;
+        }
+
+        if (lightnessCurve == null)
+        {
+            lightnessCurve = so.lightnessCurve;
+        }
+    }
 
     public void pass1hour() // 한시간(정확히는 하루의 1/10씩 밝기 변경. 2차 시간표현 구현할때 필요한 기능. 제대로 구현하려면 process에 제한 줘야함.
     {
@@ -18,7 +50,9 @@ public class DayAndNightManager : MonoSingleton<DayAndNightManager>
 
     public void TriggerTimeProcess(float targetProcess)
     {
-        StartCoroutine(LerpProcess(targetProcess));
+        if (coroutine != null)
+            StopCoroutine(coroutine);
+        coroutine = StartCoroutine(LerpProcess(targetProcess));
     }
 
     IEnumerator LerpProcess(float targetProcess)
@@ -32,10 +66,10 @@ public class DayAndNightManager : MonoSingleton<DayAndNightManager>
                 nightMat.SetFloat("_Lightness", lightnessCurve.Evaluate(process));
             }
 
-            if(process >= 1)
+            if (process >= 1)
             {
-                DayAndNightManager.Instance.process = 0;
-                DayAndNightManager.Instance.limitProcess = 0;
+                process = 0;
+                limitProcess = 0;
                 yield break;
             }
             if (targetProcess < process) yield break;

@@ -1,0 +1,85 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: FoodImage
+  m_EditorClassIdentifier: 
+  m_GroupName: FoodImage
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 8f6ba3df0c987c3438ad1dc099cc70c6
+  m_SerializeEntries:
+  - m_GUID: fe2bbe3fc247223428ab96f3f76bd8f2
+    m_Address: Assets/16.Image/FoodImage/Butter.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a9edbeb2e63df7b4abd89adb3de4f92d
+    m_Address: Assets/16.Image/FoodImage/Garlic.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6aedeec4b46090949abe7212546e2f34
+    m_Address: Assets/16.Image/FoodImage/rock.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3a54b176424b0094d9eb126cad217947
+    m_Address: Assets/16.Image/FoodImage/slicedGoguma.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b4e6d0044d0c12740bfdaa9ff07c647e
+    m_Address: Assets/16.Image/FoodImage/candiedGoguma.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 071f430dc6242f54e9a68c4eea57be6d
+    m_Address: Assets/16.Image/FoodImage/roastGoguma.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 49f10942331b6ff4fba7796005ccbb42
+    m_Address: Assets/16.Image/FoodImage/Chili pepper.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9fb0c3eeac1fe31498afaac3094df136
+    m_Address: Assets/16.Image/FoodImage/Honey.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bc60d4194aaf52d4995aacf52538f749
+    m_Address: Assets/16.Image/FoodImage/Sweet potato.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 62c22252c6d716147b3a3603c6676379
+    m_Address: default.Sprite
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 61e277808a3e251458bfc951a9f981d2
+    m_Address: Undiscovered.Sprite
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1b7df7fc5a2040e4084b5bc819196c3a
+    m_Address: Undiscovered2.Sprite
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 3f946b317ceaa2747b411cad54511d5f, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: ffc1e29432beac64e8bf99d11bfeabd6, type: 2}
+    - {fileID: 11400000, guid: eae3c9daf3184934fa9ec55046fdc003, type: 2}

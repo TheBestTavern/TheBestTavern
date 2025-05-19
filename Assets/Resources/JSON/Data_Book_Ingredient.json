@@ -1,0 +1,560 @@
+{
+  "Items": [
+    {
+      "key": 110001,
+      "name": "마늘",
+      "englishName": "Garlic",
+      "region": [
+        1
+      ],
+      "biome": 0,
+      "season": [
+        0,
+        1,
+        2
+      ],
+      "description": "생으로는 코가 찡하지만, 익히면 놀랍게도 호랑이도 좋아할 맛! 100일간 먹으면 사람이 된다던 그 전설… 혹시 당신도?"
+    },
+    {
+      "key": 110002,
+      "name": "고추",
+      "englishName": "Chili pepper",
+      "region": [
+        4
+      ],
+      "biome": 0,
+      "season": [
+        1,
+        2
+      ],
+      "description": "보기만 해도 맵다! 매운맛 요리에 빠질 수 없는 자극 담당. 도깨비 뿔도 매워서 도망간다 카더라."
+    },
+    {
+      "key": 110003,
+      "name": "당근",
+      "englishName": "Carrot",
+      "region": [
+        1
+      ],
+      "biome": 0,
+      "season": [
+        0,
+        1,
+        2
+      ],
+      "description": "달콤하고 아삭한 식감. 당근이지~라는 말이 여기서 나왔다는 믿거나 말거나 전설."
+    },
+    {
+      "key": 110004,
+      "name": "대파",
+      "englishName": "Green onion",
+      "region": [
+        0
+      ],
+      "biome": 0,
+      "season": [
+        0,
+        1
+      ],
+      "description": "국물부터 볶음까지, 향을 살리는 마무리 한 줄기. 파란만장한 요리의 운명을 정한다."
+    },
+    {
+      "key": 110005,
+      "name": "상추",
+      "englishName": "Lettuce",
+      "region": [
+        0,
+        4
+      ],
+      "biome": 0,
+      "season": [
+        0,
+        1
+      ],
+      "description": "고기와 함께라면 천하무적! 산신령도 삼겹살엔 상추쌈을 곁들이신다는 말이 있다."
+    },
+    {
+      "key": 110006,
+      "name": "대두",
+      "englishName": "Soybean",
+      "region": [
+        0
+      ],
+      "biome": 0,
+      "season": [
+        2,
+        3
+      ],
+      "description": "콩으로 변신 준비 완료. 된장, 간장, 두부까지 조선 요리의 비밀병기."
+    },
+    {
+      "key": 110007,
+      "name": "감자",
+      "englishName": "Potato",
+      "region": [
+        2
+      ],
+      "biome": 0,
+      "season": [
+        0,
+        1
+      ],
+      "description": "든든한 탄수화물. 익히면 포근, 볶으면 아삭. 감자 없인 겨울을 못 난다 카더라."
+    },
+    {
+      "key": 110008,
+      "name": "꿀",
+      "englishName": "Honey",
+      "region": [
+        3
+      ],
+      "biome": 0,
+      "season": [
+        0,
+        1
+      ],
+      "description": "달달함의 정점! 곰도 반할 맛이라던 그 꿀. 옛날 옛적, 나무꿀단지를 통째로 들고 튀던 도깨비가 있었다 카더라…"
+    },
+    {
+      "key": 110009,
+      "name": "무",
+      "englishName": "Radish",
+      "region": [
+        0,
+        2
+      ],
+      "biome": 0,
+      "season": [
+        2,
+        3
+      ],
+      "description": "국물에 넣으면 시원함 2배. 단단하지만 부드러운 채소. 무 없인 국도 울고 간다."
+    },
+    {
+      "key": 110010,
+      "name": "조선 인삼",
+      "englishName": "Korean ginseng",
+      "region": [
+        1
+      ],
+      "biome": 0,
+      "season": [
+        2
+      ],
+      "description": "기운이 뻗치고도 남는 귀한 약초. 산삼이 부러워하는 양반 인삼."
+    },
+    {
+      "key": 110011,
+      "name": "고구마",
+      "englishName": "Sweet potato",
+      "region": [
+        1
+      ],
+      "biome": 0,
+      "season": [
+        2,
+        3
+      ],
+      "description": "달달한 맛으로 디저트 요리에 인기! 모닥불에 구우면 바로 가을 낭만."
+    },
+    {
+      "key": 110012,
+      "name": "쑥",
+      "englishName": "Mugwort",
+      "region": [
+        3
+      ],
+      "biome": 0,
+      "season": [
+        0
+      ],
+      "description": "100일 동안 먹으면 사람이 될 수도 있다던 바로 그 쑥!"
+    },
+    {
+      "key": 110013,
+      "name": "밤",
+      "englishName": "Chestnut",
+      "region": [
+        1,
+        4
+      ],
+      "biome": 0,
+      "season": [
+        2,
+        3
+      ],
+      "description": "뾰족 뾰족! 가시 사이에 달달한 밤이 숨어있다!"
+    },
+    {
+      "key": 110014,
+      "name": "감",
+      "englishName": "Persimmon",
+      "region": [
+        3
+      ],
+      "biome": 0,
+      "season": [
+        2,
+        3
+      ],
+      "description": "떫은 놈은 벽에 던져도 아깝고, 단 놈은 먹다 보면 자꾸 없어지는 마법."
+    },
+    {
+      "key": 110015,
+      "name": "배",
+      "englishName": "Pear",
+      "region": [
+        2,
+        3
+      ],
+      "biome": 0,
+      "season": [
+        2
+      ],
+      "description": "감기엔 배. 뭔가 술을 잔뜩 마시고 다음날 먹으면 괜찮아질거같다."
+    },
+    {
+      "key": 110016,
+      "name": "호두",
+      "englishName": "Walnut",
+      "region": [
+        2
+      ],
+      "biome": 0,
+      "season": [
+        2,
+        3
+      ],
+      "description": "바삭한 식감과 진한 풍미. 호랑이 이빨로만 깰 수 있다는 전설의 견과."
+    },
+    {
+      "key": 110017,
+      "name": "사과",
+      "englishName": "Apple",
+      "region": [
+        0
+      ],
+      "biome": 0,
+      "season": [
+        2
+      ],
+      "description": "새콤달콤한 과일. 옛날엔 이걸로 사과도 대신했다는 소문."
+    },
+    {
+      "key": 110018,
+      "name": "표고버섯",
+      "englishName": "Shiitake mushroom",
+      "region": [
+        1,
+        4
+      ],
+      "biome": 0,
+      "season": [
+        1,
+        2
+      ],
+      "description": "향이 깊고 쫄깃한 식감. 버섯 중의 버섯, 버섯계의 장군감."
+    },
+    {
+      "key": 110019,
+      "name": "멸치",
+      "englishName": "Anchovy",
+      "region": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "biome": 1,
+      "season": [
+        1,
+        2
+      ],
+      "description": "작다고 얕보지 마라. 국물 한 줌이면 조상님도 기립박수."
+    },
+    {
+      "key": 110020,
+      "name": "바지락",
+      "englishName": "Clam",
+      "region": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "biome": 1,
+      "season": [
+        0,
+        1
+      ],
+      "description": "국물에 시원한 바다를 더해주는 작은 조개. 바지런한 조개라서 바지락이라는 썰 있음."
+    },
+    {
+      "key": 110021,
+      "name": "홍합",
+      "englishName": "Mussel",
+      "region": [
+        0
+      ],
+      "biome": 1,
+      "season": [
+        2,
+        3
+      ],
+      "description": "검은 껍질 안의 감칠맛. 해물탕의 숨은 보석."
+    },
+    {
+      "key": 110022,
+      "name": "고등어",
+      "englishName": "Mackerel",
+      "region": [
+        1
+      ],
+      "biome": 1,
+      "season": [
+        3,
+        0
+      ],
+      "description": "기름지고 짭짤한 살점. 등 푸른 생선 중 최고참."
+    },
+    {
+      "key": 110023,
+      "name": "김",
+      "englishName": "seaweed",
+      "region": [
+        0
+      ],
+      "biome": 1,
+      "season": [
+        3,
+        0
+      ],
+      "description": "바삭하고 짭조름한 바다 간식. 밥 위에 척 올리면 밥이 두 배 맛있어짐."
+    },
+    {
+      "key": 110024,
+      "name": "참 돔",
+      "englishName": "Red seabream",
+      "region": [
+        4
+      ],
+      "biome": 1,
+      "season": [
+        0,
+        1
+      ],
+      "description": "고급 생선회나 구이에 어울리는 귀한 재료. 참 잘생긴 생선이다 해서 참돔이라나."
+    },
+    {
+      "key": 110025,
+      "name": "굴",
+      "englishName": "Oyster",
+      "region": [
+        2
+      ],
+      "biome": 1,
+      "season": [
+        3,
+        0
+      ],
+      "description": "겨울 바다의 진미. 입안에 바다를 통째로 넣은 느낌."
+    },
+    {
+      "key": 110026,
+      "name": "갈치",
+      "englishName": "Cutlassfish",
+      "region": [
+        3
+      ],
+      "biome": 1,
+      "season": [
+        2,
+        3
+      ],
+      "description": "조림하면 반짝반짝 빛나는 생선. 칼치라는 별명은 괜히 있는 게 아니다."
+    },
+    {
+      "key": 110027,
+      "name": "미역",
+      "englishName": "Sea mustard",
+      "region": [
+        3
+      ],
+      "biome": 1,
+      "season": [
+        0
+      ],
+      "description": "부드럽고 쫄깃한 해초. 생일에 이걸 안 먹으면 벌 받는다는 소문도..."
+    },
+    {
+      "key": 110028,
+      "name": "전복",
+      "englishName": "Abalone",
+      "region": [
+        3
+      ],
+      "biome": 1,
+      "season": [
+        1
+      ],
+      "description": "쫄깃한 바다의 보석. 찜, 구이, 죽 어디에나 어울리는 만능 아이템."
+    },
+    {
+      "key": 110029,
+      "name": "문어",
+      "englishName": "Octopus",
+      "region": [
+        2,
+        4
+      ],
+      "biome": 1,
+      "season": [
+        1
+      ],
+      "description": "팔이 여덟 개여도 도망 못 간다. 쫄깃함으로 반격한다."
+    },
+    {
+      "key": 110030,
+      "name": "꽃게",
+      "englishName": "Blue crab",
+      "region": [
+        0
+      ],
+      "biome": 1,
+      "season": [
+        2
+      ],
+      "description": "껍질만 단단한 줄 알았더니 속살은 엄청 착하다. 탕의 주인공."
+    },
+    {
+      "key": 110031,
+      "name": "오징어",
+      "englishName": "Squid",
+      "region": [
+        1
+      ],
+      "biome": 1,
+      "season": [
+        2
+      ],
+      "description": "쫄깃쫄깃, 짭짤한 바다 간식. 말려도 튀겨도 맛있는 만능 해산물."
+    },
+    {
+      "key": 110032,
+      "name": "대게",
+      "englishName": "Snow crab",
+      "region": [
+        1
+      ],
+      "biome": 1,
+      "season": [
+        3
+      ],
+      "description": "부드럽고 달큰한 살이 가득. 식탁 위의 황제."
+    },
+    {
+      "key": 110033,
+      "name": "새우",
+      "englishName": "Shrimp",
+      "region": [
+        2
+      ],
+      "biome": 1,
+      "season": [
+        1,
+        2
+      ],
+      "description": "껍질 속 단백질 폭탄. 새우젓, 튀김, 구이까지 없는 곳이 없다."
+    },
+    {
+      "key": 110034,
+      "name": "대하",
+      "englishName": "King prawn",
+      "region": [
+        4
+      ],
+      "biome": 1,
+      "season": [
+        2,
+        3
+      ],
+      "description": "큼직하고 살 오른 새우. 구이 요리의 왕 중 왕!"
+    },
+    {
+      "key": 110035,
+      "name": "방어",
+      "englishName": "Yellowtail",
+      "region": [
+        4
+      ],
+      "biome": 1,
+      "season": [
+        3,
+        0
+      ],
+      "description": "겨울이 제철인 귀한 생선. 칼바람 부는 날엔 방어 한 점이 약보다 낫다지."
+    },
+    {
+      "key": 110036,
+      "name": "식수",
+      "englishName": "Drinking water",
+      "region": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "biome": 0,
+      "season": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "description": "모든 요리의 시작. 깨끗한 물이 맛을 좌우한다."
+    },
+    {
+      "key": 110037,
+      "name": "콩나물",
+      "englishName": "Soybean sprout",
+      "region": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "biome": 0,
+      "season": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "description": "아삭한 식감, 국물과 무침에 필수. 뚜껑 열고 끓이면 혼나는 재료."
+    },
+    {
+      "key": 110038,
+      "name": "고기",
+      "englishName": "Meat",
+      "region": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "biome": 0,
+      "season": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "description": "식탁의 주인공! 호랑이가 몰래 노리는 단백질."
+    }
+  ]
+}

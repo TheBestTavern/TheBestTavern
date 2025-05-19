@@ -19,15 +19,15 @@ public class test_Inventory : MonoBehaviour
     private void Start()
     {
         addBtn_goguma.onClick.AddListener(() => AddItemBtn(101011));
-        addBtn_butter.onClick.AddListener(() => AddItemBtn(102074));
-        addBtn_manuel.onClick.AddListener(() => AddItemBtn(101001));
-        addBtn_gochu.onClick.AddListener(() => AddItemBtn(101002));
+        addBtn_butter.onClick.AddListener(() => AddItemBtn(104061));
+        addBtn_manuel.onClick.AddListener(() => AddItemBtn(104062));
+        addBtn_gochu.onClick.AddListener(() => AddItemBtn(104063));
         addBtn.onClick.AddListener(() => AddItemBtn(key));
 
         subtractBtn_goguma.onClick.AddListener(() => SubtractItemBtn(101015));
-        subtractBtn_butter.onClick.AddListener(() => SubtractItemBtn(103007));
-        subtractBtn_manuel.onClick.AddListener(() => SubtractItemBtn(101001));
-        subtractBtn_gochu.onClick.AddListener(() => SubtractItemBtn(101002));
+        subtractBtn_butter.onClick.AddListener(() => SubtractItemBtn(104061));
+        subtractBtn_manuel.onClick.AddListener(() => SubtractItemBtn(104062 ));
+        subtractBtn_gochu.onClick.AddListener(() => SubtractItemBtn(104063));
         subtractBtn.onClick.AddListener(() => SubtractItemBtn(key));
     }
 

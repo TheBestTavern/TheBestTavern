@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class BaseScene : MonoBehaviour
 {
-    public async virtual void OnEixtScene()
+    public virtual void OnEixtScene()
     {
         foreach (var controller in InventoryManager.Instance.Invens)
         {
@@ -10,7 +10,7 @@ public class BaseScene : MonoBehaviour
         }
     }
 
-    public async virtual void OnEnterScene()
+    public virtual void OnEnterScene()
     {
         foreach(var controller in InventoryManager.Instance.Invens)
         {
@@ -21,7 +21,7 @@ public class BaseScene : MonoBehaviour
         PopUpManager.Instance.OnSceneMove();
     }
 
-    public async virtual void OnLoadingScene()
+    public virtual void OnLoadingScene()
     {
 
     }

@@ -111,8 +111,24 @@ Shader "Custom/SpriteNightEffect"
             {
                 fixed4 col = tex2D(_MainTex, i.uv);
                 float3 hsl = RGBtoHSL(col.rgb);
-                hsl.y *= _Saturation;
+
+                float hue = hsl.x;
+
+                // 파란색 계열 중심 0.6, ±0.15 범위
+                float blueRange = 0.15;
+                float blueCenter = 0.6;
+                float blueDist = abs(hue - blueCenter);
+
+                // 파란색일수록 1.0에 가까움
+                float blueFactor = saturate(1.0 - blueDist / blueRange);
+
+                // Saturation 보정: 파란색일수록 덜 줄어듦
+                float saturationMultiplier = lerp(_Saturation, 1.0, blueFactor);
+                hsl.y *= saturationMultiplier;
+
+                // Lightness 그대로 적용
                 hsl.z *= _Lightness;
+
                 col.rgb = HSLtoRGB(hsl);
                 return col;
             }

@@ -10,7 +10,7 @@ public enum HolidayType
 }
 public class CalendarManager : MonoSingleton<CalendarManager>
 {
-    DesignEnums.SeasonType currentSeasonType;
+    public DesignEnums.SeasonType CurrentSeasonType { get; private set; }
 
     Dictionary<LunarDateTime, HolidayType> holidays = new()
     {
@@ -49,7 +49,7 @@ public class CalendarManager : MonoSingleton<CalendarManager>
             if (newSeason.HasValue)
             {
                 // 계절 변화 실행
-                Debug.Log($"계절이 {prt.currentSeasonType}에서 {newSeason}으로 변화합니다.");
+                Debug.Log($"계절이 {prt.CurrentSeasonType}에서 {newSeason}으로 변화합니다.");
                 ChangeSeason(newSeason.Value);
             }
 
@@ -71,7 +71,7 @@ public class CalendarManager : MonoSingleton<CalendarManager>
         private DesignEnums.SeasonType? CheckChangeSeason(LunarDateTime dateTime)
         {
             var todaySeason = WhichSeason(dateTime);
-            if (prt.currentSeasonType != todaySeason) // 계절 변화 판단
+            if (prt.CurrentSeasonType != todaySeason) // 계절 변화 판단
             {
                 return todaySeason;
 
@@ -81,7 +81,7 @@ public class CalendarManager : MonoSingleton<CalendarManager>
 
         private void ChangeSeason(DesignEnums.SeasonType newSeason)
         {
-            prt.currentSeasonType = newSeason;
+            prt.CurrentSeasonType = newSeason;
         }
 
         private DesignEnums.SeasonType WhichSeason(LunarDateTime lunarDate)

@@ -9,6 +9,7 @@ public class NPCSlot : MonoBehaviour
     public int index; // 0부터 시작
     NPCArea npcArea;
     Quest quest;
+    NPC npc;
     [SerializeField] Transform messagePivot;
     [SerializeField] Image image;
     [SerializeField] Button btn;
@@ -20,28 +21,27 @@ public class NPCSlot : MonoBehaviour
         this.npcArea = npcArea;
         btn.onClick.AddListener(OnClickBtn);
         transform.gameObject.SetActive(false);
-        Debug.Log("슬롯의 켜짐상태:" + gameObject.activeSelf); // 테스트용
+        //Debug.Log("슬롯의 켜짐상태:" + gameObject.activeSelf); // 테스트용
         messagePivot.gameObject.SetActive(false);
     }
 
     public void SetSlot(int questID)
     {
         this.quest = Data.GetQuest(questID);
-        Data_NPC npcRaw = NPCManager.Instance.AllNPC[quest.origin.givingNPC].origin;
-        image.sprite = Resources.Load<Sprite>("NPC/" + npcRaw.name);
-        TmpMessage.text = npcRaw.thanksMent;
+        npc = NPCManager.Instance.AllNPC[quest.origin.givingNPC];
+        image.sprite = Resources.Load<Sprite>("NPC/" + npc.origin.name);
+        TmpMessage.text = npc.origin.thanksMent;
     }
 
     private void OnClickBtn()
     {
         npcArea.EnterQuestSubmissionMode(quest, this);
+        npc.Meet();
     }
 
     public void ShowMessage()
     {
         messagePivot.gameObject.SetActive(true);
-        TmpMessage.text = quest.origin.description; // 테스트용
-        //TmpMessage.text = quest.origin.thankyouMessageWhentheygotItem; 
     }
 
     public void OnExit()

@@ -2,17 +2,17 @@ using UnityEngine;
 
 public class MainScene : BaseScene
 {
-    public override void OnEixtScene()
+    public async override void OnEixtScene()
     {
         base.OnEixtScene();
     }
 
-    public override void OnEnterScene()
+    public async override void OnEnterScene()
     {
         base.OnEnterScene();
     }
 
-    public override void OnLoadingScene()
+    public async override void OnLoadingScene()
     {
         base.OnLoadingScene();
     }

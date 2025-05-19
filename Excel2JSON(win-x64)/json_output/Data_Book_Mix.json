@@ -1,0 +1,162 @@
+{
+  "Items": [
+    {
+      "key": 110172,
+      "name": "쌈장",
+      "resultFoodEnglishName": "none",
+      "ingredients": [
+        110401,
+        110403,
+        110008
+      ],
+      "ingredientsName": [
+        "고추장",
+        "된장",
+        "꿀"
+      ],
+      "description": "none"
+    },
+    {
+      "key": 110174,
+      "name": "밀가루 반죽",
+      "resultFoodEnglishName": "none",
+      "ingredients": [
+        110405,
+        110036
+      ],
+      "ingredientsName": [
+        "밀가루",
+        "식수"
+      ],
+      "description": "none"
+    },
+    {
+      "key": 110176,
+      "name": "볶음양념",
+      "resultFoodEnglishName": "none",
+      "ingredients": [
+        110402,
+        110401,
+        110101
+      ],
+      "ingredientsName": [
+        "간장",
+        "고추장",
+        "다진 마늘"
+      ],
+      "description": "none"
+    },
+    {
+      "key": 110177,
+      "name": "조림간장",
+      "resultFoodEnglishName": "none",
+      "ingredients": [
+        110402,
+        110036,
+        110008
+      ],
+      "ingredientsName": [
+        "간장",
+        "식수",
+        "꿀"
+      ],
+      "description": "none"
+    },
+    {
+      "key": 110178,
+      "name": "고추양념장",
+      "resultFoodEnglishName": "none",
+      "ingredients": [
+        110401,
+        110103,
+        110101
+      ],
+      "ingredientsName": [
+        "고추장",
+        "다진 고추",
+        "다진 마늘"
+      ],
+      "description": "none"
+    },
+    {
+      "key": 110179,
+      "name": "튀김반죽",
+      "resultFoodEnglishName": "none",
+      "ingredients": [
+        110405,
+        110036,
+        110404
+      ],
+      "ingredientsName": [
+        "밀가루",
+        "식수",
+        "식용유"
+      ],
+      "description": "none"
+    },
+    {
+      "key": 110180,
+      "name": "간장 양념장",
+      "resultFoodEnglishName": "none",
+      "ingredients": [
+        110402,
+        110409,
+        110103
+      ],
+      "ingredientsName": [
+        "간장",
+        "참기름",
+        "다진 고추"
+      ],
+      "description": "none"
+    },
+    {
+      "key": 110181,
+      "name": "육수",
+      "resultFoodEnglishName": "none",
+      "ingredients": [
+        110019,
+        110101,
+        110036
+      ],
+      "ingredientsName": [
+        "멸치",
+        "다진 마늘",
+        "식수"
+      ],
+      "description": "none"
+    },
+    {
+      "key": 110182,
+      "name": "해물탕 베이스",
+      "resultFoodEnglishName": "none",
+      "ingredients": [
+        110178,
+        110403,
+        110036
+      ],
+      "ingredientsName": [
+        "고추양념장",
+        "된장",
+        "식수"
+      ],
+      "description": "none"
+    },
+    {
+      "key": 110183,
+      "name": "된장국물베이스",
+      "resultFoodEnglishName": "none",
+      "ingredients": [
+        110403,
+        110036,
+        110101
+      ],
+      "ingredientsName": [
+        "된장",
+        "식수",
+        "다진 마늘"
+      ],
+      "description": "none"
+    }
+  ]
+}
