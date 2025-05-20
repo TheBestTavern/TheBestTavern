@@ -21,7 +21,7 @@ public class CookingMiniGameManager : MonoSingleton<CookingMiniGameManager>
     public ICookingMiniGameHandler currentGame;
     private List<Data_Foods> selectedItems = new();
 
-    string selectedCookingTool = null;
+    private string selectedCookingTool = null;
 
     private CookingResultGrade resultGrade;
 

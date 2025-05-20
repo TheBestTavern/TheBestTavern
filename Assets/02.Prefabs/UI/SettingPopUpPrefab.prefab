@@ -269,6 +269,7 @@ GameObject:
   - component: {fileID: 2655418160509820718}
   - component: {fileID: 8839329702904920504}
   - component: {fileID: 6450187425006643512}
+  - component: {fileID: 7967824707303655477}
   m_Layer: 5
   m_Name: CloseButton
   m_TagString: Untagged
@@ -377,6 +378,19 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &7967824707303655477
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3411798860091646504}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e744a27a68559434ea55004cf9f1e781, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sfxName: BackButton
 --- !u!1 &3471589903422107141
 GameObject:
   m_ObjectHideFlags: 0
@@ -523,6 +537,7 @@ GameObject:
   - component: {fileID: 7527343196116312938}
   - component: {fileID: 8299291793145648339}
   - component: {fileID: 5339334415603791430}
+  - component: {fileID: 1460519854786462116}
   m_Layer: 5
   m_Name: QuitButton
   m_TagString: Untagged
@@ -632,6 +647,19 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1460519854786462116
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4299565852223570838}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e744a27a68559434ea55004cf9f1e781, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sfxName: 'SlotButton '
 --- !u!1 &5240837408372406702
 GameObject:
   m_ObjectHideFlags: 0
@@ -1080,6 +1108,7 @@ GameObject:
   - component: {fileID: 6731872733462389547}
   - component: {fileID: 4905341890842878742}
   - component: {fileID: 8578935561932637441}
+  - component: {fileID: 5368222130082891959}
   m_Layer: 5
   m_Name: SoundButton
   m_TagString: Untagged
@@ -1189,6 +1218,19 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &5368222130082891959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7002749621658418590}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e744a27a68559434ea55004cf9f1e781, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sfxName: 'SlotButton '
 --- !u!1 &7061332301305284617
 GameObject:
   m_ObjectHideFlags: 0
@@ -1201,6 +1243,7 @@ GameObject:
   - component: {fileID: 2576963651912366584}
   - component: {fileID: 4141676184105125008}
   - component: {fileID: 8793022287667276335}
+  - component: {fileID: 1516953405779487035}
   m_Layer: 5
   m_Name: SaveButton
   m_TagString: Untagged
@@ -1310,3 +1353,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1516953405779487035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7061332301305284617}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e744a27a68559434ea55004cf9f1e781, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sfxName: 'SlotButton '

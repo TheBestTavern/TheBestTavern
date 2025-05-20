@@ -189,7 +189,7 @@ public class CookingSceneUI : MonoBehaviour
         await SceneLoader.Instance.LoadSceneAsync("MainScene");
     }
 
-    void ReadyMiniGame(Button button)
+    public void ReadyMiniGame(Button button)
     {
         RectTransform btnRect = button.GetComponent<RectTransform>();
         curBtn = btnRect;
