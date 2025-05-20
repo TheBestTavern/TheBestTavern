@@ -32,7 +32,7 @@ public class Test_ViewAcceptedQuest : MonoBehaviour
             isViewingSlots.Add(TMP);
 
 
-            TMP.text = $"퀘스트명 : {quest.origin.name}\n" +
+            TMP.text = $"퀘스트명 : {quest.Origin.name}\n" +
                 $"수락일:{quest.AcceptedDate}\n" +
                 $"npc방문일:{quest.TriggerDate}\n" +
                 $"퀘스트재발생일:{quest.RecycleDate}\n" +

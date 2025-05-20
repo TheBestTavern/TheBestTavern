@@ -53,6 +53,8 @@ public class DayAndNightManager : MonoSingleton<DayAndNightManager>
         if (coroutine != null)
             StopCoroutine(coroutine);
         coroutine = StartCoroutine(LerpProcess(targetProcess));
+
+        EventBus.Publish<EnterNightUIBlockEvent>(new EnterNightUIBlockEvent());
     }
 
     IEnumerator LerpProcess(float targetProcess)
@@ -70,9 +72,15 @@ public class DayAndNightManager : MonoSingleton<DayAndNightManager>
             {
                 process = 0;
                 limitProcess = 0;
+                EventBus.Publish<EndNightUIBlockEvent>(new EndNightUIBlockEvent());
                 yield break;
             }
-            if (targetProcess < process) yield break;
+            if (targetProcess < process)
+            {
+                EventBus.Publish<EndNightUIBlockEvent>(new EndNightUIBlockEvent());
+                yield break;
+            }
+
 
             yield return null;
         }

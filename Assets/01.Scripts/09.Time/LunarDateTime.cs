@@ -1,6 +1,7 @@
 using System;
 using System.Data;
 using Unity.VisualScripting;
+using UnityEngine;
 
 
 /// <summary>
@@ -10,10 +11,15 @@ using Unity.VisualScripting;
 /// </summary>
 public struct LunarDateTime
 {
+    [field: SerializeField]
     public int year { get; private set; }
+    [field: SerializeField]
     public int month { get; private set; }
+    [field: SerializeField]
     public int day { get; private set; }
+    [field: SerializeField]
     public bool isLeapYear { get; private set; }
+    [field: SerializeField]
     public bool isLeapMonth { get; private set; }
     private readonly string leapString;
 
@@ -111,7 +117,7 @@ public struct LunarDateTime
     /// <summary>
     /// 구조체 기본 함수 오버라이드
     /// </summary>
-    public override bool Equals(Object obj)
+    public override bool Equals(System.Object obj)
     {
         if(!(obj is LunarDateTime)) return false;
         return this == (LunarDateTime)obj;

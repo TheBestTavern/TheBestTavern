@@ -143,7 +143,7 @@ public class SubmissionMode : MonoBehaviour
             // todo - 퀘스트 제출 후처리 ( 성공 실패 대기열 등록, 아이템 감소 ) 성공 실패 체크와 효과는 다음날 나타남.
 
             //1. 성공 실패 체크 대기열 등록 (대기열 체크는 endDay 단계에서 확인)
-            QuestManager.Instance.QuestCheckQueue.Enqueue((quest.origin.key, itemForSubmission.key));
+            QuestManager.Instance.QuestCheckQueue.Enqueue((quest.Origin.key, itemForSubmission.key));
 
             //2. 아이템 감소
             InventoryManager.Instance.Invens[InvenType.Player].아이템잃음(itemForSubmission, 1);
@@ -169,7 +169,7 @@ public class SubmissionMode : MonoBehaviour
     private void DevBtn()  // 테스트용
     {
         Debug.Log("dev-넘기기");
-        QuestManager.Instance.QuestCheckQueue.Enqueue((quest.origin.key, 888888));
+        QuestManager.Instance.QuestCheckQueue.Enqueue((quest.Origin.key, 888888));
         StartCoroutine(AfterSubmit());
     }
 

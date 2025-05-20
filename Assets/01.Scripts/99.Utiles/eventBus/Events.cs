@@ -1,5 +1,7 @@
 
 // Menu - npc 관계도 이벤트
+using UnityEngine;
+
 public class NPCFirstMetEvent
 {
     public NPC npc;
@@ -55,5 +57,24 @@ public class QuestClickLetterBtnEvent
     public QuestClickLetterBtnEvent(Quest quest)
     {
         this.quest = quest;
+    }
+}
+
+// 밤 동안 메인씬 UI 클릭 안되도록.
+public class EnterNightUIBlockEvent
+{
+
+    public EnterNightUIBlockEvent()
+    {
+
+    }
+}
+
+public class EndNightUIBlockEvent
+{
+
+    public EndNightUIBlockEvent()
+    {
+
     }
 }

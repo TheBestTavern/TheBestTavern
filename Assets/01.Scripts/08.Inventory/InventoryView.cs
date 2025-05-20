@@ -8,9 +8,7 @@ public abstract class InventoryView : MonoBehaviour
     public bool IsInitialized { get; private set; }
     protected InventoryController controller;
     protected Dictionary<int, InventorySlot> index2Slots = new(); // <슬롯 index, 슬롯 객체>
-    //protected Dictionary<int, int> ID2SlotIndex; // <ID, 슬롯 index>
     protected BiDictionary<int, int> BiID2SlotIndex = new(); // <ID, 슬롯 index> 양방향 딕셔너리 클래스
-    //protected Dictionary<int, List<int>> FoodKeySlotIndex; // <Data_Foods.key, 슬롯 index 리스트>
     InventoryTrashcan trashcan;
 
     [SerializeField] protected InventorySlot slotPref;
@@ -76,6 +74,24 @@ public abstract class InventoryView : MonoBehaviour
             targetIndex++;
         }
     }
+
+    public void 아이템이동(int toSlotIndex, int fromSlotIndex)
+    {
+        var toSlot = index2Slots[toSlotIndex];
+        var fromSlot = index2Slots[fromSlotIndex];
+
+        if (!toSlot.HasItem && fromSlot != null && fromSlot != this && fromSlot.HasItem)
+        {
+            ItemStack itemStack = index2Slots[fromSlotIndex].GetSlotItem();
+            // from 슬롯 비우기
+            fromSlot.슬롯비우기();
+
+            // to 슬롯에 채우기
+            toSlot.슬롯세팅(itemStack.ID);
+            BiID2SlotIndex.Add(itemStack.ID, toSlotIndex);
+        }
+    }
+
 
     public virtual void 특정아이템정보갱신(int id)  // 특정 ID의 정보만 갱신
     {

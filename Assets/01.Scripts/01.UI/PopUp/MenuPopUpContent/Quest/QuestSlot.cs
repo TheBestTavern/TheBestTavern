@@ -25,8 +25,8 @@ public class QuestSlot : MonoBehaviour, IPoolable
     public async void SetSlot(int questID, bool isInProgressQuest)
     {
         quest = Data.GetQuest(questID);
-        npcName.text = Data.GetNPC(quest.origin.givingNPC).origin.name;
-        questName.text = quest.origin.name;
+        npcName.text = Data.GetNPC(quest.Origin.givingNPC).Origin.name;
+        questName.text = quest.Origin.name;
         if (isInProgressQuest)
         {
             submissionDate.text = quest.TriggerDate.ToString();
@@ -35,7 +35,7 @@ public class QuestSlot : MonoBehaviour, IPoolable
         }
         else
         {
-            string englishName = Data.GetRawItem(quest.origin.compensationID).englishName;
+            string englishName = Data.GetRawItem(quest.Origin.compensationID).englishName;
             compensationImage.sprite = await AddressablesLoader.Instance.AddressablesLoadAsync<Sprite>($"Assets/16.Image/FoodImage/{englishName}.png", true);
             submissionDate.gameObject.SetActive(false);
             compensationImage.gameObject.SetActive(true);

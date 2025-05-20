@@ -68,7 +68,7 @@ public class InventorySlot : MonoBehaviour, IBeginDragHandler, IEndDragHandler, 
         }
     }
 
-    private void 슬롯비우기()
+    public void 슬롯비우기()
     {
         HasItem = false;
         item = null;
@@ -112,15 +112,8 @@ public class InventorySlot : MonoBehaviour, IBeginDragHandler, IEndDragHandler, 
     public void OnDrop(PointerEventData eventData) // 슬롯에 아이템이 없다면, view 아이템 이동 로직 호출
     {
         InventorySlot fromSlot = eventData.pointerDrag?.GetComponent<InventorySlot>();
-        if (fromSlot != null && fromSlot != this && !this.HasItem)
-        {
-            ItemStack fromItem = fromSlot.GetSlotItem();
-            if (fromItem != null)
-            {
-                슬롯세팅(fromItem.ID); 
-                fromSlot.슬롯비우기();  
-            }
-        }
+
+        view.아이템이동(index, fromSlot.index);
     }
 
     public void OnEndDrag(PointerEventData eventData)
