@@ -45,6 +45,7 @@ public class PopUpManager : MonoSingleton<PopUpManager>, IPopupManager
     public Stack<int> PopupIDs = new();
     public List<int> UsingPopups = new();
 
+    ToolTipManager toolTipManager;
 
 
     public override void Init()
@@ -54,6 +55,9 @@ public class PopUpManager : MonoSingleton<PopUpManager>, IPopupManager
 
         DontDestroyOnLoad(this);
         GetReadyIDs(PopupIDs, 1000, 9999);
+
+        toolTipManager = new();
+        toolTipManager.Initialize();
     }
 
     void GetReadyIDs(Stack<int> IDs, int from, int to)
