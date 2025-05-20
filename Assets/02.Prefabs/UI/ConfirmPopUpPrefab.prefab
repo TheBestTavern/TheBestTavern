@@ -122,7 +122,6 @@ MonoBehaviour:
   popUpType: 3
   okButton: {fileID: 9138244290486610637}
   yesButton: {fileID: 6849592107754325485}
-  noButton: {fileID: 3524760748519846103}
   alarmText: {fileID: 8425639978223289734}
   inputField: {fileID: 5170413880488237569}
 --- !u!1 &3196335260730562180
