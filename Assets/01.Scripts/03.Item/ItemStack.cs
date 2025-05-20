@@ -11,17 +11,14 @@ public class ItemStack // 풀로 관리하기
     [JsonProperty]
     public int ID { get; private set; }
 
-    public Action<int> OnZero;
-    public Action<int> OnChanged;
+    //[JsonIgnore] public Action<int> OnZero;
+    //[JsonIgnore] public Action<int> OnChanged;
 
-    public ItemStack(Data_Foods data_Foods, int amount, int id, Action<int> recoverID, Action<int> removeFromModel, Action<int> change)
+    public ItemStack(Data_Foods data_Foods, int amount, int id)
     {
         Origin = data_Foods;
         Count = amount;
         ID = id;
-        OnZero = removeFromModel;
-        OnZero += recoverID;
-        OnChanged = change;
     }
 
     public int Add(int amount, int maxCount)
@@ -49,11 +46,12 @@ public class ItemStack // 풀로 관리하기
 
     public void TriggerOnDestroy()
     {
-        OnZero?.Invoke(ID);
+        ItemStackManager.Instance.ReCoverID(ID);
+        EventBus.Publish<ItemStackOnZeroEvent>(new ItemStackOnZeroEvent(ID));
     }
 
     public void TriggerOnChange()
     {
-        OnChanged?.Invoke(ID);
+        EventBus.Publish<ItemStackOnChangeEvent>(new ItemStackOnChangeEvent(ID));
     }
 }

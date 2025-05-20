@@ -20,3 +20,62 @@ MonoBehaviour:
   sfxClips:
   - soundName: Button1
     addressableKey: ClickButton1
+  - soundName: Julgu
+    addressableKey: Julgu
+  - soundName: Success
+    addressableKey: Success
+  - soundName: Fail
+    addressableKey: Fail
+  - soundName: GrillButton
+    addressableKey: GrillButton
+  - soundName: GrindButton
+    addressableKey: GrindButton
+  - soundName: MillButton
+    addressableKey: MillButton
+  - soundName: CutButton
+    addressableKey: CutButton
+  - soundName: BoilButton
+    addressableKey: BoilButton
+  - soundName: MixingBowlButton
+    addressableKey: MixingBowlButton
+  - soundName: DishButton
+    addressableKey: DishButton
+  - soundName: SceneMoveButton
+    addressableKey: SceneMoveButton
+  - soundName: DogamButton
+    addressableKey: Dogam
+  - soundName: CardMatch
+    addressableKey: CardMatch
+  - soundName: Boil
+    addressableKey: Boil
+  - soundName: Doma2
+    addressableKey: Doma2
+  - soundName: Timer
+    addressableKey: Timer
+  - soundName: Matdol
+    addressableKey: Matdol
+  - soundName: MixingBowl
+    addressableKey: MixingBowl
+  - soundName: Door
+    addressableKey: Door
+  - soundName: SlotButton
+    addressableKey: SlotButton
+  - soundName: CookingStartButton
+    addressableKey: CookingStartButton
+  - soundName: ConfirmButton
+    addressableKey: ConfirmButton
+  - soundName: BackButton
+    addressableKey: BackButton
+  - soundName: CardFlip
+    addressableKey: CardFlip
+  loopClips:
+  - soundName: BoilAmbience
+    addressableKey: BoilAmbience
+  - soundName: ForestAmbience
+    addressableKey: ForestAmbience
+  - soundName: GrillAmbience
+    addressableKey: GrillAmbience
+  - soundName: GrillAmbience
+    addressableKey: GrillAmbience
+  - soundName: OceanAmbience
+    addressableKey: OceanAmbience

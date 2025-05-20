@@ -11,11 +11,16 @@ public class InventoryModel
 
     public Action<int> OnChanged;
 
-    public void Init(int slotCount, int maxStackSize, Action<int> OnModelChanged)
+    public void Init(InvenType invenType, int slotCount, int maxStackSize, Action<int> OnModelChanged)
     {
+        Inven = invenType;
         this.SlotCount = slotCount;
         this.maxStackSize = maxStackSize;
         this.OnChanged = OnModelChanged;
+
+        EventBus.Subscribe<ItemStackOnChangeEvent>(TriggerOnChange);
+        EventBus.Subscribe<ItemStackOnZeroEvent>(아이템삭제);
+        //EventBus.Subscribe<ItemStackOnZeroEvent>(ItemStackManager.Instance.ReCoverID);
     }
 
     public bool 아이템검사후추가(Data_Foods data_Foods, int amount)
@@ -61,7 +66,7 @@ public class InventoryModel
         while (remain > 0)
         {
             //var temp = new ItemStack(data_Foods, 0, 아이템삭제);
-            var temp = ItemStackManager.Instance.InstantiateItem(data_Foods, 0, 아이템삭제, OnChanged);
+            var temp = ItemStackManager.Instance.InstantiateItem(data_Foods, 0);
             remain = temp.Add(remain, maxStackSize);
             IDList.Add(temp.ID);
             ID2ItemStack.Add(temp.ID, temp);
@@ -127,15 +132,27 @@ public class InventoryModel
 
     private void 아이템삭제(int id)
     {
-        ItemStack itemStack = ID2ItemStack[id];
-
-        ID2ItemStack.Remove(id);
-        foodKey2IDs[itemStack.Origin.key].Remove(id);
-        if (foodKey2IDs[itemStack.Origin.key].Count == 0) foodKey2IDs.Remove(itemStack.Origin.key);
+        if (ID2ItemStack.TryGetValue(id, out ItemStack itemStack))
+        {
+            ID2ItemStack.Remove(id);
+            foodKey2IDs[itemStack.Origin.key].Remove(id);
+            if (foodKey2IDs[itemStack.Origin.key].Count == 0) foodKey2IDs.Remove(itemStack.Origin.key);
+        }
     }
 
-    //public void TriggerOnChange(int id)
-    //{
-    //    OnChanged?.Invoke(id);
-    //}
+    private void 아이템삭제(ItemStackOnZeroEvent evt)
+    {
+        아이템삭제(evt.ID);
+    }
+
+    private void TriggerOnChange(ItemStackOnChangeEvent evt)
+    {
+        OnChanged?.Invoke(evt.ID);
+    }
+
+    public void Dipose()
+    {
+        EventBus.UnSubscribe<ItemStackOnChangeEvent>(TriggerOnChange);
+        EventBus.UnSubscribe<ItemStackOnZeroEvent>(아이템삭제);
+    }
 }

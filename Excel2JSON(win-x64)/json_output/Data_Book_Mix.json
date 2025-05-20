@@ -3,7 +3,7 @@
     {
       "key": 110172,
       "name": "쌈장",
-      "resultFoodEnglishName": "none",
+      "resultFoodEnglishName": "ssamjang",
       "ingredients": [
         110401,
         110403,
@@ -14,12 +14,12 @@
         "된장",
         "꿀"
       ],
-      "description": "none"
+      "description": "고추장과 된장이 만나 탄생한 마법의 조합. 쌈에 얹으면 고기가 더 이상 도망가지 못한다."
     },
     {
       "key": 110174,
       "name": "밀가루 반죽",
-      "resultFoodEnglishName": "none",
+      "resultFoodEnglishName": "flourDough",
       "ingredients": [
         110405,
         110036
@@ -28,12 +28,12 @@
         "밀가루",
         "식수"
       ],
-      "description": "none"
+      "description": "물과 밀가루가 만난 요리의 시작점. 면도 만들고 전도 부치는 범용의 장인."
     },
     {
       "key": 110176,
       "name": "볶음양념",
-      "resultFoodEnglishName": "none",
+      "resultFoodEnglishName": "stirFrySauce",
       "ingredients": [
         110402,
         110401,
@@ -44,12 +44,12 @@
         "고추장",
         "다진 마늘"
       ],
-      "description": "none"
+      "description": "고추장, 간장, 마늘의 환상적인 삼중주. 한 숟갈이면 팬이 뜨거워진다."
     },
     {
       "key": 110177,
       "name": "조림간장",
-      "resultFoodEnglishName": "none",
+      "resultFoodEnglishName": "soyBraisingSauce",
       "ingredients": [
         110402,
         110036,
@@ -60,12 +60,12 @@
         "식수",
         "꿀"
       ],
-      "description": "none"
+      "description": "국물 졸이기의 정석. 달큰하고 짭조름한 맛의 설계도. "
     },
     {
       "key": 110178,
       "name": "고추양념장",
-      "resultFoodEnglishName": "none",
+      "resultFoodEnglishName": "spicyChiliSauce",
       "ingredients": [
         110401,
         110103,
@@ -76,12 +76,12 @@
         "다진 고추",
         "다진 마늘"
       ],
-      "description": "none"
+      "description": "고추장이 좀 더 날카로워졌다. 맵단짠의 중심에서 너를 외친다."
     },
     {
       "key": 110179,
       "name": "튀김반죽",
-      "resultFoodEnglishName": "none",
+      "resultFoodEnglishName": "batter",
       "ingredients": [
         110405,
         110036,
@@ -92,12 +92,12 @@
         "식수",
         "식용유"
       ],
-      "description": "none"
+      "description": "바삭함을 책임지는 금빛 장갑. 속은 촉촉, 겉은 바삭! 요리의 갑옷."
     },
     {
       "key": 110180,
       "name": "간장 양념장",
-      "resultFoodEnglishName": "none",
+      "resultFoodEnglishName": "soySauceSeasoning",
       "ingredients": [
         110402,
         110409,
@@ -108,12 +108,12 @@
         "참기름",
         "다진 고추"
       ],
-      "description": "none"
+      "description": "은은하게 배어드는 짭조름한 유혹. 구이든 볶음이든 입맛을 깨우는 한 방울."
     },
     {
       "key": 110181,
       "name": "육수",
-      "resultFoodEnglishName": "none",
+      "resultFoodEnglishName": "broth",
       "ingredients": [
         110019,
         110101,
@@ -124,12 +124,12 @@
         "다진 마늘",
         "식수"
       ],
-      "description": "none"
+      "description": "보이지 않지만 모든 맛의 뼈대. 멸치, 마늘, 물이 만든 숨겨진 조력자."
     },
     {
       "key": 110182,
       "name": "해물탕 베이스",
-      "resultFoodEnglishName": "none",
+      "resultFoodEnglishName": "seafoodSoupBase",
       "ingredients": [
         110178,
         110403,
@@ -140,12 +140,12 @@
         "된장",
         "식수"
       ],
-      "description": "none"
+      "description": "바다의 맛을 농축한 진한 국물의 정수. 어떠한 재료도 기꺼이 몸을 담근다."
     },
     {
       "key": 110183,
       "name": "된장국물베이스",
-      "resultFoodEnglishName": "none",
+      "resultFoodEnglishName": "doenjangSoupBase",
       "ingredients": [
         110403,
         110036,
@@ -156,7 +156,7 @@
         "식수",
         "다진 마늘"
       ],
-      "description": "none"
+      "description": "된장의 깊은 맛을 우려낸 국물의 시작. 쑥이든 감자든, 담기만 하면 어머니 손맛."
     }
   ]
 }

@@ -32,4 +32,13 @@ public class InventoryManager : MonoSingleton<InventoryManager>
     {
         return FindObjectsOfType<InventoryView>();
     }
+
+    protected override void OnDestroy()
+    {
+        base.OnDestroy();
+        foreach(var pair in Invens)
+        {
+            pair.Value.Dispose();
+        }
+    }
 }

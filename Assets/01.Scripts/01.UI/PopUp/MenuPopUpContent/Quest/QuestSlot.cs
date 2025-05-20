@@ -13,6 +13,7 @@ public class QuestSlot : MonoBehaviour, IPoolable
     [SerializeField] TextMeshProUGUI submissionDate;
     [SerializeField] Image compensationImage;
     [SerializeField] Button letterBtn;
+    bool isInProgressQuest;
 
     public string ID => gameObject.name;
 
@@ -27,6 +28,7 @@ public class QuestSlot : MonoBehaviour, IPoolable
         quest = Data.GetQuest(questID);
         npcName.text = Data.GetNPC(quest.Origin.givingNPC).Origin.name;
         questName.text = quest.Origin.name;
+        this.isInProgressQuest = isInProgressQuest;
         if (isInProgressQuest)
         {
             submissionDate.text = quest.TriggerDate.ToString();
@@ -50,7 +52,7 @@ public class QuestSlot : MonoBehaviour, IPoolable
 
     public void OnClickLetterBtn()
     {
-        EventBus.Publish<QuestClickLetterBtnEvent>(new QuestClickLetterBtnEvent(quest));
+        EventBus.Publish<QuestClickLetterBtnEvent>(new QuestClickLetterBtnEvent(quest, isInProgressQuest));
     }
 
     public void OnDespawn()

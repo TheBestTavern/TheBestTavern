@@ -9,7 +9,6 @@ public abstract class InventoryView : MonoBehaviour
     protected InventoryController controller;
     protected Dictionary<int, InventorySlot> index2Slots = new(); // <슬롯 index, 슬롯 객체>
     protected BiDictionary<int, int> BiID2SlotIndex = new(); // <ID, 슬롯 index> 양방향 딕셔너리 클래스
-    InventoryTrashcan trashcan;
 
     [SerializeField] protected InventorySlot slotPref;
     [SerializeField] protected Transform slotTrs;
@@ -47,8 +46,7 @@ public abstract class InventoryView : MonoBehaviour
 
     protected virtual void 초기화(InventoryController controller)// 슬롯 딕셔너리 생성, 쓰레기통 생성, 컨트롤러 연결, 슬롯 갯수 
     {
-        //1. 쓰레기통 생성, 컨트롤러 연결, 슬롯 갯수 
-        this.trashcan = new InventoryTrashcan();
+        //1. 컨트롤러 연결, 슬롯 갯수 
         this.controller = controller;
         controller.AddView(this);
 

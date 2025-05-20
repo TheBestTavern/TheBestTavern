@@ -19,7 +19,7 @@ public class MenuCompletedQuestUI : MenuQuestUIBase<Dictionary<int, SuccessDegre
 
     public async override void SetList()
     {
-        foreach(var slot in slots)
+        foreach (var slot in slots)
         {
             slot.TriggerReturn();
         }
@@ -42,8 +42,11 @@ public class MenuCompletedQuestUI : MenuQuestUIBase<Dictionary<int, SuccessDegre
     // 이벤트 버스 함수
     public async override void OpenLetter(QuestClickLetterBtnEvent evt)
     {
-        var letter = await PopUpManager.Instance.ShowPopUp(PopUpType.Letter) as QuestLetter;
-        letter.SetLetter(evt.quest, false);
+        if (!evt.isInProgressQuest)
+        {
+            var letter = await PopUpManager.Instance.ShowPopUp(PopUpType.Letter) as BookQuestLetter;
+            letter.SetLetter(evt.quest, false);
+        }
     }
 
     public void UpdateList(QuestSuccessFirstEvent evt)

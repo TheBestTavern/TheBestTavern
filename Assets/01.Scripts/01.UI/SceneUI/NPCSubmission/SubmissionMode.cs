@@ -34,6 +34,7 @@ public class SubmissionMode : MonoBehaviour
         //1. 인벤토리와 연결
         InventoryViewLoose submitInventory = InventoryUI.GetComponent<InventoryViewLoose>();
         submitInventory.OnEnableTargetSlot = TempSubmit;
+        submitInventory.OnDisalbeTargetSlot = () => submissionSlot.Clear();
 
         //2. 시퀀스 생성
         submitBtn.onClick.AddListener(Submit);
@@ -131,15 +132,16 @@ public class SubmissionMode : MonoBehaviour
 
     public async void Submit() // 제출 버튼에 구독
     {
-        if (submissionSlot == null)
+
+        Data_Foods itemForSubmission = submissionSlot.GetSlotItem();
+
+        if (itemForSubmission == null)
         {
-            await PopUpManager.Instance.ShowPopUp(PopUpType.Alarm);
-            PopUpManager.Instance.alarmPopUp.SetAlarm("제출할 아이템을 먼저 선택하세요.");
+            await PopUpManager.Instance.ShowPopUp(PopUpType.Confirm);
+            PopUpManager.Instance.confirmPopUp.SetConfirm("제출할 아이템을 먼저 선택하세요.");
         }
         else
         {
-            Data_Foods itemForSubmission = submissionSlot.GetSlotItem();
-
             // todo - 퀘스트 제출 후처리 ( 성공 실패 대기열 등록, 아이템 감소 ) 성공 실패 체크와 효과는 다음날 나타남.
 
             //1. 성공 실패 체크 대기열 등록 (대기열 체크는 endDay 단계에서 확인)
@@ -147,8 +149,9 @@ public class SubmissionMode : MonoBehaviour
 
             //2. 아이템 감소
             InventoryManager.Instance.Invens[InvenType.Player].아이템잃음(itemForSubmission, 1);
+
+            StartCoroutine(AfterSubmit());
         }
-        StartCoroutine(AfterSubmit());
     }
 
     private void PlayeSeq(Sequence sequence) // 제출 판넬, 인벤토리 나타남.

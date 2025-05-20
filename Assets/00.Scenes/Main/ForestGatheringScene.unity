@@ -393,14 +393,9 @@ MonoBehaviour:
     width: 4
     height: 2
   propsParent: {fileID: 1499846125}
-  trees:
-  - {fileID: 3042220791633965089, guid: 5fd6dbb6f49fdcd41931b6eba13908e7, type: 3}
-  - {fileID: 8626525174728711647, guid: 2342ea0508c2e6146ada9318a9cfd983, type: 3}
-  bushes:
-  - {fileID: 570324494798527175, guid: 0b6ce3a053ca7c5469b928da13a832b5, type: 3}
-  fields:
-  - {fileID: 5573708998422167392, guid: ab61cbfa06d847f438bfa2961b05cfc7, type: 3}
-  - {fileID: 7829986254922615610, guid: 44da1f051d0849348a3c96aae3103925, type: 3}
+  treesLabelName: Tree
+  bushLabelName: Bush
+  fieldLabelName: Field
 --- !u!1 &233913866
 GameObject:
   m_ObjectHideFlags: 0
@@ -3205,7 +3200,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45ea0016c9e6ada4a8ef0b04289c12dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dayText: {fileID: 244180204}
+  Text: {fileID: 0}
 --- !u!1 &1853943761
 GameObject:
   m_ObjectHideFlags: 0

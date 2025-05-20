@@ -13,15 +13,10 @@ public class CookingBoilMiniGame : CookingMiniGameBase
     [SerializeField] private WaterVolumeTransforms water;
 
     // 참조
-    //public StartPoint startPoint;
+  
     public GameObject startPointPrefab;
     public GameObject arrowPrefab;
     public DrawLine drawLine;
-
-    //float[] spawnTimes = { };
-    //int lineIndex = 0;
-    //float spawnInterval = 4f;
-    //float drawTime = 1.5f; // 드로잉 제한시간
 
     public Vector2 arrowStartPos;
     public Vector2 arrowEndPos;
@@ -36,7 +31,6 @@ public class CookingBoilMiniGame : CookingMiniGameBase
 
     private int perfect, bad, good, miss;
 
-
     protected override float GetTimer()
     {
         return data.BoilTimer;
@@ -45,15 +39,15 @@ public class CookingBoilMiniGame : CookingMiniGameBase
     private void Awake()
     {
         CookingMiniGameManager.Instance.GetCurrentMiniGame(this);
-        
     }
 
     public override void StartGame()
     {
+        SoundManager.Instance.PlayAmbience("BoilAmbience");
+
         StartPoint.OnClickStartPoint -= SpawnArrowPoint;
         StartPoint.OnClickStartPoint += SpawnArrowPoint; 
         drawLine = FindObjectOfType<DrawLine>();
-
     }
 
     private void OnDestroy()
@@ -195,6 +189,7 @@ public class CookingBoilMiniGame : CookingMiniGameBase
             perfect++;
             TriggerAnimation();
             TriggerWaterWave();
+            SoundManager.Instance.PlaySFX("Boil");
             CookingEffectManager.Instance.ShowJudgeText(0);
         }
         // 약간 어긋났지만 전체 선이동 70% 이상
@@ -203,6 +198,7 @@ public class CookingBoilMiniGame : CookingMiniGameBase
             good++;
             TriggerAnimation();
             TriggerWaterWave();
+            SoundManager.Instance.PlaySFX("Boil");
             CookingEffectManager.Instance.ShowJudgeText(1);
         }
         // 방향불일치 or 선이탈 40~70%
@@ -210,7 +206,6 @@ public class CookingBoilMiniGame : CookingMiniGameBase
         {
             bad++;
             CookingEffectManager.Instance.ShowJudgeText(2);
-
         }
         // 클릭안함/엉뚱한방향/40%미만
         else if (finalScore < 0.4f || userLine == null || userLine.Count <= 3)

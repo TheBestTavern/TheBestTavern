@@ -58,7 +58,7 @@ public class CookingKnife_Test : MonoBehaviour
             {
                 isSlicing = true;
 
-                
+                SoundManager.Instance.PlaySFX("Doma2");
                 StartSlicing();
                 SliceObject(hit.gameObject, cutMaterial);
                 Destroy(hit.gameObject);
