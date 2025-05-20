@@ -20,6 +20,7 @@ public class GatheringResultPopUp : BasePopUp
 
     public override void OnClose()
     {
+        base.OnClose();
         if (SceneManager.GetActiveScene().name == "Forest_Animal_Dev")
         {
             CaptureManager.Instance.UnLoadMiniGame();
@@ -29,27 +30,23 @@ public class GatheringResultPopUp : BasePopUp
         {
             FishingManager.Instance.UnLoadMiniGame();
         }
-
-        base.OnClose();
     }
 
     public override void OnOpen()
     {
-        //setContents();
-
         resultCanvasGroup.DOFade(1f, 1f);
-
-
-
         ShowResultText();
 
-        if (SceneManager.GetActiveScene().name == "Forest_Animal_Dev")
+        if (result) // 성공한 경우에만 아이템 정보 표시
         {
-            ShowForestItemInfo();
-        }
-        else
-        {
-            ShowOceanItemInfo();
+            if (SceneManager.GetActiveScene().name == "Forest_Animal_Dev")
+            {
+                ShowForestItemInfo();
+            }
+            else
+            {
+                ShowOceanItemInfo();
+            }
         }
 
         try
