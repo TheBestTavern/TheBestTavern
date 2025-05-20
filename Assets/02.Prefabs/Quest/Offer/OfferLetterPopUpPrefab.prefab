@@ -57,6 +57,7 @@ GameObject:
   - component: {fileID: 5156179252056233465}
   - component: {fileID: 3488856939192943166}
   - component: {fileID: 8113134454464108027}
+  - component: {fileID: 6222555056130330619}
   m_Layer: 5
   m_Name: yesBtn
   m_TagString: Untagged
@@ -166,6 +167,19 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &6222555056130330619
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 621052944888205719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e744a27a68559434ea55004cf9f1e781, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sfxName: ConfirmButton
 --- !u!1 &1180885609649414485
 GameObject:
   m_ObjectHideFlags: 0
@@ -1114,6 +1128,7 @@ GameObject:
   - component: {fileID: 9080754711276616348}
   - component: {fileID: 2837026057852275880}
   - component: {fileID: 5191641361296504264}
+  - component: {fileID: 1373428685764173558}
   m_Layer: 5
   m_Name: Button 11
   m_TagString: Untagged
@@ -1223,6 +1238,19 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1373428685764173558
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3924970513043914398}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e744a27a68559434ea55004cf9f1e781, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sfxName: BackButton
 --- !u!1 &4038935217675081484
 GameObject:
   m_ObjectHideFlags: 0
@@ -1413,6 +1441,7 @@ GameObject:
   - component: {fileID: 6833820867196822488}
   - component: {fileID: 7969612200863126590}
   - component: {fileID: 933005163671696613}
+  - component: {fileID: 6417919848198913280}
   m_Layer: 5
   m_Name: Button 7
   m_TagString: Untagged
@@ -1522,6 +1551,19 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &6417919848198913280
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4182497252537032466}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e744a27a68559434ea55004cf9f1e781, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sfxName: BackButton
 --- !u!1 &4212355997315528558
 GameObject:
   m_ObjectHideFlags: 0
@@ -1713,6 +1755,7 @@ GameObject:
   - component: {fileID: 8867438096242727230}
   - component: {fileID: 795257476929735502}
   - component: {fileID: 4138442322733405415}
+  - component: {fileID: 4237485131150955298}
   m_Layer: 5
   m_Name: Button 14
   m_TagString: Untagged
@@ -1822,6 +1865,19 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &4237485131150955298
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6363300806969257919}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e744a27a68559434ea55004cf9f1e781, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sfxName: BackButton
 --- !u!1 &6610332292058813814
 GameObject:
   m_ObjectHideFlags: 0
