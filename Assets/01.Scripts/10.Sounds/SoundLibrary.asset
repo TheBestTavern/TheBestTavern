@@ -44,10 +44,16 @@ MonoBehaviour:
     addressableKey: SceneMoveButton
   - soundName: DogamButton
     addressableKey: Dogam
+  - soundName: CardMatch
+    addressableKey: CardMatch
   - soundName: Boil
     addressableKey: Boil
-  - soundName: BoilAmbience
-    addressableKey: BoilAmbience
   ambienceClips:
   - soundName: BoilAmbience
     addressableKey: BoilAmbience
+  - soundName: OceanAmbience
+    addressableKey: OceanAmbience
+  - soundName: GrillAmbience
+    addressableKey: GrillAmbience
+  - soundName: OceanAmbience
+    addressableKey: OceanAmbience

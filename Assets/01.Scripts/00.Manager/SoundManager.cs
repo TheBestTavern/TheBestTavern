@@ -148,11 +148,11 @@ public class SoundManager : MonoSingleton<SoundManager>
 
     private void AddAmbience()
     {
-        foreach (var ambience in soundLibrary.bgmClips)
+        foreach (var ambience in soundLibrary.ambienceClips)
         {
-            if (!bgmKeys.ContainsKey(ambience.soundName))
+            if (!ambienceKeys.ContainsKey(ambience.soundName))
             {
-                bgmKeys.Add(ambience.soundName, ambience.addressableKey);
+                ambienceKeys.Add(ambience.soundName, ambience.addressableKey);
             }
         }
     }
