@@ -42,3 +42,12 @@ MonoBehaviour:
     addressableKey: DishButton
   - soundName: SceneMoveButton
     addressableKey: SceneMoveButton
+  - soundName: DogamButton
+    addressableKey: Dogam
+  - soundName: Boil
+    addressableKey: Boil
+  - soundName: BoilAmbience
+    addressableKey: BoilAmbience
+  ambienceClips:
+  - soundName: BoilAmbience
+    addressableKey: BoilAmbience

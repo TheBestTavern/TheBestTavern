@@ -39,7 +39,7 @@ public class CookingBoilMiniGame : CookingMiniGameBase
     private void Awake()
     {
         CookingMiniGameManager.Instance.GetCurrentMiniGame(this);
-        
+        SoundManager.Instance.PlayAmbience("BoilAmbience");
     }
 
     public override void StartGame()
