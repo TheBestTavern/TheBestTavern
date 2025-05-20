@@ -227,6 +227,18 @@ MonoBehaviour:
     m_SerializedLabels:
     - SFX
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7a1acab5003704d4d8562025e4f35e0c
+    m_Address: Door
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - SFX
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e96970c7f4b4cbd46b48fec324b0e68c
+    m_Address: CardFlip
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - SFX
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 3f946b317ceaa2747b411cad54511d5f, type: 2}
   m_SchemaSet:

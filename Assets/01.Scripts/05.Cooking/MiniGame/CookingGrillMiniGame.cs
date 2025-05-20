@@ -70,6 +70,8 @@ public class CookingGrillMiniGame : CookingMiniGameBase
     {
         if (isFlipLocked) return;
 
+        SoundManager.Instance.PlaySFX("CardFlip");
+
         if (firstCard == null)
         {
             firstCard = selectedCard;

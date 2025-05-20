@@ -58,6 +58,16 @@ MonoBehaviour:
     addressableKey: MixingBowl
   - soundName: Door
     addressableKey: Door
+  - soundName: SlotButton
+    addressableKey: SlotButton
+  - soundName: CookingStartButton
+    addressableKey: CookingStartButton
+  - soundName: ConfirmButton
+    addressableKey: ConfirmButton
+  - soundName: BackButton
+    addressableKey: BackButton
+  - soundName: CardFlip
+    addressableKey: CardFlip
   loopClips:
   - soundName: BoilAmbience
     addressableKey: BoilAmbience
