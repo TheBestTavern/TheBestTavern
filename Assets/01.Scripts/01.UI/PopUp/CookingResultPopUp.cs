@@ -76,13 +76,17 @@ public class CookingResultPopUp : BasePopUp
         Debug.Log($"최종 아이템 키 : {itemKey}");
         if (itemKey == -1)
         {
-            Debug.Log("요리 실패해서 이름 안 뜸");
+            Debug.Log("레시피가 틀려서 이름 안 뜸");
             successText.gameObject.SetActive(false);
             failText.gameObject.SetActive(true);
             itemImage.gameObject.SetActive(false);
             itemNameText.gameObject.SetActive(false);
+            SoundManager.Instance.PlaySFX("Fail");
+            itemNameText.text = "조리 도구를 잘못 선택한 것 같다...";
+
             return;
         }
+        SoundManager.Instance.PlaySFX("Success");
         var data = DataManager.Instance.DataLoader_Foods.GetByKey(itemKey);
         itemNameText.text = data.name;
 

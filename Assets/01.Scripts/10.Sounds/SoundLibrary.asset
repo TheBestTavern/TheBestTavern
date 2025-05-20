@@ -20,3 +20,11 @@ MonoBehaviour:
   sfxClips:
   - soundName: Button1
     addressableKey: ClickButton1
+  - soundName: Julgu
+    addressableKey: Julgu
+  - soundName: Success
+    addressableKey: Success
+  - soundName: Fail
+    addressableKey: Fail
+  - soundName: SceneMoveButton
+    addressableKey: SceneMoveButton

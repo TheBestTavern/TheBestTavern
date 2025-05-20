@@ -94,6 +94,27 @@ public class SoundManager : MonoSingleton<SoundManager>
         };
     }
 
+    //public void PlayLoop(string name)
+    //{
+    //    if (!sfxKeys.TryGetValue(name, out var addressKey))
+    //    {
+    //        Debug.LogWarning($"SFX 찾을 수 없음: {name}");
+    //        return;
+    //    }
+
+    //    Addressables.LoadAssetAsync<AudioClip>(addressKey).Completed += (handle) =>
+    //    {
+    //        if (handle.Status == AsyncOperationStatus.Succeeded)
+    //        {
+    //            sfxSource.PlayOneShot(handle.Result);
+    //        }
+    //        else
+    //        {
+    //            Debug.LogError($"로드 실패: {addressKey}");
+    //        }
+    //    };
+    //}
+
     private void AddBGM()
     {
         foreach (var bgm in soundLibrary.bgmClips)
