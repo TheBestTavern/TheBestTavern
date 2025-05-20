@@ -335,7 +335,7 @@
       "name": "잘게 썰린 표고 버섯",
       "resultCategory": 110133,
       "ingredients": [
-        110018
+        110132
       ],
       "usingTool": 1001,
       "itemType": 1
@@ -395,7 +395,7 @@
       "name": "회로 손질 된 고등어",
       "resultCategory": 110139,
       "ingredients": [
-        110022
+        110138
       ],
       "usingTool": 1001,
       "itemType": 1
@@ -405,7 +405,7 @@
       "name": "구운 고등어",
       "resultCategory": 110140,
       "ingredients": [
-        110022
+        110138
       ],
       "usingTool": 1006,
       "itemType": 1
@@ -425,7 +425,7 @@
       "name": "회로 손질 된 참돔",
       "resultCategory": 110142,
       "ingredients": [
-        110024
+        110141
       ],
       "usingTool": 1001,
       "itemType": 1
@@ -455,7 +455,7 @@
       "name": "뼈가 발린 갈치",
       "resultCategory": 110145,
       "ingredients": [
-        110026
+        110144
       ],
       "usingTool": 1001,
       "itemType": 1
@@ -465,7 +465,7 @@
       "name": "구운 갈치",
       "resultCategory": 110146,
       "ingredients": [
-        110026
+        110144
       ],
       "usingTool": 1006,
       "itemType": 1
@@ -495,7 +495,7 @@
       "name": "회로 손질 된 전복",
       "resultCategory": 110149,
       "ingredients": [
-        110028
+        110147
       ],
       "usingTool": 1001,
       "itemType": 1
@@ -535,7 +535,7 @@
       "name": "토막 난 문어",
       "resultCategory": 110153,
       "ingredients": [
-        110029
+        110152
       ],
       "usingTool": 1001,
       "itemType": 1
@@ -565,7 +565,7 @@
       "name": "토막 난 꽃게",
       "resultCategory": 110156,
       "ingredients": [
-        110030
+        110155
       ],
       "usingTool": 1001,
       "itemType": 1
@@ -585,7 +585,7 @@
       "name": "살이 발라진 꽃게",
       "resultCategory": 110158,
       "ingredients": [
-        110030
+        110157
       ],
       "usingTool": 1001,
       "itemType": 1
@@ -605,7 +605,7 @@
       "name": "토막 난 오징어 ",
       "resultCategory": 110160,
       "ingredients": [
-        110031
+        110159
       ],
       "usingTool": 1001,
       "itemType": 1
@@ -635,7 +635,7 @@
       "name": "회로 손질 된 대게",
       "resultCategory": 110163,
       "ingredients": [
-        110032
+        110162
       ],
       "usingTool": 1001,
       "itemType": 1
@@ -655,7 +655,7 @@
       "name": "살이 발라진 대게",
       "resultCategory": 110165,
       "ingredients": [
-        110032
+        110164
       ],
       "usingTool": 1001,
       "itemType": 1
@@ -715,7 +715,7 @@
       "name": "회로 손질 된 방어",
       "resultCategory": 110171,
       "ingredients": [
-        110035
+        110170
       ],
       "usingTool": 1001,
       "itemType": 1
@@ -896,8 +896,8 @@
       "name": "감자조림",
       "resultCategory": 110502,
       "ingredients": [
-        110110,
-        110117
+        110112,
+        110177
       ],
       "usingTool": 1008,
       "itemType": 4
@@ -908,18 +908,20 @@
       "resultCategory": 110503,
       "ingredients": [
         110115,
-        110409
+        110409,
+        110177
       ],
       "usingTool": 1008,
       "itemType": 4
     },
     {
       "key": 603004,
-      "name": "마늘쫑볶음",
+      "name": "인삼고추장구이",
       "resultCategory": 110504,
       "ingredients": [
-        110100,
-        110177
+        110008,
+        110010,
+        110401
       ],
       "usingTool": 1008,
       "itemType": 4
@@ -998,19 +1000,18 @@
       "resultCategory": 110511,
       "ingredients": [
         110140,
-        110407
+        110180
       ],
       "usingTool": 1008,
       "itemType": 4
     },
     {
       "key": 603012,
-      "name": "표고버섯구이",
+      "name": "갈치구이",
       "resultCategory": 110512,
       "ingredients": [
-        110132,
-        110404,
-        110177
+        110146,
+        110180
       ],
       "usingTool": 1008,
       "itemType": 4
@@ -1043,8 +1044,8 @@
       "resultCategory": 110515,
       "ingredients": [
         110111,
-        110404,
-        110004
+        110402,
+        110104
       ],
       "usingTool": 1008,
       "itemType": 4
@@ -1066,7 +1067,7 @@
       "name": "고추장 제육볶음",
       "resultCategory": 110517,
       "ingredients": [
-        110103,
+        110106,
         110178,
         110185
       ],
@@ -1086,11 +1087,11 @@
     },
     {
       "key": 603019,
-      "name": "구운 꽃게",
+      "name": "게살죽",
       "resultCategory": 110519,
       "ingredients": [
-        110155,
-        110407
+        110410,
+        110158
       ],
       "usingTool": 1008,
       "itemType": 4
@@ -1101,8 +1102,8 @@
       "resultCategory": 110520,
       "ingredients": [
         110183,
-        110132,
-        110108
+        110112,
+        110109
       ],
       "usingTool": 1008,
       "itemType": 4
@@ -1112,9 +1113,9 @@
       "name": "전복죽",
       "resultCategory": 110521,
       "ingredients": [
-        110181,
         110410,
-        110147
+        110147,
+        110148
       ],
       "usingTool": 1008,
       "itemType": 4
@@ -1124,6 +1125,7 @@
       "name": "꽃게탕",
       "resultCategory": 110522,
       "ingredients": [
+        110115,
         110182,
         110156
       ],
@@ -1137,7 +1139,7 @@
       "ingredients": [
         110012,
         110183,
-        110112
+        110109
       ],
       "usingTool": 1008,
       "itemType": 4
@@ -1192,11 +1194,11 @@
     },
     {
       "key": 603028,
-      "name": "전복버터찜",
+      "name": "인삼주스",
       "resultCategory": 110528,
       "ingredients": [
-        110150,
-        110407
+        110117,
+        110008
       ],
       "usingTool": 1008,
       "itemType": 4
@@ -1214,11 +1216,10 @@
     },
     {
       "key": 603030,
-      "name": "허니 버터 감자",
+      "name": "감 주스",
       "resultCategory": 110530,
       "ingredients": [
-        110111,
-        110407,
+        110125,
         110008
       ],
       "usingTool": 1008,
@@ -1226,10 +1227,11 @@
     },
     {
       "key": 603031,
-      "name": "감말랭이",
+      "name": "밤 조림",
       "resultCategory": 110531,
       "ingredients": [
-        110124,
+        110036,
+        110122,
         110008
       ],
       "usingTool": 1008,
@@ -1251,6 +1253,7 @@
       "name": "배숙",
       "resultCategory": 110533,
       "ingredients": [
+        110126,
         110127,
         110008
       ],
@@ -1287,7 +1290,8 @@
       "resultCategory": 110536,
       "ingredients": [
         110113,
-        110179
+        110179,
+        110175
       ],
       "usingTool": 1008,
       "itemType": 4
@@ -1298,8 +1302,8 @@
       "resultCategory": 110537,
       "ingredients": [
         110173,
-        110134,
-        110180
+        110181,
+        110104
       ],
       "usingTool": 1008,
       "itemType": 4
@@ -1321,19 +1325,18 @@
       "resultCategory": 110539,
       "ingredients": [
         110149,
-        110409
+        110402
       ],
       "usingTool": 1008,
       "itemType": 4
     },
     {
       "key": 603040,
-      "name": "대게찜정식",
+      "name": "대게 회 세트",
       "resultCategory": 110540,
       "ingredients": [
-        110164,
-        110180,
-        110410
+        110163,
+        110402
       ],
       "usingTool": 1008,
       "itemType": 4
@@ -1387,7 +1390,7 @@
       "name": "오징어 튀김",
       "resultCategory": 110545,
       "ingredients": [
-        110174,
+        110179,
         110175,
         110160
       ],
@@ -1399,7 +1402,7 @@
       "name": "새우 튀김",
       "resultCategory": 110546,
       "ingredients": [
-        110174,
+        110179,
         110175,
         110033
       ],
@@ -1420,11 +1423,12 @@
     },
     {
       "key": 603048,
-      "name": "새우 대하 구이 세트",
+      "name": "바지락 칼국수",
       "resultCategory": 110548,
       "ingredients": [
-        110167,
-        110169
+        110020,
+        110174,
+        110181
       ],
       "usingTool": 1008,
       "itemType": 4

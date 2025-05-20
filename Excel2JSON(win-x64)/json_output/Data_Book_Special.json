@@ -3,82 +3,82 @@
     {
       "key": 110401,
       "name": "고추장",
-      "englishName": "none",
+      "englishName": "gochujang",
       "givingNPCID": 800004,
       "givingNPCName": "팥쥐",
-      "description": "none"
+      "description": "매콤하고 구수한 발효 양념. 도깨비도 울고 갈 조선의 불맛."
     },
     {
       "key": 110402,
       "name": "간장",
-      "englishName": "none",
+      "englishName": "ganjang",
       "givingNPCID": 800003,
       "givingNPCName": "콩쥐",
-      "description": "none"
+      "description": "깊고 짭조름한 조선의 기본 간. 된장과 쌍두마차로 불리는 발효 쌍벽."
     },
     {
       "key": 110403,
       "name": "된장",
-      "englishName": "none",
+      "englishName": "doenjang",
       "givingNPCID": 800001,
       "givingNPCName": "흥부",
-      "description": "none"
+      "description": "콩이 다시 태어났다! 구수하고 짙은 향. 어머니 손맛의 상징, 국물의 심장."
     },
     {
       "key": 110404,
       "name": "식용유",
-      "englishName": "none",
+      "englishName": "cookingOil",
       "givingNPCID": 800006,
       "givingNPCName": "호랑이",
-      "description": "none"
+      "description": "요리엔 기름이 생명! 지글지글 소리와 함께 입맛이 돌아온다."
     },
     {
       "key": 110405,
       "name": "밀가루",
-      "englishName": "none",
+      "englishName": "flour",
       "givingNPCID": 800008,
       "givingNPCName": "토끼",
-      "description": "none"
+      "description": "반죽의 시작이자 부침의 바탕. 빵이든 면이든 밀가루 없인 시작도 없다."
     },
     {
       "key": 110406,
       "name": "소면",
-      "englishName": "none",
+      "englishName": "somen",
       "givingNPCID": 800005,
       "givingNPCName": "선녀",
-      "description": "none"
+      "description": "얇고 부드러운 밀면. 삶아 찬물에 말면 여름이 찾아온다."
     },
     {
       "key": 110407,
       "name": "버터",
-      "englishName": "none",
+      "englishName": "butter",
       "givingNPCID": 800002,
       "givingNPCName": "놀부",
-      "description": "none"
+      "description": "고소하고 진한 서양의 풍미. 노란색 한 조각이 요리의 품격을 올린다."
     },
     {
       "key": 110408,
       "name": "김치",
-      "englishName": "none",
+      "englishName": "kimchi",
       "givingNPCID": 800010,
       "givingNPCName": "허생",
-      "description": "none"
+      "description": "한국인의 밥상에 빠질 수 없는 발효 명작. 익을수록 깊고, 먹을수록 그립다."
     },
     {
       "key": 110409,
       "name": "참기름",
-      "englishName": "none",
+      "englishName": "sesameOil",
       "givingNPCID": 800007,
       "givingNPCName": "도깨비",
-      "description": "none"
+      "description": "고소한 향으로 마무리 한 방울. 들기름과 싸워 이긴 향신료계의 귀족."
     },
     {
       "key": 110410,
       "name": "쌀",
-      "englishName": "none",
+      "englishName": "rice",
       "givingNPCID": 800009,
       "givingNPCName": "거북이",
-      "description": "none"
+      "description": "한 톨 한 톨이 품은 햇살과 정성. 모든 밥상의 시작, 조선의 주식."
     }
   ]
 }

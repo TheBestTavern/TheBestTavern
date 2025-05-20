@@ -3,7 +3,7 @@
     {
       "key": 110501,
       "name": "견과류 멸치 볶음",
-      "resultFoodEnglishName": "none",
+      "resultFoodEnglishName": "stirFriedAnchoviesWithNuts",
       "ingredients": [
         110135,
         110008,
@@ -19,49 +19,53 @@
     {
       "key": 110502,
       "name": "감자조림",
-      "resultFoodEnglishName": "none",
+      "resultFoodEnglishName": "braisedPotatoes",
       "ingredients": [
-        110110,
-        110117
+        110112,
+        110177
       ],
       "ingredientsName": [
-        "토막 난 감자",
-        "인삼 즙"
+        "삶은 감자",
+        "조림간장"
       ],
       "description": "달큰하게 졸여낸 부드러운 감자 반찬.\n손이 자꾸 가는 정겨운 밥도둑.\n시간이 지날수록 양념이 배어 더 맛있어진다."
     },
     {
       "key": 110503,
       "name": "무나물",
-      "resultFoodEnglishName": "none",
+      "resultFoodEnglishName": "seasonedRadish",
       "ingredients": [
         110115,
-        110409
+        110409,
+        110177
       ],
       "ingredientsName": [
         "삶은 무",
-        "참기름"
+        "참기름",
+        "조림간장"
       ],
       "description": "담백하게 볶아낸 무의 순한 맛.\n속이 편안해지는 집밥의 정석.\n양념 없이도 깊은 단맛이 살아있다."
     },
     {
       "key": 110504,
-      "name": "마늘쫑볶음",
-      "resultFoodEnglishName": "none",
+      "name": "인삼고추장구이",
+      "resultFoodEnglishName": "ginsengGochujangGrill",
       "ingredients": [
-        110100,
-        110177
+        110008,
+        110010,
+        110401
       ],
       "ingredientsName": [
-        "편 마늘",
-        "조림간장"
+        "꿀",
+        "조선 인삼",
+        "고추장"
       ],
-      "description": "아삭하고 향긋한 마늘쫑의 매력.\n간장 양념에 조려내 감칠맛이 돈다.\n입맛 없을 때 딱 좋은 반찬."
+      "description": "쌉쌀한 인삼에 고추장 양념을 듬뿍 발라 구워낸 강렬한 맛.\n불향과 단짠의 조화 속에 약재의 깊은 향이 살아있다.\n몸을 깨우는 구이 한 점, 건강한 불맛의 정수."
     },
     {
       "key": 110505,
       "name": "두부조림",
-      "resultFoodEnglishName": "none",
+      "resultFoodEnglishName": "braisedTofu",
       "ingredients": [
         110109,
         110178
@@ -75,7 +79,7 @@
     {
       "key": 110506,
       "name": "고구마 조림",
-      "resultFoodEnglishName": "none",
+      "resultFoodEnglishName": "braisedSweetPotatoes",
       "ingredients": [
         110119,
         110177
@@ -89,7 +93,7 @@
     {
       "key": 110507,
       "name": "콩나물 무침",
-      "resultFoodEnglishName": "none",
+      "resultFoodEnglishName": "seasonedBeanSprouts",
       "ingredients": [
         110184,
         110180,
@@ -105,7 +109,7 @@
     {
       "key": 110508,
       "name": "버섯볶음",
-      "resultFoodEnglishName": "none",
+      "resultFoodEnglishName": "stirFriedMushrooms",
       "ingredients": [
         110133,
         110404,
@@ -121,7 +125,7 @@
     {
       "key": 110509,
       "name": "버터 감자",
-      "resultFoodEnglishName": "none",
+      "resultFoodEnglishName": "butterPotatoes",
       "ingredients": [
         110111,
         110407
@@ -135,7 +139,7 @@
     {
       "key": 110510,
       "name": "호두조림",
-      "resultFoodEnglishName": "none",
+      "resultFoodEnglishName": "candiedWalnuts",
       "ingredients": [
         110128,
         110177
@@ -149,37 +153,35 @@
     {
       "key": 110511,
       "name": "고등어구이",
-      "resultFoodEnglishName": "none",
+      "resultFoodEnglishName": "mackerelGrillDish",
       "ingredients": [
         110140,
-        110407
+        110180
       ],
       "ingredientsName": [
         "구운 고등어",
-        "버터"
+        "간장 양념장"
       ],
       "description": "노릇하게 구워낸 고등어의 짭짤한 매력.\n밥 한 공기 뚝딱하는 감칠맛의 진수.\n구수한 생선 향이 식탁을 가득 채운다."
     },
     {
       "key": 110512,
-      "name": "표고버섯구이",
-      "resultFoodEnglishName": "none",
+      "name": "갈치구이",
+      "resultFoodEnglishName": "grilledShiitakeMushrooms",
       "ingredients": [
-        110132,
-        110404,
-        110177
+        110146,
+        110180
       ],
       "ingredientsName": [
-        "토막 난 표고 버섯",
-        "식용유",
-        "조림간장"
+        "구운 갈치",
+        "간장 양념장"
       ],
-      "description": "탱글탱글한 식감의 표고버섯에 달큰한 조림간장 살짝.\n심플하지만 향과 감칠맛이 깊다.\n자연을 그대로 구워낸 건강한 한입."
+      "description": "은빛 껍질이 노릇노릇 구워져 바삭함과 촉촉함을 동시에.\n속살은 고소하고 부드러워 밥도둑이라 불릴 만하다.\n칼처럼 길지만 맛은 칼보다 부드러운 생선구이."
     },
     {
       "key": 110513,
       "name": "전복버터구이",
-      "resultFoodEnglishName": "none",
+      "resultFoodEnglishName": "butterGrilledAbalone",
       "ingredients": [
         110151,
         110407
@@ -193,7 +195,7 @@
     {
       "key": 110514,
       "name": "대하버터구이",
-      "resultFoodEnglishName": "none",
+      "resultFoodEnglishName": "butterGrilledKingPrawn",
       "ingredients": [
         110169,
         110407
@@ -207,23 +209,23 @@
     {
       "key": 110515,
       "name": "감자채볶음",
-      "resultFoodEnglishName": "none",
+      "resultFoodEnglishName": "stirFriedShreddedPotatoes",
       "ingredients": [
         110111,
-        110404,
-        110004
+        110402,
+        110104
       ],
       "ingredientsName": [
         "구운 감자",
-        "식용유",
-        "대파"
+        "간장",
+        "당근 채"
       ],
       "description": "채 썬 감자를 아삭하게 볶아낸 기본 중의 기본.\n감자의 담백함과 불맛이 잘 어우러진다.\n간단하지만 완성도 높은 반찬."
     },
     {
       "key": 110516,
       "name": "마늘볶음밥",
-      "resultFoodEnglishName": "none",
+      "resultFoodEnglishName": "garlicFriedRice",
       "ingredients": [
         110100,
         110410,
@@ -239,14 +241,14 @@
     {
       "key": 110517,
       "name": "고추장 제육볶음",
-      "resultFoodEnglishName": "none",
+      "resultFoodEnglishName": "spicyPorkStirFry",
       "ingredients": [
-        110103,
+        110106,
         110178,
         110185
       ],
       "ingredientsName": [
-        "다진 고추",
+        "파채",
         "고추양념장",
         "삶은 고기"
       ],
@@ -255,7 +257,7 @@
     {
       "key": 110518,
       "name": "버터 고구마",
-      "resultFoodEnglishName": "none",
+      "resultFoodEnglishName": "butterSweetPotato",
       "ingredients": [
         110119,
         110407
@@ -268,59 +270,61 @@
     },
     {
       "key": 110519,
-      "name": "구운 꽃게",
-      "resultFoodEnglishName": "none",
+      "name": "게살죽",
+      "resultFoodEnglishName": "crabMeatPorridge",
       "ingredients": [
-        110155,
-        110407
+        110410,
+        110158
       ],
       "ingredientsName": [
-        "손질 된 꽃게",
-        "버터"
+        "쌀",
+        "살이 발라진 꽃게"
       ],
-      "description": "껍질째 바삭하게 구운 바다의 향연.\n속살은 촉촉, 겉은 바삭!\n한입 먹으면 고소함에 빠져든다."
+      "description": "잘게 찢은 게살과 고소한 쌀이 어우러진 따뜻한 죽.\n부드럽게 퍼지는 식감과 감칠맛이 몸을 녹여준다.\n속 편한 한 끼, 조용한 바다의 위로."
     },
     {
       "key": 110520,
       "name": "된장찌개",
-      "resultFoodEnglishName": "none",
+      "resultFoodEnglishName": "doenjangStew",
       "ingredients": [
         110183,
-        110132,
-        110108
+        110112,
+        110109
       ],
       "ingredientsName": [
         "된장국물베이스",
-        "토막 난 표고 버섯",
-        "두부"
+        "삶은 감자",
+        "썰린 두부"
       ],
       "description": "구수한 된장 향에 마음이 놓인다.\n두부, 버섯이 들어간 전통 찌개의 표본.\n국물 한 숟갈에 고향의 정이 담겨 있다."
     },
     {
       "key": 110521,
       "name": "전복죽",
-      "resultFoodEnglishName": "none",
+      "resultFoodEnglishName": "abalonePorridge",
       "ingredients": [
-        110181,
         110410,
-        110147
+        110147,
+        110148
       ],
       "ingredientsName": [
-        "육수",
         "쌀",
-        "손질 된 전복"
+        "손질 된 전복",
+        "전복 내장"
       ],
       "description": "영양 만점 전복을 듬뿍 넣은 진한 죽.\n입안에서 부드럽게 퍼지는 전복 풍미.\n몸이 허할 때 최고의 보양식."
     },
     {
       "key": 110522,
       "name": "꽃게탕",
-      "resultFoodEnglishName": "none",
+      "resultFoodEnglishName": "blueCrabSoup",
       "ingredients": [
+        110115,
         110182,
         110156
       ],
       "ingredientsName": [
+        "삶은 무",
         "해물탕 베이스",
         "토막 난 꽃게"
       ],
@@ -329,23 +333,23 @@
     {
       "key": 110523,
       "name": "쑥 된장국",
-      "resultFoodEnglishName": "none",
+      "resultFoodEnglishName": "mugwortSoybeanPasteSoup",
       "ingredients": [
         110012,
         110183,
-        110112
+        110109
       ],
       "ingredientsName": [
         "쑥",
         "된장국물베이스",
-        "삶은 감자"
+        "썰린 두부"
       ],
       "description": "감자의 부드러움과 된장의 구수함과 향긋한 쑥이 어우러진 국.\n자극 없는 맛으로 부담 없이 먹기 좋다.\n따뜻한 밥과 함께 먹으면 속이 편안해진다."
     },
     {
       "key": 110524,
       "name": "굴미역국",
-      "resultFoodEnglishName": "none",
+      "resultFoodEnglishName": "seaweedSoupWithOyster",
       "ingredients": [
         110143,
         110027,
@@ -361,7 +365,7 @@
     {
       "key": 110525,
       "name": "콩나물김칫국",
-      "resultFoodEnglishName": "none",
+      "resultFoodEnglishName": "beanSproutKimchiSoup",
       "ingredients": [
         110184,
         110181,
@@ -377,7 +381,7 @@
     {
       "key": 110526,
       "name": "대하탕",
-      "resultFoodEnglishName": "none",
+      "resultFoodEnglishName": "kingPrawnStew",
       "ingredients": [
         110182,
         110168,
@@ -393,7 +397,7 @@
     {
       "key": 110527,
       "name": "문어연포탕",
-      "resultFoodEnglishName": "none",
+      "resultFoodEnglishName": "octopusHotPot",
       "ingredients": [
         110154,
         110181,
@@ -408,22 +412,22 @@
     },
     {
       "key": 110528,
-      "name": "전복버터찜",
-      "resultFoodEnglishName": "none",
+      "name": "인삼주스",
+      "resultFoodEnglishName": "ginsengJuice",
       "ingredients": [
-        110150,
-        110407
+        110117,
+        110008
       ],
       "ingredientsName": [
-        "쪄진 전복",
-        "버터"
+        "인삼 즙",
+        "꿀"
       ],
-      "description": "부드러운 전복에 고소한 버터 풍미를 입혔다.\n찌기만 했을 뿐인데 감칠맛이 폭발!\n정성이 담긴 고급 요리."
+      "description": "오래된 산속 인삼을 달여 만든 진한 주스.\n마신 뒤 몸속 깊은 곳까지 따뜻하게 퍼지는 기운이 느껴진다.\n심신이 지친 이들에게 회복과 활력을 선사하는 귀한 음료."
     },
     {
       "key": 110529,
       "name": "고구마 맛탕",
-      "resultFoodEnglishName": "candiedGoguma",
+      "resultFoodEnglishName": "candiedSweetPotatoes",
       "ingredients": [
         110119,
         110008
@@ -436,38 +440,38 @@
     },
     {
       "key": 110530,
-      "name": "허니 버터 감자",
-      "resultFoodEnglishName": "none",
+      "name": "감 주스",
+      "resultFoodEnglishName": "persimmonJuice",
       "ingredients": [
-        110111,
-        110407,
+        110125,
         110008
       ],
       "ingredientsName": [
-        "구운 감자",
-        "버터",
+        "감 즙",
         "꿀"
       ],
-      "description": "달콤한 꿀과 고소한 버터의 절묘한 조화.\n감자의 따뜻한 속살이 입 안 가득 퍼진다.\n먹는 순간 행복해지는 디저트 감성 요리."
+      "description": "가을 햇살을 머금은 잘 익은 감으로 만든 달콤한 주스.\n부드러운 과육이 입안을 감돌며 마음까지 포근하게 만든다.\n상쾌한 향과 은은한 단맛으로 기력을 회복하는 데 좋다."
     },
     {
       "key": 110531,
-      "name": "감말랭이",
-      "resultFoodEnglishName": "none",
+      "name": "밤 조림",
+      "resultFoodEnglishName": "chestnutJorim",
       "ingredients": [
-        110124,
+        110036,
+        110122,
         110008
       ],
       "ingredientsName": [
-        "토막 난 감",
+        "식수",
+        "쪄진 밤",
         "꿀"
       ],
-      "description": "쫀득하게 말린 감의 깊은 단맛.\n간식으로도, 요리로도 좋은 아이템.\n자연이 주는 달콤한 선물."
+      "description": "알밤을 물과 꿀로 졸여낸 깊고 고소한 조림 요리.\n단단한 껍질 속 부드러운 속살처럼, 조용한 정성이 배어 있다.\n달콤 맛이 어른과 아이 모두에게 인기다."
     },
     {
       "key": 110532,
       "name": "사과주스",
-      "resultFoodEnglishName": "none",
+      "resultFoodEnglishName": "appleJuice",
       "ingredients": [
         110131,
         110008
@@ -481,12 +485,14 @@
     {
       "key": 110533,
       "name": "배숙",
-      "resultFoodEnglishName": "none",
+      "resultFoodEnglishName": "steamedPearDessert",
       "ingredients": [
+        110126,
         110127,
         110008
       ],
       "ingredientsName": [
+        "토막 난 배",
         "배 즙",
         "꿀"
       ],
@@ -495,7 +501,7 @@
     {
       "key": 110534,
       "name": "수육 세트",
-      "resultFoodEnglishName": "none",
+      "resultFoodEnglishName": "boiledPorkSet",
       "ingredients": [
         110185,
         110408,
@@ -511,7 +517,7 @@
     {
       "key": 110535,
       "name": "두부스테이크",
-      "resultFoodEnglishName": "none",
+      "resultFoodEnglishName": "tofuSteak",
       "ingredients": [
         110109,
         110174,
@@ -527,37 +533,39 @@
     {
       "key": 110536,
       "name": "감자크로켓",
-      "resultFoodEnglishName": "none",
+      "resultFoodEnglishName": "potatoCroquette",
       "ingredients": [
         110113,
-        110179
+        110179,
+        110175
       ],
       "ingredientsName": [
         "으깬 감자",
-        "튀김반죽"
+        "튀김반죽",
+        "뜨거운 식용유"
       ],
       "description": "부드러운 감자 속에 바삭한 튀김옷.\n고소하고 든든한 간식 겸 한 끼 식사.\n한입 베어 물면 따뜻한 속이 퍼진다."
     },
     {
       "key": 110537,
       "name": "멸치국수",
-      "resultFoodEnglishName": "none",
+      "resultFoodEnglishName": "anchovyNoodleSoup",
       "ingredients": [
         110173,
-        110134,
-        110180
+        110181,
+        110104
       ],
       "ingredientsName": [
         "삶은 소면",
-        "손질 된 멸치",
-        "간장 양념장"
+        "육수",
+        "당근 채"
       ],
       "description": "멸치 육수에 면을 말아낸 시원한 국수.\n깔끔하고 담백한 맛이 매력이다.\n어릴 적 여름이 떠오르는 맛."
     },
     {
       "key": 110538,
       "name": "콩물국수",
-      "resultFoodEnglishName": "none",
+      "resultFoodEnglishName": "soybeanNoodleSoup",
       "ingredients": [
         110173,
         110107
@@ -571,37 +579,35 @@
     {
       "key": 110539,
       "name": "전복회",
-      "resultFoodEnglishName": "none",
+      "resultFoodEnglishName": "abaloneSashimi",
       "ingredients": [
         110149,
-        110409
+        110402
       ],
       "ingredientsName": [
         "회로 손질 된 전복",
-        "참기름"
+        "간장"
       ],
       "description": "싱싱한 전복을 그대로 썰어낸 고급 요리.\n바다 향기와 쫄깃한 식감이 그대로.\n입에서 살살 녹는 해산물의 정수."
     },
     {
       "key": 110540,
-      "name": "대게찜정식",
-      "resultFoodEnglishName": "none",
+      "name": "대게 회 세트",
+      "resultFoodEnglishName": "snowCrabSashimiSet",
       "ingredients": [
-        110164,
-        110180,
-        110410
+        110163,
+        110402
       ],
       "ingredientsName": [
-        "쪄진 대게",
-        "간장 양념장",
-        "쌀"
+        "회로 손질 된 대게",
+        "간장"
       ],
-      "description": "탱글한 대게살을 푸짐하게 즐기는 정찬.\n게살 본연의 달콤함을 찜으로 살렸다.\n식탁 위의 황제, 대게를 그대로!"
+      "description": "탱탱한 대게 살을 차갑게 썰어낸 고급 회 한 접시.\n달큰하고 부드러운 살결이 입 안에서 천천히 녹아든다.\n바다의 귀족, 눈꽃 속의 진미를 그대로 담았다."
     },
     {
       "key": 110541,
       "name": "방어 회 세트",
-      "resultFoodEnglishName": "none",
+      "resultFoodEnglishName": "amberjackSashimiSet",
       "ingredients": [
         110171,
         110402
@@ -610,12 +616,12 @@
         "회로 손질 된 방어",
         "간장"
       ],
-      "description": ""
+      "description": "살얼음 아래서 잡아 올린 겨울 방어의 탱글한 살결.\n참간장에 살짝 찍어 입 안에 퍼지는 담백한 감칠맛.\n회 한 점으로 겨울을 이기는 바다의 진미."
     },
     {
       "key": 110542,
       "name": "참돔 회 세트",
-      "resultFoodEnglishName": "none",
+      "resultFoodEnglishName": "redSeaBreamSashimiSet",
       "ingredients": [
         110142,
         110402
@@ -624,12 +630,12 @@
         "회로 손질 된 참돔",
         "간장"
       ],
-      "description": ""
+      "description": "고운 빛깔의 얇은 살이 꽃처럼 펼쳐진 한 접시.\n결결이 살아 있는 단단한 육질과 청량한 맛.\n바다의 품격을 담은 고급 회 정찬."
     },
     {
       "key": 110543,
       "name": "고등어 회 세트",
-      "resultFoodEnglishName": "none",
+      "resultFoodEnglishName": "mackerelSashimiSet",
       "ingredients": [
         110139,
         110402
@@ -638,12 +644,12 @@
         "회로 손질 된 고등어",
         "간장"
       ],
-      "description": ""
+      "description": "등푸른 살점의 진한 기름기와 야들야들한 촉감.\n갓 손질해 담백함과 고소함을 그대로 살렸다.\n소박하지만 깊은 맛, 회의 정석."
     },
     {
       "key": 110544,
       "name": "쑥떡",
-      "resultFoodEnglishName": "none",
+      "resultFoodEnglishName": "mugwortRiceCake",
       "ingredients": [
         110012,
         110410
@@ -652,44 +658,44 @@
         "쑥",
         "쌀"
       ],
-      "description": ""
+      "description": "쑥 향 가득한 떡이 입 안에서 부드럽게 풀어진다.\n한입 베어 물면 은은한 향이 속까지 퍼지는 기분.\n전래의 맛, 봄을 담은 한 조각."
     },
     {
       "key": 110545,
       "name": "오징어 튀김",
-      "resultFoodEnglishName": "none",
+      "resultFoodEnglishName": "friedSquid",
       "ingredients": [
-        110174,
+        110179,
         110175,
         110160
       ],
       "ingredientsName": [
-        "밀가루 반죽",
+        "튀김반죽",
         "뜨거운 식용유",
         "토막 난 오징어"
       ],
-      "description": ""
+      "description": "통통한 오징어에 바삭한 튀김옷을 입혔다.\n씹을수록 쫄깃한 식감과 고소한 풍미가 살아난다.\n노릇하게 튀겨낸 바다 간식의 대표 주자."
     },
     {
       "key": 110546,
       "name": "새우 튀김",
-      "resultFoodEnglishName": "none",
+      "resultFoodEnglishName": "friedShrimp",
       "ingredients": [
-        110174,
+        110179,
         110175,
         110033
       ],
       "ingredientsName": [
-        "밀가루 반죽",
+        "튀김반죽",
         "뜨거운 식용유",
         "새우"
       ],
-      "description": ""
+      "description": "큼직한 새우에 부드러운 튀김옷을 얹어 한입에.\n튀김 속 탱글한 새우살이 고소한 기름향과 어우러진다.\n누구도 거부할 수 없는 겉바속촉의 진수."
     },
     {
       "key": 110547,
       "name": "대게 볶음밥",
-      "resultFoodEnglishName": "none",
+      "resultFoodEnglishName": "crabFriedRice",
       "ingredients": [
         110410,
         110165,
@@ -700,21 +706,23 @@
         "살이 발라진 대게",
         "김"
       ],
-      "description": ""
+      "description": "대게살을 아낌없이 풀어넣은 풍성한 한 그릇.\n불향과 함께 퍼지는 달큰한 게살의 감칠맛.\n고급 식재료를 볶아낸 최고의 조합."
     },
     {
       "key": 110548,
-      "name": "새우 대하 구이 세트",
-      "resultFoodEnglishName": "none",
+      "name": "바지락 칼국수",
+      "resultFoodEnglishName": "clamNoodleSoup",
       "ingredients": [
-        110167,
-        110169
+        110020,
+        110174,
+        110181
       ],
       "ingredientsName": [
-        "구운 새우",
-        "구운 대하"
+        "바지락",
+        "밀가루 반죽",
+        "육수"
       ],
-      "description": ""
+      "description": "작은 새우부터 큼직한 대하까지 나란히 구워낸 구성.\n탱글한 식감과 진한 단맛이 입 안에서 차례로 터진다.\n불에 구워 완성된 바다의 향연."
     }
   ]
 }

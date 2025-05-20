@@ -9,7 +9,7 @@
         0
       ],
       "itemCategory": 0,
-      "englishName": "Garlic"
+      "englishName": "garlic"
     },
     {
       "key": 101002,
@@ -20,7 +20,7 @@
         0
       ],
       "itemCategory": 0,
-      "englishName": "Chili pepper"
+      "englishName": "chiliPepper"
     },
     {
       "key": 101003,
@@ -31,7 +31,7 @@
         0
       ],
       "itemCategory": 0,
-      "englishName": "Carrot"
+      "englishName": "carrot"
     },
     {
       "key": 101004,
@@ -42,7 +42,7 @@
         0
       ],
       "itemCategory": 0,
-      "englishName": "Green onion"
+      "englishName": "greenOnion"
     },
     {
       "key": 101005,
@@ -53,7 +53,7 @@
         0
       ],
       "itemCategory": 0,
-      "englishName": "Lettuce"
+      "englishName": "lettuce"
     },
     {
       "key": 101006,
@@ -64,7 +64,7 @@
         0
       ],
       "itemCategory": 0,
-      "englishName": "Soybean"
+      "englishName": "soybean"
     },
     {
       "key": 101007,
@@ -75,7 +75,7 @@
         0
       ],
       "itemCategory": 0,
-      "englishName": "Potato"
+      "englishName": "potato"
     },
     {
       "key": 101008,
@@ -86,7 +86,7 @@
         0
       ],
       "itemCategory": 0,
-      "englishName": "Honey"
+      "englishName": "honey"
     },
     {
       "key": 101009,
@@ -97,7 +97,7 @@
         0
       ],
       "itemCategory": 0,
-      "englishName": "Radish"
+      "englishName": "radish"
     },
     {
       "key": 101010,
@@ -108,7 +108,7 @@
         0
       ],
       "itemCategory": 0,
-      "englishName": "Korean ginseng"
+      "englishName": "koreanGinseng"
     },
     {
       "key": 101011,
@@ -119,7 +119,7 @@
         0
       ],
       "itemCategory": 0,
-      "englishName": "Sweet potato"
+      "englishName": "sweetPotato"
     },
     {
       "key": 101012,
@@ -130,7 +130,7 @@
         0
       ],
       "itemCategory": 0,
-      "englishName": "Mugwort"
+      "englishName": "mugwort"
     },
     {
       "key": 101013,
@@ -141,7 +141,7 @@
         0
       ],
       "itemCategory": 0,
-      "englishName": "Chestnut"
+      "englishName": "chestnut"
     },
     {
       "key": 101014,
@@ -152,7 +152,7 @@
         0
       ],
       "itemCategory": 0,
-      "englishName": "Persimmon"
+      "englishName": "persimmon"
     },
     {
       "key": 101015,
@@ -163,7 +163,7 @@
         0
       ],
       "itemCategory": 0,
-      "englishName": "Pear"
+      "englishName": "pear"
     },
     {
       "key": 101016,
@@ -174,7 +174,7 @@
         0
       ],
       "itemCategory": 0,
-      "englishName": "Walnut"
+      "englishName": "walnut"
     },
     {
       "key": 101017,
@@ -185,7 +185,7 @@
         0
       ],
       "itemCategory": 0,
-      "englishName": "Apple"
+      "englishName": "apple"
     },
     {
       "key": 101018,
@@ -196,7 +196,7 @@
         0
       ],
       "itemCategory": 0,
-      "englishName": "Shiitake mushroom"
+      "englishName": "shiitakeMushroom"
     },
     {
       "key": 101019,
@@ -207,7 +207,7 @@
         0
       ],
       "itemCategory": 0,
-      "englishName": "Anchovy"
+      "englishName": "anchovy"
     },
     {
       "key": 101020,
@@ -218,7 +218,7 @@
         0
       ],
       "itemCategory": 0,
-      "englishName": "Clam"
+      "englishName": "clam"
     },
     {
       "key": 101021,
@@ -229,7 +229,7 @@
         0
       ],
       "itemCategory": 0,
-      "englishName": "Mussel"
+      "englishName": "mussel"
     },
     {
       "key": 101022,
@@ -240,7 +240,7 @@
         0
       ],
       "itemCategory": 0,
-      "englishName": "Mackerel"
+      "englishName": "mackerel"
     },
     {
       "key": 101023,
@@ -262,7 +262,7 @@
         0
       ],
       "itemCategory": 0,
-      "englishName": "Red seabream"
+      "englishName": "redSeabream"
     },
     {
       "key": 101025,
@@ -273,7 +273,7 @@
         0
       ],
       "itemCategory": 0,
-      "englishName": "Oyster"
+      "englishName": "oyster"
     },
     {
       "key": 101026,
@@ -284,7 +284,7 @@
         0
       ],
       "itemCategory": 0,
-      "englishName": "Cutlassfish"
+      "englishName": "cutlassfish"
     },
     {
       "key": 101027,
@@ -295,7 +295,7 @@
         0
       ],
       "itemCategory": 0,
-      "englishName": "Sea mustard"
+      "englishName": "seaMustard"
     },
     {
       "key": 101028,
@@ -306,7 +306,7 @@
         0
       ],
       "itemCategory": 0,
-      "englishName": "Abalone"
+      "englishName": "abalone"
     },
     {
       "key": 101029,
@@ -317,7 +317,7 @@
         0
       ],
       "itemCategory": 0,
-      "englishName": "Octopus"
+      "englishName": "octopus"
     },
     {
       "key": 101030,
@@ -328,7 +328,7 @@
         0
       ],
       "itemCategory": 0,
-      "englishName": "Blue crab"
+      "englishName": "blueCrab"
     },
     {
       "key": 101031,
@@ -339,7 +339,7 @@
         0
       ],
       "itemCategory": 0,
-      "englishName": "Squid"
+      "englishName": "squid"
     },
     {
       "key": 101032,
@@ -350,7 +350,7 @@
         0
       ],
       "itemCategory": 0,
-      "englishName": "Snow crab"
+      "englishName": "snowCrab"
     },
     {
       "key": 101033,
@@ -361,7 +361,7 @@
         0
       ],
       "itemCategory": 0,
-      "englishName": "Shrimp"
+      "englishName": "shrimp"
     },
     {
       "key": 101034,
@@ -372,7 +372,7 @@
         0
       ],
       "itemCategory": 0,
-      "englishName": "King prawn"
+      "englishName": "kingPrawn"
     },
     {
       "key": 101035,
@@ -383,7 +383,7 @@
         0
       ],
       "itemCategory": 0,
-      "englishName": "Yellowtail"
+      "englishName": "yellowtail"
     },
     {
       "key": 101036,
@@ -394,7 +394,7 @@
         0
       ],
       "itemCategory": 0,
-      "englishName": "Drinking water"
+      "englishName": "drinkingWater"
     },
     {
       "key": 101037,
@@ -405,7 +405,7 @@
         0
       ],
       "itemCategory": 0,
-      "englishName": "Soybean sprout"
+      "englishName": "soybeanSprout"
     },
     {
       "key": 101038,
@@ -416,7 +416,7 @@
         0
       ],
       "itemCategory": 0,
-      "englishName": "Meat"
+      "englishName": "meat"
     },
     {
       "key": 102001,
@@ -427,7 +427,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "slicedGarlic"
     },
     {
       "key": 102002,
@@ -438,7 +438,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "slicedGarlic"
     },
     {
       "key": 102003,
@@ -449,7 +449,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "slicedGarlic"
     },
     {
       "key": 102004,
@@ -460,7 +460,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "mincedGarlic"
     },
     {
       "key": 102005,
@@ -471,7 +471,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "mincedGarlic"
     },
     {
       "key": 102006,
@@ -482,7 +482,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "mincedGarlic"
     },
     {
       "key": 102007,
@@ -493,7 +493,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "slicedChili"
     },
     {
       "key": 102008,
@@ -504,7 +504,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "slicedChili"
     },
     {
       "key": 102009,
@@ -515,7 +515,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "slicedChili"
     },
     {
       "key": 102010,
@@ -526,7 +526,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "mincedChili  "
     },
     {
       "key": 102011,
@@ -537,7 +537,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "mincedChili  "
     },
     {
       "key": 102012,
@@ -548,7 +548,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "mincedChili  "
     },
     {
       "key": 102013,
@@ -559,7 +559,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "slicedCarrot"
     },
     {
       "key": 102014,
@@ -570,7 +570,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "slicedCarrot"
     },
     {
       "key": 102015,
@@ -581,7 +581,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "slicedCarrot"
     },
     {
       "key": 102016,
@@ -592,7 +592,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "carrotExtract"
     },
     {
       "key": 102017,
@@ -603,7 +603,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "carrotExtract"
     },
     {
       "key": 102018,
@@ -614,7 +614,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "carrotExtract"
     },
     {
       "key": 102019,
@@ -625,7 +625,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "slicedGreenOnion"
     },
     {
       "key": 102020,
@@ -636,7 +636,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "slicedGreenOnion"
     },
     {
       "key": 102021,
@@ -647,7 +647,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "slicedGreenOnion"
     },
     {
       "key": 102022,
@@ -658,7 +658,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "soyMilk"
     },
     {
       "key": 102023,
@@ -669,7 +669,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "soyMilk"
     },
     {
       "key": 102024,
@@ -680,7 +680,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "soyMilk"
     },
     {
       "key": 102025,
@@ -691,7 +691,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "tofu"
     },
     {
       "key": 102026,
@@ -702,7 +702,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "tofu"
     },
     {
       "key": 102027,
@@ -713,7 +713,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "tofu"
     },
     {
       "key": 102028,
@@ -724,7 +724,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "slicedTofu"
     },
     {
       "key": 102029,
@@ -735,7 +735,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "slicedTofu"
     },
     {
       "key": 102030,
@@ -746,7 +746,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "slicedTofu"
     },
     {
       "key": 102031,
@@ -757,7 +757,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "choppedPotato"
     },
     {
       "key": 102032,
@@ -768,7 +768,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "choppedPotato"
     },
     {
       "key": 102033,
@@ -779,7 +779,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "choppedPotato"
     },
     {
       "key": 102034,
@@ -790,7 +790,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "roastedPotato"
     },
     {
       "key": 102035,
@@ -801,7 +801,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "roastedPotato"
     },
     {
       "key": 102036,
@@ -812,7 +812,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "roastedPotato"
     },
     {
       "key": 102037,
@@ -823,7 +823,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "boiledPotato"
     },
     {
       "key": 102038,
@@ -834,7 +834,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "boiledPotato"
     },
     {
       "key": 102039,
@@ -845,7 +845,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "boiledPotato"
     },
     {
       "key": 102040,
@@ -856,7 +856,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "mashedPotato"
     },
     {
       "key": 102041,
@@ -867,7 +867,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "mashedPotato"
     },
     {
       "key": 102042,
@@ -878,7 +878,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "mashedPotato"
     },
     {
       "key": 102043,
@@ -889,7 +889,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "choppedRadish"
     },
     {
       "key": 102044,
@@ -900,7 +900,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "choppedRadish"
     },
     {
       "key": 102045,
@@ -911,7 +911,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "choppedRadish"
     },
     {
       "key": 102046,
@@ -922,7 +922,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "boiledRadish"
     },
     {
       "key": 102047,
@@ -933,7 +933,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "boiledRadish"
     },
     {
       "key": 102048,
@@ -944,7 +944,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "boiledRadish"
     },
     {
       "key": 102049,
@@ -955,7 +955,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "radishExtract"
     },
     {
       "key": 102050,
@@ -966,7 +966,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "radishExtract"
     },
     {
       "key": 102051,
@@ -977,7 +977,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "radishExtract"
     },
     {
       "key": 102052,
@@ -988,7 +988,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "ginsengExtract"
     },
     {
       "key": 102053,
@@ -999,7 +999,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "ginsengExtract"
     },
     {
       "key": 102054,
@@ -1010,7 +1010,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "ginsengExtract"
     },
     {
       "key": 102055,
@@ -1021,7 +1021,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "slicedGoguma"
+      "englishName": "slicedSweetPotato"
     },
     {
       "key": 102056,
@@ -1032,7 +1032,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "slicedGoguma"
+      "englishName": "slicedSweetPotato"
     },
     {
       "key": 102057,
@@ -1043,7 +1043,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "slicedGoguma"
+      "englishName": "slicedSweetPotato"
     },
     {
       "key": 102058,
@@ -1054,7 +1054,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "roastGoguma"
+      "englishName": "roastSweetPotato"
     },
     {
       "key": 102059,
@@ -1065,7 +1065,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "roastGoguma"
+      "englishName": "roastSweetPotato"
     },
     {
       "key": 102060,
@@ -1076,7 +1076,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "roastGoguma"
+      "englishName": "roastSweetPotato"
     },
     {
       "key": 102061,
@@ -1087,7 +1087,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "boiledSweetPotato"
     },
     {
       "key": 102062,
@@ -1098,7 +1098,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "boiledSweetPotato"
     },
     {
       "key": 102063,
@@ -1109,7 +1109,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "boiledSweetPotato"
     },
     {
       "key": 102064,
@@ -1120,7 +1120,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "mashedSweetPotato"
     },
     {
       "key": 102065,
@@ -1131,7 +1131,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "mashedSweetPotato"
     },
     {
       "key": 102066,
@@ -1142,7 +1142,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "mashedSweetPotato"
     },
     {
       "key": 102067,
@@ -1153,7 +1153,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "steamedChestnut"
     },
     {
       "key": 102068,
@@ -1164,7 +1164,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "steamedChestnut"
     },
     {
       "key": 102069,
@@ -1175,7 +1175,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "steamedChestnut"
     },
     {
       "key": 102070,
@@ -1186,7 +1186,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "mashedChestnut"
     },
     {
       "key": 102071,
@@ -1197,7 +1197,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "mashedChestnut"
     },
     {
       "key": 102072,
@@ -1208,7 +1208,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "mashedChestnut"
     },
     {
       "key": 102073,
@@ -1219,7 +1219,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "choppedPersimmon"
     },
     {
       "key": 102074,
@@ -1230,7 +1230,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "choppedPersimmon"
     },
     {
       "key": 102075,
@@ -1241,7 +1241,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "choppedPersimmon"
     },
     {
       "key": 102076,
@@ -1252,7 +1252,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "persimmonExtract"
     },
     {
       "key": 102077,
@@ -1263,7 +1263,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "persimmonExtract"
     },
     {
       "key": 102078,
@@ -1274,7 +1274,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "persimmonExtract"
     },
     {
       "key": 102079,
@@ -1285,7 +1285,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "choppedPear"
     },
     {
       "key": 102080,
@@ -1296,7 +1296,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "choppedPear"
     },
     {
       "key": 102081,
@@ -1307,7 +1307,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "choppedPear"
     },
     {
       "key": 102082,
@@ -1318,7 +1318,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "pearExtract"
     },
     {
       "key": 102083,
@@ -1329,7 +1329,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "pearExtract"
     },
     {
       "key": 102084,
@@ -1340,7 +1340,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "pearExtract"
     },
     {
       "key": 102085,
@@ -1351,7 +1351,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "walnutKernel"
     },
     {
       "key": 102086,
@@ -1362,7 +1362,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "walnutKernel"
     },
     {
       "key": 102087,
@@ -1373,7 +1373,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "walnutKernel"
     },
     {
       "key": 102088,
@@ -1384,7 +1384,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "choppedWalnut"
     },
     {
       "key": 102089,
@@ -1395,7 +1395,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "choppedWalnut"
     },
     {
       "key": 102090,
@@ -1406,7 +1406,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "choppedWalnut"
     },
     {
       "key": 102091,
@@ -1417,7 +1417,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "choppedApple"
     },
     {
       "key": 102092,
@@ -1428,7 +1428,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "choppedApple"
     },
     {
       "key": 102093,
@@ -1439,7 +1439,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "choppedApple"
     },
     {
       "key": 102094,
@@ -1450,7 +1450,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "appleExtract"
     },
     {
       "key": 102095,
@@ -1461,7 +1461,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "appleExtract"
     },
     {
       "key": 102096,
@@ -1472,7 +1472,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "appleExtract"
     },
     {
       "key": 102097,
@@ -1483,7 +1483,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "choppedShiitake"
     },
     {
       "key": 102098,
@@ -1494,7 +1494,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "choppedShiitake"
     },
     {
       "key": 102099,
@@ -1505,7 +1505,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "choppedShiitake"
     },
     {
       "key": 102100,
@@ -1516,7 +1516,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "mincedShiitake"
     },
     {
       "key": 102101,
@@ -1527,7 +1527,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "mincedShiitake"
     },
     {
       "key": 102102,
@@ -1538,7 +1538,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "mincedShiitake"
     },
     {
       "key": 102103,
@@ -1549,7 +1549,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "cleanedAnchovy"
     },
     {
       "key": 102104,
@@ -1560,7 +1560,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "cleanedAnchovy"
     },
     {
       "key": 102105,
@@ -1571,7 +1571,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "cleanedAnchovy"
     },
     {
       "key": 102106,
@@ -1582,7 +1582,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "grilledAnchovy"
     },
     {
       "key": 102107,
@@ -1593,7 +1593,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "grilledAnchovy"
     },
     {
       "key": 102108,
@@ -1604,7 +1604,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "grilledAnchovy"
     },
     {
       "key": 102109,
@@ -1615,7 +1615,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "boiledClam"
     },
     {
       "key": 102110,
@@ -1626,7 +1626,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "boiledClam"
     },
     {
       "key": 102111,
@@ -1637,7 +1637,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "boiledClam"
     },
     {
       "key": 102112,
@@ -1648,7 +1648,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "boiledMussel"
     },
     {
       "key": 102113,
@@ -1659,7 +1659,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "boiledMussel"
     },
     {
       "key": 102114,
@@ -1670,7 +1670,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "boiledMussel"
     },
     {
       "key": 102115,
@@ -1681,7 +1681,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "cleanedMackerel"
     },
     {
       "key": 102116,
@@ -1692,7 +1692,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "cleanedMackerel"
     },
     {
       "key": 102117,
@@ -1703,7 +1703,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "cleanedMackerel"
     },
     {
       "key": 102118,
@@ -1714,7 +1714,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "slicedMackerel"
     },
     {
       "key": 102119,
@@ -1725,7 +1725,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "slicedMackerel"
     },
     {
       "key": 102120,
@@ -1736,7 +1736,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "slicedMackerel"
     },
     {
       "key": 102121,
@@ -1747,7 +1747,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "grilledMackerel"
     },
     {
       "key": 102122,
@@ -1758,7 +1758,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "grilledMackerel"
     },
     {
       "key": 102123,
@@ -1769,7 +1769,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "grilledMackerel"
     },
     {
       "key": 102124,
@@ -1780,7 +1780,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "cleanedRedSeaBream"
     },
     {
       "key": 102125,
@@ -1791,7 +1791,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "cleanedRedSeaBream"
     },
     {
       "key": 102126,
@@ -1802,7 +1802,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "cleanedRedSeaBream"
     },
     {
       "key": 102127,
@@ -1813,7 +1813,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "slicedRedSeaBream"
     },
     {
       "key": 102128,
@@ -1824,7 +1824,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "slicedRedSeaBream"
     },
     {
       "key": 102129,
@@ -1835,7 +1835,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "slicedRedSeaBream"
     },
     {
       "key": 102130,
@@ -1846,7 +1846,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "steamedOyster"
     },
     {
       "key": 102131,
@@ -1857,7 +1857,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "steamedOyster"
     },
     {
       "key": 102132,
@@ -1868,7 +1868,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "steamedOyster"
     },
     {
       "key": 102133,
@@ -1879,7 +1879,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "cleanedHairtail"
     },
     {
       "key": 102134,
@@ -1890,7 +1890,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "cleanedHairtail"
     },
     {
       "key": 102135,
@@ -1901,7 +1901,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "cleanedHairtail"
     },
     {
       "key": 102136,
@@ -1912,7 +1912,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "debonedHairtail"
     },
     {
       "key": 102137,
@@ -1923,7 +1923,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "debonedHairtail"
     },
     {
       "key": 102138,
@@ -1934,7 +1934,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "debonedHairtail"
     },
     {
       "key": 102139,
@@ -1945,7 +1945,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "grilledHairtail"
     },
     {
       "key": 102140,
@@ -1956,7 +1956,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "grilledHairtail"
     },
     {
       "key": 102141,
@@ -1967,7 +1967,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "grilledHairtail"
     },
     {
       "key": 102142,
@@ -1978,7 +1978,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "cleanedAbalone"
     },
     {
       "key": 102143,
@@ -1989,7 +1989,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "cleanedAbalone"
     },
     {
       "key": 102144,
@@ -2000,7 +2000,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "cleanedAbalone"
     },
     {
       "key": 102145,
@@ -2011,7 +2011,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "abaloneLiver"
     },
     {
       "key": 102146,
@@ -2022,7 +2022,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "abaloneLiver"
     },
     {
       "key": 102147,
@@ -2033,7 +2033,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "abaloneLiver"
     },
     {
       "key": 102148,
@@ -2044,7 +2044,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "slicedAbalone"
     },
     {
       "key": 102149,
@@ -2055,7 +2055,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "slicedAbalone"
     },
     {
       "key": 102150,
@@ -2066,7 +2066,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "slicedAbalone"
     },
     {
       "key": 102151,
@@ -2077,7 +2077,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "steamedAbalone"
     },
     {
       "key": 102152,
@@ -2088,7 +2088,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "steamedAbalone"
     },
     {
       "key": 102153,
@@ -2099,7 +2099,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "steamedAbalone"
     },
     {
       "key": 102154,
@@ -2110,7 +2110,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "grilledAbalone"
     },
     {
       "key": 102155,
@@ -2121,7 +2121,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "grilledAbalone"
     },
     {
       "key": 102156,
@@ -2132,7 +2132,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "grilledAbalone"
     },
     {
       "key": 102157,
@@ -2143,7 +2143,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "cleanedOctopus"
     },
     {
       "key": 102158,
@@ -2154,7 +2154,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "cleanedOctopus"
     },
     {
       "key": 102159,
@@ -2165,7 +2165,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "cleanedOctopus"
     },
     {
       "key": 102160,
@@ -2176,7 +2176,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "choppedOctopus"
     },
     {
       "key": 102161,
@@ -2187,7 +2187,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "choppedOctopus"
     },
     {
       "key": 102162,
@@ -2198,7 +2198,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "choppedOctopus"
     },
     {
       "key": 102163,
@@ -2209,7 +2209,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "steamedOctopus"
     },
     {
       "key": 102164,
@@ -2220,7 +2220,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "steamedOctopus"
     },
     {
       "key": 102165,
@@ -2231,7 +2231,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "steamedOctopus"
     },
     {
       "key": 102166,
@@ -2242,7 +2242,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "cleanedBlueCrab"
     },
     {
       "key": 102167,
@@ -2253,7 +2253,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "cleanedBlueCrab"
     },
     {
       "key": 102168,
@@ -2264,7 +2264,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "cleanedBlueCrab"
     },
     {
       "key": 102169,
@@ -2275,7 +2275,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "choppedBlueCrab"
     },
     {
       "key": 102170,
@@ -2286,7 +2286,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "choppedBlueCrab"
     },
     {
       "key": 102171,
@@ -2297,7 +2297,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "choppedBlueCrab"
     },
     {
       "key": 102172,
@@ -2308,7 +2308,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "steamedBlueCrab"
     },
     {
       "key": 102173,
@@ -2319,7 +2319,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "steamedBlueCrab"
     },
     {
       "key": 102174,
@@ -2330,7 +2330,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "steamedBlueCrab"
     },
     {
       "key": 102175,
@@ -2341,7 +2341,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "shelledBlueCrab"
     },
     {
       "key": 102176,
@@ -2352,7 +2352,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "shelledBlueCrab"
     },
     {
       "key": 102177,
@@ -2363,7 +2363,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "shelledBlueCrab"
     },
     {
       "key": 102178,
@@ -2374,7 +2374,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "cleanedSquid"
     },
     {
       "key": 102179,
@@ -2385,7 +2385,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "cleanedSquid"
     },
     {
       "key": 102180,
@@ -2396,7 +2396,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "cleanedSquid"
     },
     {
       "key": 102181,
@@ -2407,7 +2407,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "choppedSquid"
     },
     {
       "key": 102182,
@@ -2418,7 +2418,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "choppedSquid"
     },
     {
       "key": 102183,
@@ -2429,7 +2429,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "choppedSquid"
     },
     {
       "key": 102184,
@@ -2440,7 +2440,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "steamedSquid"
     },
     {
       "key": 102185,
@@ -2451,7 +2451,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "steamedSquid"
     },
     {
       "key": 102186,
@@ -2462,7 +2462,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "steamedSquid"
     },
     {
       "key": 102187,
@@ -2473,7 +2473,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "cleanedKingCrab"
     },
     {
       "key": 102188,
@@ -2484,7 +2484,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "cleanedKingCrab"
     },
     {
       "key": 102189,
@@ -2495,7 +2495,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "cleanedKingCrab"
     },
     {
       "key": 102190,
@@ -2506,7 +2506,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "slicedKingCrab"
     },
     {
       "key": 102191,
@@ -2517,7 +2517,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "slicedKingCrab"
     },
     {
       "key": 102192,
@@ -2528,7 +2528,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "slicedKingCrab"
     },
     {
       "key": 102193,
@@ -2539,7 +2539,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "steamedKingCrab"
     },
     {
       "key": 102194,
@@ -2550,7 +2550,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "steamedKingCrab"
     },
     {
       "key": 102195,
@@ -2561,7 +2561,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "steamedKingCrab"
     },
     {
       "key": 102196,
@@ -2572,7 +2572,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "shelledKingCrab"
     },
     {
       "key": 102197,
@@ -2583,7 +2583,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "shelledKingCrab"
     },
     {
       "key": 102198,
@@ -2594,7 +2594,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "shelledKingCrab"
     },
     {
       "key": 102199,
@@ -2605,7 +2605,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "steamedShrimp"
     },
     {
       "key": 102200,
@@ -2616,7 +2616,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "steamedShrimp"
     },
     {
       "key": 102201,
@@ -2627,7 +2627,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "steamedShrimp"
     },
     {
       "key": 102202,
@@ -2638,7 +2638,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "grilledShrimp"
     },
     {
       "key": 102203,
@@ -2649,7 +2649,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "grilledShrimp"
     },
     {
       "key": 102204,
@@ -2660,7 +2660,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "grilledShrimp"
     },
     {
       "key": 102205,
@@ -2671,7 +2671,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "steamedJumboShrimp"
     },
     {
       "key": 102206,
@@ -2682,7 +2682,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "steamedJumboShrimp"
     },
     {
       "key": 102207,
@@ -2693,7 +2693,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "steamedJumboShrimp"
     },
     {
       "key": 102208,
@@ -2704,7 +2704,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "grilledJumboShrimp"
     },
     {
       "key": 102209,
@@ -2715,7 +2715,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "grilledJumboShrimp"
     },
     {
       "key": 102210,
@@ -2726,7 +2726,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "grilledJumboShrimp"
     },
     {
       "key": 102211,
@@ -2737,7 +2737,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "cleanedAmberjack"
     },
     {
       "key": 102212,
@@ -2748,7 +2748,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "cleanedAmberjack"
     },
     {
       "key": 102213,
@@ -2759,7 +2759,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "cleanedAmberjack"
     },
     {
       "key": 102214,
@@ -2770,7 +2770,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "slicedAmberjack"
     },
     {
       "key": 102215,
@@ -2781,7 +2781,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "slicedAmberjack"
     },
     {
       "key": 102216,
@@ -2792,7 +2792,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "slicedAmberjack"
     },
     {
       "key": 102217,
@@ -2803,7 +2803,7 @@
         2
       ],
       "itemCategory": 3,
-      "englishName": "none"
+      "englishName": "ssamjang"
     },
     {
       "key": 102218,
@@ -2814,7 +2814,7 @@
         2
       ],
       "itemCategory": 3,
-      "englishName": "none"
+      "englishName": "ssamjang"
     },
     {
       "key": 102219,
@@ -2825,7 +2825,7 @@
         2
       ],
       "itemCategory": 3,
-      "englishName": "none"
+      "englishName": "ssamjang"
     },
     {
       "key": 102220,
@@ -2836,7 +2836,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "boiledWheatNoodles"
     },
     {
       "key": 102221,
@@ -2847,7 +2847,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "boiledWheatNoodles"
     },
     {
       "key": 102222,
@@ -2858,7 +2858,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "boiledWheatNoodles"
     },
     {
       "key": 102223,
@@ -2869,7 +2869,7 @@
         2
       ],
       "itemCategory": 3,
-      "englishName": "none"
+      "englishName": "flourDough"
     },
     {
       "key": 102224,
@@ -2880,7 +2880,7 @@
         2
       ],
       "itemCategory": 3,
-      "englishName": "none"
+      "englishName": "flourDough"
     },
     {
       "key": 102225,
@@ -2891,7 +2891,7 @@
         2
       ],
       "itemCategory": 3,
-      "englishName": "none"
+      "englishName": "flourDough"
     },
     {
       "key": 102226,
@@ -2902,7 +2902,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "hotCookingOil"
     },
     {
       "key": 102227,
@@ -2913,7 +2913,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "hotCookingOil"
     },
     {
       "key": 102228,
@@ -2924,7 +2924,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "hotCookingOil"
     },
     {
       "key": 102229,
@@ -2935,7 +2935,7 @@
         2
       ],
       "itemCategory": 3,
-      "englishName": "none"
+      "englishName": "stirFrySauce"
     },
     {
       "key": 102230,
@@ -2946,7 +2946,7 @@
         2
       ],
       "itemCategory": 3,
-      "englishName": "none"
+      "englishName": "stirFrySauce"
     },
     {
       "key": 102231,
@@ -2957,7 +2957,7 @@
         2
       ],
       "itemCategory": 3,
-      "englishName": "none"
+      "englishName": "stirFrySauce"
     },
     {
       "key": 102232,
@@ -2968,7 +2968,7 @@
         2
       ],
       "itemCategory": 3,
-      "englishName": "none"
+      "englishName": "soyBraisingSauce"
     },
     {
       "key": 102233,
@@ -2979,7 +2979,7 @@
         2
       ],
       "itemCategory": 3,
-      "englishName": "none"
+      "englishName": "soyBraisingSauce"
     },
     {
       "key": 102234,
@@ -2990,7 +2990,7 @@
         2
       ],
       "itemCategory": 3,
-      "englishName": "none"
+      "englishName": "soyBraisingSauce"
     },
     {
       "key": 102235,
@@ -3001,7 +3001,7 @@
         2
       ],
       "itemCategory": 3,
-      "englishName": "none"
+      "englishName": "spicyChiliSauce"
     },
     {
       "key": 102236,
@@ -3012,7 +3012,7 @@
         2
       ],
       "itemCategory": 3,
-      "englishName": "none"
+      "englishName": "spicyChiliSauce"
     },
     {
       "key": 102237,
@@ -3023,7 +3023,7 @@
         2
       ],
       "itemCategory": 3,
-      "englishName": "none"
+      "englishName": "spicyChiliSauce"
     },
     {
       "key": 102238,
@@ -3034,7 +3034,7 @@
         2
       ],
       "itemCategory": 3,
-      "englishName": "none"
+      "englishName": "batter"
     },
     {
       "key": 102239,
@@ -3045,7 +3045,7 @@
         2
       ],
       "itemCategory": 3,
-      "englishName": "none"
+      "englishName": "batter"
     },
     {
       "key": 102240,
@@ -3056,7 +3056,7 @@
         2
       ],
       "itemCategory": 3,
-      "englishName": "none"
+      "englishName": "batter"
     },
     {
       "key": 102241,
@@ -3067,7 +3067,7 @@
         2
       ],
       "itemCategory": 3,
-      "englishName": "none"
+      "englishName": "soySauceSeasoning"
     },
     {
       "key": 102242,
@@ -3078,7 +3078,7 @@
         2
       ],
       "itemCategory": 3,
-      "englishName": "none"
+      "englishName": "soySauceSeasoning"
     },
     {
       "key": 102243,
@@ -3089,7 +3089,7 @@
         2
       ],
       "itemCategory": 3,
-      "englishName": "none"
+      "englishName": "soySauceSeasoning"
     },
     {
       "key": 102244,
@@ -3100,7 +3100,7 @@
         2
       ],
       "itemCategory": 3,
-      "englishName": "none"
+      "englishName": "broth"
     },
     {
       "key": 102245,
@@ -3111,7 +3111,7 @@
         2
       ],
       "itemCategory": 3,
-      "englishName": "none"
+      "englishName": "broth"
     },
     {
       "key": 102246,
@@ -3122,7 +3122,7 @@
         2
       ],
       "itemCategory": 3,
-      "englishName": "none"
+      "englishName": "broth"
     },
     {
       "key": 102247,
@@ -3133,7 +3133,7 @@
         2
       ],
       "itemCategory": 3,
-      "englishName": "none"
+      "englishName": "seafoodSoupBase"
     },
     {
       "key": 102248,
@@ -3144,7 +3144,7 @@
         2
       ],
       "itemCategory": 3,
-      "englishName": "none"
+      "englishName": "seafoodSoupBase"
     },
     {
       "key": 102249,
@@ -3155,7 +3155,7 @@
         2
       ],
       "itemCategory": 3,
-      "englishName": "none"
+      "englishName": "seafoodSoupBase"
     },
     {
       "key": 102250,
@@ -3166,7 +3166,7 @@
         2
       ],
       "itemCategory": 3,
-      "englishName": "none"
+      "englishName": "doenjangSoupBase"
     },
     {
       "key": 102251,
@@ -3177,7 +3177,7 @@
         2
       ],
       "itemCategory": 3,
-      "englishName": "none"
+      "englishName": "doenjangSoupBase"
     },
     {
       "key": 102252,
@@ -3188,7 +3188,7 @@
         2
       ],
       "itemCategory": 3,
-      "englishName": "none"
+      "englishName": "doenjangSoupBase"
     },
     {
       "key": 102253,
@@ -3199,7 +3199,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "boiledBeanSprouts"
     },
     {
       "key": 102254,
@@ -3210,7 +3210,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "boiledBeanSprouts"
     },
     {
       "key": 102255,
@@ -3221,7 +3221,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "boiledBeanSprouts"
     },
     {
       "key": 102256,
@@ -3232,7 +3232,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "boiledMeat"
     },
     {
       "key": 102257,
@@ -3243,7 +3243,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "boiledMeat"
     },
     {
       "key": 102258,
@@ -3254,7 +3254,7 @@
         2
       ],
       "itemCategory": 1,
-      "englishName": "none"
+      "englishName": "boiledMeat"
     },
     {
       "key": 103001,
@@ -3265,7 +3265,7 @@
         1
       ],
       "itemCategory": 2,
-      "englishName": "none"
+      "englishName": "gochujang"
     },
     {
       "key": 103002,
@@ -3276,7 +3276,7 @@
         1
       ],
       "itemCategory": 2,
-      "englishName": "none"
+      "englishName": "ganjang"
     },
     {
       "key": 103003,
@@ -3287,7 +3287,7 @@
         1
       ],
       "itemCategory": 2,
-      "englishName": "none"
+      "englishName": "doenjang"
     },
     {
       "key": 103004,
@@ -3298,7 +3298,7 @@
         1
       ],
       "itemCategory": 2,
-      "englishName": "none"
+      "englishName": "cookingOil"
     },
     {
       "key": 103005,
@@ -3309,7 +3309,7 @@
         1
       ],
       "itemCategory": 2,
-      "englishName": "none"
+      "englishName": "flour"
     },
     {
       "key": 103006,
@@ -3320,7 +3320,7 @@
         1
       ],
       "itemCategory": 2,
-      "englishName": "none"
+      "englishName": "somen"
     },
     {
       "key": 103007,
@@ -3331,7 +3331,7 @@
         1
       ],
       "itemCategory": 2,
-      "englishName": "none"
+      "englishName": "butter"
     },
     {
       "key": 103008,
@@ -3342,7 +3342,7 @@
         1
       ],
       "itemCategory": 2,
-      "englishName": "none"
+      "englishName": "kimchi"
     },
     {
       "key": 103009,
@@ -3353,7 +3353,7 @@
         1
       ],
       "itemCategory": 2,
-      "englishName": "none"
+      "englishName": "sesameOil"
     },
     {
       "key": 103010,
@@ -3364,7 +3364,7 @@
         1
       ],
       "itemCategory": 2,
-      "englishName": "none"
+      "englishName": "rice"
     },
     {
       "key": 104001,
@@ -3375,7 +3375,7 @@
         2
       ],
       "itemCategory": 4,
-      "englishName": "none"
+      "englishName": "stirFriedAnchoviesWithNuts"
     },
     {
       "key": 104002,
@@ -3386,7 +3386,7 @@
         2
       ],
       "itemCategory": 4,
-      "englishName": "none"
+      "englishName": "stirFriedAnchoviesWithNuts"
     },
     {
       "key": 104003,
@@ -3397,7 +3397,7 @@
         2
       ],
       "itemCategory": 4,
-      "englishName": "none"
+      "englishName": "stirFriedAnchoviesWithNuts"
     },
     {
       "key": 104004,
@@ -3408,7 +3408,7 @@
         2
       ],
       "itemCategory": 4,
-      "englishName": "none"
+      "englishName": "braisedPotatoes"
     },
     {
       "key": 104005,
@@ -3419,7 +3419,7 @@
         2
       ],
       "itemCategory": 4,
-      "englishName": "none"
+      "englishName": "braisedPotatoes"
     },
     {
       "key": 104006,
@@ -3430,7 +3430,7 @@
         2
       ],
       "itemCategory": 4,
-      "englishName": "none"
+      "englishName": "braisedPotatoes"
     },
     {
       "key": 104007,
@@ -3441,7 +3441,7 @@
         2
       ],
       "itemCategory": 4,
-      "englishName": "none"
+      "englishName": "seasonedRadish"
     },
     {
       "key": 104008,
@@ -3452,7 +3452,7 @@
         2
       ],
       "itemCategory": 4,
-      "englishName": "none"
+      "englishName": "seasonedRadish"
     },
     {
       "key": 104009,
@@ -3463,40 +3463,40 @@
         2
       ],
       "itemCategory": 4,
-      "englishName": "none"
+      "englishName": "seasonedRadish"
     },
     {
       "key": 104010,
-      "name": "평범한 마늘쫑볶음",
+      "name": "평범한 인삼고추장구이",
       "FoodCategory": 110504,
       "grade": 0,
       "getRoute": [
         2
       ],
       "itemCategory": 4,
-      "englishName": "none"
+      "englishName": "ginsengGochujangGrill"
     },
     {
       "key": 104011,
-      "name": "맛있는 마늘쫑볶음",
+      "name": "맛있는 인삼고추장구이",
       "FoodCategory": 110504,
       "grade": 1,
       "getRoute": [
         2
       ],
       "itemCategory": 4,
-      "englishName": "none"
+      "englishName": "ginsengGochujangGrill"
     },
     {
       "key": 104012,
-      "name": "전설의 마늘쫑볶음",
+      "name": "전설의 인삼고추장구이",
       "FoodCategory": 110504,
       "grade": 2,
       "getRoute": [
         2
       ],
       "itemCategory": 4,
-      "englishName": "none"
+      "englishName": "ginsengGochujangGrill"
     },
     {
       "key": 104013,
@@ -3507,7 +3507,7 @@
         2
       ],
       "itemCategory": 4,
-      "englishName": "none"
+      "englishName": "braisedTofu"
     },
     {
       "key": 104014,
@@ -3518,7 +3518,7 @@
         2
       ],
       "itemCategory": 4,
-      "englishName": "none"
+      "englishName": "braisedTofu"
     },
     {
       "key": 104015,
@@ -3529,7 +3529,7 @@
         2
       ],
       "itemCategory": 4,
-      "englishName": "none"
+      "englishName": "braisedTofu"
     },
     {
       "key": 104016,
@@ -3540,7 +3540,7 @@
         2
       ],
       "itemCategory": 4,
-      "englishName": "none"
+      "englishName": "braisedSweetPotatoes"
     },
     {
       "key": 104017,
@@ -3551,7 +3551,7 @@
         2
       ],
       "itemCategory": 4,
-      "englishName": "none"
+      "englishName": "braisedSweetPotatoes"
     },
     {
       "key": 104018,
@@ -3562,7 +3562,7 @@
         2
       ],
       "itemCategory": 4,
-      "englishName": "none"
+      "englishName": "braisedSweetPotatoes"
     },
     {
       "key": 104019,
@@ -3573,7 +3573,7 @@
         2
       ],
       "itemCategory": 4,
-      "englishName": "none"
+      "englishName": "seasonedBeanSprouts"
     },
     {
       "key": 104020,
@@ -3584,7 +3584,7 @@
         2
       ],
       "itemCategory": 4,
-      "englishName": "none"
+      "englishName": "seasonedBeanSprouts"
     },
     {
       "key": 104021,
@@ -3595,7 +3595,7 @@
         2
       ],
       "itemCategory": 4,
-      "englishName": "none"
+      "englishName": "seasonedBeanSprouts"
     },
     {
       "key": 104022,
@@ -3606,7 +3606,7 @@
         2
       ],
       "itemCategory": 4,
-      "englishName": "none"
+      "englishName": "stirFriedMushrooms"
     },
     {
       "key": 104023,
@@ -3617,7 +3617,7 @@
         2
       ],
       "itemCategory": 4,
-      "englishName": "none"
+      "englishName": "stirFriedMushrooms"
     },
     {
       "key": 104024,
@@ -3628,7 +3628,7 @@
         2
       ],
       "itemCategory": 4,
-      "englishName": "none"
+      "englishName": "stirFriedMushrooms"
     },
     {
       "key": 104025,
@@ -3639,7 +3639,7 @@
         2
       ],
       "itemCategory": 4,
-      "englishName": "none"
+      "englishName": "butterPotatoes"
     },
     {
       "key": 104026,
@@ -3650,7 +3650,7 @@
         2
       ],
       "itemCategory": 4,
-      "englishName": "none"
+      "englishName": "butterPotatoes"
     },
     {
       "key": 104027,
@@ -3661,7 +3661,7 @@
         2
       ],
       "itemCategory": 4,
-      "englishName": "none"
+      "englishName": "butterPotatoes"
     },
     {
       "key": 104028,
@@ -3672,7 +3672,7 @@
         2
       ],
       "itemCategory": 4,
-      "englishName": "none"
+      "englishName": "candiedWalnuts"
     },
     {
       "key": 104029,
@@ -3683,7 +3683,7 @@
         2
       ],
       "itemCategory": 4,
-      "englishName": "none"
+      "englishName": "candiedWalnuts"
     },
     {
       "key": 104030,
@@ -3694,7 +3694,7 @@
         2
       ],
       "itemCategory": 4,
-      "englishName": "none"
+      "englishName": "candiedWalnuts"
     },
     {
       "key": 104031,
@@ -3705,7 +3705,7 @@
         2
       ],
       "itemCategory": 4,
-      "englishName": "none"
+      "englishName": "mackerelGrillDish"
     },
     {
       "key": 104032,
@@ -3716,7 +3716,7 @@
         2
       ],
       "itemCategory": 4,
-      "englishName": "none"
+      "englishName": "mackerelGrillDish"
     },
     {
       "key": 104033,
@@ -3727,40 +3727,40 @@
         2
       ],
       "itemCategory": 4,
-      "englishName": "none"
+      "englishName": "mackerelGrillDish"
     },
     {
       "key": 104034,
-      "name": "평범한 표고버섯구이",
+      "name": "평범한 갈치구이",
       "FoodCategory": 110512,
       "grade": 0,
       "getRoute": [
         2
       ],
       "itemCategory": 4,
-      "englishName": "none"
+      "englishName": "grilledShiitakeMushrooms"
     },
     {
       "key": 104035,
-      "name": "맛있는 표고버섯구이",
+      "name": "맛있는 갈치구이",
       "FoodCategory": 110512,
       "grade": 1,
       "getRoute": [
         2
       ],
       "itemCategory": 4,
-      "englishName": "none"
+      "englishName": "grilledShiitakeMushrooms"
     },
     {
       "key": 104036,
-      "name": "전설의 표고버섯구이",
+      "name": "전설의 갈치구이",
       "FoodCategory": 110512,
       "grade": 2,
       "getRoute": [
         2
       ],
       "itemCategory": 4,
-      "englishName": "none"
+      "englishName": "grilledShiitakeMushrooms"
     },
     {
       "key": 104037,
@@ -3771,7 +3771,7 @@
         2
       ],
       "itemCategory": 4,
-      "englishName": "none"
+      "englishName": "butterGrilledAbalone"
     },
     {
       "key": 104038,
@@ -3782,7 +3782,7 @@
         2
       ],
       "itemCategory": 4,
-      "englishName": "none"
+      "englishName": "butterGrilledAbalone"
     },
     {
       "key": 104039,
@@ -3793,7 +3793,7 @@
         2
       ],
       "itemCategory": 4,
-      "englishName": "none"
+      "englishName": "butterGrilledAbalone"
     },
     {
       "key": 104040,
@@ -3804,7 +3804,7 @@
         2
       ],
       "itemCategory": 4,
-      "englishName": "none"
+      "englishName": "butterGrilledKingPrawn"
     },
     {
       "key": 104041,
@@ -3815,7 +3815,7 @@
         2
       ],
       "itemCategory": 4,
-      "englishName": "none"
+      "englishName": "butterGrilledKingPrawn"
     },
     {
       "key": 104042,
@@ -3826,7 +3826,7 @@
         2
       ],
       "itemCategory": 4,
-      "englishName": "none"
+      "englishName": "butterGrilledKingPrawn"
     },
     {
       "key": 104043,
@@ -3837,7 +3837,7 @@
         2
       ],
       "itemCategory": 4,
-      "englishName": "none"
+      "englishName": "stirFriedShreddedPotatoes"
     },
     {
       "key": 104044,
@@ -3848,7 +3848,7 @@
         2
       ],
       "itemCategory": 4,
-      "englishName": "none"
+      "englishName": "stirFriedShreddedPotatoes"
     },
     {
       "key": 104045,
@@ -3859,7 +3859,7 @@
         2
       ],
       "itemCategory": 4,
-      "englishName": "none"
+      "englishName": "stirFriedShreddedPotatoes"
     },
     {
       "key": 104046,
@@ -3870,7 +3870,7 @@
         2
       ],
       "itemCategory": 4,
-      "englishName": "none"
+      "englishName": "garlicFriedRice"
     },
     {
       "key": 104047,
@@ -3881,7 +3881,7 @@
         2
       ],
       "itemCategory": 4,
-      "englishName": "none"
+      "englishName": "garlicFriedRice"
     },
     {
       "key": 104048,
@@ -3892,7 +3892,7 @@
         2
       ],
       "itemCategory": 4,
-      "englishName": "none"
+      "englishName": "garlicFriedRice"
     },
     {
       "key": 104049,
@@ -3903,7 +3903,7 @@
         2
       ],
       "itemCategory": 4,
-      "englishName": "none"
+      "englishName": "spicyPorkStirFry"
     },
     {
       "key": 104050,
@@ -3914,7 +3914,7 @@
         2
       ],
       "itemCategory": 4,
-      "englishName": "none"
+      "englishName": "spicyPorkStirFry"
     },
     {
       "key": 104051,
@@ -3925,7 +3925,7 @@
         2
       ],
       "itemCategory": 4,
-      "englishName": "none"
+      "englishName": "spicyPorkStirFry"
     },
     {
       "key": 104052,
@@ -3936,7 +3936,7 @@
         2
       ],
       "itemCategory": 4,
-      "englishName": "none"
+      "englishName": "butterSweetPotato"
     },
     {
       "key": 104053,
@@ -3947,7 +3947,7 @@
         2
       ],
       "itemCategory": 4,
-      "englishName": "none"
+      "englishName": "butterSweetPotato"
     },
     {
       "key": 104054,
@@ -3958,40 +3958,40 @@
         2
       ],
       "itemCategory": 4,
-      "englishName": "none"
+      "englishName": "butterSweetPotato"
     },
     {
       "key": 104055,
-      "name": "평범한 구운 꽃게",
+      "name": "평범한 게살죽",
       "FoodCategory": 110519,
       "grade": 0,
       "getRoute": [
         2
       ],
       "itemCategory": 4,
-      "englishName": "none"
+      "englishName": "crabMeatPorridge"
     },
     {
       "key": 104056,
-      "name": "맛있는 구운 꽃게",
+      "name": "맛있는 게살죽",
       "FoodCategory": 110519,
       "grade": 1,
       "getRoute": [
         2
       ],
       "itemCategory": 4,
-      "englishName": "none"
+      "englishName": "crabMeatPorridge"
     },
     {
       "key": 104057,
-      "name": "전설의 구운 꽃게",
+      "name": "전설의 게살죽",
       "FoodCategory": 110519,
       "grade": 2,
       "getRoute": [
         2
       ],
       "itemCategory": 4,
-      "englishName": "none"
+      "englishName": "crabMeatPorridge"
     },
     {
       "key": 104058,
@@ -4002,7 +4002,7 @@
         2
       ],
       "itemCategory": 4,
-      "englishName": "none"
+      "englishName": "doenjangStew"
     },
     {
       "key": 104059,
@@ -4013,7 +4013,7 @@
         2
       ],
       "itemCategory": 4,
-      "englishName": "none"
+      "englishName": "doenjangStew"
     },
     {
       "key": 104060,
@@ -4024,7 +4024,7 @@
         2
       ],
       "itemCategory": 4,
-      "englishName": "none"
+      "englishName": "doenjangStew"
     },
     {
       "key": 104061,
@@ -4035,7 +4035,7 @@
         2
       ],
       "itemCategory": 4,
-      "englishName": "none"
+      "englishName": "abalonePorridge"
     },
     {
       "key": 104062,
@@ -4046,7 +4046,7 @@
         2
       ],
       "itemCategory": 4,
-      "englishName": "none"
+      "englishName": "abalonePorridge"
     },
     {
       "key": 104063,
@@ -4057,7 +4057,7 @@
         2
       ],
       "itemCategory": 4,
-      "englishName": "none"
+      "englishName": "abalonePorridge"
     },
     {
       "key": 104064,
@@ -4068,7 +4068,7 @@
         2
       ],
       "itemCategory": 4,
-      "englishName": "none"
+      "englishName": "blueCrabSoup"
     },
     {
       "key": 104065,
@@ -4079,7 +4079,7 @@
         2
       ],
       "itemCategory": 4,
-      "englishName": "none"
+      "englishName": "blueCrabSoup"
     },
     {
       "key": 104066,
@@ -4090,7 +4090,7 @@
         2
       ],
       "itemCategory": 4,
-      "englishName": "none"
+      "englishName": "blueCrabSoup"
     },
     {
       "key": 104067,
@@ -4101,7 +4101,7 @@
         2
       ],
       "itemCategory": 4,
-      "englishName": "none"
+      "englishName": "mugwortSoybeanPasteSoup"
     },
     {
       "key": 104068,
@@ -4112,7 +4112,7 @@
         2
       ],
       "itemCategory": 4,
-      "englishName": "none"
+      "englishName": "mugwortSoybeanPasteSoup"
     },
     {
       "key": 104069,
@@ -4123,7 +4123,7 @@
         2
       ],
       "itemCategory": 4,
-      "englishName": "none"
+      "englishName": "mugwortSoybeanPasteSoup"
     },
     {
       "key": 104070,
@@ -4134,7 +4134,7 @@
         2
       ],
       "itemCategory": 4,
-      "englishName": "none"
+      "englishName": "seaweedSoupWithOyster"
     },
     {
       "key": 104071,
@@ -4145,7 +4145,7 @@
         2
       ],
       "itemCategory": 4,
-      "englishName": "none"
+      "englishName": "seaweedSoupWithOyster"
     },
     {
       "key": 104072,
@@ -4156,7 +4156,7 @@
         2
       ],
       "itemCategory": 4,
-      "englishName": "none"
+      "englishName": "seaweedSoupWithOyster"
     },
     {
       "key": 104073,
@@ -4167,7 +4167,7 @@
         2
       ],
       "itemCategory": 4,
-      "englishName": "none"
+      "englishName": "beanSproutKimchiSoup"
     },
     {
       "key": 104074,
@@ -4178,7 +4178,7 @@
         2
       ],
       "itemCategory": 4,
-      "englishName": "none"
+      "englishName": "beanSproutKimchiSoup"
     },
     {
       "key": 104075,
@@ -4189,7 +4189,7 @@
         2
       ],
       "itemCategory": 4,
-      "englishName": "none"
+      "englishName": "beanSproutKimchiSoup"
     },
     {
       "key": 104076,
@@ -4200,7 +4200,7 @@
         2
       ],
       "itemCategory": 4,
-      "englishName": "none"
+      "englishName": "kingPrawnStew"
     },
     {
       "key": 104077,
@@ -4211,7 +4211,7 @@
         2
       ],
       "itemCategory": 4,
-      "englishName": "none"
+      "englishName": "kingPrawnStew"
     },
     {
       "key": 104078,
@@ -4222,7 +4222,7 @@
         2
       ],
       "itemCategory": 4,
-      "englishName": "none"
+      "englishName": "kingPrawnStew"
     },
     {
       "key": 104079,
@@ -4233,7 +4233,7 @@
         2
       ],
       "itemCategory": 4,
-      "englishName": "none"
+      "englishName": "octopusHotPot"
     },
     {
       "key": 104080,
@@ -4244,7 +4244,7 @@
         2
       ],
       "itemCategory": 4,
-      "englishName": "none"
+      "englishName": "octopusHotPot"
     },
     {
       "key": 104081,
@@ -4255,40 +4255,40 @@
         2
       ],
       "itemCategory": 4,
-      "englishName": "none"
+      "englishName": "octopusHotPot"
     },
     {
       "key": 104082,
-      "name": "평범한 전복버터찜",
+      "name": "평범한 인삼주스",
       "FoodCategory": 110528,
       "grade": 0,
       "getRoute": [
         2
       ],
       "itemCategory": 4,
-      "englishName": "none"
+      "englishName": "ginsengJuice"
     },
     {
       "key": 104083,
-      "name": "맛있는 전복버터찜",
+      "name": "맛있는 인삼주스",
       "FoodCategory": 110528,
       "grade": 1,
       "getRoute": [
         2
       ],
       "itemCategory": 4,
-      "englishName": "none"
+      "englishName": "ginsengJuice"
     },
     {
       "key": 104084,
-      "name": "전설의 전복버터찜",
+      "name": "전설의 인삼주스",
       "FoodCategory": 110528,
       "grade": 2,
       "getRoute": [
         2
       ],
       "itemCategory": 4,
-      "englishName": "none"
+      "englishName": "ginsengJuice"
     },
     {
       "key": 104085,
@@ -4299,7 +4299,7 @@
         2
       ],
       "itemCategory": 4,
-      "englishName": "candiedGoguma"
+      "englishName": "candiedSweetPotatoes"
     },
     {
       "key": 104086,
@@ -4310,7 +4310,7 @@
         2
       ],
       "itemCategory": 4,
-      "englishName": "candiedGoguma"
+      "englishName": "candiedSweetPotatoes"
     },
     {
       "key": 104087,
@@ -4321,73 +4321,73 @@
         2
       ],
       "itemCategory": 4,
-      "englishName": "candiedGoguma"
+      "englishName": "candiedSweetPotatoes"
     },
     {
       "key": 104088,
-      "name": "평범한 허니 버터 감자",
+      "name": "평범한 감 주스",
       "FoodCategory": 110530,
       "grade": 0,
       "getRoute": [
         2
       ],
       "itemCategory": 4,
-      "englishName": "none"
+      "englishName": "persimmonJuice"
     },
     {
       "key": 104089,
-      "name": "맛있는 허니 버터 감자",
+      "name": "맛있는 감 주스",
       "FoodCategory": 110530,
       "grade": 1,
       "getRoute": [
         2
       ],
       "itemCategory": 4,
-      "englishName": "none"
+      "englishName": "persimmonJuice"
     },
     {
       "key": 104090,
-      "name": "전설의 허니 버터 감자",
+      "name": "전설의 감 주스",
       "FoodCategory": 110530,
       "grade": 2,
       "getRoute": [
         2
       ],
       "itemCategory": 4,
-      "englishName": "none"
+      "englishName": "persimmonJuice"
     },
     {
       "key": 104091,
-      "name": "평범한 감말랭이",
+      "name": "평범한 밤 조림",
       "FoodCategory": 110531,
       "grade": 0,
       "getRoute": [
         2
       ],
       "itemCategory": 4,
-      "englishName": "none"
+      "englishName": "chestnutJorim"
     },
     {
       "key": 104092,
-      "name": "맛있는 감말랭이",
+      "name": "맛있는 밤 조림",
       "FoodCategory": 110531,
       "grade": 1,
       "getRoute": [
         2
       ],
       "itemCategory": 4,
-      "englishName": "none"
+      "englishName": "chestnutJorim"
     },
     {
       "key": 104093,
-      "name": "전설의 감말랭이",
+      "name": "전설의 밤 조림",
       "FoodCategory": 110531,
       "grade": 2,
       "getRoute": [
         2
       ],
       "itemCategory": 4,
-      "englishName": "none"
+      "englishName": "chestnutJorim"
     },
     {
       "key": 104094,
@@ -4398,7 +4398,7 @@
         2
       ],
       "itemCategory": 4,
-      "englishName": "none"
+      "englishName": "appleJuice"
     },
     {
       "key": 104095,
@@ -4409,7 +4409,7 @@
         2
       ],
       "itemCategory": 4,
-      "englishName": "none"
+      "englishName": "appleJuice"
     },
     {
       "key": 104096,
@@ -4420,7 +4420,7 @@
         2
       ],
       "itemCategory": 4,
-      "englishName": "none"
+      "englishName": "appleJuice"
     },
     {
       "key": 104097,
@@ -4431,7 +4431,7 @@
         2
       ],
       "itemCategory": 4,
-      "englishName": "none"
+      "englishName": "steamedPearDessert"
     },
     {
       "key": 104098,
@@ -4442,7 +4442,7 @@
         2
       ],
       "itemCategory": 4,
-      "englishName": "none"
+      "englishName": "steamedPearDessert"
     },
     {
       "key": 104099,
@@ -4453,7 +4453,7 @@
         2
       ],
       "itemCategory": 4,
-      "englishName": "none"
+      "englishName": "steamedPearDessert"
     },
     {
       "key": 104100,
@@ -4464,7 +4464,7 @@
         2
       ],
       "itemCategory": 4,
-      "englishName": "none"
+      "englishName": "boiledPorkSet"
     },
     {
       "key": 104101,
@@ -4475,7 +4475,7 @@
         2
       ],
       "itemCategory": 4,
-      "englishName": "none"
+      "englishName": "boiledPorkSet"
     },
     {
       "key": 104102,
@@ -4486,7 +4486,7 @@
         2
       ],
       "itemCategory": 4,
-      "englishName": "none"
+      "englishName": "boiledPorkSet"
     },
     {
       "key": 104103,
@@ -4497,7 +4497,7 @@
         2
       ],
       "itemCategory": 4,
-      "englishName": "none"
+      "englishName": "tofuSteak"
     },
     {
       "key": 104104,
@@ -4508,7 +4508,7 @@
         2
       ],
       "itemCategory": 4,
-      "englishName": "none"
+      "englishName": "tofuSteak"
     },
     {
       "key": 104105,
@@ -4519,7 +4519,7 @@
         2
       ],
       "itemCategory": 4,
-      "englishName": "none"
+      "englishName": "tofuSteak"
     },
     {
       "key": 104106,
@@ -4530,7 +4530,7 @@
         2
       ],
       "itemCategory": 4,
-      "englishName": "none"
+      "englishName": "potatoCroquette"
     },
     {
       "key": 104107,
@@ -4541,7 +4541,7 @@
         2
       ],
       "itemCategory": 4,
-      "englishName": "none"
+      "englishName": "potatoCroquette"
     },
     {
       "key": 104108,
@@ -4552,7 +4552,7 @@
         2
       ],
       "itemCategory": 4,
-      "englishName": "none"
+      "englishName": "potatoCroquette"
     },
     {
       "key": 104109,
@@ -4563,7 +4563,7 @@
         2
       ],
       "itemCategory": 4,
-      "englishName": "none"
+      "englishName": "anchovyNoodleSoup"
     },
     {
       "key": 104110,
@@ -4574,7 +4574,7 @@
         2
       ],
       "itemCategory": 4,
-      "englishName": "none"
+      "englishName": "anchovyNoodleSoup"
     },
     {
       "key": 104111,
@@ -4585,7 +4585,7 @@
         2
       ],
       "itemCategory": 4,
-      "englishName": "none"
+      "englishName": "anchovyNoodleSoup"
     },
     {
       "key": 104112,
@@ -4596,7 +4596,7 @@
         2
       ],
       "itemCategory": 4,
-      "englishName": "none"
+      "englishName": "soybeanNoodleSoup"
     },
     {
       "key": 104113,
@@ -4607,7 +4607,7 @@
         2
       ],
       "itemCategory": 4,
-      "englishName": "none"
+      "englishName": "soybeanNoodleSoup"
     },
     {
       "key": 104114,
@@ -4618,7 +4618,7 @@
         2
       ],
       "itemCategory": 4,
-      "englishName": "none"
+      "englishName": "soybeanNoodleSoup"
     },
     {
       "key": 104115,
@@ -4629,7 +4629,7 @@
         2
       ],
       "itemCategory": 4,
-      "englishName": "none"
+      "englishName": "abaloneSashimi"
     },
     {
       "key": 104116,
@@ -4640,7 +4640,7 @@
         2
       ],
       "itemCategory": 4,
-      "englishName": "none"
+      "englishName": "abaloneSashimi"
     },
     {
       "key": 104117,
@@ -4651,40 +4651,40 @@
         2
       ],
       "itemCategory": 4,
-      "englishName": "none"
+      "englishName": "abaloneSashimi"
     },
     {
       "key": 104118,
-      "name": "평범한 대게찜정식",
+      "name": "평범한 대게 회 세트",
       "FoodCategory": 110540,
       "grade": 0,
       "getRoute": [
         2
       ],
       "itemCategory": 4,
-      "englishName": "none"
+      "englishName": "snowCrabSashimiSet"
     },
     {
       "key": 104119,
-      "name": "맛있는 대게찜정식",
+      "name": "맛있는 대게 회 세트",
       "FoodCategory": 110540,
       "grade": 1,
       "getRoute": [
         2
       ],
       "itemCategory": 4,
-      "englishName": "none"
+      "englishName": "snowCrabSashimiSet"
     },
     {
       "key": 104120,
-      "name": "전설의 대게찜정식",
+      "name": "전설의 대게 회 세트",
       "FoodCategory": 110540,
       "grade": 2,
       "getRoute": [
         2
       ],
       "itemCategory": 4,
-      "englishName": "none"
+      "englishName": "snowCrabSashimiSet"
     },
     {
       "key": 104121,
@@ -4695,7 +4695,7 @@
         2
       ],
       "itemCategory": 4,
-      "englishName": "none"
+      "englishName": "amberjackSashimiSet"
     },
     {
       "key": 104122,
@@ -4706,7 +4706,7 @@
         2
       ],
       "itemCategory": 4,
-      "englishName": "none"
+      "englishName": "amberjackSashimiSet"
     },
     {
       "key": 104123,
@@ -4717,7 +4717,7 @@
         2
       ],
       "itemCategory": 4,
-      "englishName": "none"
+      "englishName": "amberjackSashimiSet"
     },
     {
       "key": 104124,
@@ -4728,7 +4728,7 @@
         2
       ],
       "itemCategory": 4,
-      "englishName": "none"
+      "englishName": "redSeaBreamSashimiSet"
     },
     {
       "key": 104125,
@@ -4739,7 +4739,7 @@
         2
       ],
       "itemCategory": 4,
-      "englishName": "none"
+      "englishName": "redSeaBreamSashimiSet"
     },
     {
       "key": 104126,
@@ -4750,7 +4750,7 @@
         2
       ],
       "itemCategory": 4,
-      "englishName": "none"
+      "englishName": "redSeaBreamSashimiSet"
     },
     {
       "key": 104127,
@@ -4761,7 +4761,7 @@
         2
       ],
       "itemCategory": 4,
-      "englishName": "none"
+      "englishName": "mackerelSashimiSet"
     },
     {
       "key": 104128,
@@ -4772,7 +4772,7 @@
         2
       ],
       "itemCategory": 4,
-      "englishName": "none"
+      "englishName": "mackerelSashimiSet"
     },
     {
       "key": 104129,
@@ -4783,7 +4783,7 @@
         2
       ],
       "itemCategory": 4,
-      "englishName": "none"
+      "englishName": "mackerelSashimiSet"
     },
     {
       "key": 104130,
@@ -4794,7 +4794,7 @@
         2
       ],
       "itemCategory": 4,
-      "englishName": "none"
+      "englishName": "mugwortRiceCake"
     },
     {
       "key": 104131,
@@ -4805,7 +4805,7 @@
         2
       ],
       "itemCategory": 4,
-      "englishName": "none"
+      "englishName": "mugwortRiceCake"
     },
     {
       "key": 104132,
@@ -4816,7 +4816,7 @@
         2
       ],
       "itemCategory": 4,
-      "englishName": "none"
+      "englishName": "mugwortRiceCake"
     },
     {
       "key": 104133,
@@ -4827,7 +4827,7 @@
         2
       ],
       "itemCategory": 4,
-      "englishName": "none"
+      "englishName": "friedSquid"
     },
     {
       "key": 104134,
@@ -4838,7 +4838,7 @@
         2
       ],
       "itemCategory": 4,
-      "englishName": "none"
+      "englishName": "friedSquid"
     },
     {
       "key": 104135,
@@ -4849,7 +4849,7 @@
         2
       ],
       "itemCategory": 4,
-      "englishName": "none"
+      "englishName": "friedSquid"
     },
     {
       "key": 104136,
@@ -4860,7 +4860,7 @@
         2
       ],
       "itemCategory": 4,
-      "englishName": "none"
+      "englishName": "friedShrimp"
     },
     {
       "key": 104137,
@@ -4871,7 +4871,7 @@
         2
       ],
       "itemCategory": 4,
-      "englishName": "none"
+      "englishName": "friedShrimp"
     },
     {
       "key": 104138,
@@ -4882,7 +4882,7 @@
         2
       ],
       "itemCategory": 4,
-      "englishName": "none"
+      "englishName": "friedShrimp"
     },
     {
       "key": 104139,
@@ -4893,7 +4893,7 @@
         2
       ],
       "itemCategory": 4,
-      "englishName": "none"
+      "englishName": "crabFriedRice"
     },
     {
       "key": 104140,
@@ -4904,7 +4904,7 @@
         2
       ],
       "itemCategory": 4,
-      "englishName": "none"
+      "englishName": "crabFriedRice"
     },
     {
       "key": 104141,
@@ -4915,40 +4915,40 @@
         2
       ],
       "itemCategory": 4,
-      "englishName": "none"
+      "englishName": "crabFriedRice"
     },
     {
       "key": 104142,
-      "name": "평범한 새우 대하 구이 세트",
+      "name": "평범한 바지락 칼국수",
       "FoodCategory": 110548,
       "grade": 0,
       "getRoute": [
         2
       ],
       "itemCategory": 4,
-      "englishName": "none"
+      "englishName": "clamNoodleSoup"
     },
     {
       "key": 104143,
-      "name": "맛있는 새우 대하 구이 세트",
+      "name": "맛있는 바지락 칼국수",
       "FoodCategory": 110548,
       "grade": 1,
       "getRoute": [
         2
       ],
       "itemCategory": 4,
-      "englishName": "none"
+      "englishName": "clamNoodleSoup"
     },
     {
       "key": 104144,
-      "name": "전설의 새우 대하 구이 세트",
+      "name": "전설의 바지락 칼국수",
       "FoodCategory": 110548,
       "grade": 2,
       "getRoute": [
         2
       ],
       "itemCategory": 4,
-      "englishName": "none"
+      "englishName": "clamNoodleSoup"
     }
   ]
 }

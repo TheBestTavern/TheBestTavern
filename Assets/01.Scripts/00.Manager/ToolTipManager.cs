@@ -7,7 +7,7 @@ public class ToolTipManager
     public async void Initialize()
     {
         GameObject pref = await AddressablesLoader.Instance.AddressablesLoadAsync<GameObject>("ToolTip.prefab");
-        tooltip = GameObject.Instantiate(pref).GetComponent<ToolTip>();
+        tooltip = GameObject.Instantiate(pref, PopUpManager.Instance.gameObject.transform).GetComponent<ToolTip>();
 
         EventBus.Subscribe<SlotHoverEnterEvent>((evt) => tooltip.ShowToolTip(evt));
         EventBus.Subscribe<SlotHoverEndEvent>((evt) => tooltip.HideToolTip(evt));

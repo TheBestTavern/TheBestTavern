@@ -114,13 +114,13 @@ public class DetailPopup : BasePopUp
                 case DesignEnums.RegionType.gangwon:
                     regionString.Add("강원도");
                     break;
-                case DesignEnums.RegionType.Chungcheong:
+                case DesignEnums.RegionType.chungcheong:
                     regionString.Add("충청도");
                     break;
-                case DesignEnums.RegionType.Jeolla:
+                case DesignEnums.RegionType.jeolla:
                     regionString.Add("전라도");
                     break;
-                case DesignEnums.RegionType.Gyeongsang:
+                case DesignEnums.RegionType.gyeongsang:
                     regionString.Add("경상도");
                     break;
             }
