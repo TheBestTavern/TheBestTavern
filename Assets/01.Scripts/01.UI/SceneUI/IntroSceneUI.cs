@@ -24,9 +24,13 @@ public class IntroSceneUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI introText;
     [SerializeField] private TextMeshProUGUI titleText;
     [SerializeField] private TextMeshProUGUI gameStartBtnText;
+    [SerializeField] private TextMeshProUGUI gameLoadStartBtnText;
+    [SerializeField] private TextMeshProUGUI gameExitBtnText;
 
     [Header("Button")]
     [SerializeField] private Image gameStartBtnImage;
+    [SerializeField] private Image gameLoadStartBtnImage;
+    [SerializeField] private Image gameExitBtnImage;
     [SerializeField] private Button skipButton;
 
     private readonly string[] introTexts = {
@@ -77,11 +81,19 @@ public class IntroSceneUI : MonoBehaviour
         blackBackGround.color = new Color(0, 0, 0, 0);
         paper.gameObject.SetActive(false);
         startSceneImage.gameObject.SetActive(true);
+
         gameStartBtnImage.gameObject.SetActive(true);
-        gameStartBtnText.gameObject.SetActive(true);
+        gameLoadStartBtnImage.gameObject.SetActive(true);
+        gameExitBtnImage.gameObject.SetActive(true);
 
         gameStartBtnImage.color = new Color(1, 1, 1, 1);
         gameStartBtnText.color = new Color(0, 0, 0, 1);
+
+        gameLoadStartBtnImage.color = new Color(1, 1, 1, 1);
+        gameLoadStartBtnText.color = new Color(0, 0, 0, 1);
+
+        gameExitBtnImage.color = new Color(1, 1, 1, 1);
+        gameExitBtnText.color = new Color(0, 0, 0, 1);
 
         titleText.gameObject.SetActive(true);
         titleText.maxVisibleCharacters = titleText.text.Length;
@@ -119,6 +131,14 @@ public class IntroSceneUI : MonoBehaviour
         gameStartBtnImage.gameObject.SetActive(true);
         gameStartBtnImage.DOFade(1, 4);
         gameStartBtnText.DOFade(1, 4);
+
+        gameLoadStartBtnImage.gameObject.SetActive(true);
+        gameLoadStartBtnImage.DOFade(1, 4);
+        gameLoadStartBtnText.DOFade(1, 4);
+
+        gameExitBtnImage.gameObject.SetActive(true);
+        gameExitBtnImage.DOFade(1, 4);
+        gameExitBtnText.DOFade(1, 4);
     }
 
     private async Task PlayIntroTexts(CancellationToken token)
