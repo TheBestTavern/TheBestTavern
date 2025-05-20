@@ -890,6 +890,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   data: {fileID: 11400000, guid: 7c61f50033f8139428fc181562661f79, type: 2}
   effectController: {fileID: 947084414}
+  knife: {fileID: 0}
+  ingredientSO: {fileID: 0}
 --- !u!4 &664344284
 Transform:
   m_ObjectHideFlags: 0
@@ -1494,7 +1496,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1232612234}
   - component: {fileID: 1232612233}
-  - component: {fileID: 1232612232}
   - component: {fileID: 1232612235}
   m_Layer: 0
   m_Name: Main Camera
@@ -1503,14 +1504,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &1232612232
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1232612231}
-  m_Enabled: 1
 --- !u!20 &1232612233
 Camera:
   m_ObjectHideFlags: 0
