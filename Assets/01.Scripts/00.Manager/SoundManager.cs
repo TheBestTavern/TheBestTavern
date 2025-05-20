@@ -10,12 +10,16 @@ public class SoundManager : MonoSingleton<SoundManager>
     [Header("Audio Sources")]
     [SerializeField] private AudioSource bgmSource;
     [SerializeField] private AudioSource sfxSource;
+    [SerializeField] private AudioSource ambienceSource;
+
 
 
     [Header("Audio Clips")]
     [SerializeField] private SoundLibrary soundLibrary;
     private Dictionary<string, string> bgmKeys = new Dictionary<string, string>();
     private Dictionary<string, string> sfxKeys = new Dictionary<string, string>();
+    private Dictionary<string, string> ambienceKeys = new Dictionary<string, string>();
+
 
     private float currentBGMTime = 0f;
     private string currentBGMName;
@@ -24,6 +28,8 @@ public class SoundManager : MonoSingleton<SoundManager>
     {
         if (_isInitialized) return;
         base.Init();
+
+        SetBGMVolume(1.0f);
 
         DontDestroyOnLoad(this);
     }
@@ -37,8 +43,12 @@ public class SoundManager : MonoSingleton<SoundManager>
         sfxSource = gameObject.AddComponent<AudioSource>();
         sfxSource.loop = false;
 
+        ambienceSource = gameObject.AddComponent<AudioSource>();
+        ambienceSource.loop = true;
+
         AddBGM();
         AddSFX();
+        AddAmbience();
         base.Awake();
     }
 
@@ -83,15 +93,44 @@ public class SoundManager : MonoSingleton<SoundManager>
 
         Addressables.LoadAssetAsync<AudioClip>(addressKey).Completed += (handle) =>
         {
-            if (handle.Status == AsyncOperationStatus.Succeeded)
+            if (handle.Status == AsyncOperationStatus.Succeeded &&!sfxSource.isPlaying)
             {
                 sfxSource.PlayOneShot(handle.Result);
             }
             else
             {
-                Debug.LogError($"로드 실패: {addressKey}");
             }
         };
+    }
+
+    public void PlayAmbience(string name)
+    {
+        if (!ambienceKeys.TryGetValue(name, out var addressKey))
+        {
+            Debug.LogWarning($"ambience 찾을 수 없음: {name}");
+            return;
+        }
+
+        Addressables.LoadAssetAsync<AudioClip>(addressKey).Completed += (handle) =>
+        {
+            if (handle.Status == AsyncOperationStatus.Succeeded && !ambienceSource.isPlaying)
+            {
+                ambienceSource.clip = handle.Result;
+                ambienceSource.Play();
+            }
+            else
+            {
+            }
+        };
+    }
+
+    public void StopLoop()
+    {
+        if (ambienceSource.isPlaying)
+        {
+            ambienceSource.Stop();
+            ambienceSource.clip = null;
+        }
     }
 
     private void AddBGM()
@@ -116,11 +155,21 @@ public class SoundManager : MonoSingleton<SoundManager>
         }
     }
 
-    
+    private void AddAmbience()
+    {
+        foreach (var ambience in soundLibrary.ambienceClips)
+        {
+            if (!ambienceKeys.ContainsKey(ambience.soundName))
+            {
+                ambienceKeys.Add(ambience.soundName, ambience.addressableKey);
+            }
+        }
+    }
 
-    public void SetBGMVolume(float volume) => bgmSource.volume = volume;
+
+    public void SetBGMVolume(float volume) => bgmSource.volume = Mathf.Clamp01(volume * 0.3f);
     public void SetSFXVolume(float volume) => sfxSource.volume = volume;
 
-    public float GetBGMVolume() => bgmSource.volume;
+    public float GetBGMVolume() => bgmSource.volume / 0.3f;
     public float GetSFXVolume() => sfxSource.volume;
 }

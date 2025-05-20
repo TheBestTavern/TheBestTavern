@@ -47,6 +47,240 @@ MonoBehaviour:
     m_SerializedLabels:
     - SFX
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b1de9b601b11d3d4e82a57816960d752
+    m_Address: Boil
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - SFX
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a80abba411ff6d846b89f61e028fe631
+    m_Address: BoilAmbience
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - SFX
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 11486dc920ec682489cde9ccd2562287
+    m_Address: BoilButton
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - SFX
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 11f7fd13ab0e28444be09c05aaa7645b
+    m_Address: CardMatch
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - SFX
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 591bbf931381b8f4f9f0baa61babfe03
+    m_Address: CutButton
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - SFX
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6c9bc74a48946394aad715cf59102794
+    m_Address: DishButton
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - SFX
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2abb152586ad70749a9cc767d70525b0
+    m_Address: Dogam
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - SFX
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4d74bc51d20f0d848b39b196b7338c7a
+    m_Address: Fail
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - SFX
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7a7b4b2e5ab9b6d40b8915e2965964ea
+    m_Address: Forest1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - SFX
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e7ffc528d6bdbef4ea769dfc6b6cf2de
+    m_Address: Forest2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - SFX
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5d0a16610bb914948bee0e8e6fb82ceb
+    m_Address: Forest3
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - SFX
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9a1fe854e3f2e2f4681ecad70ff7a9e3
+    m_Address: Forest4
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - SFX
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a33e66e1bacde20459a800da7ad1ffc1
+    m_Address: Forest5
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - SFX
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c566139dcefdc634aa68845d72df0073
+    m_Address: ForestAmbience
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - SFX
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1fdb87f2febff324aa6e11801e7c221f
+    m_Address: Grill
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - SFX
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 43a9089a737af7d4db622f3643b65a12
+    m_Address: GrillAmbience
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - SFX
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 653048ff4585ebb428f7bdf0bcc29d0f
+    m_Address: GrillButton
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - SFX
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cdae365189382ee40a00f4021f1ca315
+    m_Address: GrindButton
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - SFX
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 811e7feaeb8fc62458b5b8724bcd2d74
+    m_Address: Julgu
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - SFX
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a3b49c8510eb9b44ba9ac55869dca337
+    m_Address: Kokkio
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - SFX
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b81a764b25e9e8d4c919709b32a36dae
+    m_Address: MillButton
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - SFX
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a7ecac62ceb91564d8de5c1b071c6e41
+    m_Address: MixingBowl
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - SFX
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 78826e6f74efe5948a5aa9248cb9d133
+    m_Address: MixingBowlButton
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - SFX
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a9a735872b754d84e8f99e2a4df919e3
+    m_Address: OceanAmbience
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - SFX
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2805171d777b5af4cb01a4fe4c7e6b5e
+    m_Address: SceneMoveButton
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - SFX
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5fdc3faa43910ee46b406dfcde524887
+    m_Address: Success
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - SFX
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c230389cdba1a4d47bda71c4d0e2b6f9
+    m_Address: SlotButton
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - SFX
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7abccce1359ba0d4a8421bcc212783c5
+    m_Address: ConfirmButton
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - SFX
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e3301de0916a9284bbfa70392e2e3a3e
+    m_Address: CookingStartButton
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - SFX
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a2c4a249c5062d34f9ccee57d24c2318
+    m_Address: BackButton
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - SFX
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7a1acab5003704d4d8562025e4f35e0c
+    m_Address: Door
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - SFX
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e96970c7f4b4cbd46b48fec324b0e68c
+    m_Address: CardFlip
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - SFX
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 66c60d4fe916f4a4480e93a6f3272b75
+    m_Address: BaitSplash
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - SFX
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: eded77975dc0e77409f70986223c744e
+    m_Address: Monster
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - SFX
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 81b77c5cdf851014a993f1315d5428a6
+    m_Address: RodCut
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - SFX
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f7bf97beb659605478d1ba92e0790dba
+    m_Address: RodShake
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - SFX
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 34eaa33d7817e744d9c9f557ac25c0e5
+    m_Address: ThrowBaitStrong
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - SFX
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b53a7a3880dcf4242b35226ec7c6b5b6
+    m_Address: ThrowBaitWeak
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - SFX
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8170d433430e18f468010cb90174412a
+    m_Address: ThrowStone
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - SFX
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 3f946b317ceaa2747b411cad54511d5f, type: 2}
   m_SchemaSet:

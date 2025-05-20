@@ -155,6 +155,7 @@ MonoBehaviour:
   isDontDestroyOnLoad: 1
   bgmSource: {fileID: 0}
   sfxSource: {fileID: 0}
+  loopSource: {fileID: 0}
   soundLibrary: {fileID: 11400000, guid: c0de3491895f7fb4b8ca5621364fe493, type: 2}
 --- !u!4 &330187111
 Transform:
@@ -305,7 +306,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e744a27a68559434ea55004cf9f1e781, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sfxName: Button1
+  sfxName: Door
 --- !u!1 &369510027
 GameObject:
   m_ObjectHideFlags: 0
@@ -1242,7 +1243,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e744a27a68559434ea55004cf9f1e781, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sfxName: Button1
+  sfxName: Door
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
