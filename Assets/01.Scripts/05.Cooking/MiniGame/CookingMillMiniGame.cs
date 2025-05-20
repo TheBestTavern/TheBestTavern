@@ -135,7 +135,7 @@ public class CookingMillMiniGame : CookingMiniGameBase
             float mouseSpeed = totalAngle / 0.75f;
 
             // 6. mouseSpeed (180f~250f) 사이 & 올바른 회전방향 유지한 시간도 구해야 판정 기준에 쓸 수 있음
-            if (mouseSpeed >= 200f && mouseSpeed <= 400f && JudgeDirection(deltaAngle)) // SO로 옮기기
+            if (mouseSpeed >= 200f && mouseSpeed <= 800f && JudgeDirection(deltaAngle)) // SO로 옮기기
             {
                 maintainTime += Time.deltaTime;
             }

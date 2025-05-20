@@ -30,8 +30,14 @@ public class SoundManager : MonoSingleton<SoundManager>
         base.Init();
 
         SetBGMVolume(1.0f);
-
+        EventBus.Subscribe<EndNightUIBlockEvent>((evt) => PlaySFX("Kokkio"));
         DontDestroyOnLoad(this);
+    }
+
+    protected override void OnDestroy()
+    {
+        base.OnDestroy();
+        EventBus.UnSubscribe<EndNightUIBlockEvent>((evt) => PlaySFX("Kokkio"));
     }
 
     protected override void Awake()
@@ -123,6 +129,8 @@ public class SoundManager : MonoSingleton<SoundManager>
             }
         };
     }
+
+
 
     public void StopLoop()
     {
