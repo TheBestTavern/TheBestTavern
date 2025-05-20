@@ -26,5 +26,19 @@ MonoBehaviour:
     addressableKey: Success
   - soundName: Fail
     addressableKey: Fail
+  - soundName: GrillButton
+    addressableKey: GrillButton
+  - soundName: GrindButton
+    addressableKey: GrindButton
+  - soundName: MillButton
+    addressableKey: MillButton
+  - soundName: CutButton
+    addressableKey: CutButton
+  - soundName: BoilButton
+    addressableKey: BoilButton
+  - soundName: MixingBowlButton
+    addressableKey: MixingBowlButton
+  - soundName: DishButton
+    addressableKey: DishButton
   - soundName: SceneMoveButton
     addressableKey: SceneMoveButton

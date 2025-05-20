@@ -1322,6 +1322,7 @@ GameObject:
   - component: {fileID: 379798609}
   - component: {fileID: 379798608}
   - component: {fileID: 379798607}
+  - component: {fileID: 379798610}
   m_Layer: 5
   m_Name: PlateButton
   m_TagString: Untagged
@@ -1430,6 +1431,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 379798605}
   m_CullTransparentMesh: 1
+--- !u!114 &379798610
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 379798605}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e744a27a68559434ea55004cf9f1e781, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sfxName: DishButton
 --- !u!1 &405680325
 GameObject:
   m_ObjectHideFlags: 0
@@ -4156,6 +4170,7 @@ GameObject:
   - component: {fileID: 1126814019}
   - component: {fileID: 1126814018}
   - component: {fileID: 1126814017}
+  - component: {fileID: 1126814020}
   m_Layer: 5
   m_Name: MixingBowlMiniGameButton
   m_TagString: Untagged
@@ -4264,6 +4279,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1126814015}
   m_CullTransparentMesh: 1
+--- !u!114 &1126814020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1126814015}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e744a27a68559434ea55004cf9f1e781, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sfxName: MixingBowlButton
 --- !u!1 &1153014934
 GameObject:
   m_ObjectHideFlags: 0
@@ -4276,6 +4304,7 @@ GameObject:
   - component: {fileID: 1153014938}
   - component: {fileID: 1153014937}
   - component: {fileID: 1153014936}
+  - component: {fileID: 1153014939}
   m_Layer: 5
   m_Name: BoilMiniGameButton
   m_TagString: Untagged
@@ -4384,6 +4413,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1153014934}
   m_CullTransparentMesh: 1
+--- !u!114 &1153014939
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1153014934}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e744a27a68559434ea55004cf9f1e781, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sfxName: BoilButton
 --- !u!1 &1182874858
 GameObject:
   m_ObjectHideFlags: 0
@@ -5836,6 +5878,7 @@ GameObject:
   - component: {fileID: 1835725787}
   - component: {fileID: 1835725790}
   - component: {fileID: 1835725789}
+  - component: {fileID: 1835725791}
   - component: {fileID: 1835725788}
   m_Layer: 5
   m_Name: CuttingMiniGameButton
@@ -5945,6 +5988,19 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &1835725791
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1835725786}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e744a27a68559434ea55004cf9f1e781, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sfxName: CutButton
 --- !u!1 &1842577697
 GameObject:
   m_ObjectHideFlags: 0
@@ -6288,6 +6344,7 @@ GameObject:
   - component: {fileID: 1904193668}
   - component: {fileID: 1904193667}
   - component: {fileID: 1904193666}
+  - component: {fileID: 1904193669}
   m_Layer: 5
   m_Name: MillMiniGameButton
   m_TagString: Untagged
@@ -6396,6 +6453,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1904193664}
   m_CullTransparentMesh: 1
+--- !u!114 &1904193669
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1904193664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e744a27a68559434ea55004cf9f1e781, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sfxName: MillButton
 --- !u!1 &1904570285
 GameObject:
   m_ObjectHideFlags: 0
@@ -6505,6 +6575,7 @@ GameObject:
   - component: {fileID: 1929045923}
   - component: {fileID: 1929045922}
   - component: {fileID: 1929045921}
+  - component: {fileID: 1929045924}
   m_Layer: 5
   m_Name: GrindMiniGameButton
   m_TagString: Untagged
@@ -6613,6 +6684,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1929045919}
   m_CullTransparentMesh: 1
+--- !u!114 &1929045924
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1929045919}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e744a27a68559434ea55004cf9f1e781, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sfxName: GrindButton
 --- !u!1 &1954408308
 GameObject:
   m_ObjectHideFlags: 0
@@ -7305,6 +7389,7 @@ GameObject:
   - component: {fileID: 2121749669}
   - component: {fileID: 2121749668}
   - component: {fileID: 2121749667}
+  - component: {fileID: 2121749670}
   m_Layer: 5
   m_Name: GrillMiniGameButton
   m_TagString: Untagged
@@ -7413,6 +7498,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2121749665}
   m_CullTransparentMesh: 1
+--- !u!114 &2121749670
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2121749665}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e744a27a68559434ea55004cf9f1e781, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sfxName: GrillButton
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
