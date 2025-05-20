@@ -9,6 +9,7 @@ public class CaptureManager : MonoSingleton<CaptureManager>
     [Header("포획 및 도망 버튼")]
     [SerializeField] private Button captureButton;
     [SerializeField] private Button escapeButton;
+    [SerializeField] private Button infoButton;
 
     [Header("포획 설정")]
     [SerializeField] private float captureRadius = 5f;
@@ -18,7 +19,8 @@ public class CaptureManager : MonoSingleton<CaptureManager>
     protected override void Awake()
     {
         captureButton.onClick.AddListener(CaptureAnimal);
-        escapeButton.onClick.AddListener(EscapeFromAnimal);
+        escapeButton.onClick.AddListener(OnClickEscapeFromAnimal);
+        infoButton.onClick.AddListener(OnClickInfoButton);
     }
     void Start()
     {
@@ -56,9 +58,14 @@ public class CaptureManager : MonoSingleton<CaptureManager>
         animalInRange = null;
     }
 
-    public void CaptureButton()
+    public void OnClickCaptureButton()
     {
         captureButton.gameObject.SetActive(true);
+    }
+
+    private async void OnClickInfoButton()
+    {
+        await PopUpManager.Instance.ShowPopUp(PopUpType.GatheringInfo);
     }
 
     // 포획 시도
@@ -75,9 +82,16 @@ public class CaptureManager : MonoSingleton<CaptureManager>
         if (success)
         {
             Debug.LogError("동물 포획 성공");
-            AddItem();
-            animalInRange.DestroyAnimal();
-            ShowResult();
+            if (animalInRange.animalSizeType == AnimalSizeType.Small)
+            {
+                UnLoadMiniGame();
+            }
+            else
+            {
+                AddItem();
+                animalInRange.DestroyAnimal();
+                ShowResult();
+            }
         }
         else
         {
@@ -101,7 +115,7 @@ public class CaptureManager : MonoSingleton<CaptureManager>
         return success;
     }
 
-    private void EscapeFromAnimal()
+    private void OnClickEscapeFromAnimal()
     {
         Debug.Log("도망가기");
         animalInRange.DestroyAnimal();

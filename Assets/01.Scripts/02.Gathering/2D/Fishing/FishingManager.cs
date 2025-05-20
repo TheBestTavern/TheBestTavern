@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class FishingManager : MonoSingleton<FishingManager>
 {
@@ -10,6 +11,13 @@ public class FishingManager : MonoSingleton<FishingManager>
     public bool fishingStart = false;
     public bool success;
     public int gatheringKey;
+    [SerializeField] private Button infoButton;
+
+    protected override void Awake()
+    {
+        base.Awake();
+        infoButton.onClick.AddListener(OnClickInfoButton);
+    }
 
     public void BeginFishing()
     {
@@ -25,6 +33,10 @@ public class FishingManager : MonoSingleton<FishingManager>
     {
         UIManager.Instance.gatheringSceneUI.SetMiniGameBackGround(false);
         await SceneLoader.Instance.UnLoadSceneAsyncMiniGame();
+    }
+    private async void OnClickInfoButton()
+    {
+        await PopUpManager.Instance.ShowPopUp(PopUpType.FishingInfo);
     }
 
     public bool GetResult()

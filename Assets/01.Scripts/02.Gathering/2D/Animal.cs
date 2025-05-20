@@ -77,13 +77,13 @@ public class Animal : MonoBehaviour
     {
         canBeCaptured = true;
         captureChance = 1f;
-        CaptureManager.Instance.CaptureButton();
+        CaptureManager.Instance.OnClickCaptureButton();
     }
 
     public void HitMediumAnimal(Vector3 hitPosition)
     {
         SetCaptureChanceInstant(hitPosition, true);
-        CaptureManager.Instance.CaptureButton();
+        CaptureManager.Instance.OnClickCaptureButton();
     }
 
     void SetCaptureChanceInstant(Vector3 targetPosition, bool isBaitEffective)
