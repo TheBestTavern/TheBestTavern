@@ -21,7 +21,7 @@ public class ItemStackManager : MonoSingleton<ItemStackManager>
             IDs.Push(i);
         }
 
-        EventBus.Subscribe<ItemStackOnZeroEvent>(ReCoverID);
+        //EventBus.Subscribe<ItemStackOnZeroEvent>(ReCoverID);
     }
 
     public void ApplyLoadData(Stack<int> IDs, Dictionary<int, ItemStack> AllItemStack)
@@ -50,6 +50,6 @@ public class ItemStackManager : MonoSingleton<ItemStackManager>
 
     protected override void OnDestroy()
     {
-        EventBus.UnSubscribe<ItemStackOnZeroEvent>(ReCoverID);
+        //EventBus.UnSubscribe<ItemStackOnZeroEvent>(ReCoverID);
     }
 }

@@ -46,6 +46,7 @@ public class ItemStack // 풀로 관리하기
 
     public void TriggerOnDestroy()
     {
+        ItemStackManager.Instance.ReCoverID(ID);
         EventBus.Publish<ItemStackOnZeroEvent>(new ItemStackOnZeroEvent(ID));
     }
 

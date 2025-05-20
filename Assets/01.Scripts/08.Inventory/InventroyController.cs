@@ -21,7 +21,7 @@ public class InventoryController
         this.maxStackSize = maxStackSize;
 
         this.model = new InventoryModel();
-        model.Init(slotCount, maxStackSize, 특정아이템정보변경);
+        model.Init(invenType, slotCount, maxStackSize, 특정아이템정보변경);
 
         var allViews = InventoryManager.Instance.FindInventoryView();
         On씬이동After();
@@ -74,6 +74,18 @@ public class InventoryController
             return false;
         }
         return true;
+    }
+
+    public bool 쓰레기통에버리기(Data_Foods data_Foods, int amount)
+    {
+        if (amount > 0)
+        {
+            return 아이템잃음(data_Foods, amount);
+        }
+        else
+        {
+            return false;
+        }
     }
 
     public void 아이템정렬_합치기()

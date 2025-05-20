@@ -23,7 +23,7 @@ public class InventoryTrashCan : MonoBehaviour, IDropHandler, IPointerEnterHandl
         var popup = (ConfirmPopUp)await PopUpManager.Instance.ShowPopUp(PopUpType.Confirm);
         popup.SetConfirm<int>("버릴 갯수를 입력해주세요.", (number) =>
         {
-            bool success = InventoryManager.Instance.Invens[InvenType.Player].아이템잃음(fromSlot.GetSlotItem().Origin, number);
+            bool success = InventoryManager.Instance.Invens[InvenType.Player].쓰레기통에버리기(fromSlot.GetSlotItem().Origin, number);
             return success;
         });
 
@@ -35,11 +35,13 @@ public class InventoryTrashCan : MonoBehaviour, IDropHandler, IPointerEnterHandl
         if (eventData.pointerDrag)
         {
             image.color = new Color(1, 1, 1, 1);
+            gameObject.transform.localScale = new Vector2(1.3f, 1.3f);
         }
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
         image.color = defaultColor;
+            gameObject.transform.localScale = Vector3.one;
     }
 }
