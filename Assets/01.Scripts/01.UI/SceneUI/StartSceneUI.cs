@@ -9,19 +9,29 @@ public class StartSceneUI : MonoBehaviour
 {
     [SerializeField] private Button gameStartButton;
     [SerializeField] private Button gameLoadStartButton;
+    [SerializeField] private Button gameExitButton;
     void Start()
     {
         UIManager.Instance.startSceneUI = this;
 
         gameStartButton.onClick.AddListener(OnClickGameStartButton);
         gameLoadStartButton.onClick.AddListener(OnClickGameLoadStartButton);
+        gameExitButton.onClick.AddListener(OnClickGameExitButton);
+    }
+
+    private void OnClickGameExitButton()
+    {
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#endif
     }
 
     private async void OnClickGameStartButton()
     {
         SoundManager.Instance.PlayBGM("MainBGM1");
-        await SceneLoader.Instance.LoadSceneAsync("MainScene");
+        await SceneLoader.Instance.LoadSceneAsync("TutorialScene");
     }
+
     private async void OnClickGameLoadStartButton()
     {
         if(SaveLoadManager.Instance.LoadData(out PlayerGameData playerGameData))
