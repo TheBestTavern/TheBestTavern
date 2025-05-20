@@ -47,6 +47,7 @@ public class FishingController : MonoBehaviour
 
             if (tensionGaugeController.IsOverloaded())
             {
+                SoundManager.Instance.PlaySFX("RodCut");
                 Debug.Log("게이지 과부하 실패");
                 StopFishing(false);
                 FishingManager.Instance.success = false;
@@ -74,7 +75,7 @@ public class FishingController : MonoBehaviour
     {
         fishingInProgress = true;
         yield return new WaitForSeconds(Random.Range(1f, 3f));
-
+        SoundManager.Instance.PlaySFX("BaitSplash");
         FishingManager.Instance.BeginFishing();
     }
 
