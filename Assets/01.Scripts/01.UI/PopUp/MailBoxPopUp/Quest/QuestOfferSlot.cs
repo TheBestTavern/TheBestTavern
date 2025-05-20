@@ -12,7 +12,7 @@ public class QuestOfferSlot : QuestBaseSlot
         openLetterBtn.onClick.RemoveAllListeners();
         openLetterBtn.onClick.AddListener(() => OpenLetter());
 
-        questName.text = slotQuest.origin.name;
+        questName.text = slotQuest.Origin.name;
     }
 
     private async void OpenLetter()

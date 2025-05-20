@@ -30,17 +30,17 @@ public class MenuRelationUI : BaseMenuContentUI
 
     public void OnChangeFavor(NPCChangeFavorEvent evt)
     {
-        slots[evt.npc.origin.key].UpdateFavor();
+        slots[evt.npc.Origin.key].UpdateFavor();
     }
 
     public void OnFirstMet(NPCFirstMetEvent evt)
     {
-        slots[evt.npc.origin.key].UpdateHasMet();
+        slots[evt.npc.Origin.key].UpdateHasMet();
     }
 
     public void OnSuccessQuest(NPCSuccessQuestEvent evt)
     {
-        slots[evt.npc.origin.key].UpdateSuccessQuest();
+        slots[evt.npc.Origin.key].UpdateSuccessQuest();
     }
 
     private void OnDestroy()

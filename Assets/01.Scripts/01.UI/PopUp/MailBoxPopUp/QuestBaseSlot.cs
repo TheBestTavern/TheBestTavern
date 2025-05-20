@@ -35,7 +35,7 @@ public abstract class QuestBaseSlot : MonoBehaviour
 
         // 현재 퀘스트에 맞게 슬롯 정보 갱신(추후 구현)
         slotQuest = Data.GetQuest(questID);
-        npcName.text = NPCManager.Instance.NPCData.AllNPC[slotQuest.origin.givingNPC].origin.name;
+        npcName.text = NPCManager.Instance.NPCData.AllNPC[slotQuest.Origin.givingNPC].Origin.name;
 
 
     }

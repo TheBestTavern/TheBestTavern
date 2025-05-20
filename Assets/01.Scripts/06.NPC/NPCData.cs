@@ -13,4 +13,9 @@ public class NPCData
             AllNPC.Add(item.key, new NPC(item));
         }
     }
+
+    public void ApplyLoadData(Dictionary<int, NPC> AllNPC)
+    {
+        this.AllNPC = AllNPC;
+    }
 }

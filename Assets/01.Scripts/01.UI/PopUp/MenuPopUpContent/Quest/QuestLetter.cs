@@ -15,12 +15,12 @@ public class QuestLetter : BasePopUp
     // 편지 열때마다 필요한 초기화.
     public async void SetLetter(Quest quest, bool isInProgressQuest)
     {
-        title.text = quest.origin.name;
-        bodyText.text = quest.origin.letterOffer;
-        from.text = Data.GetNPC(quest.origin.givingNPC).origin.name;
+        title.text = quest.Origin.name;
+        bodyText.text = quest.Origin.letterOffer;
+        from.text = Data.GetNPC(quest.Origin.givingNPC).Origin.name;
         if (!isInProgressQuest)
         {
-            string englishName = Data.GetRawItem(quest.origin.compensationID).englishName;
+            string englishName = Data.GetRawItem(quest.Origin.compensationID).englishName;
             image.sprite = await AddressablesLoader.Instance.AddressablesLoadAsync<Sprite>($"Assets/16.Image/FoodImage/{englishName}.png", true);
         }
     }

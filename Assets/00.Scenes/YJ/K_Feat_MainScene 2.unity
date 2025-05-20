@@ -674,10 +674,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4046150044594427547, guid: 9505b8ff7fe1d024c907d50f453f0a3a, type: 3}
-      propertyPath: m_Name
-      value: InventoryPanel
-      objectReference: {fileID: 0}
     - target: {fileID: 5192589647058252763, guid: 9505b8ff7fe1d024c907d50f453f0a3a, type: 3}
       propertyPath: m_Name
       value: Canvas(NPC)
@@ -2095,7 +2091,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1116732731
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4648,6 +4644,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2755912758425508122}
   - component: {fileID: 4966715432608277266}
+  - component: {fileID: 4966715432608277267}
   m_Layer: 5
   m_Name: MainUI
   m_TagString: Untagged
@@ -4671,6 +4668,18 @@ MonoBehaviour:
   gatheringSceneButton: {fileID: 3876897182951601153}
   mailBoxButton: {fileID: 1393936774}
   bedButton: {fileID: 16700752}
+--- !u!225 &4966715432608277267
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4966715432608277265}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &5344411791867463552
 GameObject:
   m_ObjectHideFlags: 0

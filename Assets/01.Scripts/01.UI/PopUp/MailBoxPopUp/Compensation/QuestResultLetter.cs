@@ -39,16 +39,16 @@ public class QuestResultLetter : QuestBaseLetter
             switch (curSuccessDegree)
             {
                 case SuccessDegree.fail:
-                    bodyText.text = quest.origin.letterFail;
+                    bodyText.text = quest.Origin.letterFail;
                     break;
                 case SuccessDegree.notBad:
-                    bodyText.text = quest.origin.letterNotBadSuccess;
+                    bodyText.text = quest.Origin.letterNotBadSuccess;
                     break;
                 case SuccessDegree.soso:
-                    bodyText.text = quest.origin.letterSoSoGoodSuccess;
+                    bodyText.text = quest.Origin.letterSoSoGoodSuccess;
                     break;
                 case SuccessDegree.good:
-                    bodyText.text = quest.origin.letterSoSoGoodSuccess;
+                    bodyText.text = quest.Origin.letterSoSoGoodSuccess;
                     break;
             }
         }
@@ -108,6 +108,6 @@ public class QuestResultLetter : QuestBaseLetter
 
     private bool TakeResult()
     {
-        return InventoryManager.Instance.Invens[InvenType.Player].아이템획득(quest.origin.compensationID, 1);
+        return InventoryManager.Instance.Invens[InvenType.Player].아이템획득(quest.Origin.compensationID, 1);
     }
 }

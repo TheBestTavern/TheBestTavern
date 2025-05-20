@@ -35,8 +35,8 @@ public abstract class QuestBaseLetter : BasePopUp
         // 문구 초기화
         this.quest = quest;
         this.baseQuestSlot = baseQuestSlot;
-        title.text = quest.origin.name;
-        from.text = NPCManager.Instance.NPCData.AllNPC[quest.origin.givingNPC].origin.name;
+        title.text = quest.Origin.name;
+        from.text = NPCManager.Instance.NPCData.AllNPC[quest.Origin.givingNPC].Origin.name;
     }
 
     /// <summary>

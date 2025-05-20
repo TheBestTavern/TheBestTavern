@@ -1,7 +1,10 @@
 using System.Collections.Generic;
+using Newtonsoft.Json;
 
+[System.Serializable]
 public class ItemRecord
 {
+    [JsonProperty]
     public bool HasDiscovered { get; private set; }
 
     public ItemRecord()
@@ -16,6 +19,8 @@ public class ItemRecord
 
 public class ItemRecordManager : MonoSingleton<ItemRecordManager>
 {
+    public Dictionary<int, ItemRecord> itemRecords { get; private set; } = new(); 
+
     public override void Init()
     {
         if (_isInitialized) return;
@@ -25,7 +30,11 @@ public class ItemRecordManager : MonoSingleton<ItemRecordManager>
         CreateRecordDict();
     }
 
-    public Dictionary<int, ItemRecord> itemRecords { get; private set; } = new(); 
+    public void ApplyLoadData(Dictionary<int, ItemRecord> itemRecords)
+    {
+        this.itemRecords = itemRecords;
+    }
+
 
     private void CreateRecordDict()
     {

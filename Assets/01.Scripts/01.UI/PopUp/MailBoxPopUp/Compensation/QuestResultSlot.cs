@@ -14,7 +14,7 @@ public class QuestResultSlot : QuestBaseSlot
         openLetterBtn.onClick.RemoveAllListeners();
         openLetterBtn.onClick.AddListener(() => OpenLetter());
 
-        questName.text = slotQuest.origin.name; // 나중에 퀘스트 이름 대신 실패 대사 넣기.
+        questName.text = slotQuest.Origin.name; // 나중에 퀘스트 이름 대신 실패 대사 넣기.
 
         if (slotQuest.lastSuccessDegree.HasValue)
         {

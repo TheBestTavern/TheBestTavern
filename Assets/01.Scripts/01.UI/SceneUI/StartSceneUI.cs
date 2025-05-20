@@ -24,6 +24,28 @@ public class StartSceneUI : MonoBehaviour
     }
     private async void OnClickGameLoadStartButton()
     {
-        await SceneLoader.Instance.LoadSceneAsync("MainScene");
+        if(SaveLoadManager.Instance.LoadData(out PlayerGameData playerGameData))
+        {
+            TimerManager.Instance.ApplyLoadData(playerGameData.today);
+
+            //ItemStackManager.Instance.ApplyLoadData(playerGameData.IDs, playerGameData.AllItemStack);
+
+            ItemRecordManager.Instance.ApplyLoadData(playerGameData.itemRecords);
+
+            NPCManager.Instance.NPCData.ApplyLoadData(playerGameData.AllNPC);
+
+            QuestManager.Instance.questData.ApplyLoadData(playerGameData.AllQuests, playerGameData.AcceptedQuests, playerGameData.OnceSuccessQuests, playerGameData.JustCompleteQuests, playerGameData.TodayAvailableQuest, playerGameData.QuestCheckQueue);
+
+            foreach(var item in playerGameData.playerInvenData.ItemList)
+            {
+                InventoryManager.Instance.Invens[InvenType.Player].아이템획득(item.Origin, item.Count);
+            }
+
+            await SceneLoader.Instance.LoadSceneAsync("MainScene");
+        }
+        else
+        {
+            Debug.Log("로드 실패");
+        }
     }
 }

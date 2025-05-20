@@ -30,14 +30,14 @@ public class QuestData
     public Action<List<int>> onTriggerNPC; // npc 소환
     public Action onSpawnNPC; // 소환된 npc 정렬
 
-    public async Task Init()
+    public void Init()
     {
         //Debug.Log("퀘스트 인스턴스 생성");
         Quest quest;
         foreach (Data_Quest item in DataManager.Instance.DataLoader_Quest.ItemsList)
         {
             quest = new Quest(item);
-            AllQuests.Add(quest.origin.key, quest);
+            AllQuests.Add(quest.Origin.key, quest);
         }
 
         allNPC = NPCManager.Instance.NPCData.AllNPC;
@@ -45,7 +45,10 @@ public class QuestData
         // 커맨드 등록
         OnNewDay command = new(this);
         CommandManager.Instance.AddCommand(command);
+    }
 
+    public async void LateInit()
+    {
         // 참조 할당
         questSO = await AddressablesLoader.Instance.AddressablesLoadAsync<QuestContainer>("QuestContainer.SO");
         favorMap = new()
@@ -55,6 +58,18 @@ public class QuestData
             { SuccessDegree.notBad , questSO.notBadQuest},
             { SuccessDegree.fail , questSO.failQuest}
         };
+    }
+
+    public void ApplyLoadData(Dictionary<int, Quest> AllQuests, List<int> AcceptedQuests,
+        Dictionary<int, SuccessDegree> OnceSuccessQuests, List<int> JustCompleteQuests, List<int> TodayAvailableQuest,
+        Queue<(int questID, int itemID)> QuestCheckQueue)
+    {
+        this.AllQuests = AllQuests;
+        this.AcceptedQuests = AcceptedQuests;
+        this.OnceSuccessQuests = OnceSuccessQuests;
+        this.JustCompleteQuests = JustCompleteQuests;
+        this.TodayAvailableQuest = TodayAvailableQuest;
+        this.QuestCheckQueue = QuestCheckQueue;
     }
 
     public void AcceptQuest(int questID)
@@ -68,7 +83,7 @@ public class QuestData
         AcceptedQuests.Remove(questID);
         Quest tempQuest = Data.GetQuest(questID);
         tempQuest.FailQuest(TimerManager.Instance.GetToday());
-        allNPC[tempQuest.origin.givingNPC].FailQuest(favorMap[SuccessDegree.fail]);
+        allNPC[tempQuest.Origin.givingNPC].FailQuest(favorMap[SuccessDegree.fail]);
         JustCompleteQuests.Add(questID);
         EventBus.Publish<QuestCompleteEvent>(new QuestCompleteEvent());
     }
@@ -81,7 +96,7 @@ public class QuestData
         tempQuest.SuccessQuest(TimerManager.Instance.GetToday(), successDegree);
         JustCompleteQuests.Add(questID);
 
-        allNPC[tempQuest.origin.givingNPC].SuccessQuest(favorMap[successDegree]);
+        allNPC[tempQuest.Origin.givingNPC].SuccessQuest(favorMap[successDegree]);
         EventBus.Publish<QuestCompleteEvent>(new QuestCompleteEvent());
 
         if (!OnceSuccessQuests.TryGetValue(questID, out var prev) || prev < successDegree)
@@ -127,7 +142,7 @@ public class QuestData
                     //당일
                     // 소환할 NPC 목록 구성
                     spawnNPCs.Add(key);
-                    Debug.Log($"{tempQuest.origin.name}퀘스트의 NPC를 소환 목록에 등록");
+                    Debug.Log($"{tempQuest.Origin.name}퀘스트의 NPC를 소환 목록에 등록");
                 }
                 else
                 {
