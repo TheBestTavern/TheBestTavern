@@ -10,19 +10,29 @@ public class CookingMillUI : MonoBehaviour
     [SerializeField] private Image arrowImage;
 
     private int curDir;
+    private bool isFilp= false;
 
     public void SetDirection(int direction)
     {
         curDir = direction;
+
+        if (curDir == -1 && !isFilp)
+        {
+            Vector3 scale = arrowImage.gameObject.transform.localScale;
+            scale.x = -Mathf.Abs(scale.x);
+            arrowImage.gameObject.transform.localScale = scale;
+            isFilp = true;
+        }
+        else if (curDir == 1 && isFilp)
+        {
+            Vector3 scale = arrowImage.transform.localScale;
+            scale.x = Mathf.Abs(scale.x); // 시계 방향
+            arrowImage.transform.localScale = scale;
+            isFilp = false;
+        }
     }
     public void UpdateUI(float value, bool dir)
     {
-        if (curDir == -1) 
-        {
-            Vector3 scale = arrowImage.gameObject.transform.localScale;
-            scale.x = - scale.x;
-            arrowImage.gameObject.transform.localScale = scale;
-        }
         fillImage.color = Color.red;
         arrowImage.color = Color.white;
 

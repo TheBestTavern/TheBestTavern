@@ -27,6 +27,7 @@ public class TensionGaugeController : MonoBehaviour
         if (!hasTriggeredShake && currentValue >= maxValue * 0.8f)
         {
             hasTriggeredShake = true;
+            SoundManager.Instance.PlaySFX("RodShake");
             OnTensionShakeTrigger?.Invoke();
         }
 

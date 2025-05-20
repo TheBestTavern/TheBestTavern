@@ -89,6 +89,7 @@ GameObject:
   - component: {fileID: 4471525742905389058}
   - component: {fileID: 409253954852336534}
   - component: {fileID: 8593432820279118996}
+  - component: {fileID: 4943322801367207491}
   m_Layer: 5
   m_Name: CloseButton
   m_TagString: Untagged
@@ -198,6 +199,19 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &4943322801367207491
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5739816748688661846}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e744a27a68559434ea55004cf9f1e781, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sfxName: ConfirmButton
 --- !u!1 &6277484594932705932
 GameObject:
   m_ObjectHideFlags: 0
@@ -581,6 +595,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 030290810b3a59f45a9140982dca44ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  draggableObjectTrs: {fileID: 0}
+  draggable: 0
   closeButton: {fileID: 8593432820279118996}
+  canvas: {fileID: 0}
   popUpType: 6
   bodyText: {fileID: 2893319118047143362}
