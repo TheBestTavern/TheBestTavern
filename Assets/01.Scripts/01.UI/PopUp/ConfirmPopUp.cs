@@ -72,6 +72,7 @@ public class ConfirmPopUp : BasePopUp
         else
         {
             confirmAction?.Invoke();
+            OnClickCloseButton();
         }
     }
 
