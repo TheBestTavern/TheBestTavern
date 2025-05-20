@@ -39,11 +39,12 @@ public class CookingBoilMiniGame : CookingMiniGameBase
     private void Awake()
     {
         CookingMiniGameManager.Instance.GetCurrentMiniGame(this);
-        SoundManager.Instance.PlayAmbience("BoilAmbience");
     }
 
     public override void StartGame()
     {
+        SoundManager.Instance.PlayAmbience("BoilAmbience");
+
         StartPoint.OnClickStartPoint -= SpawnArrowPoint;
         StartPoint.OnClickStartPoint += SpawnArrowPoint; 
         drawLine = FindObjectOfType<DrawLine>();

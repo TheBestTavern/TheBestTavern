@@ -35,7 +35,7 @@ public class CookingEffectController : MonoBehaviour
     public void CookingGrillEffect(int matchCount)
     {
         //색이 진해지는 연출
-        GameObject prefab = Instantiate(Data.SweetPotato);
+        GameObject prefab = Data.SweetPotato;
 
         Color initialColor = new Color32(255, 243, 183, 255);
         var renderer = prefab.GetComponentInChildren<MeshRenderer>();

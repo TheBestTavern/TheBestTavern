@@ -15,6 +15,8 @@ public class CookingGrillMiniGame : CookingMiniGameBase
 {
     [SerializeField] private CookingMiniGameResultSO result;
 
+    [SerializeField] private GameObject ingredientPrefab;
+
 
     public TextMeshProUGUI timerText;
 
@@ -89,7 +91,6 @@ public class CookingGrillMiniGame : CookingMiniGameBase
         {
             // 매치
             matchCount++; // 맞춘 횟수 +1
-            effectController.CookingGrillEffect(matchCount);
             //effectController.AddForce();
 
             // 1. 고정, 선택 불가
@@ -104,8 +105,10 @@ public class CookingGrillMiniGame : CookingMiniGameBase
             secondCard.transform.GetChild(1).GetComponent<Image>().enabled = false;
 
             // 2. 고기가 익어가는 연출 필요 
+            CookingEffectManager.Instance.CookingGrillEffect(matchCount, ingredientPrefab);
 
             // 3. 사운드 연출
+            SoundManager.Instance.PlaySFX("CardMatch");
         }
         else
         {
@@ -142,12 +145,13 @@ public class CookingGrillMiniGame : CookingMiniGameBase
     }
 
 
-    public override void StartGame()
+    public async override void StartGame()
     {
-        isGameOver = false;
+        SoundManager.Instance.PlayAmbience("GrillAmbience");
+        GameObject prefab = await AddressablesLoader.Instance.AddressablesLoadAsync<GameObject>("SweetPotatos");
+        
         elapsedTimer = 0f;
         playTime = 0f;
-        timer = 15f;
 
         isFlipLocked = true;
         // 카드 배열 4x4 세팅
@@ -214,10 +218,10 @@ public class CookingGrillMiniGame : CookingMiniGameBase
             case CookingResultGrade.Legendary:
             case CookingResultGrade.Rare:
             case CookingResultGrade.Common:
-                effectController.PlayYellowSmoke();
+                CookingEffectManager.Instance.PlayYellowSmoke();
                 break;
             case CookingResultGrade.Failed:
-                effectController.PlayBlackSmoke();
+                CookingEffectManager.Instance.PlayBlackSmoke();
                 break;
         }
     }
