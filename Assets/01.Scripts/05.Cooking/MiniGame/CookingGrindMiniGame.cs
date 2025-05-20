@@ -141,6 +141,7 @@ public class CookingGrindMiniGame : CookingMiniGameBase
                     // activeNote.gameObject.SetActive(false);
                     TriggerAnimation();
                     CookingEffectManager.Instance.ShowJudgeText(0);
+                    SoundManager.Instance.PlaySFX("Julgu");
 
                     Debug.Log($"Perfect {diff}");
                     // note hit 애니메이션
@@ -155,6 +156,7 @@ public class CookingGrindMiniGame : CookingMiniGameBase
                 {
                     activeNote.Hide();
                     CookingEffectManager.Instance.ShowJudgeText(1);
+                    SoundManager.Instance.PlaySFX("Julgu");
 
                     // activeNote.gameObject.SetActive(false);
                     Debug.Log($"Good {diff}");

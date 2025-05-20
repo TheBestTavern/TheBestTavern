@@ -105,6 +105,7 @@ public class CookingMillMiniGame : CookingMiniGameBase
 
         if (mileStoneController.isDragging)
         {
+            SoundManager.Instance.PlaySFX("Matdol");
             curPos = Input.mousePosition; // 현 마우스의 위치
             Vector2 centerPos = RectTransformUtility.WorldToScreenPoint(null, centerTransform.position); // 맷돌 정가운데 (중심점)
        

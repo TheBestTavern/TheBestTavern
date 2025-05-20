@@ -42,10 +42,11 @@ public class CookingEffectManager : MonoSingleton<CookingEffectManager>
         }
     }
 
-    public void CookingGrillEffect(int matchCount)
+    public async void CookingGrillEffect(int matchCount, GameObject prefab)
     {
+        
         //색이 진해지는 연출
-        GameObject prefab = Instantiate(Data.SweetPotato);
+        //GameObject prefab = Data.SweetPotato;
 
         Color initialColor = new Color32(255, 243, 183, 255);
         var renderer = prefab.GetComponentInChildren<MeshRenderer>();
@@ -84,8 +85,7 @@ public class CookingEffectManager : MonoSingleton<CookingEffectManager>
             else { go = Instantiate(prefab); }
             var text = go.GetComponent<TextMeshProUGUI>();
             text.gameObject.SetActive(true);
-            text.DOFade(0f, 0.2f).SetDelay(0.3f).OnComplete(()=> text.gameObject.SetActive(false));  
-            
+            text.DOFade(0f, 0.2f).SetDelay(0.3f).OnComplete(()=> text.gameObject.SetActive(false));          
         }
     }
 }

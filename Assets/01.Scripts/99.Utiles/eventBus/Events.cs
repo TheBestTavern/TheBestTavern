@@ -34,7 +34,7 @@ public class QuestSuccessFirstEvent
 {
     public QuestSuccessFirstEvent()
     {
-    }   
+    }
 }
 
 public class QuestAcceptEvent
@@ -54,9 +54,11 @@ public class QuestCompleteEvent
 public class QuestClickLetterBtnEvent
 {
     public Quest quest;
-    public QuestClickLetterBtnEvent(Quest quest)
+    public bool isInProgressQuest;
+    public QuestClickLetterBtnEvent(Quest quest, bool isInProgressQuest)
     {
         this.quest = quest;
+        this.isInProgressQuest = isInProgressQuest;
     }
 }
 
@@ -76,5 +78,42 @@ public class EndNightUIBlockEvent
     public EndNightUIBlockEvent()
     {
 
+    }
+}
+
+// 아이템 스택 관련 이벤트
+public class ItemStackOnZeroEvent
+{
+    public int ID;
+
+    public ItemStackOnZeroEvent(int iD)
+    {
+        ID = iD;
+    }
+}
+public class ItemStackOnChangeEvent
+{
+    public int ID;
+    public ItemStackOnChangeEvent(int iD)
+    {
+        ID = iD;
+    }
+}
+
+// 툴팁 관련 이벤트
+
+public class SlotHoverEnterEvent
+{
+    public int ID;
+    public  SlotHoverEnterEvent(int id)
+    {
+        ID = id;
+    }
+}
+
+public class SlotHoverEndEvent
+{
+    public SlotHoverEndEvent()
+    {
     }
 }

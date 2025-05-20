@@ -12,9 +12,9 @@ public static class DesignEnums
     {
         gyeonggi = 0,
         gangwon = 1,
-        Chungcheong = 2,
-        Jeolla = 3,
-        Gyeongsang = 4,
+        chungcheong = 2,
+        jeolla = 3,
+        gyeongsang = 4,
     }
     public enum BiomeType
     {

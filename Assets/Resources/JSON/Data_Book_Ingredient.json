@@ -3,7 +3,7 @@
     {
       "key": 110001,
       "name": "마늘",
-      "englishName": "Garlic",
+      "englishName": "garlic",
       "region": [
         1
       ],
@@ -18,7 +18,7 @@
     {
       "key": 110002,
       "name": "고추",
-      "englishName": "Chili pepper",
+      "englishName": "chiliPepper",
       "region": [
         4
       ],
@@ -32,7 +32,7 @@
     {
       "key": 110003,
       "name": "당근",
-      "englishName": "Carrot",
+      "englishName": "carrot",
       "region": [
         1
       ],
@@ -47,7 +47,7 @@
     {
       "key": 110004,
       "name": "대파",
-      "englishName": "Green onion",
+      "englishName": "greenOnion",
       "region": [
         0
       ],
@@ -61,7 +61,7 @@
     {
       "key": 110005,
       "name": "상추",
-      "englishName": "Lettuce",
+      "englishName": "lettuce",
       "region": [
         0,
         4
@@ -76,7 +76,7 @@
     {
       "key": 110006,
       "name": "대두",
-      "englishName": "Soybean",
+      "englishName": "soybean",
       "region": [
         0
       ],
@@ -90,7 +90,7 @@
     {
       "key": 110007,
       "name": "감자",
-      "englishName": "Potato",
+      "englishName": "potato",
       "region": [
         2
       ],
@@ -104,7 +104,7 @@
     {
       "key": 110008,
       "name": "꿀",
-      "englishName": "Honey",
+      "englishName": "honey",
       "region": [
         3
       ],
@@ -118,7 +118,7 @@
     {
       "key": 110009,
       "name": "무",
-      "englishName": "Radish",
+      "englishName": "radish",
       "region": [
         0,
         2
@@ -133,7 +133,7 @@
     {
       "key": 110010,
       "name": "조선 인삼",
-      "englishName": "Korean ginseng",
+      "englishName": "koreanGinseng",
       "region": [
         1
       ],
@@ -146,7 +146,7 @@
     {
       "key": 110011,
       "name": "고구마",
-      "englishName": "Sweet potato",
+      "englishName": "sweetPotato",
       "region": [
         1
       ],
@@ -160,7 +160,7 @@
     {
       "key": 110012,
       "name": "쑥",
-      "englishName": "Mugwort",
+      "englishName": "mugwort",
       "region": [
         3
       ],
@@ -173,7 +173,7 @@
     {
       "key": 110013,
       "name": "밤",
-      "englishName": "Chestnut",
+      "englishName": "chestnut",
       "region": [
         1,
         4
@@ -188,7 +188,7 @@
     {
       "key": 110014,
       "name": "감",
-      "englishName": "Persimmon",
+      "englishName": "persimmon",
       "region": [
         3
       ],
@@ -202,7 +202,7 @@
     {
       "key": 110015,
       "name": "배",
-      "englishName": "Pear",
+      "englishName": "pear",
       "region": [
         2,
         3
@@ -216,7 +216,7 @@
     {
       "key": 110016,
       "name": "호두",
-      "englishName": "Walnut",
+      "englishName": "walnut",
       "region": [
         2
       ],
@@ -230,7 +230,7 @@
     {
       "key": 110017,
       "name": "사과",
-      "englishName": "Apple",
+      "englishName": "apple",
       "region": [
         0
       ],
@@ -243,7 +243,7 @@
     {
       "key": 110018,
       "name": "표고버섯",
-      "englishName": "Shiitake mushroom",
+      "englishName": "shiitakeMushroom",
       "region": [
         1,
         4
@@ -258,7 +258,7 @@
     {
       "key": 110019,
       "name": "멸치",
-      "englishName": "Anchovy",
+      "englishName": "anchovy",
       "region": [
         0,
         1,
@@ -276,7 +276,7 @@
     {
       "key": 110020,
       "name": "바지락",
-      "englishName": "Clam",
+      "englishName": "clam",
       "region": [
         0,
         1,
@@ -294,7 +294,7 @@
     {
       "key": 110021,
       "name": "홍합",
-      "englishName": "Mussel",
+      "englishName": "mussel",
       "region": [
         0
       ],
@@ -308,7 +308,7 @@
     {
       "key": 110022,
       "name": "고등어",
-      "englishName": "Mackerel",
+      "englishName": "mackerel",
       "region": [
         1
       ],
@@ -336,7 +336,7 @@
     {
       "key": 110024,
       "name": "참 돔",
-      "englishName": "Red seabream",
+      "englishName": "redSeabream",
       "region": [
         4
       ],
@@ -350,7 +350,7 @@
     {
       "key": 110025,
       "name": "굴",
-      "englishName": "Oyster",
+      "englishName": "oyster",
       "region": [
         2
       ],
@@ -364,7 +364,7 @@
     {
       "key": 110026,
       "name": "갈치",
-      "englishName": "Cutlassfish",
+      "englishName": "cutlassfish",
       "region": [
         3
       ],
@@ -378,7 +378,7 @@
     {
       "key": 110027,
       "name": "미역",
-      "englishName": "Sea mustard",
+      "englishName": "seaMustard",
       "region": [
         3
       ],
@@ -391,7 +391,7 @@
     {
       "key": 110028,
       "name": "전복",
-      "englishName": "Abalone",
+      "englishName": "abalone",
       "region": [
         3
       ],
@@ -404,7 +404,7 @@
     {
       "key": 110029,
       "name": "문어",
-      "englishName": "Octopus",
+      "englishName": "octopus",
       "region": [
         2,
         4
@@ -418,7 +418,7 @@
     {
       "key": 110030,
       "name": "꽃게",
-      "englishName": "Blue crab",
+      "englishName": "blueCrab",
       "region": [
         0
       ],
@@ -431,7 +431,7 @@
     {
       "key": 110031,
       "name": "오징어",
-      "englishName": "Squid",
+      "englishName": "squid",
       "region": [
         1
       ],
@@ -444,7 +444,7 @@
     {
       "key": 110032,
       "name": "대게",
-      "englishName": "Snow crab",
+      "englishName": "snowCrab",
       "region": [
         1
       ],
@@ -457,7 +457,7 @@
     {
       "key": 110033,
       "name": "새우",
-      "englishName": "Shrimp",
+      "englishName": "shrimp",
       "region": [
         2
       ],
@@ -471,7 +471,7 @@
     {
       "key": 110034,
       "name": "대하",
-      "englishName": "King prawn",
+      "englishName": "kingPrawn",
       "region": [
         4
       ],
@@ -485,7 +485,7 @@
     {
       "key": 110035,
       "name": "방어",
-      "englishName": "Yellowtail",
+      "englishName": "yellowtail",
       "region": [
         4
       ],
@@ -499,7 +499,7 @@
     {
       "key": 110036,
       "name": "식수",
-      "englishName": "Drinking water",
+      "englishName": "drinkingWater",
       "region": [
         0,
         1,
@@ -519,7 +519,7 @@
     {
       "key": 110037,
       "name": "콩나물",
-      "englishName": "Soybean sprout",
+      "englishName": "soybeanSprout",
       "region": [
         0,
         1,
@@ -539,7 +539,7 @@
     {
       "key": 110038,
       "name": "고기",
-      "englishName": "Meat",
+      "englishName": "meat",
       "region": [
         0,
         1,

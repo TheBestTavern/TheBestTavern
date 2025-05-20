@@ -152,4 +152,14 @@ public class InventoryViewLoose : InventoryView
             OnEnableTargetSlot?.Invoke(rawItems);
         }
     }
+
+    private void OnDisable()
+    {
+        foreach (var index in targetingSlots)
+        {
+            index2Slots[index].ExitTargetingState();
+            OnDisalbeTargetSlot?.Invoke();
+        }
+        targetingSlots.Clear();
+    }
 }

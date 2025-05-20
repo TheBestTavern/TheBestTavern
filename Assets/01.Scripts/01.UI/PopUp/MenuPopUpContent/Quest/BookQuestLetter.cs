@@ -5,11 +5,14 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class QuestLetter : BasePopUp
+public class BookQuestLetter : BasePopUp
 {
     [SerializeField] TextMeshProUGUI title;
     [SerializeField] TextMeshProUGUI bodyText;
     [SerializeField] TextMeshProUGUI from;
+
+    [SerializeField] GameObject compensation;
+    [SerializeField] TextMeshProUGUI compensationItemName;
     [SerializeField] Image image;
 
     // 편지 열때마다 필요한 초기화.
@@ -20,8 +23,14 @@ public class QuestLetter : BasePopUp
         from.text = Data.GetNPC(quest.Origin.givingNPC).Origin.name;
         if (!isInProgressQuest)
         {
-            string englishName = Data.GetRawItem(quest.Origin.compensationID).englishName;
-            image.sprite = await AddressablesLoader.Instance.AddressablesLoadAsync<Sprite>($"Assets/16.Image/FoodImage/{englishName}.png", true);
+            var rawItem = Data.GetRawItem(quest.Origin.compensationID);
+            image.sprite = await AddressablesLoader.Instance.AddressablesLoadAsync<Sprite>($"Assets/16.Image/FoodImage/{rawItem.englishName}.png", true);
+            compensationItemName.text = rawItem.name;
+            compensation.gameObject.SetActive(true);
+        }
+        else
+        {
+            compensation.gameObject.SetActive(false);
         }
     }
 }

@@ -109,6 +109,7 @@ public class InventorySlot : MonoBehaviour, IBeginDragHandler, IEndDragHandler, 
             draggingIconTransform.position = eventData.position;
         }
     }
+
     public void OnDrop(PointerEventData eventData) // 슬롯에 아이템이 없다면, view 아이템 이동 로직 호출
     {
         InventorySlot fromSlot = eventData.pointerDrag?.GetComponent<InventorySlot>();
@@ -136,7 +137,6 @@ public class InventorySlot : MonoBehaviour, IBeginDragHandler, IEndDragHandler, 
         }
     }
 
-
     public void OnPointerClick(PointerEventData eventData) // 좌클릭 우클릭 구분하여, view 타게팅 또는 상세보기 호출함. 
     {
         if (HasItem)
@@ -153,11 +153,23 @@ public class InventorySlot : MonoBehaviour, IBeginDragHandler, IEndDragHandler, 
             }
         }
     }
+
     public void OnPointerEnter(PointerEventData eventData) // [view] 아이템툴팁표시
     {
+        if (HasItem)
+        {
+            EventBus.Publish<SlotHoverEnterEvent>(new SlotHoverEnterEvent(item.Origin.key));
+            Debug.Log("들어옴");
+        }
     }
+
     public void OnPointerExit(PointerEventData eventData) // [view] 아이템툴팁표시 취소
     {
+        if (HasItem)
+        {
+            Debug.Log("나감");
+            EventBus.Publish<SlotHoverEndEvent>(new SlotHoverEndEvent());
+        }
     }
 
     private void EnterTargetingState()
@@ -165,6 +177,7 @@ public class InventorySlot : MonoBehaviour, IBeginDragHandler, IEndDragHandler, 
         IsTargeting = true;
         image.color = new Color(0.7f, 0.7f, 0.7f, 0.7f);
     }
+
     public void ExitTargetingState()
     {
         IsTargeting = false;
@@ -175,4 +188,13 @@ public class InventorySlot : MonoBehaviour, IBeginDragHandler, IEndDragHandler, 
     {
         return item;
     }
+
+    //private void OnDisable()
+    //{
+    //    if (IsTargeting)
+    //    {
+    //        TriggerClickAgainAction();
+    //        ExitTargetingState();
+    //    }
+    //}
 }

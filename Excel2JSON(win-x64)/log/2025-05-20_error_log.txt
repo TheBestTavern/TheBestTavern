@@ -1,0 +1,66 @@
+2025-05-20 오후 8:11:03: Empty values detected in file 'D:\Unity NBC\Camp Project\Week6_Unity_Final\TheBestTavern\Excel2JSON(win-x64)\excel_files\Data.xlsx'. Default values were used.
+2025-05-20 오후 8:11:03: Empty values detected in file 'D:\Unity NBC\Camp Project\Week6_Unity_Final\TheBestTavern\Excel2JSON(win-x64)\excel_files\Data.xlsx'. Default values were used.
+2025-05-20 오후 8:11:03: Empty values detected in file 'D:\Unity NBC\Camp Project\Week6_Unity_Final\TheBestTavern\Excel2JSON(win-x64)\excel_files\Data.xlsx'. Default values were used.
+2025-05-20 오후 8:11:03: Empty values detected in file 'D:\Unity NBC\Camp Project\Week6_Unity_Final\TheBestTavern\Excel2JSON(win-x64)\excel_files\Data.xlsx'. Default values were used.
+2025-05-20 오후 8:11:03: Error converting value '104084, 104087, 104090. 104093, 104096, 104099' for variable 'goodFood' in sheet 'Quest' of file 'D:\Unity NBC\Camp Project\Week6_Unity_Final\TheBestTavern\Excel2JSON(win-x64)\excel_files\Data.xlsx': The input string ' 104090. 104093' was not in a correct format.
+   at System.Number.ThrowFormatException[TChar](ReadOnlySpan`1 value)
+   at System.Int32.Parse(String s)
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at ExcelToJsonWizard.Program.ConvertToType(String value, String type, String variableName, String logFilePath, String excelPath, String sheetName) in D:\Unity NBC\TIL, 세션, 발제, 설명회\세션\Excel2JSON\ExcelToJsonWizard-v.1.1\ExcelToJsonWizard\ExcelToJsonWizard\Program.cs:line 533
+2025-05-20 오후 8:11:03: Error processing sheet Quest in file D:\Unity NBC\Camp Project\Week6_Unity_Final\TheBestTavern\Excel2JSON(win-x64)\excel_files\Data.xlsx: The input string ' 104090. 104093' was not in a correct format.
+   at System.Number.ThrowFormatException[TChar](ReadOnlySpan`1 value)
+   at System.Int32.Parse(String s)
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at ExcelToJsonWizard.Program.ConvertToType(String value, String type, String variableName, String logFilePath, String excelPath, String sheetName) in D:\Unity NBC\TIL, 세션, 발제, 설명회\세션\Excel2JSON\ExcelToJsonWizard-v.1.1\ExcelToJsonWizard\ExcelToJsonWizard\Program.cs:line 533
+   at ExcelToJsonWizard.Program.GenerateClassAndJsonFromExcel(String excelPath, String loaderDir, String jsonDir, String logFilePath, Boolean allowMultipleSheets, Boolean useResources, String resourcesInternalPath) in D:\Unity NBC\TIL, 세션, 발제, 설명회\세션\Excel2JSON\ExcelToJsonWizard-v.1.1\ExcelToJsonWizard\ExcelToJsonWizard\Program.cs:line 400
+2025-05-20 오후 8:16:21: Empty values detected in file 'D:\Unity NBC\Camp Project\Week6_Unity_Final\TheBestTavern\Excel2JSON(win-x64)\excel_files\Data.xlsx'. Default values were used.
+2025-05-20 오후 8:16:21: Empty values detected in file 'D:\Unity NBC\Camp Project\Week6_Unity_Final\TheBestTavern\Excel2JSON(win-x64)\excel_files\Data.xlsx'. Default values were used.
+2025-05-20 오후 8:16:21: Empty values detected in file 'D:\Unity NBC\Camp Project\Week6_Unity_Final\TheBestTavern\Excel2JSON(win-x64)\excel_files\Data.xlsx'. Default values were used.
+2025-05-20 오후 8:16:21: Empty values detected in file 'D:\Unity NBC\Camp Project\Week6_Unity_Final\TheBestTavern\Excel2JSON(win-x64)\excel_files\Data.xlsx'. Default values were used.
+2025-05-20 오후 8:16:21: Error converting value '104084, 104087, 104090. 104093, 104096, 104099' for variable 'goodFood' in sheet 'Quest' of file 'D:\Unity NBC\Camp Project\Week6_Unity_Final\TheBestTavern\Excel2JSON(win-x64)\excel_files\Data.xlsx': The input string ' 104090. 104093' was not in a correct format.
+   at System.Number.ThrowFormatException[TChar](ReadOnlySpan`1 value)
+   at System.Int32.Parse(String s)
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at ExcelToJsonWizard.Program.ConvertToType(String value, String type, String variableName, String logFilePath, String excelPath, String sheetName) in D:\Unity NBC\TIL, 세션, 발제, 설명회\세션\Excel2JSON\ExcelToJsonWizard-v.1.1\ExcelToJsonWizard\ExcelToJsonWizard\Program.cs:line 533
+2025-05-20 오후 8:16:21: Error processing sheet Quest in file D:\Unity NBC\Camp Project\Week6_Unity_Final\TheBestTavern\Excel2JSON(win-x64)\excel_files\Data.xlsx: The input string ' 104090. 104093' was not in a correct format.
+   at System.Number.ThrowFormatException[TChar](ReadOnlySpan`1 value)
+   at System.Int32.Parse(String s)
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at ExcelToJsonWizard.Program.ConvertToType(String value, String type, String variableName, String logFilePath, String excelPath, String sheetName) in D:\Unity NBC\TIL, 세션, 발제, 설명회\세션\Excel2JSON\ExcelToJsonWizard-v.1.1\ExcelToJsonWizard\ExcelToJsonWizard\Program.cs:line 533
+   at ExcelToJsonWizard.Program.GenerateClassAndJsonFromExcel(String excelPath, String loaderDir, String jsonDir, String logFilePath, Boolean allowMultipleSheets, Boolean useResources, String resourcesInternalPath) in D:\Unity NBC\TIL, 세션, 발제, 설명회\세션\Excel2JSON\ExcelToJsonWizard-v.1.1\ExcelToJsonWizard\ExcelToJsonWizard\Program.cs:line 400
+2025-05-20 오후 8:16:38: Empty values detected in file 'D:\Unity NBC\Camp Project\Week6_Unity_Final\TheBestTavern\Excel2JSON(win-x64)\excel_files\Data.xlsx'. Default values were used.
+2025-05-20 오후 8:16:38: Empty values detected in file 'D:\Unity NBC\Camp Project\Week6_Unity_Final\TheBestTavern\Excel2JSON(win-x64)\excel_files\Data.xlsx'. Default values were used.
+2025-05-20 오후 8:16:38: Empty values detected in file 'D:\Unity NBC\Camp Project\Week6_Unity_Final\TheBestTavern\Excel2JSON(win-x64)\excel_files\Data.xlsx'. Default values were used.
+2025-05-20 오후 8:16:38: Empty values detected in file 'D:\Unity NBC\Camp Project\Week6_Unity_Final\TheBestTavern\Excel2JSON(win-x64)\excel_files\Data.xlsx'. Default values were used.
+2025-05-20 오후 8:16:38: Empty values detected in file 'D:\Unity NBC\Camp Project\Week6_Unity_Final\TheBestTavern\Excel2JSON(win-x64)\excel_files\Data.xlsx'. Default values were used.
+2025-05-20 오후 8:16:38: Error converting value 'Gyeongsang' for variable 'region' in sheet 'Book_Ingredient' of file 'D:\Unity NBC\Camp Project\Week6_Unity_Final\TheBestTavern\Excel2JSON(win-x64)\excel_files\Data.xlsx': The given key 'Gyeongsang' was not present in the dictionary.
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at ExcelToJsonWizard.Program.<>c__DisplayClass8_0.<ConvertToType>b__0(String v) in D:\Unity NBC\TIL, 세션, 발제, 설명회\세션\Excel2JSON\ExcelToJsonWizard-v.1.1\ExcelToJsonWizard\ExcelToJsonWizard\Program.cs:line 526
+   at System.Linq.Enumerable.SelectArrayIterator`2.Fill(ReadOnlySpan`1 source, Span`1 destination, Func`2 func)
+   at System.Linq.Enumerable.SelectArrayIterator`2.ToList()
+   at ExcelToJsonWizard.Program.ConvertToType(String value, String type, String variableName, String logFilePath, String excelPath, String sheetName) in D:\Unity NBC\TIL, 세션, 발제, 설명회\세션\Excel2JSON\ExcelToJsonWizard-v.1.1\ExcelToJsonWizard\ExcelToJsonWizard\Program.cs:line 526
+2025-05-20 오후 8:16:38: Error processing sheet Book_Ingredient in file D:\Unity NBC\Camp Project\Week6_Unity_Final\TheBestTavern\Excel2JSON(win-x64)\excel_files\Data.xlsx: The given key 'Gyeongsang' was not present in the dictionary.
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at ExcelToJsonWizard.Program.<>c__DisplayClass8_0.<ConvertToType>b__0(String v) in D:\Unity NBC\TIL, 세션, 발제, 설명회\세션\Excel2JSON\ExcelToJsonWizard-v.1.1\ExcelToJsonWizard\ExcelToJsonWizard\Program.cs:line 526
+   at System.Linq.Enumerable.SelectArrayIterator`2.Fill(ReadOnlySpan`1 source, Span`1 destination, Func`2 func)
+   at System.Linq.Enumerable.SelectArrayIterator`2.ToList()
+   at ExcelToJsonWizard.Program.ConvertToType(String value, String type, String variableName, String logFilePath, String excelPath, String sheetName) in D:\Unity NBC\TIL, 세션, 발제, 설명회\세션\Excel2JSON\ExcelToJsonWizard-v.1.1\ExcelToJsonWizard\ExcelToJsonWizard\Program.cs:line 526
+   at ExcelToJsonWizard.Program.GenerateClassAndJsonFromExcel(String excelPath, String loaderDir, String jsonDir, String logFilePath, Boolean allowMultipleSheets, Boolean useResources, String resourcesInternalPath) in D:\Unity NBC\TIL, 세션, 발제, 설명회\세션\Excel2JSON\ExcelToJsonWizard-v.1.1\ExcelToJsonWizard\ExcelToJsonWizard\Program.cs:line 400
+2025-05-20 오후 8:18:56: Empty values detected in file 'D:\Unity NBC\Camp Project\Week6_Unity_Final\TheBestTavern\Excel2JSON(win-x64)\excel_files\Data.xlsx'. Default values were used.
+2025-05-20 오후 8:18:56: Empty values detected in file 'D:\Unity NBC\Camp Project\Week6_Unity_Final\TheBestTavern\Excel2JSON(win-x64)\excel_files\Data.xlsx'. Default values were used.
+2025-05-20 오후 8:18:56: Empty values detected in file 'D:\Unity NBC\Camp Project\Week6_Unity_Final\TheBestTavern\Excel2JSON(win-x64)\excel_files\Data.xlsx'. Default values were used.
+2025-05-20 오후 8:18:56: Empty values detected in file 'D:\Unity NBC\Camp Project\Week6_Unity_Final\TheBestTavern\Excel2JSON(win-x64)\excel_files\Data.xlsx'. Default values were used.
+2025-05-20 오후 8:18:56: Empty values detected in file 'D:\Unity NBC\Camp Project\Week6_Unity_Final\TheBestTavern\Excel2JSON(win-x64)\excel_files\Data.xlsx'. Default values were used.
+2025-05-20 오후 8:18:56: Empty values detected in file 'D:\Unity NBC\Camp Project\Week6_Unity_Final\TheBestTavern\Excel2JSON(win-x64)\excel_files\Data.xlsx'. Default values were used.
+2025-05-20 오후 8:18:56: Empty values detected in file 'D:\Unity NBC\Camp Project\Week6_Unity_Final\TheBestTavern\Excel2JSON(win-x64)\excel_files\Data.xlsx'. Default values were used.
+2025-05-20 오후 8:18:56: Empty values detected in file 'D:\Unity NBC\Camp Project\Week6_Unity_Final\TheBestTavern\Excel2JSON(win-x64)\excel_files\Data.xlsx'. Default values were used.
+2025-05-20 오후 8:18:56: Empty values detected in file 'D:\Unity NBC\Camp Project\Week6_Unity_Final\TheBestTavern\Excel2JSON(win-x64)\excel_files\Data.xlsx'. Default values were used.
+2025-05-20 오후 8:19:16: Empty values detected in file 'D:\Unity NBC\Camp Project\Week6_Unity_Final\TheBestTavern\Excel2JSON(win-x64)\excel_files\Data.xlsx'. Default values were used.
+2025-05-20 오후 8:19:16: Empty values detected in file 'D:\Unity NBC\Camp Project\Week6_Unity_Final\TheBestTavern\Excel2JSON(win-x64)\excel_files\Data.xlsx'. Default values were used.
+2025-05-20 오후 8:19:16: Empty values detected in file 'D:\Unity NBC\Camp Project\Week6_Unity_Final\TheBestTavern\Excel2JSON(win-x64)\excel_files\Data.xlsx'. Default values were used.
+2025-05-20 오후 8:19:16: Empty values detected in file 'D:\Unity NBC\Camp Project\Week6_Unity_Final\TheBestTavern\Excel2JSON(win-x64)\excel_files\Data.xlsx'. Default values were used.
+2025-05-20 오후 8:19:16: Empty values detected in file 'D:\Unity NBC\Camp Project\Week6_Unity_Final\TheBestTavern\Excel2JSON(win-x64)\excel_files\Data.xlsx'. Default values were used.
+2025-05-20 오후 8:19:16: Empty values detected in file 'D:\Unity NBC\Camp Project\Week6_Unity_Final\TheBestTavern\Excel2JSON(win-x64)\excel_files\Data.xlsx'. Default values were used.
+2025-05-20 오후 8:19:16: Empty values detected in file 'D:\Unity NBC\Camp Project\Week6_Unity_Final\TheBestTavern\Excel2JSON(win-x64)\excel_files\Data.xlsx'. Default values were used.
+2025-05-20 오후 8:19:16: Empty values detected in file 'D:\Unity NBC\Camp Project\Week6_Unity_Final\TheBestTavern\Excel2JSON(win-x64)\excel_files\Data.xlsx'. Default values were used.
+2025-05-20 오후 8:19:16: Empty values detected in file 'D:\Unity NBC\Camp Project\Week6_Unity_Final\TheBestTavern\Excel2JSON(win-x64)\excel_files\Data.xlsx'. Default values were used.
