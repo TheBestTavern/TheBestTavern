@@ -1594,6 +1594,7 @@ MonoBehaviour:
   fishingStart: 0
   success: 0
   gatheringKey: 0
+  infoButton: {fileID: 2088045020}
 --- !u!4 &1939856336
 Transform:
   m_ObjectHideFlags: 0
@@ -1622,7 +1623,7 @@ GameObject:
   - component: {fileID: 2088045021}
   - component: {fileID: 2088045020}
   m_Layer: 6
-  m_Name: InfoButton (1)
+  m_Name: InfoButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
