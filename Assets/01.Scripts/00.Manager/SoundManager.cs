@@ -10,7 +10,7 @@ public class SoundManager : MonoSingleton<SoundManager>
     [Header("Audio Sources")]
     [SerializeField] private AudioSource bgmSource;
     [SerializeField] private AudioSource sfxSource;
-    [SerializeField] private AudioSource loopSource;
+    [SerializeField] private AudioSource ambienceSource;
 
 
 
@@ -18,7 +18,7 @@ public class SoundManager : MonoSingleton<SoundManager>
     [SerializeField] private SoundLibrary soundLibrary;
     private Dictionary<string, string> bgmKeys = new Dictionary<string, string>();
     private Dictionary<string, string> sfxKeys = new Dictionary<string, string>();
-    private Dictionary<string, string> loopKeys = new Dictionary<string, string>();
+    private Dictionary<string, string> ambienceKeys = new Dictionary<string, string>();
 
 
     private float currentBGMTime = 0f;
@@ -43,12 +43,12 @@ public class SoundManager : MonoSingleton<SoundManager>
         sfxSource = gameObject.AddComponent<AudioSource>();
         sfxSource.loop = false;
 
-        loopSource = gameObject.AddComponent<AudioSource>();
-        loopSource.loop = true;
+        ambienceSource = gameObject.AddComponent<AudioSource>();
+        ambienceSource.loop = true;
 
         AddBGM();
         AddSFX();
-        AddLoop();
+        AddAmbience();
         base.Awake();
     }
 
@@ -103,9 +103,9 @@ public class SoundManager : MonoSingleton<SoundManager>
         };
     }
 
-    public void PlayLoop(string name)
+    public void PlayAmbience(string name)
     {
-        if (!loopKeys.TryGetValue(name, out var addressKey))
+        if (!ambienceKeys.TryGetValue(name, out var addressKey))
         {
             Debug.LogWarning($"ambience 찾을 수 없음: {name}");
             return;
@@ -113,10 +113,10 @@ public class SoundManager : MonoSingleton<SoundManager>
 
         Addressables.LoadAssetAsync<AudioClip>(addressKey).Completed += (handle) =>
         {
-            if (handle.Status == AsyncOperationStatus.Succeeded && !loopSource.isPlaying)
+            if (handle.Status == AsyncOperationStatus.Succeeded && !ambienceSource.isPlaying)
             {
-                loopSource.clip = handle.Result;
-                loopSource.Play();
+                ambienceSource.clip = handle.Result;
+                ambienceSource.Play();
             }
             else
             {
@@ -126,10 +126,10 @@ public class SoundManager : MonoSingleton<SoundManager>
 
     public void StopLoop()
     {
-        if (loopSource.isPlaying)
+        if (ambienceSource.isPlaying)
         {
-            loopSource.Stop();
-            loopSource.clip = null;
+            ambienceSource.Stop();
+            ambienceSource.clip = null;
         }
     }
 
@@ -155,13 +155,13 @@ public class SoundManager : MonoSingleton<SoundManager>
         }
     }
 
-    private void AddLoop()
+    private void AddAmbience()
     {
-        foreach (var ambience in soundLibrary.loopClips)
+        foreach (var ambience in soundLibrary.ambienceClips)
         {
-            if (!loopKeys.ContainsKey(ambience.soundName))
+            if (!ambienceKeys.ContainsKey(ambience.soundName))
             {
-                loopKeys.Add(ambience.soundName, ambience.addressableKey);
+                ambienceKeys.Add(ambience.soundName, ambience.addressableKey);
             }
         }
     }

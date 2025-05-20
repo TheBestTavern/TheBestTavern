@@ -149,7 +149,7 @@ public class CookingGrillMiniGame : CookingMiniGameBase
 
     public async override void StartGame()
     {
-        SoundManager.Instance.PlayLoop("GrillAmbience");
+        SoundManager.Instance.PlayAmbience("GrillAmbience");
         GameObject prefab = await AddressablesLoader.Instance.AddressablesLoadAsync<GameObject>("SweetPotatos");
         
         elapsedTimer = 0f;

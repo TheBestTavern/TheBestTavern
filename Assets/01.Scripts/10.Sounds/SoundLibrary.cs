@@ -7,5 +7,5 @@ public class SoundLibrary : ScriptableObject
 {
     public SoundData[] bgmClips;
     public SoundData[] sfxClips;
-    public SoundData[] loopClips;
+    public SoundData[] ambienceClips;
 }
