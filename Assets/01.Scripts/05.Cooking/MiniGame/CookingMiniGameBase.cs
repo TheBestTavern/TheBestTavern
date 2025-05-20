@@ -25,6 +25,7 @@ public abstract class CookingMiniGameBase : MonoBehaviour, ICookingMiniGameHandl
     private void OnDestroy()
     {
         PopUpManager.Instance.PopUps.Remove(PopUpType.CookingResult);
+        SoundManager.Instance.StopLoop();
     }
 
     protected abstract float GetTimer();
@@ -46,7 +47,7 @@ public abstract class CookingMiniGameBase : MonoBehaviour, ICookingMiniGameHandl
             UpdateGamePlay();
         }
 
-        if (timer <= 5f)
+        if (timer <= 3f)
         {
             SoundManager.Instance.PlaySFX("Timer");
         }
@@ -59,7 +60,6 @@ public abstract class CookingMiniGameBase : MonoBehaviour, ICookingMiniGameHandl
             //RecipeManager.Instance.EndCooking();
             CookingMiniGameManager.Instance.GetCookingResultData(); // 완성된 것 인벤토리에 넣어주기
             PopUpManager.Instance.ShowPopUp(PopUpType.CookingResult); // 결과 팝업 띄우기
-
         }
 
         // FSM 상태 전환 실행 (구현시 이곳에서 실행)

@@ -48,11 +48,23 @@ MonoBehaviour:
     addressableKey: CardMatch
   - soundName: Boil
     addressableKey: Boil
-  ambienceClips:
+  - soundName: Doma2
+    addressableKey: Doma2
+  - soundName: Timer
+    addressableKey: Timer
+  - soundName: Matdol
+    addressableKey: Matdol
+  - soundName: MixingBowl
+    addressableKey: MixingBowl
+  - soundName: Door
+    addressableKey: Door
+  loopClips:
   - soundName: BoilAmbience
     addressableKey: BoilAmbience
-  - soundName: OceanAmbience
-    addressableKey: OceanAmbience
+  - soundName: ForestAmbience
+    addressableKey: ForestAmbience
+  - soundName: GrillAmbience
+    addressableKey: GrillAmbience
   - soundName: GrillAmbience
     addressableKey: GrillAmbience
   - soundName: OceanAmbience

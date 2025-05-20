@@ -55,6 +55,7 @@ public class CookingMixingBowlMiniGame : CookingMiniGameBase
 
         if (mixingSpoon.isDragging)
         {
+            SoundManager.Instance.PlaySFX("MixingBowl");
             mixingTime += Time.deltaTime;
             mixingbowlUI.UpdateUI(mixingTime);
             if (mixingTime > data.MixingTime)

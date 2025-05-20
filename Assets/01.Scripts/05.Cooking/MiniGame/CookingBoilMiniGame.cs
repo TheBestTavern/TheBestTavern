@@ -43,7 +43,7 @@ public class CookingBoilMiniGame : CookingMiniGameBase
 
     public override void StartGame()
     {
-        SoundManager.Instance.PlayAmbience("BoilAmbience");
+        SoundManager.Instance.PlayLoop("BoilAmbience");
 
         StartPoint.OnClickStartPoint -= SpawnArrowPoint;
         StartPoint.OnClickStartPoint += SpawnArrowPoint; 
