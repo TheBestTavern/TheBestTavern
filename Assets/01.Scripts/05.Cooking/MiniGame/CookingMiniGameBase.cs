@@ -21,9 +21,14 @@ public abstract class CookingMiniGameBase : MonoBehaviour, ICookingMiniGameHandl
         timer = GetTimer();
         isGameOver = false;
     }
+
+    private void OnDestroy()
+    {
+        PopUpManager.Instance.PopUps.Remove(PopUpType.CookingResult);
+    }
+
     protected abstract float GetTimer();
-
-
+    
     protected virtual void Update()
     {
         if (isGameOver) return;
