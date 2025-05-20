@@ -4018,6 +4018,7 @@ GameObject:
   - component: {fileID: 1043480903}
   - component: {fileID: 1043480905}
   - component: {fileID: 1043480906}
+  - component: {fileID: 1043480907}
   m_Layer: 0
   m_Name: UICamera
   m_TagString: Untagged
@@ -4135,6 +4136,14 @@ MonoBehaviour:
     mipBias: 0
     varianceClampScale: 0.9
     contrastAdaptiveSharpening: 0
+--- !u!81 &1043480907
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1043480902}
+  m_Enabled: 1
 --- !u!1 &1126814015
 GameObject:
   m_ObjectHideFlags: 0
@@ -5219,6 +5228,7 @@ MonoBehaviour:
   miniGameBackground: {fileID: 821020302}
   cookingSceneUI: {fileID: 447909935}
   cookingInventoryView: {fileID: 408048307}
+  selectedSO: []
 --- !u!1 &1582973155
 GameObject:
   m_ObjectHideFlags: 0
@@ -5350,7 +5360,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1603349611}
   - component: {fileID: 1603349610}
-  - component: {fileID: 1603349609}
   - component: {fileID: 1603349612}
   m_Layer: 0
   m_Name: Main Camera
@@ -5359,14 +5368,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
---- !u!81 &1603349609
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1603349608}
-  m_Enabled: 1
 --- !u!20 &1603349610
 Camera:
   m_ObjectHideFlags: 0
@@ -5780,7 +5781,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45ea0016c9e6ada4a8ef0b04289c12dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dayText: {fileID: 982001478}
+  Text: {fileID: 0}
 --- !u!1 &1831673768
 GameObject:
   m_ObjectHideFlags: 0
