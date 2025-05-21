@@ -96,6 +96,7 @@ public class IntroSceneUI : MonoBehaviour
         gameExitBtnText.color = new Color(0, 0, 0, 1);
 
         titleText.gameObject.SetActive(true);
+        titleText.color = new Color(0,0,0,1);
     }
 
     private async Task PlayIntroSequence(CancellationToken token)
