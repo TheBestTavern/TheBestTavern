@@ -27,6 +27,13 @@ public class LoadingUI : MonoBehaviour
     /// <param name="to">끝 값</param>
     /// <param name="duration">재생 시간</param>
     /// <returns></returns>
+
+    private void Awake()
+    {
+        // 씬 넘어가도 파괴 금지
+        DontDestroyOnLoad(gameObject);
+    }
+
     private async UniTask Fade(float from, float to, float duration)
     {
         float time = 0f;

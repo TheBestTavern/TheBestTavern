@@ -73,12 +73,13 @@ public class GatheringBase : MonoBehaviour
 
             Data_Foods item = Data.GetRawItem(itemId);
 
+            Sprite sprite = await AddressablesLoader.Instance.AddressablesLoadAsync<Sprite>($"Assets/16.Image/FoodImage/{item.englishName}.png", true);
             var pooledImage = await PoolManager.Instance.GetAddressable<ItemImage>(
             "ItemImage.prefab",
             Vector3.zero,
-            GatheringManager.Instance.gatheringInventoryUI.transform
-        );
-            pooledImage.sprite = await AddressablesLoader.Instance.AddressablesLoadAsync<Sprite>($"Assets/16.Image/FoodImage/{item.englishName}.png", true);
+            GatheringManager.Instance.gatheringInventoryUI.transform);
+
+            pooledImage.sprite = sprite;
 
             await ItemMoveAnim(pooledImage);
 

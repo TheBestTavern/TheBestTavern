@@ -95,8 +95,7 @@ public class SceneLoader : MonoSingleton<SceneLoader>
     {
         // 로딩UI Addressables로 불러오고 인스턴스화
         loadingUI = Instantiate(await AddressablesLoader.Instance.AddressablesLoadAsync<GameObject>("LoadingUIPrefab.prefab")).GetComponent<LoadingUI>();
-        // 씬 넘어가도 파괴 금지
-        DontDestroyOnLoad(loadingUI.gameObject);
+        
         // 로딩 UI 페이드인
         await loadingUI.FadeIn();
     }
