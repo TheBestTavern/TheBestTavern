@@ -5,13 +5,13 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
+  - enabled: 1
     path: Assets/00.Scenes/WS/MainSceneDev.unity
     guid: 1c110343623460045971cc33cd6e8db7
   - enabled: 0
     path: Assets/00.Scenes/WS/GatheringSceneDev.unity
     guid: 108b0eaf738eee148a34181e05b62730
-  - enabled: 0
+  - enabled: 1
     path: Assets/00.Scenes/WS/CookingSceneDev.unity
     guid: ea6b089072695f64eafa81c899f00eda
   m_configObjects:

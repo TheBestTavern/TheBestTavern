@@ -770,7 +770,7 @@ MonoBehaviour:
   nextBtn: {fileID: 4138511722963771582}
   PrevBtn: {fileID: 2590913694431012226}
   pageUI: {fileID: 7464155863803430363}
-  HideUndiscoveredFood: 1
+  HideUndiscoveredFood: 0
 --- !u!1 &541433472037120703
 GameObject:
   m_ObjectHideFlags: 0
@@ -3008,7 +3008,7 @@ MonoBehaviour:
   nextBtn: {fileID: 5010096181030795952}
   PrevBtn: {fileID: 7056230798857550557}
   pageUI: {fileID: 2098388622785489650}
-  HideUndiscoveredFood: 1
+  HideUndiscoveredFood: 0
 --- !u!1 &3035650878554861396
 GameObject:
   m_ObjectHideFlags: 0
@@ -7874,7 +7874,7 @@ MonoBehaviour:
   nextBtn: {fileID: 891755664721325160}
   PrevBtn: {fileID: 1188017994758492521}
   pageUI: {fileID: 4774574624948537959}
-  HideUndiscoveredFood: 1
+  HideUndiscoveredFood: 0
 --- !u!1 &8396991874220776148
 GameObject:
   m_ObjectHideFlags: 0

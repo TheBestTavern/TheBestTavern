@@ -1,86 +1,50 @@
-using System.Collections;
-using System.Collections.Generic;
-using DG.Tweening;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 using UnityEngine.UI;
 
 public class testfornothing : MonoBehaviour
 {
-    public Button btn1;
-    public Button btn2;
-    Sequence showSeq;
-    Sequence hideSeq;
 
+    [SerializeField] Button btn;
     [SerializeField] Image panel;
-    private Vector3 panelOriginalPos;
-
-    void Start()
+    [SerializeField] int i;
+    async void Start()
     {
-        btn1.onClick.AddListener(test1);
-        btn2.onClick.AddListener(test2);
-
-        panelOriginalPos = panel.transform.position;
-
-        Tween t = transform.DOMove(panelOriginalPos, 1);
-
-        showSeq = DOTween.Sequence();
-        showSeq.Pause();
-        showSeq.SetAutoKill(false);
-        showSeq.AppendCallback(() =>
-        {
-            panel.transform.position = panelOriginalPos + new Vector3(-100, -100, 0);
-            panel.transform.position = GetStartPosition(); 
+        btn.onClick.AddListener(async () =>
+         {
+            switch (i)
+            {
+                case 1: // 직접 어드레서블 로드 
+                    panel.sprite = await Addressables.LoadAssetAsync<Sprite>("Test").Task;
+                    break;
+                case 2: // 커스텀 로드 사용
+                    panel.sprite = await AddressablesLoader.Instance.AddressablesLoadAsync<Sprite>("Test");
+                    break;
+                case 3: // 리소스 로드 사용
+                    panel.sprite = Resources.Load<Sprite>("Test");
+                    break;
+                case 4: // 직접 어드레서블 로드 x5
+                    panel.sprite = await Addressables.LoadAssetAsync<Sprite>("Test").Task;
+                    panel.sprite = await Addressables.LoadAssetAsync<Sprite>("Test").Task;
+                    panel.sprite = await Addressables.LoadAssetAsync<Sprite>("Test").Task;
+                    panel.sprite = await Addressables.LoadAssetAsync<Sprite>("Test").Task;
+                    panel.sprite = await Addressables.LoadAssetAsync<Sprite>("Test").Task;
+                    break;
+                case 5: // 커스텀 로드 사용 x5
+                    panel.sprite = await AddressablesLoader.Instance.AddressablesLoadAsync<Sprite>("Test");
+                    panel.sprite = await AddressablesLoader.Instance.AddressablesLoadAsync<Sprite>("Test");
+                    panel.sprite = await AddressablesLoader.Instance.AddressablesLoadAsync<Sprite>("Test");
+                    panel.sprite = await AddressablesLoader.Instance.AddressablesLoadAsync<Sprite>("Test");
+                    panel.sprite = await AddressablesLoader.Instance.AddressablesLoadAsync<Sprite>("Test");
+                    break;
+                case 6: // 리소스 로드 사용 x5
+                    panel.sprite = Resources.Load<Sprite>("Test");
+                    panel.sprite = Resources.Load<Sprite>("Test");
+                    panel.sprite = Resources.Load<Sprite>("Test");
+                    panel.sprite = Resources.Load<Sprite>("Test");
+                    panel.sprite = Resources.Load<Sprite>("Test");
+                    break;
+            }
         });
-        showSeq.Join(transform.DOMove(panelOriginalPos, 1));
-        showSeq.Join(t);
-
-
-
-        hideSeq = DOTween.Sequence();
-        hideSeq.Pause();
-        hideSeq.SetAutoKill(false);
-        hideSeq.AppendCallback(() =>
-        {
-            panel.transform.position = panelOriginalPos;
-        });
-        hideSeq.Join(panel.transform.DOMove(panelOriginalPos + new Vector3(-100, -100, 0), 1));
-    }
-
-    Vector3 GetStartPosition()
-    {
-        return transform.position;
-    }
-
-    void test1()
-    {
-        PlayeSeq(showSeq);
-    }
-    void test2()
-    {
-        PlayeSeq(hideSeq);
-    }
-
-    Sequence currentSeq;
-    //private void PlayeSeq(Sequence sequence) // 제출 판넬, 인벤토리 나타남.
-    //{
-    //    currentSeq?.Pause();
-    //    currentSeq = sequence;
-
-    //    if (sequence.IsPlaying() || sequence.IsComplete())
-    //    {
-    //        currentSeq.Restart();
-    //    }
-    //    else
-    //    {
-    //        currentSeq.Play();
-    //    }
-    //}
-    private void PlayeSeq(Sequence sequence) // 제출 판넬, 인벤토리 나타남.
-    {
-            currentSeq?.Pause();
-
-        currentSeq = sequence;
-
-        currentSeq.Restart();
     }
 }
