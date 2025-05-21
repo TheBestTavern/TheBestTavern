@@ -2,6 +2,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Unity.Services.Analytics;
+using Unity.Services.Core;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -18,6 +20,13 @@ public class StartSceneUI : MonoBehaviour
     [SerializeField] private GameObject renewPanel;
     [SerializeField] private Button renewButton;
     [SerializeField] private Button rejectButton;
+
+    [SerializeField] private GameObject acceptAnalyticsPanel;
+    [SerializeField] private Button acceptAnalyticsButton;
+    [SerializeField] private Button rejectAnalyticsButton;
+
+    string sceneName = "";
+
     void Start()
     {
         UIManager.Instance.startSceneUI = this;
@@ -29,20 +38,43 @@ public class StartSceneUI : MonoBehaviour
         tutorialSkipButton.onClick.AddListener(OnClicktutorialSkipButton);
         doTutorialButton.onClick.AddListener(OnClickDoTutorialButton);
 
-        renewButton.onClick.AddListener(OnClicktutorialSkipButton);
+        renewButton.onClick.AddListener(OnClickRenewButton);
         rejectButton.onClick.AddListener(OnClickRejectButton);
+
+        acceptAnalyticsButton.onClick.AddListener(OnClickAcceptAnalyticsButton);
+        rejectAnalyticsButton.onClick.AddListener(OnClickRejectAnalyticsButton);
     }
 
-    private async void OnClickDoTutorialButton()
+    private async void OnClickAcceptAnalyticsButton()
     {
-        await SceneLoader.Instance.LoadSceneAsync("TutorialScene");
+        ConfirmAnalytics();
+        await SceneLoader.Instance.LoadSceneAsync(sceneName);
     }
 
-    private async void OnClicktutorialSkipButton()
+    private async void OnClickRejectAnalyticsButton()
     {
-        await SceneLoader.Instance.LoadSceneAsync("MainScene");
+        await SceneLoader.Instance.LoadSceneAsync(sceneName);
     }
 
+    private void OnClickDoTutorialButton()
+    {
+        sceneName = "TutorialScene";
+        acceptAnalyticsPanel.SetActive(true);
+        tutorialSkipPanel.SetActive(false);
+    }
+
+    private void OnClicktutorialSkipButton()
+    {
+        sceneName = "MainScene";
+        acceptAnalyticsPanel.SetActive(true);
+        tutorialSkipPanel.SetActive(false);
+    }
+
+    private void OnClickRenewButton()
+    {
+        renewPanel.SetActive(false);
+        tutorialSkipPanel.SetActive(true);        
+    }
 
     private void OnClickRejectButton()
     {
@@ -95,5 +127,11 @@ public class StartSceneUI : MonoBehaviour
         {
             Debug.Log("로드 실패");
         }
+    }
+
+    async void ConfirmAnalytics()
+    {
+        await UnityServices.InitializeAsync();
+        AnalyticsService.Instance.StartDataCollection();
     }
 }

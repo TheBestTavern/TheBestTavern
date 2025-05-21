@@ -1,6 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Services.Analytics;
+using Unity.Services.Core;
 using UnityEngine;
 
 public class GameManager : MonoSingleton<GameManager>
@@ -21,6 +23,6 @@ public class GameManager : MonoSingleton<GameManager>
         UIManager.Instance.Init();
         SoundManager.Instance.Init();
 
-        CommandManager.Instance.ExecuteCommands(1002); 
+        CommandManager.Instance.ExecuteCommands(1002);
     }
 }
