@@ -27,6 +27,7 @@ public class Animal : MonoBehaviour
 
     [Header("스프라이트 설정")]
     [SerializeField] private Sprite normal;
+    [SerializeField] private Sprite faint;
     private SpriteRenderer spriteRenderer;
 
 
@@ -57,12 +58,14 @@ public class Animal : MonoBehaviour
         if (animalSizeType == AnimalSizeType.Small)
         {
             HitSmallAnimal();
+            ChangeSpritetoFaint();
         }
         else if (animalSizeType == AnimalSizeType.Medium)
         {
             if (BaitEffectApplied)
             {
                 HitMediumAnimal(hitPosition);
+                ChangeSpritetoFaint();
             }
             else
             {
@@ -129,6 +132,11 @@ public class Animal : MonoBehaviour
     public void ChangeSprite()
     {
         spriteRenderer.sprite = normal;
+    }
+
+    public void ChangeSpritetoFaint()
+    {
+        spriteRenderer.sprite = faint;
     }
 
     public void DestroyAnimal()
