@@ -8,28 +8,28 @@ using UnityEngine;
 /// </summary>
 public class CookingEffectController : MonoBehaviour
 {
-    [field:SerializeField] public CookingEffectSO Data { get; private set; }
+    //[field:SerializeField] public CookingEffectSO Data { get; private set; }
 
-    // 테스트용
-    //[SerializeField] private GameObject ingredientPrefab;
+    //// 테스트용
+    ////[SerializeField] private GameObject ingredientPrefab;
 
-    public void PlayBlackSmoke()
-    {
-        if (Data.BlackSmoke != null)
-        {
-            var blackSmoke = Instantiate(Data.BlackSmoke);
-            blackSmoke.Play();
-        }
-    }
+    //public void PlayBlackSmoke()
+    //{
+    //    if (Data.BlackSmoke != null)
+    //    {
+    //        var blackSmoke = Instantiate(Data.BlackSmoke);
+    //        blackSmoke.Play();
+    //    }
+    //}
 
-    public void PlayYellowSmoke()
-    {
-        if (Data.YellowSmoke != null)
-        {
+    //public void PlayYellowSmoke()
+    //{
+    //    if (Data.YellowSmoke != null)
+    //    {
           
-            var yellowSmoke = Instantiate(Data.YellowSmoke);
-            yellowSmoke.Play();
-        }
-    }
+    //        var yellowSmoke = Instantiate(Data.YellowSmoke);
+    //        yellowSmoke.Play();
+    //    }
+    //}
 
 }

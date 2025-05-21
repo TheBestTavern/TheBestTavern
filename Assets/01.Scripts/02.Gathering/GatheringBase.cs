@@ -78,8 +78,7 @@ public class GatheringBase : MonoBehaviour
             Vector3.zero,
             GatheringManager.Instance.gatheringInventoryUI.transform
         );
-
-            pooledImage.sprite = Resources.Load<Sprite>($"Item/{item.englishName}");
+            pooledImage.sprite = await AddressablesLoader.Instance.AddressablesLoadAsync<Sprite>($"Assets/16.Image/FoodImage/{item.englishName}.png", true);
 
             await ItemMoveAnim(pooledImage);
 

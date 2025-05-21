@@ -2194,7 +2194,7 @@ MonoBehaviour:
   framingImage: {fileID: 321187547}
   maskRectTransform: {fileID: 0}
   introText: {fileID: 1288546472}
-  titleText: {fileID: 156087949}
+  titleText: {fileID: 1637673544}
   gameStartBtnText: {fileID: 1258609315}
   gameLoadStartBtnText: {fileID: 1817294567}
   gameExitBtnText: {fileID: 1906751629}

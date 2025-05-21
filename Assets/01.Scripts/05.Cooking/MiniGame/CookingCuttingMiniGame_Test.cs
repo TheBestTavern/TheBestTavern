@@ -15,10 +15,12 @@ public class CookingCuttingMiniGame_Test : CookingMiniGameBase
     public override async void StartGame()
     {
         int itemKey = CookingMiniGameManager.Instance.GetSelectedItemFoodCategory();
+        Debug.Log($"아이템키:{itemKey}");
         ingredientSO = CookingMiniGameManager.Instance.GetSelectdItemSO(itemKey);
         if (ingredientSO != null)
         {
             string prefabAdress = ingredientSO.prefabAdress;
+            Debug.Log(prefabAdress);
             GameObject prefab = await AddressablesLoader.Instance.AddressablesLoadAsync<GameObject>(prefabAdress);
             if (prefab != null)
             {
@@ -26,6 +28,7 @@ public class CookingCuttingMiniGame_Test : CookingMiniGameBase
             }
             else
             {
+                Debug.Log("맞는 프리팹을 찾지 못해 기본 프리팹으로 대체");
                 GameObject defaultPrefab = await AddressablesLoader.Instance.AddressablesLoadAsync<GameObject>("GreenLong");
                 Instantiate(defaultPrefab);
 
@@ -35,6 +38,7 @@ public class CookingCuttingMiniGame_Test : CookingMiniGameBase
         }
         else
         {
+            Debug.LogError("ingredient so가 null");
             GameObject defaultPrefab = await AddressablesLoader.Instance.AddressablesLoadAsync<GameObject>("GreenLong");
             Instantiate(defaultPrefab);
         }
