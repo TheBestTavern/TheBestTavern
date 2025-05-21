@@ -35,29 +35,32 @@ public class FishingController : MonoBehaviour
         {
             var fishController = currentFish.GetComponent<FishController>();
 
-            if (Input.GetKey(KeyCode.Space))
+            if (fishingInProgress)
             {
-                fishController.PullToward(catchZone.position);
-                tensionGaugeController.IncreaseGauge();
-            }
-            else
-            {
-                tensionGaugeController.DecreaseGauge();
-            }
+                if (Input.GetKey(KeyCode.Space))
+                {
+                    fishController.PullToward(catchZone.position);
+                    tensionGaugeController.IncreaseGauge();
+                }
+                else
+                {
+                    tensionGaugeController.DecreaseGauge();
+                }
 
-            if (tensionGaugeController.IsOverloaded())
-            {
-                SoundManager.Instance.PlaySFX("RodCut");
-                Debug.Log("게이지 과부하 실패");
-                StopFishing(false);
-                FishingManager.Instance.success = false;
-                FishingResult();
-            }
-            else if (fishController.IsCaught(catchZone.position))
-            {
-                Debug.Log("물고기 성공");
-                FishingManager.Instance.success = true;
-                FishingResult();
+                if (tensionGaugeController.IsOverloaded())
+                {
+                    SoundManager.Instance.PlaySFX("RodCut");
+                    Debug.Log("게이지 과부하 실패");
+                    StopFishing(false);
+                    FishingManager.Instance.success = false;
+                    FishingResult();
+                }
+                else if (fishController.IsCaught(catchZone.position))
+                {
+                    Debug.Log("물고기 성공");
+                    FishingManager.Instance.success = true;
+                    FishingResult();
+                }
             }
         }
     }
@@ -73,8 +76,8 @@ public class FishingController : MonoBehaviour
 
     IEnumerator StartFishing()
     {
-        fishingInProgress = true;
         yield return new WaitForSeconds(Random.Range(1f, 3f));
+        fishingInProgress = true;
         SoundManager.Instance.PlaySFX("BaitSplash");
         FishingManager.Instance.BeginFishing();
     }

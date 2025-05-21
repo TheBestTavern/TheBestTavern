@@ -94,6 +94,7 @@ public class SelectMapPopUp : BasePopUp
         SceneParameter.Set("Region", region);
         SceneParameter.Set("Season", DesignEnums.SeasonType.winter);
         await SceneLoader.Instance.LoadSceneAsync("SeaGatheringSceneDev");
+        SoundManager.Instance.PlayAmbience("OceanAmbience");
     }
 
     // 산 이동 확인 팝업 함수 
@@ -103,6 +104,7 @@ public class SelectMapPopUp : BasePopUp
         SceneParameter.Set("Region", region);
         SceneParameter.Set("Season", DesignEnums.SeasonType.winter);
         await SceneLoader.Instance.LoadSceneAsync("ForestGatheringScene");
+        SoundManager.Instance.PlayAmbience("ForestAmbience");
     }
 
     // 팝업 열때 필요한 함수
