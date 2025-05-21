@@ -25,4 +25,10 @@ public class TutorialGatheringManager : GatheringManager
 
         gatheringTutorialController.NextButton.gameObject.SetActive(true);
     }
+
+    protected override void OnDestroy()
+    {
+        base.OnDestroy();
+        gatheringInventoryUI.LoseAllItem();
+    }
 }
