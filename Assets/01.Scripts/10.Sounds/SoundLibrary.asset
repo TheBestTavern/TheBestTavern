@@ -76,4 +76,12 @@ MonoBehaviour:
     addressableKey: RodCut
   - soundName: ThrowStone
     addressableKey: ThrowStone
-  ambienceClips: []
+  - soundName: ThrowBaitStrong
+    addressableKey: ThrowBaitStrong
+  - soundName: Monster
+    addressableKey: Monster
+  ambienceClips:
+  - soundName: ForestAmbience
+    addressableKey: ForestAmbience
+  - soundName: OceanAmbience
+    addressableKey: OceanAmbience

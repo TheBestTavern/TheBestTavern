@@ -15,6 +15,7 @@ public class GatheringBushes : GatheringBase
         {
             ForestGatheringManager.Instance.OnMiniGame("Forest_Animal_Dev");
             UIManager.Instance.gatheringSceneUI.SetMiniGameBackGround(true);
+            SoundManager.Instance.PlayAmbience("ForestAmbience");
         }
         else
         {
