@@ -42,6 +42,7 @@ public abstract class BaseTutorialController : MonoBehaviour
         isTexting = true;
         npcText.text = "";
 
+        SoundManager.Instance.PlaySFX("TutorialLine");
         for (int i = 0; i < text.Length; i++)
         {
             npcText.text += text[i];
