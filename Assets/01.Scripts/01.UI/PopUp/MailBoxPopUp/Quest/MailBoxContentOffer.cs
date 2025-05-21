@@ -33,7 +33,7 @@ public class MailBoxContentOffer : MailBoxContentBase
         {
             pref = Instantiate(slotPref, slotPrt);
             pref.Init(this);
-            pref.SetSlot(questID, i);
+            pref.SetSlot(questID, SuccessDegree.none, i);
             slots.Add(pref);
             i++;
         }

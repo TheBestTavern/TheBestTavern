@@ -20,7 +20,7 @@ public class BookQuestLetter : BasePopUp
     {
         title.text = quest.Origin.name;
         bodyText.text = quest.Origin.letterOffer;
-        from.text = Data.GetNPC(quest.Origin.givingNPC).Origin.name;
+        from.text = $"-{Data.GetNPC(quest.Origin.givingNPC).Origin.name}-";
         if (!isInProgressQuest)
         {
             var rawItem = Data.GetRawItem(quest.Origin.compensationID);

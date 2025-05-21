@@ -12,7 +12,7 @@ public class QuestManager : MonoSingleton<QuestManager>
     public Dictionary<int, Quest> AllQuests { get { return questData.AllQuests; } }
     public List<int> AcceptedQuests { get { return questData.AcceptedQuests; } }
     public Dictionary<int, SuccessDegree> OnceSuccessQuests { get { return questData.OnceSuccessQuests; } }
-    public List<int> JustCompleteQuests { get { return questData.JustCompleteQuests; } }
+    public List<(int, SuccessDegree)> JustCompleteQuests { get { return questData.JustCompleteQuests; } }
     public List<int> TodayAvailableQuest { get { return questData.TodayAvailableQuest; } }
 
     public Queue<(int questID, int itemID)> QuestCheckQueue { get { return questData.QuestCheckQueue; } }
@@ -85,7 +85,7 @@ public class QuestManager : MonoSingleton<QuestManager>
 
         public Task Execute()
         {
-            prt.JustCompleteQuests.Clear();
+            //prt.JustCompleteQuests.Clear();
             CheckQuestCheckQueue();
 
             return Task.CompletedTask;

@@ -28,7 +28,7 @@ public abstract class QuestBaseSlot : MonoBehaviour
         }
     }
 
-    public virtual void SetSlot(int questID, int indexNum)
+    public virtual void SetSlot(int questID, SuccessDegree successDegree, int indexNum)
     {
         // 슬롯 번호 메기기
         index = indexNum;

@@ -28,10 +28,10 @@ public class QuestOfferLetter : QuestBaseLetter
     }
 
     // 편지 열때마다 필요한 초기화.
-    public override void On(Quest quest, QuestBaseSlot baseQuestSlot)
+    public override void On(Quest quest, SuccessDegree successDegree, QuestBaseSlot baseQuestSlot)
     {
         // 문구 초기화
-        base.On(quest, baseQuestSlot);
+        base.On(quest, successDegree, baseQuestSlot);
         isSetDays = false;
         days = 0;
         bodyText.text = quest.Origin.letterOffer;
