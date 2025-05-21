@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
@@ -21,6 +22,7 @@ public class MailBoxPopUp : BasePopUp
     Dictionary<MailBoxContentType, Button> contentsBtnDic = new();
     [SerializeField] List<MailBoxContentBase> mailBoxContentsList;
     public Dictionary<MailBoxContentType, MailBoxContentBase> contentsDic = new();
+    public Dictionary<MailBoxContentType, Image> contentsBtnImage = new();
 
     public override void Init(int id, IPopupManager manager)
     {
@@ -33,12 +35,15 @@ public class MailBoxPopUp : BasePopUp
             MailBoxContentType temp = mailBoxContentsList[i].ContentType;
             contentsDic.Add(temp, mailBoxContentsList[i]);
             contentsBtnDic.Add(temp, contentBtn[i]);
+            contentsBtnImage.Add(temp, contentBtn[i].gameObject.GetComponent<Image>());
         }
 
         foreach(var btnPair in contentsBtnDic)
         {
             btnPair.Value.onClick.AddListener(() => OnClick(btnPair.Key));
         }
+
+        OnClick(MailBoxContentType.Offer);
     }
 
     private void OnClick(MailBoxContentType targetContent)
@@ -48,10 +53,12 @@ public class MailBoxPopUp : BasePopUp
             if(targetContent != contentPair.Key)
             {
                 contentPair.Value.gameObject.SetActive(false);
+                contentsBtnImage[contentPair.Key].DOColor(new Color(0.6f, 0.6f, 0.6f), 0.15f);
             }
             else
             {
                 contentPair.Value.gameObject.SetActive(true);
+                contentsBtnImage[contentPair.Key].DOColor(new Color(1f, 1f, 1f), 0.15f);
             }
         }
     }

@@ -20,7 +20,7 @@ public class PlayerGameData
     public Dictionary<int, Quest> AllQuests = new();
     public List<int> AcceptedQuests = new();
     public Dictionary<int, SuccessDegree> OnceSuccessQuests = new();
-    public List<int> JustCompleteQuests = new();
+    public List<(int, SuccessDegree)> JustCompleteQuests = new();
     public List<int> TodayAvailableQuest = new();
     public Queue<(int questID, int itemID)> QuestCheckQueue = new();
 

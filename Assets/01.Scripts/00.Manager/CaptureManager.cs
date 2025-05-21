@@ -13,6 +13,7 @@ public class CaptureManager : MonoSingleton<CaptureManager>
 
     [Header("포획 설정")]
     [SerializeField] private float captureRadius = 5f;
+    [SerializeField] public BaitDropArea baitDropArea;
     private Animal animalInRange;
     public bool success;
 
@@ -32,7 +33,7 @@ public class CaptureManager : MonoSingleton<CaptureManager>
 
     private void AddItem()
     {
-        if (InventoryManager.Instance.Invens[InvenType.Gathering].아이템획득(Data.GetRawItem(animalInRange.gatheringKey), 1))
+        if (InventoryManager.Instance.Invens[InvenType.Gathering].아이템획득(Data.GetRawItem(animalInRange.gatheringKey), animalInRange.gatheringValue))
         {
             Debug.Log("아이템 증가");
         }
@@ -78,25 +79,20 @@ public class CaptureManager : MonoSingleton<CaptureManager>
             return;
         }
 
-        success = animalInRange.TryCapture();
-        if (success)
+        bool canCapture = animalInRange.TryCapture();
+        if (canCapture)
         {
+            success = true;
             Debug.LogError("동물 포획 성공");
-            if (animalInRange.animalSizeType == AnimalSizeType.Small)
-            {
-                UnLoadMiniGame();
-            }
-            else
-            {
-                AddItem();
-                animalInRange.DestroyAnimal();
-                ShowResult();
-            }
+            AddItem();
+            animalInRange.DestroyAnimal();
+            ShowResult();
         }
         else
         {
             Debug.LogError("동물 포획 실패");
             animalInRange.gatheringKey = 0;
+            success = false;
         }
     }
 
@@ -117,6 +113,13 @@ public class CaptureManager : MonoSingleton<CaptureManager>
 
     private void OnClickEscapeFromAnimal()
     {
+        if (animalInRange.animalSizeType == AnimalSizeType.Large)
+        {
+            if (!animalInRange.BaitEffectApplied)
+            {
+                ForestGatheringManager.Instance.gatheringInventoryUI.LoseAllItem();
+            }
+        }
         Debug.Log("도망가기");
         animalInRange.DestroyAnimal();
         UnLoadMiniGame();

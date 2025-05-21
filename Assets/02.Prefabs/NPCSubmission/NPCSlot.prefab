@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8021277119560045247}
   - component: {fileID: 8603579855561927285}
   - component: {fileID: 3735077633500481372}
+  - component: {fileID: 4385045274405971231}
   m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
@@ -121,6 +122,19 @@ MonoBehaviour:
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
   alphaThreshold: 0.1
+--- !u!114 &4385045274405971231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2109797799797121159}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e744a27a68559434ea55004cf9f1e781, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sfxName: SlotButton
 --- !u!1 &3519434741543982820
 GameObject:
   m_ObjectHideFlags: 0

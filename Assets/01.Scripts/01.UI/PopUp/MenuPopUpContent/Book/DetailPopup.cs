@@ -32,7 +32,8 @@ public class DetailPopup : BasePopUp
 
         for (int i = 0; i < componentsBtn.Count; i++)
         {
-            componentsBtn[i].onClick.AddListener(() => OnClickComponentsBtn(i));
+            int j = i;
+            componentsBtn[i].onClick.AddListener(() => OnClickComponentsBtn(j));
         }
     }
 
@@ -48,7 +49,9 @@ public class DetailPopup : BasePopUp
 
         if (newFoodCategory == current) return;
 
-        prevStack.Push(current);
+        if (current != null)
+            prevStack.Push(current);
+
         current = newFoodCategory;
         Set();
     }
@@ -100,7 +103,7 @@ public class DetailPopup : BasePopUp
         foodName.text = thing.name;
         desc.text = thing.description;
         ItemType.text = "원재료";
-        ItemType.color = new Color(94, 124, 0);
+        ItemType.color = new Color32(94, 124, 0, 255);
         title.text = "획득 조건";
 
         List<string> regionString = new();
@@ -189,7 +192,7 @@ public class DetailPopup : BasePopUp
         foodName.text = thing.name;
         desc.text = thing.description;
         ItemType.text = "특수재료";
-        ItemType.color = new Color(209, 90, 153);
+        ItemType.color = new Color32(209, 90, 153, 255);
 
         title.text = "지급 NPC";
         componentsTMP[0].text = thing.givingNPCName;
@@ -211,16 +214,18 @@ public class DetailPopup : BasePopUp
         foodName.text = thing.name;
         desc.text = thing.description;
         ItemType.text = "조합재료";
-        ItemType.color = new Color(16, 93, 152);
+        ItemType.color = new Color32(16, 93, 152, 255);
         title.text = "재료 목록";
 
         int i = 0;
+        componentsID.Clear();
         for (; i < thing.ingredientsName.Count; i++)
         {
             componentsBtn[i].gameObject.SetActive(true);
             componentsBtn[i].interactable = true;
             componentsTMP[i].text = thing.ingredientsName[i];
-            componentsID[i] = thing.ingredients[i];
+            //componentsID[i] = thing.ingredients[i];
+            componentsID.Add(thing.ingredients[i]);
         }
         for (; i < componentsBtn.Count; i++)
         {
@@ -234,16 +239,17 @@ public class DetailPopup : BasePopUp
         foodName.text = thing.name;
         desc.text = thing.description;
         ItemType.text = "요리";
-        ItemType.color = new Color(169, 87, 24);
+        ItemType.color = new Color32(169, 87, 24, 255);
         title.text = "재료 목록";
 
         int i = 0;
+        componentsID.Clear();
         for (; i < thing.ingredientsName.Count; i++)
         {
             componentsBtn[i].gameObject.SetActive(true);
             componentsBtn[i].interactable = true;
             componentsTMP[i].text = thing.ingredientsName[i];
-            componentsID[i] = thing.ingredients[i];
+            componentsID.Add(thing.ingredients[i]);
         }
         for (; i < componentsBtn.Count; i++)
         {

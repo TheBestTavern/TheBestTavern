@@ -13,14 +13,14 @@ public class Animal : MonoBehaviour
 {
     [Header("동물 설정")]
     public string animalName;
-    public int[] favoriteBaitIds;
     public AnimalSizeType animalSizeType;
 
     [Header("아이템 설정")]
     public int gatheringKey;
+    public int gatheringValue;
 
     [Header("동물 포획")]
-    private bool BaitEffectApplied = false;
+    public bool BaitEffectApplied = false;
     private float baseCaptureChance = 0.2f;
     private float captureChance = 0f;
     private bool canBeCaptured = false;
@@ -37,15 +37,17 @@ public class Animal : MonoBehaviour
 
     public void ReactToBait(int baitID, Vector3 baitPosition)
     {
-        foreach (int favoriteId in favoriteBaitIds)
+        float reactionChance = 0.5f; // 50% 확률
+
+        if (Random.value < reactionChance)
         {
-            if (favoriteId == baitID)
-            {
-                ApplyBaitEffect();
-                ChangeSprite();
-                Debug.LogError($"{animalName}가 ID {baitID} 미끼에 반응함!");
-                break;
-            }
+            ApplyBaitEffect();
+            ChangeSprite();
+            Debug.Log($"{animalName}가 ID {baitID} 미끼에 반응함! (확률적 반응)");
+        }
+        else
+        {
+            Debug.Log($"{animalName}가 ID {baitID} 미끼에 반응하지 않음. (확률 실패)");
         }
     }
 
@@ -116,7 +118,7 @@ public class Animal : MonoBehaviour
         bool success = randomValue < captureChance;
         Debug.Log(success ? $"{animalName} 포획 성공!" : $"{animalName} 포획 실패!");
 
-        return success;
+        return true;
     }
 
     public void ApplyBaitEffect()

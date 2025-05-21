@@ -47,9 +47,24 @@ public class Data_Quest
     public float conditionFavorability;
 
     /// <summary>
+    /// 의뢰편지 키워드
+    /// </summary>
+    public List<string> letterOfferKeyword;
+
+    /// <summary>
+    /// 의뢰 편지 제목
+    /// </summary>
+    public string letterOfferTitle;
+
+    /// <summary>
     /// 의뢰편지 내용
     /// </summary>
     public string letterOffer;
+
+    /// <summary>
+    /// 하 성공 편지 제목
+    /// </summary>
+    public string letterNotBadSuccessTitle;
 
     /// <summary>
     /// 만족도 하 요리를 받았을 때 (호감도만 오르고 보상 X)
@@ -57,9 +72,19 @@ public class Data_Quest
     public string letterNotBadSuccess;
 
     /// <summary>
+    /// 중,상 성공 편지 제목
+    /// </summary>
+    public string letterSuccessTitle;
+
+    /// <summary>
     /// 성공편지 (만족도 중 이상 요리를 받았을 때)
     /// </summary>
-    public string letterSoSoGoodSuccess;
+    public string letterSuccess;
+
+    /// <summary>
+    /// 실패 편지 제목
+    /// </summary>
+    public string letterFailTitle;
 
     /// <summary>
     /// 실패편지

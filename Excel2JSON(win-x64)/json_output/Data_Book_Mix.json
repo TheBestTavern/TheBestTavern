@@ -64,7 +64,7 @@
     },
     {
       "key": 110178,
-      "name": "고추양념장",
+      "name": "고추 양념장",
       "resultFoodEnglishName": "spicyChiliSauce",
       "ingredients": [
         110401,
@@ -136,7 +136,7 @@
         110036
       ],
       "ingredientsName": [
-        "고추양념장",
+        "고추 양념장",
         "된장",
         "식수"
       ],

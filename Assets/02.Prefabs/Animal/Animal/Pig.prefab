@@ -100,9 +100,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animalName: Pig
-  favoriteBaitIds: 938a0100978a0100
   animalSizeType: 1
   gatheringKey: 101038
+  gatheringValue: 2
   normal: {fileID: 21300000, guid: 44afe0e65479ac74587c9a90ff7daf6f, type: 3}
 --- !u!50 &3331156974029630444
 Rigidbody2D:

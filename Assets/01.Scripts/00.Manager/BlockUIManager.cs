@@ -12,7 +12,8 @@ public class BlockUIManager
         EventBus.Subscribe<EnterNightUIBlockEvent>(ShowBlock);
         EventBus.Subscribe<EndNightUIBlockEvent>(HideBlock);
         GameObject go = await AddressablesLoader.Instance.AddressablesLoadAsync<GameObject>("BlockUI.prefab");
-        blockUI = GameObject.Instantiate(go, uiManager.transform).GetComponentInChildren<BlockUI>();
+        blockUI = GameObject.Instantiate(go, uiManager.transform).GetComponent<BlockUI>();
+        //blockUI = await AddressablesLoader.Instance.AddressablesLoadAsync<BlockUI>("BlockUI.prefab");
     }
 
     public void Dispose()
@@ -23,11 +24,13 @@ public class BlockUIManager
 
     public void ShowBlock(EnterNightUIBlockEvent evt)
     {
-        blockUI.gameObject.SetActive(true);
+        if (blockUI != null)
+            blockUI.gameObject.SetActive(true);
     }
 
     public void HideBlock(EndNightUIBlockEvent evt)
     {
-        blockUI.gameObject.SetActive(false);
+        if (blockUI != null)
+            blockUI.gameObject.SetActive(false);
     }
 }

@@ -76,4 +76,32 @@ MonoBehaviour:
     addressableKey: RodCut
   - soundName: ThrowStone
     addressableKey: ThrowStone
-  ambienceClips: []
+  - soundName: CountrySide
+    addressableKey: CountrySide
+  - soundName: Car
+    addressableKey: Car
+  - soundName: Impact
+    addressableKey: Impact
+  - soundName: LineWhoosh
+    addressableKey: LineWhoosh
+  - soundName: Paper
+    addressableKey: Paper
+  - soundName: TutorialLine
+    addressableKey: TutorialLine
+  - soundName: WhooshShort
+    addressableKey: WhooshShort
+  - soundName: ThrowBaitStrong
+    addressableKey: ThrowBaitStrong
+  - soundName: ThrowBaitWeak
+    addressableKey: ThrowBaitWeak
+  - soundName: Monster
+    addressableKey: Monster
+  ambienceClips:
+  - soundName: BoilAmbience
+    addressableKey: BoilAmbience
+  - soundName: ForestAmbience
+    addressableKey: ForestAmbience
+  - soundName: GrillAmbience
+    addressableKey: GrillAmbience
+  - soundName: OceanAmbience
+    addressableKey: OceanAmbience

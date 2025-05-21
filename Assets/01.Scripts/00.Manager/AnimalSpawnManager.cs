@@ -85,6 +85,7 @@ public class AnimalSpawnManager : MonoSingleton<AnimalSpawnManager>
     {
         animalToSpawn = largeAnimals[Random.Range(0, largeAnimals.Count)];
         animalToSpawn.transform.localScale = new Vector3(1f, 1f, 1f);
+        SoundManager.Instance.PlaySFX("Monster");
     }
 
     private void AnimalSpawnPosition()
