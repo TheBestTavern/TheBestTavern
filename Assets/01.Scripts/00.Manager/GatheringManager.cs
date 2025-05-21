@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using static DesignEnums;
 
 public class GatheringManager : MonoSingleton<GatheringManager>
@@ -35,7 +36,7 @@ public class GatheringManager : MonoSingleton<GatheringManager>
     public void SetItem()
     {
         SceneParameter.TryGet<DesignEnums.RegionType>("Region", out region);
-        SceneParameter.TryGet<DesignEnums.SeasonType>("Season", out season);
+        season = CalendarManager.Instance.CurrentSeasonType;
         data_Gatherings = Data.GetByRegionSeasonBiome(region, season, biome);
 
         itemDict = new();
