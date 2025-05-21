@@ -62,6 +62,7 @@ public class GatheringSceneUI : MonoBehaviour
 
         // 메인씬 불러오기 
         await SceneLoader.Instance.LoadSceneAsync("MainScene");
+        SoundManager.Instance.StopLoop();
     }
 
     private void SaveInventory()
