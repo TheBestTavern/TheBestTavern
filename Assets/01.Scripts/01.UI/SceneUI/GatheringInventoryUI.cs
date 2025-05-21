@@ -23,4 +23,23 @@ public class GatheringInventoryUI : InventoryViewLoose
             }
         }
     }
+
+    public override void 아이템타게팅(int index)
+    {
+        base.아이템타게팅(index);
+
+        if (!index2Slots[index].HasItem) return;
+        ItemStack item = index2Slots[index].GetSlotItem();
+
+        var dropArea = CaptureManager.Instance?.baitDropArea;
+        if (dropArea != null)
+        {
+            dropArea.SetItem(item);
+        }
+        else
+        {
+            Debug.LogWarning("BaitDropArea null발생");
+        }
+    }
+
 }

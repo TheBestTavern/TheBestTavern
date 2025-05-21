@@ -6,11 +6,12 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class BaitDropArea : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPointerExitHandler
+public class BaitDropArea : MonoBehaviour
 {
     [Header("아이템 Drop 설정")]
     [SerializeField] private Image previewImage;
     [SerializeField] private Image dropAreaImage;
+    public Sprite itemSprite;
 
     [Header("컨트롤러 설정")]
     [SerializeField] private BaitThrowController throwController;
@@ -18,59 +19,41 @@ public class BaitDropArea : MonoBehaviour, IDropHandler, IPointerEnterHandler, I
     private InventorySlot previousSlot; 
     private ItemStack currentBait;
 
-    public async void OnDrop(PointerEventData eventData)
+    private ItemStack currentItem;
+
+    public async void SetItem(ItemStack item)
     {
-        InventorySlot draggedSlot = eventData.pointerDrag?.GetComponent<InventorySlot>();
+        currentBait = item;
 
-        if (draggedSlot != null && draggedSlot.HasItem)
+        if (item != null && item.Origin != null)
         {
-            if (currentBait != null && previousSlot != null)
+            Debug.Log("BaitDropArea에 아이템 설정됨: " + item.Origin.key);
+
+            Data_Foods raw = Data.GetRawItem(item.Origin.key);
+
+            Sprite loadedSprite = await AddressablesLoader.Instance.AddressablesLoadAsync<Sprite>(
+                $"Assets/16.Image/FoodImage/{raw.englishName}.png", true);
+
+            if (loadedSprite != null)
             {
-                previousSlot.GetSlotItem()?.Add(1, 10);
-                previousSlot.슬롯갱신();
+                previewImage.sprite = loadedSprite;
+                previewImage.color = Color.white;
+                itemSprite = loadedSprite;
+            }
+            else
+            {
+                Debug.LogWarning($"이미지를 로드하지 못했습니다: {raw.englishName}");
+                previewImage.sprite = null;
+                previewImage.color = new Color(1f, 1f, 1f, 0f);
             }
 
-            currentBait = draggedSlot.GetSlotItem();
-            currentBait?.Subtract(1);
-            draggedSlot.슬롯갱신();
-
-            try
-            {
-                if (currentBait != null)
-                {
-                    Data_Foods raw = Data.GetRawItem(currentBait.Origin.key);
-                    string path = $"Assets/16.Image/FoodImage/{raw.englishName}.png";
-                    Sprite sprite = await AddressablesLoader.Instance.AddressablesLoadAsync<Sprite>(path, true);
-
-                    previewImage.sprite = sprite;
-                    previewImage.color = Color.white;
-                }
-                else
-                {
-                    ResetPreviewImage();
-                }
-            }
-            catch (Exception e)
-            {
-                Debug.LogError($"Error loading bait image: {e}");
-                ResetPreviewImage();
-            }
-
-            previousSlot = draggedSlot;
-
-            throwController.SetBaitIndex(currentBait);
+            throwController.SetBaitIndex(item);
+        }
+        else
+        {
+            Debug.LogWarning("SetItem에 전달된 아이템이 null입니다.");
         }
     }
-
-    private void ResetPreviewImage()
-    {
-        previewImage.sprite = null;
-        previewImage.color = new Color(1, 1, 1, 0);
-    }
-
-    public ItemStack GetCurrentBait() => currentBait;
-
-    
 
     public void ClearBait()
     {
@@ -79,16 +62,5 @@ public class BaitDropArea : MonoBehaviour, IDropHandler, IPointerEnterHandler, I
         previewImage.color = new Color(111, 111, 111, 0);
     }
 
-    public void OnPointerEnter(PointerEventData eventData)
-    {
-        if (eventData.pointerDrag != null)
-        {
-            dropAreaImage.color = Color.red;
-        }
-    }
-
-    public void OnPointerExit(PointerEventData eventData)
-    {
-        dropAreaImage.color = Color.white;
-    }
+    
 }

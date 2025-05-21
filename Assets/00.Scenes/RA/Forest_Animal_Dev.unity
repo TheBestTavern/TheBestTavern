@@ -392,6 +392,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07195d218f769124596eedfee7d8ea87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isDontDestroyOnLoad: 0
   previewImage: {fileID: 568083142}
   dropAreaImage: {fileID: 568083142}
   throwController: {fileID: 574979890}
@@ -1955,6 +1956,7 @@ MonoBehaviour:
   escapeButton: {fileID: 1955917667}
   infoButton: {fileID: 345913338}
   captureRadius: 5
+  baitDropArea: {fileID: 283723581}
   success: 0
 --- !u!1 &1803380170
 GameObject:
