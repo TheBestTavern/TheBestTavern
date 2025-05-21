@@ -96,7 +96,6 @@ public class IntroSceneUI : MonoBehaviour
         gameExitBtnText.color = new Color(0, 0, 0, 1);
 
         titleText.gameObject.SetActive(true);
-        titleText.maxVisibleCharacters = titleText.text.Length;
     }
 
     private async Task PlayIntroSequence(CancellationToken token)
