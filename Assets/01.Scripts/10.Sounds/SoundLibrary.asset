@@ -68,14 +68,12 @@ MonoBehaviour:
     addressableKey: BackButton
   - soundName: CardFlip
     addressableKey: CardFlip
-  loopClips:
-  - soundName: BoilAmbience
-    addressableKey: BoilAmbience
-  - soundName: ForestAmbience
-    addressableKey: ForestAmbience
-  - soundName: GrillAmbience
-    addressableKey: GrillAmbience
-  - soundName: GrillAmbience
-    addressableKey: GrillAmbience
-  - soundName: OceanAmbience
-    addressableKey: OceanAmbience
+  - soundName: BaitSplash
+    addressableKey: BaitSplash
+  - soundName: RodShake
+    addressableKey: RodShake
+  - soundName: RodCut
+    addressableKey: RodCut
+  - soundName: ThrowStone
+    addressableKey: ThrowStone
+  ambienceClips: []

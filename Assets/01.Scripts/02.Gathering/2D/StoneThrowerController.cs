@@ -74,6 +74,7 @@ public class StoneThrowerController : MonoBehaviour
         Vector2 dir = new Vector2(Mathf.Cos(rad), Mathf.Sin(rad));
 
         rb.AddForce(dir.normalized * power, ForceMode2D.Impulse);
+        SoundManager.Instance.PlaySFX("ThrowStone");
     }
 
     void ShowTrajectory(float power)

@@ -44,7 +44,7 @@ public class InventorySlot : MonoBehaviour, IBeginDragHandler, IEndDragHandler, 
         OnClickAgain = clickSlotAgain;
     }
 
-    public void 슬롯세팅(int id)  // 아이템 ( Item주입, 이미지, 수량, bool hasItem 변동 )
+    public async void 슬롯세팅(int id)  // 아이템 ( Item주입, 이미지, 수량, bool hasItem 변동 )
     {
         HasItem = true;
         this.ID = id;
@@ -52,7 +52,7 @@ public class InventorySlot : MonoBehaviour, IBeginDragHandler, IEndDragHandler, 
         count = item.Count;
         CountTMP.text = count.ToString();
         Data_Foods raw = Data.GetRawItem(item.Origin.key);
-        image.sprite = Resources.Load<Sprite>($"Item/{item.Origin.englishName}");
+        image.sprite = await AddressablesLoader.Instance.AddressablesLoadAsync<Sprite>($"Assets/16.Image/FoodImage/{raw.englishName}.png", true);
         image.gameObject.SetActive(true);
     }
 
