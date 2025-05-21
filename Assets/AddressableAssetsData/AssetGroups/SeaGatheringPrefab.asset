@@ -24,10 +24,10 @@ MonoBehaviour:
     - Hole
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c5689e00c86c7464fba0b9f631b22545
-    m_Address: Rock.prefab
+    m_Address: Stone.prefab
     m_ReadOnly: 0
     m_SerializedLabels:
-    - Rock
+    - Stone
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 3f946b317ceaa2747b411cad54511d5f, type: 2}

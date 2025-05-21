@@ -15,7 +15,7 @@ MonoBehaviour:
   m_DefaultGroup: c3f494c16557d594cb251a411faddc9f
   m_currentHash:
     serializedVersion: 2
-    Hash: 00000000000000000000000000000000
+    Hash: da40bb2be69a7b2a890fd9873107358f
   m_OptimizeCatalogSize: 0
   m_BuildRemoteCatalog: 0
   m_BundleLocalCatalog: 0
@@ -109,7 +109,7 @@ MonoBehaviour:
     - Field
     - Tree
     - Hole
-    - Rock
+    - Stone
   m_SchemaTemplates: []
   m_GroupTemplateObjects:
   - {fileID: 11400000, guid: fb4860e82cc57f7448b750225714f800, type: 2}
