@@ -13,7 +13,6 @@ public class Animal : MonoBehaviour
 {
     [Header("동물 설정")]
     public string animalName;
-    public int[] favoriteBaitIds;
     public AnimalSizeType animalSizeType;
 
     [Header("아이템 설정")]
@@ -37,15 +36,17 @@ public class Animal : MonoBehaviour
 
     public void ReactToBait(int baitID, Vector3 baitPosition)
     {
-        foreach (int favoriteId in favoriteBaitIds)
+        float reactionChance = 0.5f; // 50% 확률
+
+        if (Random.value < reactionChance)
         {
-            if (favoriteId == baitID)
-            {
-                ApplyBaitEffect();
-                ChangeSprite();
-                Debug.LogError($"{animalName}가 ID {baitID} 미끼에 반응함!");
-                break;
-            }
+            ApplyBaitEffect();
+            ChangeSprite();
+            Debug.Log($"{animalName}가 ID {baitID} 미끼에 반응함! (확률적 반응)");
+        }
+        else
+        {
+            Debug.Log($"{animalName}가 ID {baitID} 미끼에 반응하지 않음. (확률 실패)");
         }
     }
 

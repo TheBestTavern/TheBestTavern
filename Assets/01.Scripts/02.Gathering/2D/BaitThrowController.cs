@@ -79,20 +79,19 @@ public class BaitThrowController : MonoBehaviour
         SpriteRenderer sr = obj.GetComponentInChildren<SpriteRenderer>();
         Bait bait = obj.GetComponent<Bait>();
 
-        if (sr != null)
+        if (sr != null && currentBait != null)
         {
-            Sprite sprite = Resources.Load<Sprite>($"Item/{currentBait.Origin.englishName}");
-            if (sprite != null)
-            {
-                sr.sprite = sprite;
-            }
+            sr.sprite = baitDropArea.itemSprite;
         }
 
         bait.SetBaitKey(currentBait.Origin.key);
+
         float rad = throwAngle * Mathf.Deg2Rad;
         Vector2 dir = new Vector2(Mathf.Cos(rad), Mathf.Sin(rad));
         rb.AddForce(dir.normalized * power, ForceMode2D.Impulse);
 
+        var inven = InventoryManager.Instance.Invens[InvenType.Gathering];
+        inven.아이템잃음(currentBait.Origin, 1);
     }
 
     void ShowTrajectory(float power) //던지기 궤적 함수

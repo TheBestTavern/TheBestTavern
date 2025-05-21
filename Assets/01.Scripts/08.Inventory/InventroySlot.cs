@@ -128,12 +128,7 @@ public class InventorySlot : MonoBehaviour, IBeginDragHandler, IEndDragHandler, 
         EventSystem.current.RaycastAll(eventData, results);
         foreach (var result in results)
         {
-            BaitDropArea dropArea = result.gameObject.GetComponent<BaitDropArea>();
-            if (dropArea != null)
-            {
-                dropArea.OnDrop(eventData);
-                break;
-            }
+            
         }
     }
 
