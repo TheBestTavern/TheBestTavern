@@ -59,9 +59,10 @@ public static class Data // 간단 key 검색 클래스
     public static Data_FoodCategory GetIngredientFromProcessed(Data_FoodCategory processed)
     {
         var tempID = DataManager.Instance.Dataloader_Recipes.GetByKey(processed.recipeID).ingredients[0];
-        var categoryID = DataManager.Instance.DataLoader_Foods.GetByKey(tempID).FoodCategory;
-        processed = DataManager.Instance.DataLoader_FoodCategory.GetByKey(categoryID);
-        return processed;
+        //var categoryID = DataManager.Instance.DataLoader_Foods.GetByKey(tempID).FoodCategory;
+        //processed = DataManager.Instance.DataLoader_FoodCategory.GetByKey(categoryID);
+        var ingredient = DataManager.Instance.DataLoader_FoodCategory.GetByKey(tempID);
+        return ingredient;
     }
 }   
 

@@ -10,7 +10,7 @@ public class SpecialBookSlot : BaseBookSlot<Data_Book_Special>
 
     public async override void SetSlot(Data_Book_Special thing)
     {
-        if (!ItemRecordManager.Instance.IsDiscovered(thing.key))
+        if (HideUndiscoveredFood && !ItemRecordManager.Instance.IsDiscovered(thing.key))
         {
             SetUndiscoveredItem();
         }

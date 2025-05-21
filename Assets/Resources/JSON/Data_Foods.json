@@ -2994,7 +2994,7 @@
     },
     {
       "key": 102235,
-      "name": "망가진 고추양념장",
+      "name": "망가진 고추 양념장",
       "FoodCategory": 110178,
       "grade": 0,
       "getRoute": [
@@ -3005,7 +3005,7 @@
     },
     {
       "key": 102236,
-      "name": "평범한 고추양념장",
+      "name": "평범한 고추 양념장",
       "FoodCategory": 110178,
       "grade": 1,
       "getRoute": [
@@ -3016,7 +3016,7 @@
     },
     {
       "key": 102237,
-      "name": "완벽한 고추양념장",
+      "name": "완벽한 고추 양념장",
       "FoodCategory": 110178,
       "grade": 2,
       "getRoute": [

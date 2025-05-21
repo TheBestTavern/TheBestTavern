@@ -11,7 +11,7 @@ public class MixBookSlot : BaseBookSlot<Data_Book_Mix>
 
     public async override void SetSlot(Data_Book_Mix thing)
     {
-        if (!ItemRecordManager.Instance.IsDiscovered(thing.key))
+        if (HideUndiscoveredFood && !ItemRecordManager.Instance.IsDiscovered(thing.key))
         {
             SetUndiscoveredItem();
         }

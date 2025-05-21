@@ -58,7 +58,7 @@ public class AddressablesLoader : MonoSingleton<AddressablesLoader>
         // 실패시 null 반환
         if (fallback)
         {
-            return await AddressablesLoadAsync<T>("default." + typeof(T).Name); ;
+            return await AddressablesLoadAsync<T>("Default." + typeof(T).Name); ;
         }
         else
         {

@@ -50,7 +50,8 @@ public class CalendarManager : MonoSingleton<CalendarManager>
             {
                 // 계절 변화 실행
                 Debug.Log($"계절이 {prt.CurrentSeasonType}에서 {newSeason}으로 변화합니다.");
-                ChangeSeason(newSeason.Value);
+                ChangeCurrentSeason(newSeason.Value);
+                EventBus.Publish<SeasonChangeEvent>(new SeasonChangeEvent(newSeason.Value));
             }
 
             HolidayType? holiday = CheckHoliday(today);
@@ -79,7 +80,7 @@ public class CalendarManager : MonoSingleton<CalendarManager>
             return null;
         }
 
-        private void ChangeSeason(DesignEnums.SeasonType newSeason)
+        private void ChangeCurrentSeason(DesignEnums.SeasonType newSeason)
         {
             prt.CurrentSeasonType = newSeason;
         }

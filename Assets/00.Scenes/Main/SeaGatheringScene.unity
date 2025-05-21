@@ -444,7 +444,7 @@ MonoBehaviour:
     width: 4
     height: 0.5
   propsParent: {fileID: 1499846125}
-  rocksLabelName: Rock
+  rocksLabelName: Stone
   holesLabelName: Hole
 --- !u!1 &260953145
 GameObject:

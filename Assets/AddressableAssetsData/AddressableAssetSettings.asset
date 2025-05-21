@@ -58,6 +58,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 29d18b80a76ef69489a87931b6c56392, type: 2}
   - {fileID: 11400000, guid: f1511406018599444a63ce6964111b00, type: 2}
   - {fileID: 11400000, guid: 58a871eda8a33614882edfbfda996eb4, type: 2}
+  - {fileID: 11400000, guid: 006495a937b4ef9459520e2bb865b387, type: 2}
   m_BuildSettings:
     m_CompileScriptsInVirtualMode: 0
     m_CleanupStreamingAssetsAfterBuilds: 1
@@ -107,8 +108,8 @@ MonoBehaviour:
     - Bush
     - Field
     - Tree
-    - Stone
     - Hole
+    - Rock
   m_SchemaTemplates: []
   m_GroupTemplateObjects:
   - {fileID: 11400000, guid: fb4860e82cc57f7448b750225714f800, type: 2}

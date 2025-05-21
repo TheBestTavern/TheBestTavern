@@ -13,6 +13,7 @@ public class CaptureManager : MonoSingleton<CaptureManager>
 
     [Header("포획 설정")]
     [SerializeField] private float captureRadius = 5f;
+    [SerializeField] public BaitDropArea baitDropArea;
     private Animal animalInRange;
     public bool success;
 

@@ -10,7 +10,7 @@ public class MailBoxContentResult : MailBoxContentBase // 제네릭으로 할 �
         isReadyTodaySlot = true;
         base.OnEnable();
 
-        MakeSlot(QuestManager.Instance.questData.JustCompleteQuests);
+        MakeSlot();
 
         currentLetter = (QuestBaseLetter)await PopUpManager.Instance.ShowPopUp(PopUpType.ResultLetter);
         currentLetter.OnClickCloseButton();
@@ -26,15 +26,21 @@ public class MailBoxContentResult : MailBoxContentBase // 제네릭으로 할 �
     //    base.OpenLetter(quest, slot);
     //}
 
-    public void MakeSlot(List<int> quests)
+    public void MakeSlot()
     {
+        foreach (var slot in slots)
+        {
+            Destroy(slot.gameObject);
+        }
+        slots.Clear();
+
         QuestBaseSlot pref;
         int i = 1;
-        foreach (var questID in quests)
+        foreach (var tuple in QuestManager.Instance.questData.JustCompleteQuests)
         {
             pref = Instantiate(slotPref, slotPrt);
             pref.Init(this);
-            pref.SetSlot(questID, i);
+            pref.SetSlot(tuple.questID, tuple.successDegree, i);
             slots.Add(pref);
             i++;
         }

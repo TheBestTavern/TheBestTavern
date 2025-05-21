@@ -5641,7 +5641,7 @@ MonoBehaviour:
   nextBtn: {fileID: 1472323559260772605}
   PrevBtn: {fileID: 5151424655067135237}
   pageUI: {fileID: 4027317251763808683}
-  HideUndiscoveredFood: 1
+  HideUndiscoveredFood: 0
 --- !u!1 &5832902733324154285
 GameObject:
   m_ObjectHideFlags: 0

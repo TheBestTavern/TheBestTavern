@@ -73,7 +73,7 @@ public abstract class BookUI_Base<TSlot, TData> : MonoBehaviour, IBook where TSl
         for (int i = 0; i < slotCountPerPage; i++)
         {
             var slot = (TSlot)Instantiate(slotPref, slotTsr);
-            slot.Init(bookUI);
+            slot.Init(bookUI, HideUndiscoveredFood);
             slots.Add(slot);
         }
         isReady2 = true;
