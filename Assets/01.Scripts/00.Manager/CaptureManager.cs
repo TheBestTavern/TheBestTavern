@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using DG.Tweening;
+using TMPro;
 
 public class CaptureManager : MonoSingleton<CaptureManager>
 {
@@ -17,6 +19,13 @@ public class CaptureManager : MonoSingleton<CaptureManager>
     private Animal animalInRange;
     public bool success;
 
+    [Header("카운트다운 설정")]
+    [SerializeField] private float countdownTime = 60f; 
+    [SerializeField] private TextMeshProUGUI countdownText;
+    private Color originalColor;
+    private float currentCountdown;
+    private bool isCountingDown = false;
+
     protected override void Awake()
     {
         captureButton.onClick.AddListener(CaptureAnimal);
@@ -28,8 +37,68 @@ public class CaptureManager : MonoSingleton<CaptureManager>
         captureButton.gameObject.SetActive(false);
         escapeButton.gameObject.SetActive(true);
         CheckForAnimalsInRange();
+        StartCountdown();
+        originalColor = countdownText.color;
     }
 
+    private void Update()
+    {
+        if (isCountingDown)
+        {
+            currentCountdown -= Time.deltaTime;
+            countdownText.text = $"남은 시간: {currentCountdown:F1}초";
+
+            if (currentCountdown <= 0f)
+            {
+                CountdownFinished();
+            }
+        }
+    }
+
+    public void StartCountdown()
+    {
+        currentCountdown = countdownTime;
+        isCountingDown = true;
+        countdownText.gameObject.SetActive(true); 
+    }
+
+    public void ReduceCountdown(float amount)
+    {
+        if (!isCountingDown) return;
+
+        currentCountdown -= amount;
+
+        // 애니메이션 효과: 빨간색으로 바꾸고, 크기 증가 후 원래대로
+        countdownText.DOColor(Color.red, 0.1f)
+            .OnComplete(() =>
+            {
+                countdownText.DOColor(originalColor, 0.2f);
+            });
+
+        countdownText.transform.DOScale(1.2f, 0.1f).SetEase(Ease.OutQuad)
+            .OnComplete(() =>
+            {
+                countdownText.transform.DOScale(Vector3.one, 0.2f).SetEase(Ease.InQuad);
+            });
+
+        if (currentCountdown <= 0f)
+        {
+            CountdownFinished();
+        }
+    }
+
+    private void CountdownFinished()
+    {
+        isCountingDown = false;
+        countdownText.gameObject.SetActive(false);
+
+        if (animalInRange != null)
+        {
+            animalInRange.DestroyAnimal();
+        }
+
+        ShowResult();
+    }
 
     private void AddItem()
     {
@@ -140,5 +209,11 @@ public class CaptureManager : MonoSingleton<CaptureManager>
     public void ForceCheckAnimal(Animal animal)
     {
         animalInRange = animal;
+    }
+
+    protected override void OnDestroy()
+    {
+        base.OnDestroy();
+        PopUpManager.Instance.PopUps.Remove(PopUpType.GatheringResult);
     }
 }

@@ -29,7 +29,6 @@ public class GatheringResultPopUp : BasePopUp
 
         else if (SceneManager.GetActiveScene().name == "Ocean_Fishing")
         {
-            if (gameObject != null) gameObject.SetActive(false);
             FishingManager.Instance.UnLoadMiniGame();
         }
     }

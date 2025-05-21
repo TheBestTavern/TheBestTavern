@@ -92,7 +92,6 @@ public class SelectMapPopUp : BasePopUp
     {
         // 채집 씬으로 이동 
         SceneParameter.Set("Region", region);
-        SceneParameter.Set("Season", DesignEnums.SeasonType.winter);
         await SceneLoader.Instance.LoadSceneAsync("SeaGatheringSceneDev");
         SoundManager.Instance.PlayAmbience("OceanAmbience");
     }
@@ -102,7 +101,6 @@ public class SelectMapPopUp : BasePopUp
     {
         // 채집 씬으로 이동 
         SceneParameter.Set("Region", region);
-        SceneParameter.Set("Season", DesignEnums.SeasonType.winter);
         await SceneLoader.Instance.LoadSceneAsync("ForestGatheringScene");
         SoundManager.Instance.PlayAmbience("ForestAmbience");
     }

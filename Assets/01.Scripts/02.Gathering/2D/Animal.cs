@@ -69,11 +69,13 @@ public class Animal : MonoBehaviour
             }
             else
             {
+                CaptureManager.Instance.ReduceCountdown(10f);
                 Debug.Log($"{animalName} (Medium)은 미끼에 반응하지 않아 돌을 맞아도 포획 불가");
             }
         }
         else if (animalSizeType == AnimalSizeType.Large)
         {
+            CaptureManager.Instance.ReduceCountdown(10f);
             Debug.Log($"{animalName} (Large)은 돌을 맞아도 포획할 수 없습니다.");
         }
     }

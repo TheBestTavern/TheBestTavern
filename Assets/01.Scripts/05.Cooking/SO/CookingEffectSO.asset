@@ -19,6 +19,7 @@ MonoBehaviour:
   <GoodText>k__BackingField: {fileID: 9220656204313070685, guid: 733425ce65665b14a8f8f9ba5e46399b, type: 3}
   <BadText>k__BackingField: {fileID: 7040577906899051752, guid: 41238295230e75341bb70e8cb9faf184, type: 3}
   <MissText>k__BackingField: {fileID: 1079498137429257683, guid: c5a287e403c6dc94abb0da03177b2035, type: 3}
+  <MortarMoving>k__BackingField: {fileID: 0}
   animationData:
     perfectParameterName: Perfect
     goodParameterName: Good
