@@ -102,6 +102,8 @@ public class IntroSceneUI : MonoBehaviour
     {
         introText.gameObject.SetActive(false);
         await blackBackGround.DOFade(0, 2).AsyncWaitForCompletion();
+        SoundManager.Instance.PlaySFX("CountrySide");
+
         token.ThrowIfCancellationRequested();
 
         introText.gameObject.SetActive(true);
@@ -115,6 +117,7 @@ public class IntroSceneUI : MonoBehaviour
         await PlayPostTractorTexts(token);
 
         await Task.Delay(1000, token);
+        SoundManager.Instance.PlaySFX("Paper");
         paper.gameObject.SetActive(true);
         startSceneImage.gameObject.SetActive(true);
         blackBackGround.DOFade(0, 2);
@@ -140,6 +143,7 @@ public class IntroSceneUI : MonoBehaviour
         gameExitBtnText.DOFade(1, 4);
     }
 
+    // 트랙터 전 글씨뜰때
     private async Task PlayIntroTexts(CancellationToken token)
     {
         for (int i = 0; i < 4; i++)
@@ -154,6 +158,8 @@ public class IntroSceneUI : MonoBehaviour
 
     private async Task PlayTractorSequence(CancellationToken token)
     {
+        SoundManager.Instance.PlaySFX("Car");
+
         tractor.gameObject.SetActive(true);
         tractor.rectTransform.DOScale(2f, 3f);
         tractorLeftLights.rectTransform.DOScale(8f, 3f);
@@ -173,11 +179,14 @@ public class IntroSceneUI : MonoBehaviour
         for (int i = 4; i < introTexts.Length - 2; i++)
         {
             token.ThrowIfCancellationRequested();
+            SoundManager.Instance.PlaySFX("LineWhoosh");
             await ShowText(introTexts[i], 100, token);
         }
         introText.fontSize = largeFontSize;
         for (int i = introTexts.Length - 2; i < introTexts.Length; i++)
         {
+            SoundManager.Instance.PlaySFX("Impact");
+
             token.ThrowIfCancellationRequested();
             introText.text = introTexts[i];
             introText.alpha = 1;
