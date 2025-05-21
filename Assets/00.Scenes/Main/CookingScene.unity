@@ -5284,7 +5284,18 @@ MonoBehaviour:
   miniGameBackground: {fileID: 821020302}
   cookingSceneUI: {fileID: 447909935}
   cookingInventoryView: {fileID: 408048307}
-  selectedSO: []
+  selectedSO:
+  - {fileID: 11400000, guid: cd61de8b4a7188741aa26e71ce9cd569, type: 2}
+  - {fileID: 11400000, guid: 4a7f9cf8f52ada548a17bde4845b5af7, type: 2}
+  - {fileID: 11400000, guid: e9d2fe3d0574b124d9dee67f02b78441, type: 2}
+  - {fileID: 11400000, guid: f216b676907721148b7d543dfa612f43, type: 2}
+  - {fileID: 11400000, guid: fbab5e874600a72489e904ddcf0ef9e3, type: 2}
+  - {fileID: 11400000, guid: f6d6658dc9efaee4184708ba123824a0, type: 2}
+  - {fileID: 11400000, guid: 606318c6727acb2419afad8a4d9f8aee, type: 2}
+  - {fileID: 11400000, guid: 7863607497fb4154bbc9d38f23f7f5f7, type: 2}
+  - {fileID: 11400000, guid: 01743b1dad2fbc142833dd1cc829792f, type: 2}
+  - {fileID: 11400000, guid: 2622ead532b9db045ac82d0fef660f10, type: 2}
+  - {fileID: 11400000, guid: ec2fb5cc7880bca4f862583469c23959, type: 2}
 --- !u!1 &1582973155
 GameObject:
   m_ObjectHideFlags: 0
