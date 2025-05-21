@@ -20,7 +20,7 @@ public class Animal : MonoBehaviour
     public int gatheringValue;
 
     [Header("동물 포획")]
-    private bool BaitEffectApplied = false;
+    public bool BaitEffectApplied = false;
     private float baseCaptureChance = 0.2f;
     private float captureChance = 0f;
     private bool canBeCaptured = false;

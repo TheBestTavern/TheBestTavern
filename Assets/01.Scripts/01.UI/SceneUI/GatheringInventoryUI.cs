@@ -42,4 +42,16 @@ public class GatheringInventoryUI : InventoryViewLoose
         }
     }
 
+    public void LoseAllItem()
+    {
+        foreach (var slot in index2Slots)
+        {
+            if (slot.Value.HasItem)
+            {
+                ItemStack item = slot.Value.GetSlotItem();
+                InventoryManager.Instance.Invens[InvenType.Gathering].아이템잃음(Data.GetRawItem(item.Origin.key), item.Count);
+            }
+        }
+    }
+
 }

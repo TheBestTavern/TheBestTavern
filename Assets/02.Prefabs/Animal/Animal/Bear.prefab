@@ -127,9 +127,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animalName: Bear
-  favoriteBaitIds: 
   animalSizeType: 2
   gatheringKey: 0
+  gatheringValue: 0
+  BaitEffectApplied: 0
   normal: {fileID: 21300000, guid: 18e969eaa42b6b642aa144d24709e4e1, type: 3}
 --- !u!70 &-7433109153125957031
 CapsuleCollider2D:

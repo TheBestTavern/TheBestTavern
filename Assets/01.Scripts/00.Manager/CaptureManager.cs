@@ -113,6 +113,13 @@ public class CaptureManager : MonoSingleton<CaptureManager>
 
     private void OnClickEscapeFromAnimal()
     {
+        if (animalInRange.animalSizeType == AnimalSizeType.Large)
+        {
+            if (!animalInRange.BaitEffectApplied)
+            {
+                ForestGatheringManager.Instance.gatheringInventoryUI.LoseAllItem();
+            }
+        }
         Debug.Log("도망가기");
         animalInRange.DestroyAnimal();
         UnLoadMiniGame();
