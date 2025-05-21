@@ -242,11 +242,6 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 5ef185da37d4db940a3076eb4ace9ddf
-    m_Address: Assets/16.Image/FoodImage/undiscovered.png
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0f05981e5da7f7a45a7e3aac9c66a962
     m_Address: Assets/16.Image/FoodImage/beanSproutKimchiSoup.png
     m_ReadOnly: 0
@@ -742,11 +737,6 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 5c2dddade5f76294db9c5e4cfbdcee5a
-    m_Address: Assets/16.Image/FoodImage/undiscovered2.png
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b3ba1b2d576162143bbef0408b40dbfb
     m_Address: Assets/16.Image/FoodImage/spicyChiliSauce.png
     m_ReadOnly: 0
@@ -857,11 +847,6 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: f8d721fb546654b449c277590cff7ab3
-    m_Address: Assets/16.Image/FoodImage/default.png
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ccb5c91608ec2b946b1728286f8db50f
     m_Address: Assets/16.Image/FoodImage/boiledWheatNoodles.png
     m_ReadOnly: 0
@@ -959,6 +944,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: bfb0a1fa09d56a24991969a09eefe7ff
     m_Address: Assets/16.Image/FoodImage/walnut.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: be120b06acfa1564e856917ccb3005a7
+    m_Address: Assets/16.Image/FoodImage/friedShrimp.png
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

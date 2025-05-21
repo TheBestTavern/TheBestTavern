@@ -1,0 +1,65 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: BackGround
+  m_EditorClassIdentifier: 
+  m_GroupName: BackGround
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 6dc91d0e73941f047b589223d1a0d04c
+  m_SerializeEntries:
+  - m_GUID: d8c642b43dde17b4b9cd4526fb0e3fb5
+    m_Address: Main_BG_winter
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9722df420cc83ed43a057ec5b0583d3d
+    m_Address: Main_Tree_spring
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b99870b53b4021f48867fe2586c2f9ad
+    m_Address: Main_Tree_fall
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 992d392232aea7842a1bf9c773addeb1
+    m_Address: Main_BG_fall
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1cf1096b7d2d19e48b5f6829871ffd97
+    m_Address: Main_BG_summer
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cbcb3c379bd797649aea200214704d5d
+    m_Address: Main_BG_spring
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: dc9c871ff5fac9f49a0c492d6ae5919e
+    m_Address: Main_Tree_summer
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7f325d208191e3b4d8e75dbb69bcee8c
+    m_Address: Main_Tree_winter
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 3f946b317ceaa2747b411cad54511d5f, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 481a2576541ae3d469519631e5b17c1c, type: 2}
+    - {fileID: 11400000, guid: 1e0b2d02e9a29ca45baaf2e00ea70d6e, type: 2}
