@@ -37,7 +37,7 @@ public class QuestOfferLetter : QuestBaseLetter
         string colored = quest.Origin.letterOffer;
         foreach (string keyword in quest.Origin.letterOfferKeyword)
         {
-             colored = colored.Replace(keyword, $"<color=#2C6DA6>{keyword}</color>");
+            colored = colored.Replace(keyword, $"<b><color=#2C6DA6>{keyword}</color></b>");
         }
         bodyText.text = colored;
     }

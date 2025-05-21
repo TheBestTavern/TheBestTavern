@@ -10,7 +10,7 @@ public enum HolidayType
 }
 public class CalendarManager : MonoSingleton<CalendarManager>
 {
-    public DesignEnums.SeasonType CurrentSeasonType { get; private set; }
+    public DesignEnums.SeasonType? CurrentSeasonType { get; private set; }
 
     Dictionary<LunarDateTime, HolidayType> holidays = new()
     {
@@ -29,6 +29,11 @@ public class CalendarManager : MonoSingleton<CalendarManager>
     {
         OnNewDay command = new(this);
         CommandManager.Instance.AddCommand(command);
+    }
+
+    public void ApplyLoadData(DesignEnums.SeasonType? seasonType)
+    {
+        CurrentSeasonType = seasonType;
     }
 
     public class OnNewDay : IDayCommand

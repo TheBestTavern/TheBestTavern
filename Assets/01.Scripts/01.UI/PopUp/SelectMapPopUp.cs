@@ -92,7 +92,7 @@ public class SelectMapPopUp : BasePopUp
     {
         // 채집 씬으로 이동 
         SceneParameter.Set("Region", region);
-        await SceneLoader.Instance.LoadSceneAsync("SeaGatheringSceneDev");
+        await SceneLoader.Instance.LoadSceneAsync("SeaGatheringScene");
         SoundManager.Instance.PlayAmbience("OceanAmbience");
     }
 

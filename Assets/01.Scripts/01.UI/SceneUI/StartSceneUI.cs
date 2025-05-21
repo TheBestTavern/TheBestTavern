@@ -82,6 +82,8 @@ public class StartSceneUI : MonoBehaviour
 
             QuestManager.Instance.questData.ApplyLoadData(playerGameData.AllQuests, playerGameData.AcceptedQuests, playerGameData.OnceSuccessQuests, playerGameData.JustCompleteQuests, playerGameData.TodayAvailableQuest, playerGameData.QuestCheckQueue);
 
+            CalendarManager.Instance.ApplyLoadData(playerGameData.CurrentSeasonType);
+
             foreach (var item in playerGameData.playerInvenData.ItemList)
             {
                 InventoryManager.Instance.Invens[InvenType.Player].아이템획득(item.Origin, item.Count);

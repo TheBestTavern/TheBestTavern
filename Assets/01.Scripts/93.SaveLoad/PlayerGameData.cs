@@ -24,6 +24,8 @@ public class PlayerGameData
     public List<int> TodayAvailableQuest = new();
     public Queue<(int questID, int itemID)> QuestCheckQueue = new();
 
+    public DesignEnums.SeasonType? CurrentSeasonType;
+
     public PlayerInvenData playerInvenData = new();
 
     public void SetSaveData()
@@ -44,6 +46,8 @@ public class PlayerGameData
         JustCompleteQuests = QuestManager.Instance.JustCompleteQuests;
         TodayAvailableQuest = QuestManager.Instance.TodayAvailableQuest;
         QuestCheckQueue = QuestManager.Instance.QuestCheckQueue;
+
+        CurrentSeasonType = CalendarManager.Instance.CurrentSeasonType;
 
         playerInvenData.SetPlayerInvenData(InventoryManager.Instance.Invens[InvenType.Player].model.ID2ItemStack);
     }
