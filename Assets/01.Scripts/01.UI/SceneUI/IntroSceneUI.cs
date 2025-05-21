@@ -231,6 +231,7 @@ public class IntroSceneUI : MonoBehaviour
 
     private void BrushTitleText()
     {
+        titleText.gameObject.SetActive(true);
         titleText.DOFade(1,2);
         SoundManager.Instance.PlayBGM("IntroBGM");
         //maskRectTransform.sizeDelta = new Vector2(0f, titleText.rectTransform.sizeDelta.x);

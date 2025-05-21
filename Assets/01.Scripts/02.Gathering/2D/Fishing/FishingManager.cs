@@ -18,10 +18,16 @@ public class FishingManager : MonoSingleton<FishingManager>
         base.Awake();
         infoButton.onClick.AddListener(OnClickInfoButton);
     }
-
+     
     private void Start()
     {
         success = false;
+    }
+ 
+    protected override void OnDestroy()
+    {
+        base.OnDestroy();
+        PopUpManager.Instance.PopUps.Remove(PopUpType.GatheringResult);
     }
 
     public void BeginFishing()
@@ -42,7 +48,6 @@ public class FishingManager : MonoSingleton<FishingManager>
     public async void UnLoadMiniGame()
     {
         UIManager.Instance.gatheringSceneUI.SetMiniGameBackGround(false);
-        PopUpManager.Instance.OnSceneMove();
         await SceneLoader.Instance.UnLoadSceneAsyncMiniGame();
     }
     private async void OnClickInfoButton()

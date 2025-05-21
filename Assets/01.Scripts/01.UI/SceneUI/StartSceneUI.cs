@@ -10,6 +10,14 @@ public class StartSceneUI : MonoBehaviour
     [SerializeField] private Button gameStartButton;
     [SerializeField] private Button gameLoadStartButton;
     [SerializeField] private Button gameExitButton;
+
+    [SerializeField] private GameObject tutorialSkipPanel;
+    [SerializeField] private Button tutorialSkipButton;
+    [SerializeField] private Button doTutorialButton;
+
+    [SerializeField] private GameObject renewPanel;
+    [SerializeField] private Button renewButton;
+    [SerializeField] private Button rejectButton;
     void Start()
     {
         UIManager.Instance.startSceneUI = this;
@@ -17,6 +25,28 @@ public class StartSceneUI : MonoBehaviour
         gameStartButton.onClick.AddListener(OnClickGameStartButton);
         gameLoadStartButton.onClick.AddListener(OnClickGameLoadStartButton);
         gameExitButton.onClick.AddListener(OnClickGameExitButton);
+
+        tutorialSkipButton.onClick.AddListener(OnClicktutorialSkipButton);
+        doTutorialButton.onClick.AddListener(OnClickDoTutorialButton);
+
+        renewButton.onClick.AddListener(OnClicktutorialSkipButton);
+        rejectButton.onClick.AddListener(OnClickRejectButton);
+    }
+
+    private async void OnClickDoTutorialButton()
+    {
+        await SceneLoader.Instance.LoadSceneAsync("TutorialScene");
+    }
+
+    private async void OnClicktutorialSkipButton()
+    {
+        await SceneLoader.Instance.LoadSceneAsync("MainScene");
+    }
+
+
+    private void OnClickRejectButton()
+    {
+        renewPanel.SetActive(false);
     }
 
     private void OnClickGameExitButton()
@@ -26,15 +56,21 @@ public class StartSceneUI : MonoBehaviour
 #endif
     }
 
-    private async void OnClickGameStartButton()
+    private void OnClickGameStartButton()
     {
-        SoundManager.Instance.PlayBGM("MainBGM1");
-        await SceneLoader.Instance.LoadSceneAsync("TutorialScene");
+        if (!SaveLoadManager.Instance.LoadData(out PlayerGameData playerGameData))
+        {
+            tutorialSkipPanel.SetActive(true);
+        }
+        else
+        {
+            renewPanel.SetActive(true);
+        }
     }
 
     private async void OnClickGameLoadStartButton()
     {
-        if(SaveLoadManager.Instance.LoadData(out PlayerGameData playerGameData))
+        if (SaveLoadManager.Instance.LoadData(out PlayerGameData playerGameData))
         {
             TimerManager.Instance.ApplyLoadData(playerGameData.today);
 
@@ -46,7 +82,7 @@ public class StartSceneUI : MonoBehaviour
 
             QuestManager.Instance.questData.ApplyLoadData(playerGameData.AllQuests, playerGameData.AcceptedQuests, playerGameData.OnceSuccessQuests, playerGameData.JustCompleteQuests, playerGameData.TodayAvailableQuest, playerGameData.QuestCheckQueue);
 
-            foreach(var item in playerGameData.playerInvenData.ItemList)
+            foreach (var item in playerGameData.playerInvenData.ItemList)
             {
                 InventoryManager.Instance.Invens[InvenType.Player].아이템획득(item.Origin, item.Count);
             }
