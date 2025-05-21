@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: TutorialPrefab
+  m_EditorClassIdentifier: 
+  m_GroupName: TutorialPrefab
+  m_Data:
+    m_SerializedData: []
+  m_GUID: e46a4a64c95a95c4796c4a57ec89e572
+  m_SerializeEntries:
+  - m_GUID: c297140cd4b81234ebb5e15829a52207
+    m_Address: Assets/02.Prefabs/Gathering/TutorialBush.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a4934485f13cf684b9855d519344fcef
+    m_Address: Assets/02.Prefabs/Gathering/TutorialField.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5dec429fea036f84993e5489a4be4782
+    m_Address: Assets/02.Prefabs/Gathering/TutorialTree.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 3f946b317ceaa2747b411cad54511d5f, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 85d06b6819942074f921ad06c2bd6676, type: 2}
+    - {fileID: 11400000, guid: 9f5abf7c29e492347a9f35ad58455828, type: 2}

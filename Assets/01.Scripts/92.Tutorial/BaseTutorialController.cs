@@ -15,18 +15,17 @@ public abstract class BaseTutorialController : MonoBehaviour
     [SerializeField] protected GameObject basePanel;
     [SerializeField] protected TextMeshProUGUI npcText;
     [SerializeField] protected Image npcImage;
-    [SerializeField] protected Button NextButton;
+    [SerializeField] protected Button nextButton;
 
     protected int textIndex = 0;
 
     protected bool isTexting = false;
 
     protected CancellationTokenSource flashTokenSource;
-    protected bool isFlashing = false;
 
     private void Start()
     {
-        NextButton.onClick.AddListener(OnClickNextButton);
+        nextButton.onClick.AddListener(OnClickNextButton);
         npcText.text = "";
         basePanel.GetComponent<CanvasGroup>().DOFade(1, 1.5f);
         npcImage.DOFade(1, 1.5f).OnComplete(() =>
@@ -53,11 +52,8 @@ public abstract class BaseTutorialController : MonoBehaviour
     }
     protected void StartFlashingButton(Button button)
     {
-        if (isFlashing) return;
-
-        isFlashing = true;
         flashTokenSource = new CancellationTokenSource();
-        _ = FlashButton(button, flashTokenSource.Token); // fire-and-forget
+        _ = FlashButton(button, flashTokenSource.Token);
     }
 
     protected async Task FlashButton(Button button, CancellationToken token)
@@ -69,16 +65,14 @@ public abstract class BaseTutorialController : MonoBehaviour
         {
             while (true)
             {
-                await image.DOBlendableColor(new Color(0.9f, 0.9f, 0.9f), 0.5f).AsyncWaitForCompletion();
-                await image.DOBlendableColor(new Color(1, 1, 1), 0.5f).AsyncWaitForCompletion();
-
                 token.ThrowIfCancellationRequested();
+                await image.DOColor(new Color(1, 0f, 0), 0.5f).AsyncWaitForCompletion();
+                await image.DOColor(new Color(1, 1, 1), 0.5f).AsyncWaitForCompletion();
             }
         }
         catch (OperationCanceledException)
         {
             image.color = originalColor; // 원래 색상 복원
-            isFlashing = false;
         }
     }
 
