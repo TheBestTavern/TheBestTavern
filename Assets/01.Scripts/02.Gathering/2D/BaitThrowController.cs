@@ -92,6 +92,7 @@ public class BaitThrowController : MonoBehaviour
 
         var inven = InventoryManager.Instance.Invens[InvenType.Gathering];
         inven.아이템잃음(currentBait.Origin, 1);
+        SoundManager.Instance.PlaySFX("ThrowBaitStrong");
     }
 
     void ShowTrajectory(float power) //던지기 궤적 함수

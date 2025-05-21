@@ -88,6 +88,7 @@ public class FishingController : MonoBehaviour
         tensionGaugeController.ResetGauge();
         fishingUI.SetActive(false);
         fishingInProgress = false;
+        FishingManager.Instance.FinishFishing();
     }
 
     private void FishingResult()

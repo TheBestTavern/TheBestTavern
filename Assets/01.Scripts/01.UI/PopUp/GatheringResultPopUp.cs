@@ -5,6 +5,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using static UnityEditor.Progress;
 
 public class GatheringResultPopUp : BasePopUp
 {
@@ -28,12 +29,23 @@ public class GatheringResultPopUp : BasePopUp
 
         else if (SceneManager.GetActiveScene().name == "Ocean_Fishing")
         {
+            if (gameObject != null) gameObject.SetActive(false);
             FishingManager.Instance.UnLoadMiniGame();
         }
     }
 
     public override void OnOpen()
     {
+        base.OnOpen();
+
+        if (SceneManager.GetActiveScene().name == "Forest_Animal_Dev")
+        {
+            result = CaptureManager.Instance.GetResult();
+        }
+        else if (SceneManager.GetActiveScene().name == "Ocean_Fishing")
+        {
+            result = FishingManager.Instance.GetResult();
+        }
         resultCanvasGroup.DOFade(1f, 1f);
         ShowResultText();
 
@@ -49,27 +61,11 @@ public class GatheringResultPopUp : BasePopUp
             }
         }
 
-        try
-        {
-            base.OnOpen();
-        }
-        catch (System.Exception e)
-        {
-            Debug.LogError(e);
-        }
+        
     }
 
     public void ShowResultText()
     {
-        if (SceneManager.GetActiveScene().name == "Forest_Animal_Dev")
-        {
-            result = CaptureManager.Instance.GetResult();
-        }
-        else if (SceneManager.GetActiveScene().name == "Ocean_Fishing")
-        {
-            result = FishingManager.Instance.GetResult();
-        }
-
         if (result)
         {
             successText.gameObject.SetActive(true);
@@ -86,10 +82,12 @@ public class GatheringResultPopUp : BasePopUp
         }
     }
 
-    public void ShowForestItemInfo()
+    public async void ShowForestItemInfo()
     {
-
         int itemKey = CaptureManager.Instance.GetItemKey();
+        Data_Foods raw = Data.GetRawItem(itemKey);
+        Sprite loadedSprite = await AddressablesLoader.Instance.AddressablesLoadAsync<Sprite>(
+                $"Assets/16.Image/FoodImage/{raw.englishName}.png", true);
         Debug.Log($"최종 아이템 키 : {itemKey}");
         if (itemKey == 0)
         {
@@ -97,15 +95,18 @@ public class GatheringResultPopUp : BasePopUp
             return;
         }
         var data = DataManager.Instance.DataLoader_Foods.GetByKey(itemKey);
-        itemNameText.text = data.name;
+        itemNameText.text = raw.name;
 
-        itemImage.sprite = Resources.Load<Sprite>($"Item/{data.englishName}");
+        itemImage.sprite = loadedSprite;
         if (itemImage.sprite == null) { itemImage.gameObject.SetActive(false); }
     }
 
-    public void ShowOceanItemInfo()
+    public async void ShowOceanItemInfo()
     {
         int itemKey = FishingManager.Instance.GetGatheringKey();
+        Data_Foods raw = Data.GetRawItem(itemKey);
+        Sprite loadedSprite = await AddressablesLoader.Instance.AddressablesLoadAsync<Sprite>(
+                $"Assets/16.Image/FoodImage/{raw.englishName}.png", true);
         Debug.Log($"최종 아이템 키 : {itemKey}");
         if (itemKey == 0)
         {
@@ -113,9 +114,9 @@ public class GatheringResultPopUp : BasePopUp
             return;
         }
         var data = DataManager.Instance.DataLoader_Foods.GetByKey(itemKey);
-        itemNameText.text = data.name;
+        itemNameText.text = raw.name;
 
-        itemImage.sprite = Resources.Load<Sprite>($"Item/{data.englishName}");
+        itemImage.sprite = loadedSprite;
         if (itemImage.sprite == null) { itemImage.gameObject.SetActive(false); }
     }
 }
