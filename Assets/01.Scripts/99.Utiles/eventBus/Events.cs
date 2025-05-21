@@ -117,3 +117,16 @@ public class SlotHoverEndEvent
     {
     }
 }
+
+// 계절 변경 관련 
+
+public class SeasonChangeEvent
+{
+    public DesignEnums.SeasonType season;
+
+    public SeasonChangeEvent(DesignEnums.SeasonType season)
+    {
+        this.season = season;
+    }
+}
+

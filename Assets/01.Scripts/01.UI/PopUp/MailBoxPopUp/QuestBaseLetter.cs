@@ -30,13 +30,13 @@ public abstract class QuestBaseLetter : BasePopUp
     }
 
     // 편지 열때마다 필요한 초기화.
-    public virtual void On(Quest quest, QuestBaseSlot baseQuestSlot)
+    public virtual void On(Quest quest, SuccessDegree successDegree, QuestBaseSlot baseQuestSlot)
     {
         // 문구 초기화
         this.quest = quest;
         this.baseQuestSlot = baseQuestSlot;
         title.text = quest.Origin.name;
-        from.text = NPCManager.Instance.NPCData.AllNPC[quest.Origin.givingNPC].Origin.name;
+        from.text = $"-{NPCManager.Instance.NPCData.AllNPC[quest.Origin.givingNPC].Origin.name}-";
     }
 
     /// <summary>
@@ -62,7 +62,7 @@ public abstract class QuestBaseLetter : BasePopUp
 
     }
 
-    public void TriggerOnCompleteLetter()
+    public virtual void TriggerOnCompleteLetter()
     {
         OnCompleteLetter?.Invoke(baseQuestSlot);
     }

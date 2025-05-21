@@ -13,16 +13,20 @@ public abstract class BaseBookSlot<TData> : MonoBehaviour
     [SerializeField] protected TextMeshProUGUI desc;
     [SerializeField] protected TextMeshProUGUI title;
 
+    protected bool HideUndiscoveredFood;
+
     public virtual void SetSlot(TData thing)
     {
     }
 
-    public virtual void Init(BookUI bookUI)
+    public virtual void Init(BookUI bookUI, bool HideUndiscoveredFood)
     {
         detailBtn.onClick.AddListener(() =>
         {
             bookUI.TriggerClickSlotEvent(foodCatergoryID);
         });
+
+        this.HideUndiscoveredFood = HideUndiscoveredFood;
     }
     protected async virtual void SetUndiscoveredItem()
     {

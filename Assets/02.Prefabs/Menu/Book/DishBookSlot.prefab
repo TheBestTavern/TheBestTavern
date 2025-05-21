@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1853083041458500863}
   - component: {fileID: 6646158524041930173}
   - component: {fileID: 487873808192785244}
+  - component: {fileID: 2384166980180928538}
   m_Layer: 5
   m_Name: BG
   m_TagString: Untagged
@@ -120,6 +121,19 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &2384166980180928538
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2063113785791203480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e744a27a68559434ea55004cf9f1e781, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sfxName: SlotButton
 --- !u!1 &2498863943730346333
 GameObject:
   m_ObjectHideFlags: 0
@@ -819,6 +833,7 @@ MonoBehaviour:
   icon: {fileID: 4034561176785072616}
   foodName: {fileID: 27619992508709295}
   desc: {fileID: 4877375532525372192}
+  title: {fileID: 0}
   ingredients:
   - {fileID: 9119935915240575831}
   - {fileID: 4864323760109712727}

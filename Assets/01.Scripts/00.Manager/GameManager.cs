@@ -19,6 +19,7 @@ public class GameManager : MonoSingleton<GameManager>
         //SoundManager.Instance.Init();
         SaveLoadManager.Instance.Init();
         UIManager.Instance.Init();
+        SoundManager.Instance.Init();
 
         CommandManager.Instance.ExecuteCommands(1002); 
     }

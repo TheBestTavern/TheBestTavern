@@ -11,7 +11,7 @@ public class DishBookSlot : BaseBookSlot<Data_Book_Dish>
 
     public async override void SetSlot(Data_Book_Dish thing)
     {
-        if (!ItemRecordManager.Instance.IsDiscovered(thing.key))
+        if (HideUndiscoveredFood && !ItemRecordManager.Instance.IsDiscovered(thing.key))
         {
             SetUndiscoveredItem();
         }

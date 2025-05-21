@@ -83,7 +83,7 @@
     {
       "key": 601009,
       "name": "두부",
-      "resultCategory": 110108,
+      "resultCategory": 102043,
       "ingredients": [
         110006
       ],
@@ -809,7 +809,7 @@
     },
     {
       "key": 602005,
-      "name": "고추양념장",
+      "name": "고추 양념장",
       "resultCategory": 110178,
       "ingredients": [
         110401,
@@ -1278,7 +1278,7 @@
       "resultCategory": 110535,
       "ingredients": [
         110109,
-        110174,
+        110405,
         110177
       ],
       "usingTool": 1008,
@@ -1290,7 +1290,7 @@
       "resultCategory": 110536,
       "ingredients": [
         110113,
-        110179,
+        110405,
         110175
       ],
       "usingTool": 1008,

@@ -7,9 +7,10 @@ using UnityEngine;
 
 public enum SuccessDegree
 {
-    good = 20,
-    soso = 10,
-    notBad = 0,
+    good = 30,
+    soso = 20,
+    notBad = 10,
+    none = 0,
     fail = -10,
 }
 
@@ -18,7 +19,7 @@ public class QuestData
     public Dictionary<int, Quest> AllQuests { get; private set; } = new(); // 모든 퀘스트
     public List<int> AcceptedQuests { get; private set; } = new(); // 진행중인 퀘스트
     public Dictionary<int, SuccessDegree> OnceSuccessQuests { get; private set; } = new(); // 한번이라도 클리어해본 퀘스트. 최대 성공 정도
-    public List<int> JustCompleteQuests { get; private set; } = new(); // 오늘 클리어한 퀘스트 (내일 보상 편지 생성에 사용)
+    public List<(int questID, SuccessDegree successDegree)> JustCompleteQuests { get; private set; } = new(); // 오늘 클리어한 퀘스트 (내일 보상 편지 생성에 사용) => 클리어한 퀘스트 목록<순서, (퀘스트id, 결과 수준)> 의뢰함 열때마다 새로이 생성
     public List<int> TodayAvailableQuest { get; private set; } = new(); // 오늘의 퀘스트
     public Queue<(int questID, int itemID)> QuestCheckQueue { get; private set; } = new(); // 아이템 제출한 퀘스트 목록.
 
@@ -61,7 +62,7 @@ public class QuestData
     }
 
     public void ApplyLoadData(Dictionary<int, Quest> AllQuests, List<int> AcceptedQuests,
-        Dictionary<int, SuccessDegree> OnceSuccessQuests, List<int> JustCompleteQuests, List<int> TodayAvailableQuest,
+        Dictionary<int, SuccessDegree> OnceSuccessQuests, List<(int, SuccessDegree)> JustCompleteQuests, List<int> TodayAvailableQuest,
         Queue<(int questID, int itemID)> QuestCheckQueue)
     {
         this.AllQuests = AllQuests;
@@ -84,7 +85,7 @@ public class QuestData
         Quest tempQuest = Data.GetQuest(questID);
         tempQuest.FailQuest(TimerManager.Instance.GetToday());
         allNPC[tempQuest.Origin.givingNPC].FailQuest(favorMap[SuccessDegree.fail]);
-        JustCompleteQuests.Add(questID);
+        JustCompleteQuests.Add((questID, SuccessDegree.fail));
         EventBus.Publish<QuestCompleteEvent>(new QuestCompleteEvent());
     }
 
@@ -94,7 +95,7 @@ public class QuestData
 
         AcceptedQuests.Remove(questID);
         tempQuest.SuccessQuest(TimerManager.Instance.GetToday(), successDegree);
-        JustCompleteQuests.Add(questID);
+        JustCompleteQuests.Add((questID, successDegree));
 
         allNPC[tempQuest.Origin.givingNPC].SuccessQuest(favorMap[successDegree]);
         EventBus.Publish<QuestCompleteEvent>(new QuestCompleteEvent());
