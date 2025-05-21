@@ -6,6 +6,7 @@ public class TutorialGatheringManager : GatheringManager
 {
     [SerializeField] private TutorialGatheringProps[] gatheringPorps;
     [SerializeField] private GatheringTutorialController gatheringTutorialController;
+    public TutorialVideoPlayerController tutorialVideoPlayerController;
 
     public override void Start()
     {
@@ -22,8 +23,6 @@ public class TutorialGatheringManager : GatheringManager
             }
         }
 
-        OnMiniGame("Forest_Animal_Dev");
-        gatheringTutorialController.OnClickNextButton();
         gatheringTutorialController.NextButton.gameObject.SetActive(true);
     }
 }

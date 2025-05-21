@@ -7,12 +7,18 @@ using UnityEngine.UI;
 
 public class GatheringTutorialController : BaseTutorialController
 {
-    private string[] gatheringScenetexts = { "이곳은 채집을 할 수 있는 산입니다." ," 이곳에 있는 나무나 수풀들을 눌러 재료를 얻을 수 있습니다.", 
-        "위에 있는 보따리가 가득 차면 더이상 채집을 할 수 없습니다.", "간혹 가다 야생 동물이 튀어나올 수 있으니 조심하시기 바랍니다." , 
-        "이런 바로 야생동물이 튀어나왔네요.", "야생동물을 만났을 때는 왼쪽 위에 있는", "설명을 잘 읽어보시고 대처하시길 바랍니다",
-        "이제 요리를 하러 가보도록 하죠"};
+    private string[] gatheringScenetexts = { "이곳은 채집을 할 수 있는 산입니다." ," 이곳에 있는 나무나 수풀들을 눌러 재료를 얻을 수 있습니다.",
+        "위에 있는 보따리가 가득 차면 더이상 채집을 할 수 없습니다.", "간혹 가다 야생 동물이 튀어나올 수 있으니 조심하시기 바랍니다." ,
+        "야생동물을 만났을 때는 당황하지말고", "동물의 크기에 따라 대처해보세요.", "작은 동물은 스페이스바를 눌러 돌을 던져 잡을 수 있고", "큰 동물들은 미끼를 던져야합니다.",
+        "그렇게 해서 야생동물을 잡았다면 고기를 얻을 수 있습니다.", "반대로 바다에서 낚시를 하면 해산물을 얻을 수 있습니다",
+        "낚시를 할 때는 F를 눌러 시작하고", "스페이스바를 눌러 줄을 당겨보세요", "힘 조절이 필요할거에요!",
+        "자 이제 요리를 하러 가보도록 하죠 "};
 
     [SerializeField] private TutorialGatheringProps[] gatheringPorps;
+    TutorialGatheringManager tutorialGatheringManager;
+
+    int videoIndex = 0;
+
 
     public Button NextButton => nextButton;
 
@@ -26,7 +32,7 @@ public class GatheringTutorialController : BaseTutorialController
             return;
         }
 
-        await ShowText(gatheringScenetexts[textIndex]);
+        ShowText(gatheringScenetexts[textIndex]);
 
         switch (textIndex)
         {
@@ -36,31 +42,32 @@ public class GatheringTutorialController : BaseTutorialController
                 await Task.Delay(1500);
                 textIndex++;
                 OnClickNextButton();
-                return;
+                break;
             case 2:
                 await Task.Delay(1500);
                 textIndex++;
                 OnClickNextButton();
-                return;
+                break;
             case 4:
-                await Task.Delay(1500);
-                textIndex++;
-                OnClickNextButton();
-                return;
-            case 5:
-                await Task.Delay(1500);
-                textIndex++;
-                OnClickNextButton();
-                return;
+                NextButton.gameObject.SetActive(true);
+                tutorialGatheringManager = GatheringManager.Instance as TutorialGatheringManager;
+                tutorialGatheringManager.tutorialVideoPlayerController.PlayTutorialVideo(videoIndex);
+                videoIndex++;
+                break;
             case 6:
-                await Task.Delay(1500);
-                textIndex++;
-                OnClickNextButton();
-                return;
-            case 7:
-                await Task.Delay(2500);
-                //await SceneLoader.Instance.LoadSceneAsync("TutorialCookingScene");
-                return;
+                tutorialGatheringManager.tutorialVideoPlayerController.videoPlayer.Stop();
+                tutorialGatheringManager.tutorialVideoPlayerController.PlayTutorialVideo(videoIndex);
+                videoIndex++;
+                break;
+            case 9:
+                tutorialGatheringManager.tutorialVideoPlayerController.videoPlayer.Stop();
+                tutorialGatheringManager.tutorialVideoPlayerController.PlayTutorialVideo(videoIndex);
+                break;
+            case 13:
+                NextButton.gameObject.SetActive(false);
+                await Task.Delay(3000);
+                await SceneLoader.Instance.LoadSceneAsync("TutorialCookingScene");
+                break;
         }
 
         textIndex++;
