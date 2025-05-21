@@ -60,7 +60,7 @@ public class SoundManager : MonoSingleton<SoundManager>
 
     private void Start()
     {
-        PlayBGM("IntroBGM");
+        //PlayBGM("IntroBGM");
     }
 
 
