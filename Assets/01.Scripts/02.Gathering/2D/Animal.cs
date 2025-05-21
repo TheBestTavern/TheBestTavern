@@ -17,6 +17,7 @@ public class Animal : MonoBehaviour
 
     [Header("아이템 설정")]
     public int gatheringKey;
+    public int gatheringValue;
 
     [Header("동물 포획")]
     private bool BaitEffectApplied = false;
@@ -117,7 +118,7 @@ public class Animal : MonoBehaviour
         bool success = randomValue < captureChance;
         Debug.Log(success ? $"{animalName} 포획 성공!" : $"{animalName} 포획 실패!");
 
-        return success;
+        return true;
     }
 
     public void ApplyBaitEffect()
