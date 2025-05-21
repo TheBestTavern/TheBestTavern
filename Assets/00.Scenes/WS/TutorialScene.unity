@@ -3159,7 +3159,7 @@ MonoBehaviour:
   basePanel: {fileID: 842211052}
   npcText: {fileID: 165623056}
   npcImage: {fileID: 778245415}
-  NextButton: {fileID: 1805876921}
+  nextButton: {fileID: 1805876921}
   mailBoxButton: {fileID: 1393936774}
   cookingSceneButton: {fileID: 7210337987937047673}
   gatheringSceneButton: {fileID: 3876897182951601153}

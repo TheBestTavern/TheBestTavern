@@ -28,7 +28,10 @@ public class CookingTutorialController : BaseTutorialController
     // 합치기 버튼
     [SerializeField] private Button plateButton;
 
-    private string[] cookingScenetexts = {"이곳은 요리를 하는 주방입니다.",
+    [SerializeField] private TutorialVideoPlayerController videoPlayerController;
+
+    private string[] cookingScenetexts = {"이곳은 요리를 하는 주방입니다.", "요리를 하기 위해서는 사용하고 싶은 도구를 클릭하고",
+        "재료를 클릭한 다음 시작을 해주시면 됩니다.",
         "먼저 재료를 갈아주는 맷돌" , "제한시간 동안 맷돌 손잡이를 잡고 돌리면서", "정해진 회전 방향과 속도를 유지해보세요.",
         "다음으로는 재료를 자르는 도마", "제한시간 내로 스페이스 바를 눌러 재료를 균일하게 잘라보세요.",
         "다음으로 재료를 빻는 절구" , "제한시간 동안 노트가 내려오는 타이밍에 스페이스 바를 정확하게 눌러보세요.",
@@ -40,6 +43,8 @@ public class CookingTutorialController : BaseTutorialController
 
     List<Data_Foods> tempFoods = new();
     Data_Foods tempFood = new();
+
+    int videoIndex = 0;
 
     public async override void OnClickNextButton()
     {
@@ -55,87 +60,70 @@ public class CookingTutorialController : BaseTutorialController
 
         switch (textIndex)
         {
-            case 1:
+            case 3:
                 npcImage.DOFade(0, 1f);
                 UIManager.Instance.cookingSceneUI.ReadyMiniGame(millMiniGameButton);
-                CookingMiniGameManager.Instance.SetMiniGameTool("Cooking_Mill_Test");
-                break;
-            case 2:
-                tempFood = Data.GetRawItem(101001);
-                tempFoods.Add(tempFood);
-                CookingMiniGameManager.Instance.SetMiniGameItem(tempFoods);
-                UIManager.Instance.cookingSceneUI.StartMiniGame();
                 break;
             case 4:
-                await SceneLoader.Instance.UnLoadSceneAsyncMiniGame();
-                UIManager.Instance.cookingSceneUI.ButtonsBack();
-                UIManager.Instance.cookingSceneUI.ReadyMiniGame(cuttingMiniGameButton);
-                CookingMiniGameManager.Instance.SetMiniGameTool("Cooking_Cutting_Test");
-                break;
-            case 5:
-                tempFood = Data.GetRawItem(101001);
-                tempFoods.Add(tempFood);
-                CookingMiniGameManager.Instance.SetMiniGameItem(tempFoods);
-                UIManager.Instance.cookingSceneUI.StartMiniGame();
+                videoPlayerController.PlayTutorialVideo(videoIndex);
+                videoIndex++;
                 break;
             case 6:
-                await SceneLoader.Instance.UnLoadSceneAsyncMiniGame();
+                videoPlayerController.StopTutorialVideo();
                 UIManager.Instance.cookingSceneUI.ButtonsBack();
-                UIManager.Instance.cookingSceneUI.ReadyMiniGame(grindMiniGameButton);
-                CookingMiniGameManager.Instance.SetMiniGameTool("Cooking_Grind_Test");
+                UIManager.Instance.cookingSceneUI.ReadyMiniGame(cuttingMiniGameButton);
                 break;
             case 7:
-                tempFood = Data.GetRawItem(101001);
-                tempFoods.Add(tempFood);
-                CookingMiniGameManager.Instance.SetMiniGameItem(tempFoods);
-                UIManager.Instance.cookingSceneUI.StartMiniGame();
+                videoPlayerController.PlayTutorialVideo(videoIndex);
+                videoIndex++;
                 break;
             case 8:
-                await SceneLoader.Instance.UnLoadSceneAsyncMiniGame();
+                videoPlayerController.StopTutorialVideo();
                 UIManager.Instance.cookingSceneUI.ButtonsBack();
-                UIManager.Instance.cookingSceneUI.ReadyMiniGame(grillMiniGameButton);
-                CookingMiniGameManager.Instance.SetMiniGameTool("Cooking_Grill_Test");
+                UIManager.Instance.cookingSceneUI.ReadyMiniGame(grindMiniGameButton);
                 break;
             case 9:
-                tempFood = Data.GetRawItem(101001);
-                tempFoods.Add(tempFood);
-                CookingMiniGameManager.Instance.SetMiniGameItem(tempFoods);
-                UIManager.Instance.cookingSceneUI.StartMiniGame();
+                videoPlayerController.PlayTutorialVideo(videoIndex);
+                videoIndex++;
                 break;
             case 10:
-                await SceneLoader.Instance.UnLoadSceneAsyncMiniGame();
+                videoPlayerController.StopTutorialVideo();
                 UIManager.Instance.cookingSceneUI.ButtonsBack();
-                UIManager.Instance.cookingSceneUI.ReadyMiniGame(boilMiniGameButton);
-                CookingMiniGameManager.Instance.SetMiniGameTool("Cooking_Boil_Test");
+                UIManager.Instance.cookingSceneUI.ReadyMiniGame(grillMiniGameButton);
                 break;
             case 11:
-                tempFood = Data.GetRawItem(101001);
-                tempFoods.Add(tempFood);
-                CookingMiniGameManager.Instance.SetMiniGameItem(tempFoods);
-                UIManager.Instance.cookingSceneUI.StartMiniGame();
+                videoPlayerController.PlayTutorialVideo(videoIndex);
+                videoIndex++;
                 break;
             case 12:
-                await SceneLoader.Instance.UnLoadSceneAsyncMiniGame();
+                videoPlayerController.StopTutorialVideo();
                 UIManager.Instance.cookingSceneUI.ButtonsBack();
-                UIManager.Instance.cookingSceneUI.ReadyMiniGame(mixingMiniGameButton);
-                CookingMiniGameManager.Instance.SetMiniGameTool("Cooking_MixingBowl_Test");
+                UIManager.Instance.cookingSceneUI.ReadyMiniGame(boilMiniGameButton);
                 break;
             case 13:
-                tempFood = Data.GetRawItem(101001);
-                tempFoods.Add(tempFood);
-                CookingMiniGameManager.Instance.SetMiniGameItem(tempFoods);
-                UIManager.Instance.cookingSceneUI.StartMiniGame();
+                videoPlayerController.PlayTutorialVideo(videoIndex);
+                videoIndex++;
                 break;
             case 14:
-                await SceneLoader.Instance.UnLoadSceneAsyncMiniGame();
+                videoPlayerController.StopTutorialVideo();
+                UIManager.Instance.cookingSceneUI.ButtonsBack();
+                UIManager.Instance.cookingSceneUI.ReadyMiniGame(mixingMiniGameButton);
+                break;
+            case 15:
+                videoPlayerController.PlayTutorialVideo(videoIndex);
+                videoIndex++;
+                break;
+            case 16:
+                videoPlayerController.StopTutorialVideo();
                 UIManager.Instance.cookingSceneUI.ButtonsBack();
                 UIManager.Instance.cookingSceneUI.ReadyMiniGame(plateButton);
                 break;
-            case 15:
+            case 17:
                 UIManager.Instance.cookingSceneUI.ButtonsBack();
                 break;
-            case 16:
-                await Task.Delay(2000);
+            case 18:
+                nextButton.gameObject.SetActive(false);
+                await Task.Delay(3000);
                 await SceneLoader.Instance.LoadSceneAsync("MainScene");
                 break;
         }
