@@ -80,10 +80,10 @@ public class CookingResultPopUp : BasePopUp
             successText.gameObject.SetActive(false);
             failText.gameObject.SetActive(true);
             itemImage.gameObject.SetActive(false);
-            itemNameText.gameObject.SetActive(false);
-            SoundManager.Instance.PlaySFX("Fail");
             itemNameText.text = "조리 도구를 잘못 선택한 것 같다...";
+            itemNameText.gameObject.SetActive(true);
 
+            SoundManager.Instance.PlaySFX("Fail");
             return;
         }
         SoundManager.Instance.PlaySFX("Success");

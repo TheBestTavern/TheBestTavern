@@ -33,6 +33,7 @@ public abstract class CookingMiniGameBase : MonoBehaviour, ICookingMiniGameHandl
     protected virtual void Update()
     {
         if (isGameOver) return;
+        UIManager.Instance.miniGameUI.UpdateTimer(playTime);
         elapsedTimer += Time.deltaTime;
 
         if (elapsedTimer >= 2f)
