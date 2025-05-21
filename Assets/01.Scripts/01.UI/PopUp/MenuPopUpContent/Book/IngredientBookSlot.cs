@@ -12,7 +12,7 @@ public class IngredientBookSlot : BaseBookSlot<Data_Book_Ingredient>
 
     public async override void SetSlot(Data_Book_Ingredient thing)
     {
-        if (!ItemRecordManager.Instance.IsDiscovered(thing.key))
+        if (HideUndiscoveredFood && !ItemRecordManager.Instance.IsDiscovered(thing.key))
         {
             SetUndiscoveredItem();
         }
