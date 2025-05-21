@@ -550,7 +550,7 @@
       "sosoFoodID": 102023,
       "badFoodID": 102022,
       "itemType": 1,
-      "recipeID": 601008
+      "recipeID": 601009
     },
     {
       "key": 110108,
@@ -1394,10 +1394,10 @@
     },
     {
       "key": 110178,
-      "categoryName": "고추양념장",
-      "goodFoodName": "완벽한 고추양념장",
-      "sosoFoodName": "평범한 고추양념장",
-      "badFoodName": "망가진 고추양념장",
+      "categoryName": "고추 양념장",
+      "goodFoodName": "완벽한 고추 양념장",
+      "sosoFoodName": "평범한 고추 양념장",
+      "badFoodName": "망가진 고추 양념장",
       "goodFoodID": 102237,
       "sosoFoodID": 102236,
       "badFoodID": 102235,

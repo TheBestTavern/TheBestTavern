@@ -46,10 +46,10 @@ public class QuestResultLetter : QuestBaseLetter
                     bodyText.text = quest.Origin.letterNotBadSuccess;
                     break;
                 case SuccessDegree.soso:
-                    bodyText.text = quest.Origin.letterSoSoGoodSuccess;
+                    bodyText.text = quest.Origin.letterSuccess;
                     break;
                 case SuccessDegree.good:
-                    bodyText.text = quest.Origin.letterSoSoGoodSuccess;
+                    bodyText.text = quest.Origin.letterSuccess;
                     break;
             }
         }

@@ -34,7 +34,12 @@ public class QuestOfferLetter : QuestBaseLetter
         base.On(quest, successDegree, baseQuestSlot);
         isSetDays = false;
         days = 0;
-        bodyText.text = quest.Origin.letterOffer;
+        string colored = quest.Origin.letterOffer;
+        foreach (string keyword in quest.Origin.letterOfferKeyword)
+        {
+             colored = colored.Replace(keyword, $"<color=#2C6DA6>{keyword}</color>");
+        }
+        bodyText.text = colored;
     }
 
     private void OnClickDays(int day)
