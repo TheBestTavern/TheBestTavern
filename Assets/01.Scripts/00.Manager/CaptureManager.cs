@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using DG.Tweening;
 using TMPro;
 
 public class CaptureManager : MonoSingleton<CaptureManager>
@@ -20,8 +21,8 @@ public class CaptureManager : MonoSingleton<CaptureManager>
 
     [Header("카운트다운 설정")]
     [SerializeField] private float countdownTime = 60f; 
-    [SerializeField] private TextMeshProUGUI countdownText; 
-
+    [SerializeField] private TextMeshProUGUI countdownText;
+    private Color originalColor;
     private float currentCountdown;
     private bool isCountingDown = false;
 
@@ -37,6 +38,7 @@ public class CaptureManager : MonoSingleton<CaptureManager>
         escapeButton.gameObject.SetActive(true);
         CheckForAnimalsInRange();
         StartCountdown();
+        originalColor = countdownText.color;
     }
 
     private void Update()
@@ -63,7 +65,22 @@ public class CaptureManager : MonoSingleton<CaptureManager>
     public void ReduceCountdown(float amount)
     {
         if (!isCountingDown) return;
+
         currentCountdown -= amount;
+
+        // 애니메이션 효과: 빨간색으로 바꾸고, 크기 증가 후 원래대로
+        countdownText.DOColor(Color.red, 0.1f)
+            .OnComplete(() =>
+            {
+                countdownText.DOColor(originalColor, 0.2f);
+            });
+
+        countdownText.transform.DOScale(1.2f, 0.1f).SetEase(Ease.OutQuad)
+            .OnComplete(() =>
+            {
+                countdownText.transform.DOScale(Vector3.one, 0.2f).SetEase(Ease.InQuad);
+            });
+
         if (currentCountdown <= 0f)
         {
             CountdownFinished();
