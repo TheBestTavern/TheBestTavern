@@ -39,6 +39,10 @@ public class CookingSceneUI : MonoBehaviour
 
     [SerializeField] private Canvas miniGameAnimCanvs;
 
+    // 인포 버튼
+    [SerializeField] private Button infoButton;
+
+
     private RectTransform curBtn;
     private Vector2 curBtnPos;
 
@@ -67,6 +71,9 @@ public class CookingSceneUI : MonoBehaviour
         mixingMiniGameButton.onClick.AddListener(() => ClickToolButton("Cooking_MixingBowl_Test"));
 
         plateButton.onClick.AddListener(() => ClickToolButton("Plate"));
+
+        infoButton.onClick.AddListener(() => OnClickInfoButton());
+
 
         blurBackGround.onClick.AddListener(OnClickBlurBackGround);
 
@@ -156,6 +163,10 @@ public class CookingSceneUI : MonoBehaviour
 
             OnClickCookingTool(s);
         }
+    }
+    private async void OnClickInfoButton()
+    {
+        await PopUpManager.Instance.ShowPopUp(PopUpType.CookingInfo);
     }
 
     void OnClickBlurBackGround()

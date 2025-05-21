@@ -24,6 +24,7 @@ public enum PopUpType
     GatheringInfo,
     FishingInfo,
     MainInfo,
+    CookingInfo
 }
 
 public interface IPopupManager

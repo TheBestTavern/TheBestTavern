@@ -1082,7 +1082,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5e2b1a429443fc4986f7bf34ceaaab6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Data>k__BackingField: {fileID: 11400000, guid: f6a8c5dd76913144e9bd8bf777b6bc54, type: 2}
 --- !u!4 &947084415
 Transform:
   m_ObjectHideFlags: 0
