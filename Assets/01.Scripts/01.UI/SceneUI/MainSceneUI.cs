@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -18,6 +19,8 @@ public class MainSceneUI : MonoBehaviour
     // 하루 보내기 버튼
     [SerializeField] private Button bedButton;
 
+    [SerializeField] private Button infoButton;
+
     private void Awake()
     {
         UIManager.Instance.mainSceneUI = this;
@@ -30,6 +33,8 @@ public class MainSceneUI : MonoBehaviour
         mailBoxButton.onClick.AddListener(OnClickMailBoxButton);
         // 하루 보내기 버튼 클릭 이벤트 리스너 추가 
         bedButton.onClick.AddListener(OnClickBedButton);
+
+        infoButton.onClick.AddListener(OnClickInfoButton);
     }
 
     // 요리 씬 이동 버튼 함수 
@@ -59,6 +64,11 @@ public class MainSceneUI : MonoBehaviour
     void OnClickBedButton()
     {
         CommandManager.Instance.ExecuteCommands();
+    }
+
+    private async void OnClickInfoButton()
+    {
+        await PopUpManager.Instance.ShowPopUp(PopUpType.MainInfo);
     }
 
     // 확인 버튼 함수
