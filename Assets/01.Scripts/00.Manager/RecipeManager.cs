@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -12,14 +13,14 @@ public class RecipeManager : MonoSingleton<RecipeManager>
 {
     // 도구
     private List<Data_Foods> currentIngredients; // 현재 사용중인 재료
-    private int currentTool; // 현재 사용 중인 도구
+    private int[] currentTool; // 현재 사용 중인 도구
     private List<Data_Recipes> currentRecipe; // 현재 레시피
 
     public int resultItemKey = -1;
 
     public event Action<int> OnCookingEnded;
 
-    Dictionary<string, int> toolTable = new()
+    Dictionary<string, int[]> toolTable = new()
         {
             //{ DesignEnums.CookingToolType.doma, 1001 },
             //{ DesignEnums.CookingToolType.julgu, 1002 },
@@ -28,19 +29,19 @@ public class RecipeManager : MonoSingleton<RecipeManager>
             //{ DesignEnums.CookingToolType.sotdduggung, 1005 },
             //{ DesignEnums.CookingToolType.mixingbowl, 1006 },
             //{ DesignEnums.CookingToolType.dish, 1007 }
-            {"Cooking_Grill_Test", 1006 },
-            {"Cooking_Grind_Test", 1002 },
-            {"Cooking_Mill_Test", 1003 },
-            {"Cooking_Cutting_Test", 1001 },
-            {"Plate", 1008 },
-            {"Cooking_MixingBowl_Test", 1007 }
-            //{"Cooking_Boil_Test", 1004, 1005 }
+            {"Cooking_Grill_Test", new int[]{1006 } },
+            {"Cooking_Grind_Test", new int[] { 1002 } },
+            {"Cooking_Mill_Test", new int[]{1003} },
+            {"Cooking_Cutting_Test", new int[] { 1001 } },
+            {"Plate", new int[] { 1008 } },
+            {"Cooking_MixingBowl_Test", new int[] { 1007 } },
+            {"Cooking_Boil_Test", new int[] { 1004 , 1005 } }
         };
 
     // 레시피 검사용
     public bool IsValidRecipe(List<Data_Foods> ingredients, string tool)
     {
-        toolTable.TryGetValue(tool, out int toolId);
+        toolTable.TryGetValue(tool, out int[] toolId);
         return GetRecipe(ingredients, toolId) != null;
     }
 
@@ -49,7 +50,7 @@ public class RecipeManager : MonoSingleton<RecipeManager>
     {
         currentIngredients = ingredients;
 
-        toolTable.TryGetValue(tool, out int toolId);
+        toolTable.TryGetValue(tool, out int[] toolId);
         currentTool = toolId;
         currentRecipe = GetRecipe(ingredients, toolId);
         
@@ -197,7 +198,7 @@ public class RecipeManager : MonoSingleton<RecipeManager>
     /// <param name="ingredients"></param>
     /// <param name="tool"></param>
     /// <returns></returns>
-    public List<Data_Recipes> GetRecipe(List<Data_Foods> ingredients, int toolId)
+    public List<Data_Recipes> GetRecipe(List<Data_Foods> ingredients, int[] toolId)
     {
         
         // 재료 리스트에서 음식군ID 가져오기
@@ -213,7 +214,7 @@ public class RecipeManager : MonoSingleton<RecipeManager>
         // 재료와 tool의 조합이 레시피대로인지 확인
         foreach (var recipe in DataManager.Instance.Dataloader_Recipes.ItemsList) 
         {
-            if (recipe.usingTool != toolId) continue;
+            if (!toolId.Contains(recipe.usingTool)) continue;
 
             
             var recipeSet = new HashSet<int>(recipe.ingredients);
