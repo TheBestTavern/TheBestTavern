@@ -24,5 +24,5 @@ public class GameManager : MonoSingleton<GameManager>
         SoundManager.Instance.Init();
 
         CommandManager.Instance.ExecuteCommands(1002);
-    }
+    }    
 }

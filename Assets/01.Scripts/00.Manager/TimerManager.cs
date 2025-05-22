@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Unity.Services.Analytics;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
@@ -82,6 +83,17 @@ public class TimerManager : MonoSingleton<TimerManager>
     {
         DaysPass(1);
         Debug.Log("1일 경과");
+
+        // 플레이어 날짜 -> 이전 데이터 갱신(최대 날짜용)
+        var today = GetToday();
+
+        var ItemEvent = new AnalyticsTime("TimeData")
+        {
+            year = today.year,
+            month = today.month,
+            day = today.day,
+        };
+        AnalyticsService.Instance.RecordEvent(ItemEvent);
     }
 
     // 날짜 UI 변경 함수 

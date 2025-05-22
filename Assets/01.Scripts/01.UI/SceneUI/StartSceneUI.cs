@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Unity.Services.Analytics;
 using Unity.Services.Core;
 using UnityEngine;
+using UnityEngine.Analytics;
 using UnityEngine.UI;
 
 public class StartSceneUI : MonoBehaviour
