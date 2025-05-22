@@ -33,8 +33,8 @@ public class CookingResultPopUp : BasePopUp
         itemNameText.gameObject.SetActive(true);
         itemImage.gameObject.SetActive(true);
 
-        ShowItemInfo();
         ShowResultText();
+        ShowItemInfo();
         try
         {
             base.OnOpen();
