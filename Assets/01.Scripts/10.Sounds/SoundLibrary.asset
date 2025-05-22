@@ -42,7 +42,7 @@ MonoBehaviour:
     addressableKey: DishButton
   - soundName: SceneMoveButton
     addressableKey: SceneMoveButton
-  - soundName: DogamButton
+  - soundName: Dogam
     addressableKey: Dogam
   - soundName: CardMatch
     addressableKey: CardMatch
