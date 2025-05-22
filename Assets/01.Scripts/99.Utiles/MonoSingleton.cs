@@ -34,7 +34,7 @@ public class MonoSingleton<T> : Mono<T> where T : Mono<T>
                 {
                     string name = typeof(T).Name;
                     _instance = new GameObject(name).AddComponent<T>();
-                    Debug.Log($"{name} 싱글톤 오브젝트 생성###");
+                    Debug.Log($"{name} 싱글톤 오브젝트 생성");
                 }
             }
 
@@ -48,10 +48,9 @@ public class MonoSingleton<T> : Mono<T> where T : Mono<T>
 
     protected virtual void Awake()
     {
-        Debug.Log($"{gameObject.name} awake 실행###");
         if (_instance != null && _instance != this)
         {
-            Debug.Log("중복 생성된 싱글톤 객체 삭제###");
+            Debug.Log("중복 생성된 싱글톤 객체 삭제");
             Destroy(gameObject);
         }
         else
