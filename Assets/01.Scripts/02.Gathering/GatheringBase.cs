@@ -8,7 +8,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using static DesignEnums;
-using static UnityEditor.Progress;
+//using static UnityEditor.Progress;
 
 public class GatheringBase : MonoBehaviour
 {
