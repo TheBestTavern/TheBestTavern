@@ -187,7 +187,7 @@ public class RecipeManager : MonoSingleton<RecipeManager>
         // Common이 하나라도 포함되면 : common
         if (hasCommon) return CookingResultGrade.Common;
         if (hasRare && !hasLegendary) return CookingResultGrade.Rare;
-        if (hasLegendary && !hasCommon) return CookingResultGrade.Common;
+        if (hasLegendary && !hasCommon) return CookingResultGrade.Legendary;
 
         return CookingResultGrade.Common; //기본값
     }
