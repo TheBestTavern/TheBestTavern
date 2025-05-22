@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Unity.Mathematics;
 using UnityEngine;
 
 
@@ -12,9 +13,9 @@ public class CalendarManager : MonoSingleton<CalendarManager>
 {
     public DesignEnums.SeasonType? CurrentSeasonType { get; private set; }
 
-    Dictionary<LunarDateTime, HolidayType> holidays = new()
+    Dictionary<(int month, int day), HolidayType> holidays = new()
     {
-        { new LunarDateTime(1000, 1, 1, false), HolidayType.newYear }
+        { (1,1), HolidayType.newYear }
     };
 
     public override void Init()
@@ -160,9 +161,9 @@ public class CalendarManager : MonoSingleton<CalendarManager>
 
         private HolidayType? CheckHoliday(LunarDateTime dateTime)
         {
-            LunarDateTime dateWithoutYear = new LunarDateTime(1000, dateTime.month, dateTime.day, dateTime.isLeapMonth);
-            if (prt.holidays.TryGetValue(dateWithoutYear, out HolidayType holiday))
+            if (prt.holidays.TryGetValue((dateTime.month, dateTime.day), out HolidayType holiday))
                 return holiday;
+
             return null;
         }
     }
