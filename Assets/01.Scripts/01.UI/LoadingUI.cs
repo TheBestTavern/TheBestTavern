@@ -20,6 +20,9 @@ public class LoadingUI : MonoBehaviour
     // 진행률 텍스트 
     public TextMeshProUGUI progressText;
 
+    [SerializeField] private Sprite[] loadingImages;
+    [SerializeField] private Image loadingImage;
+
     /// <summary>
     /// 페이드 함수
     /// </summary>
@@ -32,6 +35,7 @@ public class LoadingUI : MonoBehaviour
     {
         // 씬 넘어가도 파괴 금지
         DontDestroyOnLoad(gameObject);
+        loadingImage.sprite = loadingImages[UnityEngine.Random.Range(0, loadingImages.Length)];
     }
 
     private async UniTask Fade(float from, float to, float duration)
