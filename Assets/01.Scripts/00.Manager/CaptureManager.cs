@@ -34,7 +34,8 @@ public class CaptureManager : MonoSingleton<CaptureManager>
     }
     void Start()
     {
-        captureButton.gameObject.SetActive(false);
+        captureButton.gameObject.SetActive(true);
+        SetCaptureButtonState(false);
         escapeButton.gameObject.SetActive(true);
         CheckForAnimalsInRange();
         StartCountdown();
@@ -53,6 +54,22 @@ public class CaptureManager : MonoSingleton<CaptureManager>
                 CountdownFinished();
             }
         }
+    }
+
+    private void SetCaptureButtonState(bool isActive)
+    {
+        ColorBlock colors = captureButton.colors;
+        if (isActive)
+        {
+            colors.normalColor = new Color(1, 1, 1, 1f);     // 불투명
+            captureButton.interactable = true;
+        }
+        else
+        {
+            colors.normalColor = new Color(1, 1, 1, 0.3f);   // 반투명
+            captureButton.interactable = false;
+        }
+        captureButton.colors = colors;
     }
 
     public void StartCountdown()
@@ -130,7 +147,7 @@ public class CaptureManager : MonoSingleton<CaptureManager>
 
     public void OnClickCaptureButton()
     {
-        captureButton.gameObject.SetActive(true);
+        SetCaptureButtonState(true);
     }
 
     private async void OnClickInfoButton()

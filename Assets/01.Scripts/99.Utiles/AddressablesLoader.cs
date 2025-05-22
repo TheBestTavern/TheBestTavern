@@ -25,7 +25,7 @@ public class AddressablesLoader : MonoSingleton<AddressablesLoader>
 
     private async void LoadEssentialAsset()
     {
-        var sda = await AddressablesLoadAsync<SpriteAtlas>("FoodImage");
+        var sda = await AddressablesLoadAsync<SpriteAtlas>("FoodSpriteAtlas");
     }
 
     /// <summary>
