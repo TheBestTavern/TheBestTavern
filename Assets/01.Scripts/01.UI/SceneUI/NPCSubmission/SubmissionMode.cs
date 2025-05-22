@@ -148,7 +148,7 @@ public class SubmissionMode : MonoBehaviour
             QuestManager.Instance.QuestCheckQueue.Enqueue((quest.Origin.key, itemForSubmission.key));
 
             //2. 아이템 감소
-            InventoryManager.Instance.Invens[InvenType.Player].아이템잃음(itemForSubmission, 1);
+            InventoryManager.Instance.Invens[InvenType.Player].LooseItem(itemForSubmission, 1);
 
             StartCoroutine(AfterSubmit());
         }

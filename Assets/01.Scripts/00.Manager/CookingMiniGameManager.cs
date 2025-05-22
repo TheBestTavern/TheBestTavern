@@ -181,7 +181,7 @@ public class CookingMiniGameManager : MonoSingleton<CookingMiniGameManager>
         // 기존 아이템 없애주기
         foreach (var item in selectedItems)
         {
-            controller.아이템잃음(item, 1);
+            controller.LooseItem(item, 1);
         }
     }
 
@@ -197,8 +197,8 @@ public class CookingMiniGameManager : MonoSingleton<CookingMiniGameManager>
 
             if (itemData == null) { Debug.Log("아이템 키에 해당하는 아이템 데이터가 없음"); }
 
-            controller.아이템획득(itemData, 1);
-            if (controller.아이템획득(itemData, 1))
+            controller.AcquireItem(itemData, 1);
+            if (controller.AcquireItem(itemData, 1))
             {
                 Debug.Log("아이템 인벤토리에 추가 성공");
                 RemoveInventoryItem();

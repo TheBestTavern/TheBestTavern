@@ -18,15 +18,15 @@ public class GatheringInventoryUI : InventoryViewLoose
             if (slot.Value.HasItem)
             {
                 ItemStack item = slot.Value.GetSlotItem();
-                InventoryManager.Instance.Invens[InvenType.Player].아이템획득(Data.GetRawItem(item.Origin.key), item.Count);
-                InventoryManager.Instance.Invens[InvenType.Gathering].아이템잃음(Data.GetRawItem(item.Origin.key), item.Count);
+                InventoryManager.Instance.Invens[InvenType.Player].AcquireItem(Data.GetRawItem(item.Origin.key), item.Count);
+                InventoryManager.Instance.Invens[InvenType.Gathering].LooseItem(Data.GetRawItem(item.Origin.key), item.Count);
             }
         }
     }
 
-    public override void 아이템타게팅(int index)
+    public override void TargetingSlot(int index)
     {
-        base.아이템타게팅(index);
+        base.TargetingSlot(index);
 
         if (!index2Slots[index].HasItem) return;
         ItemStack item = index2Slots[index].GetSlotItem();
@@ -49,7 +49,7 @@ public class GatheringInventoryUI : InventoryViewLoose
             if (slot.Value.HasItem)
             {
                 ItemStack item = slot.Value.GetSlotItem();
-                InventoryManager.Instance.Invens[InvenType.Gathering].아이템잃음(Data.GetRawItem(item.Origin.key), item.Count);
+                InventoryManager.Instance.Invens[InvenType.Gathering].LooseItem(Data.GetRawItem(item.Origin.key), item.Count);
             }
         }
     }

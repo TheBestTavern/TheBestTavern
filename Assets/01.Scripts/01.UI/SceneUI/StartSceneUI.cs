@@ -130,7 +130,7 @@ public class StartSceneUI : MonoBehaviour
 
         foreach (var item in data.playerInvenData.ItemList)
         {
-            InventoryManager.Instance.Invens[InvenType.Player].아이템획득(item.Origin, item.Count);
+            InventoryManager.Instance.Invens[InvenType.Player].AcquireItem(item.Origin, item.Count);
         }
     }
 }

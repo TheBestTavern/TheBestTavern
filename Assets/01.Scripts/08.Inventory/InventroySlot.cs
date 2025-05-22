@@ -26,7 +26,7 @@ public class InventorySlot : MonoBehaviour, IBeginDragHandler, IEndDragHandler, 
     Action<int> OnClick;
     Action<int> OnClickAgain;
 
-    public void 초기화(int index, InventoryView view, Action<int> removeItem, Action<int> clickSlot, Action<int> clickSlotAgain) // UI와 연결, index 부여받기.
+    public void Init(int index, InventoryView view, Action<int> removeItem, Action<int> clickSlot, Action<int> clickSlotAgain) // UI와 연결, index 부여받기.
     {
         this.index = index;
         this.view = view;
@@ -44,7 +44,7 @@ public class InventorySlot : MonoBehaviour, IBeginDragHandler, IEndDragHandler, 
         OnClickAgain = clickSlotAgain;
     }
 
-    public async void 슬롯세팅(int id)  // 아이템 ( Item주입, 이미지, 수량, bool hasItem 변동 )
+    public async void SetSlot(int id)  // 아이템 ( Item주입, 이미지, 수량, bool hasItem 변동 )
     {
         HasItem = true;
         this.ID = id;
@@ -56,7 +56,7 @@ public class InventorySlot : MonoBehaviour, IBeginDragHandler, IEndDragHandler, 
         image.gameObject.SetActive(true);
     }
 
-    public void 슬롯갱신()
+    public void ReviewSlot()
     {
         count = item == null ? 0 : item.Count;
 
@@ -64,11 +64,11 @@ public class InventorySlot : MonoBehaviour, IBeginDragHandler, IEndDragHandler, 
 
         if (count == 0)
         {
-            슬롯비우기();
+            EmptifySlot();
         }
     }
 
-    public void 슬롯비우기()
+    public void EmptifySlot()
     {
         HasItem = false;
         item = null;
@@ -114,7 +114,7 @@ public class InventorySlot : MonoBehaviour, IBeginDragHandler, IEndDragHandler, 
     {
         InventorySlot fromSlot = eventData.pointerDrag?.GetComponent<InventorySlot>();
 
-        view.아이템이동(index, fromSlot.index);
+        view.MoveItem(index, fromSlot.index);
     }
 
     public void OnEndDrag(PointerEventData eventData)
