@@ -21,8 +21,8 @@ public class MixBookSlot : BaseBookSlot<Data_Book_Mix>
             foodCatergoryID = thing.key;
 
             //icon.sprite = await AddressablesLoader.Instance.AddressablesLoadAsync<Sprite>($"Assets/16.Image/FoodImage/{thing.resultFoodEnglishName}.png", true);
-            icon.sprite = await AddressablesLoader.Instance.AddressablesLoadSpriteFromAtlasAsync("FoodImage",thing.resultFoodEnglishName);
-            //icon.sprite = await AddressablesLoader.Instance.AddressablesLoadSpriteFromAtlasAsync("FoodImage", $"Assets/16.Image/FoodImage/{thing.resultFoodEnglishName}.png");
+            icon.sprite = await AddressablesLoader.Instance.AddressablesLoadSpriteFromAtlasAsync("FoodSpriteAtlas", thing.resultFoodEnglishName);
+
             foodName.text = thing.name;
             desc.text = thing.description;
             int i = 0;

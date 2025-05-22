@@ -32,7 +32,9 @@ public abstract class BaseBookSlot<TData> : MonoBehaviour
     {
         foodCatergoryID = 0;
         detailBtn.interactable = false;
-        icon.sprite = await AddressablesLoader.Instance.AddressablesLoadAsync<Sprite>($"Undiscovered2.Sprite");
+        //icon.sprite = await AddressablesLoader.Instance.AddressablesLoadAsync<Sprite>($"Undiscovered2.Sprite");
+        icon.sprite = await AddressablesLoader.Instance.AddressablesLoadSpriteFromAtlasAsync("FoodSpriteAtlas", "undiscovered2");
+
         foodName.text = "미발견";
         desc.text = "";
     }
