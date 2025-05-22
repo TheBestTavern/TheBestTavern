@@ -20,7 +20,9 @@ public class MixBookSlot : BaseBookSlot<Data_Book_Mix>
             detailBtn.interactable = true;
             foodCatergoryID = thing.key;
 
-            icon.sprite = await AddressablesLoader.Instance.AddressablesLoadAsync<Sprite>($"Assets/16.Image/FoodImage/{thing.resultFoodEnglishName}.png", true);
+            //icon.sprite = await AddressablesLoader.Instance.AddressablesLoadAsync<Sprite>($"Assets/16.Image/FoodImage/{thing.resultFoodEnglishName}.png", true);
+            icon.sprite = await AddressablesLoader.Instance.AddressablesLoadSpriteFromAtlasAsync("FoodImage",thing.resultFoodEnglishName);
+            //icon.sprite = await AddressablesLoader.Instance.AddressablesLoadSpriteFromAtlasAsync("FoodImage", $"Assets/16.Image/FoodImage/{thing.resultFoodEnglishName}.png");
             foodName.text = thing.name;
             desc.text = thing.description;
             int i = 0;

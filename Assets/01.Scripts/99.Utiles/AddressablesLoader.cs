@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
+using UnityEngine.U2D;
 using static UnityEngine.Rendering.VirtualTexturing.Debugging;
 
 /// <summary>
@@ -18,6 +19,13 @@ public class AddressablesLoader : MonoSingleton<AddressablesLoader>
         base.Init();
 
         DontDestroyOnLoad(gameObject);
+
+        LoadEssentialAsset();
+    }
+
+    private async void LoadEssentialAsset()
+    {
+        var sda = await AddressablesLoadAsync<SpriteAtlas>("FoodImage");
     }
 
     /// <summary>
@@ -73,6 +81,12 @@ public class AddressablesLoader : MonoSingleton<AddressablesLoader>
             Addressables.Release(handle);
             cache.Remove(address);
         }
+    }
+
+    public async Task<Sprite> AddressablesLoadSpriteFromAtlasAsync(string AtalsAdress, string imageName, bool fallback = false)
+    {
+        var atlas  = await AddressablesLoadAsync<SpriteAtlas>(AtalsAdress);
+        return  atlas.GetSprite(imageName);
     }
 
     public async Task<List<GameObject>> AddressablesListLoadFromLabelAsync(string label)
