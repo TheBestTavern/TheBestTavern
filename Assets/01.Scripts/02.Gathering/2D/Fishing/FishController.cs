@@ -97,7 +97,7 @@ public class FishController : MonoBehaviour
 
     private void AddItemtoInventory()
     {
-        if (InventoryManager.Instance.Invens[InvenType.Gathering].아이템획득(Data.GetRawItem(selectedKey), 1))
+        if (InventoryManager.Instance.Invens[InvenType.Gathering].AcquireItem(Data.GetRawItem(selectedKey), 1))
         {
             Debug.Log("아이템 증가");
         }

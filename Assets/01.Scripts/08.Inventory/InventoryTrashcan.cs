@@ -23,13 +23,13 @@ public class InventoryTrashCan : MonoBehaviour, IDropHandler, IPointerEnterHandl
         var popup = (ConfirmPopUp)await PopUpManager.Instance.ShowPopUp(PopUpType.Confirm);
         popup.SetConfirm<int>("버릴 갯수를 입력해주세요.", (number) =>
         {
-            bool success = InventoryManager.Instance.Invens[InvenType.Player].쓰레기통에버리기(fromSlot.GetSlotItem().Origin, number);
+            bool success = InventoryManager.Instance.Invens[InvenType.Player].ThrowInTrash(fromSlot.GetSlotItem().Origin, number);
             return success;
         });
 
         OnPointerExit(eventData);
     }
-
+        
     public void OnPointerEnter(PointerEventData eventData)
     {
         if (eventData.pointerDrag)

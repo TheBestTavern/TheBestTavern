@@ -119,7 +119,7 @@ public class CaptureManager : MonoSingleton<CaptureManager>
 
     private void AddItem()
     {
-        if (InventoryManager.Instance.Invens[InvenType.Gathering].아이템획득(Data.GetRawItem(animalInRange.gatheringKey), animalInRange.gatheringValue))
+        if (InventoryManager.Instance.Invens[InvenType.Gathering].AcquireItem(Data.GetRawItem(animalInRange.gatheringKey), animalInRange.gatheringValue))
         {
             Debug.Log("아이템 증가");
         }

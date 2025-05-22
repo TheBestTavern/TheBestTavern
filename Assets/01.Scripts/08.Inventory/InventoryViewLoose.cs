@@ -23,7 +23,7 @@ public class InventoryViewLoose : InventoryView
 
     protected virtual void OnEnable()
     {
-        초기화BySelf();
+        InitializeBySelf();
     }
 
     private void 아이템있는슬롯만보여주기()
@@ -61,9 +61,9 @@ public class InventoryViewLoose : InventoryView
         PagesTMP.text = $"{currentPage + 1} / {lastPage + 1}";
     }
 
-    protected override void 초기화(InventoryController controller)
+    protected override void Initialize(InventoryController controller)
     {
-        base.초기화(controller);
+        base.Initialize(controller);
 
         nextPageBtn.onClick.AddListener(NextPage);
         prevPageBtn.onClick.AddListener(PrevPage);
@@ -94,30 +94,30 @@ public class InventoryViewLoose : InventoryView
         아이템있는슬롯만보여주기();
     }
 
-    public override void 특정아이템정보갱신(int id)  // 특정 ID의 정보만 갱신
+    public override void ReviewSpecificItemStack(int id)  // 특정 ID의 정보만 갱신
     {
-        base.특정아이템정보갱신(id);
+        base.ReviewSpecificItemStack(id);
 
         아이템있는슬롯만보여주기();
     }
 
-    public override void 아이템띄우기()  // 전체 아이템 띄우기
+    public override void ViewAllItems()  // 전체 아이템 띄우기
     {
-        base.아이템띄우기();
+        base.ViewAllItems();
 
         아이템있는슬롯만보여주기();
     }
 
-    public override void 슬롯비우기(int index)
+    public override void EmptifySlot(int index)
     {
-        base.슬롯비우기(index);
+        base.EmptifySlot(index);
 
         아이템있는슬롯만보여주기();
     }
 
-    public override void 아이템타게팅(int index)  //  아이템 타게팅(좌클릭). 
+    public override void TargetingSlot(int index)  //  아이템 타게팅(좌클릭). 
     {
-        base.아이템타게팅(index);
+        base.TargetingSlot(index);
 
         while (targetingSlots.Count >= maxTargetingNum)
         {
@@ -128,9 +128,9 @@ public class InventoryViewLoose : InventoryView
         targetingSlots.Add(index);
         TriggerOnTargetSlot();
     }
-    public override void 아이템타게팅취소(int index) // 아이템 타게팅취소(좌클릭). 타게팅된 슬롯이면 선택 취소.
+    public override void TargetingSlotCancel(int index) // 아이템 타게팅취소(좌클릭). 타게팅된 슬롯이면 선택 취소.
     {
-        base.아이템타게팅취소(index);
+        base.TargetingSlotCancel(index);
 
         targetingSlots.Remove(index);
         TriggerOnTargetSlot();

@@ -85,18 +85,22 @@ public class EndNightUIBlockEvent
 public class ItemStackOnZeroEvent
 {
     public int ID;
+    public InvenType invenType;
 
-    public ItemStackOnZeroEvent(int iD)
+    public ItemStackOnZeroEvent(int iD, InvenType invenType)
     {
         ID = iD;
+        this.invenType = invenType;
     }
 }
 public class ItemStackOnChangeEvent
 {
     public int ID;
-    public ItemStackOnChangeEvent(int iD)
+    public InvenType invenType;
+    public ItemStackOnChangeEvent(int iD, InvenType invenType)
     {
         ID = iD;
+        this.invenType = invenType;
     }
 }
 

@@ -3,27 +3,27 @@ using System.Collections.Generic;
 
 public class InventoryModel
 {
-    InvenType Inven;
+    InvenType invenType;
     public Dictionary<int, List<int>> foodKey2IDs = new();  // <Data_Foods.key, ID리스트>
     public Dictionary<int, ItemStack> ID2ItemStack = new(); // <ID, 아이템 스택>
     int SlotCount { get; set; } // 슬롯 최대 갯수
     int maxStackSize { get; set; } // 스택 당 아이템 갯수
 
-    public Action<int> OnChanged;
+    public Action<int, InvenType> OnChanged;
 
-    public void Init(InvenType invenType, int slotCount, int maxStackSize, Action<int> OnModelChanged)
+    public void Init(InvenType invenType, int slotCount, int maxStackSize, Action<int, InvenType> OnModelChanged)
     {
-        Inven = invenType;
+        this.invenType = invenType;
         this.SlotCount = slotCount;
         this.maxStackSize = maxStackSize;
         this.OnChanged = OnModelChanged;
 
         EventBus.Subscribe<ItemStackOnChangeEvent>(TriggerOnChange);
-        EventBus.Subscribe<ItemStackOnZeroEvent>(아이템삭제);
+        EventBus.Subscribe<ItemStackOnZeroEvent>(RemoveItem);
         //EventBus.Subscribe<ItemStackOnZeroEvent>(ItemStackManager.Instance.ReCoverID);
     }
 
-    public bool 아이템검사후추가(Data_Foods data_Foods, int amount)
+    public bool AddItemWithCheck(Data_Foods data_Foods, int amount)
     {
         // 1. 여유 공간 확인
         int space = 0;
@@ -35,17 +35,17 @@ public class InventoryModel
             }
         }
 
-        if (!(여분의공간반환() * maxStackSize + space >= amount))
+        if (!(CalcRestSpace() * maxStackSize + space >= amount))
         {
             return false;
         }
 
         // 2. 추가
-        아이템그냥추가(data_Foods, amount);
+        JustAddItem(data_Foods, amount);
         return true;
     }
 
-    private void 아이템그냥추가(Data_Foods data_Foods, int amount)
+    private void JustAddItem(Data_Foods data_Foods, int amount)
     {
         // 아이템 획득 기록.
         ItemRecordManager.Instance.HasGainedItem(data_Foods.FoodCategory);
@@ -66,14 +66,14 @@ public class InventoryModel
         while (remain > 0)
         {
             //var temp = new ItemStack(data_Foods, 0, 아이템삭제);
-            var temp = ItemStackManager.Instance.InstantiateItem(data_Foods, 0);
+            var temp = ItemStackManager.Instance.InstantiateItem(data_Foods, 0, invenType);
             remain = temp.Add(remain, maxStackSize);
             IDList.Add(temp.ID);
             ID2ItemStack.Add(temp.ID, temp);
         }
     }
 
-    public bool 아이템감소(Data_Foods data_Foods, int amount)
+    public bool DecreaseItemWithCheck(Data_Foods data_Foods, int amount)
     {
         // 1. 감소할만큼의 아이템이 있는지.
         int count = 0;
@@ -97,7 +97,7 @@ public class InventoryModel
         return true;
     }
 
-    public int 여분의공간반환()
+    public int CalcRestSpace()
     {
         int stackCount = 0;
         foreach (var pair in foodKey2IDs)
@@ -108,7 +108,7 @@ public class InventoryModel
         return SlotCount - stackCount;
     }
 
-    public void 아이템정렬_합치기()
+    public void SortingModel_Merge()
     {
         foreach (var pair in foodKey2IDs)
         {
@@ -125,14 +125,14 @@ public class InventoryModel
 
             if (toMergeCount > 0)
             {
-                아이템그냥추가(Data.GetRawItem(pair.Key), toMergeCount);
+                JustAddItem(Data.GetRawItem(pair.Key), toMergeCount);
             }
         }
     }
 
-    private void 아이템삭제(int id)
+    private void JustRemoveItem(int id, InvenType invenType)
     {
-        if (ID2ItemStack.TryGetValue(id, out ItemStack itemStack))
+        if (invenType == this.invenType && ID2ItemStack.TryGetValue(id, out ItemStack itemStack))
         {
             ID2ItemStack.Remove(id);
             foodKey2IDs[itemStack.Origin.key].Remove(id);
@@ -140,19 +140,19 @@ public class InventoryModel
         }
     }
 
-    private void 아이템삭제(ItemStackOnZeroEvent evt)
+    private void RemoveItem(ItemStackOnZeroEvent evt)
     {
-        아이템삭제(evt.ID);
+        JustRemoveItem(evt.ID, evt.invenType);
     }
 
     private void TriggerOnChange(ItemStackOnChangeEvent evt)
     {
-        OnChanged?.Invoke(evt.ID);
+        OnChanged?.Invoke(evt.ID, evt.invenType);
     }
 
     public void Dipose()
     {
         EventBus.UnSubscribe<ItemStackOnChangeEvent>(TriggerOnChange);
-        EventBus.UnSubscribe<ItemStackOnZeroEvent>(아이템삭제);
+        EventBus.UnSubscribe<ItemStackOnZeroEvent>(RemoveItem);
     }
 }

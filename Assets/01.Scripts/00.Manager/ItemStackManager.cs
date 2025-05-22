@@ -30,9 +30,9 @@ public class ItemStackManager : MonoSingleton<ItemStackManager>
         this.AllItemStack = AllItemStack;
     }
 
-    public ItemStack InstantiateItem(Data_Foods data_Foods, int amount)
+    public ItemStack InstantiateItem(Data_Foods data_Foods, int amount, InvenType invenType)
     {
-        ItemStack item = new(data_Foods, amount, IDs.Pop());
+        ItemStack item = new(data_Foods, amount, IDs.Pop(), invenType);
         AllItemStack.Add(item.ID, item);
         return item;
     }
@@ -43,10 +43,10 @@ public class ItemStackManager : MonoSingleton<ItemStackManager>
         IDs.Push(id);
     }
 
-    public void ReCoverID(ItemStackOnZeroEvent evt)
-    {
-        ReCoverID(evt.ID);
-    }
+    //public void ReCoverID(ItemStackOnZeroEvent evt)
+    //{
+    //    ReCoverID(evt.ID);
+    //}
 
     protected override void OnDestroy()
     {

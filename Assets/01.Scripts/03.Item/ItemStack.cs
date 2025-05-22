@@ -5,7 +5,9 @@ using UnityEngine;
 public class ItemStack // 풀로 관리하기
 {
     [JsonProperty]
-    public Data_Foods Origin { get; set; }
+    public InvenType invenType { get; private set; }
+    [JsonProperty]
+    public Data_Foods Origin { get; private set; }
     [JsonProperty]
     public int Count { get; private set; }
     [JsonProperty]
@@ -14,11 +16,12 @@ public class ItemStack // 풀로 관리하기
     //[JsonIgnore] public Action<int> OnZero;
     //[JsonIgnore] public Action<int> OnChanged;
 
-    public ItemStack(Data_Foods data_Foods, int amount, int id)
+    public ItemStack(Data_Foods data_Foods, int amount, int id, InvenType invenType)
     {
         Origin = data_Foods;
         Count = amount;
         ID = id;
+        this.invenType = invenType;
     }
 
     public int Add(int amount, int maxCount)
@@ -47,11 +50,11 @@ public class ItemStack // 풀로 관리하기
     public void TriggerOnDestroy()
     {
         ItemStackManager.Instance.ReCoverID(ID);
-        EventBus.Publish<ItemStackOnZeroEvent>(new ItemStackOnZeroEvent(ID));
+        EventBus.Publish<ItemStackOnZeroEvent>(new ItemStackOnZeroEvent(ID, invenType));
     }
 
     public void TriggerOnChange()
     {
-        EventBus.Publish<ItemStackOnChangeEvent>(new ItemStackOnChangeEvent(ID));
+        EventBus.Publish<ItemStackOnChangeEvent>(new ItemStackOnChangeEvent(ID, invenType));
     }
 }
