@@ -37,6 +37,14 @@ public class RecipeManager : MonoSingleton<RecipeManager>
             //{"Cooking_Boil_Test", 1004, 1005 }
         };
 
+    // 레시피 검사용
+    public bool IsValidRecipe(List<Data_Foods> ingredients, string tool)
+    {
+        toolTable.TryGetValue(tool, out int toolId);
+        return GetRecipe(ingredients, toolId) != null;
+    }
+
+    // 요리 실행용
     public void StartCooking(List<Data_Foods> ingredients, string tool)
     {
         currentIngredients = ingredients;
@@ -45,10 +53,10 @@ public class RecipeManager : MonoSingleton<RecipeManager>
         currentTool = toolId;
         currentRecipe = GetRecipe(ingredients, toolId);
         
-
         if (currentRecipe == null)
         {
             // 무조건 '실패한 요리' 나와야 함
+            //UIManager.Instance.
             Debug.Log($"도구 : {currentTool}, 요리 실패 : 해당하는 레시피 없음");
         }
         else 
@@ -78,6 +86,7 @@ public class RecipeManager : MonoSingleton<RecipeManager>
             var key = GetItemKey(recipe.resultCategory, grade);
             resultItemKeys.Add(key);
             OnCookingEnded?.Invoke(key);
+            resultItemKey = key;
         }
         return resultItemKeys;
     }
@@ -102,6 +111,8 @@ public class RecipeManager : MonoSingleton<RecipeManager>
             var key = GetItemKey(recipe.resultCategory, combineGrade);
             resultItemKeys.Add(key);
             OnCookingEnded?.Invoke(key);
+            resultItemKey = key;
+
         }
 
         return resultItemKeys;
@@ -139,6 +150,8 @@ public class RecipeManager : MonoSingleton<RecipeManager>
             var key = GetItemKey(recipe.resultCategory, combineGrade);
             resultItemKeys.Add(key);
             OnCookingEnded?.Invoke(key);
+            resultItemKey = key;
+
         }
 
         return resultItemKeys;
@@ -205,12 +218,18 @@ public class RecipeManager : MonoSingleton<RecipeManager>
             
             var recipeSet = new HashSet<int>(recipe.ingredients);
 
-           
+
             if (recipeSet.SetEquals(ingredientsSet))
+            {
                 matchedRecipes.Add(recipe);
-                return matchedRecipes;
-        }     
-        return null; 
+            }
+        }
+        return matchedRecipes.Count > 0 ? matchedRecipes : null;
+    }
+
+    public bool HasValidRecipe()
+    {
+        return currentRecipe != null;
     }
 
     /// <summary>
@@ -235,4 +254,5 @@ public class RecipeManager : MonoSingleton<RecipeManager>
     {
         return resultItemKey;
     }
+
 }

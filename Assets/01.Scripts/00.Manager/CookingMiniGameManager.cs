@@ -55,8 +55,9 @@ public class CookingMiniGameManager : MonoSingleton<CookingMiniGameManager>
             RecipeManager.Instance.CompleteDish();
             await PopUpManager.Instance.ShowPopUp(PopUpType.CookingResult);
 
-            GetCookingResultData();
-        }
+            //GetCookingResultData();
+            GetResultItem();
+            }
         else
         {
             await ShowMiniGame();
@@ -142,11 +143,36 @@ public class CookingMiniGameManager : MonoSingleton<CookingMiniGameManager>
         RecipeManager.Instance.StartCooking(selectedItems, selectedCookingTool);
     }
 
-    // 아이템키 가져와서 인벤토리에 넣어주기
-    public void GetCookingResultData()
+    // 레시피 검사
+    public bool TryCooking()
     {
-        List<int> newItemKey = RecipeManager.Instance.EndCooking();
+        if (!RecipeManager.Instance.IsValidRecipe(selectedItems, selectedCookingTool)) 
+        {PopUpManager.Instance.ShowPopUp(PopUpType.CookingResult); Debug.Log("false 반환할거임@@"); return false; }
 
+        if (ShouldRemoveItem(selectedCookingTool))
+        {
+            RemoveInventoryItem();
+        }
+
+        return true;
+    }
+
+    private bool ShouldRemoveItem(string tool)
+    {
+        // MixingBowl은 아이템 제거 안 함
+        return tool != "Cooking_MixingBowl_Test";
+    }
+
+    // 아이템키 가져와서 인벤토리에 넣어주는 로직
+    public void ProcessCookingResult()
+    {
+        RemoveInventoryItem(); // 기존 아이템 제거
+
+        GetResultItem(); // 최종 아이템 획득
+    }
+
+    private void RemoveInventoryItem()
+    {
         var controller = InventoryManager.Instance.Invens[InvenType.Player];
 
         // 기존 아이템 없애주기
@@ -154,10 +180,15 @@ public class CookingMiniGameManager : MonoSingleton<CookingMiniGameManager>
         {
             controller.아이템잃음(item, 1);
         }
+    }
 
-        if (newItemKey.Count == 1 && newItemKey[0] == -1) return;
+    public void GetResultItem()
+    {
+        var keys = RecipeManager.Instance.EndCooking();
+        var controller = InventoryManager.Instance.Invens[InvenType.Player];
+        if (keys.Count == 1 && keys[0] == -1) return;
 
-        foreach (var itemKey in newItemKey)
+        foreach (var itemKey in keys)
         {
             var itemData = DataManager.Instance.DataLoader_Foods.GetByKey(itemKey);
 
@@ -167,6 +198,7 @@ public class CookingMiniGameManager : MonoSingleton<CookingMiniGameManager>
             if (controller.아이템획득(itemData, 1))
             {
                 Debug.Log("아이템 인벤토리에 추가 성공");
+                RemoveInventoryItem();
             }
             else
             {

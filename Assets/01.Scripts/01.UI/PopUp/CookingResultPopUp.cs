@@ -32,11 +32,9 @@ public class CookingResultPopUp : BasePopUp
 
         itemNameText.gameObject.SetActive(true);
         itemImage.gameObject.SetActive(true);
-
-        ShowResultText();
         
         ShowItemInfo();
-
+        ShowResultText();
         try
         {
             base.OnOpen();
@@ -60,18 +58,18 @@ public class CookingResultPopUp : BasePopUp
                 successText.gameObject.SetActive(true);
                 failText.gameObject.SetActive(false);
                 break;
-
             case CookingResultGrade.Failed:
                 successText.gameObject.SetActive(false);
                 failText.gameObject.SetActive(true);
                 itemImage.gameObject.SetActive(false);
+                break;
+            default:
                 break;
         }
     }
 
     public void ShowItemInfo()
     {
-
         int itemKey = RecipeManager.Instance.GetItemKey();
         Debug.Log($"최종 아이템 키 : {itemKey}");
         if (itemKey == -1)

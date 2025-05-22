@@ -16,6 +16,8 @@ public abstract class CookingMiniGameBase : MonoBehaviour, ICookingMiniGameHandl
     protected float elapsedTimer = 0f; // 이 씬에서의 경과시간
     protected bool isGameOver = false;
 
+    protected virtual bool ShouldRemoveItem() => true;
+
     private void Start()
     {
         timer = GetTimer();
@@ -59,7 +61,15 @@ public abstract class CookingMiniGameBase : MonoBehaviour, ICookingMiniGameHandl
             StopGame();
             Debug.Log("게임종료");
             //RecipeManager.Instance.EndCooking();
-            CookingMiniGameManager.Instance.GetCookingResultData(); // 완성된 것 인벤토리에 넣어주기
+            if (ShouldRemoveItem())
+            {
+                CookingMiniGameManager.Instance.ProcessCookingResult(); // 완성된 것 인벤토리에 넣어주기
+            }
+            else
+            {
+                CookingMiniGameManager.Instance.GetResultItem();
+            }
+
             PopUpManager.Instance.ShowPopUp(PopUpType.CookingResult); // 결과 팝업 띄우기
         }
 
@@ -71,7 +81,7 @@ public abstract class CookingMiniGameBase : MonoBehaviour, ICookingMiniGameHandl
         isGameOver = true;
         StopGame();
         PopUpManager.Instance.ShowPopUp(PopUpType.CookingResult);
-        CookingMiniGameManager.Instance.GetCookingResultData();
+        CookingMiniGameManager.Instance.ProcessCookingResult();
     }
 
     /// <summary>
