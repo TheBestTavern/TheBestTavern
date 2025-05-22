@@ -146,6 +146,7 @@ public class CookingMiniGameManager : MonoSingleton<CookingMiniGameManager>
     // 레시피 검사
     public bool TryCooking()
     {
+        // 조리 도구 잘못돼서 바로 팝업띄우기
         if (!RecipeManager.Instance.IsValidRecipe(selectedItems, selectedCookingTool)) 
         {
             PopUpManager.Instance.ShowPopUp(PopUpType.CookingFail);
@@ -156,7 +157,7 @@ public class CookingMiniGameManager : MonoSingleton<CookingMiniGameManager>
             }
             return false; 
         }
-
+        // 레시피 있음
         return true;
     }
 

@@ -19,6 +19,9 @@ public class CookingFailPopUp : BasePopUp
         // 미니게임 닫기 
         //CookingMiniGameManager.Instance.miniGameUI.OnClickCloseButton();
         failText.gameObject.SetActive(false);
+        itemNameText.gameObject.SetActive(false);
+        successText.gameObject.SetActive(false);
+        itemImage.gameObject.SetActive(false);
         base.OnClose();
     }
 
@@ -26,8 +29,11 @@ public class CookingFailPopUp : BasePopUp
     {
         canvasGroup.DOFade(1f, 1f);
 
-        failText.gameObject.SetActive(true);
-       
+        //failText.gameObject.SetActive(true);
+        failText.gameObject.SetActive(false);
+        itemNameText.gameObject.SetActive(false);
+        successText.gameObject.SetActive(false);
+        itemImage.gameObject.SetActive(false);
         ShowInfo();
 
         try
@@ -42,7 +48,9 @@ public class CookingFailPopUp : BasePopUp
 
     public async void ShowInfo()
     {
-        if (!CookingMiniGameManager.Instance.TryCooking())
+        bool isPlate = CookingMiniGameManager.Instance.TryCooking();
+            //false면 레시피없음.. 즉 조리도구 실패.
+        if (isPlate) 
         {
             var result = CookingMiniGameManager.Instance.GetMiniGameResult();
             switch (result)
