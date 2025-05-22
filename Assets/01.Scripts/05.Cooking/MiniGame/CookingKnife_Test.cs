@@ -167,11 +167,13 @@ public class CookingKnife_Test : MonoBehaviour
 
                     maxX = bounds.max.x;
                     minX = bounds.min.x;
+                    float range = maxX - minX;
+                    float margin = range * 0.2f;
                     y = bounds.center.y + 0.1f;
                     z = bounds.center.z - 0.2f;
 
-                    float moveSpeed = 0.4f;
-                    float x = Mathf.PingPong(Time.time * moveSpeed, maxX - minX) + minX;
+                    float moveSpeed = 0.2f;
+                    float x = Mathf.PingPong(Time.time * moveSpeed, range - margin * 2) + minX + margin;
                     transform.position = new Vector3(x, y, z);
                 }
             }
