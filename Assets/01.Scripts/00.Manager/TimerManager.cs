@@ -87,13 +87,13 @@ public class TimerManager : MonoSingleton<TimerManager>
         // 플레이어 날짜 -> 이전 데이터 갱신(최대 날짜용)
         var today = GetToday();
 
-        var ItemEvent = new AnalyticsTime("TimeData")
+        var TimeEvent = new AnalyticsTime("TimeData")
         {
             year = today.year,
             month = today.month,
             day = today.day,
         };
-        AnalyticsService.Instance.RecordEvent(ItemEvent);
+        AnalyticsService.Instance.RecordEvent(TimeEvent);
     }
 
     // 날짜 UI 변경 함수 
