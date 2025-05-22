@@ -22,7 +22,9 @@ public class IngredientBookSlot : BaseBookSlot<Data_Book_Ingredient>
             foodCatergoryID = thing.key;
 
             title.text = "획득 장소";
-            icon.sprite = await AddressablesLoader.Instance.AddressablesLoadAsync<Sprite>($"Assets/16.Image/FoodImage/{thing.englishName}.png", true);
+            //icon.sprite = await AddressablesLoader.Instance.AddressablesLoadAsync<Sprite>($"Assets/16.Image/FoodImage/{thing.englishName}.png", true);
+            icon.sprite = await AddressablesLoader.Instance.AddressablesLoadSpriteFromAtlasAsync("FoodImage", thing.englishName);
+
             foodName.text = thing.name;
             desc.text = thing.description;
 
