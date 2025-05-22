@@ -624,5 +624,5 @@ SpriteAtlas:
   - seafoodSoupBase
   - steamedBlueCrab
   m_RenderDataMap: {}
-  m_Tag: FoodImage
+  m_Tag: FoodSpriteAtlas
   m_IsVariant: 0
