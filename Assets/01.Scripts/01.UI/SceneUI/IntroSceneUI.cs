@@ -103,12 +103,13 @@ public class IntroSceneUI : MonoBehaviour
     {
         introText.gameObject.SetActive(false);
         await blackBackGround.DOFade(0, 2).AsyncWaitForCompletion();
-        SoundManager.Instance.PlaySFX("CountrySide");
+        SoundManager.Instance.PlayAmbience("CountrySide");
 
         token.ThrowIfCancellationRequested();
 
         introText.gameObject.SetActive(true);
         await PlayIntroTexts(token);
+        SoundManager.Instance.StopLoop();
 
         await introText.DOFade(0, 1).AsyncWaitForCompletion();
         framingImage.gameObject.SetActive(false);
@@ -180,21 +181,38 @@ public class IntroSceneUI : MonoBehaviour
         for (int i = 4; i < introTexts.Length - 2; i++)
         {
             token.ThrowIfCancellationRequested();
-            SoundManager.Instance.PlaySFX("LineWhoosh");
+            //SoundManager.Instance.PlaySFX("LineWhoosh");
             await ShowText(introTexts[i], 100, token);
         }
         introText.fontSize = largeFontSize;
-        for (int i = introTexts.Length - 2; i < introTexts.Length; i++)
-        {
-            SoundManager.Instance.PlaySFX("Impact");
+        //for (int i = introTexts.Length - 2; i < introTexts.Length; i++)
+        //{
+        //    SoundManager.Instance.PlaySFX("Impact");
 
-            token.ThrowIfCancellationRequested();
-            introText.text = introTexts[i];
-            introText.alpha = 1;
-            await RevealText(introText, token);
-            await Task.Delay(1000, token);
-            await introText.DOFade(0, 1).AsyncWaitForCompletion();
-        }
+        //    token.ThrowIfCancellationRequested();
+        //    introText.text = introTexts[i];
+        //    introText.alpha = 1;
+        //    await RevealText(introText, token);
+        //    await Task.Delay(1000, token);
+        //    await introText.DOFade(0, 1).AsyncWaitForCompletion();
+        //}
+
+        //
+        token.ThrowIfCancellationRequested();
+        introText.text = introTexts[introTexts.Length - 2];
+        SoundManager.Instance.PlaySFX("LineWhoosh");
+        introText.alpha = 1;
+        await RevealText(introText, token);
+        await Task.Delay(1000, token);
+        await introText.DOFade(0, 1).AsyncWaitForCompletion();
+
+        token.ThrowIfCancellationRequested();
+        introText.text = introTexts[introTexts.Length - 1];
+        SoundManager.Instance.PlaySFX("Impact");
+        introText.alpha = 1;
+        await RevealText(introText, token);
+        await Task.Delay(1000, token);
+        await introText.DOFade(0, 1).AsyncWaitForCompletion();
 
     }
 
