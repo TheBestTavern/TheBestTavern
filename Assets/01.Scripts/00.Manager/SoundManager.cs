@@ -24,24 +24,15 @@ public class SoundManager : MonoSingleton<SoundManager>
     private float currentBGMTime = 0f;
     private string currentBGMName;
 
-    public override void Init()
+    public async  override void Init()
     {
         if (_isInitialized) return;
         base.Init();
 
-        SetBGMVolume(1.0f);
-        EventBus.Subscribe<EndNightUIBlockEvent>((evt) => PlaySFX("Kokkio"));
-        DontDestroyOnLoad(this);
-    }
+        DontDestroyOnLoad(gameObject);
 
-    protected override void OnDestroy()
-    {
-        base.OnDestroy();
-        EventBus.UnSubscribe<EndNightUIBlockEvent>((evt) => PlaySFX("Kokkio"));
-    }
-
-    protected override void Awake()
-    {
+        if (soundLibrary == null)
+            soundLibrary = await AddressablesLoader.Instance.AddressablesLoadAsync<SoundLibrary>("SoundLibrary.SO");
 
         bgmSource = gameObject.AddComponent<AudioSource>();
         bgmSource.loop = true;
@@ -55,14 +46,16 @@ public class SoundManager : MonoSingleton<SoundManager>
         AddBGM();
         AddSFX();
         AddAmbience();
-        base.Awake();
+
+        SetBGMVolume(1.0f);
+        EventBus.Subscribe<EndNightUIBlockEvent>((evt) => PlaySFX("Kokkio"));
     }
 
-    private void Start()
+    protected override void OnDestroy()
     {
-        //PlayBGM("IntroBGM");
+        base.OnDestroy();
+        EventBus.UnSubscribe<EndNightUIBlockEvent>((evt) => PlaySFX("Kokkio"));
     }
-
 
     public void PlayBGM(string name, bool resume = false)
     {
@@ -87,7 +80,6 @@ public class SoundManager : MonoSingleton<SoundManager>
             }
         };
     }
-    
 
     public void PlaySFX(string name)
     {
@@ -99,7 +91,7 @@ public class SoundManager : MonoSingleton<SoundManager>
 
         Addressables.LoadAssetAsync<AudioClip>(addressKey).Completed += (handle) =>
         {
-            if (handle.Status == AsyncOperationStatus.Succeeded &&!sfxSource.isPlaying)
+            if (handle.Status == AsyncOperationStatus.Succeeded && !sfxSource.isPlaying)
             {
                 sfxSource.PlayOneShot(handle.Result);
             }
@@ -129,8 +121,6 @@ public class SoundManager : MonoSingleton<SoundManager>
             }
         };
     }
-
-
 
     public void StopLoop()
     {

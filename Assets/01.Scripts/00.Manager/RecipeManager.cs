@@ -20,7 +20,14 @@ public class RecipeManager : MonoSingleton<RecipeManager>
 
     public event Action<int> OnCookingEnded;
 
-    Dictionary<string, int[]> toolTable = new()
+    Dictionary<string, int[]> toolTable;
+
+    public override void Init()
+    {
+        if (_isInitialized) return;
+        base.Init();
+
+        toolTable = new()
         {
             //{ DesignEnums.CookingToolType.doma, 1001 },
             //{ DesignEnums.CookingToolType.julgu, 1002 },
@@ -37,6 +44,7 @@ public class RecipeManager : MonoSingleton<RecipeManager>
             {"Cooking_MixingBowl_Test", new int[] { 1007 } },
             {"Cooking_Boil_Test", new int[] { 1004 , 1005 } }
         };
+    }
 
     // 레시피 검사용
     public bool IsValidRecipe(List<Data_Foods> ingredients, string tool)

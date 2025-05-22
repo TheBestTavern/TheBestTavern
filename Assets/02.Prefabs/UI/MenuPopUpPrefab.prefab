@@ -146,6 +146,7 @@ GameObject:
   - component: {fileID: 6041775728905212892}
   - component: {fileID: 2736627224772353075}
   - component: {fileID: 4138511722963771582}
+  - component: {fileID: 1839230314833034465}
   m_Layer: 5
   m_Name: NextBtn
   m_TagString: Untagged
@@ -254,6 +255,19 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1839230314833034465
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 295499469222382824}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e744a27a68559434ea55004cf9f1e781, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sfxName: Dogam
 --- !u!1 &312977684691913771
 GameObject:
   m_ObjectHideFlags: 0
@@ -266,6 +280,7 @@ GameObject:
   - component: {fileID: 1601266101928124209}
   - component: {fileID: 6849659184309128503}
   - component: {fileID: 7056230798857550557}
+  - component: {fileID: 8382248997269903566}
   m_Layer: 5
   m_Name: PrevBtn
   m_TagString: Untagged
@@ -374,6 +389,19 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &8382248997269903566
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 312977684691913771}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e744a27a68559434ea55004cf9f1e781, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sfxName: Dogam
 --- !u!1 &354059429190901253
 GameObject:
   m_ObjectHideFlags: 0
@@ -770,7 +798,7 @@ MonoBehaviour:
   nextBtn: {fileID: 4138511722963771582}
   PrevBtn: {fileID: 2590913694431012226}
   pageUI: {fileID: 7464155863803430363}
-  HideUndiscoveredFood: 0
+  HideUndiscoveredFood: 1
 --- !u!1 &541433472037120703
 GameObject:
   m_ObjectHideFlags: 0
@@ -1361,6 +1389,7 @@ GameObject:
   - component: {fileID: 5679785362859966890}
   - component: {fileID: 6052714319970832577}
   - component: {fileID: 2590913694431012226}
+  - component: {fileID: 4831007646108109811}
   m_Layer: 5
   m_Name: PrevBtn
   m_TagString: Untagged
@@ -1469,6 +1498,19 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &4831007646108109811
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1187769702411704529}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e744a27a68559434ea55004cf9f1e781, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sfxName: Dogam
 --- !u!1 &1317551470524933497
 GameObject:
   m_ObjectHideFlags: 0
@@ -1481,6 +1523,7 @@ GameObject:
   - component: {fileID: 2078003953538905624}
   - component: {fileID: 8659455406236890599}
   - component: {fileID: 5010096181030795952}
+  - component: {fileID: 2379617082526491577}
   m_Layer: 5
   m_Name: NextBtn
   m_TagString: Untagged
@@ -1589,6 +1632,19 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &2379617082526491577
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1317551470524933497}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e744a27a68559434ea55004cf9f1e781, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sfxName: Dogam
 --- !u!1 &1324670081923739445
 GameObject:
   m_ObjectHideFlags: 0
@@ -2395,6 +2451,7 @@ GameObject:
   - component: {fileID: 6843021336410071233}
   - component: {fileID: 5785150754938350549}
   - component: {fileID: 891755664721325160}
+  - component: {fileID: 2488571798846932436}
   m_Layer: 5
   m_Name: NextBtn
   m_TagString: Untagged
@@ -2503,6 +2560,19 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &2488571798846932436
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1947257566865546783}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e744a27a68559434ea55004cf9f1e781, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sfxName: Dogam
 --- !u!1 &2204957788182285641
 GameObject:
   m_ObjectHideFlags: 0
@@ -3008,7 +3078,7 @@ MonoBehaviour:
   nextBtn: {fileID: 5010096181030795952}
   PrevBtn: {fileID: 7056230798857550557}
   pageUI: {fileID: 2098388622785489650}
-  HideUndiscoveredFood: 0
+  HideUndiscoveredFood: 1
 --- !u!1 &3035650878554861396
 GameObject:
   m_ObjectHideFlags: 0
@@ -7710,6 +7780,7 @@ GameObject:
   - component: {fileID: 8268824953287788821}
   - component: {fileID: 6297305132961594311}
   - component: {fileID: 1188017994758492521}
+  - component: {fileID: 6749721674428174973}
   m_Layer: 5
   m_Name: PrevBtn
   m_TagString: Untagged
@@ -7818,6 +7889,19 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &6749721674428174973
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8190046662266706344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e744a27a68559434ea55004cf9f1e781, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sfxName: Dogam
 --- !u!1 &8295280270305004252
 GameObject:
   m_ObjectHideFlags: 0
@@ -7874,7 +7958,7 @@ MonoBehaviour:
   nextBtn: {fileID: 891755664721325160}
   PrevBtn: {fileID: 1188017994758492521}
   pageUI: {fileID: 4774574624948537959}
-  HideUndiscoveredFood: 0
+  HideUndiscoveredFood: 1
 --- !u!1 &8396991874220776148
 GameObject:
   m_ObjectHideFlags: 0

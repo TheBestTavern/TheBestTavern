@@ -12,6 +12,14 @@ public class GameManager : MonoSingleton<GameManager>
 
     public bool isAnalyticsAgreed = false;
 
+    public override void Init()
+    {
+        if (_isInitialized) return;
+        base.Init();
+
+        DontDestroyOnLoad(gameObject);
+    }
+
     private void Start()
     {
         DataManager.Instance.Init();
