@@ -81,12 +81,15 @@ public class CookingFailPopUp : BasePopUp
             itemImage.sprite = await AddressablesLoader.Instance.AddressablesLoadAsync<Sprite>($"Assets/16.Image/FoodImage/{data.englishName}.png", true);
             if (itemImage.sprite == null)
             {
-                itemImage.gameObject.SetActive(false); 
+                itemImage.gameObject.SetActive(false);
             }
             return;
         }
-        failText.text = "조리 도구를 잘못 선택한 것 같다...";
-        failText.gameObject.SetActive(true);
-        SoundManager.Instance.PlaySFX("Fail");
+        else
+        {
+            failText.text = "조리 도구를 잘못 선택한 것 같다...";
+            failText.gameObject.SetActive(true);
+            SoundManager.Instance.PlaySFX("Fail");
+        }
     }
 }
