@@ -25,5 +25,5 @@ public class GameManager : MonoSingleton<GameManager>
         CalendarManager.Instance.Init();
 
         CommandManager.Instance.ExecuteCommands(1002);
-    }
+    }    
 }
