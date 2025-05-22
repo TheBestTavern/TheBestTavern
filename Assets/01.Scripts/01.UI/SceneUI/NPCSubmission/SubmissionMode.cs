@@ -172,7 +172,7 @@ public class SubmissionMode : MonoBehaviour
     private void DevBtn()  // 테스트용
     {
         Debug.Log("dev-넘기기");
-        QuestManager.Instance.QuestCheckQueue.Enqueue((quest.Origin.key, 888888));
+        QuestManager.Instance.QuestCheckQueue.Enqueue((quest.Origin.key, 88888888));
         StartCoroutine(AfterSubmit());
     }
 

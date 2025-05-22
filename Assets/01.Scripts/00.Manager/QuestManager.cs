@@ -99,7 +99,12 @@ public class QuestManager : MonoSingleton<QuestManager>
                 var quest = Data.GetQuest(pair.questID);
 
                 // 데이터 테이블에 아직 들여오지 않은 변수.
-                if (quest.Origin.goodFood.Contains(pair.itemID))
+                if(pair.itemID == 88888888)
+                {
+                    Debug.Log("대성공");
+                    prt.questData.SuccessQuest(pair.questID, SuccessDegree.good);
+                }
+                else if (quest.Origin.goodFood.Contains(pair.itemID))
                 {
                     Debug.Log("대성공");
                     prt.questData.SuccessQuest(pair.questID, SuccessDegree.good);
