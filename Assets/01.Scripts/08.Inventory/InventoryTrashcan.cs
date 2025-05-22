@@ -18,18 +18,21 @@ public class InventoryTrashCan : MonoBehaviour, IDropHandler, IPointerEnterHandl
 
     public async void OnDrop(PointerEventData eventData)
     {
-        InventorySlot fromSlot = eventData.pointerDrag?.GetComponent<InventorySlot>();
-        Debug.Log($"{fromSlot.GetSlotItem().Origin.name} 버리기");
-        var popup = (ConfirmPopUp)await PopUpManager.Instance.ShowPopUp(PopUpType.Confirm);
-        popup.SetConfirm<int>("버릴 갯수를 입력해주세요.", (number) =>
-        {
-            bool success = InventoryManager.Instance.Invens[InvenType.Player].ThrowInTrash(fromSlot.GetSlotItem().Origin, number);
-            return success;
-        });
 
-        OnPointerExit(eventData);
+        if (eventData.pointerDrag != null && eventData.pointerDrag.TryGetComponent<InventorySlot>(out InventorySlot fromSlot))
+        {
+            Debug.Log($"{fromSlot.GetSlotItem().Origin.name} 버리기");
+            var popup = (ConfirmPopUp)await PopUpManager.Instance.ShowPopUp(PopUpType.Confirm);
+            popup.SetConfirm<int>("버릴 갯수를 입력해주세요.", (number) =>
+            {
+                bool success = InventoryManager.Instance.Invens[InvenType.Player].ThrowInTrash(fromSlot.GetSlotItem().Origin, number);
+                return success;
+            });
+
+            OnPointerExit(eventData);
+        }
     }
-        
+
     public void OnPointerEnter(PointerEventData eventData)
     {
         if (eventData.pointerDrag)
@@ -42,6 +45,6 @@ public class InventoryTrashCan : MonoBehaviour, IDropHandler, IPointerEnterHandl
     public void OnPointerExit(PointerEventData eventData)
     {
         image.color = defaultColor;
-            gameObject.transform.localScale = Vector3.one;
+        gameObject.transform.localScale = Vector3.one;
     }
 }

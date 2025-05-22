@@ -51,6 +51,11 @@ public class Data_NPC
     /// </summary>
     public string thanksMent;
 
+    /// <summary>
+    /// 영어이름
+    /// </summary>
+    public string englishName;
+
 }
 public class Data_NPCLoader
 {

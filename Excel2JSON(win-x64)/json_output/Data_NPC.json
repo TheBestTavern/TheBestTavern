@@ -11,7 +11,8 @@
       "givingQuest": [
         900001
       ],
-      "thanksMent": "이런 귀한 음식을 제게 주시다니… 고맙습니다."
+      "thanksMent": "이런 귀한 음식을 제게 주시다니… 고맙습니다.",
+      "englishName": "heungbu"
     },
     {
       "key": 800002,
@@ -24,7 +25,8 @@
       "givingQuest": [
         900002
       ],
-      "thanksMent": "후… 뭐, 내 입에는 그럭저럭 맞는군"
+      "thanksMent": "후… 뭐, 내 입에는 그럭저럭 맞는군",
+      "englishName": "nolbu"
     },
     {
       "key": 800003,
@@ -37,7 +39,8 @@
       "givingQuest": [
         900003
       ],
-      "thanksMent": "정말 정성껏 만들어주셨군요. 향만으로도 마음이 편해져요. 감사합니다."
+      "thanksMent": "정말 정성껏 만들어주셨군요. 향만으로도 마음이 편해져요. 감사합니다.",
+      "englishName": "kongjwi"
     },
     {
       "key": 800004,
@@ -50,7 +53,8 @@
       "givingQuest": [
         900004
       ],
-      "thanksMent": "…뭐, 먹을 순 있겠네."
+      "thanksMent": "…뭐, 먹을 순 있겠네.",
+      "englishName": "patjwi"
     },
     {
       "key": 800005,
@@ -63,7 +67,8 @@
       "givingQuest": [
         900005
       ],
-      "thanksMent": "달콤한 향… 오랜만에 이런 맛을 느껴봅니다. 고마워요."
+      "thanksMent": "달콤한 향… 오랜만에 이런 맛을 느껴봅니다. 고마워요.",
+      "englishName": "fairy"
     },
     {
       "key": 800006,
@@ -76,7 +81,8 @@
       "givingQuest": [
         900007
       ],
-      "thanksMent": "크하하! 사람들 몰래 혼자 다 먹어야겠어~"
+      "thanksMent": "크하하! 사람들 몰래 혼자 다 먹어야겠어~",
+      "englishName": "tiger"
     },
     {
       "key": 800007,
@@ -89,7 +95,8 @@
       "givingQuest": [
         900006
       ],
-      "thanksMent": "우왁! 혀가 막 춤춘다 춤춰~! "
+      "thanksMent": "우왁! 혀가 막 춤춘다 춤춰~! ",
+      "englishName": "goblin"
     },
     {
       "key": 800008,
@@ -102,7 +109,8 @@
       "givingQuest": [
         900008
       ],
-      "thanksMent": "오! 이건 예상 밖인데?  맛있게 잘 먹을게!"
+      "thanksMent": "오! 이건 예상 밖인데?  맛있게 잘 먹을게!",
+      "englishName": "rabbit"
     },
     {
       "key": 800009,
@@ -115,7 +123,8 @@
       "givingQuest": [
         900009
       ],
-      "thanksMent": "음… 오래 기다린 보람이 있습니다."
+      "thanksMent": "음… 오래 기다린 보람이 있습니다.",
+      "englishName": "turtle"
     },
     {
       "key": 800010,
@@ -128,7 +137,8 @@
       "givingQuest": [
         900010
       ],
-      "thanksMent": "향이 아주 마음에 드는군요. 잘 먹겠습니다."
+      "thanksMent": "향이 아주 마음에 드는군요. 잘 먹겠습니다.",
+      "englishName": "heosaeng"
     }
   ]
 }
