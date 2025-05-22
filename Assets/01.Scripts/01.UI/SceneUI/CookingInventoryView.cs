@@ -28,7 +28,10 @@ public class CookingInventoryView : InventoryViewLoose
             if (!CookingMiniGameManager.Instance.TryCooking())
             {
                 UIManager.Instance.cookingSceneUI.OnClickBlurBackGround();
-                DisappearImage(pooledImageQueue.Dequeue());
+                if (pooledImageQueue.Count > 0)
+                {
+                    DisappearImage(pooledImageQueue.Dequeue());
+                }
                 return;
             }
             CookingMiniGameManager.Instance.miniGameAnim.Invoke();
@@ -52,7 +55,6 @@ public class CookingInventoryView : InventoryViewLoose
         //base.OnDisable();
 
         startMiniGameBtn.onClick.RemoveAllListeners();
-        pooledImageQueue.Clear();
     }
 
     public void OnSelectTool(string s)
@@ -162,7 +164,10 @@ public class CookingInventoryView : InventoryViewLoose
     public override void 아이템타게팅취소(int index)
     {
         base.아이템타게팅취소(index);
-        DisappearImage(pooledImageQueue.Dequeue());
+        if (pooledImageQueue.Count > 0)
+        {
+            DisappearImage(pooledImageQueue.Dequeue());
+        }
     }
 
     void MoveToCenterImage(ItemImage itemImage)
