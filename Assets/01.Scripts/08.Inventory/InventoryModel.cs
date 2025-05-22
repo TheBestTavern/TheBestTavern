@@ -3,17 +3,17 @@ using System.Collections.Generic;
 
 public class InventoryModel
 {
-    InvenType inventype;
+    InvenType invenType;
     public Dictionary<int, List<int>> foodKey2IDs = new();  // <Data_Foods.key, ID리스트>
     public Dictionary<int, ItemStack> ID2ItemStack = new(); // <ID, 아이템 스택>
     int SlotCount { get; set; } // 슬롯 최대 갯수
     int maxStackSize { get; set; } // 스택 당 아이템 갯수
 
-    public Action<int> OnChanged;
+    public Action<int, InvenType> OnChanged;
 
-    public void Init(InvenType invenType, int slotCount, int maxStackSize, Action<int> OnModelChanged)
+    public void Init(InvenType invenType, int slotCount, int maxStackSize, Action<int, InvenType> OnModelChanged)
     {
-        inventype = invenType;
+        this.invenType = invenType;
         this.SlotCount = slotCount;
         this.maxStackSize = maxStackSize;
         this.OnChanged = OnModelChanged;
@@ -66,7 +66,7 @@ public class InventoryModel
         while (remain > 0)
         {
             //var temp = new ItemStack(data_Foods, 0, 아이템삭제);
-            var temp = ItemStackManager.Instance.InstantiateItem(data_Foods, 0, inventype);
+            var temp = ItemStackManager.Instance.InstantiateItem(data_Foods, 0, invenType);
             remain = temp.Add(remain, maxStackSize);
             IDList.Add(temp.ID);
             ID2ItemStack.Add(temp.ID, temp);
@@ -130,9 +130,9 @@ public class InventoryModel
         }
     }
 
-    private void JustRemoveItem(int id)
+    private void JustRemoveItem(int id, InvenType invenType)
     {
-        if (ID2ItemStack.TryGetValue(id, out ItemStack itemStack))
+        if (invenType == this.invenType && ID2ItemStack.TryGetValue(id, out ItemStack itemStack))
         {
             ID2ItemStack.Remove(id);
             foodKey2IDs[itemStack.Origin.key].Remove(id);
@@ -142,12 +142,12 @@ public class InventoryModel
 
     private void RemoveItem(ItemStackOnZeroEvent evt)
     {
-        JustRemoveItem(evt.ID);
+        JustRemoveItem(evt.ID, evt.invenType);
     }
 
     private void TriggerOnChange(ItemStackOnChangeEvent evt)
     {
-        OnChanged?.Invoke(evt.ID);
+        OnChanged?.Invoke(evt.ID, evt.invenType);
     }
 
     public void Dipose()

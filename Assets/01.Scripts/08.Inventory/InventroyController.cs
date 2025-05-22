@@ -98,11 +98,11 @@ public class InventoryController
         return model.ID2ItemStack;
     }
 
-    public void ViewSpecificItem(int id)
+    public void ViewSpecificItem(int id, InvenType itemStackInvenType)
     {
         foreach (var view in views)
         {
-            if (view.invenType == invenType)
+            if (view.invenType == invenType && itemStackInvenType == invenType)
             {
                 view.ReviewSpecificItemStack(id);
             }
