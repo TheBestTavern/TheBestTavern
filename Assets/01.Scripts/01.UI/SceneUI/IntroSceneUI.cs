@@ -98,6 +98,9 @@ public class IntroSceneUI : MonoBehaviour
 
         titleText.gameObject.SetActive(true);
         titleText.color = new Color(0,0,0,1);
+
+        SoundManager.Instance.PlayBGM("IntroBGM");
+        SoundManager.Instance.StopLoop();
     }
 
     private async Task PlayIntroSequence(CancellationToken token)
@@ -132,6 +135,7 @@ public class IntroSceneUI : MonoBehaviour
 
         //await RevealText(titleText,token);
         BrushTitleText();
+        SoundManager.Instance.PlayBGM("IntroBGM");
 
         gameStartBtnImage.gameObject.SetActive(true);
         gameStartBtnImage.DOFade(1, 4);
@@ -254,7 +258,6 @@ public class IntroSceneUI : MonoBehaviour
     {
         titleText.gameObject.SetActive(true);
         titleText.DOFade(1,2);
-        SoundManager.Instance.PlayBGM("IntroBGM");
         //maskRectTransform.sizeDelta = new Vector2(0f, titleText.rectTransform.sizeDelta.x);
         //maskRectTransform.DOSizeDelta(new Vector2(titleText.rectTransform.sizeDelta.x, titleText.rectTransform.sizeDelta.y), 2f).SetEase(Ease.Linear);
     }

@@ -18,10 +18,7 @@ public class CookingFailPopUp : BasePopUp
     {
         // 미니게임 닫기 
         //CookingMiniGameManager.Instance.miniGameUI.OnClickCloseButton();
-        failText.gameObject.SetActive(false);
-        itemNameText.gameObject.SetActive(false);
-        successText.gameObject.SetActive(false);
-        itemImage.gameObject.SetActive(false);
+
         base.OnClose();
     }
 
@@ -30,10 +27,7 @@ public class CookingFailPopUp : BasePopUp
         canvasGroup.DOFade(1f, 1f);
 
         //failText.gameObject.SetActive(true);
-        failText.gameObject.SetActive(false);
-        itemNameText.gameObject.SetActive(false);
-        successText.gameObject.SetActive(false);
-        itemImage.gameObject.SetActive(false);
+
         ShowInfo();
 
         try
@@ -46,58 +40,58 @@ public class CookingFailPopUp : BasePopUp
         }
     }
 
+    //현재 : 아이템네임 꺼짐, 아이템이미지꺼짐
+    // 성공,페일 텍스트 둘다 켜짐
     public async void ShowInfo()
     {
+        
+        successText.gameObject.SetActive(false);
+        failText.gameObject.SetActive(false);
+        itemNameText.gameObject.SetActive(false);
+        itemImage.gameObject.SetActive(false);
+
+        
         bool isPlate = CookingMiniGameManager.Instance.TryCooking();
-            //false면 레시피없음.. 즉 조리도구 실패.
-        if (isPlate) 
+        if (isPlate)
         {
             var result = CookingMiniGameManager.Instance.GetMiniGameResult();
-            switch (result)
-            {
-                case CookingResultGrade.Legendary:
-                case CookingResultGrade.Rare:
-                case CookingResultGrade.Common:
-                    successText.gameObject.SetActive(true);
-                    failText.gameObject.SetActive(false);
-                    break;
-                case CookingResultGrade.Failed:
-                    successText.gameObject.SetActive(false);
-                    failText.gameObject.SetActive(true);
-                    itemImage.gameObject.SetActive(false);
-                    break;
-                default:
-                    break;
-            }
             int itemKey = RecipeManager.Instance.GetItemKey();
+
             Debug.Log($"최종 아이템 키 : {itemKey}");
+
+            // 실패 조건 먼저 체크
             if (itemKey == -1 || result == CookingResultGrade.Failed)
             {
                 successText.gameObject.SetActive(false);
                 failText.gameObject.SetActive(true);
                 itemImage.gameObject.SetActive(false);
-                itemNameText.text = ""; // 여기에 미니게임 실패시 문구 추가
+                itemNameText.text = "요리에 실패했어요...";
                 itemNameText.gameObject.SetActive(true);
-
                 SoundManager.Instance.PlaySFX("Fail");
                 return;
             }
+
+            // 성공
+            successText.gameObject.SetActive(true);
+            failText.gameObject.SetActive(false);
             SoundManager.Instance.PlaySFX("Success");
+
             var data = DataManager.Instance.DataLoader_Foods.GetByKey(itemKey);
             itemNameText.text = data.name;
+            itemNameText.gameObject.SetActive(true);
 
             itemImage.sprite = await AddressablesLoader.Instance.AddressablesLoadAsync<Sprite>($"Assets/16.Image/FoodImage/{data.englishName}.png", true);
-            if (itemImage.sprite == null)
-            {
-                itemImage.gameObject.SetActive(false);
-            }
-            return;
+            itemImage.gameObject.SetActive(itemImage.sprite != null);
         }
         else
         {
+            // 조리 도구 실패
             failText.text = "조리 도구를 잘못 선택한 것 같다...";
             failText.gameObject.SetActive(true);
+            itemNameText.gameObject.SetActive(false);
+            itemImage.gameObject.SetActive(false);
+            successText.gameObject.SetActive(false);
             SoundManager.Instance.PlaySFX("Fail");
         }
     }
-}
+    }

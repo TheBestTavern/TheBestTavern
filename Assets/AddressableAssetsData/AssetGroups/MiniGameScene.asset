@@ -71,6 +71,11 @@ MonoBehaviour:
     m_SerializedLabels:
     - MiniGameScene
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 547fbb3f485b201409746346b42d8840
+    m_Address: NPCSpriteAtlas
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 3f946b317ceaa2747b411cad54511d5f, type: 2}
   m_SchemaSet:
