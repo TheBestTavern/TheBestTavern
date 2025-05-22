@@ -147,11 +147,14 @@ public class CookingMiniGameManager : MonoSingleton<CookingMiniGameManager>
     public bool TryCooking()
     {
         if (!RecipeManager.Instance.IsValidRecipe(selectedItems, selectedCookingTool)) 
-        {PopUpManager.Instance.ShowPopUp(PopUpType.CookingResult); Debug.Log("false 반환할거임@@"); return false; }
-
-        if (ShouldRemoveItem(selectedCookingTool))
         {
-            RemoveInventoryItem();
+            PopUpManager.Instance.ShowPopUp(PopUpType.CookingFail);
+
+            if (ShouldRemoveItem(selectedCookingTool))
+            {
+                RemoveInventoryItem();
+            }
+            return false; 
         }
 
         return true;
