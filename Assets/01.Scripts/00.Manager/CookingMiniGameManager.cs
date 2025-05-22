@@ -197,7 +197,6 @@ public class CookingMiniGameManager : MonoSingleton<CookingMiniGameManager>
 
             if (itemData == null) { Debug.Log("아이템 키에 해당하는 아이템 데이터가 없음"); }
 
-            controller.아이템획득(itemData, 1);
             if (controller.아이템획득(itemData, 1))
             {
                 Debug.Log("아이템 인벤토리에 추가 성공");
