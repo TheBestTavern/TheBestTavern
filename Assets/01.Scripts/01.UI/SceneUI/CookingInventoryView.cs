@@ -127,11 +127,11 @@ public class CookingInventoryView : InventoryViewLoose
                 break;
             case "Cooking_MixingBowl_Test":
                 minTargetingNum = 2;
-                maxTargetingNum = 2;
+                maxTargetingNum = 3;
                 break;
             case "Plate":
                 minTargetingNum = 2;
-                maxTargetingNum = 2;
+                maxTargetingNum = 3;
                 break;
             default:
                 break;
