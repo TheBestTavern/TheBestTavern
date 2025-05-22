@@ -22,6 +22,7 @@ public class GameManager : MonoSingleton<GameManager>
         SaveLoadManager.Instance.Init();
         UIManager.Instance.Init();
         SoundManager.Instance.Init();
+        CalendarManager.Instance.Init();
 
         CommandManager.Instance.ExecuteCommands(1002);
     }
