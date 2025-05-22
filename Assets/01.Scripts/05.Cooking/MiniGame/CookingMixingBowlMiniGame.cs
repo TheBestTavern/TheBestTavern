@@ -12,6 +12,7 @@ public class CookingMixingBowlMiniGame : CookingMiniGameBase
     [SerializeField] private MixingSpoon mixingSpoon;
     [SerializeField] private CookingMixingBowlUI mixingbowlUI;
     private float mixingTime = 0;
+    protected override bool ShouldRemoveItem() => false;
 
     private void Awake()
     {

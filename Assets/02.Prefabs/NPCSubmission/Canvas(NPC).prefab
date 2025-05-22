@@ -1368,7 +1368,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "dev - \uC911\uC131\uACF5"
+  m_text: "dev - \uB300\uC131\uACF5"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: af83e056f3dc7b84ba00ad0fb1e7cd4a, type: 2}
   m_sharedMaterial: {fileID: -6239593712380839304, guid: af83e056f3dc7b84ba00ad0fb1e7cd4a, type: 2}

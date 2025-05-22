@@ -46,7 +46,7 @@
       "dishProperty": "귀한 재료",
       "description": "고급 재료 사용 요리 제출",
       "conditionNPC": 800001,
-      "conditionFavorability": 50,
+      "conditionFavorability": 10,
       "letterOfferKeyword": [
         "전복",
         "대게",
@@ -131,7 +131,7 @@
       "dishProperty": "복잡한 조리",
       "description": "3재료 이상 조합 요리",
       "conditionNPC": 800003,
-      "conditionFavorability": 60,
+      "conditionFavorability": 20,
       "letterOfferKeyword": [
         "두부",
         "밀가루",
@@ -169,7 +169,7 @@
       "dishProperty": "달콤한 디저트",
       "description": "디저트류 요리 제출",
       "conditionNPC": 800002,
-      "conditionFavorability": 50,
+      "conditionFavorability": 10,
       "letterOfferKeyword": [
         "식수",
         "밤",
@@ -216,7 +216,7 @@
       "dishProperty": "육류 ",
       "description": "육류 포함 요리",
       "conditionNPC": 800005,
-      "conditionFavorability": 60,
+      "conditionFavorability": 20,
       "letterOfferKeyword": [
         "파",
         "고추 양념장",
@@ -251,7 +251,7 @@
       "dishProperty": "버터 요리",
       "description": "풍미 가득한 요리",
       "conditionNPC": 800005,
-      "conditionFavorability": 70,
+      "conditionFavorability": 30,
       "letterOfferKeyword": [
         "쑥",
         "두부",
@@ -292,7 +292,7 @@
       "dishProperty": "채소 요리",
       "description": "채소만 사용된 요리",
       "conditionNPC": 800007,
-      "conditionFavorability": 50,
+      "conditionFavorability": 10,
       "letterOfferKeyword": [
         "콩나물",
         "간장 양념장",
@@ -330,7 +330,7 @@
       "dishProperty": "X",
       "description": "X",
       "conditionNPC": 800008,
-      "conditionFavorability": 50,
+      "conditionFavorability": 10,
       "letterOfferKeyword": [
         "배",
         "꿀"
@@ -367,7 +367,7 @@
       "dishProperty": "전통 요리",
       "description": "전통 종류의 요리",
       "conditionNPC": 800001,
-      "conditionFavorability": 60,
+      "conditionFavorability": 20,
       "letterOfferKeyword": [
         "문어",
         "육수",
