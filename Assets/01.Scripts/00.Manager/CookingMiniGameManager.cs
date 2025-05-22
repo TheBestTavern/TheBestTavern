@@ -163,8 +163,11 @@ public class CookingMiniGameManager : MonoSingleton<CookingMiniGameManager>
 
     private bool ShouldRemoveItem(string tool)
     {
-        // MixingBowl은 아이템 제거 안 함
-        return tool != "Cooking_MixingBowl_Test";
+        // MixingBowl/Dish는 아이템 제거 안 함
+        // 믹싱볼, 디쉬가 아니면 true로 반환
+        if (tool != "Cooking_MixingBowl_Test" || tool != "Plate") return true;
+        else return false;
+        //return tool != "Cooking_MixingBowl_Test"; // 믹싱볼, 디쉬가 아니면 true로 반환
     }
 
     // 아이템키 가져와서 인벤토리에 넣어주는 로직

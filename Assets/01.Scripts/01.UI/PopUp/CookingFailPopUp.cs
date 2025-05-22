@@ -86,7 +86,7 @@ public class CookingFailPopUp : BasePopUp
         else
         {
             // 조리 도구 실패
-            failText.text = "조리 도구를 잘못 선택한 것 같다...";
+            itemNameText.text = "조리 도구를 잘못 선택한 것 같다...";
             failText.gameObject.SetActive(true);
             itemNameText.gameObject.SetActive(false);
             itemImage.gameObject.SetActive(false);
