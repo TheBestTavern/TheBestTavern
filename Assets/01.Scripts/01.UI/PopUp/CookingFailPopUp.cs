@@ -50,8 +50,8 @@ public class CookingFailPopUp : BasePopUp
         itemNameText.gameObject.SetActive(false);
         itemImage.gameObject.SetActive(false);
 
-        
-        bool isPlate = CookingMiniGameManager.Instance.TryCooking();
+
+        bool isPlate = (CookingMiniGameManager.Instance.selectedCookingTool == "Plate");
         if (isPlate)
         {
             var result = CookingMiniGameManager.Instance.GetMiniGameResult();

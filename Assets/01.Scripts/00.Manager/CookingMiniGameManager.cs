@@ -165,7 +165,7 @@ public class CookingMiniGameManager : MonoSingleton<CookingMiniGameManager>
     {
         // MixingBowl/Dish는 아이템 제거 안 함
         // 믹싱볼, 디쉬가 아니면 true로 반환
-        if (tool != "Cooking_MixingBowl_Test" || tool != "Plate") return true;
+        if (tool != "Cooking_MixingBowl_Test" && tool != "Plate") return true;
         else return false;
         //return tool != "Cooking_MixingBowl_Test"; // 믹싱볼, 디쉬가 아니면 true로 반환
     }

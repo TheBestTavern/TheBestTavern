@@ -78,8 +78,11 @@ public class SubmissionMode : MonoBehaviour
             InventoryUI.gameObject.SetActive(false);
         }));
 
+//#if UNITY_EDITOR
         devBtn.onClick.AddListener(DevBtn); // 테스트용
-
+//#else
+//        devBtn.gameObject.SetActive(false);
+//#endif
         isInitialized = true;
     }
 
@@ -182,7 +185,7 @@ public class SubmissionMode : MonoBehaviour
         npcSlot.ShowMessage();
 
         PlayeSeq(hideSeq);
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(2.3f);
         npcSlot.OnExit();
         OnExit();
     }
