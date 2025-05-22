@@ -23,7 +23,12 @@ public class CookingInventoryView : InventoryViewLoose
         base.OnEnable();
         startMiniGameBtn.onClick.AddListener(() =>
         {
-            if (!CookingMiniGameManager.Instance.TryCooking()) return;
+            if (!CookingMiniGameManager.Instance.TryCooking())
+            {
+                UIManager.Instance.cookingSceneUI.OnClickBlurBackGround();
+                DisappearImage(pooledImageQueue.Dequeue());
+                return;
+            }
             CookingMiniGameManager.Instance.miniGameAnim.Invoke();
         });
         //startMiniGameBtn.onClick.AddListener(CookingMiniGameManager.Instance.ClickStartButton);

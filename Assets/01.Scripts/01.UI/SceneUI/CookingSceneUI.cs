@@ -137,8 +137,8 @@ public class CookingSceneUI : MonoBehaviour
                 default:
                     break;
             }
-
             OnClickCookingTool(s);
+
         }
     }
 
@@ -169,7 +169,7 @@ public class CookingSceneUI : MonoBehaviour
         await PopUpManager.Instance.ShowPopUp(PopUpType.CookingInfo);
     }
 
-    void OnClickBlurBackGround()
+    public void OnClickBlurBackGround()
     {
         if (isFocused)
         {
@@ -191,6 +191,8 @@ public class CookingSceneUI : MonoBehaviour
             curBtn.DORotate(new Vector3(0, 0, -40), 1.5f);
         }
         blurBackGround.gameObject.SetActive(false);
+        
+        isFocused = false;
     }
 
     // 확인 팝업 함수
