@@ -52,6 +52,7 @@ public class CookingInventoryView : InventoryViewLoose
         //base.OnDisable();
 
         startMiniGameBtn.onClick.RemoveAllListeners();
+        pooledImageQueue.Clear();
     }
 
     public void OnSelectTool(string s)
