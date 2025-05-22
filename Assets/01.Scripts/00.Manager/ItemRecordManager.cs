@@ -57,16 +57,19 @@ public class ItemRecordManager : MonoSingleton<ItemRecordManager>
 
     public void HasGainedItem(int key)
     {
-        if (!itemRecords[key].HasDiscovered)
+        if (GameManager.Instance.isAnalyticsAgreed)
         {
-            // string key.name 아이템 뭐 발견했는지 보내기
-            string ItemName = DataManager.Instance.DataLoader_FoodCategory.GetByKey(key).categoryName;
-
-            var ItemEvent = new AnalyticsItem("ItemData")
+            if (!itemRecords[key].HasDiscovered)
             {
-                ItemName = ItemName
-            };
-            AnalyticsService.Instance.RecordEvent(ItemEvent);
+                // string key.name 아이템 뭐 발견했는지 보내기
+                string ItemName = DataManager.Instance.DataLoader_FoodCategory.GetByKey(key).categoryName;
+
+                var ItemEvent = new AnalyticsItem("ItemData")
+                {
+                    ItemName = ItemName
+                };
+                AnalyticsService.Instance.RecordEvent(ItemEvent);
+            }
         }
 
         itemRecords[key].RecordDiscover();

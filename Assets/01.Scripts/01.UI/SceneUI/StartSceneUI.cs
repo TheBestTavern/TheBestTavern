@@ -106,6 +106,7 @@ public class StartSceneUI : MonoBehaviour
 
     private async void OnRejectAnalytics()
     {
+        GameManager.Instance.isAnalyticsAgreed = false;
         await SceneLoader.Instance.LoadSceneAsync(nextSceneName);
     }
 
@@ -113,6 +114,7 @@ public class StartSceneUI : MonoBehaviour
     {
         await UnityServices.InitializeAsync();
         AnalyticsService.Instance.StartDataCollection();
+        GameManager.Instance.isAnalyticsAgreed = true; 
     }
 
     private void ApplyPlayerData(PlayerGameData data)

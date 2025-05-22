@@ -10,6 +10,8 @@ public class GameManager : MonoSingleton<GameManager>
     public Action onSceneMoveAfter;
     public Action onSceneMoveBefore;
 
+    public bool isAnalyticsAgreed = false;
+
     private void Start()
     {
         DataManager.Instance.Init();

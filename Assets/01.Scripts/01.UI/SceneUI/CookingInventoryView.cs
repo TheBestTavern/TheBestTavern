@@ -32,11 +32,14 @@ public class CookingInventoryView : InventoryViewLoose
                 return;
             }
             CookingMiniGameManager.Instance.miniGameAnim.Invoke();
-            var CookingMiniGameData = new AnalyticsCookingMiniGame("CookingMiniGameData")
+            if (GameManager.Instance.isAnalyticsAgreed)
             {
-                miniGameName = CookingMiniGameManager.Instance.selectedCookingTool
-            };
-            AnalyticsService.Instance.RecordEvent(CookingMiniGameData);
+                var CookingMiniGameData = new AnalyticsCookingMiniGame("CookingMiniGameData")
+                {
+                    miniGameName = CookingMiniGameManager.Instance.selectedCookingTool
+                };
+                AnalyticsService.Instance.RecordEvent(CookingMiniGameData);
+            }
         });
         //startMiniGameBtn.onClick.AddListener(CookingMiniGameManager.Instance.ClickStartButton);
         startMiniGameBtn.onClick.AddListener(() => gameObject.SetActive(false));

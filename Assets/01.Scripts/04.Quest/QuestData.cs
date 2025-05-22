@@ -112,12 +112,15 @@ public class QuestData
         Dictionary<string, object> eventData = new();
         eventData.Add("완료한 퀘스트 이름", tempQuest.Origin.name);
 
-        // questID 이름 어떤 퀘스트 했는지 이벤트 보내기
-        var ItemEvent = new AnalyticsQuest("QuestData")
+        if (GameManager.Instance.isAnalyticsAgreed)
         {
-            questName = tempQuest.Origin.name
-        };
-        AnalyticsService.Instance.RecordEvent(ItemEvent);
+            // questID 이름 어떤 퀘스트 했는지 이벤트 보내기
+            var ItemEvent = new AnalyticsQuest("QuestData")
+            {
+                questName = tempQuest.Origin.name
+            };
+            AnalyticsService.Instance.RecordEvent(ItemEvent);
+        }
     }
 
     // 매일 할일
