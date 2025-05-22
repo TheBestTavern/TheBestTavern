@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
@@ -39,12 +40,12 @@ public class GatheringTutorialController : BaseTutorialController
             case 1:
                 npcImage.DOFade(0, 1f);
                 NextButton.gameObject.SetActive(false);
-                await Task.Delay(1500);
+                await UniTask.WaitForSeconds(1.5f);
                 textIndex++;
                 OnClickNextButton();
                 break;
             case 2:
-                await Task.Delay(1500);
+                await UniTask.WaitForSeconds(1.5f);
                 textIndex++;
                 OnClickNextButton();
                 break;
@@ -65,7 +66,7 @@ public class GatheringTutorialController : BaseTutorialController
                 break;
             case 13:
                 NextButton.gameObject.SetActive(false);
-                await Task.Delay(3000);
+                await UniTask.WaitForSeconds(3f);
                 await SceneLoader.Instance.LoadSceneAsync("TutorialCookingScene");
                 break;
         }
