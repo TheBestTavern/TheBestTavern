@@ -224,6 +224,7 @@ public class RecipeManager : MonoSingleton<RecipeManager>
                 matchedRecipes.Add(recipe);
             }
         }
+        Debug.Log(matchedRecipes.Count);
         return matchedRecipes.Count > 0 ? matchedRecipes : null;
     }
 
