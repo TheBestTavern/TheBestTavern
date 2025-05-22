@@ -38,7 +38,7 @@ public class TimerManager : MonoSingleton<TimerManager>
         }
 
         timerModel = new TimerModel(startyear, startmonth, startday, false);
-        OnSceneMove();
+        FindTimerUI();
 
         OnNewDay_DayPass command1 = new(this);
         CommandManager.Instance.AddCommand(command1);
@@ -52,6 +52,11 @@ public class TimerManager : MonoSingleton<TimerManager>
     }
 
     public void OnSceneMove() // 씬이동, 게임시작할때 한번씩 실행.
+    {
+        FindTimerUI();
+    }
+
+    private void FindTimerUI()
     {
         if (timerUI == null)
         {
@@ -125,7 +130,8 @@ public class TimerManager : MonoSingleton<TimerManager>
         }
 
         // 날짜 UI 설정 
-        timerUI.SetTimer(day, season);
+        if (timerUI != null)
+            timerUI.SetTimer(day, season);
     }
 
     // 오늘 날짜 불러오기 함수
