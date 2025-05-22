@@ -11,7 +11,7 @@ public class DayAndNightManager : MonoSingleton<DayAndNightManager>
     public Material nightMat;
     [Range(0f, 1f)] public float process = 0; // 현재 하루의 진행도(시간)
     [Range(0f, 1f)] public float limitProcess; // 시간이 흐를때 리미트
-    [Range(0f, 3f)] public float duration = 0.0001f;
+    [Range(0f, 3f)] public float duration = 1;
 
     public AnimationCurve saturationCurve;
     public AnimationCurve lightnessCurve;
