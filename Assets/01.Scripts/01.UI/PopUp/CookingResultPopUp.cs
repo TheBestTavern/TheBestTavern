@@ -20,7 +20,7 @@ public class CookingResultPopUp : BasePopUp
     {
         // 미니게임 닫기 
         CookingMiniGameManager.Instance.miniGameUI.OnClickCloseButton();
-        
+
         base.OnClose();
     }
 
@@ -32,14 +32,14 @@ public class CookingResultPopUp : BasePopUp
 
         itemNameText.gameObject.SetActive(true);
         itemImage.gameObject.SetActive(true);
-        
+
         ShowItemInfo();
         ShowResultText();
         try
         {
             base.OnOpen();
         }
-        catch (System.Exception e) 
+        catch (System.Exception e)
         {
             Debug.LogError(e);
         }
@@ -48,9 +48,9 @@ public class CookingResultPopUp : BasePopUp
     public void ShowResultText()
     {
         var result = CookingMiniGameManager.Instance.GetMiniGameResult();
-        
+        Debug.Log(result);
         // 결과에 따라 성공/실패 텍스트 활성
-         switch (result)
+        switch (result)
         {
             case CookingResultGrade.Legendary:
             case CookingResultGrade.Rare:
@@ -71,14 +71,15 @@ public class CookingResultPopUp : BasePopUp
     public async void ShowItemInfo()
     {
         int itemKey = RecipeManager.Instance.GetItemKey();
+        var result = CookingMiniGameManager.Instance.GetMiniGameResult();
+
         Debug.Log($"최종 아이템 키 : {itemKey}");
-        if (itemKey == -1)
+        if (itemKey == -1 || result == CookingResultGrade.Failed)
         {
-            Debug.Log("레시피가 틀려서 이름 안 뜸");
             successText.gameObject.SetActive(false);
             failText.gameObject.SetActive(true);
             itemImage.gameObject.SetActive(false);
-            itemNameText.text = "조리 도구를 잘못 선택한 것 같다...";
+            itemNameText.text = ""; // 여기에 미니게임 실패시 문구 추가
             itemNameText.gameObject.SetActive(true);
 
             SoundManager.Instance.PlaySFX("Fail");
