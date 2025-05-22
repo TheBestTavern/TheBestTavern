@@ -30,7 +30,7 @@ public class CommandManager : MonoSingleton<CommandManager>
     bool isReady;
     //Dictionary<Class, bool> commandAdmin;
 
-    DayAndNightManager dayAndNightManager;
+    //DayAndNightManager dayAndNightManager;
     public override void Init()
     {
         if (_isInitialized) return;
@@ -45,10 +45,10 @@ public class CommandManager : MonoSingleton<CommandManager>
 
     }
 
-    private void Start()
-    {
-        dayAndNightManager = DayAndNightManager.Instance;
-    }
+    //private void Start()
+    //{
+    //    dayAndNightManager = DayAndNightManager.Instance;
+    //}
 
     public void AddCommand(IDayCommand command)
     {
@@ -71,7 +71,7 @@ public class CommandManager : MonoSingleton<CommandManager>
             try
             {
                 if (commands[i].Priority < from) continue;
-                dayAndNightManager.limitProcess = commands[i].Priority / 2000f;
+                DayAndNightManager.Instance.limitProcess = commands[i].Priority / 2000f;
                 await commands[i].Execute();
             }
             catch (Exception e)

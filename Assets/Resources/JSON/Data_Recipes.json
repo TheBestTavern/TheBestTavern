@@ -35,7 +35,7 @@
       "name": "다진 고추",
       "resultCategory": 110103,
       "ingredients": [
-        110002
+        110103
       ],
       "usingTool": 1002,
       "itemType": 1
@@ -55,7 +55,7 @@
       "name": "당근 즙",
       "resultCategory": 110105,
       "ingredients": [
-        110003
+        110104
       ],
       "usingTool": 1003,
       "itemType": 1
@@ -83,9 +83,9 @@
     {
       "key": 601009,
       "name": "두부",
-      "resultCategory": 102043,
+      "resultCategory": 110108,
       "ingredients": [
-        110006
+        110107
       ],
       "usingTool": 1005,
       "itemType": 1
@@ -95,7 +95,7 @@
       "name": "썰린 두부",
       "resultCategory": 110109,
       "ingredients": [
-        110006
+        110108
       ],
       "usingTool": 1001,
       "itemType": 1
@@ -155,7 +155,7 @@
       "name": "삶은 무",
       "resultCategory": 110115,
       "ingredients": [
-        110009
+        110114
       ],
       "usingTool": 1004,
       "itemType": 1
@@ -165,7 +165,7 @@
       "name": "무 즙",
       "resultCategory": 110116,
       "ingredients": [
-        110009
+        110114
       ],
       "usingTool": 1003,
       "itemType": 1
@@ -405,7 +405,7 @@
       "name": "구운 고등어",
       "resultCategory": 110140,
       "ingredients": [
-        110138
+        110022
       ],
       "usingTool": 1006,
       "itemType": 1
@@ -465,7 +465,7 @@
       "name": "구운 갈치",
       "resultCategory": 110146,
       "ingredients": [
-        110144
+        110026
       ],
       "usingTool": 1006,
       "itemType": 1
