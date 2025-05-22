@@ -1,0 +1,88 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: NPCSpriteAtlas
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings:
+    - serializedVersion: 3
+      m_BuildTarget: DefaultTexturePlatform
+      m_MaxTextureSize: 4096
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: -1
+      m_TextureCompression: 1
+      m_CompressionQuality: 50
+      m_CrunchedCompression: 0
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 0
+      m_IgnorePlatformSupport: 0
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
+    packingSettings:
+      serializedVersion: 2
+      padding: 8
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 1
+      enableAlphaDilation: 0
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 102900000, guid: c6bd7790a8c5e2c4b8922b43e93ea515, type: 3}
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+    packedSpriteRenderDataKeys:
+    - 96a8d4202479dad488ab68843257b79c: 21300000
+    - d07d13f0cc9de6844b7aa9fc6dcdded3: 21300000
+    - 4ff13219cf425094aa858975157b5d0e: 21300000
+    - e93978ea5e0bbd948aabc89a5972a704: 21300000
+    - 937e185b6c06cc3409843d41ce4eb931: 21300000
+    - f21a489bd3e6cd64f95e7e7d4a41b4f4: 21300000
+    - d79c5aac81e164d429ee225d846bbf0d: 21300000
+    - aba71cfc9904fab4fae874a4a04b0d74: 21300000
+    - a2fa452dc5343314ebb5c1c7ca8ca1e2: 21300000
+    - 61742bce105494441b559dada251b12f: 21300000
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: 96a8d4202479dad488ab68843257b79c, type: 3}
+  - {fileID: 21300000, guid: d07d13f0cc9de6844b7aa9fc6dcdded3, type: 3}
+  - {fileID: 21300000, guid: 4ff13219cf425094aa858975157b5d0e, type: 3}
+  - {fileID: 21300000, guid: e93978ea5e0bbd948aabc89a5972a704, type: 3}
+  - {fileID: 21300000, guid: 937e185b6c06cc3409843d41ce4eb931, type: 3}
+  - {fileID: 21300000, guid: f21a489bd3e6cd64f95e7e7d4a41b4f4, type: 3}
+  - {fileID: 21300000, guid: d79c5aac81e164d429ee225d846bbf0d, type: 3}
+  - {fileID: 21300000, guid: aba71cfc9904fab4fae874a4a04b0d74, type: 3}
+  - {fileID: 21300000, guid: a2fa452dc5343314ebb5c1c7ca8ca1e2, type: 3}
+  - {fileID: 21300000, guid: 61742bce105494441b559dada251b12f, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - kongjwi
+  - tiger
+  - turtle
+  - rabbit
+  - goblin
+  - heosaeng
+  - patjwi
+  - heungbu
+  - fairy
+  - nolbu
+  m_RenderDataMap: {}
+  m_Tag: NPCSpriteAtlas
+  m_IsVariant: 0

@@ -25,11 +25,12 @@ public class NPCSlot : MonoBehaviour
         messagePivot.gameObject.SetActive(false);
     }
 
-    public void SetSlot(int questID)
+    public async void SetSlot(int questID)
     {
         this.quest = Data.GetQuest(questID);
         npc = NPCManager.Instance.AllNPC[quest.Origin.givingNPC];
-        image.sprite = Resources.Load<Sprite>("NPC/" + npc.Origin.name);
+        //image.sprite = Resources.Load<Sprite>("NPC/" + npc.Origin.name);
+        image.sprite = await AddressablesLoader.Instance.AddressablesLoadSpriteFromAtlasAsync("NPCSpriteAtlas", npc.Origin.englishName);
         TmpMessage.text = npc.Origin.thanksMent;
     }
 

@@ -437,12 +437,12 @@ SpriteAtlas:
   - kimchi
   - mashedSweetPotato
   - ginsengGochujangGrill
-  - Honey
+  - honey
   - steamedShrimp
   - meat
   - koreanGinseng
   - cutlassfish
-  - Garlic
+  - garlic
   - sweetPotato
   - friedSquid
   - slicedRedSeaBream
@@ -550,7 +550,7 @@ SpriteAtlas:
   - abalone
   - roastSweetPotato
   - grilledMackerel
-  - Butter
+  - butter
   - mashedPotato
   - mincedChili
   - abaloneSashimi

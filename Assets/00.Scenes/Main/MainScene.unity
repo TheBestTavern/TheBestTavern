@@ -772,10 +772,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4046150044594427547, guid: 9505b8ff7fe1d024c907d50f453f0a3a, type: 3}
-      propertyPath: m_Name
-      value: InventoryPanel
-      objectReference: {fileID: 0}
     - target: {fileID: 5192589647058252763, guid: 9505b8ff7fe1d024c907d50f453f0a3a, type: 3}
       propertyPath: m_Name
       value: Canvas(NPC)
@@ -2455,6 +2451,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isDontDestroyOnLoad: 1
+  isAnalyticsAgreed: 0
 --- !u!4 &1282809741
 Transform:
   m_ObjectHideFlags: 0
