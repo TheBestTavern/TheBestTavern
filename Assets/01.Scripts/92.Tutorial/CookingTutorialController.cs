@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
@@ -123,7 +124,7 @@ public class CookingTutorialController : BaseTutorialController
                 break;
             case 18:
                 nextButton.gameObject.SetActive(false);
-                await Task.Delay(3000);
+                await UniTask.WaitForSeconds(3f);
                 await SceneLoader.Instance.LoadSceneAsync("MainScene");
                 break;
         }

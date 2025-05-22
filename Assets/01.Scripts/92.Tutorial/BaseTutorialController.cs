@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using System.Threading;
 using System.Threading.Tasks;
+using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using TMPro;
 using Unity.VisualScripting.Antlr3.Runtime;
@@ -46,7 +47,7 @@ public abstract class BaseTutorialController : MonoBehaviour
         for (int i = 0; i < text.Length; i++)
         {
             npcText.text += text[i];
-            await Task.Delay(50);
+            await UniTask.WaitForSeconds(0.05f);
         }
 
         isTexting = false;

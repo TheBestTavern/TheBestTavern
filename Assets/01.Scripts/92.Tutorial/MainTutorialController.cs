@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
@@ -55,7 +56,7 @@ public class MainTutorialController : BaseTutorialController
             case 14:
                 nextButton.gameObject.SetActive(false);
                 flashTokenSource?.Cancel();
-                await Task.Delay(2000);
+                await UniTask.WaitForSeconds(2f);
                 await SceneLoader.Instance.LoadSceneAsync("TutorialForestGatheringScene");
                 break;
         }

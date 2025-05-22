@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
+using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
@@ -118,7 +119,7 @@ public class IntroSceneUI : MonoBehaviour
         await PlayTractorSequence(token);
         await PlayPostTractorTexts(token);
 
-        await Task.Delay(1000, token);
+        await UniTask.WaitForSeconds(1f);
         SoundManager.Instance.PlaySFX("Paper");
         paper.gameObject.SetActive(true);
         startSceneImage.gameObject.SetActive(true);
@@ -126,7 +127,7 @@ public class IntroSceneUI : MonoBehaviour
         skipButton.gameObject.SetActive(false);
         await introText.DOFade(0, 2).AsyncWaitForCompletion();
 
-        await Task.Delay(1000, token);
+        await UniTask.WaitForSeconds(1f);
         await paper.rectTransform.DOMoveY(-1500, 2f).AsyncWaitForCompletion();
 
         //await RevealText(titleText,token);
@@ -203,7 +204,7 @@ public class IntroSceneUI : MonoBehaviour
         SoundManager.Instance.PlaySFX("LineWhoosh");
         introText.alpha = 1;
         await RevealText(introText, token);
-        await Task.Delay(1000, token);
+        await UniTask.WaitForSeconds(1f);  
         await introText.DOFade(0, 1).AsyncWaitForCompletion();
 
         token.ThrowIfCancellationRequested();
@@ -211,7 +212,7 @@ public class IntroSceneUI : MonoBehaviour
         SoundManager.Instance.PlaySFX("Impact");
         introText.alpha = 1;
         await RevealText(introText, token);
-        await Task.Delay(1000, token);
+        await UniTask.WaitForSeconds(1f);  
         await introText.DOFade(0, 1).AsyncWaitForCompletion();
 
     }
@@ -224,7 +225,8 @@ public class IntroSceneUI : MonoBehaviour
         introText.text = text;
 
         await introText.DOFade(1, 1f).AsyncWaitForCompletion();
-        await Task.Delay((int)shortDelay, token);
+        //await Task.Delay((int)shortDelay, token);
+        await UniTask.WaitForSeconds(1.5f);
 
         await introText.DOFade(0, 1).AsyncWaitForCompletion();
         token.ThrowIfCancellationRequested();
@@ -244,7 +246,7 @@ public class IntroSceneUI : MonoBehaviour
         {
             token.ThrowIfCancellationRequested();
             text.maxVisibleCharacters = i;
-            await Task.Delay(150, token);
+            await UniTask.WaitForSeconds(0.015f);
         }
     }
 

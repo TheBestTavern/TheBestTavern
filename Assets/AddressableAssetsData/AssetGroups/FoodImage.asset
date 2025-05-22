@@ -742,11 +742,6 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 8c719cc938f624442b101b0931537f45
-    m_Address: Assets/16.Image/FoodImage/Chili pepper.png
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3ffc44c2a72eb4846b29bc847b41cdb2
     m_Address: Assets/16.Image/FoodImage/steamedPearDessert.png
     m_ReadOnly: 0
