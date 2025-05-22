@@ -162,7 +162,6 @@ SpriteAtlas:
     - 403064592745ef54c8d09bcc74140d79: 21300000
     - 161ba579920254e49a87d145f0926581: 21300000
     - c92a2ab9f7014884fbdd525bff7196a6: 21300000
-    - 8c719cc938f624442b101b0931537f45: 21300000
     - 636accc9f274f4744a9bdfd8f87bf800: 21300000
     - c32a82d99ae6d584bb3f71f9ae9522e5: 21300000
     - 94238ad9cb0afac41920b7626e814cfc: 21300000
@@ -354,7 +353,6 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 403064592745ef54c8d09bcc74140d79, type: 3}
   - {fileID: 21300000, guid: 161ba579920254e49a87d145f0926581, type: 3}
   - {fileID: 21300000, guid: c92a2ab9f7014884fbdd525bff7196a6, type: 3}
-  - {fileID: 21300000, guid: 8c719cc938f624442b101b0931537f45, type: 3}
   - {fileID: 21300000, guid: 636accc9f274f4744a9bdfd8f87bf800, type: 3}
   - {fileID: 21300000, guid: c32a82d99ae6d584bb3f71f9ae9522e5, type: 3}
   - {fileID: 21300000, guid: 94238ad9cb0afac41920b7626e814cfc, type: 3}
@@ -545,7 +543,6 @@ SpriteAtlas:
   - amberjackSashimiSet
   - boiledPotato
   - crabFriedRice
-  - Chili pepper
   - butterGrilledKingPrawn
   - redSeaBreamSashimiSet
   - cleanedKingCrab
