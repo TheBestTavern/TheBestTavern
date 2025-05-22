@@ -3,10 +3,11 @@ using Unity.IO.LowLevel.Unsafe;
 using System.Threading.Tasks;
 using UnityEngine;
 using OpenCover.Framework.Model;
+using System;
 
 public interface IDayCommand
 {
-    public int Priority {get;}
+    public int Priority { get; }
     public Task Execute();
     public bool isValid();
 }
@@ -57,22 +58,31 @@ public class CommandManager : MonoSingleton<CommandManager>
 
     public async Task ExecuteCommands(int from = 0)
     {
-        if(!isReady)
+        if (!isReady)
         {
-            commands.Sort((a,b) => a.Priority.CompareTo(b.Priority)); // 퀵정렬 내부에 비교로직을 매개변수로 대입
+            commands.Sort((a, b) => a.Priority.CompareTo(b.Priority)); // 퀵정렬 내부에 비교로직을 매개변수로 대입
             isReady = true;
         }
 
         commands.RemoveAll(x => !x.isValid());
 
-        foreach (var command in commands)
+        for (int i = 0; i < commands.Count; i++)
         {
-            if (command.Priority < from) continue;
-            dayAndNightManager.limitProcess = command.Priority / 2000f;
-            await command.Execute();
+            try
+            {
+                if (commands[i].Priority < from) continue;
+                dayAndNightManager.limitProcess = commands[i].Priority / 2000f;
+                await commands[i].Execute();
+            }
+            catch (Exception e)
+            {
+                Debug.LogError($"command at index({i}), priority({commands[i].Priority}) command threw an exception.");
+                Debug.LogException(e);
+            }
         }
     }
 }
+
 
 public class OnCommandStart : IDayCommand
 {

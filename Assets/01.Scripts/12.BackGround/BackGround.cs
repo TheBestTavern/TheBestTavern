@@ -9,21 +9,32 @@ public class BackGround : MonoBehaviour
     [SerializeField] Image BG;
     [SerializeField] Image BG_Tree;
 
+    public DesignEnums.SeasonType? currentSeason;
+
     private void Awake()
     {
         EventBus.Subscribe<SeasonChangeEvent>(ToSetBG);
     }
 
+    private void Start()
+    {
+        ToSetBG();
+    }
+
     public void ToSetBG()
     {
-        DesignEnums.SeasonType season = CalendarManager.Instance.CurrentSeasonType;
-
-        SetBG(season);
+        DesignEnums.SeasonType? season = CalendarManager.Instance.CurrentSeasonType;
+        if(season != null)
+        SetBG(season.Value);
     }
 
     public void ToSetBG(SeasonChangeEvent seasonChangeEvent)
     {
-        SetBG(seasonChangeEvent.season);
+        if (seasonChangeEvent.season != currentSeason)
+        {
+            currentSeason = seasonChangeEvent.season;
+            SetBG(currentSeason.Value);
+        }
     }
 
     private async void SetBG(DesignEnums.SeasonType season)

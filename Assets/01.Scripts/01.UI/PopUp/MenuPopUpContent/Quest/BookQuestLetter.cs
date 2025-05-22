@@ -19,7 +19,12 @@ public class BookQuestLetter : BasePopUp
     public async void SetLetter(Quest quest, bool isInProgressQuest)
     {
         title.text = quest.Origin.name;
-        bodyText.text = quest.Origin.letterOffer;
+        string colored = quest.Origin.letterOffer;
+        foreach (string keyword in quest.Origin.letterOfferKeyword)
+        {
+            colored = colored.Replace(keyword, $"<b><color=#2C6DA6>{keyword}</color></b>");
+        }
+        bodyText.text = colored;
         from.text = $"-{Data.GetNPC(quest.Origin.givingNPC).Origin.name}-";
         if (!isInProgressQuest)
         {
