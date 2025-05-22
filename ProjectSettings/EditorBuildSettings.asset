@@ -4,6 +4,54 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 0
+    path: Assets/00.Scenes/Main/IntroScene.unity
+    guid: 0bc62e78206417848ab2cd9f4ce93265
+  - enabled: 0
+    path: Assets/00.Scenes/Main/MainScene.unity
+    guid: 897395fc3162cb14a8fd6e98aa2b2021
+  - enabled: 0
+    path: Assets/00.Scenes/Main/CookingScene.unity
+    guid: 6a25f84f620830f47828b21428b79647
+  - enabled: 0
+    path: Assets/00.Scenes/Main/ForestGatheringScene.unity
+    guid: 9d872d5bba2e91a40823cce02a0147da
+  - enabled: 0
+    path: Assets/00.Scenes/Main/SeaGatheringScene.unity
+    guid: c7c11ae18349995469b673b20cb4b649
+  - enabled: 0
+    path: Assets/00.Scenes/SY/Cooking_Boil_Test.unity
+    guid: 6e80c233513f7fd4085da7c4beec7654
+  - enabled: 0
+    path: Assets/00.Scenes/SY/Cooking_Grill_Test.unity
+    guid: d22a648f56c95ef499e2fb44ad14f9d1
+  - enabled: 0
+    path: Assets/00.Scenes/SY/Cooking_Grind_Test.unity
+    guid: eee4fe1f026b2bd44a65ffeae5675b60
+  - enabled: 0
+    path: Assets/00.Scenes/SY/Cooking_Mill_Test.unity
+    guid: 2999a1ef1de4c6d42898466a6157c369
+  - enabled: 0
+    path: Assets/00.Scenes/SY/Cooking_MixingBowl_Test.unity
+    guid: 1a097857fe7798546b31154e2a2de585
+  - enabled: 0
+    path: Assets/00.Scenes/SY/Cooking_Cutting_Test.unity
+    guid: 4608a24015c0f8e499b99cdb3dca3761
+  - enabled: 0
+    path: Assets/00.Scenes/RA/Forest_Animal_Dev.unity
+    guid: 4ea2acbce2a3bee49b8c6498951bd74e
+  - enabled: 0
+    path: Assets/00.Scenes/RA/Ocean_Fishing.unity
+    guid: d00ed41f3115f0746a03cb29eb4fe189
+  - enabled: 0
+    path: Assets/00.Scenes/WS/TutorialCookingScene.unity
+    guid: 93a9343c00e8ccb4eb469bde855ed489
+  - enabled: 0
+    path: Assets/00.Scenes/WS/TutorialForestGatheringScene.unity
+    guid: a2d91e19fc1d71443bdc187014152f8f
+  - enabled: 0
+    path: Assets/00.Scenes/WS/TutorialScene.unity
+    guid: 3e924347c1cd5ad4b8fc3c076aafd328
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: 5fbee0bab30c55e4888246aae74209f4, type: 2}
