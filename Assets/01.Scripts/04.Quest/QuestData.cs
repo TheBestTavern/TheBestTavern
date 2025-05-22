@@ -2,8 +2,11 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Unity.Services.Analytics;
+using UnityEngine.Analytics;
 using Unity.VisualScripting;
 using UnityEngine;
+using static UnityEditor.Searcher.Searcher;
 
 public enum SuccessDegree
 {
@@ -105,6 +108,16 @@ public class QuestData
             OnceSuccessQuests[questID] = successDegree;
             EventBus.Publish<QuestSuccessFirstEvent>(new QuestSuccessFirstEvent());
         }
+
+        Dictionary<string, object> eventData = new();
+        eventData.Add("완료한 퀘스트 이름", tempQuest.Origin.name);
+
+        // questID 이름 어떤 퀘스트 했는지 이벤트 보내기
+        var ItemEvent = new AnalyticsQuest("QuestData")
+        {
+            questName = tempQuest.Origin.name
+        };
+        AnalyticsService.Instance.RecordEvent(ItemEvent);
     }
 
     // 매일 할일
