@@ -13,10 +13,10 @@ public class Slot : MonoBehaviour
         Clear();
     }
 
-    public void SetSlot(Data_Foods item)
+    public async void SetSlot(Data_Foods item)
     {
         this.raw = item;
-        image.sprite = Resources.Load<Sprite>($"Item/{raw.englishName}");
+        image.sprite = await AddressablesLoader.Instance.AddressablesLoadSpriteFromAtlasAsync("FoodSpriteAtlas", raw.englishName);
         image.color = new Color(1.2f, 1.2f, 1.2f, 1);
     }
 
