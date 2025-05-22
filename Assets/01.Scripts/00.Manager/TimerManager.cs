@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Unity.Mathematics;
 using Unity.Services.Analytics;
 using UnityEditor;
 using UnityEngine;
@@ -86,12 +87,10 @@ public class TimerManager : MonoSingleton<TimerManager>
 
         // 플레이어 날짜 -> 이전 데이터 갱신(최대 날짜용)
         var today = GetToday();
-
+        string date = $"{today.year:D4}-{today.month:D2}-{today.day:D2}";
         var TimeEvent = new AnalyticsTime("TimeData")
         {
-            year = today.year,
-            month = today.month,
-            day = today.day,
+            dateData = date
         };
         AnalyticsService.Instance.RecordEvent(TimeEvent);
     }

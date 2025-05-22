@@ -8,7 +8,5 @@ public class AnalyticsTime : Unity.Services.Analytics.Event
     {
     }
 
-    public int year { set { SetParameter("year", value); } }
-    public int month { set { SetParameter("month", value); } }
-    public int day { set { SetParameter("day", value); } }
+    public string dateData { set { SetParameter("dateData", value); } }
 }

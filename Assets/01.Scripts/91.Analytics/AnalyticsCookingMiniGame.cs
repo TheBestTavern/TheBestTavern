@@ -2,17 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AnalyticsCookingMiniGame : MonoBehaviour
+public class AnalyticsCookingMiniGame : Unity.Services.Analytics.Event
 {
-    // Start is called before the first frame update
-    void Start()
+    public AnalyticsCookingMiniGame(string EventName) : base(EventName)
     {
-        
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public string miniGameName { set { SetParameter("miniGameName", value); } }
 }
