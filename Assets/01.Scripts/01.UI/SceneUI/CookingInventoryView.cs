@@ -68,7 +68,7 @@ public class CookingInventoryView : InventoryViewLoose
         SetTargetSlotCount("none");
         foreach (var slotindex in targetingSlots.ToList())
         {
-            아이템타게팅취소(slotindex);
+            TargetingSlotCancel(slotindex);
             index2Slots[slotindex].ExitTargetingState();
         }
     }
@@ -127,11 +127,11 @@ public class CookingInventoryView : InventoryViewLoose
                 break;
             case "Cooking_MixingBowl_Test":
                 minTargetingNum = 2;
-                maxTargetingNum = 2;
+                maxTargetingNum = 3;
                 break;
             case "Plate":
                 minTargetingNum = 2;
-                maxTargetingNum = 2;
+                maxTargetingNum = 3;
                 break;
             default:
                 break;
@@ -139,9 +139,9 @@ public class CookingInventoryView : InventoryViewLoose
         SetAbleButton();
     }
 
-    public async override void 아이템타게팅(int index)
+    public async override void TargetingSlot(int index)
     {
-        base.아이템타게팅(index);
+        base.TargetingSlot(index);
 
         //ItemStack item = index2Slots[index].GetSlotItem();
 
@@ -161,9 +161,9 @@ public class CookingInventoryView : InventoryViewLoose
         MoveToCenterImage(pooledImage);
     }
 
-    public override void 아이템타게팅취소(int index)
+    public override void TargetingSlotCancel(int index)
     {
-        base.아이템타게팅취소(index);
+        base.TargetingSlotCancel(index);
         if (pooledImageQueue.Count > 0)
         {
             DisappearImage(pooledImageQueue.Dequeue());

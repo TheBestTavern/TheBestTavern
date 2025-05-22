@@ -21,18 +21,18 @@ public class InventoryController
         this.maxStackSize = maxStackSize;
 
         this.model = new InventoryModel();
-        model.Init(invenType, slotCount, maxStackSize, 특정아이템정보변경);
+        model.Init(invenType, slotCount, maxStackSize, ViewSpecificItem);
 
         var allViews = InventoryManager.Instance.FindInventoryView();
-        On씬이동After();
+        OnAfterSceneMove();
     }
 
-    public virtual void On씬이동Before() // view 찾아서 연결. 씬이동할때마다 실행? 안해도 view에서 자체적으로 연결을 걸듯. 
+    public virtual void OnBeforeSceneMove() // view 찾아서 연결. 씬이동할때마다 실행? 안해도 view에서 자체적으로 연결을 걸듯. 
     {
         views.Clear();
     }
 
-    public virtual void On씬이동After() // view 찾아서 연결. 씬이동할때마다 실행? 안해도 view에서 자체적으로 연결을 걸듯. 
+    public virtual void OnAfterSceneMove() // view 찾아서 연결. 씬이동할때마다 실행? 안해도 view에서 자체적으로 연결을 걸듯. 
     {
         var allViews = InventoryManager.Instance.FindInventoryView();
 
@@ -42,7 +42,7 @@ public class InventoryController
             {
                 if (views.Contains(view)) continue;
 
-                view.초기화ByController(this);
+                view.InitailizeByController(this);
             }
         }
     }
@@ -52,35 +52,35 @@ public class InventoryController
         views.Add(view);
     }
 
-    public virtual bool 아이템획득(Data_Foods data_Foods, int amount)
+    public virtual bool AcquireItem(Data_Foods data_Foods, int amount)
     {
-        if (!model.아이템검사후추가(data_Foods, amount))
+        if (!model.AddItemWithCheck(data_Foods, amount))
         {
             return false;
         }
         return true;
     }
 
-    public bool 아이템획득(int itemID, int amount)
+    public bool AcquireItem(int itemID, int amount)
     {
         var data_Foods = Data.GetRawItem(itemID);
-        return 아이템획득(data_Foods, amount);
+        return AcquireItem(data_Foods, amount);
     }
 
-    public virtual bool 아이템잃음(Data_Foods data_Foods, int amount)
+    public virtual bool LooseItem(Data_Foods data_Foods, int amount)
     {
-        if (!model.아이템감소(data_Foods, amount))
+        if (!model.DecreaseItemWithCheck(data_Foods, amount))
         {
             return false;
         }
         return true;
     }
 
-    public bool 쓰레기통에버리기(Data_Foods data_Foods, int amount)
+    public bool ThrowInTrash(Data_Foods data_Foods, int amount)
     {
         if (amount > 0)
         {
-            return 아이템잃음(data_Foods, amount);
+            return LooseItem(data_Foods, amount);
         }
         else
         {
@@ -88,21 +88,24 @@ public class InventoryController
         }
     }
 
-    public void 아이템정렬_합치기()
+    public void SortingModel_Merge()
     {
-        model.아이템정렬_합치기();
+        model.SortingModel_Merge();
     }
 
-    public Dictionary<int, ItemStack> 모델정보반환()
+    public Dictionary<int, ItemStack> GetModel()
     {
         return model.ID2ItemStack;
     }
 
-    public void 특정아이템정보변경(int id)
+    public void ViewSpecificItem(int id, InvenType itemStackInvenType)
     {
         foreach (var view in views)
         {
-            view.특정아이템정보갱신(id);
+            if (view.invenType == invenType && itemStackInvenType == invenType)
+            {
+                view.ReviewSpecificItemStack(id);
+            }
         }
     }
 

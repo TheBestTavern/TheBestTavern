@@ -33,7 +33,7 @@ public class test_Inventory : MonoBehaviour
 
     private void AddItemBtn(int key)
     {
-        if(InventoryManager.Instance.Invens[InvenType.Player].아이템획득(Data.GetRawItem(key), count))
+        if(InventoryManager.Instance.Invens[InvenType.Player].AcquireItem(Data.GetRawItem(key), count))
         {
             Debug.Log("아이템 증가 가능");
         }
@@ -45,7 +45,7 @@ public class test_Inventory : MonoBehaviour
 
     private void SubtractItemBtn(int key)
     {
-        if(InventoryManager.Instance.Invens[InvenType.Player].아이템잃음(Data.GetRawItem(key), count))
+        if(InventoryManager.Instance.Invens[InvenType.Player].LooseItem(Data.GetRawItem(key), count))
         {
             Debug.Log("아이템 감소 가능");
         }

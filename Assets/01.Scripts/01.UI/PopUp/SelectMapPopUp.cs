@@ -93,6 +93,7 @@ public class SelectMapPopUp : BasePopUp
         // 채집 씬으로 이동 
         SceneParameter.Set("Region", region);
         await SceneLoader.Instance.LoadSceneAsync("SeaGatheringScene");
+        SoundManager.Instance.StopLoop();
         SoundManager.Instance.PlayAmbience("OceanAmbience");
     }
 
@@ -102,6 +103,7 @@ public class SelectMapPopUp : BasePopUp
         // 채집 씬으로 이동 
         SceneParameter.Set("Region", region);
         await SceneLoader.Instance.LoadSceneAsync("ForestGatheringScene");
+        SoundManager.Instance.StopLoop();
         SoundManager.Instance.PlayAmbience("ForestAmbience");
     }
 

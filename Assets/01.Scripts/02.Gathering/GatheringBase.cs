@@ -83,7 +83,7 @@ public class GatheringBase : MonoBehaviour
 
             await ItemMoveAnim(pooledImage);
 
-            if (InventoryManager.Instance.Invens[InvenType.Gathering].아이템획득(item, 1))
+            if (InventoryManager.Instance.Invens[InvenType.Gathering].AcquireItem(item, 1))
             {
                 Debug.Log("아이템 증가 가능");
             }

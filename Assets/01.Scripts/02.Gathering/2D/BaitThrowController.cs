@@ -91,7 +91,7 @@ public class BaitThrowController : MonoBehaviour
         rb.AddForce(dir.normalized * power, ForceMode2D.Impulse);
 
         var inven = InventoryManager.Instance.Invens[InvenType.Gathering];
-        inven.아이템잃음(currentBait.Origin, 1);
+        inven.LooseItem(currentBait.Origin, 1);
         SoundManager.Instance.PlaySFX("ThrowBaitStrong");
     }
 

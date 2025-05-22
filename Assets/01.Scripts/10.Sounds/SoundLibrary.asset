@@ -96,6 +96,8 @@ MonoBehaviour:
     addressableKey: ThrowBaitWeak
   - soundName: Monster
     addressableKey: Monster
+  - soundName: Kokkio
+    addressableKey: Kokkio
   ambienceClips:
   - soundName: BoilAmbience
     addressableKey: BoilAmbience

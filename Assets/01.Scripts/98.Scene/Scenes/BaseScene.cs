@@ -6,7 +6,7 @@ public class BaseScene : MonoBehaviour
     {
         foreach (var controller in InventoryManager.Instance.Invens)
         {
-            controller.Value.On씬이동Before();
+            controller.Value.OnBeforeSceneMove();
         }
         PopUpManager.Instance.OnSceneMove();
     }
@@ -15,7 +15,7 @@ public class BaseScene : MonoBehaviour
     {
         foreach(var controller in InventoryManager.Instance.Invens)
         {
-            controller.Value.On씬이동After();
+            controller.Value.OnAfterSceneMove();
         }
 
         TimerManager.Instance.OnSceneMove();       

@@ -18,16 +18,16 @@ public abstract class InventoryView : MonoBehaviour
     [field: Header("toShowType")]
     [field: SerializeField] public List<DesignEnums.ItemType> toShowTypes { get; private set; }// 뷰에서 보여줄 아이템 타입.
 
-    public virtual void 초기화ByController(InventoryController controller)
+    public virtual void InitailizeByController(InventoryController controller)
     {
         if (IsInitialized) return;
         IsInitialized = true;
 
-        초기화(controller);
-        아이템띄우기();
+        Initialize(controller);
+        ViewAllItems();
     }
 
-    public virtual void 초기화BySelf() // 컨트롤러를 직접 찾아서 초기화.
+    public virtual void InitializeBySelf() // 컨트롤러를 직접 찾아서 초기화.
     {
         if (IsInitialized) return;
         if (InventoryManager.Instance.Invens.TryGetValue(invenType, out InventoryController controller))
@@ -35,8 +35,8 @@ public abstract class InventoryView : MonoBehaviour
             if (IsInitialized) return;
             IsInitialized = true;
 
-            초기화(controller);
-            아이템띄우기();
+            Initialize(controller);
+            ViewAllItems();
         }
         else
         {
@@ -44,7 +44,7 @@ public abstract class InventoryView : MonoBehaviour
         }
     }
 
-    protected virtual void 초기화(InventoryController controller)// 슬롯 딕셔너리 생성, 쓰레기통 생성, 컨트롤러 연결, 슬롯 갯수 
+    protected virtual void Initialize(InventoryController controller)// 슬롯 딕셔너리 생성, 쓰레기통 생성, 컨트롤러 연결, 슬롯 갯수 
     {
         //1. 컨트롤러 연결, 슬롯 갯수 
         this.controller = controller;
@@ -55,25 +55,25 @@ public abstract class InventoryView : MonoBehaviour
         {
             var temp = Instantiate(slotPref, slotTrs);
             //temp.transform.SetParent(slotTrs);
-            temp.초기화(i, this, 슬롯비우기, 아이템타게팅, 아이템타게팅취소);
+            temp.Init(i, this, EmptifySlot, TargetingSlot, TargetingSlotCancel);
             index2Slots.Add(i, temp);
         }
     }
 
-    public virtual void 아이템띄우기()  // 전체 아이템 띄우기
+    public virtual void ViewAllItems()  // 전체 아이템 띄우기
     {
         int targetIndex = 0;
-        foreach (var pair in controller.모델정보반환())
+        foreach (var pair in controller.GetModel())
         {
             if (!toShowTypes.Contains(ItemStackManager.Instance.AllItemStack[pair.Key].Origin.itemCategory)) continue;
 
-            index2Slots[targetIndex].슬롯세팅(pair.Key);
+            index2Slots[targetIndex].SetSlot(pair.Key);
             BiID2SlotIndex.Add(pair.Key, targetIndex);
             targetIndex++;
         }
     }
 
-    public void 아이템이동(int toSlotIndex, int fromSlotIndex)
+    public void MoveItem(int toSlotIndex, int fromSlotIndex)
     {
         var toSlot = index2Slots[toSlotIndex];
         var fromSlot = index2Slots[fromSlotIndex];
@@ -82,23 +82,23 @@ public abstract class InventoryView : MonoBehaviour
         {
             ItemStack itemStack = index2Slots[fromSlotIndex].GetSlotItem();
             // from 슬롯 비우기
-            fromSlot.슬롯비우기();
+            fromSlot.EmptifySlot();
 
             // to 슬롯에 채우기
-            toSlot.슬롯세팅(itemStack.ID);
+            toSlot.SetSlot(itemStack.ID);
             BiID2SlotIndex.Add(itemStack.ID, toSlotIndex);
         }
     }
 
 
-    public virtual void 특정아이템정보갱신(int id)  // 특정 ID의 정보만 갱신
+    public virtual void ReviewSpecificItemStack(int id)  // 특정 ID의 정보만 갱신
     {
         if (!toShowTypes.Contains(ItemStackManager.Instance.AllItemStack[id].Origin.itemCategory)) return;
 
         if (BiID2SlotIndex.ContainsKey(id))
         {
             // 있으면 해당 슬롯 정보 갱신
-            index2Slots[BiID2SlotIndex.GetByKey(id)].슬롯갱신();
+            index2Slots[BiID2SlotIndex.GetByKey(id)].ReviewSlot();
         }
         else
         {
@@ -107,7 +107,7 @@ public abstract class InventoryView : MonoBehaviour
             {
                 if (!index2Slots[i].HasItem)
                 {
-                    index2Slots[i].슬롯세팅(id);
+                    index2Slots[i].SetSlot(id);
                     BiID2SlotIndex.Add(id, i);
                     break;
                 }
@@ -115,23 +115,21 @@ public abstract class InventoryView : MonoBehaviour
         }
     }
 
-    public virtual void 슬롯비우기(int index)
+    public virtual void EmptifySlot(int index)
     {
         BiID2SlotIndex.RemoveByValue(index);
     }
 
 
-    public virtual void 아이템타게팅(int index) // loose에서
+    public virtual void TargetingSlot(int index) // loose에서
     {
     }
-    public virtual void 아이템타게팅취소(int index) // loose에서
+    public virtual void TargetingSlotCancel(int index) // loose에서
     {
     }
 
     //공통
-    public virtual void 아이템정렬_합치기() { } // [컨트롤러]의 정렬_합치기 호출
-    public virtual void 아이템정렬_순서() { } // [slots] 정렬_순서 변경
-    public virtual void 아이템상세보기() { } //  아이템 상세보기(우클릭)
-    public virtual void 아이템툴팁표시() { } // 툴팁 표시
-    public virtual void 아이템툴팁표시취소() { } // 툴팁 표시
+    //public virtual void SortingView_Merge() { } // [컨트롤러]의 정렬_합치기 호출
+    //public virtual void SortingView_Order() { } // [slots] 정렬_순서 변경
+    //public virtual void OpenItemDetails() { } //  아이템 상세보기(우클릭)
 }
