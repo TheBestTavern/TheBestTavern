@@ -2,6 +2,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Unity.Mathematics;
+using Unity.Services.Analytics;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
@@ -36,7 +38,7 @@ public class TimerManager : MonoSingleton<TimerManager>
         }
 
         timerModel = new TimerModel(startyear, startmonth, startday, false);
-        OnSceneMove();
+        FindTimerUI();
 
         OnNewDay_DayPass command1 = new(this);
         CommandManager.Instance.AddCommand(command1);
@@ -50,6 +52,11 @@ public class TimerManager : MonoSingleton<TimerManager>
     }
 
     public void OnSceneMove() // 씬이동, 게임시작할때 한번씩 실행.
+    {
+        FindTimerUI();
+    }
+
+    private void FindTimerUI()
     {
         if (timerUI == null)
         {
@@ -82,6 +89,18 @@ public class TimerManager : MonoSingleton<TimerManager>
     {
         DaysPass(1);
         Debug.Log("1일 경과");
+
+        // 플레이어 날짜 -> 이전 데이터 갱신(최대 날짜용)
+        if (GameManager.Instance.isAnalyticsAgreed)
+        {
+            var today = GetToday();
+            string date = $"{today.year:D4}-{today.month:D2}-{today.day:D2}";
+            var TimeEvent = new AnalyticsTime("TimeData")
+            {
+                dateData = date
+            };
+            AnalyticsService.Instance.RecordEvent(TimeEvent);
+        }
     }
 
     // 날짜 UI 변경 함수 
@@ -111,7 +130,8 @@ public class TimerManager : MonoSingleton<TimerManager>
         }
 
         // 날짜 UI 설정 
-        timerUI.SetTimer(day, season);
+        if (timerUI != null)
+            timerUI.SetTimer(day, season);
     }
 
     // 오늘 날짜 불러오기 함수

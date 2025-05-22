@@ -4,8 +4,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using DG.Tweening;
+using Unity.Services.Analytics;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Analytics;
 using UnityEngine.UI;
 
 /// <summary>
@@ -30,6 +32,14 @@ public class CookingInventoryView : InventoryViewLoose
                 return;
             }
             CookingMiniGameManager.Instance.miniGameAnim.Invoke();
+            if (GameManager.Instance.isAnalyticsAgreed)
+            {
+                var CookingMiniGameData = new AnalyticsCookingMiniGame("CookingMiniGameData")
+                {
+                    miniGameName = CookingMiniGameManager.Instance.selectedCookingTool
+                };
+                AnalyticsService.Instance.RecordEvent(CookingMiniGameData);
+            }
         });
         //startMiniGameBtn.onClick.AddListener(CookingMiniGameManager.Instance.ClickStartButton);
         startMiniGameBtn.onClick.AddListener(() => gameObject.SetActive(false));
@@ -42,6 +52,7 @@ public class CookingInventoryView : InventoryViewLoose
         //base.OnDisable();
 
         startMiniGameBtn.onClick.RemoveAllListeners();
+        pooledImageQueue.Clear();
     }
 
     public void OnSelectTool(string s)

@@ -10,6 +10,8 @@ public class GameManager : MonoSingleton<GameManager>
     public Action onSceneMoveAfter;
     public Action onSceneMoveBefore;
 
+    public bool isAnalyticsAgreed = false;
+
     private void Start()
     {
         DataManager.Instance.Init();
@@ -22,7 +24,8 @@ public class GameManager : MonoSingleton<GameManager>
         SaveLoadManager.Instance.Init();
         UIManager.Instance.Init();
         SoundManager.Instance.Init();
+        CalendarManager.Instance.Init();
 
         CommandManager.Instance.ExecuteCommands(1002);
-    }
+    }    
 }
