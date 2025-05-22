@@ -17,9 +17,9 @@ public class TimerManager : MonoSingleton<TimerManager>
     // 날짜 모델
     public TimerModel timerModel;
 
-    public int startyear = 1234;
-    public int startmonth = 11;
-    public int startday = 28;
+    public int startyear = 1447;
+    public int startmonth = 1;
+    public int startday = 1;
 
     public override void Init()
     {
