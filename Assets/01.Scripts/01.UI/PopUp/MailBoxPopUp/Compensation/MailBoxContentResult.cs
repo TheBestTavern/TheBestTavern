@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using UnityEditor.Experimental.GraphView;
+//using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class MailBoxContentResult : MailBoxContentBase // 제네릭으로 할 수 있을려나

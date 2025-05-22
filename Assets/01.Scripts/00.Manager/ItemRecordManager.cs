@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Analytics;
 using Unity.Services.Analytics;
 using Unity.Services.Core;
-using UnityEditor.AddressableAssets.HostingServices;
+//using UnityEditor.AddressableAssets.HostingServices;
 
 [System.Serializable]
 public class ItemRecord

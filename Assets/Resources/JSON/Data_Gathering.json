@@ -935,7 +935,8 @@
       "condition_season": 1,
       "condition_chance": 1,
       "availableFood": [
-        101028
+        101028,
+        101027
       ]
     },
     {
@@ -971,7 +972,9 @@
       "condition_biome": 1,
       "condition_season": 2,
       "condition_chance": 1,
-      "availableFood": []
+      "availableFood": [
+        101027
+      ]
     },
     {
       "key": 200107,
@@ -1007,7 +1010,9 @@
       "condition_biome": 1,
       "condition_season": 3,
       "condition_chance": 1,
-      "availableFood": []
+      "availableFood": [
+        101027
+      ]
     },
     {
       "key": 200111,

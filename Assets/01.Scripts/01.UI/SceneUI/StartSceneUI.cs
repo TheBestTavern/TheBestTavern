@@ -108,13 +108,24 @@ public class StartSceneUI : MonoBehaviour
     {
         GameManager.Instance.isAnalyticsAgreed = false;
         await SceneLoader.Instance.LoadSceneAsync(nextSceneName);
+        if (isLoadMode)
+        {
+            if (SaveLoadManager.Instance.LoadData(out PlayerGameData data))
+            {
+                ApplyPlayerData(data);
+                await SceneLoader.Instance.LoadSceneAsync("MainScene");
+                return;
+            }
+
+            Debug.LogWarning("불러오기 실패");
+        }
     }
 
     private async Task InitializeAnalytics()
     {
+        GameManager.Instance.isAnalyticsAgreed = true;
         await UnityServices.InitializeAsync();
         AnalyticsService.Instance.StartDataCollection();
-        GameManager.Instance.isAnalyticsAgreed = true; 
     }
 
     private void ApplyPlayerData(PlayerGameData data)
