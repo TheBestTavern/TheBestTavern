@@ -68,7 +68,7 @@ public class CookingResultPopUp : BasePopUp
         }
     }
 
-    public void ShowItemInfo()
+    public async void ShowItemInfo()
     {
         int itemKey = RecipeManager.Instance.GetItemKey();
         Debug.Log($"최종 아이템 키 : {itemKey}");
@@ -88,7 +88,7 @@ public class CookingResultPopUp : BasePopUp
         var data = DataManager.Instance.DataLoader_Foods.GetByKey(itemKey);
         itemNameText.text = data.name;
 
-        itemImage.sprite = Resources.Load<Sprite>($"Item/{data.englishName}");
+        itemImage.sprite = await AddressablesLoader.Instance.AddressablesLoadAsync<Sprite>($"Assets/16.Image/FoodImage/{data.englishName}.png", true);
         if (itemImage.sprite == null) { itemImage.gameObject.SetActive(false); }
     }
 
