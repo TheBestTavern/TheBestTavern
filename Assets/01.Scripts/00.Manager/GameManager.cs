@@ -11,6 +11,7 @@ public class GameManager : MonoSingleton<GameManager>
     public Action onSceneMoveBefore;
 
     public bool isAnalyticsAgreed = false;
+    public bool doTutorial = false;
 
     public override void Init()
     {

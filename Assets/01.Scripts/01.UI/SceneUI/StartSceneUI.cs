@@ -74,6 +74,8 @@ public class StartSceneUI : MonoBehaviour
     private void ConfirmTutorial(bool doTutorial)
     {
         nextSceneName = doTutorial ? "TutorialScene" : "MainScene";
+        GameManager.Instance.doTutorial = doTutorial;
+
         tutorialSkipPanel.SetActive(false);
         acceptAnalyticsPanel.SetActive(true);
     }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Cysharp.Threading.Tasks;
 using DG.Tweening;
+using Unity.Services.Analytics;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -120,7 +121,7 @@ public class CookingTutorialController : BaseTutorialController
                 UIManager.Instance.cookingSceneUI.ReadyMiniGame(plateButton);
                 break;
             case 17:
-                UIManager.Instance.cookingSceneUI.ButtonsBack();
+                UIManager.Instance.cookingSceneUI.ButtonsBack();               
                 break;
             case 18:
                 nextButton.gameObject.SetActive(false);
