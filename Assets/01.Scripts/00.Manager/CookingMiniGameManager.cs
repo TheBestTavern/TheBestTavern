@@ -53,7 +53,7 @@ public class CookingMiniGameManager : MonoSingleton<CookingMiniGameManager>
             selectedItems = GetMiniGameItem();
             RecipeManager.Instance.StartCooking(selectedItems, "Plate");
             RecipeManager.Instance.CompleteDish();
-            await PopUpManager.Instance.ShowPopUp(PopUpType.CookingFail);
+            await PopUpManager.Instance.ShowPopUp(PopUpType.CookingPlate);
 
             //GetCookingResultData();
             GetResultItem();
