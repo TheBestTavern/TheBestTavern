@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class SFXButton : MonoBehaviour
 {
-    [SerializeField] private string sfxName = "Button1";
+    [SerializeField] private string sfxName;
 
     private void Awake()
     {

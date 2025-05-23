@@ -56,7 +56,9 @@ public class SoundManager : MonoSingleton<SoundManager>
         AddSFX();
         AddAmbience();
 
-        SetBGMVolume(1.0f);
+        SetBGMVolume(0.2f);
+        SetSFXVolume(0.2f);
+        SetAmbienceVolume(0.2f);
         EventBus.Subscribe<EndNightUIBlockEvent>((evt) => PlaySFX("Kokkio"));
     }
 
@@ -177,8 +179,20 @@ public class SoundManager : MonoSingleton<SoundManager>
 
 
     public void SetBGMVolume(float volume) => bgmSource.volume = Mathf.Clamp01(volume * 0.3f);
-    public void SetSFXVolume(float volume) => sfxSource.volume = volume;
+    public void SetSFXVolume(float volume)
+    {
+        sfxSource.volume = volume;
+        foreach (var sfx in sfxPool)
+        {
+            sfx.volume = volume;
+        }
+    }
+    public void SetAmbienceVolume(float volume)
+    {
+        ambienceSource.volume = volume;
+    }
 
     public float GetBGMVolume() => bgmSource.volume / 0.3f;
     public float GetSFXVolume() => sfxSource.volume;
+    public float GetAmbienceVolume() => ambienceSource.volume;
 }
