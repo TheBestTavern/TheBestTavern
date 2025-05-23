@@ -38,7 +38,8 @@ public class QuestSlot : MonoBehaviour, IPoolable
         else
         {
             string englishName = Data.GetRawItem(quest.Origin.compensationID).englishName;
-            compensationImage.sprite = await AddressablesLoader.Instance.AddressablesLoadAsync<Sprite>($"Assets/16.Image/FoodImage/{englishName}.png", true);
+            compensationImage.sprite = await AddressablesLoader.Instance.AddressablesLoadSpriteFromAtlasAsync("FoodSpriteAtlas", englishName, true);
+
             submissionDate.gameObject.SetActive(false);
             compensationImage.gameObject.SetActive(true);
         }

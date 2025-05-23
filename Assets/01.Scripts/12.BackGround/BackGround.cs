@@ -47,10 +47,8 @@ public class BackGround : MonoBehaviour, IRunAlready
 
     private async UniTask SetBG(DesignEnums.SeasonType season)
     {
-        var result1 = await AddressablesLoader.Instance.AddressablesLoadAsync<Sprite>($"Main_Tree_{season.ToString()}");
-        var result2 = await AddressablesLoader.Instance.AddressablesLoadAsync<Sprite>($"Main_BG_{season.ToString()}");
-        BG_Tree.sprite = result1;
-        BG.sprite = result2;
+        BG_Tree.sprite = await AddressablesLoader.Instance.AddressablesLoadSpriteFromAtlasAsync("BackGroundSpriteAtlas", $"Main_Tree_{season.ToString()}", true);
+        BG.sprite = await AddressablesLoader.Instance.AddressablesLoadSpriteFromAtlasAsync("BackGroundSpriteAtlas", $"Main_BG_{season.ToString()}", true);
     }
 
     private void OnDestroy()
