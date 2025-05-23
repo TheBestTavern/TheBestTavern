@@ -12,5 +12,6 @@ public class GatheringTrees : GatheringBase
         OffMouseFunc();
         spriteRenderer.DOColor(new Color(0.5f, 0.5f, 0.5f), 0.5f);
         Debug.Log("나무에서 아이템 획득");
+        PlaySFXSound();
     }
 }

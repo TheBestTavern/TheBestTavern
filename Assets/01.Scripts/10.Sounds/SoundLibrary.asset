@@ -98,6 +98,16 @@ MonoBehaviour:
     addressableKey: Monster
   - soundName: Kokkio
     addressableKey: Kokkio
+  - soundName: Forest4
+    addressableKey: Forest4
+  - soundName: Forest1
+    addressableKey: Forest1
+  - soundName: Forest2
+    addressableKey: Forest2
+  - soundName: Forest3
+    addressableKey: Forest3
+  - soundName: Forest5
+    addressableKey: Forest5
   ambienceClips:
   - soundName: BoilAmbience
     addressableKey: BoilAmbience

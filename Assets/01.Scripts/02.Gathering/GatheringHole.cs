@@ -12,5 +12,6 @@ public class GatheringHole : GatheringBase
         OffMouseFunc();
         spriteRenderer.DOColor(new Color(0.5f, 0.5f, 0.5f), 0.5f);
         Debug.Log("구멍에서 아이템 획득");
+        SoundManager.Instance.PlaySFX("GrindButton");
     }
 }

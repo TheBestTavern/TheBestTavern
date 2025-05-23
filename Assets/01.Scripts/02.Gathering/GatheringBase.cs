@@ -60,6 +60,13 @@ public class GatheringBase : MonoBehaviour
         transform.DOScale(scale, 0.5f);
     }
 
+    protected void PlaySFXSound()
+    {
+        int randInt = UnityEngine.Random.Range(1, 6);
+        string randomSFXNumber = $"Forest{randInt}";
+        SoundManager.Instance.PlaySFX(randomSFXNumber);
+    }
+
     protected async virtual void OnClickedFunc()
     {
         Debug.Log($"{gameObject.name} 클릭");
