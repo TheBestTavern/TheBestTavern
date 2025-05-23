@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: bfe7ea6df187e40378d3a1280484eba7
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 625f186215c104763be7675aa2d941aa, type: 3}
+AssetOrigin:
+  serializedVersion: 1
+  productId: 192420
+  packageName: Video Player WebGL
+  packageVersion: 1.82
+  assetPath: Assets/MarksAssets/VideoPlayerWebGL/Shaders/Side-by-Side Alpha Masked/Alpha
+    Video Linear.shadergraph
+  uploadId: 620954

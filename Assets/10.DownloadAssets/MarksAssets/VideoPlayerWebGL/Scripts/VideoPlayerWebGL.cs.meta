@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 46ddbf24ca243ca48912f134d00b60cc
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 192420
+  packageName: Video Player WebGL
+  packageVersion: 1.82
+  assetPath: Assets/MarksAssets/VideoPlayerWebGL/Scripts/VideoPlayerWebGL.cs
+  uploadId: 620954

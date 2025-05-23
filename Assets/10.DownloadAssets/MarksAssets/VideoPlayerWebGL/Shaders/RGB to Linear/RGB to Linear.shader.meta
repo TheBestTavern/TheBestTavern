@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: 4b06d95d763f3486aa0c966fc3b20da1
+ShaderImporter:
+  externalObjects: {}
+  defaultTextures: []
+  nonModifiableTextures: []
+  preprocessorOverride: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 192420
+  packageName: Video Player WebGL
+  packageVersion: 1.82
+  assetPath: Assets/MarksAssets/VideoPlayerWebGL/Shaders/RGB to Linear/RGB to Linear.shader
+  uploadId: 620954

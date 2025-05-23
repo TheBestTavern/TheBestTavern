@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 94bea9f193a4c3e4abf0c40d043c26a8
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 192420
+  packageName: Video Player WebGL
+  packageVersion: 1.82
+  assetPath: Assets/MarksAssets/VideoPlayerWebGL/Example/Scripts/SpatialAudioCalculatorVideoPlayerWebGL.cs
+  uploadId: 620954
