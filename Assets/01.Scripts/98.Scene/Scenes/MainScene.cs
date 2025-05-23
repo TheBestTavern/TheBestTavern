@@ -11,6 +11,7 @@ public class MainScene : BaseScene
     {
         base.OnEnterScene();
         SoundManager.Instance.PlayBGM("MainBGM1");
+        SoundManager.Instance.StopLoop();
     }
 
     public async override void OnLoadingScene()
