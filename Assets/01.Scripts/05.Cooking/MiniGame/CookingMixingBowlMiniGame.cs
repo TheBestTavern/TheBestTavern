@@ -66,7 +66,6 @@ public class CookingMixingBowlMiniGame : CookingMiniGameBase
                 mixSfxInterval = 2f;
             }
 
-            SoundManager.Instance.PlaySFX("MixingBowl");
             mixingTime += Time.deltaTime;
             mixingbowlUI.UpdateUI(mixingTime);
             if (mixingTime > data.MixingTime)
