@@ -6787,7 +6787,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   draggableObjectTrs: {fileID: 5779743708005257899}
-  draggable: 0
+  draggable: 1
   closeButton: {fileID: 2556444170331896366}
   canvas: {fileID: 3494438005618223575}
   popUpType: 16
