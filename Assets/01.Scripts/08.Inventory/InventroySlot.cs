@@ -52,7 +52,8 @@ public class InventorySlot : MonoBehaviour, IBeginDragHandler, IEndDragHandler, 
         count = item.Count;
         CountTMP.text = count.ToString();
         Data_Foods raw = Data.GetRawItem(item.Origin.key);
-        image.sprite = await AddressablesLoader.Instance.AddressablesLoadAsync<Sprite>($"Assets/16.Image/FoodImage/{raw.englishName}.png", true);
+        image.sprite = await AddressablesLoader.Instance.AddressablesLoadSpriteFromAtlasAsync("FoodSpriteAtlas", raw.englishName, true);
+
         image.gameObject.SetActive(true);
     }
 

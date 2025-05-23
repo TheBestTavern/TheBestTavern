@@ -1,9 +1,7 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.U2D;
 
 public class IntroScene : BaseScene
 {
@@ -12,7 +10,8 @@ public class IntroScene : BaseScene
         await base.OnExitScene();
         try
         {
-            await AddressablesLoader.Instance.AddressablesLoadAsync<Sprite>("AlreadyLoad");
+            //await AddressablesLoader.Instance.AddressablesLoadAsync<SpriteAtlas>("AlreadyLoad");
+            await AddressablesLoader.Instance.PreloadAllFromLavelAsync("AlreadyLoad");
         }
         catch (Exception e)
         {

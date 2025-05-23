@@ -29,6 +29,8 @@ public class StartSceneUI : MonoBehaviour
     private string nextSceneName = "";
     private bool isLoadMode = false;
 
+    private bool? doTutorial = null;
+
     void Start()
     {
         UIManager.Instance.startSceneUI = this;
@@ -74,6 +76,8 @@ public class StartSceneUI : MonoBehaviour
     private void ConfirmTutorial(bool doTutorial)
     {
         nextSceneName = doTutorial ? "TutorialScene" : "MainScene";
+        this.doTutorial = doTutorial;
+
         tutorialSkipPanel.SetActive(false);
         acceptAnalyticsPanel.SetActive(true);
     }
@@ -88,6 +92,15 @@ public class StartSceneUI : MonoBehaviour
     private async void OnAcceptAnalytics()
     {
         await InitializeAnalytics();
+
+        if (doTutorial != null)
+        {
+            var tutorialEvent = new AnalyticsTutorial("TutorialData")
+            {
+                watchTutorial = (bool)doTutorial
+            };
+            AnalyticsService.Instance.RecordEvent(tutorialEvent);
+        }
 
         if (isLoadMode)
         {
@@ -106,7 +119,7 @@ public class StartSceneUI : MonoBehaviour
 
     private async void OnRejectAnalytics()
     {
-        GameManager.Instance.isAnalyticsAgreed = false;        
+        GameManager.Instance.isAnalyticsAgreed = false;
 
         if (isLoadMode)
         {
@@ -139,10 +152,7 @@ public class StartSceneUI : MonoBehaviour
             data.JustCompleteQuests, data.TodayAvailableQuest, data.QuestCheckQueue
         );
         CalendarManager.Instance.ApplyLoadData(data.CurrentSeasonType);
-
-        foreach (var item in data.playerInvenData.ItemList)
-        {
-            InventoryManager.Instance.Invens[InvenType.Player].AcquireItem(item.Origin, item.Count);
-        }
+        ItemStackManager.Instance.ApplyLoadData(data.IDs, data.AllItemStack);    
+        InventoryManager.Instance.Invens[InvenType.Player].ApplyLoadData(data.foodKey2IDs, data.ID2ItemStack);
     }
 }

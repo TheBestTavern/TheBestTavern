@@ -29,7 +29,7 @@ public class BookQuestLetter : BasePopUp
         if (!isInProgressQuest)
         {
             var rawItem = Data.GetRawItem(quest.Origin.compensationID);
-            image.sprite = await AddressablesLoader.Instance.AddressablesLoadAsync<Sprite>($"Assets/16.Image/FoodImage/{rawItem.englishName}.png", true);
+            image.sprite = await AddressablesLoader.Instance.AddressablesLoadSpriteFromAtlasAsync("FoodSpriteAtlas", rawItem.englishName, true);
             compensationItemName.text = rawItem.name;
             compensation.gameObject.SetActive(true);
         }

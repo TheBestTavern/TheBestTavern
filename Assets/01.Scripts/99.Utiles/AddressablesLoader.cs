@@ -1,5 +1,7 @@
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
@@ -19,13 +21,6 @@ public class AddressablesLoader : MonoSingleton<AddressablesLoader>
         base.Init();
 
         DontDestroyOnLoad(gameObject);
-
-        LoadEssentialAsset();
-    }
-
-    private async void LoadEssentialAsset()
-    {
-        var sda = await AddressablesLoadAsync<SpriteAtlas>("FoodSpriteAtlas");
     }
 
     /// <summary>
@@ -74,6 +69,35 @@ public class AddressablesLoader : MonoSingleton<AddressablesLoader>
         }
     }
 
+    public async UniTask PreloadAllFromLavelAsync(string label)
+    {
+        var locationHandle = Addressables.LoadResourceLocationsAsync(label);
+        await locationHandle;
+
+        if (!locationHandle.IsValid() || locationHandle.Status != AsyncOperationStatus.Succeeded)
+        {
+            Debug.Log($"{label} Location Load Fail");
+            Addressables.Release(locationHandle);
+        }
+
+        var locations = locationHandle.Result;
+
+        foreach (var location in locations)
+        {
+            Type type = location.ResourceType;
+            await AddressablesLoadAsync<System.Object>(location.PrimaryKey);
+        }
+
+        Addressables.Release(locationHandle);
+    }
+
+    public async Task<Sprite> AddressablesLoadSpriteFromAtlasAsync(string AtalsAdress, string imageName, bool fallback = false)
+    {
+        var atlas = await AddressablesLoadAsync<SpriteAtlas>(AtalsAdress);
+        return atlas.GetSprite(imageName);
+    }
+
+
     public void Release(string address)
     {
         if (cache.TryGetValue(address, out var handle))
@@ -81,12 +105,6 @@ public class AddressablesLoader : MonoSingleton<AddressablesLoader>
             Addressables.Release(handle);
             cache.Remove(address);
         }
-    }
-
-    public async Task<Sprite> AddressablesLoadSpriteFromAtlasAsync(string AtalsAdress, string imageName, bool fallback = false)
-    {
-        var atlas  = await AddressablesLoadAsync<SpriteAtlas>(AtalsAdress);
-        return  atlas.GetSprite(imageName);
     }
 
     public async Task<List<GameObject>> AddressablesListLoadFromLabelAsync(string label)

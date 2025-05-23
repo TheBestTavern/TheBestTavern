@@ -155,4 +155,10 @@ public class InventoryModel
         EventBus.UnSubscribe<ItemStackOnChangeEvent>(TriggerOnChange);
         EventBus.UnSubscribe<ItemStackOnZeroEvent>(RemoveItem);
     }
+
+    public void ApplyLoadData(Dictionary<int, List<int>> foodKey2IDs, Dictionary<int, ItemStack> ID2ItemStack)
+    {
+        this.foodKey2IDs = foodKey2IDs;
+        this.ID2ItemStack = ID2ItemStack;
+    }
 }

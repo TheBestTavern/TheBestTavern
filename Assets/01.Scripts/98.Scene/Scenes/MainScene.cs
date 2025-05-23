@@ -1,5 +1,6 @@
 using System.Linq;
 using Cysharp.Threading.Tasks;
+using Unity.Services.Analytics;
 using UnityEngine;
 
 public class MainScene : BaseScene
@@ -14,6 +15,6 @@ public class MainScene : BaseScene
         foreach (var runAlready in FindObjectsOfType<MonoBehaviour>().OfType<IRunAlready>())
         {
             await runAlready.RunAlready();
-        }
+        }        
     }
 }
