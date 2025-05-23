@@ -1,24 +1,15 @@
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 
 public class ForestGatheringScene : BaseScene
 {
-    public async override void OnEixtScene()
+    public async override UniTask OnExitScene()
     {
-        base.OnEixtScene();
+        await base.OnExitScene();
 
         for (int i = 0; i < 10; i++)
         {
             await CommandManager.Instance.ExecuteCommands();
         }
-    }
-
-    public async override void OnEnterScene()
-    {
-        base.OnEnterScene();
-    }
-
-    public async override void OnLoadingScene()
-    {
-        base.OnLoadingScene();
     }
 }

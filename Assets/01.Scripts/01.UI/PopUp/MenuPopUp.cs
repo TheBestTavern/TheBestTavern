@@ -94,6 +94,6 @@ public class MenuPopUp : BasePopUp
     public override void OnClose()
     {
         // 메뉴팝업 위로 올라가기 애니메이션 후 비활성화
-        transform.GetChild(0).GetComponent<RectTransform>().DOAnchorPosY(1640, 1f).OnComplete(()=> base.OnClose());
+        transform.GetChild(0).GetComponent<RectTransform>().DOAnchorPosY(1730, 1f).OnComplete(()=> base.OnClose());
     }
 }

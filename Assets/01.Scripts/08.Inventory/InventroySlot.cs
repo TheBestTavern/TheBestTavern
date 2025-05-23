@@ -154,7 +154,6 @@ public class InventorySlot : MonoBehaviour, IBeginDragHandler, IEndDragHandler, 
         if (HasItem)
         {
             EventBus.Publish<SlotHoverEnterEvent>(new SlotHoverEnterEvent(item.Origin.key));
-            Debug.Log("들어옴");
         }
     }
 
@@ -162,7 +161,6 @@ public class InventorySlot : MonoBehaviour, IBeginDragHandler, IEndDragHandler, 
     {
         if (HasItem)
         {
-            Debug.Log("나감");
             EventBus.Publish<SlotHoverEndEvent>(new SlotHoverEndEvent());
         }
     }

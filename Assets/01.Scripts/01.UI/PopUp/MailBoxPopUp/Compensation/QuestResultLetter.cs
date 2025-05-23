@@ -115,7 +115,7 @@ public class QuestResultLetter : QuestBaseLetter
 
     private bool TakeResult()
     {
-        return InventoryManager.Instance.Invens[InvenType.Player].AcquireItem(quest.Origin.compensationID, 1);
+        return InventoryManager.Instance.Invens[InvenType.Player].AcquireItem(quest.Origin.compensationID, 6);
     }
 
     public override void TriggerOnCompleteLetter()

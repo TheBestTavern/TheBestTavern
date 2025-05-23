@@ -33,7 +33,7 @@ public abstract class CookingMiniGameBase : MonoBehaviour, ICookingMiniGameHandl
 
     protected abstract float GetTimer();
     
-    protected virtual void Update()
+    protected async virtual void Update()
     {
         if (isGameOver) return;
         UIManager.Instance.miniGameUI.UpdateTimer(playTime);

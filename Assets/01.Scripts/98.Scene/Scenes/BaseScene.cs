@@ -1,28 +1,33 @@
+using System.Threading.Tasks;
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 
 public class BaseScene : MonoBehaviour
 {
-    public virtual void OnEixtScene()
+    public virtual UniTask OnExitScene()
     {
         foreach (var controller in InventoryManager.Instance.Invens)
         {
             controller.Value.OnBeforeSceneMove();
         }
         PopUpManager.Instance.OnSceneMove();
+        return UniTask.CompletedTask;
     }
 
-    public virtual void OnEnterScene()
+    public virtual UniTask OnEnterScene()
     {
-        foreach(var controller in InventoryManager.Instance.Invens)
+        foreach (var controller in InventoryManager.Instance.Invens)
         {
             controller.Value.OnAfterSceneMove();
         }
 
-        TimerManager.Instance.OnSceneMove();       
+        TimerManager.Instance.OnSceneMove();
+        return UniTask.CompletedTask;
+
     }
 
-    public virtual void OnLoadingScene()
+    public virtual UniTask OnLoadingScene()
     {
-
+        return UniTask.CompletedTask;
     }
 }
