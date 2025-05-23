@@ -8,6 +8,7 @@ public class SoundSettingPopUp : BasePopUp
 {
     [SerializeField] private Slider bgmSlider;
     [SerializeField] private Slider sfxSlider;
+    [SerializeField] private Slider ambienceSlider;
 
     public override void Awake()
     {
@@ -18,6 +19,7 @@ public class SoundSettingPopUp : BasePopUp
         SetInitialVolume();
         bgmSlider.onValueChanged.AddListener(SoundManager.Instance.SetBGMVolume);
         sfxSlider.onValueChanged.AddListener(SoundManager.Instance.SetSFXVolume);
+        ambienceSlider.onValueChanged.AddListener(SoundManager.Instance.SetAmbienceVolume);
 
     }
 
@@ -31,7 +33,6 @@ public class SoundSettingPopUp : BasePopUp
     public override void OnClose()
     {
         base.OnClose();
-        SoundManager.Instance.PlaySFX("Button2");
         transform.GetChild(0).GetComponent<CanvasGroup>().DOFade(0f, 1f).OnComplete(() => gameObject.SetActive(false));
     }
 
@@ -39,5 +40,6 @@ public class SoundSettingPopUp : BasePopUp
     {
         bgmSlider.value = SoundManager.Instance.GetBGMVolume();
         sfxSlider.value = SoundManager.Instance.GetSFXVolume();
+        ambienceSlider.value = SoundManager.Instance.GetAmbienceVolume();
     }
 }

@@ -119,3 +119,5 @@ MonoBehaviour:
     addressableKey: OceanAmbience
   - soundName: CountrySide
     addressableKey: CountrySide
+  - soundName: Timer
+    addressableKey: Timer
