@@ -25,15 +25,9 @@ public abstract class CookingMiniGameBase : MonoBehaviour, ICookingMiniGameHandl
         isGameOver = false;
     }
 
-    private void OnDestroy()
-    {
-       
-        SoundManager.Instance.StopLoop();
-    }
-
     protected abstract float GetTimer();
     
-    protected async virtual void Update()
+    protected virtual void Update()
     {
         if (isGameOver) return;
         UIManager.Instance.miniGameUI.UpdateTimer(playTime);
