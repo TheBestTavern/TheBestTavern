@@ -24,10 +24,6 @@ public class CalendarManager : MonoSingleton<CalendarManager>
         base.Init();
 
         DontDestroyOnLoad(gameObject);
-    }
-
-    private void Start()
-    {
         OnNewDay command = new(this);
         CommandManager.Instance.AddCommand(command);
     }
