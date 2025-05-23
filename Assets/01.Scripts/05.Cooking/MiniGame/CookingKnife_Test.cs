@@ -168,7 +168,7 @@ public class CookingKnife_Test : MonoBehaviour
                     maxX = bounds.max.x;
                     minX = bounds.min.x;
                     float range = maxX - minX;
-                    float margin = range * 0.2f;
+                    float margin = range * 0.15f;
                     y = bounds.center.y + 0.1f;
                     z = bounds.center.z - 0.2f;
 
