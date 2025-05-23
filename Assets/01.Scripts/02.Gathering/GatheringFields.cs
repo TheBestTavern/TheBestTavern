@@ -14,5 +14,6 @@ public class GatheringFields : GatheringBase
         OffMouseFunc();
         spriteRenderer.DOColor(new Color(0.5f, 0.5f, 0.5f), 0.5f);
         Debug.Log("밭에서 아이템 획득");
+        PlaySFXSound();
     }
 }

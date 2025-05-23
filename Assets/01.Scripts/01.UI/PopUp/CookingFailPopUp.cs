@@ -16,13 +16,14 @@ public class CookingFailPopUp : BasePopUp
     {
         // 미니게임 닫기 
         //CookingMiniGameManager.Instance.miniGameUI.OnClickCloseButton();
-
+        canvasGroup?.DOKill();
         base.OnClose();
     }
 
     public override void OnOpen()
     {
-        canvasGroup.DOFade(1f, 1f);
+        if (canvasGroup != null)
+        {   canvasGroup.DOFade(1f, 1f); }
 
         //failText.gameObject.SetActive(true);
 

@@ -34,7 +34,7 @@ public class BasePopUp : DraggableMonoBehaviour, IPointerDownHandler
     // 닫기 버튼 함수
     public virtual void OnClickCloseButton()
     {
-        SoundManager.Instance.PlaySFX("Button1");
+        SoundManager.Instance.PlaySFX("BackButton");
         OnClose();
     }
 
