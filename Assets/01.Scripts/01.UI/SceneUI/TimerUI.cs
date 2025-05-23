@@ -15,6 +15,7 @@ public class TimerUI : MonoBehaviour
     // 날짜 설정 함수 
     public void SetTimer(string day, string season)
     {
-        Text.text = $"{day} {season}";
+        if (Text != null)
+            Text.text = $"{day} {season}";
     }
 }

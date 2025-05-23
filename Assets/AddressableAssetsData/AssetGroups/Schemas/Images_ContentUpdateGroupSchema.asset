@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5834b5087d578d24c926ce20cd31e6d6, type: 3}
-  m_Name: FoodImage_ContentUpdateGroupSchema
+  m_Name: Images_ContentUpdateGroupSchema
   m_EditorClassIdentifier: 
-  m_Group: {fileID: 11400000, guid: b59ac39c3b88eb6488e2f67fee62e745, type: 2}
+  m_Group: {fileID: 11400000, guid: 4683760e45d8960429bacabb4f4304ff, type: 2}
   m_StaticContent: 0
