@@ -15,13 +15,17 @@ public class CookingPlatePopUp : BasePopUp
 
     public override void OnClose()
     {
+        canvasGroup?.DOKill();
         base.OnClose();
     }
 
     public override void OnOpen()
     {
-        canvasGroup.DOFade(1f, 1f);
+        if (canvasGroup != null)
+        {
 
+            canvasGroup.DOFade(1f, 1f);
+        }
 
         ShowInfo();
 
