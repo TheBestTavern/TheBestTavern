@@ -24,22 +24,31 @@ public class DayAndNightManager : MonoSingleton<DayAndNightManager>
         base.Init();
         DontDestroyOnLoad(gameObject);
 
+        Debug.Log("######Manager SO 불러오기 시도");
         ManagerContainer so = await AddressablesLoader.Instance.AddressablesLoadAsync<ManagerContainer>("DayAndNightManagerContainer.SO");
 
-        if (nightMat == null)
+        if (so != null && so.nightMaterial != null && so.saturationCurve != null && so.lightnessCurve != null)
         {
-            nightMat = so.nightMaterial;
+            Debug.Log("######Manager SO 내부에 메터리얼, 애니메이션 커브가 잘 채워져있음");
+            if (nightMat == null)
+            {
+                nightMat = so.nightMaterial;
+                Debug.Log("######메터리얼 넣기");
+            }
+
+            if (saturationCurve == null)
+            {
+                saturationCurve = so.saturationCurve;
+                Debug.Log("######채도 커브 넣기");
+            }
+
+            if (lightnessCurve == null)
+            {
+                lightnessCurve = so.lightnessCurve;
+                Debug.Log("######밝기 커브 넣기");
+            }
         }
 
-        if (saturationCurve == null)
-        {
-            saturationCurve = so.saturationCurve;
-        }
-
-        if (lightnessCurve == null)
-        {
-            lightnessCurve = so.lightnessCurve;
-        }
     }
 
     public void pass1hour() // 한시간(정확히는 하루의 1/10씩 밝기 변경. 2차 시간표현 구현할때 필요한 기능. 제대로 구현하려면 process에 제한 줘야함.
