@@ -44,6 +44,7 @@ public class MenuPopUp : BasePopUp
     // 메뉴 컨텐츠 딕셔너리
     Dictionary<ContentsType, GameObject> contentDic;
 
+    Tween tween;
 
     public override void Awake()
     {
@@ -87,13 +88,17 @@ public class MenuPopUp : BasePopUp
     {
         base.OnOpen();
         // 메뉴 팝업 아래로 내려오기 애니메이션
-        transform.GetChild(0).GetComponent<RectTransform>().DOAnchorPosY(320, 1f).SetEase(Ease.OutCubic);
+        if(tween != null)
+            tween.Kill();
+        tween = transform.GetChild(0).GetComponent<RectTransform>().DOAnchorPosY(320, 1f).SetEase(Ease.OutCubic);
     }
 
     // 팝업 닫을 때 필요한 함수
     public override void OnClose()
     {
         // 메뉴팝업 위로 올라가기 애니메이션 후 비활성화
-        transform.GetChild(0).GetComponent<RectTransform>().DOAnchorPosY(1730, 1f).OnComplete(()=> base.OnClose());
+        if (tween != null)
+            tween.Kill();
+        tween = transform.GetChild(0).GetComponent<RectTransform>().DOAnchorPosY(1730, 1f).OnComplete(()=> base.OnClose());
     }
 }
