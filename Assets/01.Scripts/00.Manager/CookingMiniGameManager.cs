@@ -50,6 +50,7 @@ public class CookingMiniGameManager : MonoSingleton<CookingMiniGameManager>
         Debug.Log(selectedCookingTool);
         if (selectedCookingTool == "Plate")
         {
+            Debug.Log("접시클릭");
             selectedItems = GetMiniGameItem();
             RecipeManager.Instance.StartCooking(selectedItems, "Plate");
             RecipeManager.Instance.CompleteDish();
@@ -189,7 +190,7 @@ public class CookingMiniGameManager : MonoSingleton<CookingMiniGameManager>
         }
     }
 
-    public void GetResultItem()
+    public void GetResultItem(bool isMixingBowl = false)
     {
         var keys = RecipeManager.Instance.EndCooking();
         var controller = InventoryManager.Instance.Invens[InvenType.Player];
@@ -204,7 +205,9 @@ public class CookingMiniGameManager : MonoSingleton<CookingMiniGameManager>
             if (controller.AcquireItem(itemData, 1))
             {
                 Debug.Log("아이템 인벤토리에 추가 성공");
-                RemoveInventoryItem();
+
+                // 믹싱볼이면
+                if (isMixingBowl) { RemoveInventoryItem(); }
             }
             else
             {
