@@ -28,8 +28,8 @@
       "key": 110404,
       "name": "식용유",
       "englishName": "cookingOil",
-      "givingNPCID": 800006,
-      "givingNPCName": "호랑이",
+      "givingNPCID": 800007,
+      "givingNPCName": "도깨비",
       "description": "요리엔 기름이 생명! 지글지글 소리와 함께 입맛이 돌아온다."
     },
     {
@@ -52,8 +52,8 @@
       "key": 110407,
       "name": "버터",
       "englishName": "butter",
-      "givingNPCID": 800002,
-      "givingNPCName": "놀부",
+      "givingNPCID": 800006,
+      "givingNPCName": "호랑이",
       "description": "고소하고 진한 서양의 풍미. 노란색 한 조각이 요리의 품격을 올린다."
     },
     {
@@ -68,8 +68,8 @@
       "key": 110409,
       "name": "참기름",
       "englishName": "sesameOil",
-      "givingNPCID": 800007,
-      "givingNPCName": "도깨비",
+      "givingNPCID": 800002,
+      "givingNPCName": "놀부",
       "description": "고소한 향으로 마무리 한 방울. 들기름과 싸워 이긴 향신료계의 귀족."
     },
     {
