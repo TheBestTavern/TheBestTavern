@@ -31,7 +31,10 @@ public class BasePopUp : DraggableMonoBehaviour, IPointerDownHandler
         // 닫기 버튼 이벤트 리스너 추가
         closeButton.onClick.AddListener(async () =>
         {
+            var stopwatch = System.Diagnostics.Stopwatch.StartNew();
             await OnClickCloseButton();
+            stopwatch.Stop();
+            Debug.Log($"사운드 재생 지연시간: {stopwatch.ElapsedMilliseconds}ms");
         });
     }
 
