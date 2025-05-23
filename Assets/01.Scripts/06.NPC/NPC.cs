@@ -8,6 +8,7 @@ public class NPC
     [JsonProperty]
     public Data_NPC Origin { get; private set; } // 원본 데이터
     private float favorability;
+    [JsonProperty]
     public float Favorability // 호감도
     {
         get { return favorability; }
@@ -28,9 +29,9 @@ public class NPC
         }
     }
 
-    [field: SerializeField]
+    [JsonProperty]
     public bool HasMet { get; private set; } = false; // 면식 여부.
-    [field: SerializeField]
+    [JsonProperty]
     public bool isGivingQuest { get; private set; } = false; // 중복 의뢰 발생 막기 위한 변수
 
     public NPC()
