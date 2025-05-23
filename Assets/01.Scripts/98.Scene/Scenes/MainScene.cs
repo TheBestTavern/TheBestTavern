@@ -15,15 +15,6 @@ public class MainScene : BaseScene
         foreach (var runAlready in FindObjectsOfType<MonoBehaviour>().OfType<IRunAlready>())
         {
             await runAlready.RunAlready();
-        }
-
-        if (GameManager.Instance.isAnalyticsAgreed)
-        {
-            var tutorialEvent = new AnalyticsTutorial("TutorialData")
-            {
-                watchTutorial = GameManager.Instance.doTutorial
-            };
-            AnalyticsService.Instance.RecordEvent(tutorialEvent);
-        }
+        }        
     }
 }

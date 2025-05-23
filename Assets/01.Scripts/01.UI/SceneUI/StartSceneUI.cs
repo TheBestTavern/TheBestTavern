@@ -29,6 +29,8 @@ public class StartSceneUI : MonoBehaviour
     private string nextSceneName = "";
     private bool isLoadMode = false;
 
+    private bool? doTutorial = null;
+
     void Start()
     {
         UIManager.Instance.startSceneUI = this;
@@ -74,7 +76,7 @@ public class StartSceneUI : MonoBehaviour
     private void ConfirmTutorial(bool doTutorial)
     {
         nextSceneName = doTutorial ? "TutorialScene" : "MainScene";
-        GameManager.Instance.doTutorial = doTutorial;
+        this.doTutorial = doTutorial;
 
         tutorialSkipPanel.SetActive(false);
         acceptAnalyticsPanel.SetActive(true);
@@ -90,6 +92,15 @@ public class StartSceneUI : MonoBehaviour
     private async void OnAcceptAnalytics()
     {
         await InitializeAnalytics();
+
+        if (doTutorial != null)
+        {
+            var tutorialEvent = new AnalyticsTutorial("TutorialData")
+            {
+                watchTutorial = (bool)doTutorial
+            };
+            AnalyticsService.Instance.RecordEvent(tutorialEvent);
+        }
 
         if (isLoadMode)
         {
