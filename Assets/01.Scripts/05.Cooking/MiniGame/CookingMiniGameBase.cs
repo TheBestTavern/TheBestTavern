@@ -32,7 +32,7 @@ public abstract class CookingMiniGameBase : MonoBehaviour, ICookingMiniGameHandl
 
     protected abstract float GetTimer();
     
-    protected virtual void Update()
+    protected async virtual void Update()
     {
         if (isGameOver) return;
         UIManager.Instance.miniGameUI.UpdateTimer(playTime);
@@ -70,7 +70,7 @@ public abstract class CookingMiniGameBase : MonoBehaviour, ICookingMiniGameHandl
                 CookingMiniGameManager.Instance.GetResultItem(true);
             }
 
-            PopUpManager.Instance.ShowPopUp(PopUpType.CookingResult); // 결과 팝업 띄우기
+            await PopUpManager.Instance.ShowPopUp(PopUpType.CookingResult); // 결과 팝업 띄우기
         }
 
         // FSM 상태 전환 실행 (구현시 이곳에서 실행)
