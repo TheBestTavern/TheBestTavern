@@ -131,7 +131,7 @@ public class RelationSlot : MonoBehaviour, IPoolable
         }
         for (; i < compensationImages.Count; i++)
         {
-            compensationImages[i].sprite = await AddressablesLoader.Instance.AddressablesLoadSpriteFromAtlasAsync("FoodSpriteAtlas", "Undiscovered2", true);
+            compensationImages[i].sprite = await AddressablesLoader.Instance.AddressablesLoadSpriteFromAtlasAsync("FoodSpriteAtlas", "undiscovered2", true);
         }
     }
 }

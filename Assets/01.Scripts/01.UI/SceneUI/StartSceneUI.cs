@@ -149,7 +149,7 @@ public class StartSceneUI : MonoBehaviour
         NPCManager.Instance.NPCData.ApplyLoadData(data.AllNPC);
         QuestManager.Instance.questData.ApplyLoadData(
             data.AllQuests, data.AcceptedQuests, data.OnceSuccessQuests,
-            data.JustCompleteQuests, data.TodayAvailableQuest, data.QuestCheckQueueForSerialization
+            data.JustCompleteQuests, data.TodayAvailableQuest, data.QuestCheckQueueForSerialization, data.TodaySpawnNPC
         );
         CalendarManager.Instance.ApplyLoadData(data.CurrentSeasonType);
         ItemStackManager.Instance.ApplyLoadData(data.IDsForSerialization, data.AllItemStack);    

@@ -68,7 +68,7 @@ public class QuestData
 
     public void ApplyLoadData(Dictionary<int, Quest> AllQuests, List<int> AcceptedQuests,
         Dictionary<int, SuccessDegree> OnceSuccessQuests, List<(int, SuccessDegree)> JustCompleteQuests, List<int> TodayAvailableQuest,
-        List<(int questID, int itemID)> QuestCheckQueue)
+        List<(int questID, int itemID)> QuestCheckQueue, List<int> TodaySpawnNPC)
     {
         this.AllQuests = AllQuests;
         this.AcceptedQuests = AcceptedQuests;
@@ -76,6 +76,7 @@ public class QuestData
         this.JustCompleteQuests = JustCompleteQuests;
         this.TodayAvailableQuest = TodayAvailableQuest;
         this.QuestCheckQueue = new (QuestCheckQueue);
+        this.TodaySpawnNPC = TodaySpawnNPC;
     }
 
     public void AcceptQuest(int questID)
