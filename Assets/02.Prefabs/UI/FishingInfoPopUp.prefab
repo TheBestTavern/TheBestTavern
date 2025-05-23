@@ -1786,8 +1786,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "<b>\uC870\uC791</b>: <b><color=#FF2900>\uB09A\uC2DC \uC2DC\uC791(F)</color></b>,
-    <b><color=#44912D>\uB09A\uC2DC \uC904 \uB2F9\uAE30\uAE30 (\uB9C8\uC6B0\uC2A4
-    \uC6B0\uD074\uB9AD)</color></b> "
+    <b><color=#44912D>\uB09A\uC2DC \uC904 \uB2F9\uAE30\uAE30 (space bar)</color></b> "
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1d344be8c80e99a4ba2908ceccb706e3, type: 2}
   m_sharedMaterial: {fileID: 1974840492626225644, guid: 1d344be8c80e99a4ba2908ceccb706e3, type: 2}
