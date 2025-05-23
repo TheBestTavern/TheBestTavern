@@ -47,7 +47,7 @@ public abstract class CookingMiniGameBase : MonoBehaviour, ICookingMiniGameHandl
 
         if (timer <= 3f)
         {
-            SoundManager.Instance.PlaySFX("Timer");
+            SoundManager.Instance.PlayAmbience("Timer");
         }
 
         if (timer <= 0f || isGameOver)
