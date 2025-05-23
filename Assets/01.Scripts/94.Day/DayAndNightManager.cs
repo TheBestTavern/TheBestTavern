@@ -82,11 +82,13 @@ public class DayAndNightManager : MonoSingleton<DayAndNightManager>
                 process = 0;
                 limitProcess = 0;
                 EventBus.Publish<EndNightUIBlockEvent>(new EndNightUIBlockEvent());
+                EventBus.Publish<NPCVisitEvent>(new NPCVisitEvent());
                 yield break;
             }
             if (targetProcess < process)
             {
                 EventBus.Publish<EndNightUIBlockEvent>(new EndNightUIBlockEvent());
+                Debug.LogError("이거 실행되면 안됨");
                 yield break;
             }
 

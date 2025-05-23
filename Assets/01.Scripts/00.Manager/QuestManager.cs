@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Unity.VisualScripting;
 using UnityEngine;
+using static UnityEngine.UI.Image;
 
 public class QuestManager : MonoSingleton<QuestManager>
 {
@@ -69,7 +70,11 @@ public class QuestManager : MonoSingleton<QuestManager>
         NPCManager.Instance.AllNPC[tempQuest.Origin.givingNPC].GiveQuest(); // npc 퀘스트 준 상태로 전환
         TodayAvailableQuest.Remove(questID); //오늘의 퀘스트 리스트에서 삭제
         return true;
+    }
 
+    public void SubmissionComplete(int npcID)
+    {
+        questData.TodaySpawnNPC.Remove(npcID);
     }
 
     public class OnNewDay : IDayCommand

@@ -134,3 +134,11 @@ public class SeasonChangeEvent
     }
 }
 
+// NPC 방문 이벤트
+
+public class NPCVisitEvent
+{
+    public NPCVisitEvent()
+    {
+    }
+}
