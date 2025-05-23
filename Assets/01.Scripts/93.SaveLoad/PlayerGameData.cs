@@ -10,8 +10,7 @@ public class PlayerGameData
     public LunarDateTime today = new();
 
     public Stack<int> IDs = new();
-
-    //public Dictionary<int, ItemStack> AllItemStack = new();
+    public Dictionary<int, ItemStack> AllItemStack = new();
 
     public Dictionary<int, ItemRecord> itemRecords = new();
 
@@ -26,15 +25,16 @@ public class PlayerGameData
 
     public DesignEnums.SeasonType? CurrentSeasonType;
 
-    public PlayerInvenData playerInvenData = new();
+    public Dictionary<int, List<int>> foodKey2IDs = new();
+    public Dictionary<int, ItemStack> ID2ItemStack = new();
 
     public void SetSaveData()
     {
         today = TimerManager.Instance.GetToday();
 
         IDs = ItemStackManager.Instance.IDs;
+        AllItemStack = ItemStackManager.Instance.AllItemStack;
 
-        //AllItemStack = ItemStackManager.Instance.AllItemStack;
 
         itemRecords = ItemRecordManager.Instance.itemRecords;
 
@@ -49,7 +49,9 @@ public class PlayerGameData
 
         CurrentSeasonType = CalendarManager.Instance.CurrentSeasonType;
 
-        playerInvenData.SetPlayerInvenData(InventoryManager.Instance.Invens[InvenType.Player].model.ID2ItemStack);
+        //playerInvenData.SetPlayerInvenData(InventoryManager.Instance.Invens[InvenType.Player].model.ID2ItemStack);
+        foodKey2IDs = InventoryManager.Instance.Invens[InvenType.Player].model.foodKey2IDs;
+        ID2ItemStack = InventoryManager.Instance.Invens[InvenType.Player].model.ID2ItemStack;
     }
 
     [System.Serializable]

@@ -119,7 +119,7 @@ public class StartSceneUI : MonoBehaviour
 
     private async void OnRejectAnalytics()
     {
-        GameManager.Instance.isAnalyticsAgreed = false;        
+        GameManager.Instance.isAnalyticsAgreed = false;
 
         if (isLoadMode)
         {
@@ -152,10 +152,7 @@ public class StartSceneUI : MonoBehaviour
             data.JustCompleteQuests, data.TodayAvailableQuest, data.QuestCheckQueue
         );
         CalendarManager.Instance.ApplyLoadData(data.CurrentSeasonType);
-
-        foreach (var item in data.playerInvenData.ItemList)
-        {
-            InventoryManager.Instance.Invens[InvenType.Player].AcquireItem(item.Origin, item.Count);
-        }
+        ItemStackManager.Instance.ApplyLoadData(data.IDs, data.AllItemStack);    
+        InventoryManager.Instance.Invens[InvenType.Player].ApplyLoadData(data.foodKey2IDs, data.ID2ItemStack);
     }
 }

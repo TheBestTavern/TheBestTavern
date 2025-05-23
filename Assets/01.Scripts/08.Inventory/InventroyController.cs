@@ -113,4 +113,9 @@ public class InventoryController
     {
         model.Dipose();
     }
+
+    public void ApplyLoadData(Dictionary<int, List<int>> foodKey2IDs, Dictionary<int, ItemStack> ID2ItemStack)
+    {
+        model.ApplyLoadData(foodKey2IDs, ID2ItemStack);
+    }
 }
