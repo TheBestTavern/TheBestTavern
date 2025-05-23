@@ -1,10 +1,15 @@
 using System;
 using System.Collections.Generic;
+using Newtonsoft.Json;
 using static Cinemachine.CinemachineTriggerAction.ActionSettings;
 
 public class ItemStackManager : MonoSingleton<ItemStackManager>
 {
-    public Stack<int> IDs { get; private set; } = new();
+    //public Stack<int> IDs { get; private set; } = new();
+    [JsonProperty]
+    public List<int> IDsForSerialization = new(); // 저장시 사용
+    [JsonIgnore]
+    public Stack<int> IDs { get; private set; }= new(); // 역순 주의
     public Dictionary<int, ItemStack> AllItemStack { get; private set; } = new();
 
     private int idRangeMin = 1100000;
@@ -24,9 +29,10 @@ public class ItemStackManager : MonoSingleton<ItemStackManager>
         //EventBus.Subscribe<ItemStackOnZeroEvent>(ReCoverID);
     }
 
-    public void ApplyLoadData(Stack<int> IDs, Dictionary<int, ItemStack> AllItemStack)
+    public void ApplyLoadData(List<int> IDsforSerial, Dictionary<int, ItemStack> AllItemStack)
     {
-        this.IDs = IDs;
+        IDsforSerial.Reverse();
+        IDs = new(IDsforSerial);
         this.AllItemStack = AllItemStack;
     }
 

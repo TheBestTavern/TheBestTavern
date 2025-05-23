@@ -149,10 +149,10 @@ public class StartSceneUI : MonoBehaviour
         NPCManager.Instance.NPCData.ApplyLoadData(data.AllNPC);
         QuestManager.Instance.questData.ApplyLoadData(
             data.AllQuests, data.AcceptedQuests, data.OnceSuccessQuests,
-            data.JustCompleteQuests, data.TodayAvailableQuest, data.QuestCheckQueue
+            data.JustCompleteQuests, data.TodayAvailableQuest, data.QuestCheckQueueForSerialization
         );
         CalendarManager.Instance.ApplyLoadData(data.CurrentSeasonType);
-        ItemStackManager.Instance.ApplyLoadData(data.IDs, data.AllItemStack);    
+        ItemStackManager.Instance.ApplyLoadData(data.IDsForSerialization, data.AllItemStack);    
         InventoryManager.Instance.Invens[InvenType.Player].ApplyLoadData(data.foodKey2IDs, data.ID2ItemStack);
     }
 }
