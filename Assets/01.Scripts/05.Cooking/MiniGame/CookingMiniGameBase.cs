@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -26,7 +27,7 @@ public abstract class CookingMiniGameBase : MonoBehaviour, ICookingMiniGameHandl
 
     private void OnDestroy()
     {
-        PopUpManager.Instance.PopUps.Remove(PopUpType.CookingResult);
+       
         SoundManager.Instance.StopLoop();
     }
 
@@ -57,7 +58,6 @@ public abstract class CookingMiniGameBase : MonoBehaviour, ICookingMiniGameHandl
 
         if (timer <= 0f || isGameOver)
         {
-            isGameOver = true;
             StopGame();
             Debug.Log("게임종료");
             //RecipeManager.Instance.EndCooking();
@@ -69,8 +69,18 @@ public abstract class CookingMiniGameBase : MonoBehaviour, ICookingMiniGameHandl
             {
                 CookingMiniGameManager.Instance.GetResultItem(true);
             }
+            try { 
+            var popup = PopUpManager.Instance.ShowPopUp(PopUpType.CookingResult); // 결과 팝업 띄우기
+                                                                                  }
+            catch (System.Exception e)
+            {
+                
+       
+                    Debug.LogError(e);
+              
+            }
+            isGameOver = true;
 
-            PopUpManager.Instance.ShowPopUp(PopUpType.CookingResult); // 결과 팝업 띄우기
         }
 
         // FSM 상태 전환 실행 (구현시 이곳에서 실행)
