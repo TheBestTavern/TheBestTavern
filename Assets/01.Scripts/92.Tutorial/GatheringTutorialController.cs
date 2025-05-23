@@ -39,7 +39,6 @@ public class GatheringTutorialController : BaseTutorialController
         {
             case 1:
                 npcImage.DOFade(0, 1f);
-                NextButton.gameObject.SetActive(false);
                 await UniTask.WaitForSeconds(1.5f);
                 textIndex++;
                 OnClickNextButton();
@@ -50,7 +49,6 @@ public class GatheringTutorialController : BaseTutorialController
                 OnClickNextButton();
                 break;
             case 4:
-                NextButton.gameObject.SetActive(true);
                 tutorialGatheringManager = GatheringManager.Instance as TutorialGatheringManager;
                 tutorialGatheringManager.tutorialVideoPlayerController.PlayTutorialVideo(videoIndex);
                 videoIndex++;
