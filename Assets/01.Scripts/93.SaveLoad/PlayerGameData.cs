@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Unity.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -9,7 +10,8 @@ public class PlayerGameData
 {
     public LunarDateTime today = new();
 
-    public Stack<int> IDs = new();
+    //public Stack<int> IDs = new();
+    public List<int> IDsForSerialization = new();
     public Dictionary<int, ItemStack> AllItemStack = new();
 
     public Dictionary<int, ItemRecord> itemRecords = new();
@@ -21,7 +23,8 @@ public class PlayerGameData
     public Dictionary<int, SuccessDegree> OnceSuccessQuests = new();
     public List<(int, SuccessDegree)> JustCompleteQuests = new();
     public List<int> TodayAvailableQuest = new();
-    public Queue<(int questID, int itemID)> QuestCheckQueue = new();
+    //public Queue<(int questID, int itemID)> QuestCheckQueue = new();
+    public List<(int questID, int itemID)> QuestCheckQueueForSerialization = new();
 
     public DesignEnums.SeasonType? CurrentSeasonType;
 
@@ -32,7 +35,7 @@ public class PlayerGameData
     {
         today = TimerManager.Instance.GetToday();
 
-        IDs = ItemStackManager.Instance.IDs;
+        IDsForSerialization = ItemStackManager.Instance.IDs.ToList();
         AllItemStack = ItemStackManager.Instance.AllItemStack;
 
 
@@ -45,7 +48,7 @@ public class PlayerGameData
         OnceSuccessQuests = QuestManager.Instance.OnceSuccessQuests;
         JustCompleteQuests = QuestManager.Instance.JustCompleteQuests;
         TodayAvailableQuest = QuestManager.Instance.TodayAvailableQuest;
-        QuestCheckQueue = QuestManager.Instance.QuestCheckQueue;
+        QuestCheckQueueForSerialization = QuestManager.Instance.QuestCheckQueue.ToList();
 
         CurrentSeasonType = CalendarManager.Instance.CurrentSeasonType;
 
