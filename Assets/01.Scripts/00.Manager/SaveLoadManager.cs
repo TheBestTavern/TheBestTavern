@@ -33,11 +33,9 @@ SaveDataWeb();
 
     public void SaveDataWeb()
     {
-        Debug.Log("저장시작");
         string json = JsonConvert.SerializeObject(playerGameData);
         PlayerPrefs.SetString("SaveData", json);
         PlayerPrefs.Save();
-        Debug.Log("저장후");
     }
 
     public void SaveDataBasic()
@@ -50,7 +48,6 @@ SaveDataWeb();
 
     public bool LoadData(out PlayerGameData playerGameData)
     {
-        Debug.Log("LoadData###");
 
 #if UNITY_WEBGL
     return LoadDataWeb(out playerGameData);
@@ -61,14 +58,10 @@ SaveDataWeb();
 
     public bool LoadDataWeb(out PlayerGameData playerGameData)
     {
-        Debug.Log("플레이어프리팹 키가 있는지 확인");
         if (PlayerPrefs.HasKey("SaveData"))
         {
-        Debug.Log("플레이어프리팹 키 있음");
             string json = PlayerPrefs.GetString("SaveData");
-        Debug.Log("플레이어프리팹에서 string 추출");
             playerGameData = JsonConvert.DeserializeObject<PlayerGameData>(json);
-        Debug.Log("플레이어프리팹 역직렬화");
             return true;
         }
         else
