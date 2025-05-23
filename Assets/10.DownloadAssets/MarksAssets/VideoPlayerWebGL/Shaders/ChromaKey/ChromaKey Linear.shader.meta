@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: 79cc1fe28d74c43d3a7da03d68d3e4eb
+ShaderImporter:
+  externalObjects: {}
+  defaultTextures: []
+  nonModifiableTextures: []
+  preprocessorOverride: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 192420
+  packageName: Video Player WebGL
+  packageVersion: 1.82
+  assetPath: Assets/MarksAssets/VideoPlayerWebGL/Shaders/ChromaKey/ChromaKey Linear.shader
+  uploadId: 620954

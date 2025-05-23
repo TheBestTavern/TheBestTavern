@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 2a64aaeb6cbc3e9488432dce273e33fa
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 192420
+  packageName: Video Player WebGL
+  packageVersion: 1.82
+  assetPath: Assets/MarksAssets/VideoPlayerWebGL/Materials/VideoMaterial2.mat
+  uploadId: 620954

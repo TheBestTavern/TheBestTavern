@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 07733e468e2dd415c8cdc40024a56f7d
+TextScriptImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 192420
+  packageName: Video Player WebGL
+  packageVersion: 1.82
+  assetPath: Assets/MarksAssets/VideoPlayerWebGL/Shaders/ChromaKey/LICENSE.txt
+  uploadId: 620954

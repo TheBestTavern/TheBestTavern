@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 8e0fbb35d41e5472fba537dc9944fde7
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 192420
+  packageName: Video Player WebGL
+  packageVersion: 1.82
+  assetPath: Assets/MarksAssets/VideoPlayerWebGL/Example/Scenes/SeekControl/VideoProgressBar.cs
+  uploadId: 620954

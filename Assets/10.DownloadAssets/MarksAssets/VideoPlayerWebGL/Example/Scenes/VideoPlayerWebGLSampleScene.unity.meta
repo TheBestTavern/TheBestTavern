@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 1aa5ab6260d56274a86e6a01789ee9c2
+DefaultImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 192420
+  packageName: Video Player WebGL
+  packageVersion: 1.82
+  assetPath: Assets/MarksAssets/VideoPlayerWebGL/Example/Scenes/VideoPlayerWebGLSampleScene.unity
+  uploadId: 620954

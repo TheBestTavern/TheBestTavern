@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 0e647d24a207a8941b6784526b821ea7
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 192420
+  packageName: Video Player WebGL
+  packageVersion: 1.82
+  assetPath: Assets/MarksAssets/VideoPlayerWebGL/Textures/VideoMaterialTexture.renderTexture
+  uploadId: 620954
