@@ -87,7 +87,7 @@
       "ingredients": [
         110107
       ],
-      "usingTool": 1005,
+      "usingTool": 1004,
       "itemType": 1
     },
     {
@@ -942,7 +942,7 @@
       "name": "고구마 조림",
       "resultCategory": 110506,
       "ingredients": [
-        110119,
+        110120,
         110177
       ],
       "usingTool": 1008,

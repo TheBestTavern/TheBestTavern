@@ -18,6 +18,7 @@ public class SubmissionMode : MonoBehaviour
     private Vector3 InventoryUIOriginalPos;
     [SerializeField] Transform NPCPivot;
     [SerializeField] Button submitBtn;
+    [SerializeField] Button closeBtn;
 
     [Range(0f, 5f), SerializeField] float duration = 0.3f;
     private Color BGColor;
@@ -77,6 +78,12 @@ public class SubmissionMode : MonoBehaviour
         {
             InventoryUI.gameObject.SetActive(false);
         }));
+
+        closeBtn.onClick.AddListener(() =>
+        {
+            QuestManager.Instance.QuestCheckQueue.Enqueue((quest.Origin.key, 0));
+            StartCoroutine(AfterSubmit());
+        });
 
 #if UNITY_EDITOR
         devBtn.onClick.AddListener(DevBtn); // 테스트용

@@ -58,21 +58,27 @@ public class NPC
     // 퀘스트를 의뢰함에 접수 시 발생.
     public void GiveQuest()
     {
+        Debug.Log("퀘스트 주기1");
         isGivingQuest = true;
+        Debug.Log("퀘스트 주기2");
     }
 
     // 퀘스트를 성공 시 발생.
     public void SuccessQuest(float favor)
     {
+        Debug.Log("퀘스트 성공1");
         isGivingQuest = false;
         ChangeFavor(favor);
+        Debug.Log("퀘스트 성공2");
     }
 
     // 퀘스트 실패 시 발생
     public void FailQuest(float favor)
     {
+        Debug.Log("퀘스트 실패1");
         isGivingQuest = false;
         ChangeFavor(favor);
+        Debug.Log("퀘스트 실패2");
     }
 
     private void ChangeFavor(float favor)
