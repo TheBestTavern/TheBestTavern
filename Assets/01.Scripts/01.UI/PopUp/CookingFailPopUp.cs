@@ -42,13 +42,10 @@ public class CookingFailPopUp : BasePopUp
     // 성공,페일 텍스트 둘다 켜짐
     public void ShowInfo()
     {
-        
-        
-
             // 조리 도구 실패
             itemNameText.text = "조리 도구를 잘못 선택한 것 같다...";
             failText.gameObject.SetActive(true);
-            itemNameText.gameObject.SetActive(false);
+            itemNameText.gameObject.SetActive(true);
             SoundManager.Instance.PlaySFX("Fail");
     }
 }

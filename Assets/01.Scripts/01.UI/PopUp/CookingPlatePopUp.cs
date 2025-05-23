@@ -37,7 +37,6 @@ public class CookingPlatePopUp : BasePopUp
 
     public async void ShowInfo()
     {
-
         successText.gameObject.SetActive(false);
         failText.gameObject.SetActive(false);
         itemNameText.gameObject.SetActive(false);
@@ -54,6 +53,8 @@ public class CookingPlatePopUp : BasePopUp
             // 실패 조건 먼저 체크
             if (itemKey == -1 || result == CookingResultGrade.Failed)
             {
+            Debug.Log("실실실실패");
+            
                 successText.gameObject.SetActive(false);
                 failText.gameObject.SetActive(true);
                 itemImage.gameObject.SetActive(false);
@@ -62,9 +63,10 @@ public class CookingPlatePopUp : BasePopUp
                 SoundManager.Instance.PlaySFX("Fail");
                 return;
             }
+        Debug.Log("성성성공");
 
-            // 성공
-            successText.gameObject.SetActive(true);
+        // 성공
+        successText.gameObject.SetActive(true);
             failText.gameObject.SetActive(false);
             SoundManager.Instance.PlaySFX("Success");
 
@@ -75,5 +77,6 @@ public class CookingPlatePopUp : BasePopUp
             itemImage.sprite = await AddressablesLoader.Instance.AddressablesLoadAsync<Sprite>($"Assets/16.Image/FoodImage/{data.englishName}.png", true);
             itemImage.gameObject.SetActive(itemImage.sprite != null);
         }
+
     }
 
