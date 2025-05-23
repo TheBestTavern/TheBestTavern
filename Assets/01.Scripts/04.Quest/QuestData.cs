@@ -26,6 +26,7 @@ public class QuestData
     public List<int> TodayAvailableQuest { get; private set; } = new(); // 오늘의 퀘스트
     public List<(int questID, int itemID)> QuestCheckQueueForSerialization = new(); // 저장시 사용
     public Queue<(int questID, int itemID)> QuestCheckQueue { get; private set; } = new(); // 아이템 제출한 퀘스트 목록.
+    public List<int> TodaySpawnNPC { get; private set; } = new(); // 오늘 찾아올 NPC
 
     public QuestContainer questSO { get; private set; }
     Dictionary<SuccessDegree, int> favorMap;
@@ -146,7 +147,7 @@ public class QuestData
         public void CheckAcceptedQuests()
         {
             //진행중 퀘스트 상태 확인(당일 - NPC방문, 아직 - 무, 지남 - 퀘스트 실패 처리) 
-            List<int> spawnNPCs = new();
+            prt.TodaySpawnNPC.Clear();
             for (int i = 0; i < prt.AcceptedQuests.Count; i++)
             {
                 int key = prt.AcceptedQuests[i];
@@ -159,7 +160,7 @@ public class QuestData
                 {
                     //당일
                     // 소환할 NPC 목록 구성
-                    spawnNPCs.Add(key);
+                    prt.TodaySpawnNPC.Add(key);
                     Debug.Log($"{tempQuest.Origin.name}퀘스트의 NPC를 소환 목록에 등록");
                 }
                 else
@@ -172,12 +173,12 @@ public class QuestData
 
             }
             // 소환할 npc 있다면, 
-            if (spawnNPCs.Count > 0)
-            {
-                prt.onTriggerNPC?.Invoke(spawnNPCs);
-                prt.onSpawnNPC?.Invoke();
-                spawnNPCs.Clear();
-            }
+            //if (spawnNPCs.Count > 0)
+            //{
+            //    prt.onTriggerNPC?.Invoke(spawnNPCs);
+            //    prt.onSpawnNPC?.Invoke();
+            //    spawnNPCs.Clear();
+            //}
             //Debug.Log("진행중 퀘스트 체크");
 
         }

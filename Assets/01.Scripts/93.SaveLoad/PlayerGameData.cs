@@ -25,6 +25,7 @@ public class PlayerGameData
     public List<int> TodayAvailableQuest = new();
     //public Queue<(int questID, int itemID)> QuestCheckQueue = new();
     public List<(int questID, int itemID)> QuestCheckQueueForSerialization = new();
+    public List<int> TodaySpawnNPC = new();
 
     public DesignEnums.SeasonType? CurrentSeasonType;
 
@@ -49,6 +50,7 @@ public class PlayerGameData
         JustCompleteQuests = QuestManager.Instance.JustCompleteQuests;
         TodayAvailableQuest = QuestManager.Instance.TodayAvailableQuest;
         QuestCheckQueueForSerialization = QuestManager.Instance.QuestCheckQueue.ToList();
+        TodaySpawnNPC = QuestManager.Instance.questData.TodaySpawnNPC;
 
         CurrentSeasonType = CalendarManager.Instance.CurrentSeasonType;
 

@@ -15,6 +15,7 @@ public enum AreaState
 
 public class NPCArea : MonoBehaviour
 {
+
     [Range(0f, 5f), SerializeField] float duration = 0.3f;
     [SerializeField] int npcNumber = 5; // 한번에 화면에 나타날 npc 숫자
     [SerializeField] NPCSlot npcSlotPref;
@@ -36,14 +37,16 @@ public class NPCArea : MonoBehaviour
     {
         dateID = TimerManager.Instance.GetToday(); // 테스트용
         Init();
-        QuestManager.Instance.questData.onTriggerNPC += ShowNPC;
-        QuestManager.Instance.questData.onSpawnNPC += PlaceNPCsInside;
+        //QuestManager.Instance.questData.onTriggerNPC += ShowNPC;
+        //QuestManager.Instance.questData.onSpawnNPC += PlaceNPCsInside;
+        EventBus.Subscribe<NPCVisitEvent>(VisitNPC);
     }
 
     private void OnDestroy()
     {
-        QuestManager.Instance.questData.onTriggerNPC -= ShowNPC;
-        QuestManager.Instance.questData.onSpawnNPC -= PlaceNPCsInside;
+        //QuestManager.Instance.questData.onTriggerNPC -= ShowNPC;
+        //QuestManager.Instance.questData.onSpawnNPC -= PlaceNPCsInside;
+        EventBus.UnSubscribe<NPCVisitEvent>(VisitNPC);
     }
     public void Init()
     {
@@ -60,8 +63,15 @@ public class NPCArea : MonoBehaviour
         CommandManager.Instance.AddCommand(command);
     }
 
-    private void ShowNPC(List<int> NPCKeys)
+    public void VisitNPC(NPCVisitEvent evt)
     {
+        ShowNPC();
+        PlaceNPCsInside();
+    }
+
+    private void ShowNPC()
+    {
+        List<int> NPCKeys = QuestManager.Instance.questData.TodaySpawnNPC;
         int i = 0;
         foreach (int NPCKey in NPCKeys)
         {
