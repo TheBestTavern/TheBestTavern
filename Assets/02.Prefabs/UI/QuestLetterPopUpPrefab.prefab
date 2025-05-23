@@ -2108,10 +2108,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1440}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -2148,13 +2148,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30d351ee189066b45abe2522786aced5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  draggableObjectTrs: {fileID: 0}
+  draggable: 0
   closeButton: {fileID: 1408138573363093146}
+  canvas: {fileID: 0}
   popUpType: 7
-  btn7: {fileID: 6435497974185860118}
-  btn11: {fileID: 3324561787143019390}
-  btn14: {fileID: 2312628848087200473}
-  btnYes: {fileID: 8287091025111038217}
-  btnNo: {fileID: 52214180252690480}
+  buttons: []
   title: {fileID: 2773350123048971620}
   bodyText: {fileID: 2329096546312643286}
   from: {fileID: 7786352085032404017}

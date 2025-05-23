@@ -78,11 +78,11 @@ public class SubmissionMode : MonoBehaviour
             InventoryUI.gameObject.SetActive(false);
         }));
 
-//#if UNITY_EDITOR
+#if UNITY_EDITOR
         devBtn.onClick.AddListener(DevBtn); // 테스트용
-//#else
-//        devBtn.gameObject.SetActive(false);
-//#endif
+#else
+        devBtn.gameObject.SetActive(false);
+#endif
         isInitialized = true;
     }
 

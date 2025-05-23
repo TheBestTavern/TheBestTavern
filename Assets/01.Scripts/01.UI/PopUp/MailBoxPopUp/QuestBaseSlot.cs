@@ -25,6 +25,7 @@ public abstract class QuestBaseSlot : MonoBehaviour
         {
             this.mailBoxContent = Content;
             isReady = true;
+            transform.localScale = Vector3.one;
         }
     }
 
