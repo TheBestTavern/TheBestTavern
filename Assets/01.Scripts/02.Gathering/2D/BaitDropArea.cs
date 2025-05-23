@@ -31,8 +31,7 @@ public class BaitDropArea : MonoBehaviour
 
             Data_Foods raw = Data.GetRawItem(item.Origin.key);
 
-            Sprite loadedSprite = await AddressablesLoader.Instance.AddressablesLoadAsync<Sprite>(
-                $"Assets/16.Image/FoodImage/{raw.englishName}.png", true);
+            Sprite loadedSprite = await AddressablesLoader.Instance.AddressablesLoadSpriteFromAtlasAsync("FoodSpriteAtlas", raw.englishName, true);
 
             if (loadedSprite != null)
             {

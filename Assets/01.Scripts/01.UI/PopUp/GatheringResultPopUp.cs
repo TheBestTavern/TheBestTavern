@@ -85,8 +85,7 @@ public class GatheringResultPopUp : BasePopUp
     {
         int itemKey = CaptureManager.Instance.GetItemKey();
         Data_Foods raw = Data.GetRawItem(itemKey);
-        Sprite loadedSprite = await AddressablesLoader.Instance.AddressablesLoadAsync<Sprite>(
-                $"Assets/16.Image/FoodImage/{raw.englishName}.png", true);
+        Sprite loadedSprite = await AddressablesLoader.Instance.AddressablesLoadSpriteFromAtlasAsync("FoodSpriteAtlas", raw.englishName, true);;
         Debug.Log($"최종 아이템 키 : {itemKey}");
         if (itemKey == 0)
         {
@@ -104,8 +103,7 @@ public class GatheringResultPopUp : BasePopUp
     {
         int itemKey = FishingManager.Instance.GetGatheringKey();
         Data_Foods raw = Data.GetRawItem(itemKey);
-        Sprite loadedSprite = await AddressablesLoader.Instance.AddressablesLoadAsync<Sprite>(
-                $"Assets/16.Image/FoodImage/{raw.englishName}.png", true);
+        Sprite loadedSprite = await AddressablesLoader.Instance.AddressablesLoadSpriteFromAtlasAsync("FoodSpriteAtlas", raw.englishName, true);
         Debug.Log($"최종 아이템 키 : {itemKey}");
         if (itemKey == 0)
         {
