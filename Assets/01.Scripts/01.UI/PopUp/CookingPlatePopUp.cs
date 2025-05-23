@@ -74,7 +74,7 @@ public class CookingPlatePopUp : BasePopUp
             itemNameText.text = data.name;
             itemNameText.gameObject.SetActive(true);
 
-            itemImage.sprite = await AddressablesLoader.Instance.AddressablesLoadAsync<Sprite>($"Assets/16.Image/FoodImage/{data.englishName}.png", true);
+            itemImage.sprite = await AddressablesLoader.Instance.AddressablesLoadSpriteFromAtlasAsync("FoodSpriteAtlas", data.englishName, true);
             itemImage.gameObject.SetActive(itemImage.sprite != null);
         }
 

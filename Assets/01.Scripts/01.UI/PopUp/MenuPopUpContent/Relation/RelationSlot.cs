@@ -124,13 +124,13 @@ public class RelationSlot : MonoBehaviour, IPoolable
             QuestManager.Instance.OnceSuccessQuests.TryGetValue(pair.Key, out var successDegree);
             if ((int)successDegree >= 20)
             {
-                compensationImages[i].sprite = await AddressablesLoader.Instance.AddressablesLoadAsync<Sprite>($"Assets/16.Image/FoodImage/{pair.Value}.png", true);
+                compensationImages[i].sprite = await AddressablesLoader.Instance.AddressablesLoadSpriteFromAtlasAsync("FoodSpriteAtlas", pair.Value, true);
                 i++;
             }
         }
         for (; i < compensationImages.Count; i++)
         {
-            compensationImages[i].sprite = await AddressablesLoader.Instance.AddressablesLoadAsync<Sprite>("Undiscovered2.Sprite");
+            compensationImages[i].sprite = await AddressablesLoader.Instance.AddressablesLoadSpriteFromAtlasAsync("FoodSpriteAtlas", "Undiscovered2", true);
         }
     }
 }

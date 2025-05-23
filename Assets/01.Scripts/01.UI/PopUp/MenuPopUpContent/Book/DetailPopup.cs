@@ -99,7 +99,7 @@ public class DetailPopup : BasePopUp
     private async void SetIngredient()
     {
         var thing = DataManager.Instance.DataLoader_Book_Ingredient.GetByKey(current.key);
-        icon.sprite = await AddressablesLoader.Instance.AddressablesLoadAsync<Sprite>($"Assets/16.Image/FoodImage/{thing.englishName}.png", true);
+        icon.sprite = await AddressablesLoader.Instance.AddressablesLoadSpriteFromAtlasAsync("FoodSpriteAtlas", thing.englishName, true);
         foodName.text = thing.name;
         desc.text = thing.description;
         ItemType.text = "원재료";
@@ -188,7 +188,7 @@ public class DetailPopup : BasePopUp
     private async void SetSpecial()
     {
         var thing = DataManager.Instance.DataLoader_Book_Special.GetByKey(current.key);
-        icon.sprite = await AddressablesLoader.Instance.AddressablesLoadAsync<Sprite>($"Assets/16.Image/FoodImage/{thing.englishName}.png", true);
+        icon.sprite = await AddressablesLoader.Instance.AddressablesLoadSpriteFromAtlasAsync("FoodSpriteAtlas", thing.englishName, true);
         foodName.text = thing.name;
         desc.text = thing.description;
         ItemType.text = "특수재료";
@@ -210,7 +210,7 @@ public class DetailPopup : BasePopUp
     private async void SetMix()
     {
         var thing = DataManager.Instance.DataLoader_Book_Mix.GetByKey(current.key);
-        icon.sprite = await AddressablesLoader.Instance.AddressablesLoadAsync<Sprite>($"Assets/16.Image/FoodImage/{thing.resultFoodEnglishName}.png", true);
+        icon.sprite = await AddressablesLoader.Instance.AddressablesLoadSpriteFromAtlasAsync("FoodSpriteAtlas", thing.resultFoodEnglishName, true);
         foodName.text = thing.name;
         desc.text = thing.description;
         ItemType.text = "조합재료";
@@ -235,7 +235,7 @@ public class DetailPopup : BasePopUp
     private async void SetDish()
     {
         var thing = DataManager.Instance.DataLoader_Book_Dish.GetByKey(current.key);
-        icon.sprite = await AddressablesLoader.Instance.AddressablesLoadAsync<Sprite>($"Assets/16.Image/FoodImage/{thing.resultFoodEnglishName}.png", true);
+        icon.sprite = await AddressablesLoader.Instance.AddressablesLoadSpriteFromAtlasAsync("FoodSpriteAtlas", thing.resultFoodEnglishName, true);
         foodName.text = thing.name;
         desc.text = thing.description;
         ItemType.text = "요리";

@@ -95,7 +95,7 @@ public class CookingResultPopUp : BasePopUp
         var data = DataManager.Instance.DataLoader_Foods.GetByKey(itemKey);
         itemNameText.text = data.name;
 
-        itemImage.sprite = await AddressablesLoader.Instance.AddressablesLoadAsync<Sprite>($"Assets/16.Image/FoodImage/{data.englishName}.png", true);
+        itemImage.sprite = await AddressablesLoader.Instance.AddressablesLoadSpriteFromAtlasAsync("FoodSpriteAtlas", data.englishName, true);
         if (itemImage.sprite == null) { itemImage.gameObject.SetActive(false); }
     }
 
