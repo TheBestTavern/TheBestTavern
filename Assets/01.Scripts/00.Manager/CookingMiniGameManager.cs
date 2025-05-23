@@ -50,10 +50,11 @@ public class CookingMiniGameManager : MonoSingleton<CookingMiniGameManager>
         Debug.Log(selectedCookingTool);
         if (selectedCookingTool == "Plate")
         {
+            Debug.Log("접시클릭");
             selectedItems = GetMiniGameItem();
             RecipeManager.Instance.StartCooking(selectedItems, "Plate");
             RecipeManager.Instance.CompleteDish();
-            await PopUpManager.Instance.ShowPopUp(PopUpType.CookingFail);
+            await PopUpManager.Instance.ShowPopUp(PopUpType.CookingPlate);
 
             //GetCookingResultData();
             GetResultItem();
@@ -189,11 +190,11 @@ public class CookingMiniGameManager : MonoSingleton<CookingMiniGameManager>
         }
     }
 
-    public void GetResultItem()
+    public void GetResultItem(bool isMixingBowl = false)
     {
         var keys = RecipeManager.Instance.EndCooking();
         var controller = InventoryManager.Instance.Invens[InvenType.Player];
-        if (keys.Count == 1 && keys[0] == -1) return;
+        if (keys.Contains(-1)) return; // 전복 -1,-1이 와서 문제 -1을 추가하려고해서문제됨
 
         foreach (var itemKey in keys)
         {
@@ -204,7 +205,9 @@ public class CookingMiniGameManager : MonoSingleton<CookingMiniGameManager>
             if (controller.AcquireItem(itemData, 1))
             {
                 Debug.Log("아이템 인벤토리에 추가 성공");
-                RemoveInventoryItem();
+
+                // 믹싱볼이면
+                if (isMixingBowl) { RemoveInventoryItem(); }
             }
             else
             {

@@ -36,7 +36,14 @@ public class GatheringManager : MonoSingleton<GatheringManager>
     public void SetItem()
     {
         SceneParameter.TryGet<DesignEnums.RegionType>("Region", out region);
-        season = CalendarManager.Instance.CurrentSeasonType.Value;
+        if (CalendarManager.Instance.CurrentSeasonType.HasValue)
+        {
+            season = CalendarManager.Instance.CurrentSeasonType.Value;
+        }
+        else
+        {
+            season = DesignEnums.SeasonType.spring;
+        }
         data_Gatherings = Data.GetByRegionSeasonBiome(region, season, biome);
 
         itemDict = new();
