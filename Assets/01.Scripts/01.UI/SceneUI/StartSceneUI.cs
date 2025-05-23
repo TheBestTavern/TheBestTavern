@@ -106,8 +106,7 @@ public class StartSceneUI : MonoBehaviour
 
     private async void OnRejectAnalytics()
     {
-        GameManager.Instance.isAnalyticsAgreed = false;
-        await SceneLoader.Instance.LoadSceneAsync(nextSceneName);
+        GameManager.Instance.isAnalyticsAgreed = false;        
         if (isLoadMode)
         {
             if (SaveLoadManager.Instance.LoadData(out PlayerGameData data))
@@ -119,6 +118,7 @@ public class StartSceneUI : MonoBehaviour
 
             Debug.LogWarning("불러오기 실패");
         }
+        await SceneLoader.Instance.LoadSceneAsync(nextSceneName);
     }
 
     private async Task InitializeAnalytics()
