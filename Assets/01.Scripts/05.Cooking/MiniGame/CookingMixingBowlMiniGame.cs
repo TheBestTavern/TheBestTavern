@@ -12,6 +12,8 @@ public class CookingMixingBowlMiniGame : CookingMiniGameBase
     [SerializeField] private MixingSpoon mixingSpoon;
     [SerializeField] private CookingMixingBowlUI mixingbowlUI;
     private float mixingTime = 0;
+
+    private float mixSfxInterval = 0f;
     protected override bool ShouldRemoveItem() => false;
 
     private void Awake()
@@ -56,6 +58,14 @@ public class CookingMixingBowlMiniGame : CookingMiniGameBase
 
         if (mixingSpoon.isDragging)
         {
+            
+            mixSfxInterval -= Time.deltaTime;
+            if (mixSfxInterval <= 0f)
+            {
+                SoundManager.Instance.PlaySFX("MixingBowl");
+                mixSfxInterval = 2f;
+            }
+
             SoundManager.Instance.PlaySFX("MixingBowl");
             mixingTime += Time.deltaTime;
             mixingbowlUI.UpdateUI(mixingTime);
@@ -64,6 +74,10 @@ public class CookingMixingBowlMiniGame : CookingMiniGameBase
                isSuccess = true;
                isGameOver = true;
             }
+        }
+        else
+        {
+            mixSfxInterval = 0f;
         }
     }
     

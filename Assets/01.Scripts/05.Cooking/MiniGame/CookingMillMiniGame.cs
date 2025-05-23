@@ -26,6 +26,8 @@ public class CookingMillMiniGame : CookingMiniGameBase
     private float curAngle;
     private float previousAngle;
 
+    private float millSfxInterval;
+
     // 큐 (최단각도, 시간) 구조 
     public Queue<(float deltaAngle, float time)> angleQueue = new();
 
@@ -105,7 +107,13 @@ public class CookingMillMiniGame : CookingMiniGameBase
 
         if (mileStoneController.isDragging)
         {
-            SoundManager.Instance.PlaySFX("Matdol");
+            millSfxInterval -= Time.deltaTime;
+            if (millSfxInterval <= 0f)
+            {
+                SoundManager.Instance.PlaySFX("Matdol");
+                millSfxInterval = 2f;
+            }
+
             curPos = Input.mousePosition; // 현 마우스의 위치
             Vector2 centerPos = RectTransformUtility.WorldToScreenPoint(null, centerTransform.position); // 맷돌 정가운데 (중심점)
        
