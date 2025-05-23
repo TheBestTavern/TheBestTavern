@@ -20,16 +20,22 @@ public class CookingResultPopUp : BasePopUp
     {
         // 미니게임 닫기 
         CookingMiniGameManager.Instance.miniGameUI.OnClickCloseButton();
-
+        resultCanvasGroup?.DOKill();
+        PopUpManager.Instance.PopUps.Remove(PopUpType.CookingResult);
         base.OnClose();
     }
 
     public override void OnOpen()
     {
         //setContents();
+        Debug.Log("팝업열림");
 
-        resultCanvasGroup.DOFade(1f, 1f);
+        if (resultCanvasGroup != null)
+        {
+            resultCanvasGroup.DOKill();
 
+            resultCanvasGroup.DOFade(1f, 1f);
+        }
         itemNameText.gameObject.SetActive(true);
         itemImage.gameObject.SetActive(true);
 

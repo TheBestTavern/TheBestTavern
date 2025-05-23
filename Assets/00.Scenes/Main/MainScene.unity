@@ -256,7 +256,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e744a27a68559434ea55004cf9f1e781, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sfxName: Button1
+  sfxName: ConfirmButton
 --- !u!224 &44926258 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5202564697535359020, guid: ffc5136d0c1d2514f936a25bf278f609, type: 3}
@@ -1557,6 +1557,7 @@ GameObject:
   - component: {fileID: 775588355}
   - component: {fileID: 775588354}
   - component: {fileID: 775588353}
+  - component: {fileID: 775588356}
   m_Layer: 6
   m_Name: InfoButton
   m_TagString: Untagged
@@ -1666,6 +1667,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 775588351}
   m_CullTransparentMesh: 1
+--- !u!114 &775588356
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 775588351}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e744a27a68559434ea55004cf9f1e781, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sfxName: ConfirmButton
 --- !u!1 &793212297
 GameObject:
   m_ObjectHideFlags: 0
@@ -2793,7 +2807,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e744a27a68559434ea55004cf9f1e781, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sfxName: Button1
+  sfxName: ConfirmButton
 --- !u!1 &1396777905
 GameObject:
   m_ObjectHideFlags: 0
@@ -4500,7 +4514,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e744a27a68559434ea55004cf9f1e781, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sfxName: Button1
+  sfxName: ConfirmButton
 --- !u!1 &6187360175416209076
 GameObject:
   m_ObjectHideFlags: 0
