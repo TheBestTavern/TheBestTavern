@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
@@ -19,13 +20,6 @@ public class AddressablesLoader : MonoSingleton<AddressablesLoader>
         base.Init();
 
         DontDestroyOnLoad(gameObject);
-
-        LoadEssentialAsset();
-    }
-
-    private async void LoadEssentialAsset()
-    {
-        var sda = await AddressablesLoadAsync<SpriteAtlas>("FoodSpriteAtlas");
     }
 
     /// <summary>
@@ -72,6 +66,12 @@ public class AddressablesLoader : MonoSingleton<AddressablesLoader>
         {
             return default(T);
         }
+    }
+
+    public async UniTask PreloadAllFromLavelAsync(string label)
+    {
+        var handle = Addressables.LoadResourceLocationsAsync(label);
+
     }
 
     public void Release(string address)
