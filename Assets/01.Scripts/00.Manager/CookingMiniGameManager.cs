@@ -194,7 +194,7 @@ public class CookingMiniGameManager : MonoSingleton<CookingMiniGameManager>
     {
         var keys = RecipeManager.Instance.EndCooking();
         var controller = InventoryManager.Instance.Invens[InvenType.Player];
-        if (keys.Count == 1 && keys[0] == -1) return;
+        if (keys.Contains(-1)) return; // 전복 -1,-1이 와서 문제 -1을 추가하려고해서문제됨
 
         foreach (var itemKey in keys)
         {
