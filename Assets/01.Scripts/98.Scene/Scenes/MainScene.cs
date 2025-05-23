@@ -1,21 +1,19 @@
+using System.Linq;
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 
 public class MainScene : BaseScene
 {
-    public async override void OnEixtScene()
+    public async override UniTask OnEnterScene()
     {
-        base.OnEixtScene();
-    }
-
-    public async override void OnEnterScene()
-    {
-        base.OnEnterScene();
+        await base.OnEnterScene();
         SoundManager.Instance.PlayBGM("MainBGM1");
         SoundManager.Instance.StopLoop();
-    }
 
-    public async override void OnLoadingScene()
-    {
-        base.OnLoadingScene();
+        //IRunAlready[] runAlready = FindObjectsOfType<MonoBehaviour>().(where);
+        foreach (var runAlready in FindObjectsOfType<MonoBehaviour>().OfType<IRunAlready>())
+        {
+            await runAlready.RunAlready();
+        }
     }
 }

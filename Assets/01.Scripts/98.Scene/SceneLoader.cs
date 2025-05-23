@@ -36,6 +36,7 @@ public class SceneLoader : MonoSingleton<SceneLoader>
     // 비동기로 씬 불러오기 함수
     public async UniTask LoadSceneAsync(string sceneName)
     {
+        Debug.Log("saf");
         SoundManager.Instance.PlaySFX("SceneMoveButton");
 
         // 한번도 씬을 불러온 적이 없으면 
@@ -43,7 +44,10 @@ public class SceneLoader : MonoSingleton<SceneLoader>
             // Addressables 초기화
             await Addressables.InitializeAsync().ToUniTask();
 
-        currentScene?.OnEixtScene();
+        if (currentScene != null)
+        {
+            await currentScene.OnExitScene();
+        }
 
         // 로딩 UI 불러오기
         await ShowLoadingUI();
@@ -62,7 +66,10 @@ public class SceneLoader : MonoSingleton<SceneLoader>
         await loadScene;
         currentScene = FindObjectOfType<BaseScene>();
 
-        currentScene?.OnEnterScene();
+        if(currentScene != null)
+        {
+            await currentScene.OnEnterScene();
+        }
 
         // 로딩 UI 없애기
         await HideLoadingUI();
@@ -95,7 +102,7 @@ public class SceneLoader : MonoSingleton<SceneLoader>
     {
         // 로딩UI Addressables로 불러오고 인스턴스화
         loadingUI = Instantiate(await AddressablesLoader.Instance.AddressablesLoadAsync<GameObject>("LoadingUIPrefab.prefab")).GetComponent<LoadingUI>();
-        
+
         // 로딩 UI 페이드인
         await loadingUI.FadeIn();
     }

@@ -107,6 +107,7 @@ public class StartSceneUI : MonoBehaviour
     private async void OnRejectAnalytics()
     {
         GameManager.Instance.isAnalyticsAgreed = false;        
+
         if (isLoadMode)
         {
             if (SaveLoadManager.Instance.LoadData(out PlayerGameData data))

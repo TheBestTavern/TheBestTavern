@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using Cysharp.Threading.Tasks;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class BackGround : MonoBehaviour
+
+
+public class BackGround : MonoBehaviour, IRunAlready
 {
     [SerializeField] Image BG;
     [SerializeField] Image BG_Tree;
@@ -16,16 +19,21 @@ public class BackGround : MonoBehaviour
         EventBus.Subscribe<SeasonChangeEvent>(ToSetBG);
     }
 
-    private void Start()
+    public async UniTask RunAlready()
     {
-        ToSetBG();
+        await ToSetBG();
     }
 
-    public void ToSetBG()
+    //private void Start()
+    //{
+    //    ToSetBG();
+    //}
+
+    public async UniTask ToSetBG()
     {
         DesignEnums.SeasonType? season = CalendarManager.Instance.CurrentSeasonType;
         if(season != null)
-        SetBG(season.Value);
+        await SetBG(season.Value);
     }
 
     public void ToSetBG(SeasonChangeEvent seasonChangeEvent)
@@ -37,7 +45,7 @@ public class BackGround : MonoBehaviour
         }
     }
 
-    private async void SetBG(DesignEnums.SeasonType season)
+    private async UniTask SetBG(DesignEnums.SeasonType season)
     {
         var result1 = await AddressablesLoader.Instance.AddressablesLoadAsync<Sprite>($"Main_Tree_{season.ToString()}");
         var result2 = await AddressablesLoader.Instance.AddressablesLoadAsync<Sprite>($"Main_BG_{season.ToString()}");
@@ -49,4 +57,6 @@ public class BackGround : MonoBehaviour
     {
         EventBus.UnSubscribe<SeasonChangeEvent>(ToSetBG);
     }
+
+
 }

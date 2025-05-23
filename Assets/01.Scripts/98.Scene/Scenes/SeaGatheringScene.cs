@@ -1,24 +1,15 @@
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 
 public class SeaGatheringScene : BaseScene
 {
-    public async override void OnEixtScene()
+    public async override UniTask OnExitScene()
     {
-        base.OnEixtScene();
+        await base.OnExitScene();
 
         for (int i = 0; i < 10; i++)
         {
             await CommandManager.Instance.ExecuteCommands();
         }
-    }
-
-    public override void OnEnterScene()
-    {
-        base.OnEnterScene();
-    }
-
-    public override void OnLoadingScene()
-    {
-        base.OnLoadingScene();
     }
 }
