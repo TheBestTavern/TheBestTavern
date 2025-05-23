@@ -19,8 +19,10 @@ public class SoundManager : MonoSingleton<SoundManager>
     private Dictionary<string, string> bgmKeys = new Dictionary<string, string>();
     private Dictionary<string, string> sfxKeys = new Dictionary<string, string>();
     private Dictionary<string, string> ambienceKeys = new Dictionary<string, string>();
+    [SerializeField] private int sfxPoolSize = 10;
 
-
+    private List<AudioSource> sfxPool = new List<AudioSource>();
+    private int currentSFXIndex = 0;
     private float currentBGMTime = 0f;
     private string currentBGMName;
 
@@ -42,6 +44,13 @@ public class SoundManager : MonoSingleton<SoundManager>
 
         ambienceSource = gameObject.AddComponent<AudioSource>();
         ambienceSource.loop = true;
+
+        for (int i = 0; i < sfxPoolSize; i++)
+        {
+            var newSFX = gameObject.AddComponent<AudioSource>();
+            newSFX.loop = false;
+            sfxPool.Add(newSFX);
+        }
 
         AddBGM();
         AddSFX();
@@ -91,12 +100,14 @@ public class SoundManager : MonoSingleton<SoundManager>
 
         Addressables.LoadAssetAsync<AudioClip>(addressKey).Completed += (handle) =>
         {
-            if (handle.Status == AsyncOperationStatus.Succeeded && !sfxSource.isPlaying)
+            if (handle.Status == AsyncOperationStatus.Succeeded)
             {
-                sfxSource.PlayOneShot(handle.Result);
-            }
-            else
-            {
+                var clip = handle.Result;
+
+                var source = sfxPool[currentSFXIndex];
+                source.PlayOneShot(clip);
+
+                currentSFXIndex = (currentSFXIndex + 1) % sfxPoolSize;
             }
         };
     }

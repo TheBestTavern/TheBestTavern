@@ -6,9 +6,10 @@ using UnityEngine;
 public class GatheringBushes : GatheringBase
 {
     protected override void OnClickedFunc()
-    {       
+    {
         transform.DOShakeRotation(1f,10f);
         OffMouseFunc();
+        PlaySFXSound();
         spriteRenderer.DOColor(new Color(0.5f, 0.5f, 0.5f), 0.5f);
         int randInt = Random.Range(0, 10);
         if (randInt == 0)
@@ -19,6 +20,7 @@ public class GatheringBushes : GatheringBase
         else
         {
             base.OnClickedFunc();
+
         }
     }    
 }
