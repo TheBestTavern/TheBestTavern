@@ -45,8 +45,8 @@ public class SettingPopUp : BasePopUp
 
     async void OnClickSoundButton()
     {
-        SoundManager.Instance.PlaySFX("Button2");
         await PopUpManager.Instance.ShowPopUp(PopUpType.SoundSetting);
+        SoundManager.Instance.PlaySFX("SlotButton");
     }
 
     void OnClickSaveButton()
@@ -71,7 +71,5 @@ public class SettingPopUp : BasePopUp
         {
             base.OnClose();
         });
-        // 페이드 아웃 애니메이션 후 비활성화
-        SoundManager.Instance.PlaySFX("Button2");
     }
 }

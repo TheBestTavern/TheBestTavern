@@ -64,6 +64,7 @@ public class QuestSlot : MonoBehaviour, IPoolable
     public void OnSpawn(Vector3 pos)
     {
         Debug.Log("출격");
+        transform.localScale = Vector3.one;
     }
 
     public void TriggerReturn()

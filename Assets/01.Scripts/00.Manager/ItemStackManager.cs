@@ -8,7 +8,7 @@ public class ItemStackManager : MonoSingleton<ItemStackManager>
     public Dictionary<int, ItemStack> AllItemStack { get; private set; } = new();
 
     private int idRangeMin = 1100000;
-    private int idRangeMax = 1199999;
+    private int idRangeMax = 1119999;
 
     public override void Init()
     {

@@ -45,6 +45,7 @@ public class RelationSlot : MonoBehaviour, IPoolable
     {
         Debug.Log("출격");
         rect.position = pos;
+        transform.localScale = Vector3.one;
     }
 
     public void SetSlot(int npcID)
