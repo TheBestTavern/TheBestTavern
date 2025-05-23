@@ -10,7 +10,8 @@ public class IntroScene : BaseScene
         await base.OnExitScene();
         try
         {
-            await AddressablesLoader.Instance.AddressablesLoadAsync<SpriteAtlas>("AlreadyLoad");
+            //await AddressablesLoader.Instance.AddressablesLoadAsync<SpriteAtlas>("AlreadyLoad");
+            await AddressablesLoader.Instance.PreloadAllFromLavelAsync("AlreadyLoad");
         }
         catch (Exception e)
         {

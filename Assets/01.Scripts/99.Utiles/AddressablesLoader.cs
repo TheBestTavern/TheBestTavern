@@ -90,6 +90,7 @@ public class AddressablesLoader : MonoSingleton<AddressablesLoader>
 
         Addressables.Release(locationHandle);
     }
+
     public async Task<Sprite> AddressablesLoadSpriteFromAtlasAsync(string AtalsAdress, string imageName, bool fallback = false)
     {
         var atlas = await AddressablesLoadAsync<SpriteAtlas>(AtalsAdress);
