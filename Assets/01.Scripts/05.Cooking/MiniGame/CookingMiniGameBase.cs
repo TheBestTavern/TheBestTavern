@@ -25,6 +25,8 @@ public abstract class CookingMiniGameBase : MonoBehaviour, ICookingMiniGameHandl
         isGameOver = false;
     }
 
+    bool isPlayTimerSFX = false; 
+
     protected abstract float GetTimer();
     
     protected virtual void Update()
@@ -45,9 +47,10 @@ public abstract class CookingMiniGameBase : MonoBehaviour, ICookingMiniGameHandl
             UpdateGamePlay();
         }
 
-        if (timer <= 3f)
+        if (!isPlayTimerSFX && timer <= 3f)
         {
-            SoundManager.Instance.PlayAmbience("Timer");
+            SoundManager.Instance.PlaySFX("Timer");
+            isPlayTimerSFX = true;
         }
 
         if (timer <= 0f || isGameOver)
