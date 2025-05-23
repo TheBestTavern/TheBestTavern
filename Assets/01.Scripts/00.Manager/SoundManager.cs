@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
@@ -26,7 +27,7 @@ public class SoundManager : MonoSingleton<SoundManager>
     private float currentBGMTime = 0f;
     private string currentBGMName;
 
-    public async  override void Init()
+    public async override void Init()
     {
         if (_isInitialized) return;
         base.Init();
@@ -90,7 +91,7 @@ public class SoundManager : MonoSingleton<SoundManager>
         };
     }
 
-    public void PlaySFX(string name)
+    public async UniTask PlaySFX(string name)
     {
         if (!sfxKeys.TryGetValue(name, out var addressKey))
         {
@@ -98,18 +99,15 @@ public class SoundManager : MonoSingleton<SoundManager>
             return;
         }
 
-        Addressables.LoadAssetAsync<AudioClip>(addressKey).Completed += (handle) =>
+        var clip = await AddressablesLoader.Instance.AddressablesLoadAsync<AudioClip>(addressKey);
+
+        if (clip != null)
         {
-            if (handle.Status == AsyncOperationStatus.Succeeded)
-            {
-                var clip = handle.Result;
+            var source = sfxPool[currentSFXIndex];
+            source.PlayOneShot(clip);
 
-                var source = sfxPool[currentSFXIndex];
-                source.PlayOneShot(clip);
-
-                currentSFXIndex = (currentSFXIndex + 1) % sfxPoolSize;
-            }
-        };
+            currentSFXIndex = (currentSFXIndex + 1) % sfxPoolSize;
+        }
     }
 
     public void PlayAmbience(string name)

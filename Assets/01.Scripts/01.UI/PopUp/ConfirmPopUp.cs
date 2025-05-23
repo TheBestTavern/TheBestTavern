@@ -37,7 +37,7 @@ public class ConfirmPopUp : BasePopUp
     public override void Awake()
     {
         base.Awake();
-        okButton.onClick.AddListener(OnClickCloseButton);
+        okButton.onClick.AddListener(async () => { await OnClickCloseButton(); });
         yesButton.onClick.AddListener(OnClickYesButton);
     }
 

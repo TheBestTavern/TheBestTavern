@@ -12,7 +12,7 @@ public class AlarmPopUp : BasePopUp
     public override void Awake()
     {
         base.Awake();
-        closeButton.onClick.AddListener(OnClickCloseButton);
+        closeButton.onClick.AddListener(async () => { await OnClickCloseButton(); });
     }
 
     public void SetAlarm(string text)

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -28,13 +29,16 @@ public class BasePopUp : DraggableMonoBehaviour, IPointerDownHandler
     public virtual void Awake()
     {
         // 닫기 버튼 이벤트 리스너 추가
-        closeButton.onClick.AddListener(OnClickCloseButton);
+        closeButton.onClick.AddListener(async () =>
+        {
+            await OnClickCloseButton();
+        });
     }
 
     // 닫기 버튼 함수
-    public virtual void OnClickCloseButton()
+    public virtual async UniTask OnClickCloseButton()
     {
-        SoundManager.Instance.PlaySFX("BackButton");
+        await SoundManager.Instance.PlaySFX("BackButton");
         OnClose();
     }
 
@@ -69,6 +73,6 @@ public class BasePopUp : DraggableMonoBehaviour, IPointerDownHandler
 
     public void OnPointerDown(PointerEventData eventData)
     {
-         canvas.sortingOrder = popupManager.GetNextSortingOrder();
+        canvas.sortingOrder = popupManager.GetNextSortingOrder();
     }
 }
