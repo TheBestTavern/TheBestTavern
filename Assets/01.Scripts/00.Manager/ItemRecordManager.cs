@@ -1,26 +1,9 @@
 using System.Collections.Generic;
 using Newtonsoft.Json;
 using UnityEngine;
-using UnityEngine.Analytics;
 using Unity.Services.Analytics;
-using Unity.Services.Core;
 //using UnityEditor.AddressableAssets.HostingServices;
 
-[System.Serializable]
-public class ItemRecord
-{
-    [JsonProperty]
-    public bool HasDiscovered { get; private set; }
-
-    public ItemRecord()
-    {
-    }
-
-    public void RecordDiscover()
-    {
-        HasDiscovered = true;
-    }
-}
 
 public class ItemRecordManager : MonoSingleton<ItemRecordManager>
 {
