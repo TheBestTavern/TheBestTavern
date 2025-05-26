@@ -15,6 +15,8 @@ public abstract class CookingMiniGameBase : MonoBehaviour, ICookingMiniGameHandl
 
     protected float playTime = 0f; // 미니게임 플레이 타임
     protected float elapsedTimer = 0f; // 이 씬에서의 경과시간
+    protected float remainTime = 0f; // 이 씬에서의 경과시간
+
     protected bool isGameOver = false;
 
     protected virtual bool ShouldRemoveItem() => true;
@@ -22,6 +24,9 @@ public abstract class CookingMiniGameBase : MonoBehaviour, ICookingMiniGameHandl
     private void Start()
     {
         timer = GetTimer();
+        remainTime = timer - playTime;
+
+        Debug.Log($"현 게임 제한시간 : {timer}");
         isGameOver = false;
     }
 
@@ -32,28 +37,27 @@ public abstract class CookingMiniGameBase : MonoBehaviour, ICookingMiniGameHandl
     protected virtual void Update()
     {
         if (isGameOver) return;
-        UIManager.Instance.miniGameUI.UpdateTimer(playTime);
         elapsedTimer += Time.deltaTime;
 
         if (elapsedTimer >= 2f)
         {
-            timer -= Time.deltaTime;
             playTime += Time.deltaTime;
+            remainTime = timer - playTime;
 
             // 타이머 이미지 업데이트
-            //CookingMiniGameManager.Instance.miniGameUI.UpdateTimer(playTime);
+            UIManager.Instance.miniGameUI.UpdateTimer(playTime, timer);
 
             // 게임 로직 구현부 실행
             UpdateGamePlay();
         }
 
-        if (!isPlayTimerSFX && timer <= 3f)
+        if (!isPlayTimerSFX && remainTime <= 2f)
         {
             SoundManager.Instance.PlaySFX("Timer");
             isPlayTimerSFX = true;
         }
 
-        if (timer <= 0f || isGameOver)
+        if (remainTime <= 0f || isGameOver)
         {
             StopGame();
             Debug.Log("게임종료");

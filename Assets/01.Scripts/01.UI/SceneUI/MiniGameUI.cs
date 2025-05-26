@@ -33,9 +33,9 @@ public class MiniGameUI : MonoBehaviour
     }
 
     // 타이머 업데이트 (남은시각, 게임 자체 제한시간)
-    public void UpdateTimer(float playTime)
+    public void UpdateTimer(float playTime, float limitTime)
     {
-        timerImage.fillAmount = playTime / 15f;
+        timerImage.fillAmount = playTime / limitTime;
     }
 
     public void ResetTimer()

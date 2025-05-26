@@ -22,7 +22,7 @@ public class CookingMiniGameSO : ScriptableObject
 
     [field: Header("GrillData")]
     //[field: SerializeField] public CookingGrillData grillData { get; private set; }
-    [field: SerializeField] public float GrillTimer { get; private set; } = 15f;
+    [field: SerializeField] public float GrillTimer { get; private set; } = 22f;
 
 
     [field: Header("BoilData")] // 가마솥 - 끓이기

@@ -19,7 +19,7 @@ public class CookingGrindMiniGame : CookingMiniGameBase
     // 노트
     [SerializeField] GameObject notePrefab = null;
     [SerializeField] Transform noteAppear = null; // 노트 생성 위치
-    [SerializeField] Transform noteDisappear = null; // 노트 파괴 위치
+    //[SerializeField] Transform noteDisappear = null; // 노트 파괴 위치
 
     public Transform parentTransform; // 부모
 
