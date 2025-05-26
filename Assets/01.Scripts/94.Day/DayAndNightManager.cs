@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
 using Unity.VisualScripting;
+using System.Threading.Tasks;
 
 public class DayAndNightManager : MonoSingleton<DayAndNightManager>
 {
@@ -18,13 +19,21 @@ public class DayAndNightManager : MonoSingleton<DayAndNightManager>
 
     Coroutine coroutine;
 
-    public async override void Init()
+    public override void Init()
     {
+        Debug.Log("매니저 1");
+
         if (_isInitialized) return;
         base.Init();
         DontDestroyOnLoad(gameObject);
 
         Debug.Log("######Manager SO 불러오기 시도");
+
+        Debug.Log("매니저 2");
+    }
+
+    public async Task InitAsync()
+    {
         ManagerContainer so = await AddressablesLoader.Instance.AddressablesLoadAsync<ManagerContainer>("DayAndNightManagerContainer.SO");
 
         if (so != null && so.nightMaterial != null && so.saturationCurve != null && so.lightnessCurve != null)
@@ -50,7 +59,6 @@ public class DayAndNightManager : MonoSingleton<DayAndNightManager>
                 Debug.Log("######밝기 커브 넣기");
             }
         }
-
     }
 
     public void pass1hour() // 한시간(정확히는 하루의 1/10씩 밝기 변경. 2차 시간표현 구현할때 필요한 기능. 제대로 구현하려면 process에 제한 줘야함.
@@ -72,13 +80,13 @@ public class DayAndNightManager : MonoSingleton<DayAndNightManager>
     {
         while (true)
         {
-            Debug.Log($"######프레임시작");
+            //Debug.Log($"######프레임시작");
             if (process < limitProcess)
             {
                 process += Time.deltaTime / duration;
                 nightMat.SetFloat("_Saturation", saturationCurve.Evaluate(process));
                 nightMat.SetFloat("_Lightness", lightnessCurve.Evaluate(process));
-                Debug.Log($"######프레임: {process}, saturationCurve값: {nightMat.GetFloat("_Saturation")}, lightnessCurve값: {nightMat.GetFloat("_Lightness")}");
+                //Debug.Log($"######프레임: {process}, saturationCurve값: {nightMat.GetFloat("_Saturation")}, lightnessCurve값: {nightMat.GetFloat("_Lightness")}");
             }
 
             if (process >= 1)
