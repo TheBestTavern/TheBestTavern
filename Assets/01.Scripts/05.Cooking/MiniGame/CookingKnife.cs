@@ -12,7 +12,6 @@ public class CookingKnife : MonoBehaviour
 
     [SerializeField] private Material cutMaterial; // 잘린 단면의 메테리얼
 
-    private bool isSlicing = false;
 
     //private void OnTriggerEnter(Collider other)
     //{
@@ -113,7 +112,7 @@ public class CookingKnife : MonoBehaviour
      {
          Collider knifeCollider = GetComponent<Collider>();
          knifeCollider.enabled = false;
-         isSlicing = true;
+         //isSlicing = true;
          float sliceTimer = 0f;
          await UniTask.WaitUntil(() =>
          {
@@ -126,7 +125,7 @@ public class CookingKnife : MonoBehaviour
              knifeCollider.enabled = true;
 
          knifeCollider.enabled = true;
-         isSlicing = false;
+         //isSlicing = false;
      }
     #endregion
 

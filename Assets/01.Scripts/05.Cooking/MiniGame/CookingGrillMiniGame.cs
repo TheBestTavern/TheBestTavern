@@ -48,7 +48,7 @@ public class CookingGrillMiniGame : CookingMiniGameBase
             card.back.SetActive(false);
         }
         
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(4f);
         isFlipLocked = false;
 
         foreach (var card in cards)
@@ -86,7 +86,6 @@ public class CookingGrillMiniGame : CookingMiniGameBase
     }
     private IEnumerator CardMatch()
     {
-       
         yield return new WaitForSeconds(1f); 
 
         if (firstCard.idx == secondCard.idx)
@@ -137,6 +136,7 @@ public class CookingGrillMiniGame : CookingMiniGameBase
 
     protected override void UpdateGamePlay()
     {
+
         // 나중에 UI.cs로 옮길 예정
         timerText.text = timer.ToString("N2");
 
@@ -151,9 +151,6 @@ public class CookingGrillMiniGame : CookingMiniGameBase
     {
         SoundManager.Instance.PlayAmbience("GrillAmbience");
         GameObject prefab = await AddressablesLoader.Instance.AddressablesLoadAsync<GameObject>("SweetPotatos");
-        
-        elapsedTimer = 0f;
-        playTime = 0f;
 
         isFlipLocked = true;
         // 카드 배열 4x4 세팅
@@ -166,7 +163,7 @@ public class CookingGrillMiniGame : CookingMiniGameBase
             cards[i].Setting(arr[i]);
         }
 
-        // 2초 동안 모든 카드 앞면 공개
+        // 4초 동안 모든 카드 앞면 공개
         if (coroutine != null)
         {
             StopCoroutine(coroutine);

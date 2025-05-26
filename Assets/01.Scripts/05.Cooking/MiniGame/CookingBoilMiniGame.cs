@@ -23,9 +23,9 @@ public class CookingBoilMiniGame : CookingMiniGameBase
 
     public List<Vector2> randomPoints = new();
 
-    float spawnTimer = 0f;
-    float spawnMaxTime = 2f; // 이 안에 클릭하지 않으면 사라짐
-    bool isClicked = false;
+   // float spawnTimer = 0f;
+    //float spawnMaxTime = 2f; // 이 안에 클릭하지 않으면 사라짐
+    //bool isClicked = false;
 
     [SerializeField] private Transform parent;
 

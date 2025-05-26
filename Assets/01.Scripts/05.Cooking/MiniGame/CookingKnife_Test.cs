@@ -252,14 +252,23 @@ public class CookingKnife_Test : MonoBehaviour
             if (renderer != null) size.Add(renderer.bounds.size.x);
         }
 
-        float minX = size.Min();
-        float maxX = size.Max();
-        float ratio = minX / maxX;
-        return ratio;
+        float averageSize = size.Average();
+        float variance = 0f;
 
-        //if(ratio >= 0.95f)
-        //{
-            
-        //}
+        foreach (var pieceSize in size)
+        {
+            float ratio = Mathf.Abs(pieceSize -  averageSize) / averageSize;
+            variance += Mathf.Pow(ratio, 2);
+        }
+
+        variance /= size.Count;
+        variance = Mathf.Max(variance, 0.0001f);
+        return 1f / (1f + variance);
+        
+        //float minX = size.Min();
+        //float maxX = size.Max();
+        //float ratio = minX / maxX;
+        //return ratio;
+
     }
 }
