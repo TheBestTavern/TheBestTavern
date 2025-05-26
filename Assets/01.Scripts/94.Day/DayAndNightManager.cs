@@ -32,7 +32,9 @@ public class DayAndNightManager : MonoSingleton<DayAndNightManager>
             Debug.Log("######Manager SO 내부에 메터리얼, 애니메이션 커브가 잘 채워져있음");
             if (nightMat == null)
             {
+                //nightMat = new Material(so.nightMaterial);
                 nightMat = so.nightMaterial;
+
                 Debug.Log("######메터리얼 넣기");
             }
 
@@ -70,11 +72,13 @@ public class DayAndNightManager : MonoSingleton<DayAndNightManager>
     {
         while (true)
         {
+            Debug.Log($"######프레임시작");
             if (process < limitProcess)
             {
                 process += Time.deltaTime / duration;
                 nightMat.SetFloat("_Saturation", saturationCurve.Evaluate(process));
                 nightMat.SetFloat("_Lightness", lightnessCurve.Evaluate(process));
+                Debug.Log($"######프레임: {process}, saturationCurve값: {nightMat.GetFloat("_Saturation")}, lightnessCurve값: {nightMat.GetFloat("_Lightness")}");
             }
 
             if (process >= 1)
@@ -88,10 +92,9 @@ public class DayAndNightManager : MonoSingleton<DayAndNightManager>
             if (targetProcess < process)
             {
                 EventBus.Publish<EndNightUIBlockEvent>(new EndNightUIBlockEvent());
-                Debug.LogError("이거 실행되면 안됨");
+                Debug.LogError("######이거 실행되면 안됨");
                 yield break;
             }
-
 
             yield return null;
         }

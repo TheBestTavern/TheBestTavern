@@ -1150,6 +1150,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BG: {fileID: 1611082640}
   BG_Tree: {fileID: 499498663}
+  images:
+  - {fileID: 1611082640}
+  - {fileID: 499498663}
 --- !u!1 &633945926
 GameObject:
   m_ObjectHideFlags: 0

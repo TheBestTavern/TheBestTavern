@@ -13,7 +13,8 @@ public enum ResultOfInputAction
 {
     Success,
     OutOfValue,
-    WrongValueType
+    WrongValueType,
+    ModifiedCollection,
 }
 
 /// <summary>
@@ -131,16 +132,25 @@ public class ConfirmPopUp : BasePopUp
 
         inputAction = async (input) =>
         {
+            T cast;
             try
             {
-                T cast = (T)Convert.ChangeType(input, typeof(T));
-                bool success = (bool)(action?.Invoke(cast));
-                return success ? ResultOfInputAction.Success : ResultOfInputAction.OutOfValue;
+                cast = (T)Convert.ChangeType(input, typeof(T));
             }
             catch (Exception e)
             {
                 Debug.Log($"잘못된 입력 값 변환 실패{e.Message}");
                 return ResultOfInputAction.WrongValueType;
+            }
+            try
+            {
+                bool success = (bool)(action?.Invoke(cast));
+                return success ? ResultOfInputAction.Success : ResultOfInputAction.OutOfValue;
+            }
+            catch(Exception e)
+            {
+                Debug.Log($"실행 중 요류 발생{e.Message}");
+                return ResultOfInputAction.ModifiedCollection;
             }
         };
     }

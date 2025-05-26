@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 public class InventoryModel
 {
@@ -89,7 +90,7 @@ public class InventoryModel
 
         // 2. 감소시키기
         int remain = amount;
-        foreach (int id in IDs)
+        foreach (int id in IDs.ToList())
         {
             remain = ID2ItemStack[id].Subtract(remain);
             if (remain <= 0) break;

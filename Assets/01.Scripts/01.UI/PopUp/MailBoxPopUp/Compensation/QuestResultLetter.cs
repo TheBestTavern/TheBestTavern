@@ -61,19 +61,19 @@ public class QuestResultLetter : QuestBaseLetter
         // 편지 내용 초기화
         if (curSuccessDegree == SuccessDegree.good)
         {
-            yesBtnText.text = "더할나위 없군\n`보상 수령`";
+            yesBtnText.text = "<b><color=#3F0300><size=40>대 성공!!</size></color></b> \n`보상 수령`";
             buttons[0].onClick.RemoveAllListeners();
             buttons[0].onClick.AddListener(() => OnTakeButton());
         }
         else if (curSuccessDegree == SuccessDegree.soso)
         {
-            yesBtnText.text = "좋아하는 걸 보니 기분 좋군\n`보상 수령`";
+            yesBtnText.text = "<b><color=#980800><size=40>중 성공!</size></color></b> \n`보상 수령`";
             buttons[0].onClick.RemoveAllListeners();
             buttons[0].onClick.AddListener(() => OnTakeButton());
         }
         else if (curSuccessDegree == SuccessDegree.notBad)
         {
-            yesBtnText.text = "좀 더 잘할 수 있을 거 같아\n`호감도 상승`";
+            yesBtnText.text = "<b><color=#FF0C00><size=40>하 성공</size></color></b>\n`호감도 상승, 보상 획득 실패`";
             buttons[0].onClick.RemoveAllListeners();
             buttons[0].onClick.AddListener(() =>
             {
@@ -83,7 +83,7 @@ public class QuestResultLetter : QuestBaseLetter
         }
         else if(curSuccessDegree == SuccessDegree.fail)
         {
-            yesBtnText.text = "미안하네..\n`호감도 하락`";
+            yesBtnText.text = "<b><color=#1D1D68><size=40>실패</size></color></b>\n`호감도 하락`";
             buttons[0].onClick.RemoveAllListeners();
             buttons[0].onClick.AddListener(() =>
             {

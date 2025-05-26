@@ -1102,11 +1102,12 @@ MonoBehaviour:
   m_text: "\uD76C\uADC0 \uB4F1\uAE09 \uC774\uC0C1 \uC694\uB9AC \uC81C\uCD9C ~ \uADC0\uD55C
     \uC7AC\uB8CC ~ \uC300\uB77C\uC300\uB77C \uD76C\uADC0 \uB4F1\uAE09 \uC774\uC0C1
     \uC694\uB9AC \uC81C\uCD9C ~ \uADC0\uD55C \uC7AC\uB8CC ~ \uC300\uB77C\uC300\uB77C\uD76C\uADC0
+    \uB4F1\uAE09dsadd \uC774\uC0C1 \uC694\uB9AC \uC81C\uCD9C ~ \uADC0\uD55C  \uC7AC\uB8CC
+    ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd ~ \uC300\uB77C\uC300\uB77C\uD76C\uADC0
     \uB4F1\uAE09 \uC774\uC0C1 \uC694\uB9AC \uC81C\uCD9C ~ \uADC0\uD55C \uC7AC\uB8CC
     ~ \uC300\uB77C\uC300\uB77C\uD76C\uADC0 \uB4F1\uAE09 \uC774\uC0C1 \uC694\uB9AC
     \uC81C\uCD9C ~ \uADC0\uD55C \uC7AC\uB8CC ~ \uC300\uB77C\uC300\uB77C\uD76C\uADC0
-    \uB4F1\uAE09 \uC774\uC0C1 \uC694\uB9AC \uC81C\uCD9C ~ \uADC0\uD55C \uC7AC\uB8CC
-    ~ \uC300\uB77C\uC300\uB77C\uD76C\uADC0 \uB4F1\uAE09 \uC774\uC0C1"
+    \uB4F1\uAE09 \uC774\uC0C1 "
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1d344be8c80e99a4ba2908ceccb706e3, type: 2}
   m_sharedMaterial: {fileID: 1974840492626225644, guid: 1d344be8c80e99a4ba2908ceccb706e3, type: 2}
@@ -1133,7 +1134,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 45
+  m_fontSize: 29
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1

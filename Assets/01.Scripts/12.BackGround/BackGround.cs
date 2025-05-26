@@ -12,11 +12,18 @@ public class BackGround : MonoBehaviour, IRunAlready
     [SerializeField] Image BG;
     [SerializeField] Image BG_Tree;
 
+    public List<Image> images;
+
     public DesignEnums.SeasonType? currentSeason;
 
     private void Awake()
     {
         EventBus.Subscribe<SeasonChangeEvent>(ToSetBG);
+
+        foreach (var i in images)
+        {
+            i.material = DayAndNightManager.Instance.nightMat;
+        }
     }
 
     public async UniTask RunAlready()
@@ -32,8 +39,8 @@ public class BackGround : MonoBehaviour, IRunAlready
     public async UniTask ToSetBG()
     {
         DesignEnums.SeasonType? season = CalendarManager.Instance.CurrentSeasonType;
-        if(season != null)
-        await SetBG(season.Value);
+        if (season != null)
+            await SetBG(season.Value);
     }
 
     public void ToSetBG(SeasonChangeEvent seasonChangeEvent)

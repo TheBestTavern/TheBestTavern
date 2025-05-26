@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,6 +12,8 @@ public class QuestOfferLetter : QuestBaseLetter
     private int days;
     bool isSetDays;
 
+    Image[] buttonImages;
+
     // 편지 생성시 한번 초기화
     public override void FirstInit(Action<QuestBaseSlot> action)
     {
@@ -18,12 +21,35 @@ public class QuestOfferLetter : QuestBaseLetter
 
         base.FirstInit(action);
 
+        int count = buttons.Count;
+        buttonImages = new Image[count];
+        for (int i = 0; i < count; i++)
+        {
+            buttonImages[i] = buttons[i].GetComponent<Image>();
+        }
+
         // 버튼 초기화
-        buttons[0].onClick.AddListener(() => OnClickDays(7));
-        buttons[1].onClick.AddListener(() => OnClickDays(11));
-        buttons[2].onClick.AddListener(() => OnClickDays(14));
-        buttons[3].onClick.AddListener(() => OnOKButton());
-        //buttons[4].onClick.AddListener(() => RejectQuest());
+        buttons[0].onClick.AddListener(() =>
+        {
+            OnClickDays(7);
+            OnClickButtonEffect(0);
+        });
+        buttons[1].onClick.AddListener(() =>
+        {
+            OnClickDays(11);
+            OnClickButtonEffect(1);
+        });
+        buttons[2].onClick.AddListener(() =>
+        {
+            OnClickDays(14);
+            OnClickButtonEffect(2);
+        });
+        buttons[3].onClick.AddListener(() =>
+        {
+            OnOKButton();
+            OnClickButtonEffect(3);
+        });
+
         IsReady = true;
     }
 
@@ -40,6 +66,11 @@ public class QuestOfferLetter : QuestBaseLetter
             colored = colored.Replace(keyword, $"<b><color=#2C6DA6>{keyword}</color></b>");
         }
         bodyText.text = colored;
+
+        foreach (var button in buttonImages)
+        {
+            button.color = Color.white;
+        }
     }
 
     private void OnClickDays(int day)
@@ -73,6 +104,15 @@ public class QuestOfferLetter : QuestBaseLetter
             PopUpManager.Instance.alarmPopUp.SetAlarm("일수를 먼저 선택해주세요.");
             return false;
         }
+    }
+
+    public void OnClickButtonEffect(int index)
+    {
+        for(int i = 0; i < buttons .Count; i++)
+        {
+            buttonImages[i].color = Color.white;
+        }
+        buttonImages[index].color = new Color(0.7f, 0.7f, 0.7f);
     }
 
     // 거절 버튼 메서드 ( 필요할지 의문 )
