@@ -100,9 +100,8 @@ public class OnNewDay : IDayCommand
 
     public Task Execute()
     {
-        Debug.Log("데이터 세이브");
         saveLoadManager.SaveData();
-        Debug.Log("저장 명령 실행 끝###");
+        Debug.Log("데이터 세이브 완료");
         return Task.CompletedTask;
     }
     public bool isValid()

@@ -16,10 +16,11 @@ public class BackGround : MonoBehaviour, IRunAlready
 
     public DesignEnums.SeasonType? currentSeason;
 
-    private void Awake()
+    private async void Awake()
     {
         EventBus.Subscribe<SeasonChangeEvent>(ToSetBG);
 
+        await DayAndNightManager.Instance.InitAsync();
         foreach (var i in images)
         {
             i.material = DayAndNightManager.Instance.nightMat;
