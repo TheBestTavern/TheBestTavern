@@ -14,9 +14,5 @@ public class TutorialGatheringProps : GatheringBase
         transform.DOShakeRotation(1f, 1f);
         OffMouseFunc();
         spriteRenderer.DOColor(new Color(0.5f, 0.5f, 0.5f), 0.5f);
-        isClickedUsedTutorial = true;
-
-        TutorialGatheringManager tutorialGatheringManager = GatheringManager.Instance as TutorialGatheringManager;
-        tutorialGatheringManager.CheckAllClicked();
     }
 }

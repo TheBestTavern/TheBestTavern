@@ -13,19 +13,6 @@ public class TutorialGatheringManager : GatheringManager
         SetItem();
     }
 
-    public void CheckAllClicked()
-    {
-        foreach(var prop in gatheringPorps)
-        {
-            if (!prop.isClickedUsedTutorial)
-            {
-                return;
-            }
-        }
-
-        gatheringTutorialController.NextButton.gameObject.SetActive(true);
-    }
-
     protected override void OnDestroy()
     {
         base.OnDestroy();

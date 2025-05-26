@@ -14,8 +14,15 @@ public class PlayerInput : MonoBehaviour
     {
         if (context.phase == InputActionPhase.Performed)
         {
-            // 게임 일시 정지 및 설정 팝업 불러오기 함수
-            await PopUpManager.Instance.ShowPopUp(PopUpType.Setting);
+            if(PopUpManager.Instance.PopUps.TryGetValue(PopUpType.Setting, out BasePopUp basePopUp))
+            {
+                basePopUp.OnClose();
+            }
+            else 
+            { 
+                // 게임 일시 정지 및 설정 팝업 불러오기 함수
+                await PopUpManager.Instance.ShowPopUp(PopUpType.Setting);
+            }
         }
     }
 
@@ -24,8 +31,15 @@ public class PlayerInput : MonoBehaviour
     {
         if (context.phase == InputActionPhase.Performed)
         {
-            // 메뉴 팝업 불러오기
-            await PopUpManager.Instance.ShowPopUp(PopUpType.Menu);
+            if (PopUpManager.Instance.PopUps.TryGetValue(PopUpType.Menu, out BasePopUp basePopUp))
+            {
+                basePopUp.OnClose();
+            }
+            else
+            {
+                // 메뉴 팝업 불러오기
+                await PopUpManager.Instance.ShowPopUp(PopUpType.Menu);
+            }
         }
     }
 }
