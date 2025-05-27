@@ -43,9 +43,11 @@ public class DetailPopup : BasePopUp
         var newFoodCategory = DataManager.Instance.DataLoader_FoodCategory.GetByKey(foodCategoryID);
 
         // 가공재료는 기획상 도감이 없으므로 따로 원재료로 변환하여 처리함.
-        while(newFoodCategory.itemType == DesignEnums.ItemType.processed)
+        int count = 5;
+        while(newFoodCategory.itemType == DesignEnums.ItemType.processed || count < 0)
         {
             newFoodCategory = Data.GetIngredientFromProcessed(newFoodCategory);
+            count--;
         }
 
         if (newFoodCategory == current) return;
