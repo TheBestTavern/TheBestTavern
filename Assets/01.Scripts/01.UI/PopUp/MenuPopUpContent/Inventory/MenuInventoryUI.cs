@@ -15,6 +15,6 @@ public class MenuInventoryUI : BaseMenuContentUI
     public override void CreateContent()
     {
         // To Do - 인벤토리 목록 생성
-        mainInventory.InitializeBySelf();
+        //mainInventory.InitializeBySelf();
     }
 }

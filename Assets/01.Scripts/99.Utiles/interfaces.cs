@@ -11,3 +11,8 @@ public interface IRunAlready
 {
     public UniTask RunAlready();
 }
+
+public interface IItemStackFactory
+{
+    ItemStack Create(Data_Foods data_Foods, int amount, InvenType invenType);
+}

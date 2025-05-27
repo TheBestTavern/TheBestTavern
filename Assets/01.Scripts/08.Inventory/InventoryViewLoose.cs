@@ -23,7 +23,7 @@ public class InventoryViewLoose : InventoryView
 
     protected virtual void OnEnable()
     {
-        InitializeBySelf();
+        //InitializeBySelf();
     }
 
     private void 아이템있는슬롯만보여주기()
