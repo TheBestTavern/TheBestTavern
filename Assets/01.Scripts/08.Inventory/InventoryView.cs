@@ -63,12 +63,12 @@ public abstract class InventoryView : MonoBehaviour
     public virtual void ViewAllItems()  // 전체 아이템 띄우기
     {
         int targetIndex = 0;
-        foreach (var pair in controller.GetModel())
+        foreach (var itemStackID in controller.GetModel())
         {
-            if (!toShowTypes.Contains(ItemStackManager.Instance.AllItemStack[pair.Key].Origin.itemCategory)) continue;
+            if (!toShowTypes.Contains(Data.GetRawItemFromItemStack(itemStackID).itemCategory)) continue;
 
-            index2Slots[targetIndex].SetSlot(pair.Key);
-            BiID2SlotIndex.Add(pair.Key, targetIndex);
+            index2Slots[targetIndex].SetSlot(itemStackID);
+            BiID2SlotIndex.Add(itemStackID, targetIndex);
             targetIndex++;
         }
     }
@@ -80,20 +80,20 @@ public abstract class InventoryView : MonoBehaviour
 
         if (!toSlot.HasItem && fromSlot != null && fromSlot != this && fromSlot.HasItem)
         {
-            ItemStack itemStack = index2Slots[fromSlotIndex].GetSlotItem();
+            int tempItemStackID = index2Slots[fromSlotIndex].GetSlotItemStackID();
             // from 슬롯 비우기
             fromSlot.EmptifySlot();
 
             // to 슬롯에 채우기
-            toSlot.SetSlot(itemStack.ID);
-            BiID2SlotIndex.Add(itemStack.ID, toSlotIndex);
+            toSlot.SetSlot(tempItemStackID);
+            BiID2SlotIndex.Add(tempItemStackID, toSlotIndex);
         }
     }
 
 
     public virtual void ReviewSpecificItemStack(int id)  // 특정 ID의 정보만 갱신
     {
-        if (!toShowTypes.Contains(ItemStackManager.Instance.AllItemStack[id].Origin.itemCategory)) return;
+        if (!toShowTypes.Contains(Data.GetRawItemFromItemStack(id).itemCategory)) return;
 
         if (BiID2SlotIndex.ContainsKey(id))
         {

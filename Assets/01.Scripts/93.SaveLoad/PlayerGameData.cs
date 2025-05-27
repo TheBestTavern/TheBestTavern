@@ -30,7 +30,8 @@ public class PlayerGameData
     public DesignEnums.SeasonType? CurrentSeasonType;
 
     public Dictionary<int, List<int>> foodKey2IDs = new();
-    public Dictionary<int, ItemStack> ID2ItemStack = new();
+    //public Dictionary<int, ItemStack> ID2ItemStack = new();
+    public List<int> itemStackIDs = new();
 
     public void SetSaveData()
     {
@@ -55,36 +56,37 @@ public class PlayerGameData
         CurrentSeasonType = CalendarManager.Instance.CurrentSeasonType;
 
         //playerInvenData.SetPlayerInvenData(InventoryManager.Instance.Invens[InvenType.Player].model.ID2ItemStack);
-        foodKey2IDs = InventoryManager.Instance.Invens[InvenType.Player].model.foodKey2IDs;
-        ID2ItemStack = InventoryManager.Instance.Invens[InvenType.Player].model.ID2ItemStack;
+        foodKey2IDs = InventoryManager.Instance.Invens[InvenType.Player].model.itemID2ItemStackIDs;
+        itemStackIDs = InventoryManager.Instance.Invens[InvenType.Player].model.itemStackIDs;
     }
 
-    [System.Serializable]
-    public class PlayerInvenData
-    {
-        public List<PlayerItemData> ItemList = new();
+    //[System.Serializable]
+    //public class PlayerInvenData
+    //{
+    //    public List<PlayerItemData> ItemList = new();
 
-        public void SetPlayerInvenData(Dictionary<int, ItemStack> ItemStack)
-        {
-            ItemList.Clear();
-            foreach (var item in ItemStack)
-            {
-                PlayerItemData invenData = new PlayerItemData(item.Value.Origin, item.Value.Count, item.Value.ID);
-                ItemList.Add(invenData);
-            }
-        }
-    }
+    //    public void SetPlayerInvenData(List<int> itemStackIDs)
+    //    {
+    //        ItemList.Clear();
+    //        foreach (int itemStackID in itemStackIDs)
+    //        {
+    //            ItemStack itemStack = Data.GetItemStack(itemStackID);
+    //            PlayerItemData invenData = new PlayerItemData(itemStack.OriginItemKey, itemStack.Count, itemStack.ID);
+    //            ItemList.Add(invenData);
+    //        }
+    //    }
+    //}
 
     [System.Serializable]
     public class PlayerItemData
     {
-        public Data_Foods Origin;
+        public int originKey;
         public int Count;
         public int ID;
 
-        public PlayerItemData(Data_Foods origin, int count, int iD)
+        public PlayerItemData(int originKey, int count, int iD)
         {
-            Origin = origin;
+            this.originKey = originKey;
             Count = count;
             ID = iD;
         }

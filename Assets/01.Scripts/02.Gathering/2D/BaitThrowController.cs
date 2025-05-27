@@ -84,14 +84,14 @@ public class BaitThrowController : MonoBehaviour
             sr.sprite = baitDropArea.itemSprite;
         }
 
-        bait.SetBaitKey(currentBait.Origin.key);
+        bait.SetBaitKey(currentBait.OriginItemKey);
 
         float rad = throwAngle * Mathf.Deg2Rad;
         Vector2 dir = new Vector2(Mathf.Cos(rad), Mathf.Sin(rad));
         rb.AddForce(dir.normalized * power, ForceMode2D.Impulse);
 
         var inven = InventoryManager.Instance.Invens[InvenType.Gathering];
-        inven.LooseItem(currentBait.Origin, 1);
+        inven.LooseItem(Data.GetRawItem(currentBait.OriginItemKey), 1);
         SoundManager.Instance.PlaySFX("ThrowBaitStrong");
     }
 
@@ -125,7 +125,7 @@ public class BaitThrowController : MonoBehaviour
     {
         currentBait = bait;
         readyNextFrame = true;
-        Debug.Log("미끼 설정: " + currentBait.Origin.englishName);
+        Debug.Log("미끼 설정: " + Data.GetRawItem(currentBait.OriginItemKey).englishName);
     }
 
     void UpdatePowerUI(float power)

@@ -68,7 +68,7 @@ public class InventoryController
     }
 
     public virtual bool LooseItem(Data_Foods data_Foods, int amount)
-    {
+      {
         if (!model.DecreaseItemWithCheck(data_Foods, amount))
         {
             return false;
@@ -93,9 +93,9 @@ public class InventoryController
         model.SortingModel_Merge();
     }
 
-    public Dictionary<int, ItemStack> GetModel()
+    public List<int> GetModel()
     {
-        return model.ID2ItemStack;
+        return model.itemStackIDs;
     }
 
     public void ViewSpecificItem(int id, InvenType itemStackInvenType)
@@ -114,7 +114,7 @@ public class InventoryController
         model.Dipose();
     }
 
-    public void ApplyLoadData(Dictionary<int, List<int>> foodKey2IDs, Dictionary<int, ItemStack> ID2ItemStack)
+    public void ApplyLoadData(Dictionary<int, List<int>> foodKey2IDs, List<int> ID2ItemStack)
     {
         model.ApplyLoadData(foodKey2IDs, ID2ItemStack);
     }

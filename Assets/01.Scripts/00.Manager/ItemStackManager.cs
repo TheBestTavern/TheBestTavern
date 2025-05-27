@@ -38,7 +38,7 @@ public class ItemStackManager : MonoSingleton<ItemStackManager>
 
     public ItemStack InstantiateItem(Data_Foods data_Foods, int amount, InvenType invenType)
     {
-        ItemStack item = new(data_Foods, amount, IDs.Pop(), invenType);
+        ItemStack item = new(data_Foods.key, amount, IDs.Pop(), invenType);
         AllItemStack.Add(item.ID, item);
         return item;
     }

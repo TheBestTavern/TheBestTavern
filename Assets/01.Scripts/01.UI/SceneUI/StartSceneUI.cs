@@ -153,6 +153,6 @@ public class StartSceneUI : MonoBehaviour
         );
         CalendarManager.Instance.ApplyLoadData(data.CurrentSeasonType);
         ItemStackManager.Instance.ApplyLoadData(data.IDsForSerialization, data.AllItemStack);    
-        InventoryManager.Instance.Invens[InvenType.Player].ApplyLoadData(data.foodKey2IDs, data.ID2ItemStack);
+        InventoryManager.Instance.Invens[InvenType.Player].ApplyLoadData(data.foodKey2IDs, data.itemStackIDs);
     }
 }

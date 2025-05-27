@@ -17,9 +17,9 @@ public class GatheringInventoryUI : InventoryViewLoose
         {
             if (slot.Value.HasItem)
             {
-                ItemStack item = slot.Value.GetSlotItem();
-                InventoryManager.Instance.Invens[InvenType.Player].AcquireItem(Data.GetRawItem(item.Origin.key), item.Count);
-                InventoryManager.Instance.Invens[InvenType.Gathering].LooseItem(Data.GetRawItem(item.Origin.key), item.Count);
+                ItemStack item = Data.GetItemStack(slot.Value.GetSlotItemStackID());
+                InventoryManager.Instance.Invens[InvenType.Player].AcquireItem(Data.GetRawItem(item.OriginItemKey), item.Count);
+                InventoryManager.Instance.Invens[InvenType.Gathering].LooseItem(Data.GetRawItem(item.OriginItemKey), item.Count);
             }
         }
     }
@@ -29,7 +29,7 @@ public class GatheringInventoryUI : InventoryViewLoose
         base.TargetingSlot(index);
 
         if (!index2Slots[index].HasItem) return;
-        ItemStack item = index2Slots[index].GetSlotItem();
+        ItemStack item = Data.GetItemStack(index2Slots[index].GetSlotItemStackID());
 
         var dropArea = CaptureManager.Instance?.baitDropArea;
         if (dropArea != null)
@@ -48,8 +48,8 @@ public class GatheringInventoryUI : InventoryViewLoose
         {
             if (slot.Value.HasItem)
             {
-                ItemStack item = slot.Value.GetSlotItem();
-                InventoryManager.Instance.Invens[InvenType.Gathering].LooseItem(Data.GetRawItem(item.Origin.key), item.Count);
+                ItemStack item = Data.GetItemStack(slot.Value.GetSlotItemStackID());
+                InventoryManager.Instance.Invens[InvenType.Gathering].LooseItem(Data.GetRawItem(item.OriginItemKey), item.Count);
             }
         }
     }

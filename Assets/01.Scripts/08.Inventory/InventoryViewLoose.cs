@@ -147,7 +147,7 @@ public class InventoryViewLoose : InventoryView
             List<Data_Foods> rawItems = new();
             for (int i = 0; i < targetingSlots.Count; i++)
             {
-                rawItems.Add(index2Slots[targetingSlots[i]].GetSlotItem().Origin);
+                rawItems.Add(Data.GetRawItemFromItemStack(index2Slots[targetingSlots[i]].GetSlotItemStackID()));
             }
             OnEnableTargetSlot?.Invoke(rawItems);
         }
