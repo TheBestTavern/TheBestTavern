@@ -230,9 +230,10 @@ public class CookingGrindMiniGame : CookingMiniGameBase
 
     public override void StopGame()
     {
-        RecipeManager.Instance.EndCooking();
         var grade = JudgeGrade();
         CookingMiniGameManager.Instance.SetMiniGameResult(grade);
+        RecipeManager.Instance.EndCooking();
+
         //PlayEffect(grade);
     }
 

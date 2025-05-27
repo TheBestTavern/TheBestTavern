@@ -86,7 +86,6 @@ public class RecipeManager : MonoSingleton<RecipeManager>
             CookingMiniGameManager.Instance.SetMiniGameResult(grade);
             resultItemKey = -1;
             return new List<int> { -1 };
-
         }
 
         var resultItemKeys = new List<int>();
