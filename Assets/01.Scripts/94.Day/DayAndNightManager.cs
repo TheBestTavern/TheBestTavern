@@ -23,9 +23,11 @@ public class DayAndNightManager : MonoSingleton<DayAndNightManager>
 
     public override void Init()
     {
-        if (_isInitialized) return;
+        if (_isInitialized && _isInitilizedAsync) return;
         base.Init();
         DontDestroyOnLoad(gameObject);
+
+        InitAsync();
     }
 
     public async Task InitAsync()
