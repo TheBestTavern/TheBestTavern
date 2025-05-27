@@ -20,6 +20,7 @@ public class DetailPopup : BasePopUp
     [SerializeField] TextMeshProUGUI ItemType;
     [SerializeField] TextMeshProUGUI title;
     [SerializeField] List<Button> componentsBtn;
+    [SerializeField] List<Image> componentsImage;
     [SerializeField] List<TextMeshProUGUI> componentsTMP;
     List<int> componentsID = new();
     [SerializeField] TextMeshProUGUI desc;
@@ -42,7 +43,7 @@ public class DetailPopup : BasePopUp
         var newFoodCategory = DataManager.Instance.DataLoader_FoodCategory.GetByKey(foodCategoryID);
 
         // 가공재료는 기획상 도감이 없으므로 따로 원재료로 변환하여 처리함.
-        if (newFoodCategory.itemType == DesignEnums.ItemType.processed)
+        while(newFoodCategory.itemType == DesignEnums.ItemType.processed)
         {
             newFoodCategory = Data.GetIngredientFromProcessed(newFoodCategory);
         }
@@ -105,6 +106,11 @@ public class DetailPopup : BasePopUp
         ItemType.text = "원재료";
         ItemType.color = new Color32(94, 124, 0, 255);
         title.text = "획득 조건";
+
+        foreach(Image image in componentsImage)
+        {
+            image.enabled = false;
+        }
 
         List<string> regionString = new();
         for (int i = 0; i < thing.region.Count; i++)
@@ -202,6 +208,11 @@ public class DetailPopup : BasePopUp
         componentsBtn[2].gameObject.SetActive(false);
         componentsBtn[3].gameObject.SetActive(false);
 
+        foreach (Image image in componentsImage)
+        {
+            image.enabled = false;
+        }
+
         foreach (var btn in componentsBtn)
         {
             btn.interactable = false;
@@ -224,12 +235,13 @@ public class DetailPopup : BasePopUp
             componentsBtn[i].gameObject.SetActive(true);
             componentsBtn[i].interactable = true;
             componentsTMP[i].text = thing.ingredientsName[i];
-            //componentsID[i] = thing.ingredients[i];
+            componentsImage[i].enabled = true;
             componentsID.Add(thing.ingredients[i]);
         }
         for (; i < componentsBtn.Count; i++)
         {
             componentsBtn[i].gameObject.SetActive(false);
+            componentsImage[i].enabled = false;
         }
     }
     private async void SetDish()
@@ -249,11 +261,13 @@ public class DetailPopup : BasePopUp
             componentsBtn[i].gameObject.SetActive(true);
             componentsBtn[i].interactable = true;
             componentsTMP[i].text = thing.ingredientsName[i];
+            componentsImage[i].enabled = true;
             componentsID.Add(thing.ingredients[i]);
         }
         for (; i < componentsBtn.Count; i++)
         {
             componentsBtn[i].gameObject.SetActive(false);
+            componentsImage[i].enabled = false;
         }
     }
 
