@@ -43,7 +43,6 @@ public class RelationSlot : MonoBehaviour, IPoolable
 
     public void OnSpawn(Vector3 pos)
     {
-        Debug.Log("출격");
         rect.position = pos;
         transform.localScale = Vector3.one;
     }

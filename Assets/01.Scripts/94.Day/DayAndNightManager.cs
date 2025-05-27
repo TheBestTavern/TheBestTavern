@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
 using Unity.VisualScripting;
+using System.Threading.Tasks;
 
 public class DayAndNightManager : MonoSingleton<DayAndNightManager>
 {
@@ -18,37 +19,43 @@ public class DayAndNightManager : MonoSingleton<DayAndNightManager>
 
     Coroutine coroutine;
 
-    public async override void Init()
+    bool _isInitilizedAsync;
+
+    public override void Init()
     {
         if (_isInitialized) return;
         base.Init();
         DontDestroyOnLoad(gameObject);
+    }
 
-        Debug.Log("######Manager SO 불러오기 시도");
+    public async Task InitAsync()
+    {
+        if (_isInitilizedAsync) return;
         ManagerContainer so = await AddressablesLoader.Instance.AddressablesLoadAsync<ManagerContainer>("DayAndNightManagerContainer.SO");
 
         if (so != null && so.nightMaterial != null && so.saturationCurve != null && so.lightnessCurve != null)
         {
-            Debug.Log("######Manager SO 내부에 메터리얼, 애니메이션 커브가 잘 채워져있음");
+            //Debug.Log("######Manager SO 내부에 메터리얼, 애니메이션 커브가 잘 채워져있음");
             if (nightMat == null)
             {
                 nightMat = so.nightMaterial;
-                Debug.Log("######메터리얼 넣기");
+
+                //Debug.Log("######메터리얼 넣기");
             }
 
             if (saturationCurve == null)
             {
                 saturationCurve = so.saturationCurve;
-                Debug.Log("######채도 커브 넣기");
+                //Debug.Log("######채도 커브 넣기");
             }
 
             if (lightnessCurve == null)
             {
                 lightnessCurve = so.lightnessCurve;
-                Debug.Log("######밝기 커브 넣기");
+                //Debug.Log("######밝기 커브 넣기");
             }
         }
-
+        _isInitilizedAsync = true;
     }
 
     public void pass1hour() // 한시간(정확히는 하루의 1/10씩 밝기 변경. 2차 시간표현 구현할때 필요한 기능. 제대로 구현하려면 process에 제한 줘야함.
@@ -70,11 +77,13 @@ public class DayAndNightManager : MonoSingleton<DayAndNightManager>
     {
         while (true)
         {
+            //Debug.Log($"######프레임시작");
             if (process < limitProcess)
             {
                 process += Time.deltaTime / duration;
                 nightMat.SetFloat("_Saturation", saturationCurve.Evaluate(process));
                 nightMat.SetFloat("_Lightness", lightnessCurve.Evaluate(process));
+                //Debug.Log($"######프레임: {process}, saturationCurve값: {nightMat.GetFloat("_Saturation")}, lightnessCurve값: {nightMat.GetFloat("_Lightness")}");
             }
 
             if (process >= 1)
@@ -88,10 +97,9 @@ public class DayAndNightManager : MonoSingleton<DayAndNightManager>
             if (targetProcess < process)
             {
                 EventBus.Publish<EndNightUIBlockEvent>(new EndNightUIBlockEvent());
-                Debug.LogError("이거 실행되면 안됨");
+                Debug.LogError("######이거 실행되면 안됨");
                 yield break;
             }
-
 
             yield return null;
         }
