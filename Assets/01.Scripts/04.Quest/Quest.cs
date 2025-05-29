@@ -27,12 +27,11 @@ public class Quest
     public bool RecycleDatePass { get; private set; } = true; // 재활용 주기 지났는지
     int RecycleDays = 5; // 재활용에 필요한 일수. 임시로 5일로 지정
 
-    private Dictionary<int, NPC> allNPC;
+    private Dictionary<int, NPC> allNPC => NPCManager.Instance.NPCData.AllNPC;
 
     public Quest(Data_Quest data_Quest)
     {
         this.Origin = data_Quest;
-        allNPC = NPCManager.Instance.NPCData.AllNPC;
     }
 
     public void AcceptQuest(LunarDateTime todayDateTime, int afterDays)
