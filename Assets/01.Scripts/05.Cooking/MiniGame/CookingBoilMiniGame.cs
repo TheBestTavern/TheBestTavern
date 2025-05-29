@@ -98,7 +98,6 @@ public class CookingBoilMiniGame : CookingMiniGameBase
 
             if (drawLine == null || drawLine.Equals(null))
             {
-                Debug.LogError("❌ drawLine is null or missing (파괴된 참조 포함)");
                 return;
             }
         }
