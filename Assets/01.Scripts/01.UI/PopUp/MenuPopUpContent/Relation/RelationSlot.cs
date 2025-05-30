@@ -11,6 +11,7 @@ public class RelationSlot : MonoBehaviour, IPoolable
     bool hasMet;
 
     [SerializeField] TextMeshProUGUI npcnName;
+    [SerializeField] Image heartImg;
     [SerializeField] TextMeshProUGUI favorability;
     [SerializeField] TextMeshProUGUI taste;
     [SerializeField] List<Image> compensationImages; // 퀘스트 ID와 보상 이미지
@@ -81,6 +82,7 @@ public class RelationSlot : MonoBehaviour, IPoolable
         {
             favorability.text = "";
             npcnName.text = "";
+            heartImg.gameObject.SetActive(false);
             taste.text = "";
         }
 
@@ -100,6 +102,7 @@ public class RelationSlot : MonoBehaviour, IPoolable
     public void UpdateHasMet()
     {
         hasMet = true;
+        heartImg.gameObject.SetActive(hasMet);
         UpdateBasicInfo();
         UpdateFavor();
         UpdateQuestReward();
