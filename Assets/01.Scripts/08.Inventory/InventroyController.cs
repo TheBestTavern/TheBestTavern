@@ -21,7 +21,9 @@ public class InventoryController
         this.maxStackSize = maxStackSize;
 
         this.model = new InventoryModel();
-        model.Init(invenType, slotCount, maxStackSize, ViewSpecificItem, ItemStackManager.Instance);
+        model.Init(invenType, slotCount, maxStackSize, ItemStackManager.Instance);
+
+        EventBus.Subscribe<ItemStackOnChangeEvent>(ViewSpecificItem);
 
         //var allViews = InventoryManager.Instance.FindInventoryView();
         //OnAfterSceneMove();
@@ -52,23 +54,54 @@ public class InventoryController
         views.Add(view);
     }
 
+    /// <summary>
+    /// 비즈니스 아이템 획득 로직
+    /// </summary>
     public virtual bool AcquireItem(Data_Foods data_Foods, int amount)
     {
-        if (!model.AddItemWithCheck(data_Foods, amount))
+        if (model.AddItemWithCheck(data_Foods, amount))
+        {
+            return true;
+        }
+        else
         {
             return false;
         }
-        return true;
     }
-
+    /// <summary>
+    /// 비즈니스 아이템 획득 로직
+    /// </summary>
     public bool AcquireItem(int itemID, int amount)
     {
         var data_Foods = Data.GetRawItem(itemID);
         return AcquireItem(data_Foods, amount);
     }
 
+    /// <summary>
+    /// 단순 아이템 갯수 조정 로직
+    /// </summary>
+    public virtual bool AcquireItem_Direct(Data_Foods data_Foods, int amount)
+    {
+        if (model.AddItemWithCheck(data_Foods, amount))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    /// <summary>
+    /// 단순 아이템 갯수 조정 로직
+    /// </summary>
+    public bool AcquireItem_Direct(int itemID, int amount)
+    {
+        var data_Foods = Data.GetRawItem(itemID);
+        return AcquireItem(data_Foods, amount);
+    }
+
     public virtual bool LooseItem(Data_Foods data_Foods, int amount)
-      {
+    {
         if (!model.DecreaseItemWithCheck(data_Foods, amount))
         {
             return false;
@@ -88,9 +121,14 @@ public class InventoryController
         }
     }
 
-    public void SortingModel_Merge()
+    public void MergeAllItem()
     {
-        model.SortingModel_Merge();
+        model.MergeAllItem();
+    }
+
+    public void MergeItem(int ToStackID, int FromStackID)
+    {
+        model.MergeItem(ToStackID, FromStackID);
     }
 
     public List<int> GetModel()
@@ -109,9 +147,15 @@ public class InventoryController
         }
     }
 
+    public void ViewSpecificItem(ItemStackOnChangeEvent evt)
+    {
+        ViewSpecificItem(evt.ID, evt.invenType);
+    } 
+
     public void Dispose()
     {
         model.Dipose();
+        EventBus.UnSubscribe<ItemStackOnChangeEvent>(ViewSpecificItem);
     }
 
     public void ApplyLoadData(Dictionary<int, List<int>> foodKey2IDs, List<int> ID2ItemStack)

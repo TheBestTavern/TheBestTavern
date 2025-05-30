@@ -13,15 +13,15 @@ public class InventoryModel
 
     public Action<int, InvenType> OnChanged;
 
-    public void Init(InvenType invenType, int slotCount, int maxStackSize, Action<int, InvenType> OnModelChanged, IItemStackFactory itemStackFactory)
+    public void Init(InvenType invenType, int slotCount, int maxStackSize, IItemStackFactory itemStackFactory)
     {
         this.invenType = invenType;
         this.SlotCount = slotCount;
         this.maxStackSize = maxStackSize;
-        this.OnChanged = OnModelChanged;
+        //this.OnChanged = OnModelChanged;
         this.itemStackFactory = itemStackFactory;
 
-        EventBus.Subscribe<ItemStackOnChangeEvent>(TriggerOnChange);
+        //EventBus.Subscribe<ItemStackOnChangeEvent>(TriggerOnChange);
         EventBus.Subscribe<ItemStackOnZeroEvent>(RemoveItem);
         //EventBus.Subscribe<ItemStackOnZeroEvent>(ItemStackManager.Instance.ReCoverID);
     }
@@ -111,19 +111,22 @@ public class InventoryModel
         return SlotCount - stackCount;
     }
 
-    public void SortingModel_Merge()
+    public void MergeAllItem()
     {
-        foreach (var pair in itemID2ItemStackIDs)
+        foreach (var pair in itemID2ItemStackIDs.ToList())
         {
             int toMergeCount = 0;
-            foreach (int id in pair.Value)
+            foreach (int stackID in pair.Value.ToList())
             {
-                if (pair.Value.Count < 2) continue;
-                if (Data.GetItemStack(id).Count != maxStackSize)
-                {
-                    toMergeCount += Data.GetItemStack(id).Count;
-                    Data.GetItemStack(id).TriggerOnDestroy();
-                }
+                //if (pair.Value.Count < 2) break;
+                //if (Data.GetItemStack(stackID).Count != maxStackSize)
+                //{
+                    ItemStack stack = Data.GetItemStack(stackID);
+                    int count = stack.Count;
+
+                    toMergeCount += count;
+                    stack.Subtract(count);
+                //}
             }
 
             if (toMergeCount > 0)
@@ -131,6 +134,16 @@ public class InventoryModel
                 JustAddItem(Data.GetRawItem(pair.Key), toMergeCount);
             }
         }
+    }
+
+    public void MergeItem(int ToStackID, int FromStackID)
+    {
+        var toStack = Data.GetItemStack(ToStackID);
+        var fromStack = Data.GetItemStack(FromStackID);
+
+        int toAdd = fromStack.Count;
+        int Added = toAdd - toStack.Add(toAdd, maxStackSize);
+        fromStack.Subtract(Added);
     }
 
     private void JustRemoveItem(int id, InvenType invenType)
@@ -149,14 +162,14 @@ public class InventoryModel
         JustRemoveItem(evt.ID, evt.invenType);
     }
 
-    private void TriggerOnChange(ItemStackOnChangeEvent evt)
-    {
-        OnChanged?.Invoke(evt.ID, evt.invenType);
-    }
+    //private void TriggerOnChange(ItemStackOnChangeEvent evt)
+    //{
+    //    OnChanged?.Invoke(evt.ID, evt.invenType);
+    //}
 
     public void Dipose()
     {
-        EventBus.UnSubscribe<ItemStackOnChangeEvent>(TriggerOnChange);
+        //EventBus.UnSubscribe<ItemStackOnChangeEvent>(TriggerOnChange);
         EventBus.UnSubscribe<ItemStackOnZeroEvent>(RemoveItem);
     }
 

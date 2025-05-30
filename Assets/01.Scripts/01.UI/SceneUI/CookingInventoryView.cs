@@ -18,7 +18,7 @@ public class CookingInventoryView : InventoryViewLoose
     [SerializeField] Button startMiniGameBtn;
     [SerializeField] Image btnImage;
     [SerializeField] Material grayscaleMaterial;
-    private Queue<ItemImage> pooledImageQueue = new();
+    private List<(int slotIndex, ItemImage itemImage)> pooledImageList = new(); // 인벤토리 슬롯 인덱스, 아이템 이미지
 
     protected override void OnEnable()
     {
@@ -28,9 +28,14 @@ public class CookingInventoryView : InventoryViewLoose
             if (!CookingMiniGameManager.Instance.TryCooking())
             {
                 UIManager.Instance.cookingSceneUI.OnClickBlurBackGround();
-                if (pooledImageQueue.Count > 0)
+                if (pooledImageList.Count > 0)
                 {
-                    DisappearImage(pooledImageQueue.Dequeue());
+                    foreach (var pair in pooledImageList.ToList())
+                    {
+                        DisappearImage(pooledImageList[0].itemImage);
+                        pooledImageList.Remove(pair);
+                    }
+                    //DisappearImage(pooledImageDict.Dequeue());
                 }
                 return;
             }
@@ -148,12 +153,14 @@ public class CookingInventoryView : InventoryViewLoose
         //CookingMiniGameManager.Instance.SetMiniGameItem(item);
 
         //var pooledImage = PoolManager.Instance.Get<ItemImage>(itemImage, index2Slots[index].GetComponent<RectTransform>().position, transform);
-        if(pooledImageQueue.Count == maxTargetingNum)
+        if (pooledImageList.Count == maxTargetingNum)
         {
-            DisappearImage(pooledImageQueue.Dequeue());
+            var pair = pooledImageList[0];
+            DisappearImage(pair.itemImage);
+            pooledImageList.Remove(pair);
         }
         var pooledImage = await PoolManager.Instance.GetAddressable<ItemImage>("ItemImage.prefab", index2Slots[index].GetComponent<RectTransform>().position, transform);
-        pooledImageQueue.Enqueue(pooledImage);
+        pooledImageList.Add((index, pooledImage));
         pooledImage.gameObject.SetActive(true);
         pooledImage.sprite = index2Slots[index].image.sprite;
 
@@ -164,9 +171,17 @@ public class CookingInventoryView : InventoryViewLoose
     public override void TargetingSlotCancel(int index)
     {
         base.TargetingSlotCancel(index);
-        if (pooledImageQueue.Count > 0)
+        if (pooledImageList.Count > 0)
         {
-            DisappearImage(pooledImageQueue.Dequeue());
+            foreach (var pair in pooledImageList)
+            {
+                if (pair.slotIndex == index)
+                {
+                    DisappearImage(pair.itemImage);
+                    pooledImageList.Remove(pair);
+                    break;
+                }
+            }
         }
     }
 

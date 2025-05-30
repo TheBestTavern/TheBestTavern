@@ -24,10 +24,11 @@ public class InventorySlot : MonoBehaviour, IBeginDragHandler, IEndDragHandler, 
     private Canvas rootCanvas;
 
     Action<int> OnZero;
+    Action<int, int> OnAdded;
     Action<int> OnClick;
     Action<int> OnClickAgain;
 
-    public void Init(int index, InventoryView view, Action<int> removeItem, Action<int> clickSlot, Action<int> clickSlotAgain) // UI와 연결, index 부여받기.
+    public void Init(int index, InventoryView view, Action<int> removeItem, Action<int, int> addItem, Action<int> clickSlot, Action<int> clickSlotAgain) // UI와 연결, index 부여받기.
     {
         this.index = index;
         this.view = view;
@@ -41,6 +42,7 @@ public class InventorySlot : MonoBehaviour, IBeginDragHandler, IEndDragHandler, 
         CountTMP.text = "";
 
         OnZero = removeItem;
+        OnAdded = addItem;
         OnClick = clickSlot;
         OnClickAgain = clickSlotAgain;
     }
@@ -54,8 +56,9 @@ public class InventorySlot : MonoBehaviour, IBeginDragHandler, IEndDragHandler, 
         CountTMP.text = count.ToString();
         Data_Foods raw = Data.GetRawItem(ItemStackManager.Instance.AllItemStack[ItemStackID].OriginItemKey);
         image.sprite = await AddressablesLoader.Instance.AddressablesLoadSpriteFromAtlasAsync("FoodSpriteAtlas", raw.englishName, true);
-
         image.gameObject.SetActive(true);
+
+        OnAdded?.Invoke(ItemStackID, index);
     }
 
     public void ReviewSlot()
@@ -116,7 +119,7 @@ public class InventorySlot : MonoBehaviour, IBeginDragHandler, IEndDragHandler, 
     {
         InventorySlot fromSlot = eventData.pointerDrag?.GetComponent<InventorySlot>();
 
-        view.MoveItem(index, fromSlot.index);
+        view.OnSlot2Slot(index, fromSlot.index);
     }
 
     public void OnEndDrag(PointerEventData eventData)

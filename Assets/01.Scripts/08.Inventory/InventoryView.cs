@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public abstract class InventoryView : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public abstract class InventoryView : MonoBehaviour
     [SerializeField] protected Transform slotTrs;
     [SerializeField] protected int slotCount; // 슬롯갯수 (OR view가 한번에 보여줄 slot 갯수)
 
+    [SerializeField] Button sortingMergeAllButton;
 
     [field: Header("toShowType")]
     [field: SerializeField] public List<DesignEnums.ItemType> toShowTypes { get; private set; }// 뷰에서 보여줄 아이템 타입.
@@ -64,9 +66,11 @@ public abstract class InventoryView : MonoBehaviour
         {
             var temp = Instantiate(slotPref, slotTrs);
             //temp.transform.SetParent(slotTrs);
-            temp.Init(i, this, EmptifySlot, TargetingSlot, TargetingSlotCancel);
+            temp.Init(i, this, EmptifySlot, AddifySlot, TargetingSlot, TargetingSlotCancel);
             index2Slots.Add(i, temp);
         }
+
+        sortingMergeAllButton?.onClick.AddListener(() => controller.MergeAllItem());
     }
 
     public virtual void ViewAllItems()  // 전체 아이템 띄우기
@@ -77,28 +81,10 @@ public abstract class InventoryView : MonoBehaviour
             if (!toShowTypes.Contains(Data.GetRawItemFromItemStack(itemStackID).itemCategory)) continue;
 
             index2Slots[targetIndex].SetSlot(itemStackID);
-            BiID2SlotIndex.Add(itemStackID, targetIndex);
+            //BiID2SlotIndex.Add(itemStackID, targetIndex);
             targetIndex++;
         }
     }
-
-    public void MoveItem(int toSlotIndex, int fromSlotIndex)
-    {
-        var toSlot = index2Slots[toSlotIndex];
-        var fromSlot = index2Slots[fromSlotIndex];
-
-        if (!toSlot.HasItem && fromSlot != null && fromSlot != this && fromSlot.HasItem)
-        {
-            int tempItemStackID = index2Slots[fromSlotIndex].GetSlotItemStackID();
-            // from 슬롯 비우기
-            fromSlot.EmptifySlot();
-
-            // to 슬롯에 채우기
-            toSlot.SetSlot(tempItemStackID);
-            BiID2SlotIndex.Add(tempItemStackID, toSlotIndex);
-        }
-    }
-
 
     public virtual void ReviewSpecificItemStack(int id)  // 특정 ID의 정보만 갱신
     {
@@ -117,7 +103,7 @@ public abstract class InventoryView : MonoBehaviour
                 if (!index2Slots[i].HasItem)
                 {
                     index2Slots[i].SetSlot(id);
-                    BiID2SlotIndex.Add(id, i);
+                    //BiID2SlotIndex.Add(id, i);
                     break;
                 }
             }
@@ -129,12 +115,84 @@ public abstract class InventoryView : MonoBehaviour
         BiID2SlotIndex.RemoveByValue(index);
     }
 
+    public void AddifySlot(int itemStackID, int slotIndex)
+    {
+        BiID2SlotIndex.Add(itemStackID, slotIndex);
+    }
+
 
     public virtual void TargetingSlot(int index) // loose에서
     {
     }
+
     public virtual void TargetingSlotCancel(int index) // loose에서
     {
+    }
+
+    public void OnSlot2Slot(int toSlotIndex, int fromSlotIndex)
+    {
+        var toSlot = index2Slots[toSlotIndex];
+        var fromSlot = index2Slots[fromSlotIndex];
+
+
+        //if (!toSlot.HasItem && fromSlot != null && fromSlot != this && fromSlot.HasItem)
+        if (!toSlot.HasItem && fromSlot != null && fromSlot.HasItem)
+        {
+            MoveItem(toSlotIndex, fromSlotIndex);
+        }
+        //else if (toSlot.HasItem && fromSlot != null && fromSlot != this && fromSlot.HasItem)
+        else if (toSlot.HasItem && fromSlot != null && fromSlot.HasItem)
+        {
+            var allItemStack = ItemStackManager.Instance.AllItemStack;
+            if (allItemStack[fromSlot.GetSlotItemStackID()].OriginItemKey == allItemStack[toSlot.GetSlotItemStackID()].OriginItemKey)
+            {
+                // 아이템 합치기
+                MergeItem(toSlotIndex, fromSlotIndex);
+            }
+            else
+            {
+                // 아이템 위치 교환
+                ExchangeItem(toSlotIndex, fromSlotIndex);
+            }
+        }
+    }
+
+    private void MoveItem(int toSlotIndex, int fromSlotIndex)
+    {
+        var toSlot = index2Slots[toSlotIndex];
+        var fromSlot = index2Slots[fromSlotIndex];
+
+        int tempFromStackID = fromSlot.GetSlotItemStackID();
+
+        fromSlot.EmptifySlot();
+        toSlot.SetSlot(tempFromStackID);
+    }
+
+    private void MergeItem(int toSlotIndex, int fromSlotIndex)
+    {
+        var toSlot = index2Slots[toSlotIndex];
+        var fromSlot = index2Slots[fromSlotIndex];
+
+        int tempFromStackID = fromSlot.GetSlotItemStackID();
+        int tempToStackID = toSlot.GetSlotItemStackID();
+
+        controller.MergeItem(tempToStackID, tempFromStackID);
+    }
+
+    private void ExchangeItem(int toSlotIndex, int fromSlotIndex)
+    {
+        var toSlot = index2Slots[toSlotIndex];
+        var fromSlot = index2Slots[fromSlotIndex];
+
+        int tempFromStackID = fromSlot.GetSlotItemStackID();
+        int tempToStackID = toSlot.GetSlotItemStackID();
+
+        // from 슬롯 비우기
+        fromSlot.EmptifySlot();
+        toSlot.EmptifySlot();
+        // to 슬롯에 채우기
+        fromSlot.SetSlot(tempToStackID);
+        toSlot.SetSlot(tempFromStackID);
     }
 
     //공통
