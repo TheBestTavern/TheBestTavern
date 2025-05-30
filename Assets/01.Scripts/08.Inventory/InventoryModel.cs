@@ -7,17 +7,19 @@ public class InventoryModel
     InvenType invenType;
     public Dictionary<int, List<int>> itemID2ItemStackIDs = new();  // <Data_Foods.key, ID리스트> => 
     public List<int> itemStackIDs = new(); // <ID, 아이템 스택> => <스택ID> 해당 모델이 보유한 itemStack의 ID
+    IItemStackFactory itemStackFactory;
     int SlotCount { get; set; } // 슬롯 최대 갯수
     int maxStackSize { get; set; } // 스택 당 아이템 갯수
 
     public Action<int, InvenType> OnChanged;
 
-    public void Init(InvenType invenType, int slotCount, int maxStackSize, Action<int, InvenType> OnModelChanged)
+    public void Init(InvenType invenType, int slotCount, int maxStackSize, Action<int, InvenType> OnModelChanged, IItemStackFactory itemStackFactory)
     {
         this.invenType = invenType;
         this.SlotCount = slotCount;
         this.maxStackSize = maxStackSize;
         this.OnChanged = OnModelChanged;
+        this.itemStackFactory = itemStackFactory;
 
         EventBus.Subscribe<ItemStackOnChangeEvent>(TriggerOnChange);
         EventBus.Subscribe<ItemStackOnZeroEvent>(RemoveItem);
@@ -67,7 +69,7 @@ public class InventoryModel
         while (remain > 0)
         {
             //var temp = new ItemStack(data_Foods, 0, 아이템삭제);
-            var itemStack = ItemStackManager.Instance.InstantiateItem(data_Foods, 0, invenType);
+            var itemStack = itemStackFactory.Create(data_Foods, 0, invenType);
             remain = itemStack.Add(remain, maxStackSize);
             IDList.Add(itemStack.ID);
             itemStackIDs.Add(itemStack.ID);

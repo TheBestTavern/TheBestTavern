@@ -18,37 +18,46 @@ public abstract class InventoryView : MonoBehaviour
     [field: Header("toShowType")]
     [field: SerializeField] public List<DesignEnums.ItemType> toShowTypes { get; private set; }// 뷰에서 보여줄 아이템 타입.
 
-    public virtual void InitailizeByController(InventoryController controller)
-    {
-        if (IsInitialized) return;
-        IsInitialized = true;
+    //public virtual void InitailizeByController(InventoryController controller)
+    //{
+    //    if (IsInitialized) return;
+    //    IsInitialized = true;
 
-        Initialize(controller);
-        ViewAllItems();
-    }
+    //    Initialize(controller);
+    //    ViewAllItems();
+    //}
 
-    public virtual void InitializeBySelf() // 컨트롤러를 직접 찾아서 초기화.
+    //public virtual void InitializeBySelf() // 컨트롤러를 직접 찾아서 초기화.
+    //{
+    //    if (IsInitialized) return;
+    //    if (InventoryManager.Instance.Invens.TryGetValue(invenType, out InventoryController controller))
+    //    {
+    //        if (IsInitialized) return;
+    //        IsInitialized = true;
+
+    //        Initialize(controller);
+    //        ViewAllItems();
+    //    }
+    //    else
+    //    {
+    //        return;
+    //    }
+    //}
+
+    private void Start()
     {
-        if (IsInitialized) return;
-        if (InventoryManager.Instance.Invens.TryGetValue(invenType, out InventoryController controller))
+        if (InventoryManager.Instance.Invens.TryGetValue(invenType, out InventoryController _controller))
         {
-            if (IsInitialized) return;
-            IsInitialized = true;
-
-            Initialize(controller);
+            Initialize(_controller);
             ViewAllItems();
         }
-        else
-        {
-            return;
-        }
     }
 
-    protected virtual void Initialize(InventoryController controller)// 슬롯 딕셔너리 생성, 쓰레기통 생성, 컨트롤러 연결, 슬롯 갯수 
+    protected virtual void Initialize(InventoryController _controller)// 슬롯 딕셔너리 생성, 쓰레기통 생성, 컨트롤러 연결, 슬롯 갯수 
     {
         //1. 컨트롤러 연결, 슬롯 갯수 
-        this.controller = controller;
-        controller.AddView(this);
+        this.controller = _controller;
+        controller.RegisterView(this);
 
         //2. 슬롯 딕셔너리 생성
         for (int i = 0; i < this.slotCount; i++)

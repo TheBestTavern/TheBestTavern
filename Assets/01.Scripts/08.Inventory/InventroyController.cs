@@ -21,10 +21,10 @@ public class InventoryController
         this.maxStackSize = maxStackSize;
 
         this.model = new InventoryModel();
-        model.Init(invenType, slotCount, maxStackSize, ViewSpecificItem);
+        model.Init(invenType, slotCount, maxStackSize, ViewSpecificItem, ItemStackManager.Instance);
 
-        var allViews = InventoryManager.Instance.FindInventoryView();
-        OnAfterSceneMove();
+        //var allViews = InventoryManager.Instance.FindInventoryView();
+        //OnAfterSceneMove();
     }
 
     public virtual void OnBeforeSceneMove() // view 찾아서 연결. 씬이동할때마다 실행? 안해도 view에서 자체적으로 연결을 걸듯. 
@@ -32,22 +32,22 @@ public class InventoryController
         views.Clear();
     }
 
-    public virtual void OnAfterSceneMove() // view 찾아서 연결. 씬이동할때마다 실행? 안해도 view에서 자체적으로 연결을 걸듯. 
-    {
-        var allViews = InventoryManager.Instance.FindInventoryView();
+    //public virtual void OnAfterSceneMove() // view 찾아서 연결. 씬이동할때마다 실행? 안해도 view에서 자체적으로 연결을 걸듯. 
+    //{
+    //    var allViews = InventoryManager.Instance.FindInventoryView();
 
-        foreach (var view in allViews)
-        {
-            if (view.invenType == invenType)
-            {
-                if (views.Contains(view)) continue;
+    //    foreach (var view in allViews)
+    //    {
+    //        if (view.invenType == invenType)
+    //        {
+    //            if (views.Contains(view)) continue;
 
-                view.InitailizeByController(this);
-            }
-        }
-    }
+    //            view.InitailizeByController(this);
+    //        }
+    //    }
+    //}
 
-    public void AddView(InventoryView view)
+    public void RegisterView(InventoryView view)
     {
         views.Add(view);
     }
