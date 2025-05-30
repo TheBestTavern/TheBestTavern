@@ -22,11 +22,6 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 6573cf3141257ce47b1cdb1d8eae3054
-    m_Address: QuestContainer.SO
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c0de3491895f7fb4b8ca5621364fe493
     m_Address: SoundLibrary.SO
     m_ReadOnly: 0

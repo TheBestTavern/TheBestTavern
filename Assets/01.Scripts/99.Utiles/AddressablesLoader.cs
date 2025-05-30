@@ -125,4 +125,10 @@ public class AddressablesLoader : MonoSingleton<AddressablesLoader>
         }
         cache.Clear();
     }
+
+    // 게임 종료시 메모리 누수 방지
+    protected override void OnDestroy()
+    {
+        ReleaseAllLoadedAssets();
+    }
 }

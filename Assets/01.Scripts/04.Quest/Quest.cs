@@ -51,10 +51,10 @@ public class Quest
         TriggerDate = null;
         RecycleDate = todayDateTime.AddDays(RecycleDays); // 퀘스트 완료 시 다음 재출현일자 미리 지정.
         lastSuccessDegree = successDegree;
-        if ((int)lastSuccessDegree >= 20)
-        {
-            EventBus.Publish<NPCSuccessQuestEvent>(new NPCSuccessQuestEvent(Data.GetNPC(Origin.givingNPC)));
-        }
+        //if ((int)lastSuccessDegree >= 20)
+        //{
+        //    EventBus.Publish<NPCGetQuestRewardEvent>(new NPCGetQuestRewardEvent(Data.GetNPC(Origin.givingNPC)));
+        //}
     }
 
     public void FailQuest(LunarDateTime todayDateTime) // 퀘스트 실패

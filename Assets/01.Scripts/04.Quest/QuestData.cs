@@ -48,15 +48,7 @@ public class QuestData
 
         allNPC = NPCManager.Instance.NPCData.AllNPC;
 
-        // 커맨드 등록
-        OnNewDay command = new(this);
-        CommandManager.Instance.AddCommand(command);
-    }
-
-    public async void LateInit()
-    {
-        // 참조 할당
-        questSO = await AddressablesLoader.Instance.AddressablesLoadAsync<QuestContainer>("QuestContainer.SO");
+        questSO = Resources.Load<QuestContainer>("QuestContainer");
         favorMap = new()
         {
             { SuccessDegree.good , questSO.goodQuest},
@@ -64,6 +56,10 @@ public class QuestData
             { SuccessDegree.notBad , questSO.notBadQuest},
             { SuccessDegree.fail , questSO.failQuest}
         };
+
+        // 커맨드 등록
+        OnNewDay command = new(this);
+        CommandManager.Instance.AddCommand(command);
     }
 
     public void ApplyLoadData(Dictionary<int, Quest> AllQuests, List<int> AcceptedQuests,
@@ -149,9 +145,15 @@ public class QuestData
         {
             //진행중 퀘스트 상태 확인(당일 - NPC방문, 아직 - 무, 지남 - 퀘스트 실패 처리) 
             prt.TodaySpawnNPC.Clear();
-            for (int i = 0; i < prt.AcceptedQuests.Count; i++)
+            List<int> AcceptedQuestsClone =  new();
+            foreach(var questKey in prt.AcceptedQuests)
             {
-                int key = prt.AcceptedQuests[i];
+                AcceptedQuestsClone.Add(questKey);
+            }
+
+            for (int i = 0; i < AcceptedQuestsClone.Count; i++)
+            {
+                int key = AcceptedQuestsClone[i];
                 Quest tempQuest = Data.GetQuest(key);
                 if (tempQuest.TriggerDate > TimerManager.Instance.GetToday())
                 {
@@ -171,17 +173,9 @@ public class QuestData
                     prt.FailQuest(key);
                     Debug.Log("기한 초과로 인한 퀘스트 실패");
                 }
-
             }
-            // 소환할 npc 있다면, 
-            //if (spawnNPCs.Count > 0)
-            //{
-            //    prt.onTriggerNPC?.Invoke(spawnNPCs);
-            //    prt.onSpawnNPC?.Invoke();
-            //    spawnNPCs.Clear();
-            //}
-            //Debug.Log("진행중 퀘스트 체크");
 
+            AcceptedQuestsClone.Clear();
         }
 
         public void TakeTodayAvailableQuest()

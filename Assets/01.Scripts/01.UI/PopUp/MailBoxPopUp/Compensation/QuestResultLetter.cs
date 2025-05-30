@@ -102,6 +102,7 @@ public class QuestResultLetter : QuestBaseLetter
     {
         if (TakeResult())
         {
+            EventBus.Publish<NPCGetQuestRewardEvent>(new NPCGetQuestRewardEvent(Data.GetNPC(quest.Origin.givingNPC)));
             TriggerOnCompleteLetter(); // 편지 읽고 퀘스트수락/결과수령 시 슬롯 파괴 이벤트 실행
             OnClickCloseButton(); //  퀘스트수락/결과수령 시 편지 닫기
         }

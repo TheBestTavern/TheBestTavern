@@ -33,11 +33,6 @@ public class QuestManager : MonoSingleton<QuestManager>
         CommandManager.Instance.AddCommand(command);
     }
 
-    private void Start()
-    {
-        questData.LateInit();
-    }
-
     // 퀘스트 수령 조건 판단
     public async Task<bool> TryAcceptQuest(int questID, int days)
     {

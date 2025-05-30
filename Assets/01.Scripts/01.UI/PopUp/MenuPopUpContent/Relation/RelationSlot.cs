@@ -38,7 +38,7 @@ public class RelationSlot : MonoBehaviour, IPoolable
         gameObject.SetActive(false);
         npc = null;
         compensationMap.Clear();
-        compensationImages.Clear();
+        //compensationImages.Clear();
     }
 
     public void OnSpawn(Vector3 pos)
@@ -88,7 +88,7 @@ public class RelationSlot : MonoBehaviour, IPoolable
         {
             UpdateBasicInfo();
             UpdateFavor();
-            UpdateSuccessQuest();
+            UpdateQuestReward();
         }
     }
 
@@ -102,7 +102,7 @@ public class RelationSlot : MonoBehaviour, IPoolable
         hasMet = true;
         UpdateBasicInfo();
         UpdateFavor();
-        UpdateSuccessQuest();
+        UpdateQuestReward();
     }
 
     public void UpdateBasicInfo()
@@ -116,7 +116,7 @@ public class RelationSlot : MonoBehaviour, IPoolable
         favorability.text = Data.GetNPC(npc.key).Favorability.ToString();
     }
 
-    public async void UpdateSuccessQuest()
+    public async void UpdateQuestReward()
     {
         int i = 0;
         foreach (var pair in compensationMap)
