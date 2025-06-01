@@ -126,7 +126,7 @@ public class CookingTutorialController : BaseTutorialController
             case 18:
                 nextButton.gameObject.SetActive(false);
                 await UniTask.WaitForSeconds(3f);
-                await SceneLoader.Instance.LoadSceneAsync("MainScene");
+                await SceneLoader.Instance.LoadSceneAsync(SceneType.MainScene);
                 break;
         }
 

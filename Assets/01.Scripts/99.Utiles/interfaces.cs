@@ -7,9 +7,9 @@ public interface ITooltipable
     public Action<int> OnDisHover { get; }
 }
 
-public interface IRunAlready
+public interface IRunOnEnter
 {
-    public UniTask RunAlready();
+    public UniTask RunAhead();
 }
 
 public interface IItemStackFactory

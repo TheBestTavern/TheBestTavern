@@ -12,9 +12,9 @@ public class MainScene : BaseScene
         SoundManager.Instance.StopLoop();
 
         //IRunAlready[] runAlready = FindObjectsOfType<MonoBehaviour>().(where);
-        foreach (var runAlready in FindObjectsOfType<MonoBehaviour>().OfType<IRunAlready>())
+        foreach (var runAlready in Object.FindObjectsOfType<MonoBehaviour>().OfType<IRunOnEnter>())
         {
-            await runAlready.RunAlready();
+            await runAlready.RunAhead();
         }        
     }
 }

@@ -2,7 +2,7 @@ using System.Threading.Tasks;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 
-public class BaseScene : MonoBehaviour
+public class BaseScene
 {
     public virtual UniTask OnExitScene()
     {

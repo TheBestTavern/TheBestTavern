@@ -57,7 +57,7 @@ public class MainTutorialController : BaseTutorialController
                 nextButton.gameObject.SetActive(false);
                 flashTokenSource?.Cancel();
                 await UniTask.WaitForSeconds(2f);
-                await SceneLoader.Instance.LoadSceneAsync("TutorialForestGatheringScene");
+                await SceneLoader.Instance.LoadSceneAsync(SceneType.TutorialForestGatheringScene);
                 break;
         }
 
