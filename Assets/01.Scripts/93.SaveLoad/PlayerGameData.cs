@@ -56,8 +56,8 @@ public class PlayerGameData
         CurrentSeasonType = CalendarManager.Instance.CurrentSeasonType;
 
         //playerInvenData.SetPlayerInvenData(InventoryManager.Instance.Invens[InvenType.Player].model.ID2ItemStack);
-        foodKey2IDs = InventoryManager.Instance.Invens[InvenType.Player].model.itemID2ItemStackIDs;
-        itemStackIDs = InventoryManager.Instance.Invens[InvenType.Player].model.itemStackIDs;
+        foodKey2IDs = InventoryManager.Instance.Invens[InvenType.Player].GetModel().itemID2ItemStackIDs;
+        itemStackIDs = InventoryManager.Instance.Invens[InvenType.Player].GetModel().itemStackIDs;
     }
 
     //[System.Serializable]

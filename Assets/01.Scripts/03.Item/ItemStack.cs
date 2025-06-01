@@ -29,8 +29,7 @@ public class ItemStack // 풀로 관리하기
         int space = maxCount - Count;
         int toAdd = Mathf.Min(space, amount);
         Count += toAdd;
-        if (true)
-            TriggerOnChange();
+        TriggerOnChange();
         return amount - toAdd; // 남은 갯수.
     }
 
@@ -38,8 +37,7 @@ public class ItemStack // 풀로 관리하기
     {
         int toSubtract = Mathf.Min(amount, Count);
         Count -= toSubtract;
-        if (true)
-            TriggerOnChange();
+        TriggerOnChange();
         if (Count == 0) TriggerOnDestroy();
         return amount - toSubtract;
     }

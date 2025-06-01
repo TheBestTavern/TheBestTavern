@@ -5,25 +5,20 @@ using System.Linq;
 public class InventoryModel
 {
     InvenType invenType;
-    public Dictionary<int, List<int>> itemID2ItemStackIDs = new();  // <Data_Foods.key, ID리스트> => 
-    public List<int> itemStackIDs = new(); // <ID, 아이템 스택> => <스택ID> 해당 모델이 보유한 itemStack의 ID
+    public Dictionary<int, List<int>> itemID2ItemStackIDs { get; private set; } = new();  // <Data_Foods.key, ID리스트> => 
+    public List<int> itemStackIDs { get; private set; } = new(); // <ID, 아이템 스택> => <스택ID> 해당 모델이 보유한 itemStack의 ID
     IItemStackFactory itemStackFactory;
     int SlotCount { get; set; } // 슬롯 최대 갯수
     int maxStackSize { get; set; } // 스택 당 아이템 갯수
-
-    public Action<int, InvenType> OnChanged;
 
     public void Init(InvenType invenType, int slotCount, int maxStackSize, IItemStackFactory itemStackFactory)
     {
         this.invenType = invenType;
         this.SlotCount = slotCount;
         this.maxStackSize = maxStackSize;
-        //this.OnChanged = OnModelChanged;
         this.itemStackFactory = itemStackFactory;
 
-        //EventBus.Subscribe<ItemStackOnChangeEvent>(TriggerOnChange);
         EventBus.Subscribe<ItemStackOnZeroEvent>(RemoveItem);
-        //EventBus.Subscribe<ItemStackOnZeroEvent>(ItemStackManager.Instance.ReCoverID);
     }
 
     public bool AddItemWithCheck(Data_Foods data_Foods, int amount)
@@ -121,11 +116,11 @@ public class InventoryModel
                 //if (pair.Value.Count < 2) break;
                 //if (Data.GetItemStack(stackID).Count != maxStackSize)
                 //{
-                    ItemStack stack = Data.GetItemStack(stackID);
-                    int count = stack.Count;
+                ItemStack stack = Data.GetItemStack(stackID);
+                int count = stack.Count;
 
-                    toMergeCount += count;
-                    stack.Subtract(count);
+                toMergeCount += count;
+                stack.Subtract(count);
                 //}
             }
 

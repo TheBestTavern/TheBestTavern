@@ -9,7 +9,7 @@ public abstract class InventoryView : MonoBehaviour
     public bool IsInitialized { get; private set; }
     protected InventoryController controller;
     protected Dictionary<int, InventorySlot> index2Slots = new(); // <슬롯 index, 슬롯 객체>
-    protected BiDictionary<int, int> BiID2SlotIndex = new(); // <ID, 슬롯 index> 양방향 딕셔너리 클래스
+    protected BiDictionary<int, int> Bi_StackID2SlotIndex = new(); // <ID, 슬롯 index> 양방향 딕셔너리 클래스
 
     [SerializeField] protected InventorySlot slotPref;
     [SerializeField] protected Transform slotTrs;
@@ -19,32 +19,6 @@ public abstract class InventoryView : MonoBehaviour
 
     [field: Header("toShowType")]
     [field: SerializeField] public List<DesignEnums.ItemType> toShowTypes { get; private set; }// 뷰에서 보여줄 아이템 타입.
-
-    //public virtual void InitailizeByController(InventoryController controller)
-    //{
-    //    if (IsInitialized) return;
-    //    IsInitialized = true;
-
-    //    Initialize(controller);
-    //    ViewAllItems();
-    //}
-
-    //public virtual void InitializeBySelf() // 컨트롤러를 직접 찾아서 초기화.
-    //{
-    //    if (IsInitialized) return;
-    //    if (InventoryManager.Instance.Invens.TryGetValue(invenType, out InventoryController controller))
-    //    {
-    //        if (IsInitialized) return;
-    //        IsInitialized = true;
-
-    //        Initialize(controller);
-    //        ViewAllItems();
-    //    }
-    //    else
-    //    {
-    //        return;
-    //    }
-    //}
 
     private void Start()
     {
@@ -65,7 +39,6 @@ public abstract class InventoryView : MonoBehaviour
         for (int i = 0; i < this.slotCount; i++)
         {
             var temp = Instantiate(slotPref, slotTrs);
-            //temp.transform.SetParent(slotTrs);
             temp.Init(i, this, EmptifySlot, AddifySlot, TargetingSlot, TargetingSlotCancel);
             index2Slots.Add(i, temp);
         }
@@ -76,12 +49,11 @@ public abstract class InventoryView : MonoBehaviour
     public virtual void ViewAllItems()  // 전체 아이템 띄우기
     {
         int targetIndex = 0;
-        foreach (var itemStackID in controller.GetModel())
+        foreach (var itemStackID in controller.GetModel().itemStackIDs)
         {
             if (!toShowTypes.Contains(Data.GetRawItemFromItemStack(itemStackID).itemCategory)) continue;
 
             index2Slots[targetIndex].SetSlot(itemStackID);
-            //BiID2SlotIndex.Add(itemStackID, targetIndex);
             targetIndex++;
         }
     }
@@ -90,10 +62,10 @@ public abstract class InventoryView : MonoBehaviour
     {
         if (!toShowTypes.Contains(Data.GetRawItemFromItemStack(id).itemCategory)) return;
 
-        if (BiID2SlotIndex.ContainsKey(id))
+        if (Bi_StackID2SlotIndex.ContainsKey(id))
         {
             // 있으면 해당 슬롯 정보 갱신
-            index2Slots[BiID2SlotIndex.GetByKey(id)].ReviewSlot();
+            index2Slots[Bi_StackID2SlotIndex.GetByKey(id)].ReviewSlot();
         }
         else
         {
@@ -103,7 +75,6 @@ public abstract class InventoryView : MonoBehaviour
                 if (!index2Slots[i].HasItem)
                 {
                     index2Slots[i].SetSlot(id);
-                    //BiID2SlotIndex.Add(id, i);
                     break;
                 }
             }
@@ -112,12 +83,12 @@ public abstract class InventoryView : MonoBehaviour
 
     public virtual void EmptifySlot(int index)
     {
-        BiID2SlotIndex.RemoveByValue(index);
+        Bi_StackID2SlotIndex.RemoveByValue(index);
     }
 
     public void AddifySlot(int itemStackID, int slotIndex)
     {
-        BiID2SlotIndex.Add(itemStackID, slotIndex);
+        Bi_StackID2SlotIndex.Add(itemStackID, slotIndex);
     }
 
 
@@ -135,12 +106,10 @@ public abstract class InventoryView : MonoBehaviour
         var fromSlot = index2Slots[fromSlotIndex];
 
 
-        //if (!toSlot.HasItem && fromSlot != null && fromSlot != this && fromSlot.HasItem)
         if (!toSlot.HasItem && fromSlot != null && fromSlot.HasItem)
         {
             MoveItem(toSlotIndex, fromSlotIndex);
         }
-        //else if (toSlot.HasItem && fromSlot != null && fromSlot != this && fromSlot.HasItem)
         else if (toSlot.HasItem && fromSlot != null && fromSlot.HasItem)
         {
             var allItemStack = ItemStackManager.Instance.AllItemStack;
@@ -194,9 +163,4 @@ public abstract class InventoryView : MonoBehaviour
         fromSlot.SetSlot(tempToStackID);
         toSlot.SetSlot(tempFromStackID);
     }
-
-    //공통
-    //public virtual void SortingView_Merge() { } // [컨트롤러]의 정렬_합치기 호출
-    //public virtual void SortingView_Order() { } // [slots] 정렬_순서 변경
-    //public virtual void OpenItemDetails() { } //  아이템 상세보기(우클릭)
 }

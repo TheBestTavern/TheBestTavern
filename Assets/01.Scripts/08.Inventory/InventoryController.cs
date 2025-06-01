@@ -8,13 +8,13 @@ public class InventoryController
 {
     InvenType invenType;
 
-    public InventoryModel model { get; private set; }
-    protected List<InventoryView> views = new();
+    private InventoryModel model;
+    private List<InventoryView> views = new();
 
     public int slotCount { get; private set; }
     public int maxStackSize { get; private set; }
 
-    public virtual void Init(InvenType invenType, int slotCount, int maxStackSize) // 모델, 뷰 생성.
+    public void Init(InvenType invenType, int slotCount, int maxStackSize) // 모델, 뷰 생성.
     {
         this.invenType = invenType;
         this.slotCount = slotCount;
@@ -57,7 +57,7 @@ public class InventoryController
     /// <summary>
     /// 비즈니스 아이템 획득 로직
     /// </summary>
-    public virtual bool AcquireItem(Data_Foods data_Foods, int amount)
+    public bool AcquireItem(Data_Foods data_Foods, int amount)
     {
         if (model.AddItemWithCheck(data_Foods, amount))
         {
@@ -80,7 +80,7 @@ public class InventoryController
     /// <summary>
     /// 단순 아이템 갯수 조정 로직
     /// </summary>
-    public virtual bool AcquireItem_Direct(Data_Foods data_Foods, int amount)
+    public bool AcquireItem_Direct(Data_Foods data_Foods, int amount)
     {
         if (model.AddItemWithCheck(data_Foods, amount))
         {
@@ -100,7 +100,7 @@ public class InventoryController
         return AcquireItem(data_Foods, amount);
     }
 
-    public virtual bool LooseItem(Data_Foods data_Foods, int amount)
+    public bool LooseItem(Data_Foods data_Foods, int amount)
     {
         if (!model.DecreaseItemWithCheck(data_Foods, amount))
         {
@@ -131,9 +131,9 @@ public class InventoryController
         model.MergeItem(ToStackID, FromStackID);
     }
 
-    public List<int> GetModel()
+    public InventoryModel GetModel()
     {
-        return model.itemStackIDs;
+        return model;
     }
 
     public void ViewSpecificItem(int id, InvenType itemStackInvenType)
