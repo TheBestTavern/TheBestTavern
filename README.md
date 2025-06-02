@@ -1,20 +1,8 @@
 # TheBestTavern
- 
-# 사용 에셋
-Bamao Pack Fantasy GUI : https://assetstore.unity.com/packages/2d/gui/bamao-pack-fantasy-gui-299336
-
-Epic RPG World Grass Land 2.0 : https://assetstore.unity.com/packages/2d/environments/epic-rpg-world-grass-land-2-0-267533
-
-도봉옛길체 : https://gongu.copyright.or.kr/gongu/wrt/wrt/view.do?wrtSn=13333564&menuNo=200023 
-
-메이플스토리 서체 : https://maplestory.nexon.com/Media/Font
-
-배민체 : https://www.woowahan.com/fonts
-
 
 ## 🎮 프로젝트 소개
 
-![제목을-입력해주세요_-001.jpg](attachment:8620fb17-1805-4c00-890a-6ca63cb35db9:제목을-입력해주세요_-001.jpg)
+[사진]
 
 전래동화 속 인물들이 살아 숨 쉬는 **이세계 조선**.
 
@@ -64,13 +52,26 @@ https://youtu.be/WF1JYeQF-Ms
 
 ## 🕹️ 플레이 사이클
 
-![PlayCycle-페이지-2.drawio (3).png](attachment:0b287191-e664-4ffa-ab27-7f3412c28189:PlayCycle-페이지-2.drawio_(3).png)
+[사진]
 
 ---
 
 ## ✏️ 기술 스택
 
 **언어 및 프레임워크**
+
+<details>
+<summary>⚙️ 기술 스택 자세히 보기</summary>
+
+- Unity 2022.3.17f1 (LTS)
+- Visual Studio 2022
+- UniTask
+- Addressables
+- Newtonsoft.Json
+- ...
+
+</details>
+
 
 ![c-sharp-c.228x256.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/83c75a39-3aba-4ba4-a792-7aefe4b07895/ce060a18-ef9c-41d6-b8cb-5a022946efd4/c-sharp-c.228x256.png)
 
@@ -126,6 +127,19 @@ Windows 10 / 11
 **그래픽 환경**
 
 - 2D 기반 개발 (3D 요소 일부 활용)
+
+---
+
+## 사용 에셋
+Bamao Pack Fantasy GUI : https://assetstore.unity.com/packages/2d/gui/bamao-pack-fantasy-gui-299336
+
+Epic RPG World Grass Land 2.0 : https://assetstore.unity.com/packages/2d/environments/epic-rpg-world-grass-land-2-0-267533
+
+도봉옛길체 : https://gongu.copyright.or.kr/gongu/wrt/wrt/view.do?wrtSn=13333564&menuNo=200023 
+
+메이플스토리 서체 : https://maplestory.nexon.com/Media/Font
+
+배민체 : https://www.woowahan.com/fonts
 
 ---
 
