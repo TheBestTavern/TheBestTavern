@@ -20,7 +20,7 @@
 
 ---
 
-**『최고의 주막』**은 조선 전통 설화와 전래동화를 바탕으로 한 **감성 요리 생활형 플레이 게임**입니다.
+『**최고의 주막**』은 조선 전통 설화와 전래동화를 바탕으로 한 **감성 요리 생활형 플레이 게임**입니다.
 
 현대 청년이 이세계 조선으로 전이되어 작은 주막을 운영하며,
 
@@ -40,13 +40,117 @@
 
 ---
 
-## 🎞️ 시연 영상
+## 🎞️ 게임 Trailer
 
-https://youtu.be/WF1JYeQF-Ms
+[![Watch the video](https://img.youtube.com/vi/WF1JYeQF-Ms/0.jpg)](https://youtu.be/WF1JYeQF-Ms)
 
 ---
 
 ## 🎮 주요 게임 기능
+
+
+<details>
+<summary><strong>📜전래 NPC 퀘스트</strong></summary>
+1. 의뢰함에서 NPC 편지를 통해 퀘스트 수락
+
+![20250529152205](https://github.com/user-attachments/assets/8a68aa98-a2ba-4502-ad5e-184efcec1018)
+
+2. 지정한 날짜에 방문하는 NPC에게 아이템 제출
+
+
+
+3. 퀘스트 보상: 상위 요리 재료 및 호감도 상승 ⇒ 일정 호감도 달성 시 상위 퀘스트 해금
+
+</details>
+
+<details>
+<summary><strong>🧺채집(🌲숲, 🌊바다)</strong></summary>
+플레이어는 퀘스트에 필요한 요리를 위해 재료를 모으러 지역을 선택할 수 있습니다. 
+
+재료들은 지역뿐만 아니라 계절에 따라서도 다르게 채집할 수 있습니다
+
+[GatheringVideo.mp4](attachment:08eb5c7d-91e5-462c-ac0a-b642c419f34b:GatheringVideo.mp4)
+
+[SeaGatheringVideo.mp4](attachment:39ece88e-1242-4b30-bb26-2c73c825cac6:SeaGatheringVideo.mp4)
+
+맵에 있는 요소들을 클릭하면 확률과 계절 지역에 따라 다른 재료들을 채집할 수 있습니다.
+
+위에 있는 채집 인벤토리가 가득 차면 더 이상 채집을 할 수 없습니다.
+
+채집이 끝난 후 주막으로 돌아가면 자동으로 아이템이 저장됩니다.
+
+산에서는 채집 중 확률적으로 동물 포획 미니게임이 등장합니다.
+
+바다에서는 맵 중앙에 있는 바다를 클릭하면 낚시 미니게임을 시작할 수 있습니다
+
+</details>
+
+<details>
+<summary><strong>🧩채집 미니게임</strong></summary>
+- 동물 포획 미니게임
+    - 동물의 종류에 따라 미끼를 사용하여 포획 또는 도망가기를 할 수 있습니다.
+    - 조작 : `Space` - 돌 던지기 , `Right Mouse` - 미끼 사용
+
+[GatheringMiniGameM.mp4](attachment:0064ea82-50bb-4841-a40d-7ec0eb5b72f8:GatheringMiniGameM.mp4)
+
+- 낚시 미니게임
+    - 낚시를 통해 여러 종류의 물고기를 포획할 수 있습니다.
+    - 조작 : `F` - 낚시 시작 , `Space` - 끌어 당기기
+
+</details>
+
+<details>
+<summary><strong>👨‍🍳요리/요리미니게임</strong></summary>
+# 요리 / 요리 미니 게임
+
+- 재료를 조합해서 요리를 완성할 수 있습니다.
+
+![요리 결과 예시](attachment:b9750bb5-0693-4196-9a63-0bb03ff5e3ce:image.png)
+
+요리 결과 예시
+
+---
+
+- 도마
+    - 왼쪽→오른쪽으로 재료를 잘라나갑니다.
+    - 조작 : `Space`
+
+[16조 최고의 주막](https://www.notion.so/16-2022dc3ef5148164ae90c398d100fd39?pvs=21)
+
+[CuttingMiniGame.mp4](attachment:3142ee16-cd4f-4d0e-ba0c-7a2fdf912477:CuttingMiniGame.mp4)
+
+- 절구
+    - 노트 타이밍에 맞춰 재료를 빻습니다.
+    - 조작 : `Space`
+
+[GrindMiniGame.mp4](attachment:60060a72-0e39-4c5e-8f31-ce014ea7ea3c:GrindMiniGame.mp4)
+
+- 믹싱볼
+    - 숟가락으로 재료 2가지 이상을 섞습니다.
+    - 조작 : `Left Mouse`
+
+[MinxingBowlMiniGame.mp4](attachment:9b4a7aaf-7a05-4bb3-86b5-73c6ebc92a31:MinxingBowlMiniGame.mp4)
+
+- 가마솥 (굽기)
+    - 숫자쌍을 맞춰 재료를 굽습니다.
+    - 조작 : `Left Mouse`
+
+[GrillMiniGame.mp4](attachment:060b4763-eb90-49a5-bb0c-fcc28eadf17e:GrillMiniGame.mp4)
+
+- 가마솥 (끓이기)
+    - 화살표를 따라 그려 재료를 끓입니다.
+    - 조작 : L`eft mouse`
+
+[BoilMiniGame.mp4](attachment:8775b7c4-7abb-4ad6-9c33-699c07cf8a99:BoilMiniGame.mp4)
+
+- 맷돌
+    - 손잡이를 잡고 돌려 재료를 갑니다.
+    - 조작 : `Left Mouse`
+    
+    [MillMiniGame.mp4](attachment:b4626cef-6f45-4745-bf77-dca8479387c4:MillMiniGame.mp4)
+
+
+</details>
 
 ---
 
@@ -137,8 +241,7 @@ Epic RPG World Grass Land 2.0 : https://assetstore.unity.com/packages/2d/environ
 
 | **주차** | **주요 작업** |
 | --- | --- |
-| **1주차** | **프로젝트 SA 작성**, 시스템 플로우 설계, 게임 콘셉트 정리
-UI/UX 시안 및 요리 제작 구조 설계, 의뢰 시스템 틀 구성 |
+| **1주차** | **프로젝트 SA 작성**, 시스템 플로우 설계, 게임 콘셉트 정리, UI/UX 시안 및 요리 제작 구조 설계, 의뢰 시스템 틀 구성 |
 | **2~4주차** | 요리, 의뢰, 채집, 미니게임, 인벤토리 시스템 개발 / 리소스 제작 ( 배경, 채집지, 요리도구 )  |
 | **5주차** | 시연용 대표 퀘스트 3종 완성, UI 연동 및 기본 테스트, **MVP 버전 시연** |
 
@@ -152,9 +255,7 @@ UI/UX 시안 및 요리 제작 구조 설계, 의뢰 시스템 틀 구성 |
 
 ---
 
-## 📃 기술적인 도전 과제
-
-## 🔧 기술적 도전과제 및 시스템 구현
+## 🔧 기술적인 도전 과제
 
 <details>
 <summary><strong>📊 Analytics</strong></summary>
@@ -477,9 +578,13 @@ float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
 
 ![ClientStructure](https://github.com/user-attachments/assets/566cf0f5-8f5a-499d-9e23-f6a47bab79e4)
 
+<details>
+<summary><strong>📦 Extra Client Feat</strong></summary>
+  
 - 렌더링처리
     - SortingLayer: 백그라운드 < UI < Popup
     - PopupManager: 팝업이 등장할 때마다 새로운 SortingOrder 부여
+      
 - 사운드 시스템
     
     SoundManager (Singleton)
@@ -491,15 +596,11 @@ float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
     
     플랫폼(WebGL↔PC)별 저장 처리 이분화
     SaveLoadManager
-    ├─ Save: PlayerGameData.SetSave();
-    
+    ├─ Save: PlayerGameData.SetSave();    
     ├─├─ SaveDataWeb (WebGL) : GameData → string → playerPref
-    
     │   └─ SaveDataBasic (PC, 에디터) : GameData → string → Json
     └─ Load
-    
     └─├─ LoadDataWeb(WebGL) : playerPref → string → GameData 
-    
           └─ LoadDataBasic(PC, 에디터) : Json → string → GameData 
     
 - UI 처리
@@ -510,23 +611,33 @@ float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
     - Popup:
         - PopupManager에서 관리
         - Menu Popup, 의뢰함 Popup, 알림 Popup, 결과 Popup 등
+</details>
 
 ---
 
 ## 💁‍♂️사용자 피드백 대응 및 개선 사항
 
-📝 설문조사 분석 보고서
-📊 애널리틱스 분석 보고서
+<details>
+<summary><strong>📝 설문조사 분석 보고서</strong></summary>
+
+
+</details>
+
+<details>
+<summary><strong>📊 애널리틱스 분석 보고서</strong></summary>
+
+
+</details>
 
 ---
 
-## 🏁 우선 순위 설정
+## 🏁 추가 개선 가능 사항 설정
 
 - **단점 개선**
     - UX 향상
         - 찌 타이밍 시각/청각 피드백 강화
         - 맵 선택창에서 루트 아이템 정보 툴팁 제공
-        - 튜토리얼 UX 개선 ( 퀘스트 호완 방식 )
+        - 튜토리얼 UX 개선 ( 퀘스트 호환 방식 )
         - 사냥 미니게임 결과창에 수치 표시
         - 도감에 ‘호감도’ 명시 필요
         - 일부 요리도구만 재료 파괴 → 정상적 게임 의도인데 설명 부족.
@@ -566,8 +677,7 @@ float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
     - 미니게임 밸런스 조정(굽기 게임 시간 증가, 썰기 게임 난이도 완화)
 - 0.2 patch (예정)
     
-    
-- 개선 예정 사항
+  
 
 ---
 
