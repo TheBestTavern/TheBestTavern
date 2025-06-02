@@ -8447,63 +8447,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1001 &1899463459
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1193981810855987095, guid: e6cb219a05f17a54fb86045fe766e17c, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -1.2432404
-      objectReference: {fileID: 0}
-    - target: {fileID: 1193981810855987095, guid: e6cb219a05f17a54fb86045fe766e17c, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.989769
-      objectReference: {fileID: 0}
-    - target: {fileID: 1193981810855987095, guid: e6cb219a05f17a54fb86045fe766e17c, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 72.02724
-      objectReference: {fileID: 0}
-    - target: {fileID: 1193981810855987095, guid: e6cb219a05f17a54fb86045fe766e17c, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1193981810855987095, guid: e6cb219a05f17a54fb86045fe766e17c, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1193981810855987095, guid: e6cb219a05f17a54fb86045fe766e17c, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1193981810855987095, guid: e6cb219a05f17a54fb86045fe766e17c, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1193981810855987095, guid: e6cb219a05f17a54fb86045fe766e17c, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1193981810855987095, guid: e6cb219a05f17a54fb86045fe766e17c, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1193981810855987095, guid: e6cb219a05f17a54fb86045fe766e17c, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4824100003569024439, guid: e6cb219a05f17a54fb86045fe766e17c, type: 3}
-      propertyPath: m_Name
-      value: ForestGatheringScene
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: e6cb219a05f17a54fb86045fe766e17c, type: 3}
 --- !u!1 &1926234939
 GameObject:
   m_ObjectHideFlags: 0
@@ -8660,6 +8603,7 @@ MonoBehaviour:
   slotPref: {fileID: 7050718121081789698, guid: 77444633087827543a45cb996dcd98a0, type: 3}
   slotTrs: {fileID: 84015394}
   slotCount: 6
+  sortingMergeAllButton: {fileID: 0}
   <toShowTypes>k__BackingField: 00000000
   nextPageBtn: {fileID: 603732481}
   prevPageBtn: {fileID: 241601443}
@@ -9529,7 +9473,6 @@ SceneRoots:
   - {fileID: 209272599}
   - {fileID: 1981033261}
   - {fileID: 1560353743}
-  - {fileID: 1899463459}
   - {fileID: 1060147092}
   - {fileID: 984011054}
   - {fileID: 1500528305}
