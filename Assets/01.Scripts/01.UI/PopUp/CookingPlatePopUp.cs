@@ -9,6 +9,8 @@ public class CookingPlatePopUp : BasePopUp
 {
     [SerializeField] private TextMeshProUGUI successText; // 성공 텍스트 
     [SerializeField] private TextMeshProUGUI itemNameText; // 아이템 이름 텍스트
+    [SerializeField] private TextMeshProUGUI ingredientText; // 재료유지파괴 텍스트
+
     [SerializeField] private CanvasGroup canvasGroup;
     [SerializeField] private TextMeshProUGUI failText; // 실패 텍스트
     [SerializeField] private Image itemImage;
@@ -45,11 +47,12 @@ public class CookingPlatePopUp : BasePopUp
         failText.gameObject.SetActive(false);
         itemNameText.gameObject.SetActive(false);
         itemImage.gameObject.SetActive(false);
+        ingredientText.gameObject.SetActive(false);
 
         //bool isPlate = (CookingMiniGameManager.Instance.selectedCookingTool == "Plate");
         //if (isPlate)
         //{
-            var result = CookingMiniGameManager.Instance.GetMiniGameResult();
+        var result = CookingMiniGameManager.Instance.GetMiniGameResult();
             int itemKey = RecipeManager.Instance.GetItemKey();
 
             Debug.Log($"최종 아이템 키 : {itemKey}");
@@ -57,20 +60,18 @@ public class CookingPlatePopUp : BasePopUp
             // 실패 조건 먼저 체크
             if (itemKey == -1 || result == CookingResultGrade.Failed)
             {
-            Debug.Log("실실실실패");
-            
                 successText.gameObject.SetActive(false);
                 failText.gameObject.SetActive(true);
                 itemImage.gameObject.SetActive(false);
                 itemNameText.text = "요리에 실패했어요...";
+                ingredientText.gameObject.SetActive(true);
                 itemNameText.gameObject.SetActive(true);
                 SoundManager.Instance.PlaySFX("Fail");
                 return;
             }
-        Debug.Log("성성성공");
 
-        // 성공
-        successText.gameObject.SetActive(true);
+         // 성공
+            successText.gameObject.SetActive(true);
             failText.gameObject.SetActive(false);
             SoundManager.Instance.PlaySFX("Success");
 
@@ -81,6 +82,5 @@ public class CookingPlatePopUp : BasePopUp
             itemImage.sprite = await AddressablesLoader.Instance.AddressablesLoadSpriteFromAtlasAsync("FoodSpriteAtlas", data.englishName, true);
             itemImage.gameObject.SetActive(itemImage.sprite != null);
         }
-
     }
 

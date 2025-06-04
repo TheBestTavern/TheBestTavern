@@ -11,6 +11,7 @@ public class CookingFailPopUp : BasePopUp
     [SerializeField] private CanvasGroup canvasGroup;
     [SerializeField] private TextMeshProUGUI failText; // 실패 텍스트
 
+    [SerializeField] private TextMeshProUGUI ingredientText; // 재료 유지파괴 텍스트
 
     public override void OnClose()
     {
@@ -45,9 +46,21 @@ public class CookingFailPopUp : BasePopUp
     {
             // 조리 도구 실패
             itemNameText.text = "조리 도구를 잘못 선택한 것 같다...";
-            failText.gameObject.SetActive(true);
+
+        // 믹싱볼
+        if (CookingMiniGameManager.Instance.selectedCookingTool == "Cooking_MixingBowl_Test")
+        {
+            ingredientText.text = "재료 유지";
+        }
+        else
+        {
+            ingredientText.text = "재료 파괴";
+        }
+
+        failText.gameObject.SetActive(true);
             itemNameText.gameObject.SetActive(true);
-            SoundManager.Instance.PlaySFX("Fail");
+        ingredientText.gameObject.SetActive(true);
+        SoundManager.Instance.PlaySFX("Fail");
     }
 }
     
