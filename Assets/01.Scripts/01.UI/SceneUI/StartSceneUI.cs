@@ -28,6 +28,7 @@ public class StartSceneUI : MonoBehaviour
 
     private SceneType? nextSceneName = null;
     private bool isLoadMode = false;
+    private bool loadFail = false;
 
     private bool? doTutorial = null;
 
@@ -52,6 +53,7 @@ public class StartSceneUI : MonoBehaviour
 
     private void HandleNewGame()
     {
+        isLoadMode = false;
         if (SaveLoadManager.Instance.LoadData(out _))
             renewPanel.SetActive(true);
         else
@@ -91,6 +93,10 @@ public class StartSceneUI : MonoBehaviour
 
     private async void OnAcceptAnalytics()
     {
+        acceptAnalyticsButton.interactable = false;
+        rejectAnalyticsButton.interactable = false;
+        loadFail = false;
+
         await InitializeAnalytics();
 
         if (doTutorial != null)
@@ -110,31 +116,52 @@ public class StartSceneUI : MonoBehaviour
                 await SceneLoader.Instance.LoadSceneAsync(SceneType.MainScene);
                 return;
             }
+            else
+            {
+                Debug.LogWarning("불러오기 실패");
+                await PopUpManager.Instance.ShowPopUp(PopUpType.Alarm);
+                PopUpManager.Instance.alarmPopUp.SetAlarm("저장된 데이터가 없습니다.");
+                loadFail = true;
+                acceptAnalyticsPanel.SetActive(false);
+                acceptAnalyticsButton.interactable = true;
+                rejectAnalyticsButton.interactable = true;
+            }
 
-            Debug.LogWarning("불러오기 실패");
         }
 
-        if (nextSceneName != null)
+        if (nextSceneName != null && !loadFail)
             await SceneLoader.Instance.LoadSceneAsync(nextSceneName.Value);
     }
 
     private async void OnRejectAnalytics()
     {
+        acceptAnalyticsButton.interactable = false;
+        rejectAnalyticsButton.interactable = false;
+        loadFail = false;
+
         GameManager.Instance.isAnalyticsAgreed = false;
 
         if (isLoadMode)
         {
             if (SaveLoadManager.Instance.LoadData(out PlayerGameData data))
             {
-                ApplyPlayerData(data);
+                ApplyPlayerData(data); 
                 await SceneLoader.Instance.LoadSceneAsync(SceneType.MainScene);
                 return;
             }
-
-            Debug.LogWarning("불러오기 실패");
+            else 
+            {
+                Debug.LogWarning("불러오기 실패");
+                await PopUpManager.Instance.ShowPopUp(PopUpType.Alarm);
+                PopUpManager.Instance.alarmPopUp.SetAlarm("저장된 데이터가 없습니다.");
+                loadFail = true;
+                acceptAnalyticsPanel.SetActive(false);
+                acceptAnalyticsButton.interactable = true;
+                rejectAnalyticsButton.interactable = true;
+            }
         }
 
-        if (nextSceneName != null)
+        if (nextSceneName != null && !loadFail)
             await SceneLoader.Instance.LoadSceneAsync(nextSceneName.Value);
     }
 

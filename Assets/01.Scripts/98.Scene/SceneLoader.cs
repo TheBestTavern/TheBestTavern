@@ -65,7 +65,6 @@ public class SceneLoader : MonoSingleton<SceneLoader>
     // 비동기로 씬 불러오기 함수
     public async UniTask LoadSceneAsync(SceneType sceneType)
     {
-        Debug.Log("saf");
         SoundManager.Instance.PlaySFX("SceneMoveButton");
 
         // 한번도 씬을 불러온 적이 없으면 
