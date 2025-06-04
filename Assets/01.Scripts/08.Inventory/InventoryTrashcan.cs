@@ -21,11 +21,11 @@ public class InventoryTrashCan : MonoBehaviour, IDropHandler, IPointerEnterHandl
 
         if (eventData.pointerDrag != null && eventData.pointerDrag.TryGetComponent<InventorySlot>(out InventorySlot fromSlot))
         {
-            Debug.Log($"{fromSlot.GetSlotItem().Origin.name} 버리기");
+            Debug.Log($"{Data.GetRawItemFromItemStack(fromSlot.GetSlotItemStackID()).name} 버리기");
             var popup = (ConfirmPopUp)await PopUpManager.Instance.ShowPopUp(PopUpType.Confirm);
             popup.SetConfirm<int>("버릴 갯수를 입력해주세요.", (number) =>
             {
-                bool success = InventoryManager.Instance.Invens[InvenType.Player].ThrowInTrash(fromSlot.GetSlotItem().Origin, number);
+                bool success = InventoryManager.Instance.Invens[InvenType.Player].ThrowInTrash(Data.GetRawItemFromItemStack(fromSlot.GetSlotItemStackID()), number);
                 return success;
             });
 

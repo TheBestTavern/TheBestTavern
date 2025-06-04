@@ -23,12 +23,12 @@ public class InventoryViewLoose : InventoryView
 
     protected virtual void OnEnable()
     {
-        InitializeBySelf();
+        //InitializeBySelf();
     }
 
     private void 아이템있는슬롯만보여주기()
     {
-        int itemCount = BiID2SlotIndex.Count;
+        int itemCount = Bi_StackID2SlotIndex.Count;
         lastPage = (itemCount == 0) ? 0 : (itemCount - 1) / showSlotCount;
 
         if (currentPage > lastPage)
@@ -147,7 +147,7 @@ public class InventoryViewLoose : InventoryView
             List<Data_Foods> rawItems = new();
             for (int i = 0; i < targetingSlots.Count; i++)
             {
-                rawItems.Add(index2Slots[targetingSlots[i]].GetSlotItem().Origin);
+                rawItems.Add(Data.GetRawItemFromItemStack(index2Slots[targetingSlots[i]].GetSlotItemStackID()));
             }
             OnEnableTargetSlot?.Invoke(rawItems);
         }

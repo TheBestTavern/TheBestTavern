@@ -57,7 +57,7 @@ public class GatheringTutorialController : BaseTutorialController
             case 13:
                 NextButton.gameObject.SetActive(false);
                 await UniTask.WaitForSeconds(3f);
-                await SceneLoader.Instance.LoadSceneAsync("TutorialCookingScene");
+                await SceneLoader.Instance.LoadSceneAsync(SceneType.TutorialCookingScene);
                 break;
         }
 

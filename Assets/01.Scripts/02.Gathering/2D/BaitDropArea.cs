@@ -25,11 +25,11 @@ public class BaitDropArea : MonoBehaviour
     {
         currentBait = item;
 
-        if (item != null && item.Origin != null)
+        if (item != null && item.OriginItemKey != null)
         {
-            Debug.Log("BaitDropArea에 아이템 설정됨: " + item.Origin.key);
+            Debug.Log("BaitDropArea에 아이템 설정됨: " + item.OriginItemKey);
 
-            Data_Foods raw = Data.GetRawItem(item.Origin.key);
+            Data_Foods raw = Data.GetRawItem(item.OriginItemKey);
 
             Sprite loadedSprite = await AddressablesLoader.Instance.AddressablesLoadSpriteFromAtlasAsync("FoodSpriteAtlas", raw.englishName, true);
 

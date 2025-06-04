@@ -26,7 +26,7 @@ public class StartSceneUI : MonoBehaviour
     [SerializeField] private Button acceptAnalyticsButton;
     [SerializeField] private Button rejectAnalyticsButton;
 
-    private string nextSceneName = "";
+    private SceneType? nextSceneName = null;
     private bool isLoadMode = false;
 
     private bool? doTutorial = null;
@@ -61,7 +61,7 @@ public class StartSceneUI : MonoBehaviour
     private void HandleLoadGame()
     {
         isLoadMode = true;
-        nextSceneName = "MainScene";
+        nextSceneName = SceneType.MainScene;
         acceptAnalyticsPanel.SetActive(true);
     }
 
@@ -75,7 +75,7 @@ public class StartSceneUI : MonoBehaviour
 
     private void ConfirmTutorial(bool doTutorial)
     {
-        nextSceneName = doTutorial ? "TutorialScene" : "MainScene";
+        nextSceneName = doTutorial ? SceneType.TutorialScene : SceneType.MainScene;
         this.doTutorial = doTutorial;
 
         tutorialSkipPanel.SetActive(false);
@@ -107,14 +107,15 @@ public class StartSceneUI : MonoBehaviour
             if (SaveLoadManager.Instance.LoadData(out PlayerGameData data))
             {
                 ApplyPlayerData(data);
-                await SceneLoader.Instance.LoadSceneAsync("MainScene");
+                await SceneLoader.Instance.LoadSceneAsync(SceneType.MainScene);
                 return;
             }
 
             Debug.LogWarning("불러오기 실패");
         }
 
-        await SceneLoader.Instance.LoadSceneAsync(nextSceneName);
+        if (nextSceneName != null)
+            await SceneLoader.Instance.LoadSceneAsync(nextSceneName.Value);
     }
 
     private async void OnRejectAnalytics()
@@ -126,13 +127,15 @@ public class StartSceneUI : MonoBehaviour
             if (SaveLoadManager.Instance.LoadData(out PlayerGameData data))
             {
                 ApplyPlayerData(data);
-                await SceneLoader.Instance.LoadSceneAsync("MainScene");
+                await SceneLoader.Instance.LoadSceneAsync(SceneType.MainScene);
                 return;
             }
 
             Debug.LogWarning("불러오기 실패");
         }
-        await SceneLoader.Instance.LoadSceneAsync(nextSceneName);
+
+        if (nextSceneName != null)
+            await SceneLoader.Instance.LoadSceneAsync(nextSceneName.Value);
     }
 
     private async Task InitializeAnalytics()
@@ -152,7 +155,7 @@ public class StartSceneUI : MonoBehaviour
             data.JustCompleteQuests, data.TodayAvailableQuest, data.QuestCheckQueueForSerialization, data.TodaySpawnNPC
         );
         CalendarManager.Instance.ApplyLoadData(data.CurrentSeasonType);
-        ItemStackManager.Instance.ApplyLoadData(data.IDsForSerialization, data.AllItemStack);    
-        InventoryManager.Instance.Invens[InvenType.Player].ApplyLoadData(data.foodKey2IDs, data.ID2ItemStack);
+        ItemStackManager.Instance.ApplyLoadData(data.IDsForSerialization, data.AllItemStack);
+        InventoryManager.Instance.Invens[InvenType.Player].ApplyLoadData(data.foodKey2IDs, data.itemStackIDs);
     }
 }

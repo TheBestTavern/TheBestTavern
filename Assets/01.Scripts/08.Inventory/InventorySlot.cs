@@ -4,6 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+//using static UnityEditor.Progress;
 
 public class InventorySlot : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHandler, IDropHandler, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler
 {
@@ -11,8 +12,8 @@ public class InventorySlot : MonoBehaviour, IBeginDragHandler, IEndDragHandler, 
     InventoryView view;
 
     public bool HasItem { get; private set; }
-    int ID;
-    ItemStack item;
+    int ItemStackID;
+    //ItemStack item;
     int count;
     public Image image;
     [SerializeField] TextMeshProUGUI CountTMP;
@@ -23,10 +24,11 @@ public class InventorySlot : MonoBehaviour, IBeginDragHandler, IEndDragHandler, 
     private Canvas rootCanvas;
 
     Action<int> OnZero;
+    Action<int, int> OnAdded;
     Action<int> OnClick;
     Action<int> OnClickAgain;
 
-    public void Init(int index, InventoryView view, Action<int> removeItem, Action<int> clickSlot, Action<int> clickSlotAgain) // UI와 연결, index 부여받기.
+    public void Init(int index, InventoryView view, Action<int> removeItem, Action<int, int> addItem, Action<int> clickSlot, Action<int> clickSlotAgain) // UI와 연결, index 부여받기.
     {
         this.index = index;
         this.view = view;
@@ -34,12 +36,13 @@ public class InventorySlot : MonoBehaviour, IBeginDragHandler, IEndDragHandler, 
         image.sprite = null;
         image.gameObject.SetActive(false);
         HasItem = false;
-        item = null;
-        ID = -1;
+        //item = null;
+        ItemStackID = -1;
         count = -1;
         CountTMP.text = "";
 
         OnZero = removeItem;
+        OnAdded = addItem;
         OnClick = clickSlot;
         OnClickAgain = clickSlotAgain;
     }
@@ -47,19 +50,20 @@ public class InventorySlot : MonoBehaviour, IBeginDragHandler, IEndDragHandler, 
     public async void SetSlot(int id)  // 아이템 ( Item주입, 이미지, 수량, bool hasItem 변동 )
     {
         HasItem = true;
-        this.ID = id;
-        item = ItemStackManager.Instance.AllItemStack[id];
-        count = item.Count;
+        this.ItemStackID = id;
+        //item = ItemStackManager.Instance.AllItemStack[id];
+        count = ItemStackManager.Instance.AllItemStack[ItemStackID].Count;
         CountTMP.text = count.ToString();
-        Data_Foods raw = Data.GetRawItem(item.Origin.key);
+        Data_Foods raw = Data.GetRawItem(ItemStackManager.Instance.AllItemStack[ItemStackID].OriginItemKey);
         image.sprite = await AddressablesLoader.Instance.AddressablesLoadSpriteFromAtlasAsync("FoodSpriteAtlas", raw.englishName, true);
-
         image.gameObject.SetActive(true);
+
+        OnAdded?.Invoke(ItemStackID, index);
     }
 
     public void ReviewSlot()
     {
-        count = item == null ? 0 : item.Count;
+        count = ItemStackManager.Instance.AllItemStack[ItemStackID] == null ? 0 : ItemStackManager.Instance.AllItemStack[ItemStackID].Count;
 
         CountTMP.text = count > 0 ? count.ToString() : "";
 
@@ -72,10 +76,10 @@ public class InventorySlot : MonoBehaviour, IBeginDragHandler, IEndDragHandler, 
     public void EmptifySlot()
     {
         HasItem = false;
-        item = null;
+        //item = null;
         image.sprite = null;
         image.gameObject.SetActive(false);
-        ID = -1;
+        ItemStackID = -1;
         count = -1;
         CountTMP.text = " "; //CountTMP 초기화
         OnZero?.Invoke(index);
@@ -115,7 +119,7 @@ public class InventorySlot : MonoBehaviour, IBeginDragHandler, IEndDragHandler, 
     {
         InventorySlot fromSlot = eventData.pointerDrag?.GetComponent<InventorySlot>();
 
-        view.MoveItem(index, fromSlot.index);
+        view.OnSlot2Slot(index, fromSlot.index);
     }
 
     public void OnEndDrag(PointerEventData eventData)
@@ -154,7 +158,8 @@ public class InventorySlot : MonoBehaviour, IBeginDragHandler, IEndDragHandler, 
     {
         if (HasItem)
         {
-            EventBus.Publish<SlotHoverEnterEvent>(new SlotHoverEnterEvent(item.Origin.key));
+            //EventBus.Publish<SlotHoverEnterEvent>(new SlotHoverEnterEvent(ItemStackManager.Instance.AllItemStack[ItemStackID].OriginItemKey.key));
+            EventBus.Publish<SlotHoverEnterEvent>(new SlotHoverEnterEvent(ItemStackManager.Instance.AllItemStack[ItemStackID].OriginItemKey));
         }
     }
 
@@ -178,9 +183,9 @@ public class InventorySlot : MonoBehaviour, IBeginDragHandler, IEndDragHandler, 
         image.color = Color.white;
     }
 
-    public ItemStack GetSlotItem()
+    public int GetSlotItemStackID()
     {
-        return item;
+        return ItemStackID;
     }
 
     //private void OnDisable()

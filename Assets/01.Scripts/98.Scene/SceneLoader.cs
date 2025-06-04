@@ -1,3 +1,5 @@
+using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Cysharp.Threading.Tasks;
 using DG.Tweening;
@@ -5,6 +7,18 @@ using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.ResourceProviders;
 using UnityEngine.SceneManagement;
+
+public enum SceneType
+{
+    IntroScene,
+    MainScene,
+    CookingScene,
+    ForestGatheringScene,
+    SeaGatheringScene,
+    TutorialScene,
+    TutorialCookingScene,
+    TutorialForestGatheringScene,
+}
 
 /// <summary>
 /// 씬 불러오기 클래스
@@ -23,6 +37,8 @@ public class SceneLoader : MonoSingleton<SceneLoader>
     // Addressables 초기화용 bool 
     bool isInitializeAsync = false;
 
+    Dictionary<SceneType, BaseScene> sceneMap = new();
+
     public override void Init()
     {
         if (_isInitialized) return;
@@ -30,11 +46,24 @@ public class SceneLoader : MonoSingleton<SceneLoader>
 
         DontDestroyOnLoad(gameObject);
 
-        currentScene = FindObjectOfType<BaseScene>();
+        sceneMap = new()
+        {
+            {SceneType.IntroScene,new IntroScene()},
+            {SceneType.MainScene,new MainScene()},
+            {SceneType.CookingScene,new CookingScene()},
+            {SceneType.ForestGatheringScene,new ForestGatheringScene()},
+            {SceneType.SeaGatheringScene,new SeaGatheringScene()},
+            {SceneType.TutorialScene,new TutorialScene()},
+            {SceneType.TutorialCookingScene,new TutorialCookingScene()},
+            {SceneType.TutorialForestGatheringScene,new TutorialForestGatheringScene()}
+        };
+        
+        Enum.TryParse<SceneType>(SceneManager.GetActiveScene().name, out var currentSceneType);
+        currentScene = sceneMap[currentSceneType];
     }
 
     // 비동기로 씬 불러오기 함수
-    public async UniTask LoadSceneAsync(string sceneName)
+    public async UniTask LoadSceneAsync(SceneType sceneType)
     {
         Debug.Log("saf");
         SoundManager.Instance.PlaySFX("SceneMoveButton");
@@ -44,16 +73,16 @@ public class SceneLoader : MonoSingleton<SceneLoader>
             // Addressables 초기화
             await Addressables.InitializeAsync().ToUniTask();
 
+        // 로딩 UI 불러오기
+        await ShowLoadingUI();
+
         if (currentScene != null)
         {
             await currentScene.OnExitScene();
         }
 
-        // 로딩 UI 불러오기
-        await ShowLoadingUI();
-
         // 씬 불러오기 
-        var loadScene = Addressables.LoadSceneAsync($"{sceneName}.unity");
+        var loadScene = Addressables.LoadSceneAsync($"{sceneType.ToString()}.unity");
 
         // 씬 이동이 끝날때까지 반복
         while (!loadScene.IsDone)
@@ -64,9 +93,9 @@ public class SceneLoader : MonoSingleton<SceneLoader>
         }
 
         await loadScene;
-        currentScene = FindObjectOfType<BaseScene>();
+        currentScene = sceneMap[sceneType];
 
-        if(currentScene != null)
+        if (currentScene != null)
         {
             await currentScene.OnEnterScene();
         }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Newtonsoft.Json;
 using static Cinemachine.CinemachineTriggerAction.ActionSettings;
 
-public class ItemStackManager : MonoSingleton<ItemStackManager>
+public class ItemStackManager : MonoSingleton<ItemStackManager>, IItemStackFactory
 {
     //public Stack<int> IDs { get; private set; } = new();
     [JsonProperty]
@@ -36,9 +36,9 @@ public class ItemStackManager : MonoSingleton<ItemStackManager>
         this.AllItemStack = AllItemStack;
     }
 
-    public ItemStack InstantiateItem(Data_Foods data_Foods, int amount, InvenType invenType)
+    public ItemStack Create(Data_Foods data_Foods, int amount, InvenType invenType)
     {
-        ItemStack item = new(data_Foods, amount, IDs.Pop(), invenType);
+        ItemStack item = new(data_Foods.key, amount, IDs.Pop(), invenType);
         AllItemStack.Add(item.ID, item);
         return item;
     }

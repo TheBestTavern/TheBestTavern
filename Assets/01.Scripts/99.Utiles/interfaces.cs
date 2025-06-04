@@ -7,7 +7,12 @@ public interface ITooltipable
     public Action<int> OnDisHover { get; }
 }
 
-public interface IRunAlready
+public interface IRunOnEnter
 {
-    public UniTask RunAlready();
+    public UniTask RunAhead();
+}
+
+public interface IItemStackFactory
+{
+    ItemStack Create(Data_Foods data_Foods, int amount, InvenType invenType);
 }

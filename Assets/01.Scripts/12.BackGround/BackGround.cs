@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 
 
-public class BackGround : MonoBehaviour, IRunAlready
+public class BackGround : MonoBehaviour, IRunOnEnter
 {
     [SerializeField] Image BG;
     [SerializeField] Image BG_Tree;
@@ -27,7 +27,7 @@ public class BackGround : MonoBehaviour, IRunAlready
         }
     }
 
-    public async UniTask RunAlready()
+    public async UniTask RunAhead()
     {
         await ToSetBG();
     }

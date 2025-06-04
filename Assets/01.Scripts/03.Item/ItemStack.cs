@@ -7,7 +7,7 @@ public class ItemStack // 풀로 관리하기
     [JsonProperty]
     public InvenType invenType { get; private set; }
     [JsonProperty]
-    public Data_Foods Origin { get; private set; }
+    public int OriginItemKey { get; private set; }
     [JsonProperty]
     public int Count { get; private set; }
     [JsonProperty]
@@ -16,9 +16,9 @@ public class ItemStack // 풀로 관리하기
     //[JsonIgnore] public Action<int> OnZero;
     //[JsonIgnore] public Action<int> OnChanged;
 
-    public ItemStack(Data_Foods data_Foods, int amount, int id, InvenType invenType)
+    public ItemStack(int OriginItemKey, int amount, int id, InvenType invenType)
     {
-        Origin = data_Foods;
+        this.OriginItemKey = OriginItemKey;
         Count = amount;
         ID = id;
         this.invenType = invenType;
@@ -49,8 +49,8 @@ public class ItemStack // 풀로 관리하기
 
     public void TriggerOnDestroy()
     {
-        ItemStackManager.Instance.ReCoverID(ID);
         EventBus.Publish<ItemStackOnZeroEvent>(new ItemStackOnZeroEvent(ID, invenType));
+        ItemStackManager.Instance.ReCoverID(ID);
     }
 
     public void TriggerOnChange()

@@ -15,4 +15,4 @@ MonoBehaviour:
   sosoQuest: 20
   goodQuest: 30
   notBadQuest: 10
-  failQuest: -5
+  failQuest: 0

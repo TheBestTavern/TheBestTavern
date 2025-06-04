@@ -30,9 +30,19 @@ public static class Data // 간단 key 검색 클래스
     //    }
     //}
 
-    public static Data_Foods GetRawItem(int key)
+    public static Data_Foods GetRawItem(int Itemkey)
     {
-        return DataManager.Instance.DataLoader_Foods.GetByKey(key);
+        return DataManager.Instance.DataLoader_Foods.GetByKey(Itemkey);
+    }
+
+    public static ItemStack GetItemStack(int ItemStackID)
+    {
+        return ItemStackManager.Instance.AllItemStack[ItemStackID];
+    }
+
+    public static Data_Foods GetRawItemFromItemStack(int ItemStackID)
+    {
+        return Data.GetRawItem(GetItemStack(ItemStackID).OriginItemKey);
     }
 
     public static NPC GetNPC(int id)

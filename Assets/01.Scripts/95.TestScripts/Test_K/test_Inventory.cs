@@ -13,6 +13,8 @@ public class test_Inventory : MonoBehaviour
     [SerializeField] Button subtractBtn_manuel;
     [SerializeField] Button subtractBtn_gochu;
     [SerializeField] Button subtractBtn;
+    [SerializeField] Button nolbuBtn;
+    [SerializeField] Button specialaddBtn;
     [SerializeField] int key;
     [SerializeField] int count;
 
@@ -29,6 +31,16 @@ public class test_Inventory : MonoBehaviour
         subtractBtn_manuel.onClick.AddListener(() => SubtractItemBtn(104062 ));
         subtractBtn_gochu.onClick.AddListener(() => SubtractItemBtn(104063));
         subtractBtn.onClick.AddListener(() => SubtractItemBtn(key));
+        nolbuBtn.onClick.AddListener(() => { Data.GetNPC(800002).FailQuest(70); });
+        specialaddBtn.onClick.AddListener(() => 
+        {
+            int i = 0;
+            while(true)
+            {
+                AddItemBtn(104001 + (i++ * 3));
+                if (i == 100) return;
+            }
+        });
     }
 
     private void AddItemBtn(int key)

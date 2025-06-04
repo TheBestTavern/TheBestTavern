@@ -2,7 +2,7 @@ using System.Threading.Tasks;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 
-public class BaseScene : MonoBehaviour
+public class BaseScene
 {
     public virtual UniTask OnExitScene()
     {
@@ -16,10 +16,10 @@ public class BaseScene : MonoBehaviour
 
     public virtual UniTask OnEnterScene()
     {
-        foreach (var controller in InventoryManager.Instance.Invens)
-        {
-            controller.Value.OnAfterSceneMove();
-        }
+        //foreach (var controller in InventoryManager.Instance.Invens)
+        //{
+        //    controller.Value.OnAfterSceneMove();
+        //}
 
         TimerManager.Instance.OnSceneMove();
         return UniTask.CompletedTask;

@@ -20,10 +20,10 @@ public class NPCChangeFavorEvent
     }
 }
 
-public class NPCSuccessQuestEvent
+public class NPCGetQuestRewardEvent
 {
     public NPC npc;
-    public NPCSuccessQuestEvent(NPC npc)
+    public NPCGetQuestRewardEvent(NPC npc)
     {
         this.npc = npc;
     }

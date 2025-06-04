@@ -5,6 +5,7 @@ public static class EventBus
 {
     static Dictionary<Type, Delegate> eventsTable = new();
 
+    // 델리게이트 구독 로직
     public static void Subscribe<T>(Action<T> a)
     {
         if (eventsTable.TryGetValue(typeof(T), out var del))
@@ -13,6 +14,7 @@ public static class EventBus
             eventsTable[typeof(T)] = a;
     }
 
+    // 델리게이트 구독 해제 로직
     public static void UnSubscribe<T>(Action<T> a)
     {
         if (eventsTable.TryGetValue(typeof(T), out var del))
@@ -23,6 +25,7 @@ public static class EventBus
         }
     }
 
+    // 델리게이트 실행 로직
     public static void Publish<T>(T evt)
     {
         if(eventsTable.TryGetValue(typeof(T),out var del))

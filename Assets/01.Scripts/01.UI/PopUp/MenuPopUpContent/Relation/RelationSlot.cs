@@ -11,6 +11,7 @@ public class RelationSlot : MonoBehaviour, IPoolable
     bool hasMet;
 
     [SerializeField] TextMeshProUGUI npcnName;
+    [SerializeField] Image heartImg;
     [SerializeField] TextMeshProUGUI favorability;
     [SerializeField] TextMeshProUGUI taste;
     [SerializeField] List<Image> compensationImages; // 퀘스트 ID와 보상 이미지
@@ -38,7 +39,7 @@ public class RelationSlot : MonoBehaviour, IPoolable
         gameObject.SetActive(false);
         npc = null;
         compensationMap.Clear();
-        compensationImages.Clear();
+        //compensationImages.Clear();
     }
 
     public void OnSpawn(Vector3 pos)
@@ -81,6 +82,7 @@ public class RelationSlot : MonoBehaviour, IPoolable
         {
             favorability.text = "";
             npcnName.text = "";
+            heartImg.gameObject.SetActive(false);
             taste.text = "";
         }
 
@@ -88,7 +90,7 @@ public class RelationSlot : MonoBehaviour, IPoolable
         {
             UpdateBasicInfo();
             UpdateFavor();
-            UpdateSuccessQuest();
+            UpdateQuestReward();
         }
     }
 
@@ -100,9 +102,10 @@ public class RelationSlot : MonoBehaviour, IPoolable
     public void UpdateHasMet()
     {
         hasMet = true;
+        heartImg.gameObject.SetActive(hasMet);
         UpdateBasicInfo();
         UpdateFavor();
-        UpdateSuccessQuest();
+        UpdateQuestReward();
     }
 
     public void UpdateBasicInfo()
@@ -116,7 +119,7 @@ public class RelationSlot : MonoBehaviour, IPoolable
         favorability.text = Data.GetNPC(npc.key).Favorability.ToString();
     }
 
-    public async void UpdateSuccessQuest()
+    public async void UpdateQuestReward()
     {
         int i = 0;
         foreach (var pair in compensationMap)
