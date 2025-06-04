@@ -25,18 +25,25 @@ public class CookingInventoryView : InventoryViewLoose
         base.OnEnable();
         startMiniGameBtn.onClick.AddListener(() =>
         {
+            if (pooledImageList.Count > 0)
+            {
+                foreach (var pair in pooledImageList.ToList())
+                {
+                    DisappearImage(pooledImageList[0].itemImage);
+                    pooledImageList.Remove(pair);
+                }
+            }
             if (!CookingMiniGameManager.Instance.TryCooking())
             {
                 UIManager.Instance.cookingSceneUI.OnClickBlurBackGround();
-                if (pooledImageList.Count > 0)
-                {
-                    foreach (var pair in pooledImageList.ToList())
-                    {
-                        DisappearImage(pooledImageList[0].itemImage);
-                        pooledImageList.Remove(pair);
-                    }
-                    //DisappearImage(pooledImageDict.Dequeue());
-                }
+                //if (pooledImageList.Count > 0)
+                //{
+                //    foreach (var pair in pooledImageList.ToList())
+                //    {
+                //        DisappearImage(pooledImageList[0].itemImage);
+                //        pooledImageList.Remove(pair);
+                //    }
+                //}
                 return;
             }
             CookingMiniGameManager.Instance.miniGameAnim.Invoke();

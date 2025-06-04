@@ -16,6 +16,7 @@ public class CookingPlatePopUp : BasePopUp
     public override void OnClose()
     {
         canvasGroup?.DOKill();
+        UIManager.Instance.cookingSceneUI.deselectTool?.Invoke();
         base.OnClose();
     }
 
