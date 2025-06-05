@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,12 +14,17 @@ public class FishingManager : MonoSingleton<FishingManager>
     public int gatheringKey;
     [SerializeField] private Button infoButton;
 
+    [SerializeField] private Button exitButton;
+
     protected override void Awake()
     {
         base.Awake();
         infoButton.onClick.AddListener(OnClickInfoButton);
+
+        exitButton.onClick.AddListener(UnLoadMiniGame);
     }
-     
+
+
     private void Start()
     {
         success = false;

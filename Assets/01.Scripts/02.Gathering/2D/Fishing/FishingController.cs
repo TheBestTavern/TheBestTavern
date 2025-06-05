@@ -26,6 +26,11 @@ public class FishingController : MonoBehaviour
         SetFishing();
     }
 
+    private void OnDestroy()
+    {
+        StopFishing(false);
+    }
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.F) && !fishingInProgress)
