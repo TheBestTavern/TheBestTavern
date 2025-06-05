@@ -12,6 +12,8 @@ public class GameManager : MonoSingleton<GameManager>
 
     public bool isAnalyticsAgreed = false;
 
+    public TutorialState tutorialState;
+
     public override void Init()
     {
         if (_isInitialized) return;
@@ -36,5 +38,10 @@ public class GameManager : MonoSingleton<GameManager>
         CalendarManager.Instance.Init();
 
         CommandManager.Instance.ExecuteCommands(1002);
-    }    
+    }
+
+    public void ApplyLoadData(TutorialState tutorialState)
+    {
+        this.tutorialState = tutorialState;
+    }
 }

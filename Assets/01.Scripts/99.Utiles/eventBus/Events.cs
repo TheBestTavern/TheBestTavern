@@ -109,7 +109,7 @@ public class ItemStackOnChangeEvent
 public class SlotHoverEnterEvent
 {
     public int ID;
-    public  SlotHoverEnterEvent(int id)
+    public SlotHoverEnterEvent(int id)
     {
         ID = id;
     }
@@ -141,4 +141,45 @@ public class NPCVisitEvent
     public NPCVisitEvent()
     {
     }
+}
+
+
+// 튜토리얼 관련 이벤트
+
+public class OpenMailEvent { }
+public class AcceptQuest
+{
+    public int questID;
+    public AcceptQuest(int questID) => this.questID = questID;
+}
+public class OpenProgressInQuestSlot
+{
+    public int questID;
+    public OpenProgressInQuestSlot(int questID) => this.questID = questID;
+}
+public class OpenDetailPopup
+{
+    public int FoodCategoryID;
+    public OpenDetailPopup(int FoodCategoryID) => this.FoodCategoryID = FoodCategoryID;
+}
+public class GainItem
+{
+    public int itemID;
+    public GainItem(int itemID) => this.itemID = itemID;
+}
+public class EnterCookScene { }
+public class SuccessProcessCook
+{
+    public int FoodCategoryID;
+    public SuccessProcessCook(int FoodCategoryID) => this.FoodCategoryID = FoodCategoryID;
+}
+public class SuccessMixCook
+{
+    public int FoodCategoryID;
+    public SuccessMixCook(int FoodCategoryID) => this.FoodCategoryID = FoodCategoryID;
+}
+public class EnterSubmissionMode
+{
+    public int npcID;
+    public EnterSubmissionMode(int npcID) => this.npcID = npcID;
 }

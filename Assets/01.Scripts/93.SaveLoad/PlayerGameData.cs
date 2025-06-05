@@ -33,6 +33,9 @@ public class PlayerGameData
     //public Dictionary<int, ItemStack> ID2ItemStack = new();
     public List<int> itemStackIDs = new();
 
+    public TutorialState tutorialState;
+
+
     public void SetSaveData()
     {
         today = TimerManager.Instance.GetToday();
@@ -58,6 +61,12 @@ public class PlayerGameData
         //playerInvenData.SetPlayerInvenData(InventoryManager.Instance.Invens[InvenType.Player].model.ID2ItemStack);
         foodKey2IDs = InventoryManager.Instance.Invens[InvenType.Player].GetModel().itemID2ItemStackIDs;
         itemStackIDs = InventoryManager.Instance.Invens[InvenType.Player].GetModel().itemStackIDs;
+
+        tutorialState = GameManager.Instance.tutorialState;
+        if (tutorialState == TutorialState.InProgress)
+        {
+            // 튜토리얼 매니저 내부 저장.
+        }
     }
 
     //[System.Serializable]
