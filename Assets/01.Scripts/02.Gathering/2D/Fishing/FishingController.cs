@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -14,6 +15,7 @@ public class FishingController : MonoBehaviour
     [Header("컨트롤러 설정")]
     [SerializeField] private TensionGaugeController tensionGaugeController;
     [SerializeField] private FishingLineController fishLineController;
+    [SerializeField] private TextMeshProUGUI startText;
 
     private GameObject currentFish;
     private bool fishingInProgress = false;
@@ -76,7 +78,21 @@ public class FishingController : MonoBehaviour
 
     IEnumerator StartFishing()
     {
-        yield return new WaitForSeconds(Random.Range(1f, 3f));
+        int i = 3;
+        while (i > -1)
+        {
+            if (i == 0)
+            {
+                startText.text = "시작";
+            }
+            else
+            {
+                startText.text = i.ToString();
+            }
+            yield return new WaitForSeconds(1);
+            i--;
+        }
+        startText.gameObject.SetActive(false);
         fishingInProgress = true;
         SoundManager.Instance.PlaySFX("BaitSplash");
         FishingManager.Instance.BeginFishing();
