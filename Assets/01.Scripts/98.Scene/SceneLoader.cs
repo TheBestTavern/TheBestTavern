@@ -18,6 +18,7 @@ public enum SceneType
     TutorialScene,
     TutorialCookingScene,
     TutorialForestGatheringScene,
+    EndingScene
 }
 
 /// <summary>
@@ -55,7 +56,8 @@ public class SceneLoader : MonoSingleton<SceneLoader>
             {SceneType.SeaGatheringScene,new SeaGatheringScene()},
             {SceneType.TutorialScene,new TutorialScene()},
             {SceneType.TutorialCookingScene,new TutorialCookingScene()},
-            {SceneType.TutorialForestGatheringScene,new TutorialForestGatheringScene()}
+            {SceneType.TutorialForestGatheringScene,new TutorialForestGatheringScene()},
+            {SceneType.EndingScene, new EndingScene() }
         };
         
         Enum.TryParse<SceneType>(SceneManager.GetActiveScene().name, out var currentSceneType);
