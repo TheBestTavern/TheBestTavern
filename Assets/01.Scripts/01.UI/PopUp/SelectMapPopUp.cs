@@ -122,10 +122,12 @@ public class SelectMapPopUp : BasePopUp
     // 팝업 닫을 때 필요한 함수
     public override void OnClose()
     {
-        base.OnClose();
-
-        RectTransform panel = transform.GetChild(0).GetComponent<RectTransform>();
         // 맵 선택 팝업 열린 상태에서 접히는 애니메이션 후 비활성화 
-        panel.DOScaleY(0f, 0.6f).SetEase(Ease.InBack).OnComplete(() => gameObject.SetActive(false));
+        RectTransform panel = transform.GetChild(0).GetComponent<RectTransform>();
+        panel.DOScaleY(0f, 0.6f).SetEase(Ease.InBack).OnComplete(() => 
+        {
+            selectForestOcean.SetActive(false);
+            base.OnClose();
+        });
     }
 }
