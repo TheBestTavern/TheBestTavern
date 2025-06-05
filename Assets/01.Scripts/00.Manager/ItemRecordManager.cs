@@ -56,10 +56,25 @@ public class ItemRecordManager : MonoSingleton<ItemRecordManager>
         }
 
         itemRecords[key].RecordDiscover();
+
+        if (IsAllItemDiscovered())
+        {
+            Debug.Log("엔딩 트리거");
+        }
     }
 
     public bool IsDiscovered(int key)
     {
         return itemRecords[key].HasDiscovered;
+    }
+
+    public bool IsAllItemDiscovered()
+    {
+        foreach (var item in itemRecords.Values)
+        {
+            if(!item.HasDiscovered)
+                return false;
+        }
+        return true;
     }
 }
