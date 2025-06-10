@@ -147,31 +147,47 @@ public class NPCVisitEvent
 
 // 튜토리얼 관련 이벤트
 
+public interface TtrDoSomething
+{
+    public ObvDoType ObvDoType { get; }
+    public string Detail { get; }
+    //public TtrDoSomething(string detail, ObvDoType obvDoType) => (this.detail, this.obvDoType) = (detail, obvDoType);
+}
 
-public class OpenPopup
+public class OpenPopup : TtrDoSomething
 {
-    public PopUpType popUpType;
-    public string detail;
-    public OpenPopup(PopUpType popUpType, string detail) => (this.popUpType, this.detail) = (popUpType, detail);
+    public ObvDoType ObvDoType { get; }
+    public string Detail { get; }
+    public OpenPopup(string detail, ObvDoType obvDoType) => (this.Detail, this.ObvDoType) = (detail, obvDoType);
 }
-public class GainItem { }
-public class SceneMove
+public class GainItem : TtrDoSomething
 {
-    public string SceneName;
-    public SceneMove(string SceneName) => this.SceneName = SceneName;
+    public ObvDoType ObvDoType { get; }
+    public string Detail { get; }
+    public GainItem(string detail, ObvDoType obvDoType) => (this.Detail, this.ObvDoType) = (detail, obvDoType);
 }
-public class EnterSubmissionMode
+public class SceneMove : TtrDoSomething
 {
-    public int npcID;
-    public EnterSubmissionMode(int npcID) => this.npcID = npcID;
+    public ObvDoType ObvDoType { get; }
+    public string Detail { get; }
+    public SceneMove(string detail, ObvDoType obvDoType) => (this.Detail, this.ObvDoType) = (detail, obvDoType);
+
 }
-public class AcceptQuest
+public class EnterSubmissionMode : TtrDoSomething
 {
-    public int questID;
-    public AcceptQuest(int questID) => this.questID = questID;
+    public ObvDoType ObvDoType { get; }
+    public string Detail { get; }
+    public EnterSubmissionMode(string detail, ObvDoType obvDoType) => (this.Detail, this.ObvDoType) = (detail, obvDoType);
 }
-public class OpenProgressInLetter
+public class AcceptQuest : TtrDoSomething
 {
-    public int questID;
-    public OpenProgressInLetter(int questID) => this.questID = questID;
+    public ObvDoType ObvDoType { get; }
+    public string Detail { get; }
+    public AcceptQuest(string detail, ObvDoType obvDoType) => (this.Detail, this.ObvDoType) = (detail, obvDoType);
+}
+public class OpenProgressInLetter : TtrDoSomething
+{
+    public ObvDoType ObvDoType { get; }
+    public string Detail { get; }
+    public OpenProgressInLetter(string detail, ObvDoType obvDoType) => (this.Detail, this.ObvDoType) = (detail, obvDoType);
 }

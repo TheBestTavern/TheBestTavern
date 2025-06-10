@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEngine;
 
 public class InventoryModel
 {
@@ -155,6 +156,40 @@ public class InventoryModel
     private void RemoveItem(ItemStackOnZeroEvent evt)
     {
         JustRemoveItem(evt.ID, evt.invenType);
+    }
+
+    public int GetAmountOfItems(int itemID)
+    {
+        int amount = 0;
+        if (itemID2ItemStackIDs.ContainsKey(itemID))
+        {
+            foreach (var id in itemID2ItemStackIDs[itemID])
+            {
+                amount += Data.GetItemStack(id).Count;
+            }
+        }
+        return amount;
+    }
+
+    public int GetAmountOfCategoryItems(int itemCategoryID)
+    {
+        List<int> IDs = new();
+        IDs.Add(DataManager.Instance.DataLoader_FoodCategory.ItemsDict[itemCategoryID].sosoFoodID);
+        IDs.Add(DataManager.Instance.DataLoader_FoodCategory.ItemsDict[itemCategoryID].badFoodID);
+        IDs.Add(DataManager.Instance.DataLoader_FoodCategory.ItemsDict[itemCategoryID].goodFoodID);
+
+        int amount = 0;
+        foreach (var itemID in IDs)
+        {
+            if (itemID2ItemStackIDs.ContainsKey(itemID))
+            {
+                foreach (var id in itemID2ItemStackIDs[itemID])
+                {
+                    amount += Data.GetItemStack(id).Count;
+                }
+            }
+        }
+        return amount;
     }
 
     //private void TriggerOnChange(ItemStackOnChangeEvent evt)

@@ -51,16 +51,17 @@ public class TutorialManager : MonoSingleton<TutorialManager>
         curTtrStepInstance = tutorialStep;
 
         // 기존 구독은 해제하기.
+        //EventBus.UnSubscribe<TtrDoSomething>(OnDoSomething);
 
         // 현재 스텝에 맞는 동작을, 현재 스텝에 맞는 이벤트에 구독시키기.
         var stepDef = ttrStepDefDict[tutorialStepID];
         for (int i = 0; stepDef.TutorialObjectives.Count > 0; i++)
         {
-            var stepObv = stepDef.TutorialObjectives[i];
-            switch (stepObv.objectiveDoType)
+            var stepObvDef = stepDef.TutorialObjectives[i];
+            switch (stepObvDef.objectiveDoType)
             {
                 case ObvDoType.SceneMove:
-                    EventBus.Subscribe<SceneMove>(OnSceneMove);
+                    EventBus.Subscribe<SceneMove>(OnDoSomething);
                     break;
 
             }
@@ -68,44 +69,121 @@ public class TutorialManager : MonoSingleton<TutorialManager>
         }
     }
 
-    public void OnSceneMove(SceneMove evt)
+    public void OnDoSomething<T>(T evt) where T : TtrDoSomething
     {
         var stepDef = ttrStepDefDict[curTtrStepInstance.ttrStepDefID];
 
-        // 튵 진행중이 아니면 메서드 종료.
-        if (curTtrStepInstance.instanceState != TtrInstanceState.InProgress)
-            return;
+        //// 튵 진행중이 아니면 메서드 종료.
+        //if (curTtrStepInstance.instanceState != TtrInstanceState.InProgress )
+        //    return;
 
         for (int i = 0; stepDef.TutorialObjectives.Count > 0; i++)
         {
             var stepObv = stepDef.TutorialObjectives[i];
+            if (stepObv.tutorialCountType == ObvCountType.Cumulative)
+            {
+
+            }
+            else if(stepObv.tutorialCountType == ObvCountType.Renew)
+            {
+
+            }
             // 튵 목표가 갱신
-            if (curTtrStepInstance.ObvsStates[i] == ObvState.InProgress && stepObv.objectiveDoType == ObvDoType.SceneMove && stepObv.doWhat == evt.SceneName)
+            if (stepObv.objectiveDoType == evt.ObvDoType && stepObv.doWhat == evt.Detail)
             {
                 switch (stepObv.tutorialCountType)
                 {
                     case ObvCountType.Cumulative:
-                        curTtrStepInstance.curCount++;
+                        if (curTtrStepInstance.ObvsStates[i] == ObvState.InProgress)
+                            curTtrStepInstance.curCount++;
+                        else
+                            continue;
+                        break;
+                    case ObvCountType.Renew:
+                        switch (stepObv.objectiveDoType)
+                        {
+                            case ObvDoType.GainItem:
+                                if (int.TryParse(evt.Detail, out int itemID))
+                                    curTtrStepInstance.curCount = InventoryManager.Instance.Invens[InvenType.Player].GetHowManyCategoryItems(itemID);
+                                break;
+                        }
                         break;
                 }
 
-                // 튵 목표 완료됐는지 체크
+                // 튵 목표 체크
                 if (stepObv.targetCount <= curTtrStepInstance.curCount)
                 {
-                    curTtrStepInstance.ObvsStates[i] = ObvState.Completed;
-
-                    // 튵 인스턴스 완료됐는지 체크
-                    for (int j = 0; j < curTtrStepInstance.ObvsStates.Count; j++)
+                    if (curTtrStepInstance.ObvsStates[i] != ObvState.Completed)
                     {
-                        if (curTtrStepInstance.ObvsStates[j] == ObvState.Completed)
-                            break;
-
-                        curTtrStepInstance.instanceState = TtrInstanceState.Completed;
+                        curTtrStepInstance.ObvsStates[i] = ObvState.Completed;
+                        Debug.Log($"튜토리얼 {i}번 목표: InProgress -> Completed");
                     }
                 }
+                else
+                {
+                    if (curTtrStepInstance.ObvsStates[i] == ObvState.Completed)
+                    {
+                        curTtrStepInstance.ObvsStates[i] = ObvState.InProgress;
+                        Debug.Log($"튜토리얼 {i}번 목표: Completed -> InProgress");
+                    }
+                }
+
+                // 튵 인스턴스 체크
+                for (int j = 0; j < curTtrStepInstance.ObvsStates.Count; j++)
+                {
+                    if (curTtrStepInstance.ObvsStates[j] == ObvState.Completed)
+                        break;
+
+                    if (curTtrStepInstance.instanceState != TtrInstanceState.Completed)
+                    {
+                        curTtrStepInstance.instanceState = TtrInstanceState.Completed;
+                        Debug.Log($"{curTtrStepInstance.ttrStepDefID}번 튜토리얼 완료 상태");
+
+                    }
+                }
+
+
             }
         }
     }
+    //public void OnDoSomething(TtrDoSomething evt)
+    //{
+    //    var stepDef = ttrStepDefDict[curTtrStepInstance.ttrStepDefID];
+
+    //    // 튵 진행중이 아니면 메서드 종료.
+    //    if (curTtrStepInstance.instanceState != TtrInstanceState.InProgress)
+    //        return;
+
+    //    for (int i = 0; stepDef.TutorialObjectives.Count > 0; i++)
+    //    {
+    //        var stepObv = stepDef.TutorialObjectives[i];
+    //        // 튵 목표가 갱신
+    //        if (curTtrStepInstance.ObvsStates[i] == ObvState.InProgress && stepObv.objectiveDoType == ObvDoType.SceneMove && stepObv.doWhat == evt.SceneName)
+    //        {
+    //            switch (stepObv.tutorialCountType)
+    //            {
+    //                case ObvCountType.Cumulative:
+    //                    curTtrStepInstance.curCount++;
+    //                    break;
+    //            }
+
+    //            // 튵 목표 완료됐는지 체크
+    //            if (stepObv.targetCount <= curTtrStepInstance.curCount)
+    //            {
+    //                curTtrStepInstance.ObvsStates[i] = ObvState.Completed;
+
+    //                // 튵 인스턴스 완료됐는지 체크
+    //                for (int j = 0; j < curTtrStepInstance.ObvsStates.Count; j++)
+    //                {
+    //                    if (curTtrStepInstance.ObvsStates[j] == ObvState.Completed)
+    //                        break;
+
+    //                    curTtrStepInstance.instanceState = TtrInstanceState.Completed;
+    //                }
+    //            }
+    //        }
+    //    }
+    //}
 
 
     public TtrStepDef GetCurTtrStepDef()

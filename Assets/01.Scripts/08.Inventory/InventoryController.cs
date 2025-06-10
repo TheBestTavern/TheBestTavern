@@ -136,6 +136,16 @@ public class InventoryController
         return model;
     }
 
+    public int GetHowManyItems(int itemID)
+    {
+        return model.GetAmountOfItems(itemID);
+    }
+
+    public int GetHowManyCategoryItems(int itemCategoryID)
+    {
+        return model.GetAmountOfCategoryItems(itemCategoryID);
+    }
+
     public void ViewSpecificItem(int id, InvenType itemStackInvenType)
     {
         foreach (var view in views)
