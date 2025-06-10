@@ -1,73 +1,193 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Cysharp.Threading.Tasks;
+
+using DG.Tweening;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class EndingSceneUI : MonoBehaviour
 {
-    [SerializeField] private Image paper;
+    //[SerializeField] private Image paper;
 
+    [Header("Home")]
     [SerializeField] private Image homeEnding1;
     [SerializeField] private Image homeEnding2;
     [SerializeField] private Image homeEnding3;
 
+    [Header("Stay")]
     [SerializeField] private Image stayEnding1;
     [SerializeField] private Image stayEnding2;
     [SerializeField] private Image stayEnding3;
     [SerializeField] private Image stayEnding4;
-    [SerializeField] private Image originalJumak;
 
+    [Header("기타 이미지")]
+    [SerializeField] private Image originalJumak;
+    [SerializeField] private Image paper;
+    [SerializeField] private Image blackScreen;
+
+    [Header("버튼")]
+    [SerializeField] private CanvasGroup btns;
     [SerializeField] private Button btn1;
     [SerializeField] private Button btn2;
 
+    [Header("자막")]
+    [SerializeField] private TextMeshProUGUI subtitle;
 
-    //private readonly string[] introtexts = {
-    //    "여기 환자 깨어났어요!", "나는 주말마다 부모님을 위해 손을 거든다.",
-    //    "오늘도 여느때와 다를 것이 없었고", "평소처럼 논두렁으로 향하던 그때",
-    //    "눈을 떠보니 이곳은 내가 있던 곳이 아니었다.",
-    //    "눈앞에 펼쳐진 건 고요하고 낯선 이세계 조선.",
-    //    "그 옆에는 허름한 주막과 함께", "이런 쪽지가 떨어져 있었다.",
-    //    "옥황상제 특명", "지상 요리 도감 완성"
-    //};
-    //
-
-    void ShowHomeEnding()
+    public async UniTask ShowHomeEnding()
     {
-        // 문 여는 애니메이션
+        paper.gameObject.SetActive(false);
+
+        // #0
+        // 화면 하얗게 점멸
+        // 문 끼익소리
+
+        // #1
         // 블랙아웃
         // 눈깜빡이는 애니메이션
+        blackScreen.gameObject.SetActive(true);
         homeEnding1.gameObject.SetActive(true);
-        // 이미지 흐림처리
-        // 여기 000환자 깨어났어요! 
-        // 정신을 차리고 나니 손에는 이세계 조선 요리 도감이 있었고, 그 안에는 이런 메모가 남겨져 있다.
-        // 페이드인
+        await FadeIn();
+        await UniTask.Delay(200);
+        await blackScreen.DOFade(0.8f, 0.2f).AsyncWaitForCompletion();
+        await UniTask.Delay(200);
+        await FadeIn();
+
+        await UniTask.Delay(200);
+        await blackScreen.DOFade(0f, 1f).AsyncWaitForCompletion();
+        await ShowText("여기 환자가 깨어났어요!");
+
+        // #2
+
+        await FadeIn();
+
+        await ShowText("<b><color=#FFFFFF>정신을 차리고 나니 손에는 이세계 조선 요리 도감이 있었고</color></b>");
+        await ShowText("<b><color=#FFFFFF>그 안에는 이런 메모가 남겨져 있다.</color></b>");
+        await UniTask.WaitForSeconds(2f);
+        blackScreen.DOFade(0f, 0.2f);
         homeEnding2.gameObject.SetActive(true);
-        // 페이드아웃
+        await UniTask.WaitForSeconds(3f);
+
+
+        // #3
+        
+        await FadeIn();
+
+        await ShowText("<b><color=#FFFFFF>그 뒤로, 나는 골목 어귀에 전통 주점을 열었다.</color></b>");
+        blackScreen.DOFade(0f, 0.2f);
         homeEnding3.gameObject.SetActive(true);
+
+        // 마지막 엔딩 이미지
+        await UniTask.WaitForSeconds(3f);
+        ShowEndImage();
+
+        // 메인씬으로 이동
     }
 
-    void ShowStayEnding()
+    public async UniTask ShowStayEnding()
     {
-        // 문 닫는 애니메이션
+        paper.gameObject.SetActive(false);
+
+        // #0
+        // 문 탁 닫는 소리
+
+        // #1
+        // 도깨비 대사
+        blackScreen.gameObject.SetActive(true);
+        await FadeIn();
+        FadeOut();
         stayEnding1.gameObject.SetActive(true);
+        await UniTask.WaitForSeconds(3f);
+
+        // #2
+        await FadeIn();
+        FadeOut();
         stayEnding2.gameObject.SetActive(true);
-        // 콩쥐, 호랑이, 허생, 선녀까지 매일 들락날락.
-        // 그의 주방에선 여전히 냄새 좋은 국물이 피어오르고, 하늘 위에서는 옥황상제가 이런 말을 한다.
+        await ShowText("<b><color=#FFFFFF>콩쥐, 호랑이, 허생, 선녀까지 매일 들락날락한다.</color></b>");
+        await ShowText("<b><color=#FFFFFF>주방에서는 여전히 좋은 냄새가 풍긴다.</color></b>");
+        await FadeIn();
+        await ShowText("<b><color=#FFFFFF>한편 하늘 위에서 옥황상제는...</color></b>");
+        await UniTask.WaitForSeconds(1f);
+
+        // #3
+        await FadeIn();
+        FadeOut();
         stayEnding3.gameObject.SetActive(true);
-        // 페이드 아웃
+        await UniTask.WaitForSeconds(3f);
+        FadeOut();
+
+        // #4
+        await FadeIn();
+        FadeOut();
         originalJumak.gameObject.SetActive(true);
-        // 전환효과
+        await UniTask.WaitForSeconds(1.5f);
+        await blackScreen.DOFade(0.5f, 2f).AsyncWaitForCompletion();
+        blackScreen.DOFade(0f, 2f).AsyncWaitForCompletion();
         stayEnding4.gameObject.SetActive(true);
+
+        // 마지막 엔딩 이미지
+        await UniTask.WaitForSeconds(3f);
+        ShowEndImage();
+
+        // 스타트화면
     }
 
-    public void ShowChoices(string home, string stay, Action<int> onChoose)
+    public async UniTask ShowText(string text)
     {
+        subtitle.text = "";
+        subtitle.alpha = 0f;
+        subtitle.gameObject.SetActive(true);
+        SoundManager.Instance.PlaySFX("LineWhoosh");
+
+        foreach (char cha in text) 
+        {
+            subtitle.text += cha;
+        }
+        await subtitle.DOFade(1, 2).AsyncWaitForCompletion();
+        await subtitle.DOFade(0, 1).AsyncWaitForCompletion();
+        await UniTask.WaitForSeconds(1f);
+        subtitle.gameObject.SetActive(false);
+    }
+
+    public async UniTask<int> ShowChoices(string home, string stay)
+    {
+        //btn1.gameObject.SetActive(true);
+        //btn2.gameObject.SetActive(true);
+        btns.DOFade(1f, 0.3f);
+
+        var tcs = new UniTaskCompletionSource<int>();
         btn1.GetComponentInChildren<TextMeshProUGUI>().text = home;
         btn2.GetComponentInChildren<TextMeshProUGUI>().text = stay;
 
-        btn1.onClick.AddListener(() => onChoose(0)); // 돌아간다 0
-        btn2.onClick.AddListener(() => onChoose(1)); // 남는다 1
+        btn1.onClick.RemoveAllListeners();
+        btn2.onClick.RemoveAllListeners();
+
+        btn1.onClick.AddListener(() => { tcs.TrySetResult(0); HideBtn(); }); // 돌아간다 0
+        btn2.onClick.AddListener(() => { tcs.TrySetResult(1); HideBtn(); }); // 남는다 1
+
+        return await tcs.Task;
+    }
+
+    private void HideBtn()
+    {
+        btns.DOFade(0f, 0.3f);
+    }
+
+    private async UniTask FadeIn()
+    {
+        await blackScreen.DOFade(1f, 1f).AsyncWaitForCompletion();
+    }
+
+    private void FadeOut()
+    {
+        blackScreen.DOFade(0f, 1f);
+    }
+
+    private async UniTask ShowEndImage()
+    {
+        // 완 한자 이미지 출력
+        await UniTask.WaitForSeconds(5f);
     }
 }
