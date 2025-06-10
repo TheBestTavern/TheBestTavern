@@ -21,13 +21,13 @@ MonoBehaviour:
     m_Address: BGM1
     m_ReadOnly: 0
     m_SerializedLabels:
-    - BGM
+    - PreLoad
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3e81df65bdfeaa348bed1fc165e65d2c
     m_Address: BGM2
     m_ReadOnly: 0
     m_SerializedLabels:
-    - BGM
+    - PreLoad
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 3f946b317ceaa2747b411cad54511d5f, type: 2}

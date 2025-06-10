@@ -20,12 +20,14 @@ MonoBehaviour:
   - m_GUID: 7a83f318d49f53441b15f1375c6b55f7
     m_Address: DayAndNightManagerContainer.SO
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - PreLoad
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c0de3491895f7fb4b8ca5621364fe493
     m_Address: SoundLibrary.SO
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - PreLoad
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 3f946b317ceaa2747b411cad54511d5f, type: 2}

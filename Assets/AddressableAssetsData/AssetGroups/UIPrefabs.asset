@@ -22,126 +22,147 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - UIPrefabs
+    - PreLoad
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: eb3c22114f8081d43995100ad83a16cf
     m_Address: QuestLetterPopUpPrefab.prefab
     m_ReadOnly: 0
     m_SerializedLabels:
     - UIPrefabs
+    - PreLoad
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4d69d5cc624e63849827800cdf5040c9
     m_Address: LoadingUIPrefab.prefab
     m_ReadOnly: 0
     m_SerializedLabels:
     - UIPrefabs
+    - PreLoad
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f255abeb375d33248973779ebdd1535a
     m_Address: ConfirmPopUpPrefab.prefab
     m_ReadOnly: 0
     m_SerializedLabels:
     - UIPrefabs
+    - PreLoad
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ecf418c2481b0cc4a8c475e1ddf6d745
     m_Address: MenuPopUpPrefab.prefab
     m_ReadOnly: 0
     m_SerializedLabels:
     - UIPrefabs
+    - PreLoad
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 14b60d82d805ac4408068a8045e9f236
     m_Address: AlarmPopUpPrefab.prefab
     m_ReadOnly: 0
     m_SerializedLabels:
     - UIPrefabs
+    - PreLoad
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5f0d57244117c044b82023f9085b259b
     m_Address: SettingPopUpPrefab.prefab
     m_ReadOnly: 0
     m_SerializedLabels:
     - UIPrefabs
+    - PreLoad
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: faaf8447d09a1ba4eaecacfb347d0aa9
     m_Address: OfferLetterPopUpPrefab.prefab
     m_ReadOnly: 0
     m_SerializedLabels:
     - UIPrefabs
+    - PreLoad
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3b7daf95012ffed4cb8c4cb87e5b7f96
     m_Address: ResultLetterPopUpPrefab.prefab
     m_ReadOnly: 0
     m_SerializedLabels:
     - UIPrefabs
+    - PreLoad
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 21f1b6d8b126a014d9ca008f3e248b4c
     m_Address: MailBoxPopUpPrefab.prefab
     m_ReadOnly: 0
     m_SerializedLabels:
     - UIPrefabs
+    - PreLoad
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0ee02fc131980fa47a5b36f144db25d8
     m_Address: CookingResultPopUpPrefab.prefab
     m_ReadOnly: 0
     m_SerializedLabels:
     - UIPrefabs
+    - PreLoad
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6c786ccea97f65f439c895461be7c320
     m_Address: FoodDetailPopUpPrefab.prefab
     m_ReadOnly: 0
     m_SerializedLabels:
     - UIPrefabs
+    - PreLoad
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f6f34a40642b76440b40a7bb68773359
     m_Address: SoundSettingPopUpPrefab.prefab
     m_ReadOnly: 0
     m_SerializedLabels:
     - UIPrefabs
+    - PreLoad
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d9a631446a1088a4ebb0f721f2ee8ff5
     m_Address: GatheringResultPopUpPrefab.prefab
     m_ReadOnly: 0
     m_SerializedLabels:
     - UIPrefabs
+    - PreLoad
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 998632075704b7646bbcd49be7d78559
     m_Address: BlockUI.prefab
     m_ReadOnly: 0
     m_SerializedLabels:
     - UIPrefabs
+    - PreLoad
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ebec5fd26d8b296479de2c8ccbce2572
     m_Address: GatheringInfoPopUpPrefab.prefab
     m_ReadOnly: 0
     m_SerializedLabels:
     - UIPrefabs
+    - PreLoad
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e3e3e335abaad694f89d582f4331c5b9
     m_Address: MainInfoPopUpPrefab.prefab
     m_ReadOnly: 0
     m_SerializedLabels:
     - UIPrefabs
+    - PreLoad
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e32bb04bcf6e4444093d7130d1ce6be9
     m_Address: FishingInfoPopUpPrefab.prefab
     m_ReadOnly: 0
     m_SerializedLabels:
     - UIPrefabs
+    - PreLoad
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8193c465a41aef242914c79a2698325c
     m_Address: CookingInfoPopUpPrefab.prefab
     m_ReadOnly: 0
     m_SerializedLabels:
     - UIPrefabs
+    - PreLoad
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 53fdbfd87b135cd48b8d3e51998f7163
     m_Address: CookingFailPopUpPrefab.prefab
     m_ReadOnly: 0
     m_SerializedLabels:
     - UIPrefabs
+    - PreLoad
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: bbdd85c6e2ed7424dba0852cae11435a
     m_Address: CookingPlatePopUpPrefab.prefab
     m_ReadOnly: 0
     m_SerializedLabels:
     - UIPrefabs
+    - PreLoad
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 3f946b317ceaa2747b411cad54511d5f, type: 2}

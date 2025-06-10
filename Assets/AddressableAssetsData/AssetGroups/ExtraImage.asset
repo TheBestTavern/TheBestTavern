@@ -20,27 +20,32 @@ MonoBehaviour:
   - m_GUID: 4152098ae4da8444a9240e60130f96ee
     m_Address: 2.4-1fancySlot.png
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - PreLoad
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1a1a30ac9fda2ab4890deb3b66475d6a
     m_Address: 2.4-1normalSlot.png
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - PreLoad
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f8d721fb546654b449c277590cff7ab3
     m_Address: Default.Sprite
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - PreLoad
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5ef185da37d4db940a3076eb4ace9ddf
     m_Address: Undiscovered.Sprite
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - PreLoad
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5c2dddade5f76294db9c5e4cfbdcee5a
     m_Address: Undiscovered2.Sprite
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - PreLoad
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 3f946b317ceaa2747b411cad54511d5f, type: 2}

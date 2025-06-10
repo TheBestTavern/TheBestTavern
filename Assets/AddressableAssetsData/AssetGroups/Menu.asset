@@ -20,22 +20,26 @@ MonoBehaviour:
   - m_GUID: 93c1e27bfe23f7243b49033389450e6f
     m_Address: RelationSlot.prefab
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - PreLoad
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: fbe94b3ff58740243a083c6de7802bf9
     m_Address: LetterPopUpPrefab.prefab
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - PreLoad
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 731a427dd9948ee4b957e52f01125dd4
     m_Address: QuestSlot.prefab
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - PreLoad
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d9545b395f128384ebf0af91b51921db
     m_Address: ToolTip.prefab
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - PreLoad
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 3f946b317ceaa2747b411cad54511d5f, type: 2}

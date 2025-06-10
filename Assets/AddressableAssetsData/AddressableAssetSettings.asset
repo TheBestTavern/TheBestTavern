@@ -15,7 +15,7 @@ MonoBehaviour:
   m_DefaultGroup: c3f494c16557d594cb251a411faddc9f
   m_currentHash:
     serializedVersion: 2
-    Hash: 22f6a24c48b2fbcaffd092cfce3af160
+    Hash: 8442ea8af3c65772125c0ae3c9a83b6b
   m_OptimizeCatalogSize: 0
   m_BuildRemoteCatalog: 1
   m_BundleLocalCatalog: 0
@@ -114,11 +114,9 @@ MonoBehaviour:
     m_ProfileVersion: 1
   m_LabelTable:
     m_LabelNames:
-    - default
     - UIPrefabs
     - BasicScene
     - MiniGameScene
-    - Cooking
     - SFX
     - Bush
     - Field
@@ -126,6 +124,7 @@ MonoBehaviour:
     - Hole
     - Stone
     - AlreadyLoad
+    - PreLoad
   m_SchemaTemplates: []
   m_GroupTemplateObjects:
   - {fileID: 11400000, guid: fb4860e82cc57f7448b750225714f800, type: 2}
