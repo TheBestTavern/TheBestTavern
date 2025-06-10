@@ -7,6 +7,8 @@ using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
+using UnityEngine.ResourceManagement.AsyncOperations;
 using UnityEngine.UI;
 
 public class IntroSceneUI : MonoBehaviour
@@ -47,6 +49,26 @@ public class IntroSceneUI : MonoBehaviour
     private const int largeFontSize = 200;
 
     private CancellationTokenSource cts;
+
+    [SerializeField] private PreLoadingUI preLoadingUI;
+
+    private async void Awake()
+    {
+        Time.timeScale = 0;
+        var sizeHandle = Addressables.GetDownloadSizeAsync("PreLoad");
+        await sizeHandle.Task;
+
+        if (sizeHandle.Status != AsyncOperationStatus.Succeeded || sizeHandle.Result <= 0)
+        {
+            Debug.LogWarning("다운로드할 에셋이 없습니다.");
+            Time.timeScale = 1;
+            return;
+        }
+        else
+        {
+            preLoadingUI.gameObject.SetActive(true);
+        }
+    }
 
     private async void Start()
     {

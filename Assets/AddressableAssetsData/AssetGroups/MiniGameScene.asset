@@ -22,54 +22,63 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - MiniGameScene
+    - PreLoad
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d00ed41f3115f0746a03cb29eb4fe189
     m_Address: Ocean_Fishing.unity
     m_ReadOnly: 0
     m_SerializedLabels:
     - MiniGameScene
+    - PreLoad
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6a25f84f620830f47828b21428b79647
     m_Address: CookingScene.unity
     m_ReadOnly: 0
     m_SerializedLabels:
     - MiniGameScene
+    - PreLoad
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6e80c233513f7fd4085da7c4beec7654
     m_Address: Cooking_Boil_Test.unity
     m_ReadOnly: 0
     m_SerializedLabels:
     - MiniGameScene
+    - PreLoad
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4608a24015c0f8e499b99cdb3dca3761
     m_Address: Cooking_Cutting_Test.unity
     m_ReadOnly: 0
     m_SerializedLabels:
     - MiniGameScene
+    - PreLoad
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d22a648f56c95ef499e2fb44ad14f9d1
     m_Address: Cooking_Grill_Test.unity
     m_ReadOnly: 0
     m_SerializedLabels:
     - MiniGameScene
+    - PreLoad
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: eee4fe1f026b2bd44a65ffeae5675b60
     m_Address: Cooking_Grind_Test.unity
     m_ReadOnly: 0
     m_SerializedLabels:
     - MiniGameScene
+    - PreLoad
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2999a1ef1de4c6d42898466a6157c369
     m_Address: Cooking_Mill_Test.unity
     m_ReadOnly: 0
     m_SerializedLabels:
     - MiniGameScene
+    - PreLoad
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1a097857fe7798546b31154e2a2de585
     m_Address: Cooking_MixingBowl_Test.unity
     m_ReadOnly: 0
     m_SerializedLabels:
     - MiniGameScene
+    - PreLoad
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 3f946b317ceaa2747b411cad54511d5f, type: 2}
