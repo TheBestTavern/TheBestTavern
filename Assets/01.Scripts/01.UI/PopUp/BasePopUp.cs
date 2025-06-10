@@ -49,6 +49,7 @@ public class BasePopUp : DraggableMonoBehaviour, IPointerDownHandler
         gameObject.SetActive(true);
         popupManager.PopupOpen(id);
         SetSortingOrder();
+        EventBus.Publish<OpenPopup>(new OpenPopup(popUpType, ));
     }
 
     // 팝업 닫을 때 필요한 함수
@@ -62,10 +63,6 @@ public class BasePopUp : DraggableMonoBehaviour, IPointerDownHandler
     {
         popupManager.RecoverID(id);
     }
-
-    //public void OnPointerClick(PointerEventData eventData)
-    //{
-    //}
 
     public void OnPointerDown(PointerEventData eventData)
     {

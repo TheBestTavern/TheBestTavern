@@ -186,7 +186,7 @@ public class StartSceneUI : MonoBehaviour
         InventoryManager.Instance.Invens[InvenType.Player].ApplyLoadData(data.foodKey2IDs, data.itemStackIDs);
 
         GameManager.Instance.ApplyLoadData(data.tutorialState);
-        if (data.tutorialState == TutorialState.InProgress)
+        if (data.tutorialState == TtrState.InProgress)
         {
             // tutorialState 로드
         }

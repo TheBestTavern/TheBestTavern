@@ -33,7 +33,7 @@ public class PlayerGameData
     //public Dictionary<int, ItemStack> ID2ItemStack = new();
     public List<int> itemStackIDs = new();
 
-    public TutorialState tutorialState;
+    public TtrState tutorialState;
 
 
     public void SetSaveData()
@@ -63,7 +63,7 @@ public class PlayerGameData
         itemStackIDs = InventoryManager.Instance.Invens[InvenType.Player].GetModel().itemStackIDs;
 
         tutorialState = GameManager.Instance.tutorialState;
-        if (tutorialState == TutorialState.InProgress)
+        if (tutorialState == TtrState.InProgress)
         {
             // 튜토리얼 매니저 내부 저장.
         }

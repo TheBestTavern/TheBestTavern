@@ -12,7 +12,7 @@ public class GameManager : MonoSingleton<GameManager>
 
     public bool isAnalyticsAgreed = false;
 
-    public TutorialState tutorialState;
+    public TtrState tutorialState = TtrState.NotStarted;
 
     public override void Init()
     {
@@ -40,7 +40,7 @@ public class GameManager : MonoSingleton<GameManager>
         CommandManager.Instance.ExecuteCommands(1002);
     }
 
-    public void ApplyLoadData(TutorialState tutorialState)
+    public void ApplyLoadData(TtrState tutorialState)
     {
         this.tutorialState = tutorialState;
     }

@@ -2,63 +2,114 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem.XR;
 
 public class TutorialManager : MonoSingleton<TutorialManager>
 {
-    List<bool> levelState = new(); // 구간별 클리어 여부. (미리 클리어 해놓기 불가능)
-    TutorialUIController tutorialUI; // 튜토리얼 UI
-    int currentlevel; // 현재까지 명시적으로 클리어된 구간
+    TtrUIController UIController; // 튜토리얼 UI
 
-
+    public Dictionary<int, TtrStepDef> ttrStepDefDict = new();
+    public TtrStepInstance curTtrStepInstance;
     // Start is called before the first frame update
-    protected override void Awake()
+    protected async override void Awake()
     {
         base.Awake();
+        DontDestroyOnLoad(this);
 
-        EventBus.Subscribe<OpenMailEvent>(OnOpenMailEvent);
-        EventBus.Subscribe<AcceptQuest>(OnAcceptQuest);
-        EventBus.Subscribe<OpenProgressInQuestSlot>(OnOpenProgressInQuestSlot);
-        EventBus.Subscribe<OpenDetailPopup>(OnOpenDetailPopup);
-        EventBus.Subscribe<GainItem>(OnGainItem);
-        EventBus.Subscribe<EnterCookScene>(OnEnterCookScene);
-        EventBus.Subscribe<SuccessProcessCook>(OnSuccessProcessCook);
-        EventBus.Subscribe<SuccessMixCook>(OnSuccessMixCook);
-        EventBus.Subscribe<EnterSubmissionMode>(OnEnterSubmissionMode);
+        //if() 튜토리얼 매니저를 메인에 배치해두고, 로드로 가져오거나 시작해서 생성한 이후에, 
+        //필요하지 않다면 삭제하기 (필요하지 않은 경우는, 플레이어가 튜토리얼을 완수했거나 취소한 경우.)
+        if (GameManager.Instance.tutorialState == TtrState.Completed || GameManager.Instance.tutorialState == TtrState.Cancelled)
+        {
+            Destroy(this);
+        }
+
+
+        //튜토리얼 단계 SO 불러오기.
+        var gos = await AddressablesLoader.Instance.AddressablesListLoadFromLabelAsync("TutorialSteps");
+        TtrStepDef temp;
+        foreach (var go in gos)
+        {
+            if (go.TryGetComponent<TtrStepDef>(out temp))
+            {
+                ttrStepDefDict.Add(temp.TutorialStepID, temp);
+            }
+            else
+            {
+                Debug.LogError("Wrong TutorialStep is registered to Addressable");
+            }
+        }
+
+        UIController = await AddressablesLoader.Instance.AddressablesLoadAsync<TtrUIController>("TtrUIController");
+        UIController.transform.SetParent(this.transform, true);
+        UIController.Init(this);
     }
 
-    public void OnOpenMailEvent(OpenMailEvent evt) => levelState[0] = true;
-    public void OnAcceptQuest(AcceptQuest evt)
+    public void ChangeCurTutorial(int tutorialStepID)
     {
-        if (evt.questID == 900001)
-            levelState[1] = true;
-    }
-    public void OnOpenProgressInQuestSlot(OpenProgressInQuestSlot evt)
-    {
-        if (evt.questID == 900001)
-            levelState[2] = true;
-    }
-    public void OnOpenDetailPopup(OpenDetailPopup evt)
-    {
-        if (evt.FoodCategoryID == 110181)
-            levelState[3] = true;
-    }
-    public void OnGainItem(GainItem evt)
-    {
-    }
-    public void OnEnterCookScene(EnterCookScene evt)
-    {
+        // 인스턴스 생성, currentTutorialStep 할당.
+        TtrStepInstance tutorialStep = new(tutorialStepID);
+        curTtrStepInstance = tutorialStep;
 
-    }
-    public void OnSuccessProcessCook(SuccessProcessCook evt)
-    {
+        // 기존 구독은 해제하기.
 
-    }
-    public void OnSuccessMixCook(SuccessMixCook evt)
-    {
+        // 현재 스텝에 맞는 동작을, 현재 스텝에 맞는 이벤트에 구독시키기.
+        var stepDef = ttrStepDefDict[tutorialStepID];
+        for (int i = 0; stepDef.TutorialObjectives.Count > 0; i++)
+        {
+            var stepObv = stepDef.TutorialObjectives[i];
+            switch (stepObv.objectiveDoType)
+            {
+                case ObvDoType.SceneMove:
+                    EventBus.Subscribe<SceneMove>(OnSceneMove);
+                    break;
 
-    }
-    public void OnEnterSubmissionMode(EnterSubmissionMode evt)
-    {
+            }
 
+        }
+    }
+
+    public void OnSceneMove(SceneMove evt)
+    {
+        var stepDef = ttrStepDefDict[curTtrStepInstance.ttrStepDefID];
+
+        // 튵 진행중이 아니면 메서드 종료.
+        if (curTtrStepInstance.instanceState != TtrInstanceState.InProgress)
+            return;
+
+        for (int i = 0; stepDef.TutorialObjectives.Count > 0; i++)
+        {
+            var stepObv = stepDef.TutorialObjectives[i];
+            // 튵 목표가 갱신
+            if (curTtrStepInstance.ObvsStates[i] == ObvState.InProgress && stepObv.objectiveDoType == ObvDoType.SceneMove && stepObv.doWhat == evt.SceneName)
+            {
+                switch (stepObv.tutorialCountType)
+                {
+                    case ObvCountType.Cumulative:
+                        curTtrStepInstance.curCount++;
+                        break;
+                }
+
+                // 튵 목표 완료됐는지 체크
+                if (stepObv.targetCount <= curTtrStepInstance.curCount)
+                {
+                    curTtrStepInstance.ObvsStates[i] = ObvState.Completed;
+
+                    // 튵 인스턴스 완료됐는지 체크
+                    for (int j = 0; j < curTtrStepInstance.ObvsStates.Count; j++)
+                    {
+                        if (curTtrStepInstance.ObvsStates[j] == ObvState.Completed)
+                            break;
+
+                        curTtrStepInstance.instanceState = TtrInstanceState.Completed;
+                    }
+                }
+            }
+        }
+    }
+
+
+    public TtrStepDef GetCurTtrStepDef()
+    {
+        return ttrStepDefDict[curTtrStepInstance.ttrStepDefID];
     }
 }

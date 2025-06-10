@@ -1,5 +1,6 @@
 
 // Menu - npc 관계도 이벤트
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class NPCFirstMetEvent
@@ -146,40 +147,31 @@ public class NPCVisitEvent
 
 // 튜토리얼 관련 이벤트
 
-public class OpenMailEvent { }
-public class AcceptQuest
+
+public class OpenPopup
 {
-    public int questID;
-    public AcceptQuest(int questID) => this.questID = questID;
+    public PopUpType popUpType;
+    public string detail;
+    public OpenPopup(PopUpType popUpType, string detail) => (this.popUpType, this.detail) = (popUpType, detail);
 }
-public class OpenProgressInQuestSlot
+public class GainItem { }
+public class SceneMove
 {
-    public int questID;
-    public OpenProgressInQuestSlot(int questID) => this.questID = questID;
-}
-public class OpenDetailPopup
-{
-    public int FoodCategoryID;
-    public OpenDetailPopup(int FoodCategoryID) => this.FoodCategoryID = FoodCategoryID;
-}
-public class GainItem
-{
-    public int itemID;
-    public GainItem(int itemID) => this.itemID = itemID;
-}
-public class EnterCookScene { }
-public class SuccessProcessCook
-{
-    public int FoodCategoryID;
-    public SuccessProcessCook(int FoodCategoryID) => this.FoodCategoryID = FoodCategoryID;
-}
-public class SuccessMixCook
-{
-    public int FoodCategoryID;
-    public SuccessMixCook(int FoodCategoryID) => this.FoodCategoryID = FoodCategoryID;
+    public string SceneName;
+    public SceneMove(string SceneName) => this.SceneName = SceneName;
 }
 public class EnterSubmissionMode
 {
     public int npcID;
     public EnterSubmissionMode(int npcID) => this.npcID = npcID;
+}
+public class AcceptQuest
+{
+    public int questID;
+    public AcceptQuest(int questID) => this.questID = questID;
+}
+public class OpenProgressInLetter
+{
+    public int questID;
+    public OpenProgressInLetter(int questID) => this.questID = questID;
 }
