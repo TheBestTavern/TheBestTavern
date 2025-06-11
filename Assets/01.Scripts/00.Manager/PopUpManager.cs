@@ -26,7 +26,8 @@ public enum PopUpType
     MainInfo,
     CookingInfo,
     CookingFail,
-    CookingPlate
+    CookingPlate,
+    ScreenResolution
 }
 
 public interface IPopupManager

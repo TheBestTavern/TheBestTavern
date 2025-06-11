@@ -164,6 +164,13 @@ MonoBehaviour:
     - UIPrefabs
     - PreLoad
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 51600b93050dc0c4d8b0e35fbf8f2ce4
+    m_Address: ScreenResolutionPopUpPrefab.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - UIPrefabs
+    - PreLoad
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 3f946b317ceaa2747b411cad54511d5f, type: 2}
   m_SchemaSet:
