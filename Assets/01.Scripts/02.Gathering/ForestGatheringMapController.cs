@@ -58,7 +58,7 @@ public class ForestGatheringMapController : GatheringMapController
         SetSortingLayer(Instantiate(trees[randTreeIdx], new Vector3(x, y, 0), Quaternion.identity, propsParent));
 
         int randBushIdx = Random.Range(0, bushes.Count);
-        int randBushCount = Random.Range(0, 4);
+        int randBushCount = Random.Range(0, 3);
         int half = randBushCount / 2;
         float bushY = y - 1;
         for (int i = -half; i <= half; i++)

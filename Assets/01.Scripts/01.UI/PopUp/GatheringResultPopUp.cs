@@ -93,7 +93,7 @@ public class GatheringResultPopUp : BasePopUp
             return;
         }
         var data = DataManager.Instance.DataLoader_Foods.GetByKey(itemKey);
-        itemNameText.text = raw.name;
+        itemNameText.text = raw.name + " x " + CaptureManager.Instance.AnimalInRange.gatheringValue;
 
         itemImage.sprite = loadedSprite;
         if (itemImage.sprite == null) { itemImage.gameObject.SetActive(false); }

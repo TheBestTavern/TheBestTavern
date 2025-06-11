@@ -15,9 +15,9 @@ MonoBehaviour:
   m_DefaultGroup: c3f494c16557d594cb251a411faddc9f
   m_currentHash:
     serializedVersion: 2
-    Hash: 134b597b674374341f3a4575787dc759
+    Hash: 8442ea8af3c65772125c0ae3c9a83b6b
   m_OptimizeCatalogSize: 0
-  m_BuildRemoteCatalog: 0
+  m_BuildRemoteCatalog: 1
   m_BundleLocalCatalog: 0
   m_CatalogRequestsTimeout: 0
   m_DisableCatalogUpdateOnStart: 0
@@ -35,9 +35,9 @@ MonoBehaviour:
   m_CheckForContentUpdateRestrictionsOption: 0
   m_MonoScriptBundleCustomNaming: 
   m_RemoteCatalogBuildPath:
-    m_Id: 
+    m_Id: 5f070d9acc9ffd847978f25e1108e8f8
   m_RemoteCatalogLoadPath:
-    m_Id: 
+    m_Id: 2d50f4f648111274cb6a050749f06c77
   m_ContentStateBuildPathProfileVariableName: <default settings path>
   m_CustomContentStateBuildPath: 
   m_ContentStateBuildPath: 
@@ -78,9 +78,23 @@ MonoBehaviour:
       - m_Id: c7ee8451cb2c5084eac714624f8ebfda
         m_Value: '{UnityEngine.AddressableAssets.Addressables.RuntimePath}/[BuildTarget]'
       - m_Id: 5f070d9acc9ffd847978f25e1108e8f8
-        m_Value: ServerData/[BuildTarget]
+        m_Value: '[UnityEngine.AddressableAssets.Addressables.BuildPath]/[BuildTarget]'
       - m_Id: 2d50f4f648111274cb6a050749f06c77
-        m_Value: http://[PrivateIpAddress]:[HostingServicePort]
+        m_Value: '{UnityEngine.AddressableAssets.Addressables.RuntimePath}/[BuildTarget]'
+    - m_InheritedParent: 
+      m_Id: 016697f8ae2df62498b64523da244b48
+      m_ProfileName: RemoteTest
+      m_Values:
+      - m_Id: 4c22c3f9e99f6f94f877c3ad0eafe63b
+        m_Value: '[UnityEditor.EditorUserBuildSettings.activeBuildTarget]'
+      - m_Id: a038642c9a73ab3418d3ac0367229185
+        m_Value: '[UnityEngine.AddressableAssets.Addressables.BuildPath]/[BuildTarget]'
+      - m_Id: c7ee8451cb2c5084eac714624f8ebfda
+        m_Value: '{UnityEngine.AddressableAssets.Addressables.RuntimePath}/[BuildTarget]'
+      - m_Id: 5f070d9acc9ffd847978f25e1108e8f8
+        m_Value: '{UnityEngine.AddressableAssets.Addressables.BuildPath}/Remote'
+      - m_Id: 2d50f4f648111274cb6a050749f06c77
+        m_Value: https://the-best-tavern.s3.ap-southeast-2.amazonaws.com/Remote
     m_ProfileEntryNames:
     - m_Id: 4c22c3f9e99f6f94f877c3ad0eafe63b
       m_Name: BuildTarget
@@ -100,11 +114,9 @@ MonoBehaviour:
     m_ProfileVersion: 1
   m_LabelTable:
     m_LabelNames:
-    - default
     - UIPrefabs
     - BasicScene
     - MiniGameScene
-    - Cooking
     - SFX
     - Bush
     - Field
@@ -112,6 +124,7 @@ MonoBehaviour:
     - Hole
     - Stone
     - AlreadyLoad
+    - PreLoad
   m_SchemaTemplates: []
   m_GroupTemplateObjects:
   - {fileID: 11400000, guid: fb4860e82cc57f7448b750225714f800, type: 2}
@@ -125,7 +138,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: db984b0107195ca489c7fd96ee87f342, type: 2}
   - {fileID: 11400000, guid: b72cad7e7848e684090ef4c2537241a5, type: 2}
   - {fileID: 11400000, guid: ffad68bb7f4023d4083ba3d6342595b5, type: 2}
-  m_ActiveProfileId: 34174b76d68cf0e408100d36716f911e
+  m_ActiveProfileId: 016697f8ae2df62498b64523da244b48
   m_HostingServicesManager:
     m_HostingServiceInfos: []
     m_Settings: {fileID: 11400000}
