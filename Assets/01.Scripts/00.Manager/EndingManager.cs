@@ -10,6 +10,7 @@ public enum EndingType
 
 public class EndingManager : MonoSingleton<EndingManager>
 {
+    public bool hasSeenEnding { get; private set; }
     //public override void Init()
     //{
     //    if (_isInitialized) return;
@@ -18,6 +19,24 @@ public class EndingManager : MonoSingleton<EndingManager>
 
     public EndingType CurrentEndingType { get; private set; }
 
+    public override void Init()
+    {
+        if(_isInitialized) return;
+        base.Init();
+        DontDestroyOnLoad(gameObject);
+        EventBus.Subscribe<EndEvent>(OnEndingTriggered);
+    }
+
+    protected override void OnDestroy()
+    {
+        base.OnDestroy();
+        EventBus.UnSubscribe<EndEvent>(OnEndingTriggered);
+    }
+
+    public void SetEndingState(bool hasSeen)
+    {
+        hasSeenEnding = hasSeen;
+    }
     // 요리 도감 100% 달성 시 호출
     public async void TriggerEnding()
     {
@@ -25,26 +44,37 @@ public class EndingManager : MonoSingleton<EndingManager>
         await SceneLoader.Instance.LoadSceneAsync(SceneType.EndingScene);
     }
 
-    public void SelectEnding(EndingType type)
+    void OnEndingTriggered(EndEvent evt)
     {
-        switch (type)
+        if (hasSeenEnding)
         {
-            case EndingType.Home:
-                ShowHomeEnding();
-                break;
-            case EndingType.Stay:
-                ShowStayEnding();
-                break;
+            Debug.Log("이미 엔딩 봤음");
+            return;
         }
+
+        hasSeenEnding = true;
+        TriggerEnding();
     }
+    //public void SelectEnding(EndingType type)
+    //{
+    //    switch (type)
+    //    {
+    //        case EndingType.Home:
+    //            ShowHomeEnding();
+    //            break;
+    //        case EndingType.Stay:
+    //            ShowStayEnding();
+    //            break;
+    //    }
+    //}
 
-    public void ShowHomeEnding()
-    {
+    //public void ShowHomeEnding()
+    //{
 
-    }
+    //}
 
-    public void ShowStayEnding()
-    {
+    //public void ShowStayEnding()
+    //{
 
-    }
+    //}
 }

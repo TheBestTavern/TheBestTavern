@@ -142,3 +142,11 @@ public class NPCVisitEvent
     {
     }
 }
+
+public class EndEvent
+{
+    public EndEvent() 
+    { 
+
+    }
+}

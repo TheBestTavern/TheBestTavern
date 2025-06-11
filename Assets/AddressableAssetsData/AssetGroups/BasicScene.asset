@@ -66,6 +66,13 @@ MonoBehaviour:
     - BasicScene
     - PreLoad
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 25b16a608618cdd43850bc31ed85c200
+    m_Address: EndingScene.unity
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - BasicScene
+    - PreLoad
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 3f946b317ceaa2747b411cad54511d5f, type: 2}
   m_SchemaSet:
