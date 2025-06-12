@@ -44,6 +44,8 @@ public class PopUpManager : MonoSingleton<PopUpManager>, IPopupManager
     private Dictionary<PopUpType, BasePopUp> popUps = new Dictionary<PopUpType, BasePopUp>();
     public Dictionary<PopUpType, BasePopUp> PopUps => popUps;
 
+    public Stack<BasePopUp> popUpStack = new Stack<BasePopUp>();
+
     // 확인 팝업 - 여러 곳에서 쓰이고 각자 사용하는 용도가 달라 각자 접근 할 수 있도록 캐싱  
     public ConfirmPopUp confirmPopUp;
 
@@ -111,6 +113,8 @@ public class PopUpManager : MonoSingleton<PopUpManager>, IPopupManager
         // 각 팝업들이 열릴 때 필요한 함수 실행
         basePopUp.OnOpen();
 
+        popUpStack.Push(basePopUp);
+
         return basePopUp;
     }
 
@@ -141,6 +145,7 @@ public class PopUpManager : MonoSingleton<PopUpManager>, IPopupManager
     public void OnSceneMove()
     {
         popUps.Clear();
+        popUpStack.Clear();
         Debug.Log("팝업 클리어");
     }
 }
