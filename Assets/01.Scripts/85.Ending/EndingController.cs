@@ -9,10 +9,10 @@ public class EndingController : MonoBehaviour
 {
     [SerializeField] private EndingSceneUI ui;
 
-    //private async void Start()
-    //{
-    //    //await StartEndingScene(); // 테스트용
-    //}
+    private async void Start()
+    {
+        await StartEndingScene();
+    }
 
     public async UniTask StartEndingScene()
     {
