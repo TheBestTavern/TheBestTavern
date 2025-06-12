@@ -12,12 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0398023d5e634dc4f9ddd00985d1e5c1, type: 3}
   m_Name: TutorialStep4
   m_EditorClassIdentifier: 
-  <TutorialStepID>k__BackingField: 910002
-  <StepName>k__BackingField: "\uB450\uBC88\uC9F8 \uC5F0\uC2B5"
-  <NextTutorialStepID>k__BackingField: 910003
+  <TutorialStepID>k__BackingField: 910004
+  <StepName>k__BackingField: "\uB124\uBC88\uC9F8 \uC5F0\uC2B5"
+  <NextTutorialStepID>k__BackingField: 910005
   <TutorialObjectives>k__BackingField:
-  - stepName: "\uD765\uBD80 \uD018\uC2A4\uD2B8 \uC218\uB77D\uD558\uAE30"
-    objectiveDoType: 4
+  - stepName: "\uB3C4\uAC10\uC5D0\uC11C \uC721\uC218\uC758 \uC0C1\uC138 \uC815\uBCF4
+      \uBCF4\uAE30"
+    objectiveDoType: 2
     tutorialCountType: 0
-    detail: 900001
+    detail: FoodDetail
     targetCount: 1

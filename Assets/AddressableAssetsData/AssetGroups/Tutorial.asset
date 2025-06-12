@@ -17,14 +17,14 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: 972f865f7dde45742a672eb0b50a0da7
   m_SerializeEntries:
-  - m_GUID: 5660bce90ab2a534a98c003359023006
-    m_Address: TutorialStep1.scriptableObject
+  - m_GUID: 58dbd2ba43cf01d469ce22001821a04b
+    m_Address: TutorialStep2
     m_ReadOnly: 0
     m_SerializedLabels:
     - TutorialSteps
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 58dbd2ba43cf01d469ce22001821a04b
-    m_Address: TutorialStep2.scriptableObject
+  - m_GUID: 5660bce90ab2a534a98c003359023006
+    m_Address: TutorialStep1
     m_ReadOnly: 0
     m_SerializedLabels:
     - TutorialSteps
@@ -33,6 +33,72 @@ MonoBehaviour:
     m_Address: TtrUIController.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6a07f4d0457b6b64ab8c23b7ef69a68d
+    m_Address: TutorialStep3
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - TutorialSteps
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4a9d555eda66ccb42bc9219e3fc3a68c
+    m_Address: TutorialStep4
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - TutorialSteps
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1794aeefb02d59c4c92707551963a5cf
+    m_Address: TutorialStep5
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - TutorialSteps
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e9b44c36db016064f88b4f9ce282b35c
+    m_Address: TutorialStep6
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - TutorialSteps
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bda4849952dba6a4aba9e66a38044e3a
+    m_Address: TutorialStep7
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - TutorialSteps
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7dd9af8b925c23243848f34a1f82181f
+    m_Address: TutorialStep8
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - TutorialSteps
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a4dec25f2456b244a9b58f95be0b973e
+    m_Address: TutorialStep9
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - TutorialSteps
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0b769287cbe590d47bd18b22f76478d2
+    m_Address: TutorialStep10
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - TutorialSteps
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0a91a11af54a3384ea65d9f4f11e01c5
+    m_Address: TutorialStep11
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - TutorialSteps
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ab366609d657fce448248621fcb1214a
+    m_Address: TutorialStep12
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - TutorialSteps
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0b23631a868333f4da94e22c98dacdb7
+    m_Address: TutorialStep13
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - TutorialSteps
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 3f946b317ceaa2747b411cad54511d5f, type: 2}

@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0398023d5e634dc4f9ddd00985d1e5c1, type: 3}
   m_Name: TutorialStep13
   m_EditorClassIdentifier: 
-  <TutorialStepID>k__BackingField: 910002
-  <StepName>k__BackingField: "\uB450\uBC88\uC9F8 \uC5F0\uC2B5"
-  <NextTutorialStepID>k__BackingField: 910003
+  <TutorialStepID>k__BackingField: 910013
+  <StepName>k__BackingField: "\uB9C8\uC9C0\uB9C9 \uC5F0\uC2B5"
+  <NextTutorialStepID>k__BackingField: 0
   <TutorialObjectives>k__BackingField:
-  - stepName: "\uD765\uBD80 \uD018\uC2A4\uD2B8 \uC218\uB77D\uD558\uAE30"
-    objectiveDoType: 4
+  - stepName: "\uB2E4\uC74C\uB0A0 \uBCF4\uC0C1 \uD3B8\uC9C0 \uC5F4\uB78C\uD558\uAE30"
+    objectiveDoType: 2
     tutorialCountType: 0
-    detail: 900001
+    detail: ResultLetter
     targetCount: 1
