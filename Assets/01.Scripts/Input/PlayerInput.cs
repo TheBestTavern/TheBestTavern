@@ -14,11 +14,15 @@ public class PlayerInput : MonoBehaviour
     {
         if (context.phase == InputActionPhase.Performed)
         {
-            if (PopUpManager.Instance.PopUps.TryGetValue(PopUpType.Setting, out BasePopUp basePopUp) && basePopUp.gameObject.activeSelf)
+            if(PopUpManager.Instance.popUpStack.TryPop(out BasePopUp popUp))
             {
-                SettingPopUp settingPopUp = basePopUp as SettingPopUp;
-                settingPopUp.OnClickCloseButton();
+                popUp.OnClickCloseButton();
             }
+            //if (PopUpManager.Instance.PopUps.TryGetValue(PopUpType.Setting, out BasePopUp basePopUp) && basePopUp.gameObject.activeSelf)
+            //{
+            //    SettingPopUp settingPopUp = basePopUp as SettingPopUp;
+            //    settingPopUp.OnClickCloseButton();
+            //}
             else
             {
                 // 게임 일시 정지 및 설정 팝업 불러오기 함수

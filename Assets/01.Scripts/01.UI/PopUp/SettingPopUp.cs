@@ -13,6 +13,7 @@ public class SettingPopUp : BasePopUp
     [SerializeField] private Button quitButton;
     [SerializeField] private Button soundButton;
     [SerializeField] private Button saveButton;
+    [SerializeField] private Button screenSettingButton;
 
     CanvasGroup canvasGroup;
     Tween currentTween;
@@ -27,8 +28,15 @@ public class SettingPopUp : BasePopUp
         quitButton.onClick.AddListener(OnClickQuitButton);
         soundButton.onClick.AddListener(OnClickSoundButton);
         //saveButton.onClick.AddListener(OnClickSaveButton);
+        screenSettingButton.onClick.AddListener(OnClickScreenSettingButton);
 
         canvasGroup = transform.GetChild(0).GetComponent<CanvasGroup>();
+    }
+
+     async void OnClickScreenSettingButton()
+    {
+        await PopUpManager.Instance.ShowPopUp(PopUpType.ScreenResolution);
+        SoundManager.Instance.PlaySFX("SlotButton");
     }
 
     // 게임 종료 버튼 클릭 함수
@@ -67,7 +75,7 @@ public class SettingPopUp : BasePopUp
     public override void OnClose()
     {
         currentTween?.Kill();
-        currentTween = canvasGroup.DOFade(0f, 1f).OnComplete(() =>
+        currentTween = canvasGroup.DOFade(0f, 0.5f).OnComplete(() =>
         {
             base.OnClose();
         });
