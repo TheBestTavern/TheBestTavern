@@ -53,12 +53,15 @@ public class ScreenResolutionPopUp : BasePopUp
         fullScreenToggle.isOn = Screen.fullScreen;
         isFullScreen = Screen.fullScreen;
 
+        HashSet<string> resolutionKey = new HashSet<string>();
         foreach (Resolution res in resolutions)
         {
             float aspect = (float)res.width / res.height;
-            if (Mathf.Abs(aspect - 4f / 3f) < 0.01f)
+            string key = res.width + " " + res.height;
+            if (Mathf.Abs(aspect - 4f / 3f) < 0.01f && !resolutionKey.Contains(key))
             {
                 res43List.Add(res);
+                resolutionKey.Add(key);
             }
         }
 
@@ -66,11 +69,10 @@ public class ScreenResolutionPopUp : BasePopUp
 
         for (int i = 0; i < res43List.Count; i++)
         {
-            string option = res43List[i].width + " x " + res43List[i].height + " " + res43List[i].refreshRateRatio + "Hz";
+            string option = res43List[i].width + " x " + res43List[i].height;
             options.Add(option);
-
-            if (res43List[i].width == Screen.currentResolution.width &&
-                res43List[i].height == Screen.currentResolution.height)
+            if (res43List[i].width == Screen.width &&
+                res43List[i].height == Screen.height)
             {
                 currentResolutionIndex = i;
             }

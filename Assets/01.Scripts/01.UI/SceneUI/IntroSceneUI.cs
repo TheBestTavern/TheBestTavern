@@ -55,8 +55,6 @@ public class IntroSceneUI : MonoBehaviour
 
     private async void Awake()
     {
-        Screen.SetResolution(1440, 1080, Screen.fullScreen);
-
         Time.timeScale = 0;
         var sizeHandle = Addressables.GetDownloadSizeAsync("PreLoad");
         await sizeHandle.Task;
