@@ -77,7 +77,6 @@ public class EndingSceneUI : MonoBehaviour
 
 
         // #3
-        
         await FadeIn();
 
         await ShowText("<b><color=#FFFFFF>그 뒤로, 나는 골목 어귀에 전통 주점을 열었다.</color></b>");
@@ -89,8 +88,8 @@ public class EndingSceneUI : MonoBehaviour
         await FadeIn();
         await ShowEndImage();
 
-        // 메인씬으로 이동
-        await SceneLoader.Instance.LoadSceneAsync(SceneType.MainScene);
+        // 스타트화면
+        await SceneLoader.Instance.LoadSceneAsync(SceneType.IntroScene);
     }
 
     public async UniTask ShowStayEnding()
@@ -154,9 +153,8 @@ public class EndingSceneUI : MonoBehaviour
         await FadeIn();
         await ShowEndImage();
 
-
-        // 스타트화면
-        await SceneLoader.Instance.LoadSceneAsync(SceneType.IntroScene);
+        // 메인씬으로 이동
+        await SceneLoader.Instance.LoadSceneAsync(SceneType.MainScene);
     }
 
     public async UniTask ShowText(string text)

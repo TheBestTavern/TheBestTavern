@@ -41,7 +41,7 @@ public class EndingManager : MonoSingleton<EndingManager>
     public async void TriggerEnding()
     {
         Debug.Log("엔딩씬 시작");
-        await SceneLoader.Instance.LoadSceneAsync(SceneType.EndingScene);
+        await SceneLoader.Instance.LoadSceneAsyncMiniGame("EndingScene");
     }
 
     void OnEndingTriggered(EndEvent evt)
@@ -52,8 +52,12 @@ public class EndingManager : MonoSingleton<EndingManager>
             return;
         }
 
-        hasSeenEnding = true;
         TriggerEnding();
+    }
+
+    public void HasSeenEnding()
+    {
+        hasSeenEnding = true;
     }
     //public void SelectEnding(EndingType type)
     //{

@@ -29,11 +29,13 @@ public class EndingController : MonoBehaviour
 
     private async UniTask PlayHomeEnding() 
     { await ui.ShowHomeEnding();
+      EndingManager.Instance.HasSeenEnding();
       SaveLoadManager.Instance.SaveData();
     }
     private async UniTask PlayStayEnding() 
     { 
         await ui.ShowStayEnding();
+        EndingManager.Instance.HasSeenEnding();
         SaveLoadManager.Instance.SaveData();
     }
 
