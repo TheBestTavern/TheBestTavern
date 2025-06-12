@@ -18,7 +18,8 @@ public class ObjectiveUI : MonoBehaviour
         Ready();
         for (int i = 0; i < obvsSlots.Count; i++)
         {
-            SetObv(i);
+            if (obvsSlots[i].gameObject.activeSelf)
+                SetObv(i);
         }
     }
 

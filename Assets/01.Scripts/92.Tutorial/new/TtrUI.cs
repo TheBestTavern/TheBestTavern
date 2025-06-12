@@ -32,7 +32,7 @@ public class TtrUI : MonoBehaviour
         objectiveUI.SetAll();
     }
 
-    public void SetObs(int index)
+    public void SetObv(int index)
     {
         objectiveUI.SetObv(index);
     }

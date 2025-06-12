@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem.XR;
 
@@ -46,6 +47,7 @@ public class TutorialManager : MonoSingleton<TutorialManager>
     {
         if (GameManager.Instance.tutorialState != TtrState.InProgress)
             GameManager.Instance.tutorialState = TtrState.InProgress;
+        UIController.DeactivateRope();
         ChangeCurTtrStep(tutorialStepID);
     }
 
@@ -138,18 +140,22 @@ public class TutorialManager : MonoSingleton<TutorialManager>
 
     public void OnDoSomething<T>(T evt) where T : TtrDoSomething
     {
-        bool hasChanged = false;
+        List<bool> ChangedIndex = new();
         var stepDef = ttrStepDefDict[curTtrStepInstance.ttrStepDefID];
 
         // 튵 목표 순회 검사
+        TtrStepObvDef stepObvDef;
         for (int i = 0; i < stepDef.TutorialObjectives.Count; i++)
         {
-            var stepObvDef = stepDef.TutorialObjectives[i];
+            stepObvDef = stepDef.TutorialObjectives[i];
 
-            if (stepObvDef.detail != evt.Detail) // detail이 다르면 바로 다음 순회로 넘어가기
+            if (stepObvDef.detail != evt.Detail || stepObvDef.objectiveDoType != evt.ObvDoType) // 목표와 상관없는 이벤트라면 다음 순회로 넘어가기
+            {
+                ChangedIndex.Add(false);
                 continue;
+            }
             else
-                hasChanged = true;
+                ChangedIndex.Add(true);
 
             if (stepObvDef.tutorialCountType == ObvCountType.Cumulative)
             {
@@ -191,7 +197,7 @@ public class TutorialManager : MonoSingleton<TutorialManager>
             }
         }
 
-        if (!hasChanged) // 변화 없으면 종료
+        if (!ChangedIndex.Any(c => c)) // 변화 없으면 종료
             return;
 
         // 튵 인스턴스 체크
@@ -218,7 +224,12 @@ public class TutorialManager : MonoSingleton<TutorialManager>
             }
         }
 
-        UIController.SetAllObvs();
+        //UIController.SetAllObvs();
+        for (int k = 0; k < ChangedIndex.Count; k++)
+        {
+            if (ChangedIndex[k])
+                UIController.SetObv(k);
+        }
     }
 
     public TtrStepDef GetCurTtrStepDef()
