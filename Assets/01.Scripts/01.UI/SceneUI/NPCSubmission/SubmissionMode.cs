@@ -157,6 +157,7 @@ public class SubmissionMode : MonoBehaviour
             //1. 성공 실패 체크 대기열 등록 (대기열 체크는 endDay 단계에서 확인)
             QuestManager.Instance.QuestCheckQueue.Enqueue((quest.Origin.key, itemForSubmission.key));
             QuestManager.Instance.SubmissionComplete(quest.Origin.givingNPC);
+            EventBus.Publish<CompleteSubmit>(new CompleteSubmit($"{quest.Origin.key}, {itemForSubmission.FoodCategory}"));
 
             //2. 아이템 감소
             InventoryManager.Instance.Invens[InvenType.Player].LooseItem(itemForSubmission, 1);

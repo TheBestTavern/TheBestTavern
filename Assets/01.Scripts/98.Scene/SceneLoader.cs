@@ -93,6 +93,7 @@ public class SceneLoader : MonoSingleton<SceneLoader>
 
         await loadScene;
         currentScene = sceneMap[sceneType];
+        EventBus.Publish<SceneMove>(new SceneMove(sceneType.ToString()));
 
         if (currentScene != null)
         {

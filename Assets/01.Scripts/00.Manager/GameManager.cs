@@ -36,6 +36,7 @@ public class GameManager : MonoSingleton<GameManager>
         UIManager.Instance.Init();
         SoundManager.Instance.Init();
         CalendarManager.Instance.Init();
+        TutorialManager.Instance.Init();
 
         CommandManager.Instance.ExecuteCommands(1002);
     }

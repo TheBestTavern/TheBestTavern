@@ -49,7 +49,7 @@ public class BasePopUp : DraggableMonoBehaviour, IPointerDownHandler
         gameObject.SetActive(true);
         popupManager.PopupOpen(id);
         SetSortingOrder();
-        EventBus.Publish<OpenPopup>(new OpenPopup(popUpType, ));
+        EventBus.Publish<OpenPopup>(new OpenPopup(popUpType.ToString()));
     }
 
     // 팝업 닫을 때 필요한 함수

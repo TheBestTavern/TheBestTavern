@@ -156,38 +156,38 @@ public interface TtrDoSomething
 
 public class OpenPopup : TtrDoSomething
 {
-    public ObvDoType ObvDoType { get; }
+    public ObvDoType ObvDoType { get; } = ObvDoType.OpenPopup;
     public string Detail { get; }
-    public OpenPopup(string detail, ObvDoType obvDoType) => (this.Detail, this.ObvDoType) = (detail, obvDoType);
+    public OpenPopup(string detail) => (this.Detail) = (detail);
 }
 public class GainItem : TtrDoSomething
 {
-    public ObvDoType ObvDoType { get; }
+    public ObvDoType ObvDoType { get; } = ObvDoType.GainItem;
     public string Detail { get; }
-    public GainItem(string detail, ObvDoType obvDoType) => (this.Detail, this.ObvDoType) = (detail, obvDoType);
+    public GainItem(string detail) => (this.Detail) = (detail);
 }
 public class SceneMove : TtrDoSomething
 {
-    public ObvDoType ObvDoType { get; }
+    public ObvDoType ObvDoType { get; } = ObvDoType.SceneMove;
     public string Detail { get; }
-    public SceneMove(string detail, ObvDoType obvDoType) => (this.Detail, this.ObvDoType) = (detail, obvDoType);
+    public SceneMove(string detail) => (this.Detail) = (detail);
 
 }
-public class EnterSubmissionMode : TtrDoSomething
+public class CompleteSubmit : TtrDoSomething
 {
-    public ObvDoType ObvDoType { get; }
+    public ObvDoType ObvDoType { get; } = ObvDoType.CompleteSubmit;
     public string Detail { get; }
-    public EnterSubmissionMode(string detail, ObvDoType obvDoType) => (this.Detail, this.ObvDoType) = (detail, obvDoType);
+    public CompleteSubmit(string detail) => (this.Detail) = (detail);
 }
 public class AcceptQuest : TtrDoSomething
 {
-    public ObvDoType ObvDoType { get; }
+    public ObvDoType ObvDoType { get; } = ObvDoType.AcceptQuest;
     public string Detail { get; }
-    public AcceptQuest(string detail, ObvDoType obvDoType) => (this.Detail, this.ObvDoType) = (detail, obvDoType);
+    public AcceptQuest(string detail) => (this.Detail) = (detail);
 }
-public class OpenProgressInLetter : TtrDoSomething
-{
-    public ObvDoType ObvDoType { get; }
-    public string Detail { get; }
-    public OpenProgressInLetter(string detail, ObvDoType obvDoType) => (this.Detail, this.ObvDoType) = (detail, obvDoType);
-}
+//public class OpenProgressInLetter : TtrDoSomething
+//{
+//    public ObvDoType ObvDoType { get; } = ObvDoType.OpenProgressInLetter;
+//    public string Detail { get; }
+//    public OpenProgressInLetter(string detail) => (this.Detail) = (detail);
+//}

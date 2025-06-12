@@ -107,13 +107,13 @@ public class AddressablesLoader : MonoSingleton<AddressablesLoader>
         }
     }
 
-    public async Task<List<GameObject>> AddressablesListLoadFromLabelAsync(string label)
+    public async Task<List<T>> AddressablesListLoadFromLabelAsync<T>(string label)
     {
-        List<GameObject> results = new List<GameObject>();
-        var handle = Addressables.LoadAssetsAsync<GameObject>(label, null);
+        List<T> results = new List<T>();
+        var handle = Addressables.LoadAssetsAsync<T>(label, null);
         results.AddRange(await handle.Task);
         return results;
-    }
+     }
 
 
     // 모든 어드레서블 릴리즈 

@@ -68,7 +68,7 @@ public class SeaGatheringMapController : GatheringMapController
     }
     public async override Task LoadProps()
     {
-        rocks = await AddressablesLoader.Instance.AddressablesListLoadFromLabelAsync(rocksLabelName);
-        holes = await AddressablesLoader.Instance.AddressablesListLoadFromLabelAsync(holesLabelName);
+        rocks = await AddressablesLoader.Instance.AddressablesListLoadFromLabelAsync<GameObject>(rocksLabelName);
+        holes = await AddressablesLoader.Instance.AddressablesListLoadFromLabelAsync<GameObject>(holesLabelName);
     }
 }

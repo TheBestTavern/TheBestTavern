@@ -79,6 +79,7 @@ public class QuestData
     {
         AcceptedQuests.Add(questID);
         EventBus.Publish<QuestAcceptEvent>(new QuestAcceptEvent());
+        EventBus.Publish<AcceptQuest>(new AcceptQuest(questID.ToString()));
     }
 
     public void FailQuest(int questID)

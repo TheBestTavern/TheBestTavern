@@ -70,6 +70,8 @@ public class InventoryModel
             IDList.Add(itemStack.ID);
             itemStackIDs.Add(itemStack.ID);
         }
+
+        EventBus.Publish<GainItem>(new GainItem(data_Foods.FoodCategory.ToString()));
     }
 
     public bool DecreaseItemWithCheck(Data_Foods data_Foods, int amount)

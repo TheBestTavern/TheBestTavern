@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class TtrUIController : MonoBehaviour
+public class TtrUI : MonoBehaviour
 {
     TutorialManager manager;
 
@@ -27,9 +27,19 @@ public class TtrUIController : MonoBehaviour
     /// <summary>
     /// objectiveUI 컨트롤
     /// </summary>
-    public void SetObjectvie()
+    public void SetAllObvs()
     {
-        objectiveUI.Set();
+        objectiveUI.SetAll();
+    }
+
+    public void SetObs(int index)
+    {
+        objectiveUI.SetObv(index);
+    }
+
+    public void HideObjectvie()
+    {
+        objectiveUI.Hide();
     }
 
     /// <summary>
@@ -49,6 +59,13 @@ public class TtrUIController : MonoBehaviour
 
     public void OnClickRope()
     {
-        StartConversation(manager.GetCurTtrStepDef().NextTutorialStepID);
+        if (manager.GetCurTtrStepDef() != null)
+            manager.ClearStep();
+        StartConversation(manager.nextStepID);
+    }
+
+    private void OnDestroy()
+    {
+        rope_Button.onClick.RemoveAllListeners();
     }
 }

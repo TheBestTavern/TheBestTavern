@@ -6,13 +6,19 @@ using UnityEngine;
 public class TtrStepInstance
 {
     public int ttrStepDefID;
-    public int curCount;
     public TtrInstanceState instanceState;
-    public List<ObvState> ObvsStates;
-    public TtrStepInstance(int ttrStepDefID)
+    public List<int> obvCurCounts;
+    public List<ObvState> obvStates;
+    public TtrStepInstance(int ttrStepDefID, int obvCount)
     {
         this.ttrStepDefID = ttrStepDefID;
         instanceState = TtrInstanceState.InProgress;
-        ObvsStates = new();
+        obvStates = new();
+        obvCurCounts = new();
+        for (int i = 0; i < obvCount; i++)
+        {
+            obvStates.Add(ObvState.InProgress);
+            obvCurCounts.Add(0);
+        }
     }
 }

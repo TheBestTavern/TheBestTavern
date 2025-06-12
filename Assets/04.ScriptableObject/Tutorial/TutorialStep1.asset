@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0398023d5e634dc4f9ddd00985d1e5c1, type: 3}
+  m_Name: TutorialStep1
+  m_EditorClassIdentifier: 
+  <TutorialStepID>k__BackingField: 910001
+  <StepName>k__BackingField: "\uCCAB\uBC88\uC9F8 \uC5F0\uC2B5"
+  <NextTutorialStepID>k__BackingField: 910002
+  <TutorialObjectives>k__BackingField:
+  - stepName: "\uD3B8\uC9C0\uD568 \uC5F4\uAE30"
+    objectiveDoType: 2
+    tutorialCountType: 0
+    detail: MailBox
+    targetCount: 1

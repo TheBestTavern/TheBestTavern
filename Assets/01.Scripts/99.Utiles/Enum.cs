@@ -1,23 +1,21 @@
 public enum TtrState
 {
-    NotStarted,
-    InProgress,
-    Completed,
-    Cancelled
+    NotStarted, // 아직 튜토리얼을 한번도 받지 않은 상태
+    InProgress, // 튜토리얼을 진행 중
+    Completed, // 튜토리얼 모두 완료
+    Cancelled // 튜토리얼을 받지 않기로 함.
 }
 
 public enum TtrInstanceState
 {
     InProgress,
-    Completed,
-    Failed,
+    ReadyClear,
 }
 
 public enum ObvState
 {
     InProgress,
     Completed,
-    Failed,
 }
 
 public enum ObvDoType
@@ -25,7 +23,7 @@ public enum ObvDoType
     SceneMove,
     GainItem,
     OpenPopup,
-    EnterSubmissionMode,
+    CompleteSubmit,
     AcceptQuest,
     OpenProgressInLetter,
 }

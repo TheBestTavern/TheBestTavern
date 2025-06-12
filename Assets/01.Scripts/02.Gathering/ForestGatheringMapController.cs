@@ -73,8 +73,8 @@ public class ForestGatheringMapController : GatheringMapController
 
     public async override Task LoadProps()
     {
-        trees = await AddressablesLoader.Instance.AddressablesListLoadFromLabelAsync(treesLabelName);
-        bushes = await AddressablesLoader.Instance.AddressablesListLoadFromLabelAsync(bushLabelName);
-        fields = await AddressablesLoader.Instance.AddressablesListLoadFromLabelAsync(fieldLabelName);
+        trees = await AddressablesLoader.Instance.AddressablesListLoadFromLabelAsync<GameObject>(treesLabelName);
+        bushes = await AddressablesLoader.Instance.AddressablesListLoadFromLabelAsync<GameObject>(bushLabelName);
+        fields = await AddressablesLoader.Instance.AddressablesListLoadFromLabelAsync<GameObject>(fieldLabelName);
     }
 }

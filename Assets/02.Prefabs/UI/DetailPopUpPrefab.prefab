@@ -971,7 +971,7 @@ MonoBehaviour:
   draggable: 1
   closeButton: {fileID: 5185452969358062414}
   canvas: {fileID: 1768716300519753210}
-  popUpType: 10
+  popUpType: 13
   prevBtn: {fileID: 3369057090013321849}
   nextBtn: {fileID: 9093376470793853026}
   icon: {fileID: 1757036770709752273}

@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0398023d5e634dc4f9ddd00985d1e5c1, type: 3}
+  m_Name: TutorialStep13
+  m_EditorClassIdentifier: 
+  <TutorialStepID>k__BackingField: 910002
+  <StepName>k__BackingField: "\uB450\uBC88\uC9F8 \uC5F0\uC2B5"
+  <NextTutorialStepID>k__BackingField: 910003
+  <TutorialObjectives>k__BackingField:
+  - stepName: "\uD765\uBD80 \uD018\uC2A4\uD2B8 \uC218\uB77D\uD558\uAE30"
+    objectiveDoType: 4
+    tutorialCountType: 0
+    detail: 900001
+    targetCount: 1
