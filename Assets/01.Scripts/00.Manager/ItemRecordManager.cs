@@ -72,11 +72,11 @@ public class ItemRecordManager : MonoSingleton<ItemRecordManager>
 
     public bool IsAllItemDiscovered()
     {
-        //foreach (var item in itemRecords.Values)
-        //{
-        //    if (!item.HasDiscovered)
-        //        return false;
-        //}
+        foreach (var item in itemRecords.Values)
+        {
+            if (!item.HasDiscovered)
+                return false;
+        }
         return true;
     }
 }

@@ -2,17 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Cysharp.Threading.Tasks;
+using UnityEditor;
 using UnityEngine;
 
 public class EndingController : MonoBehaviour
 {
     [SerializeField] private EndingSceneUI ui;
 
+    //private async void Start()
+    //{
+    //    //await StartEndingScene(); // 테스트용
+    //}
 
-    private async void Start()
-    {
-        await StartEndingScene(); // 테스트용
-    }
     public async UniTask StartEndingScene()
     {
         await ui.ShowText("그대, 하늘의 뜻을 모두 담았도다.");
