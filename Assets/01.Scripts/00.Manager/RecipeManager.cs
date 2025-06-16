@@ -17,6 +17,7 @@ public class RecipeManager : MonoSingleton<RecipeManager>
     private List<Data_Recipes> currentRecipe; // 현재 레시피
 
     public int resultItemKey = -1;
+    public List<int> resultItemKeys = new();
 
     public event Action<int> OnCookingEnded;
 
@@ -88,7 +89,7 @@ public class RecipeManager : MonoSingleton<RecipeManager>
             return new List<int> { -1 };
         }
 
-        var resultItemKeys = new List<int>();
+        resultItemKeys = new List<int>();
         foreach (var recipe in currentRecipe)
         {
             var key = GetItemKey(recipe.resultCategory, grade);
@@ -96,6 +97,7 @@ public class RecipeManager : MonoSingleton<RecipeManager>
             OnCookingEnded?.Invoke(key);
             resultItemKey = key;
         }
+
         return resultItemKeys;
     }
 
@@ -113,7 +115,7 @@ public class RecipeManager : MonoSingleton<RecipeManager>
         var combineGrade = JudgeCombineGrade(currentIngredients);
         CookingMiniGameManager.Instance.SetMiniGameResult(combineGrade);
 
-        var resultItemKeys = new List<int>();
+        resultItemKeys = new List<int>();
         foreach (var recipe in currentRecipe)
         {
             var key = GetItemKey(recipe.resultCategory, combineGrade);
@@ -152,7 +154,7 @@ public class RecipeManager : MonoSingleton<RecipeManager>
         var combineGrade = JudgeCombineGrade(currentIngredients);
         CookingMiniGameManager.Instance.SetMiniGameResult(combineGrade);
         
-        var resultItemKeys = new List<int>();
+        resultItemKeys = new List<int>();
         foreach (var recipe in currentRecipe)
         {
             var key = GetItemKey(recipe.resultCategory, combineGrade);
@@ -262,6 +264,11 @@ public class RecipeManager : MonoSingleton<RecipeManager>
     public int GetItemKey()
     {
         return resultItemKey;
+    }
+
+    public List<int> GetItemKeys()
+    {
+        return resultItemKeys;
     }
 
 }
