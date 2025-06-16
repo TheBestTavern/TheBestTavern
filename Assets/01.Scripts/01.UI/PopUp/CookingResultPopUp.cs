@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
@@ -76,11 +77,10 @@ public class CookingResultPopUp : BasePopUp
 
     public async void ShowItemInfo()
     {
-        int itemKey = RecipeManager.Instance.GetItemKey();
+        List<int> itemKeys = RecipeManager.Instance.GetItemKeys();
         var result = CookingMiniGameManager.Instance.GetMiniGameResult();
 
-        Debug.Log($"최종 아이템 키 : {itemKey}");
-        if (itemKey == -1 || result == CookingResultGrade.Failed)
+        if (itemKeys.Contains(-1) || result == CookingResultGrade.Failed)
         {
             successText.gameObject.SetActive(false);
             failText.gameObject.SetActive(true);
@@ -92,10 +92,20 @@ public class CookingResultPopUp : BasePopUp
             return;
         }
         SoundManager.Instance.PlaySFX("Success");
-        var data = DataManager.Instance.DataLoader_Foods.GetByKey(itemKey);
-        itemNameText.text = data.name;
 
-        itemImage.sprite = await AddressablesLoader.Instance.AddressablesLoadSpriteFromAtlasAsync("FoodSpriteAtlas", data.englishName, true);
+        List<string> nameList = new();
+        foreach (var key in itemKeys)
+        {
+            var data = DataManager.Instance.DataLoader_Foods.GetByKey(key);
+            if (data != null)
+            {
+                nameList.Add(data.name);
+            }
+        }
+        itemNameText.text = string.Join(", ", nameList);
+
+        var firstData = DataManager.Instance.DataLoader_Foods.GetByKey(itemKeys.FirstOrDefault());
+        itemImage.sprite = await AddressablesLoader.Instance.AddressablesLoadSpriteFromAtlasAsync("FoodSpriteAtlas", firstData.englishName, true);
         if (itemImage.sprite == null) { itemImage.gameObject.SetActive(false); }
     }
 
