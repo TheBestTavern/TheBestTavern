@@ -17,12 +17,6 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: 22433210a5ba9ec478eb34ffcc0e9513
   m_SerializeEntries:
-  - m_GUID: 5660bce90ab2a534a98c003359023006
-    m_Address: TutorialStep1
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - TutorialStep
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 58dbd2ba43cf01d469ce22001821a04b
     m_Address: TutorialStep2
     m_ReadOnly: 0
