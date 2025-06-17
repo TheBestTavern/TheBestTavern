@@ -20,62 +20,74 @@ MonoBehaviour:
   - m_GUID: dfe76daadd2a22f4b98332f6bb76ae57
     m_Address: Tofu
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - PreLoad
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4c16b69cb5d6f0d41a5d4cdcc486eafc
     m_Address: SweetPotato
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - PreLoad
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: dfc6df1764a87ca4ba5d58c0a4086a5c
     m_Address: Radish
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - PreLoad
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: cfc3db0abab3eb8469ef926f62f6ff33
     m_Address: Potato
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - PreLoad
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a9ecf3c11fc889c4fa9f1512c9058711
     m_Address: Peanut
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - PreLoad
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: dc3e143db63ae984e94b20033e85406d
     m_Address: GreenLong
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - PreLoad
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8d9b866b5bb471a438d1baf1024005c5
     m_Address: Gourd
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - PreLoad
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7502d6ccee954f7468e77cb2f46a1dc6
     m_Address: Garlic
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - PreLoad
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c92859a3b8f276c4ca521cf8450c2b81
     m_Address: FishFilletDark
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - PreLoad
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ce8e092ea02b9534099f18b5f3b2270c
     m_Address: FishFillet
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - PreLoad
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 95a55bfdc24515745b2ced693881deb1
     m_Address: Carrot
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - PreLoad
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1ec00bb58fd59744f82c5ef5828aeaca
     m_Address: SweetPotatos
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - PreLoad
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 3f946b317ceaa2747b411cad54511d5f, type: 2}

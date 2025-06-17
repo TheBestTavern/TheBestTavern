@@ -190,5 +190,6 @@ public class StartSceneUI : MonoBehaviour
         {
             TutorialManager.Instance.ApplyLoadData(data.curTtrStepInstance, data.curStepID, data.nextStepID);
         }
+        EndingManager.Instance.SetEndingState(data.hasSeenEnding);
     }
 }

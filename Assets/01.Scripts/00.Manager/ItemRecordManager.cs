@@ -60,6 +60,8 @@ public class ItemRecordManager : MonoSingleton<ItemRecordManager>
         if (IsAllItemDiscovered())
         {
             Debug.Log("엔딩 트리거");
+            EventBus.Publish(new EndEvent());
+            //EndingManager.Instance.TriggerEnding();
         }
     }
 
@@ -72,7 +74,7 @@ public class ItemRecordManager : MonoSingleton<ItemRecordManager>
     {
         foreach (var item in itemRecords.Values)
         {
-            if(!item.HasDiscovered)
+            if (!item.HasDiscovered)
                 return false;
         }
         return true;

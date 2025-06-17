@@ -144,7 +144,6 @@ public class NPCVisitEvent
     }
 }
 
-
 // 튜토리얼 관련 이벤트
 
 public interface TtrDoSomething
@@ -185,9 +184,10 @@ public class AcceptQuest : TtrDoSomething
     public string Detail { get; }
     public AcceptQuest(string detail) => (this.Detail) = (detail);
 }
-//public class OpenProgressInLetter : TtrDoSomething
-//{
-//    public ObvDoType ObvDoType { get; } = ObvDoType.OpenProgressInLetter;
-//    public string Detail { get; }
-//    public OpenProgressInLetter(string detail) => (this.Detail) = (detail);
-//}
+public class EndEvent
+{
+    public EndEvent() 
+    { 
+
+    }
+}

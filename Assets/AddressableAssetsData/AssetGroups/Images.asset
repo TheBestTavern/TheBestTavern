@@ -22,18 +22,21 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - AlreadyLoad
+    - PreLoad
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 47d1afca38570294da70dd865c9b4f33
     m_Address: FoodSpriteAtlas
     m_ReadOnly: 0
     m_SerializedLabels:
     - AlreadyLoad
+    - PreLoad
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2a7c1b285687a1348a6a585b691156ea
     m_Address: BackGroundSpriteAtlas
     m_ReadOnly: 0
     m_SerializedLabels:
     - AlreadyLoad
+    - PreLoad
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 3f946b317ceaa2747b411cad54511d5f, type: 2}

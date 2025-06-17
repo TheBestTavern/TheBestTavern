@@ -22,42 +22,56 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - BasicScene
+    - PreLoad
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a2d91e19fc1d71443bdc187014152f8f
     m_Address: TutorialForestGatheringScene.unity
     m_ReadOnly: 0
     m_SerializedLabels:
     - BasicScene
+    - PreLoad
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 93a9343c00e8ccb4eb469bde855ed489
     m_Address: TutorialCookingScene.unity
     m_ReadOnly: 0
     m_SerializedLabels:
     - BasicScene
+    - PreLoad
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3e924347c1cd5ad4b8fc3c076aafd328
     m_Address: TutorialScene.unity
     m_ReadOnly: 0
     m_SerializedLabels:
     - BasicScene
+    - PreLoad
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c7c11ae18349995469b673b20cb4b649
     m_Address: SeaGatheringScene.unity
     m_ReadOnly: 0
     m_SerializedLabels:
     - BasicScene
+    - PreLoad
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9d872d5bba2e91a40823cce02a0147da
     m_Address: ForestGatheringScene.unity
     m_ReadOnly: 0
     m_SerializedLabels:
     - BasicScene
+    - PreLoad
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0bc62e78206417848ab2cd9f4ce93265
     m_Address: IntroScene.unity
     m_ReadOnly: 0
     m_SerializedLabels:
     - BasicScene
+    - PreLoad
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 25b16a608618cdd43850bc31ed85c200
+    m_Address: EndingScene.unity
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - BasicScene
+    - PreLoad
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 3f946b317ceaa2747b411cad54511d5f, type: 2}

@@ -39,6 +39,7 @@ public class PlayerGameData
     public int? curStepID;
     public int? nextStepID;
 
+    public bool hasSeenEnding = false;
 
     public void SetSaveData()
     {
@@ -73,6 +74,7 @@ public class PlayerGameData
             curStepID = TutorialManager.Instance.curStepID;
             nextStepID = TutorialManager.Instance.nextStepID;
         }
+        hasSeenEnding = EndingManager.Instance.hasSeenEnding;
     }
 
     //[System.Serializable]

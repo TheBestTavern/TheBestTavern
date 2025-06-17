@@ -20,22 +20,26 @@ MonoBehaviour:
   - m_GUID: f91ad28b4f23e2e45b799e064563dc48
     m_Address: Circle_Blue(Addressable).prefab
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - PreLoad
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9fd8290e9753bc444b75d737cba694ef
     m_Address: Circle_Green(Addressable).prefab
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - PreLoad
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7d41ee78bf64ca746a99541b0490ce40
     m_Address: Circle_Red(Addressable).prefab
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - PreLoad
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 38343379ebb47fb4b82cdf242e28bc2f
     m_Address: ItemImage.prefab
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - PreLoad
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 3f946b317ceaa2747b411cad54511d5f, type: 2}

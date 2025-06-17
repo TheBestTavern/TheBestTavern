@@ -20,42 +20,50 @@ MonoBehaviour:
   - m_GUID: d8c642b43dde17b4b9cd4526fb0e3fb5
     m_Address: Main_BG_winter
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - PreLoad
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9722df420cc83ed43a057ec5b0583d3d
     m_Address: Main_Tree_spring
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - PreLoad
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b99870b53b4021f48867fe2586c2f9ad
     m_Address: Main_Tree_fall
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - PreLoad
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 992d392232aea7842a1bf9c773addeb1
     m_Address: Main_BG_fall
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - PreLoad
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1cf1096b7d2d19e48b5f6829871ffd97
     m_Address: Main_BG_summer
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - PreLoad
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: cbcb3c379bd797649aea200214704d5d
     m_Address: Main_BG_spring
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - PreLoad
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: dc9c871ff5fac9f49a0c492d6ae5919e
     m_Address: Main_Tree_summer
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - PreLoad
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7f325d208191e3b4d8e75dbb69bcee8c
     m_Address: Main_Tree_winter
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - PreLoad
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 3f946b317ceaa2747b411cad54511d5f, type: 2}
