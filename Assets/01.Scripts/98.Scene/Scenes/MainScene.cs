@@ -10,7 +10,7 @@ public class MainScene : BaseScene
         await base.OnEnterScene();
         SoundManager.Instance.PlayBGM("MainBGM1");
         SoundManager.Instance.StopLoop();
-
+        EventBus.Publish<NPCVisitEvent>(new NPCVisitEvent());
         //IRunAlready[] runAlready = FindObjectsOfType<MonoBehaviour>().(where);
         foreach (var runAlready in Object.FindObjectsOfType<MonoBehaviour>().OfType<IRunOnEnter>())
         {

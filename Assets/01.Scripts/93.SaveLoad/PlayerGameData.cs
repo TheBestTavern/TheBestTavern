@@ -58,7 +58,7 @@ public class PlayerGameData
         JustCompleteQuests = QuestManager.Instance.JustCompleteQuests;
         TodayAvailableQuest = QuestManager.Instance.TodayAvailableQuest;
         QuestCheckQueueForSerialization = QuestManager.Instance.QuestCheckQueue.ToList();
-        TodaySpawnNPC = QuestManager.Instance.questData.TodaySpawnNPC;
+        TodaySpawnNPC = QuestManager.Instance.questData.TodaySpawnNPCQuestIDs;
 
         CurrentSeasonType = CalendarManager.Instance.CurrentSeasonType;
 

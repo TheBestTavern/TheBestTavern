@@ -26,7 +26,7 @@ public class QuestData
     public List<int> TodayAvailableQuest { get; private set; } = new(); // 오늘의 퀘스트
     public List<(int questID, int itemID)> QuestCheckQueueForSerialization = new(); // 저장시 사용
     public Queue<(int questID, int itemID)> QuestCheckQueue { get; private set; } = new(); // 아이템 제출한 퀘스트 목록.
-    public List<int> TodaySpawnNPC { get; private set; } = new(); // 오늘 찾아올 NPC
+    public List<int> TodaySpawnNPCQuestIDs { get; private set; } = new(); // 오늘 찾아올 NPC의 퀘스트들
 
     public QuestContainer questSO { get; private set; }
     Dictionary<SuccessDegree, int> favorMap;
@@ -72,7 +72,7 @@ public class QuestData
         this.JustCompleteQuests = JustCompleteQuests;
         this.TodayAvailableQuest = TodayAvailableQuest;
         this.QuestCheckQueue = new (QuestCheckQueue);
-        this.TodaySpawnNPC = TodaySpawnNPC;
+        this.TodaySpawnNPCQuestIDs = TodaySpawnNPC;
     }
 
     public void AcceptQuest(int questID)
@@ -145,7 +145,7 @@ public class QuestData
         public void CheckAcceptedQuests()
         {
             //진행중 퀘스트 상태 확인(당일 - NPC방문, 아직 - 무, 지남 - 퀘스트 실패 처리) 
-            prt.TodaySpawnNPC.Clear();
+            prt.TodaySpawnNPCQuestIDs.Clear();
             List<int> AcceptedQuestsClone =  new();
             foreach(var questKey in prt.AcceptedQuests)
             {
@@ -164,7 +164,7 @@ public class QuestData
                 {
                     //당일
                     // 소환할 NPC 목록 구성
-                    prt.TodaySpawnNPC.Add(key);
+                    prt.TodaySpawnNPCQuestIDs.Add(key);
                     Debug.Log($"{tempQuest.Origin.name}퀘스트의 NPC를 소환 목록에 등록");
                 }
                 else

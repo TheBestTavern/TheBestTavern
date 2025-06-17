@@ -69,7 +69,7 @@ public class QuestManager : MonoSingleton<QuestManager>
 
     public void SubmissionComplete(int npcID)
     {
-        questData.TodaySpawnNPC.Remove(npcID);
+        questData.TodaySpawnNPCQuestIDs.Remove(npcID);
     }
 
     public class OnNewDay : IDayCommand

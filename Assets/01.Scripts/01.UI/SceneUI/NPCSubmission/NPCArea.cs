@@ -71,7 +71,7 @@ public class NPCArea : MonoBehaviour
 
     private void ShowNPC()
     {
-        List<int> NPCKeys = QuestManager.Instance.questData.TodaySpawnNPC;
+        List<int> NPCKeys = QuestManager.Instance.questData.TodaySpawnNPCQuestIDs;
         int i = 0;
         foreach (int NPCKey in NPCKeys)
         {

@@ -162,6 +162,9 @@ public class SubmissionMode : MonoBehaviour
             //2. 아이템 감소
             InventoryManager.Instance.Invens[InvenType.Player].LooseItem(itemForSubmission, 1);
 
+            //3. npc 소환목록에서 배제
+            QuestManager.Instance.questData.TodaySpawnNPCQuestIDs.Remove(quest.Origin.key);
+
             StartCoroutine(AfterSubmit());
         }
     }
