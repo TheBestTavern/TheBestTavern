@@ -18,8 +18,11 @@ public class TtrUI : MonoBehaviour
     {
         rope_Button.onClick.AddListener(OnClickRope);
         this.manager = manager;
-
+#if UNITY_EDITOR
         DevBtn.onClick.AddListener(() => manager.Progress2ReadyClearStep());
+#else
+        DevBtn.gameObject.SetActive(false);
+#endif
 
         await DayAndNightManager.Instance.InitAsync();
         rope_Image.material = DayAndNightManager.Instance.nightMat;

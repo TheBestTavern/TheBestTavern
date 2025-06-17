@@ -16,12 +16,7 @@ MonoBehaviour:
   m_Data:
     m_SerializedData: []
   m_GUID: 972f865f7dde45742a672eb0b50a0da7
-  m_SerializeEntries:
-  - m_GUID: 0395989aec7061e4dafd36d41f6e8e31
-    m_Address: TtrUIController.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
+  m_SerializeEntries: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 3f946b317ceaa2747b411cad54511d5f, type: 2}
   m_SchemaSet:
