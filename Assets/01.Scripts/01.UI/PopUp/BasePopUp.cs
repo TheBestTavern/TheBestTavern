@@ -56,6 +56,7 @@ public class BasePopUp : DraggableMonoBehaviour, IPointerDownHandler
     public virtual void OnClose()
     {
         popupManager.PopupClose(id);
+        PopUpManager.Instance.popUpStack.TryPop(out _);
         gameObject.SetActive(false);
     }
 

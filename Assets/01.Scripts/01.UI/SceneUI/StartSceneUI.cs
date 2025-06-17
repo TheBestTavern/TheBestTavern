@@ -143,7 +143,7 @@ public class StartSceneUI : MonoBehaviour
         rejectAnalyticsButton.interactable = false;
         loadFail = false;
 
-        GameManager.Instance.isAnalyticsAgreed = false;
+        //GameManager.Instance.isAnalyticsAgreed = false;
 
         if (isLoadMode)
         {

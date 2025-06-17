@@ -60,6 +60,7 @@ public class SettingPopUp : BasePopUp
     void OnClickSaveButton()
     {
         //저장 구현
+
     }
 
     // 팝업 열때 필요한 함수
