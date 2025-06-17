@@ -48,6 +48,10 @@ public class TutorialManager : MonoSingleton<TutorialManager>
             ReadyClear2ProgressStateStep();
         else if (curTtrStepInstance?.instanceState == TtrInstanceState.ReadyClear)
             Progress2ReadyClearStep();
+        if(curTtrStepInstance != null)
+        {
+            ChangeCurTtrStep(curStepID.Value);
+        }
     }
 
     /// <summary>
