@@ -82,7 +82,7 @@ public class RelationSlot : MonoBehaviour, IPoolable
         {
             favorability.text = "";
             npcnName.text = "";
-            heartImg.gameObject.SetActive(false);
+            //heartImg.gameObject.SetActive(false);
             taste.text = "";
         }
 
@@ -102,8 +102,8 @@ public class RelationSlot : MonoBehaviour, IPoolable
     public void UpdateHasMet()
     {
         hasMet = true;
-        heartImg.gameObject.SetActive(hasMet);
-        UpdateBasicInfo();
+        //heartImg.gameObject.SetActive(hasMet);
+        UpdateBasicInfo();  
         UpdateFavor();
         UpdateQuestReward();
     }
