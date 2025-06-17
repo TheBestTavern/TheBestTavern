@@ -1,13 +1,19 @@
 using System;
 using System.Collections.Generic;
 using System.Data.SqlTypes;
+using Newtonsoft.Json;
 using UnityEngine;
 
+[System.Serializable]
 public class TtrStepInstance
 {
+    [JsonProperty]
     public int ttrStepDefID;
+    [JsonProperty]
     public TtrInstanceState instanceState;
+    [JsonProperty]
     public List<int> obvCurCounts;
+    [JsonProperty]
     public List<ObvState> obvStates;
     public TtrStepInstance(int ttrStepDefID, int obvCount)
     {

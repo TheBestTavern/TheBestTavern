@@ -188,7 +188,7 @@ public class StartSceneUI : MonoBehaviour
         GameManager.Instance.ApplyLoadData(data.tutorialState);
         if (data.tutorialState == TtrState.InProgress)
         {
-            // tutorialState 로드
+            TutorialManager.Instance.ApplyLoadData(data.curTtrStepInstance, data.curStepID, data.nextStepID);
         }
     }
 }

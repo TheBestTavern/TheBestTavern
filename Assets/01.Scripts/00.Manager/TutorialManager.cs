@@ -10,8 +10,10 @@ public class TutorialManager : MonoSingleton<TutorialManager>
     TtrUI UIController; // 튜토리얼 UI
 
     public Dictionary<int, TtrStepDef> ttrStepDefDict = new();
+
     public TtrStepInstance curTtrStepInstance;
-    public int nextStepID = 910005;
+    public int? curStepID = null;
+    public int? nextStepID = null;
 
     protected async override void Awake()
     {
@@ -38,6 +40,14 @@ public class TutorialManager : MonoSingleton<TutorialManager>
         UIController = Instantiate(go).GetComponent<TtrUI>();
         UIController.transform.SetParent(this.transform, true);
         UIController.Init(this);
+
+        //로드 후 로직
+        if (curStepID.HasValue)
+            UIController.SetAllObvs();
+        if (curTtrStepInstance?.instanceState == TtrInstanceState.InProgress)
+            ReadyClear2ProgressStateStep();
+        else if (curTtrStepInstance?.instanceState == TtrInstanceState.ReadyClear)
+            Progress2ReadyClearStep();
     }
 
     /// <summary>
@@ -63,8 +73,6 @@ public class TutorialManager : MonoSingleton<TutorialManager>
 
     public void ClearStep()
     {
-        nextStepID = GetCurTtrStepDef().NextTutorialStepID;
-        curTtrStepInstance = null;
 
         // 기존 구독은 해제하기.
         foreach (var tuple in preSubs)
@@ -76,23 +84,30 @@ public class TutorialManager : MonoSingleton<TutorialManager>
         }
 
         UIController.HideObjectvie();
+        if (curStepID == 910013)
+        {
+            QuitTutorial(TtrState.Completed);
+        }
+        curTtrStepInstance = null;
+        curStepID = null;
     }
 
-    public void CancelTutorial()
+    public void QuitTutorial(TtrState state)
     {
-        if (GameManager.Instance.tutorialState != TtrState.Cancelled)
-            GameManager.Instance.tutorialState = TtrState.Cancelled;
+        GameManager.Instance.tutorialState = state;
 
         Destroy(gameObject);
     }
 
-    List<(Type, Delegate)> preSubs = new();
+    List<(Type, Delegate)> preSubs = new ();
 
     private void ChangeCurTtrStep(int tutorialStepID)
     {
         // 인스턴스 생성, currentTutorialStep 할당. 
         TtrStepInstance tutorialStep = new(tutorialStepID, ttrStepDefDict[tutorialStepID].TutorialObjectives.Count);
         curTtrStepInstance = tutorialStep;
+        curStepID = GetCurTtrStepDef().TutorialStepID;
+        nextStepID = GetCurTtrStepDef().NextTutorialStepID;
 
         // 현재 스텝에 맞는 동작을, 현재 스텝에 맞는 이벤트에 구독시키기.
         var stepDef = ttrStepDefDict[tutorialStepID];
@@ -238,5 +253,24 @@ public class TutorialManager : MonoSingleton<TutorialManager>
             return ttrStepDefDict[curTtrStepInstance.ttrStepDefID];
         else
             return null;
+    }
+
+    public TtrStepDef GetTtrStepDef(int ttrID)
+    {
+        if (ttrStepDefDict.ContainsKey(ttrID))
+            return ttrStepDefDict[ttrID];
+        else return null;
+    }
+
+    public int GetNextStepID(int prevTtrID)
+    {
+        return GetTtrStepDef(prevTtrID).NextTutorialStepID;
+    }
+
+    public void ApplyLoadData(TtrStepInstance curTtrStepInstance, int? curStepID, int? nextStepID)
+    {
+        this.curTtrStepInstance = curTtrStepInstance;
+        this.curStepID = curStepID;
+        this.nextStepID = nextStepID;
     }
 }

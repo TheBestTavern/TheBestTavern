@@ -79,13 +79,11 @@ public class DayAndNightManager : MonoSingleton<DayAndNightManager>
     {
         while (true)
         {
-            //Debug.Log($"######프레임시작");
             if (process < limitProcess)
             {
                 process += Time.deltaTime / duration;
                 nightMat.SetFloat("_Saturation", saturationCurve.Evaluate(process));
                 nightMat.SetFloat("_Lightness", lightnessCurve.Evaluate(process));
-                //Debug.Log($"######프레임: {process}, saturationCurve값: {nightMat.GetFloat("_Saturation")}, lightnessCurve값: {nightMat.GetFloat("_Lightness")}");
             }
 
             if (process >= 1)

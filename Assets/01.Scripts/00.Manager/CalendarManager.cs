@@ -117,42 +117,6 @@ public class CalendarManager : MonoSingleton<CalendarManager>
                 // 겨울
                 return DesignEnums.SeasonType.winter;
             }
-
-            // 양력 기반 실제 계절 도입 (게임에서 쓸려면 달력 메뉴가 있어야함)
-            //DateTime sunDate = lunarDate.ToDateTime();
-            //int year = sunDate.Year;
-            //Debug.Log($"오늘의 태양력은 {sunDate.ToString()}입니다.");
-
-            //if (sunDate >= new DateTime(year, 11, 7))
-            //{
-            //    //겨울
-            //    return DesignEnums.SeasonType.winter;
-            //    Debug.Log($"겨울");
-            //}
-            //else if (sunDate >= new DateTime(year, 8, 7))
-            //{
-            //    // 가을
-            //    return DesignEnums.SeasonType.fall;
-            //    Debug.Log($"가을");
-            //}
-            //else if (sunDate >= new DateTime(year, 5, 5))
-            //{
-            //    // 여름
-            //    return DesignEnums.SeasonType.summer;
-            //    Debug.Log($"여름");
-            //}
-            //else if (sunDate >= new DateTime(year, 2, 4))
-            //{
-            //    //봄
-            //    return DesignEnums.SeasonType.spring;
-            //    Debug.Log($"봄");
-            //}
-            //else
-            //{
-            //    // 겨울
-            //    return DesignEnums.SeasonType.winter;
-            //    Debug.Log($"겨울");
-            //}
         }
 
         private HolidayType? CheckHoliday(LunarDateTime dateTime)

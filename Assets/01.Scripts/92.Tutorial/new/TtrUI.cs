@@ -8,20 +8,29 @@ public class TtrUI : MonoBehaviour
     [SerializeField] ObjectiveUI objectiveUI;
     [SerializeField] Animator rope_Animator;
     [SerializeField] Button rope_Button;
-    [SerializeField] ConversationUI conversationUI;
+    [SerializeField] Image rope_Image;
+    [SerializeField] ChatUI chatUI;
 
-    public void Init(TutorialManager manager)
+    [SerializeField] Button DevBtn;
+
+
+    public async void Init(TutorialManager manager)
     {
         rope_Button.onClick.AddListener(OnClickRope);
         this.manager = manager;
+
+        DevBtn.onClick.AddListener(() => manager.Progress2ReadyClearStep());
+
+        await DayAndNightManager.Instance.InitAsync();
+        rope_Image.material = DayAndNightManager.Instance.nightMat;
     }
 
     /// <summary>
     /// conversationUI 컨트롤
     /// </summary>
-    public void StartConversation(int TutorialStepID)
+    public void StartConversation(int? ttrID)
     {
-        conversationUI.StartConversation(TutorialStepID);
+        chatUI.StartConversation(ttrID);
     }
 
     /// <summary>
@@ -59,9 +68,8 @@ public class TtrUI : MonoBehaviour
 
     public void OnClickRope()
     {
-        if (manager.GetCurTtrStepDef() != null)
-            manager.ClearStep();
-        StartConversation(manager.nextStepID);
+        DeactivateRope();
+        StartConversation(manager.curStepID);
     }
 
     private void OnDestroy()

@@ -20,9 +20,15 @@ MonoBehaviour:
     objectiveDoType: 1
     tutorialCountType: 1
     detail: 110025
-    targetCount: 1
+    targetCount: 2
   - stepName: "\uBBF8\uC5ED \uC5BB\uAE30"
     objectiveDoType: 1
     tutorialCountType: 1
     detail: 110027
     targetCount: 1
+  <GivingText>k__BackingField: "\uC790, \uADF8\uB7FC \uC774\uC81C \uAD74\uACFC \uBBF8\uC5ED
+    \uAC19\uC740 \uB098\uBA38\uC9C0 \uC7AC\uB8CC\uB3C4 \uBAA8\uC544\uBCFC\uAE4C?<page>\uC544\uAE4C
+    \uD588\uB358 \uAC83\uCC98\uB7FC \uB2E4\uC2DC \uC804\uAD6D \uD314\uB3C4\uC5D0\uC11C
+    \uC7AC\uB8CC\uB97C \uBAA8\uC544\uC624\uBA74 \uB3FC."
+  <FollowingText>k__BackingField: "\uC0C8\uB85C\uC6B4 \uC7AC\uB8CC\uB3C4 \uC798 \uBAA8\uC544\uC92C\uAD6C\uB098.
+    \uC900\uBE44\uAC00 \uCC29\uCC29 \uC9C4\uD589\uB418\uB294\uAD70!"

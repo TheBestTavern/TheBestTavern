@@ -11,6 +11,7 @@ public class ObjectiveUI : MonoBehaviour
     [SerializeField] Transform obv_TmpTrs;
     [SerializeField] ObvTextSlot obvSlotPref;
 
+    TtrStepDef curStepDef;
     bool isReady;
 
     public void SetAll()
@@ -25,12 +26,12 @@ public class ObjectiveUI : MonoBehaviour
 
     public void Ready()
     {
+        curStepDef = TutorialManager.Instance.GetCurTtrStepDef();
         gameObject.SetActive(true);
         var stepInstance = TutorialManager.Instance.curTtrStepInstance;
-        var stepDef = TutorialManager.Instance.GetCurTtrStepDef();
-        stepName.text = stepDef.StepName;
+        stepName.text = curStepDef.StepName;
 
-        int rest = obvsSlots.Count - stepDef.TutorialObjectives.Count;
+        int rest = obvsSlots.Count - curStepDef.TutorialObjectives.Count;
         if (rest < 0)
         {
             for (int j = 0; j < Mathf.Abs(rest); j++)
@@ -40,7 +41,7 @@ public class ObjectiveUI : MonoBehaviour
         }
         else
         {
-            for (int k = obvsSlots.Count; k > stepDef.TutorialObjectives.Count; k--)
+            for (int k = obvsSlots.Count; k > curStepDef.TutorialObjectives.Count; k--)
             {
                 obvsSlots[k - 1].gameObject.SetActive(false);
             }
@@ -56,12 +57,11 @@ public class ObjectiveUI : MonoBehaviour
         }
 
         var stepInstance = TutorialManager.Instance.curTtrStepInstance;
-        var stepDef = TutorialManager.Instance.GetCurTtrStepDef();
 
         obvsSlots[index].gameObject.SetActive(true);
 
         int a = stepInstance.obvCurCounts[index];
-        int b = stepDef.TutorialObjectives[index].targetCount;
+        int b = curStepDef.TutorialObjectives[index].targetCount;
         string _a;
         if (a >= b)
         {
@@ -76,8 +76,8 @@ public class ObjectiveUI : MonoBehaviour
             _a = $"<b><color=#FAEC00>{a}</color></b>";
         }
 
-        obvsSlots[index].obvName.text = stepDef.TutorialObjectives[index].stepName;
-        obvsSlots[index].obvCount.text = _a + $" / <b><color=#00FB08>{stepDef.TutorialObjectives[index].targetCount}</color></b>";
+        obvsSlots[index].obvName.text = curStepDef.TutorialObjectives[index].stepName;
+        obvsSlots[index].obvCount.text = _a + $" / <b><color=#00FB08>{curStepDef.TutorialObjectives[index].targetCount}</color></b>";
     }
 
     public void Hide()

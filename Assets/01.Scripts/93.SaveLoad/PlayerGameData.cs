@@ -35,6 +35,10 @@ public class PlayerGameData
 
     public TtrState tutorialState;
 
+    public TtrStepInstance curTtrStepInstance;
+    public int? curStepID;
+    public int? nextStepID;
+
 
     public void SetSaveData()
     {
@@ -65,7 +69,9 @@ public class PlayerGameData
         tutorialState = GameManager.Instance.tutorialState;
         if (tutorialState == TtrState.InProgress)
         {
-            // 튜토리얼 매니저 내부 저장.
+            curTtrStepInstance = TutorialManager.Instance.curTtrStepInstance;
+            curStepID = TutorialManager.Instance.curStepID;
+            nextStepID = TutorialManager.Instance.nextStepID;
         }
     }
 

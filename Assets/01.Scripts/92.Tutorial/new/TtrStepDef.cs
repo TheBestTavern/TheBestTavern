@@ -10,6 +10,8 @@ public class TtrStepDef : ScriptableObject
     [field: SerializeField] public string StepName { get; private set; }
     [field: SerializeField] public int NextTutorialStepID { get; private set; }
     [field: SerializeField] public List<TtrStepObvDef> TutorialObjectives { get; private set; }
+    [field: SerializeField] public string GivingText { get; private set; }
+    [field: SerializeField] public string FollowingText { get; private set; }
 }
 
 [Serializable]

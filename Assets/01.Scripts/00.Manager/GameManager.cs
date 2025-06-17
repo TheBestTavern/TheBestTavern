@@ -36,6 +36,7 @@ public class GameManager : MonoSingleton<GameManager>
         UIManager.Instance.Init();
         SoundManager.Instance.Init();
         CalendarManager.Instance.Init();
+        if(tutorialState != TtrState.Cancelled && tutorialState != TtrState.Completed)
         TutorialManager.Instance.Init();
 
         CommandManager.Instance.ExecuteCommands(1002);
