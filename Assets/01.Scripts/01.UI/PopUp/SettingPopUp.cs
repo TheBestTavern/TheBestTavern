@@ -68,7 +68,7 @@ public class SettingPopUp : BasePopUp
         base.OnOpen();
         // 페이드인 애니메이션 
         currentTween?.Kill();
-        currentTween = canvasGroup.DOFade(1f, 1f);
+        currentTween = canvasGroup.DOFade(1f, 0.5f);
     }
 
     // 팝업 닫을 때 필요한 함수

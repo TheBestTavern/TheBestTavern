@@ -90,7 +90,7 @@ public class MenuPopUp : BasePopUp
         // 메뉴 팝업 아래로 내려오기 애니메이션
         if(tween != null)
             tween.Kill();
-        tween = transform.GetChild(0).GetComponent<RectTransform>().DOAnchorPosY(320, 1f).SetEase(Ease.OutCubic);
+        tween = transform.GetChild(0).GetComponent<RectTransform>().DOAnchorPosY(320, 0.5f).SetEase(Ease.OutCubic);
     }
 
     // 팝업 닫을 때 필요한 함수
@@ -99,6 +99,6 @@ public class MenuPopUp : BasePopUp
         // 메뉴팝업 위로 올라가기 애니메이션 후 비활성화
         if (tween != null)
             tween.Kill();
-        tween = transform.GetChild(0).GetComponent<RectTransform>().DOAnchorPosY(1730, 1f).OnComplete(()=> base.OnClose());
+        tween = transform.GetChild(0).GetComponent<RectTransform>().DOAnchorPosY(1730, 0.5f).OnComplete(()=> base.OnClose());
     }
 }
