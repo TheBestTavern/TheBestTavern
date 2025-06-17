@@ -502,8 +502,8 @@ MonoBehaviour:
     \uC798\uD588\uC5B4. \uC774\uC81C \uD55C\uBC88 \uC694\uB9AC\uB97C \uD574\uBCFC\uAE4C?
     \uC798\uD588\uC5B4. \uC774\uC81C \uD55C"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 1d344be8c80e99a4ba2908ceccb706e3, type: 2}
-  m_sharedMaterial: {fileID: 1974840492626225644, guid: 1d344be8c80e99a4ba2908ceccb706e3, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: ac664ee62a643fc44b0fe9adb498bb37, type: 2}
+  m_sharedMaterial: {fileID: 3263012138375700693, guid: ac664ee62a643fc44b0fe9adb498bb37, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1432,8 +1432,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\uC120\uB140"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 1d344be8c80e99a4ba2908ceccb706e3, type: 2}
-  m_sharedMaterial: {fileID: 2100000, guid: edf71be6e1c81bd48b3588d4a05a42ff, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: ac664ee62a643fc44b0fe9adb498bb37, type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: b45106a3ce0deae4fbfd5286e6bd725f, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1457,12 +1457,12 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 86.75
+  m_fontSize: 90
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
   m_fontSizeMin: 18
-  m_fontSizeMax: 88.3
+  m_fontSizeMax: 90
   m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
@@ -1970,7 +1970,7 @@ MonoBehaviour:
   CancelTutorial: {fileID: 827975554993158529}
   chatTMP: {fileID: 6913729915470432874}
   typeInterval: 0.05
-  lineSize: 2
+  lineSize: 3
 --- !u!1 &8797895791808841899
 GameObject:
   m_ObjectHideFlags: 0
