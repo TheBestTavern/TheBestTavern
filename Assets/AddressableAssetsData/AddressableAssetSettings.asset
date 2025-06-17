@@ -126,6 +126,7 @@ MonoBehaviour:
     - Stone
     - AlreadyLoad
     - PreLoad
+    - TutorialSteps
   m_SchemaTemplates: []
   m_GroupTemplateObjects:
   - {fileID: 11400000, guid: fb4860e82cc57f7448b750225714f800, type: 2}
