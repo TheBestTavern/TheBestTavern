@@ -1969,7 +1969,7 @@ MonoBehaviour:
   ReceiveStep: {fileID: 3936140968211887160}
   CancelTutorial: {fileID: 827975554993158529}
   chatTMP: {fileID: 6913729915470432874}
-  typeInterval: 0.05
+  typeInterval: 0.04
   lineSize: 3
 --- !u!1 &8797895791808841899
 GameObject:
