@@ -30,7 +30,7 @@ public class StartSceneUI : MonoBehaviour
     private bool isLoadMode = false;
     private bool loadFail = false;
 
-    private bool? doTutorial = null;
+    private bool doTutorial = false;
 
     void Start()
     {
@@ -54,6 +54,7 @@ public class StartSceneUI : MonoBehaviour
     private void HandleNewGame()
     {
         isLoadMode = false;
+        nextSceneName = SceneType.MainScene;
         if (SaveLoadManager.Instance.LoadData(out _))
             renewPanel.SetActive(true);
         else
@@ -77,8 +78,11 @@ public class StartSceneUI : MonoBehaviour
 
     private void ConfirmTutorial(bool doTutorial)
     {
-        nextSceneName = doTutorial ? SceneType.TutorialScene : SceneType.MainScene;
         this.doTutorial = doTutorial;
+        if (!doTutorial)
+        {
+            GameManager.Instance.tutorialState = TtrState.Cancelled;
+        }
 
         tutorialSkipPanel.SetActive(false);
         acceptAnalyticsPanel.SetActive(true);
@@ -99,11 +103,11 @@ public class StartSceneUI : MonoBehaviour
 
         await InitializeAnalytics();
 
-        if (doTutorial != null)
+        if (doTutorial == true)
         {
             var tutorialEvent = new AnalyticsTutorial("TutorialData")
             {
-                watchTutorial = (bool)doTutorial
+                watchTutorial = doTutorial
             };
             AnalyticsService.Instance.RecordEvent(tutorialEvent);
         }
@@ -145,11 +149,11 @@ public class StartSceneUI : MonoBehaviour
         {
             if (SaveLoadManager.Instance.LoadData(out PlayerGameData data))
             {
-                ApplyPlayerData(data); 
+                ApplyPlayerData(data);
                 await SceneLoader.Instance.LoadSceneAsync(SceneType.MainScene);
                 return;
             }
-            else 
+            else
             {
                 Debug.LogWarning("불러오기 실패");
                 await PopUpManager.Instance.ShowPopUp(PopUpType.Alarm);

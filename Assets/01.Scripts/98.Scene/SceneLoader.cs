@@ -15,9 +15,6 @@ public enum SceneType
     CookingScene,
     ForestGatheringScene,
     SeaGatheringScene,
-    TutorialScene,
-    TutorialCookingScene,
-    TutorialForestGatheringScene,
     EndingScene
 }
 
@@ -54,9 +51,6 @@ public class SceneLoader : MonoSingleton<SceneLoader>
             {SceneType.CookingScene,new CookingScene()},
             {SceneType.ForestGatheringScene,new ForestGatheringScene()},
             {SceneType.SeaGatheringScene,new SeaGatheringScene()},
-            {SceneType.TutorialScene,new TutorialScene()},
-            {SceneType.TutorialCookingScene,new TutorialCookingScene()},
-            {SceneType.TutorialForestGatheringScene,new TutorialForestGatheringScene()},
             {SceneType.EndingScene, new EndingScene() }
         };
         
