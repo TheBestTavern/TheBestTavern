@@ -80,6 +80,11 @@ MonoBehaviour:
     - MiniGameScene
     - PreLoad
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5660bce90ab2a534a98c003359023006
+    m_Address: Assets/04.ScriptableObject/Tutorial/TutorialStep1.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 3f946b317ceaa2747b411cad54511d5f, type: 2}
   m_SchemaSet:
