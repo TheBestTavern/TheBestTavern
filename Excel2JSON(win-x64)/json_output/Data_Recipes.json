@@ -35,7 +35,7 @@
       "name": "다진 고추",
       "resultCategory": 110103,
       "ingredients": [
-        110103
+        110002
       ],
       "usingTool": 1002,
       "itemType": 1
@@ -55,7 +55,7 @@
       "name": "당근 즙",
       "resultCategory": 110105,
       "ingredients": [
-        110104
+        110003
       ],
       "usingTool": 1003,
       "itemType": 1
