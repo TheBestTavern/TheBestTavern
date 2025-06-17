@@ -26,4 +26,13 @@ public abstract class MenuQuestUIBase<TList> : BaseMenuContentUI
     public virtual void OpenLetter(QuestClickLetterBtnEvent evt)
     {
     }
+
+    private void OnDestroy()
+    {
+        foreach (var slot in slots)
+        {
+            slot.TriggerReturn();
+        }
+        slots.Clear();
+    }
 }
